@@ -1,0 +1,138 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  font-family:'OpenSans', Arial;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;  
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 50px 15px 0;
+}
+
+.jumbotron {
+  background-image: url('../images/packshotBgr.png');
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.jumbotron .container {
+  background-image: url('../images/packshot.png');
+  background-repeat: no-repeat;
+  height: 100%;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar {
+  background: #fff;
+}
+
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+#dirigibleSloganHolder{
+    float:right;
+	width: 600px;
+	margin-top: 20px;
+    padding-bottom: 15px;
+}
+
+#dirigibleTitle{
+	font-size:85px;
+    font-weight:bold;
+	color:#25323c;
+	text-shadow: 1px 1px #1591B1;
+	font-family:'OpenSans', Arial;
+}
+
+#dirigibleInfo{
+	margin-top: 10px;
+	font-size:18px;
+	font-family:'Segoe', Arial;
+	color:#fff;
+	line-height:23px;
+	text-shadow: 1px 1px #1499BB;
+}
+
+.dirigibleLogo{
+	font-size: 19px;
+	font-weight: bold;
+	color: #101010 !important;
+	font-family: 'OpenSans', Arial;	
+}
+
+#dirigibleGetStartedHolder{
+	margin-top:35px;
+}
+
+#dirigibleGetStartedHolder a {
+    float:right;
+    font-family:'OpenSans', Arial;
+}
+
+.page-banner {
+    margin: 0px auto;
+    margin-top:10px;
+    color:#fff;
+    font-family:'Segoe', Arial;
+}
+
+#wrap .well {
+    background-color: #2da2e1;
+}
+
+#wrap .navbar-default {
+    border-bottom: 4px solid #9ad5fe;
+    box-shadow: 2px 2px 5px rgba(61, 101, 116, 0.4);
+}
+
+#content{
+    font-family: 'OpenSans', Arial;
+	line-height: 30px;
+}
+
+.contacts {
+    margin-right: 5px !important;
+}
+
+.pgs {
+    height: 70px;
+}
+
+.btn-primary {
+    background-color: #2da2e1;
+}
