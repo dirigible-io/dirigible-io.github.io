@@ -1,3 +1,8 @@
+---
+layout: default
+title: Test Page
+---
+
 Test Page
 ===
 
