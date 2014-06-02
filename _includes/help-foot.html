@@ -1,0 +1,83 @@
+</div>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        $.get("navigation.json", function(data){
+            var itemContent = "<nav class=\"navbar navbar-inverse navbar-fixed-top\" role=\"navigation\">";
+            itemContent += "<div class=\"navbar-header\">";
+            itemContent += "<button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-ex1-collapse\">";
+            itemContent += "<span class=\"sr-only\">Toggle navigation</span>";
+            itemContent += "<span class=\"icon-bar\"></span>";
+            itemContent += "<span class=\"icon-bar\"></span>";
+            itemContent += "<span class=\"icon-bar\"></span>";
+            itemContent += "</button>";
+            
+            
+            itemContent += "<a class=\"navbar-brand\" href=\"#\"><i class=\"fa fa-question-circle\"></i>  <span class=\"light\">Dirigible</span> Help</a>"
+            itemContent += "</div>";
+            
+            itemContent += "<div class=\"collapse navbar-collapse navbar-ex1-collapse\">";
+            
+            itemContent += createMenuItems(data);
+            
+            itemContent += "</div>";
+            itemContent += "</nav>";
+            $("#navigation").append(itemContent);
+        });
+    });
+    
+    function createMenuItems(data){
+        var sideNavigation = "<ul class=\"nav navbar-nav side-nav\">";
+        var navigationRight = "<ul class=\"nav navbar-nav navbar-right navbar-user\">";
+        $.each(data, function(i, item) {
+            if(item.navigation_right){
+                var attributes = "onMouseOver=\"this.style.color='#fff'\" onMouseOut=\"this.style.color='#fdb913'\" style=\"color: #fdb913\"";
+                for(var i = 0 ; i < item.navigation_right.length; i ++){
+                    navigationRight += createMenuItem(item.navigation_right[i], attributes);
+                }
+            }else{
+                sideNavigation += createMenuItem(item);
+            }
+    	});
+        sideNavigation += "</ul>";
+        navigationRight += "</ul>";
+        return sideNavigation + navigationRight;
+    }
+    
+    function createMenuItem(item, attributes){
+        var content = "";
+        if (item.subMenu.length > 0) {
+			content += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + item.name + " <b class=\"caret\"></b></a>";
+			content += "<ul class=\"dropdown-menu\">";
+			$.each(item.subMenu, function(j, subitem) {
+                content += "<li><a href=\"" + subitem.link + "\"><i class=\""+subitem.icon+"\"></i> " + subitem.name + "</a></li>";
+			});
+			content += "</ul>";
+		} else {
+            if(!attributes){
+                attributes = "";
+            }
+			content += "<li><a href=\"" + item.link + "\""+attributes+"><i class=\""+item.icon+"\"></i> " + item.name + "</a>";
+		}
+		content += "</li>"
+        return content;
+    }
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49027147-1', 'dirigible.io');
+  ga('send', 'pageview');
+
+</script>
+
+<div id="footer"><p>Copyright &copy; 2010-2014 SAP AG, Licensed under the <a href='http://www.apache.org/licenses/LICENSE-2.0' target='_blank'>Apache License, Version 2.0</a></p></div>
+</div>
+</body>
+</html>
