@@ -33,9 +33,8 @@
         var navigationRight = "<ul class=\"nav navbar-nav navbar-right navbar-user\">";
         $.each(data, function(i, item) {
             if(item.navigation_right){
-                var attributes = " class=\"side-item\" ";
                 for(var i = 0 ; i < item.navigation_right.length; i ++){
-                    navigationRight += createMenuItem(item.navigation_right[i], attributes);
+                    navigationRight += createMenuItem(item.navigation_right[i]);
                 }
             }else{
                 sideNavigation += createMenuItem(item);
@@ -46,20 +45,17 @@
         return sideNavigation + navigationRight;
     }
     
-    function createMenuItem(item, attributes){
+    function createMenuItem(item){
         var content = "";
         if (item.subMenu.length > 0) {
-			content += "<li class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + item.name + " <b class=\"caret\"></b></a>";
+			content += "<li class=\"dropdown side-item\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + item.name + " <b class=\"caret\"></b></a>";
 			content += "<ul class=\"dropdown-menu\">";
 			$.each(item.subMenu, function(j, subitem) {
-                content += "<li><a href=\"" + subitem.link + "\"><i class=\""+subitem.icon+"\"></i> " + subitem.name + "</a></li>";
+                content += "<li class=\"side-item\"><a href=\"" + subitem.link + "\"><i class=\""+subitem.icon+"\"></i> " + subitem.name + "</a></li>";
 			});
 			content += "</ul>";
 		} else {
-            if(!attributes){
-                attributes = "";
-            }
-			content += "<li><a href=\"" + item.link + "\""+attributes+"><i class=\""+item.icon+"\"></i> " + item.name + "</a>";
+			content += "<li class=\"side-item\"><a href=\"" + item.link + "\"><i class=\""+item.icon+"\"></i> " + item.name + "</a>";
 		}
 		content += "</li>"
         return content;
