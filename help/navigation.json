@@ -1,114 +1,114 @@
 [
     {
         "name": "Home",
-        "link": "index.wiki",
+        "link": "index.html",
         "icon": "fa fa-home",
         "subMenu": []
     },
     {
         "name": "Project",
-        "link": "project.wiki",
+        "link": "project.html",
         "icon": "fa fa-lightbulb-o",
         "subMenu": []
     },
     {
         "name": "Dynamic Applications",
-        "link": "dynamic_applications.wiki",
+        "link": "dynamic_applications.html",
         "icon": "fa fa-bolt",
         "subMenu": []
     },
     {
         "name": "Architecture",
-        "link": "architecture.wiki",
+        "link": "architecture.html",
         "icon": "fa fa-building-o",
         "subMenu": []
     },
     {
         "name": "API",
-        "link": "api.wiki",
+        "link": "api.html",
         "icon": "fa fa-sitemap",
         "subMenu": []
     },
     {
         "name": "License",
-        "link": "license.wiki",
+        "link": "license.html",
         "icon": "fa fa-info",
         "subMenu": []
     },
     {
         "name": "Credits",
-        "link": "credits.wiki",
+        "link": "credits.html",
         "icon": "fa fa-film",
         "subMenu": []
     },
     {
         "name": "Features",
-        "link": "features.wiki",
+        "link": "features.html",
         "icon": "fa fa-info",
         "subMenu": [
             {
                 "name": "Features",
-                "link": "features.wiki",
+                "link": "features.html",
                 "icon": "fa fa-home"
             },
             {
                 "name": "Data Structures",
-                "link": "data_structures.wiki",
+                "link": "data_structures.html",
                 "icon": "fa fa-table"
             },
             {
                 "name": "Extension Definitions",
-                "link": "extension_definitions.wiki",
+                "link": "extension_definitions.html",
                 "icon": "fa fa-external-link"
             },
             {
                 "name": "Scripting Services",
-                "link": "scripting_services.wiki",
+                "link": "scripting_services.html",
                 "icon": "fa fa-pencil-square-o"
             },
             {
                 "name": "Integration Services",
-                "link": "integration_services.wiki",
+                "link": "integration_services.html",
                 "icon": "fa fa-puzzle-piece"
             },
             {
                 "name": "Test Cases",
-                "link": "test_cases.wiki",
+                "link": "test_cases.html",
                 "icon": "fa fa-flask"
             },
             {
                 "name": "Web Content",
-                "link": "web_content.wiki",
+                "link": "web_content.html",
                 "icon": "fa fa-globe"
             },
             {
                 "name": "Wiki Content",
-                "link": "wiki_content.wiki",
+                "link": "wiki_content.html",
                 "icon": "fa fa-quote-right"
             },
             {
                 "name": "Security",
-                "link": "security.wiki",
+                "link": "security.html",
                 "icon": "fa fa-shield"
             },
             {
                 "name": "Registry",
-                "link": "registry.wiki",
+                "link": "registry.html",
                 "icon": "fa fa-picture-o"
             },
             {
                 "name": "Git Integration",
-                "link": "git.wiki",
+                "link": "git.html",
                 "icon": "fa fa-github"
             },
             {
                 "name": "Debugger",
-                "link": "debugger.wiki",
+                "link": "debugger.html",
                 "icon": "fa fa-wrench"
             },
             {
                 "name": "Backup",
-                "link": "backup.wiki",
+                "link": "backup.html",
                 "icon": "fa fa-floppy-o"
             }
         ]
@@ -119,39 +119,39 @@
         "subMenu": [
             {
                 "name": "Concepts",
-                "link": "concepts.wiki",
+                "link": "concepts.html",
                 "icon": "fa fa-cogs"
             },
             {
                 "name": "Workspace",
-                "link": "workspace.wiki",
+                "link": "workspace.html",
                 "icon": "fa fa-desktop"
             },
             {
                 "name": "Activation",
-                "link": "activation.wiki",
+                "link": "activation.html",
                 "icon": "fa fa-sign-in"
             },
             {
                 "name": "Publishing",
-                "link": "publishing.wiki",
+                "link": "publishing.html",
                 "icon": "fa fa-upload"
             },
             {
                 "name": "Generation",
-                "link": "generation.wiki",
+                "link": "generation.html",
                 "icon": "fa fa-cog"
             },
             {
                 "name": "Entity Service",
-                "link": "entity_service.wiki",
+                "link": "entity_service.html",
                 "icon": "fa fa-retweet"
             }
         ]
     },
     {
         "name": "Tooling",
-        "link": "tooling.wiki",
+        "link": "tooling.html",
         "icon": "fa fa-gavel",
         "subMenu": []
     },
@@ -161,27 +161,27 @@
         "subMenu": [
             {
                 "name": "Workspace",
-                "link": "workspace_perspective.wiki",
+                "link": "workspace_perspective.html",
                 "icon": "fa fa-desktop"
             },
             {
                 "name": "Database",
-                "link": "database_perspective.wiki",
+                "link": "database_perspective.html",
                 "icon": "fa fa-th-large"
             },
             {
                 "name": "Repository",
-                "link": "repository_perspective.wiki",
+                "link": "repository_perspective.html",
                 "icon": "fa fa-inbox"
             },
             {
                 "name": "Registry",
-                "link": "registry.wiki",
+                "link": "registry.html",
                 "icon": "fa fa-picture-o"
             },
             {
                 "name": "Debug",
-                "link": "debugger.wiki",
+                "link": "debugger.html",
                 "icon": "fa fa-wrench"
             }
         ]
@@ -192,17 +192,17 @@
         "subMenu": [
             {
                 "name": "Source Editor",
-                "link": "source_editor.wiki",
+                "link": "source_editor.html",
                 "icon": "fa fa-code"
             },
             {
                 "name": "SQL Console",
-                "link": "sql_console.wiki",
+                "link": "sql_console.html",
                 "icon": "fa fa-terminal"
             },
             {
                 "name": "Log Viewer",
-                "link": "log_viewer.wiki",
+                "link": "log_viewer.html",
                 "icon": "fa fa-tags"
             }
         ]
@@ -213,37 +213,37 @@
         "subMenu": [
             {
                 "name": "Services",
-                "link": "services_runtime.wiki",
+                "link": "services_runtime.html",
                 "icon": "fa fa-home"
             },
             {
                 "name": "Operational",
-                "link": "service_operational.wiki",
+                "link": "service_operational.html",
                 "icon": "fa fa-tachometer"
             },
             {
                 "name": "Memory",
-                "link": "service_memory.wiki",
+                "link": "service_memory.html",
                 "icon": "fa fa-bar-chart-o"
             },
             {
                 "name": "Search",
-                "link": "service_search.wiki",
+                "link": "service_search.html",
                 "icon": "fa fa-search"
             },
             {
                 "name": "Logging",
-                "link": "service_logging.wiki",
+                "link": "service_logging.html",
                 "icon": "fa fa-video-camera"
             },
             {
                 "name": "Access Log",
-                "link": "service_accesslog.wiki",
+                "link": "service_accesslog.html",
                 "icon": "fa fa-key"
             },
             {
                 "name": "Repository",
-                "link": "service_repository.wiki",
+                "link": "service_repository.html",
                 "icon": "fa fa-inbox"
             }
         ]
@@ -258,7 +258,7 @@
             },
             {
                 "name": "Samples",
-                "link": "../samples/index.wiki",
+                "link": "../samples/index.html",
                 "icon": "fa fa-gift",
                 "subMenu": []
             }

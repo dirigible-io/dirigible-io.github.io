@@ -33,7 +33,7 @@
         var navigationRight = "<ul class=\"nav navbar-nav navbar-right navbar-user\">";
         $.each(data, function(i, item) {
             if(item.navigation_right){
-                var attributes = "onMouseOver=\"this.style.color='#fff'\" onMouseOut=\"this.style.color='#fdb913'\" style=\"color: #fdb913\"";
+                var attributes = " class=\"side-item\" ";
                 for(var i = 0 ; i < item.navigation_right.length; i ++){
                     navigationRight += createMenuItem(item.navigation_right[i], attributes);
                 }
