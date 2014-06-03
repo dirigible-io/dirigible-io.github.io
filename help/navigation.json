@@ -252,7 +252,7 @@
         "navigation_right": [
             {
                 "name": "Project",
-                "link": "../../web/welcome/index.html",
+                "link": "../index.html",
                 "icon": "fa fa-play-circle",
                 "subMenu": []
             },

@@ -37,7 +37,7 @@
                     navigationRight += createMenuItem(item.navigation_right[i]);
                 }
             }else{
-                sideNavigation += createMenuItem(item);
+                sideNavigation += createMenuItem(item, "side-item");
             }
     	});
         sideNavigation += "</ul>";
@@ -45,17 +45,17 @@
         return sideNavigation + navigationRight;
     }
     
-    function createMenuItem(item){
+    function createMenuItem(item, style){
         var content = "";
         if (item.subMenu.length > 0) {
-			content += "<li class=\"dropdown side-item\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + item.name + " <b class=\"caret\"></b></a>";
+			content += "<li class=\"dropdown " + style + "\"><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + item.name + " <b class=\"caret\"></b></a>";
 			content += "<ul class=\"dropdown-menu\">";
 			$.each(item.subMenu, function(j, subitem) {
-                content += "<li class=\"side-item\"><a href=\"" + subitem.link + "\"><i class=\""+subitem.icon+"\"></i> " + subitem.name + "</a></li>";
+                content += "<li class=\"" + style + "\"><a href=\"" + subitem.link + "\"><i class=\""+subitem.icon+"\"></i> " + subitem.name + "</a></li>";
 			});
 			content += "</ul>";
 		} else {
-			content += "<li class=\"side-item\"><a href=\"" + item.link + "\"><i class=\""+item.icon+"\"></i> " + item.name + "</a>";
+			content += "<li class=\"" + style + "\"><a href=\"" + item.link + "\"><i class=\""+item.icon+"\"></i> " + item.name + "</a>";
 		}
 		content += "</li>"
         return content;
