@@ -107,7 +107,7 @@ table.tablesorter thead tr th:hover {
 	height: 100%;
 	border-radius: 0;
 	border: none;
-	background-color: #efefef;
+	--background-color: #efefef;
 	overflow-y: auto;
   }
 
@@ -125,27 +125,6 @@ table.tablesorter thead tr th:hover {
 	-webkit-box-shadow: none;
   }
 
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a {
-	color: #999999;
-	padding: 15px 15px 15px 25px;
-  }
-
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
-  .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
-	color: #fdb913;
-	background-color: #080808;
-  }
-
-  .side-nav>li>a {
-	width: 225px;
-  }
-  
-  .cool,
-  .cool>li>a,
-  .cool>li>a:hover {
-    color: #fdb913;
-  }
 
  /* Nav Messages */
 
