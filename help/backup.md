@@ -10,24 +10,21 @@ The actions are available thru the main or pop-up menu
 
 Export
 
-!../samples/bookstore/102_books_project_export.png!
+![Project Export](../samples/bookstore/102_books_project_export.png)
 
 and Import
 
-!../samples/bookstore/103_books_project_import.png!
+![Project Import](../samples/bookstore/103_books_project_import.png)
 
-{info}
-You can use this functionality also in cases of mass import of project artifacts - e.g. images in the web content
-{info}
+> You can use this functionality also in cases of mass import of project artifacts - e.g. images in the web content
 
-{info}
-This feature can be used also for import of sample projects from public sources or sharing of projects between accounts, although for real team source management the recommended aproach is via [Git|git.wiki].
-{info}
+> This feature can be used also for import of sample projects from public sources or sharing of projects between accounts, although for real team source management the recommended aproach is via [Git|git.wiki].
 
-h3. Backup Data
+Backup Data
+---
 
 Except creating backup of the project it is good practice to have backup of the content.
 This can be easily done by exporting tables data into *.dsv* files.
 
-!images/features/backup/data.png!
+![Select Table for Export](images/features/backup/data.png)
 

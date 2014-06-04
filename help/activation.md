@@ -11,45 +11,44 @@ This will transfer (copy) the source artifacts from the workspace to the *sandbo
 
 Activation action is accessible from the main menu under the Project section or at the project's pop-up menu in the Workspace Explorer
 
-!../samples/bookstore/105_books_project_activate.png!
+![Project Activate](../samples/bookstore/105_books_project_activate.png)
 
 or
 
-!../samples/bookstore/107_books_project_activate_popup.png!
+![Project Activate Popup](../samples/bookstore/107_books_project_activate_popup.png)
 
-{code}
-  /db
-    /dirigible
-      /sandbox
-        /<user>             (private space)
-          /ScriptingServices
-            /project1
-              /service1.js
-      /users
-        /<user>             (private space)
-          /workspace
-            /project1
-              /ScriptingServices
-                /service1.js
-{code}
+> 
+>   /db
+>     /dirigible
+>       /sandbox
+>         /<user>             (private space)
+>           /ScriptingServices
+>             /project1
+>               /service1.js
+>       /users
+>         /<user>             (private space)
+>           /workspace
+>             /project1
+>               /ScriptingServices
+>                 /service1.js
 
-{info}
-The scripting services in the sandbox can access the services from the registry, but not vice versa
-{info}
+
+
+> The scripting services in the sandbox can access the services from the registry, but not vice versa
 
 There is default *auto-activation* mechanism, which can perform the activation on save of the artifact. This can be switched on/off from the main menu -> Project (if you are in the Workspace perspective)
 
-{warning}
-The auto-activation is enabled only for:
-* Scripting Services
-* Web Content
-* Wiki Content
 
-For:
-* Data Structures
-* Security Constraints
-* Integration Services
+> The auto-activation is enabled only for:
+> * Scripting Services
+> * Web Content
+> * Wiki Content
+> 
+> For:
+> * Data Structures
+> * Security Constraints
+> * Integration Services
+> * Extension Definitions
+> 
+> there is no sandboxing supported as well as auto-activation. The activation process is equal to [publication|publication.wiki] in this case.
 
-there is no sandboxing supported as well as auto-activation. The activation process is equal to [publication|publication.wiki] in this case.
-
-{warning}
