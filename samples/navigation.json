@@ -1,0 +1,84 @@
+[
+    {
+        "name": "Samples List",
+        "link": "index.wiki",
+        "icon": "fa fa-list",
+        "subMenu": []
+    },
+    {
+        "name": "Simple Samples",
+        "icon": "fa fa-info",
+        "subMenu": [
+            {
+                "name": "Data Model",
+                "link": "data_model.wiki",
+                "icon": "fa fa-th-large"
+            },
+            {
+                "name": "Entity Service",
+                "link": "entity_service.wiki",
+                "icon": "fa fa-retweet"
+            },
+            {
+                "name": "User Interface",
+                "link": "entity_ui.wiki",
+                "icon": "fa fa-picture-o"
+            },
+            {
+                "name": "Mail Service",
+                "link": "mail_service.wiki",
+                "icon": "fa fa-envelope"
+            },
+            {
+                "name": "REST Calls",
+                "link": "rest_calls.wiki",
+                "icon": "fa fa-phone-square"
+            },
+            {
+                "name": "Simple Routing",
+                "link": "simple_routing.wiki",
+                "icon": "fa fa-puzzle-piece"
+            },
+            {
+                "name": "Shielding JavaScript Service",
+                "link": "shielding_js.wiki",
+                "icon": "fa fa-shield"
+            },
+            {
+                "name": "Scheduling Job on JavaScript Service",
+                "link": "scheduled_job.wiki",
+                "icon": "fa fa-clock-o"
+            }
+        ]
+    },
+    {
+        "name": "Solution Samples",
+        "icon": "fa fa-info",
+        "subMenu": [
+            {
+                "name": "BookStore",
+                "link": "bookstore.wikis",
+                "icon": "fa fa-book"
+            }
+        ]
+    },
+    {
+        "navigation_right": [
+            {
+                "name": "Project",
+                "link": "../../web/welcome/index.html",
+                "icon": "fa fa-play-circle",
+                "subMenu": []
+            },
+            {
+                "name": "Help",
+                "link": "../help/index.wiki",
+                "icon": "fa fa-question-circle",
+                "subMenu": []
+            }
+        ]
+    }
+]
+
+
+

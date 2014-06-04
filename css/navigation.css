@@ -14,6 +14,11 @@ body {
   margin-top: 51px;
 }
 
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", Arial, sans-serif;
+	font-weight: 700;
+}
+
 #wrapper {
   padding-left: 0;
 }
@@ -147,6 +152,6 @@ table.tablesorter thead tr th:hover {
 }
 
 #content {
-    margin: 20px;
+    margin: 30px;
     margin-top: 80px;
 }
