@@ -1,5 +1,6 @@
 ---
 layout: help
+title: Help
 ---
 
 Integration Services

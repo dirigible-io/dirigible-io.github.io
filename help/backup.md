@@ -1,5 +1,6 @@
 ---
 layout: help
+title: Help
 ---
 
 Backup - Project Import and Export

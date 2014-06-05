@@ -1,5 +1,6 @@
 ---
 layout: help
+title: Help
 ---
 
 Runtime Services
