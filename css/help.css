@@ -4,7 +4,7 @@
 html,
 body {
   height: 100%;
-  font-family:'OpenSans', Arial;
+  font-family: Arial;
   /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -76,13 +76,11 @@ code {
     font-weight:bold;
 	color:#25323c;
 	text-shadow: 1px 1px #1591B1;
-	font-family:'OpenSans', Arial;
 }
 
 #dirigibleInfo{
 	margin-top: 10px;
 	font-size:18px;
-	font-family:'Segoe', Arial;
 	color:#fff;
 	line-height:23px;
 	text-shadow: 1px 1px #1499BB;
@@ -92,7 +90,6 @@ code {
 	font-size: 19px;
 	font-weight: bold;
 	color: #101010 !important;
-	font-family: 'OpenSans', Arial;	
 }
 
 #dirigibleGetStartedHolder{
@@ -101,14 +98,12 @@ code {
 
 #dirigibleGetStartedHolder a {
     float:right;
-    font-family:'OpenSans', Arial;
 }
 
 .page-banner {
     margin: 0px auto;
     margin-top:10px;
     color:#fff;
-    font-family:'Segoe', Arial;
 }
 
 #wrap .well {
@@ -121,7 +116,6 @@ code {
 }
 
 #content{
-    font-family: 'OpenSans', Arial;
 	line-height: 30px;
 }
 
