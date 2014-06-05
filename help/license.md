@@ -5,7 +5,7 @@ layout: help
 License
 ===
 
-The Dirigible project source code base is provided under the [Apache License 2.0|http://www.apache.org/licenses/LICENSE-2.0.html]
+The Dirigible project source code base is provided under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 
 Apache License
