@@ -1,5 +1,6 @@
 ---
 layout: help
+page.title: Help
 ---
 
 API
