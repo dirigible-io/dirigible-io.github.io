@@ -39,4 +39,5 @@ Click Finish and open the project in the workspace to see the folder layout
 
 There are several predefined folders which are tightly related to the types of the artifacts which can be placed there as well as the corresponding activities you can make on them.
 
+{% include data_model.html %}
 

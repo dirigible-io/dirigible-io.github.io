@@ -40,5 +40,3 @@ Click on *mail_sender.js* from the *Workspace Explorer*.
 Accessing the scripting service will send the email.
 
 ![Mail Service 5](images/mail_service/mail_service_5.png)
-
-Congratulations, you've sent an email for less than five minutes :)
