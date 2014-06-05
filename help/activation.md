@@ -40,15 +40,17 @@ There is default *auto-activation* mechanism, which can perform the activation o
 
 
 The auto-activation is enabled only for:
-* Scripting Services
-* Web Content
-* Wiki Content
+
+*	Scripting Services
+*	Web Content
+*	Wiki Content
  
 For:
-* Data Structures
-* Security Constraints
-* Integration Services
-* Extension Definitions
+
+*	Data Structures
+*	Security Constraints
+*	Integration Services
+*	Extension Definitions
 
 there is no sandboxing supported as well as auto-activation. The activation process is equal to [publication](publication.html) in this case.
 
