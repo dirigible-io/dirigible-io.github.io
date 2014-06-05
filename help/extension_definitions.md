@@ -13,38 +13,38 @@ h3. Extension Points
 The Extension Point is the place in the core module, where it is expected to be enhanced by the custom created modules.
 It is a simple JSON formated file with extension *.extensionpoint* placed in the project folder "Extension_Definitions".
 
-{code}
+<pre><code>
 {
   "extension-point":"/project1/extensionPoint1",
   "description":"description for the extension point 1"
 }
-{code}
+</code></pre>
 
 h3. Extensions
 The Extension is the actual plugin in the custom module, which extends the core functionality
 It is also a simple JSON formated file with extension *.extension* in the same folder.
 
-{code}
+<pre><code>
 {
   "extension":"/project1/extension1",
   "extension-point":"/project1/extensionPoint1",
   "description":"description for the extension 1"
 }
-{code}
+</code></pre>
 
-{info}
-The *"extension"* parameter above should point to a valid [Scripting Service|scripting_services.wiki] in the same language.
-{info}
+<pre><code>
+The *"extension"* parameter above should point to a valid [Scripting Service](scripting_services.html) in the same language.
+</code></pre>
 
 h3. Calling Extensions
 Within the core module you can iterate over the defined extensions and call theirs functions:
 
-{code}
+<pre><code>
 var extensions = extensionManager.getExtensions("/project1/extensionPoint1");
 for (var i=0;i<extensions.length;i++) {
     var extension = require(extensions[i]);
     response.getWriter().println(extension.enhanceProcess());
 }
-{code}
+</code></pre>
 
 In the code above the extension is a JavaScript Service Library (*extension1.jslib*) within the same project, which has exposed function *enhanceProcess()*
