@@ -39,7 +39,7 @@ Calling Extensions
 Within the core module you can iterate over the defined extensions and call theirs functions:
 
 <pre><code>var extensions = extensionManager.getExtensions("/project1/extensionPoint1");
-for (var i=0;i\<extensions.length;i++) {
+for (var i=0; i < extensions.length; i++) {
     var extension = require(extensions[i]);
     response.getWriter().println(extension.enhanceProcess());
 }
