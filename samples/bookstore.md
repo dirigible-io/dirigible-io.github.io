@@ -1,5 +1,7 @@
 ---
 layout: help
+title: Samples
+icon: fa-gift
 ---
 
 BookStore Sample
