@@ -17,7 +17,7 @@ The result is in JSON format, e.g.:
   "maxMemory":1877475328,
   "freeMemory":109053320
 }
-</code><pre>
+</code></pre>
 
 To retrieve the chart compliant data:
 

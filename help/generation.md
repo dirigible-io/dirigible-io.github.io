@@ -7,7 +7,7 @@ Generation
 
 Template based generation of artifacts helps for developer productivity in the initial phase of building the application.
 There are several application components, which have similar behavior and often very similar implementation. 
-A prominent example is [Entity Service|entity_service.wiki]. It has several predefined methods based on 
+A prominent example is [Entity Service](entity_service.html). It has several predefined methods based on 
 [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) concepts and 
 [HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) - GET, POST, PUT, DELETE on an entity level as well as list of all entities. 
 On the other hand, the most notable storage for the entity's data is the RDBMS provided by the platform. 

@@ -69,7 +69,7 @@ Sample Pages
 Sample header and footer as well as navigation page could look like:
 
 *	[header.html](wiki_sample_header.txt)
-*	footer.html
+*	[footer.html](wiki_sample_footer.txt)
 *	navigation.wiki
 
 <pre><code>
@@ -80,7 +80,7 @@ Sample header and footer as well as navigation page could look like:
 
 and of course some custom css for the wiki content
 
-* wiki.css
+* [wiki.css](wiki_sample_css.txt)
 
 Batch of Wiki Pages
 ---
@@ -90,7 +90,6 @@ For this purpose you have to create a file with extension \*.wikis and to list i
 
 File: *single.wikis*
 
-<pre><code>
-part1.wiki
+<pre><code>part1.wiki
 part2.wiki
 </code></pre>
