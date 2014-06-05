@@ -18,7 +18,7 @@ and Import
 
 > You can use this functionality also in cases of mass import of project artifacts - e.g. images in the web content
 
-> This feature can be used also for import of sample projects from public sources or sharing of projects between accounts, although for real team source management the recommended aproach is via [Git|git.wiki].
+This feature can be used also for import of sample projects from public sources or sharing of projects between accounts, although for real team source management the recommended approach is via [Git](git.html).
 
 Backup Data
 ---
