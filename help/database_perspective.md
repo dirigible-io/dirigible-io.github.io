@@ -12,6 +12,7 @@ From the Database Browser you can expand the schema item and to see the list of 
 ![Database Perspective](images/tooling/perspectives/database/database-perspective.png)
 
 The actions which can be performed on a table or view are:
+
 *	Open Definition - presents the columns layout 
 *	Show Content - generates a select statement in the SQL Console and executes it
 *	Export Data - exports the data from the table or view in *.dsv format

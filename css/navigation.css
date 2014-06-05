@@ -42,6 +42,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 15px;
 }
 
+.side-menu {
+  border: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: #efefef;
+}
+
 .messages-dropdown .dropdown-menu .message-preview .name {
   font-weight: bold;
 }

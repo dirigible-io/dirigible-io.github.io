@@ -10,7 +10,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .grid {
     -- background-color: #dfdfdf;
-    background-color: #f6b65b;
+    --background-color: #f6b65b;
+    background-color: #93bae3;
     color: #454545;
 }
 

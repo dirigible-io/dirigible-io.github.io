@@ -3,6 +3,7 @@ layout: help
 ---
 
 Features
+===
 
 * [*Data Structures*](data_structures.html)
 	* Creation of *Table Model* (JSON formatted *.table descriptor) and actual creation of the corresponding database table during activation.
