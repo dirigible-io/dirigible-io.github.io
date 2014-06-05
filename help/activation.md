@@ -31,7 +31,7 @@ or
              /project1
                /ScriptingServices
                  /service1.js
-<code>
+</code>
 
 
 > The scripting services in the sandbox can access the services from the registry, but not vice versa
