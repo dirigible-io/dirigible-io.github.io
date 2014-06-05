@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Samples
+title: Samples - BookStore
 icon: fa-gift
 ---
 

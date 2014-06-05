@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Web Content
+icon: fa-question-circle
 ---
 
 Web Content

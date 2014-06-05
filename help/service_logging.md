@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Logging Service
+icon: fa-question-circle
 ---
 
 Logging Service

@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Access Log Service
+icon: fa-question-circle
 ---
 
 Access Log Service

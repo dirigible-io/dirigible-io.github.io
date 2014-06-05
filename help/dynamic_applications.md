@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Dynamic Applications
+icon: fa-question-circle
 ---
 
 Dynamic Applications

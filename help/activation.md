@@ -1,6 +1,7 @@
 ---
 layout: help
 title: Help - Activation
+icon: fa-question-circle
 ---
 
 Activation

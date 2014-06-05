@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Database Perspective
+icon: fa-question-circle
 ---
 
 Database Perspective

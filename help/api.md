@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Help
+title: Help - API
 icon: fa-question-circle
 ---
 

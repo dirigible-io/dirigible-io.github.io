@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Concepts
+icon: fa-question-circle
 ---
 
 Concepts

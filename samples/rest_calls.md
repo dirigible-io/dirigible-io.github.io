@@ -1,11 +1,16 @@
+---
+layout: help
+title: Samples - REST Call
+icon: fa-gift
+---
 
-h1. REST Call
+REST Call
+===
 
 Create a *Project* *RESTCall* and a *JavaScript* service *rest_call.js* with the following content:
 
 *GET Call*
-{code}
-var ioLib = require('io');
+<pre><code>var ioLib = require('io');
 
 var url = 'http://rest.call/example';
 
@@ -19,30 +24,27 @@ var input = ioLib.read(content);
 http.consume(entity);
 
 response.getWriter().println(input);
-{code}
+</code></pre>
 
-{warning}
-The present restriction is that you can make REST calls only to services in the current domain
-{warning}
+> The present restriction is that you can make REST calls only to services in the current domain
 
 Parsing *input* to JSON 
-{code}
-var json = JSON.parse(input);
-{code}
+
+<pre><code>var json = JSON.parse(input);
+</code></pre>
 
 *POST Call*
-{code}
-var postRequest = http.creatPost(url);
-{code}
+
+<pre><code>var postRequest = http.creatPost(url);
+</code></pre>
 
 *PUT Call*
-{code}
-var putRequest = http.createPut(url);
-{code}
+
+<pre><code>var putRequest = http.createPut(url);
+</code></pre>
 
 *DELETE Call*
-{code}
-var deleteRequest = http.createDelete(url);
-{code}
+<pre><code>var deleteRequest = http.createDelete(url);
+</code></pre>
 
-For more information check the *[API|../help/api.wiki]* documentation
+For more information check the *[API](../help/api.html)* documentation

@@ -1,7 +1,13 @@
+---
+layout: help
+title: Samples - Entity Service
+icon: fa-gift
+---
 
-h1. Entity Service
+Entity Service
+===
 
-Entity Service meaning in therms of Dirigible is a RESTful service, which exposes the [CRUD|http://en.wikipedia.org/wiki/Create,_read,_update_and_delete] methods on top of the database table.
+Entity Service meaning in terms of Dirigible is a RESTful service, which exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete] methods on top of the database table.
 The following steps shows how to generate such an entity service on top of existing table.
 
 Select the ScriptingServices sub-folder of the project and open the pop-up menu
@@ -44,7 +50,7 @@ The Registry Perspective is representing a view to the enabled runtime content. 
 
 !bookstore/24_books_entity_service_registry_1.png!
 
-You can see the list of the available endpoints, where you can find yours by naming convension <project>.<service path>
+You can see the list of the available end-points, where you can find yours by naming convention <project>.<service path>
 
 !bookstore/25_books_entity_service_registry_2.png!
 
@@ -52,32 +58,32 @@ The link to the service can be copied to the clipboard via the first image at th
 
 !bookstore/26_books_entity_service_registry_3.png!
 
-{info}
 The naming convension for the service' endpoints URLs is as follows:
 *<protocol>://<host>:<port>/<dirigible's runtime application context>/<scripting container mapping>/<project>/<service path>*
 e.g.
 
 
-*https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
+> *https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
 
 
 The scripting containers mapppins are:
 
-* JavaScript
-** /js
-** /js-secured
-* Ruby
-** /rb
-** /rb-secured
-* Groovy
-** /groovy
-** /groovy-secured
-* Test
-** /test
+*	JavaScript
+	*	/js
+	*	/js-secured
+*	Ruby
+	*	/rb
+	*	/rb-secured
+*	Groovy
+	*	/groovy
+	*	/groovy-secured
+*	Test
+	*	/test
 
-The suffix "-secured" above shows the access point for the secured endpoints. More info can be found [here|../help/security.wiki].
-{info}
+The suffix "-secured" above shows the access point for the secured end-points. More info can be found [here](../help/security.html).
 
-There are some specific requirement for the table to be able to be exposed as entity service (e.g. primary key have to be defined, it should be a single column, etc.). Also the entity service itself support a bit more operations than the standard ones defined by HTTP. More about the entity services can be found [here|../help/entity_service.wiki].
+
+There are some specific requirement for the table to be able to be exposed as entity service (e.g. primary key have to be defined, it should be a single column, etc.).
+Also the entity service itself support a bit more operations than the standard ones defined by HTTP. More about the entity services can be found [here](../help/entity_service.html).
 
 

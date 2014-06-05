@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Source Editor
+icon: fa-question-circle
 ---
 
 Source Editor

@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Scripting Services
+icon: fa-question-circle
 ---
 
 Scripting Services

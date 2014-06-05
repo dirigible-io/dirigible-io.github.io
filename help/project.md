@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Project
+icon: fa-question-circle
 ---
 
 Project

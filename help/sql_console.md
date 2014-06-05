@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - SQL Console
+icon: fa-question-circle
 ---
 
 SQL Console

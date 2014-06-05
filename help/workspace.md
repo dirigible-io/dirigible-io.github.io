@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Workspace
+icon: fa-question-circle
 ---
 
 Workspace

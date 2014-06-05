@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Features
+icon: fa-question-circle
 ---
 
 Features

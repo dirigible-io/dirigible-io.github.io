@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Test Cases
+icon: fa-question-circle
 ---
 
 Test Cases

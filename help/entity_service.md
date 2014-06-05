@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Entity Service
+icon: fa-question-circle
 ---
 
 Entity Service

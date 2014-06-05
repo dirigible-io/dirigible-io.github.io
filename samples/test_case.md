@@ -1,4 +1,10 @@
+---
+layout: help
+title: Samples - Test Case
+icon: fa-gift
+---
 
-h1. Test Case
+Test Case
+===
 
 Description of the topic here...

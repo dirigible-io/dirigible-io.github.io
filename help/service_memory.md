@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Memory Service
+icon: fa-question-circle
 ---
 
 Memory Service

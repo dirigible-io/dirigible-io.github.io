@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Search Service
+icon: fa-question-circle
 ---
 
 Search Service

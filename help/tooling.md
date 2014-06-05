@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Tooling
+icon: fa-question-circle
 ---
 
 Tooling

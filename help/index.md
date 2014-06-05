@@ -1,6 +1,7 @@
 ---
 layout: help
 title: Help
+icon: fa-question-circle
 ---
 
 Dirigible Help Portal

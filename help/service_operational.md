@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Operational Service
+icon: fa-question-circle
 ---
 
 Operational Service

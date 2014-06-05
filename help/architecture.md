@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help -Architecture
+icon: fa-question-circle
 ---
 
 Architecture

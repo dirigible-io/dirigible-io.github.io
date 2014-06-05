@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Credits
+icon: fa-question-circle
 ---
 
 Credits and Special Thanks

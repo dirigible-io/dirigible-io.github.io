@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Integration Services
+icon: fa-question-circle
 ---
 
 Integration Services

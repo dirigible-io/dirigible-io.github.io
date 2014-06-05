@@ -1,6 +1,7 @@
 ---
 layout: help
-title: Help
+title: Help - Debug
+icon: fa-question-circle
 ---
 
 Debug
