@@ -20,5 +20,5 @@ Logging Service exposes the list of log files as well as theirs content.
 > http //<host>:<port>/dirigible/ *logging?log=ljs_trace.log*
 
 
-The user interface in the IDE for accessing the logs is [Log Viewer|log_viewer.wiki].
+The user interface in the IDE for accessing the logs is [Log Viewer](log_viewer.html).
 
