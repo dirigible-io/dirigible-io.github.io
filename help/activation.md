@@ -17,7 +17,7 @@ or
 
 ![Project Activate Popup](../samples/bookstore/107_books_project_activate_popup.png)
 
-<code> 
+<pre><code>
    /db
      /dirigible
        /sandbox
@@ -31,7 +31,7 @@ or
              /project1
                /ScriptingServices
                  /service1.js
-</code>
+</code></pre>
 
 
 > The scripting services in the sandbox can access the services from the registry, but not vice versa
