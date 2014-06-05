@@ -59,7 +59,7 @@ We do not generate also generic query methods, because on one hand it will cover
 Entity services are generated used JavaScript language, hence the can be accessed right after the generation and publishing on:
 
 <pre><code>
-*\<protocol\>://\<host\>:\<port\>/\<dirigible's runtime application context\>/js/\<project\>/\<entity service path\>*
+*[protocol]://[host]:[port]/[dirigible's runtime application context]/js/[project]/[entity service path]*
 e.g.
 
 *https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
