@@ -10,18 +10,15 @@ Working following RESTful paradigm on business software components, soon it turn
 
 First of all let list what we have as a standard:
 
-<pre><code>
 *	*GET* method
 	*	if the requested path points directly to the service endpoint (no additional parameters) - it lists all the entities of this type (in this collection)
 	*	if the request contains an *id* parameter - then the service returns only the requested entity
 *	*POST* method - creates an entity getting the fields from the request body (JSON formatted) and auto-generated id
 *	*PUT* method - updates the entity getting the id from the request body (JSON formatted)
 *	*DELETE* method - deletes the entity by the provided id parameter which is mandatory
-</code></pre>
 
 The enhancements we added to the standard functionality:
 
-<pre><code>
 *	on *GET* as parameters
 	*	*count* - returns the number of the entities collection size
 	*	*metadata* - returns the simplified descriptor of the entity in JSON (see below)
@@ -29,7 +26,6 @@ The enhancements we added to the standard functionality:
 	*	*desc* - indicates reverse order, used with the above parameter
 	*	*limit* - used for paging, returns limited result set
 	*	*offset* - used for paging, result set starts from the offset value
-</code></pre>
 
 Example metadata for an entity
 
@@ -54,18 +50,16 @@ These enhancements we see as the minimal yet simplest valuable extension to the 
 All these features of entity services are implied during the generation process. The template uses as input a database table and name of the entity service, which are entered in the corrsponding [wizard](../samples/entity_service.html).
 Just select the *.entity artifact in the Workspace Explorer and use the pop-up menu *Generate->User Interface for Entity Service*.
 
-<pre><code>
 There are several limitation for the table to be entity service compliant:
-* there should be one and only column as primary key, which will be used for its *identity*
-* only a set of database column types, which are supported by default for generation (simple types only; clob, blob - not supported)
-</code></pre>
+*	there should be one and only column as primary key, which will be used for its *identity*
+*	only a set of database column types, which are supported by default for generation (simple types only; clob, blob - not supported)
 
 We do not generate also generic query methods, because on one hand it will cover only very simple cases with reasonable performance, which easiliy can be written anyway as additional methods (by parameters) and on the other hand for the complex queries there is no sense to introduce additional layer, which will not give the desired performance as well in comparison to the well analysed by the developer SQL script.
 
 Entity services are generated used JavaScript language, hence the can be accessed right after the generation and publishing on:
 
 <pre><code>
-*<protocol>://<host>:<port>/<dirigible's runtime application context>/js/<project>/<entity service path>*
+*\<protocol\>://\<host\>:\<port\>/\<dirigible's runtime application context\>/js/\<project\>/\<entity service path\>*
 e.g.
 
 *https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
