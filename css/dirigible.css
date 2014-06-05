@@ -8,6 +8,14 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+@font-face {
+font-family: ‘Montserrat’;
+src: url(‘webfont.eot’); 
+src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
+    url(‘webfont.svg#svgFontName’) format(‘svg’),
+    url(‘webfont.woff’) format(‘woff’),
+    url(‘webfont.ttf’)  format(‘truetype’);
+}
 
 .grid {
     background-color: #dfdfdf;
@@ -47,6 +55,14 @@ body, h1, h2, h3, h4, h5, h6 {
     font-family: Raleway, Arial;
 }
 
+@font-face {
+font-family: ‘Raleway’;
+src: url(‘webfont.eot’); 
+src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
+    url(‘webfont.svg#svgFontName’) format(‘svg’),
+    url(‘webfont.woff’) format(‘woff’),
+    url(‘webfont.ttf’)  format(‘truetype’);
+}
 
 @media (max-width: 767px) {
 	.intro-message {
