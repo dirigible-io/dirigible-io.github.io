@@ -48,9 +48,10 @@ Example metadata for an entity
 These enhancements we see as the minimal yet simplest valuable extension to the REST. Similar, but more complex specifications, which intentionally we do not included so far are [OData](http://en.wikipedia.org/wiki/Open_Data_Protocol) and [GData](http://en.wikipedia.org/wiki/GData).
 
 All these features of entity services are implied during the generation process. The template uses as input a database table and name of the entity service, which are entered in the corrsponding [wizard](../samples/entity_service.html).
-Just select the *.entity artifact in the Workspace Explorer and use the pop-up menu *Generate->User Interface for Entity Service*.
+Just select the \*.entity artifact in the Workspace Explorer and use the pop-up menu *Generate->User Interface for Entity Service*.
 
 There are several limitation for the table to be entity service compliant:
+
 *	there should be one and only column as primary key, which will be used for its *identity*
 *	only a set of database column types, which are supported by default for generation (simple types only; clob, blob - not supported)
 
