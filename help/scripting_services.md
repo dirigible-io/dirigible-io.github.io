@@ -17,8 +17,7 @@ You can write your algorithms in *.js files and store them within the ScriptingS
 
 An example JavaScript service looks like this:
 
-<pre><code>
-var systemLib = require('system');
+<pre><code>var systemLib = require('system');
 
 var count;
 var connection = datasource.getConnection();
@@ -48,8 +47,7 @@ Libraries (Modules)
 
 You can create your own library modules in *.jslib files. Just do not forget to add the public parts in the *exports*.
 
-<pre><code>
-exports.generateGuid = function() {
+<pre><code>exports.generateGuid = function() {
     var guid = uuid.randomUUID();
     return guid;
 };
@@ -62,8 +60,7 @@ The reference of the library module from the service is done by using the standa
 Module path includes the full path to the module in the project structure without the predefined folder ScriptingServices and also without the extension *.jslib.
 
 
-<pre><code>
-/sample_project
+<pre><code>/sample_project
     /ScriptingServices
         /service1.js
         /library1.jslib
@@ -88,15 +85,13 @@ Example service which has reference to a module can be generated from the Script
 
 Service (sample.rb):
 
-<pre><code>
-require "/sample_project/module1"
+<pre><code>require "/sample_project/module1"
 Module1.helloworld("Jim")
 </code></pre>
 
 and Module (module1.rb):
 
-<pre><code>
-module Module1
+<pre><code>module Module1
   def self.helloworld(name)
     puts "Hello, #{name}"
     $response.getWriter().println("Hello World!")
@@ -114,8 +109,7 @@ Groovy is yet another powerful language for web development nowadays with its st
 Corresponding examples in Groovy:
 
 Service (sample.groovy):
-<pre><code>
-import sample_project.module1;
+<pre><code>import sample_project.module1;
 
 def object = new Module1();
 object.hello(response);
@@ -123,8 +117,7 @@ object.hello(response);
 
 Module (module1.groovy):
 
-<pre><code>
-class Module1{
+<pre><code>class Module1{
     void hello(def response){
         response.getWriter().println("Hello from Module1")
     }

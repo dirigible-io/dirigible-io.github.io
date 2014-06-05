@@ -20,24 +20,24 @@ The term *Route* is directly taken from the Apache Camel's context and refers to
 
 Sample route descriptor looks like this:
 
-<pre><code><routes xmlns="http://camel.apache.org/schema/spring">
-    <route id="simple_routing">
-        <from uri="servlet:///simple_routing_endpoint" />
-        <choice>
-            <when>
-                <header>name_parameter</header>
-                <transform>
-                    <simple>Hello ${header.name_parameter} how are you?</simple>
-                </transform>
-            </when>
-            <otherwise>
-                <transform>
-                    <constant>Add a name parameter to uri, eg ?name_parameter=foo</constant>
-                </transform>
-            </otherwise>
-        </choice>
-    </route>
-</routes>
+<pre><code>< routes xmlns="http://camel.apache.org/schema/spring">
+    < route id="simple_routing">
+        < from uri="servlet:///simple_routing_endpoint" />
+        < choice>
+            < when>
+                < header>name_parameter</header>
+                < transform>
+                    < simple>Hello ${header.name_parameter} how are you?</simple>
+                < /transform>
+            < /when>
+            < otherwise>
+                < transform>
+                    < constant>Add a name parameter to uri, eg ?name_parameter=foo</constant>
+                < /transform>
+            < /otherwise>
+        < /choice>
+    < /route>
+< /routes>
 </code></pre>
 
 The original source is [here](http://camel.apache.org/content-based-router.html)
