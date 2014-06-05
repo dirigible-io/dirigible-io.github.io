@@ -11,24 +11,24 @@ Working following RESTful paradigm on business software components, soon it turn
 First of all let list what we have as a standard:
 
 <pre><code>
-* *GET* method
-** if the requested path points directly to the service endpoint (no additional parameters) - it lists all the entities of this type (in this collection)
-** if the request contains an *id* parameter - then the service returns only the requested entity
-* *POST* method - creates an entity getting the fields from the request body (JSON formatted) and auto-generated id
-* *PUT* method - updates the entity getting the id from the request body (JSON formatted)
-* *DELETE* method - deletes the entity by the provided id parameter which is mandatory
+*	*GET* method
+	*	if the requested path points directly to the service endpoint (no additional parameters) - it lists all the entities of this type (in this collection)
+	*	if the request contains an *id* parameter - then the service returns only the requested entity
+*	*POST* method - creates an entity getting the fields from the request body (JSON formatted) and auto-generated id
+*	*PUT* method - updates the entity getting the id from the request body (JSON formatted)
+*	*DELETE* method - deletes the entity by the provided id parameter which is mandatory
 </code></pre>
 
 The enhancements we added to the standard functionality:
 
 <pre><code>
-* on *GET* as parameters
-** *count* - returns the number of the entities collection size
-** *metadata* - returns the simplified descriptor of the entity in JSON (see below)
-** *sort* - indicate the order of the entities
-** *desc* - indicates reverse order, used with the above parameter
-** *limit* - used for paging, returns limited result set
-** *offset* - used for paging, result set starts from the offset value
+*	on *GET* as parameters
+	*	*count* - returns the number of the entities collection size
+	*	*metadata* - returns the simplified descriptor of the entity in JSON (see below)
+	*	*sort* - indicate the order of the entities
+	*	*desc* - indicates reverse order, used with the above parameter
+	*	*limit* - used for paging, returns limited result set
+	*	*offset* - used for paging, result set starts from the offset value
 </code></pre>
 
 Example metadata for an entity
