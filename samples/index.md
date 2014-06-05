@@ -28,4 +28,4 @@ Simple Samples
 Solution Samples
 ---
 
-* [BookStore](bookstore.html] - comprehensive example that can be used as a step-by-step tutorial for creation of an online shop application. It combines most of the features above and show them in a holistic manner - from data models, thru the entity services, user interfaces, till the integration services and documentation.
+* [BookStore](bookstore.html) - comprehensive example that can be used as a step-by-step tutorial for creation of an online shop application. It combines most of the features above and show them in a holistic manner - from data models, thru the entity services, user interfaces, till the integration services and documentation.
