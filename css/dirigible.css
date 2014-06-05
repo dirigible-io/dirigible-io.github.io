@@ -29,8 +29,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .intro-message > h1 {
 	margin: 0;
+	font-family: "Montserrat", Arial, sans-serif;
 	font-size: 7em;
 	--text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+}
+
+@font-face {
+font-family: ‘Montserrat’;
+src: url(‘webfont.eot’); 
+src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
+    url(‘webfont.svg#svgFontName’) format(‘svg’),
+    url(‘webfont.woff’) format(‘woff’),
+    url(‘webfont.ttf’)  format(‘truetype’);
 }
 
 .intro-divider {
