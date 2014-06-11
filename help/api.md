@@ -55,3 +55,5 @@ There are several predefined injected objects, which can be used directly from t
 * *uuid* - Universally Unique Identifier ([UUID](http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html)) 128-bit generator
 
 * *input* - the object representing a [Message](http://camel.apache.org/maven/current/camel-core/apidocs/org/apache/camel/Message.html) body in case of Route step
+
+Full Javadoc can be found [here](http://www.dirigible.io/apidocs)
