@@ -3,3 +3,5 @@ markdown: redcarpet
 pygments: true
 baseurl: 
 url: http://dirigible.io
+gems:
+  - jekyll-sitemap
