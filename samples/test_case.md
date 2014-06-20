@@ -1,7 +1,8 @@
 ---
-layout: help
+layout: samples
 title: Samples - Test Case
 icon: fa-gift
+group: simple
 ---
 
 Test Case

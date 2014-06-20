@@ -1,5 +1,5 @@
 ---
-layout: help
+layout: samples
 title: Samples
 icon: fa-gift
 ---

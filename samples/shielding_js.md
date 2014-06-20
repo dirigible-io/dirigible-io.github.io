@@ -1,7 +1,7 @@
 ---
-layout: help
+layout: samples
 title: Samples - Shielding
-icon: fa-gift
+icon: fa-shield
 ---
 
 Shielding JavaScript Service

@@ -1,7 +1,8 @@
 ---
-layout: help
+layout: samples
 title: Samples - BookStore
-icon: fa-gift
+icon: fa-book
+group: solution
 ---
 
 BookStore Sample

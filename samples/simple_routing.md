@@ -1,7 +1,8 @@
 ---
-layout: help
+layout: samples
 title: Samples - Routing
-icon: fa-gift
+icon: fa-puzzle-piece
+group: simple
 ---
 
 Simple Routing
