@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Extension Definitions
-icon: fa-question-circle
+title: Extension Definitions
+icon: fa-external-link
+group: help-features
 ---
 
 Extension Definitions

@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Database Perspective
-icon: fa-question-circle
+title: Database
+icon: fa-th-large
+group: help-perspectives
 ---
 
 Database Perspective

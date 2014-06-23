@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Log Viewer
-icon: fa-question-circle
+title: Log Viewer
+icon: fa-tags
+group: help-editors-and-views
 ---
 
 Log Viewer

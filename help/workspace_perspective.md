@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Workspace Perspective
-icon: fa-question-circle
+title: Workspace
+icon: fa-desktop
+group: help-perspectives
 ---
 
 Workspace Perspective

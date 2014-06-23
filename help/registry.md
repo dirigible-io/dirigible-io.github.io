@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Registry
-icon: fa-question-circle
+title: Registry
+icon: fa-picture-o
+group: help-perspectives
 ---
 
 Registry

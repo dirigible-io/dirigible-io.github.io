@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Publishing
-icon: fa-question-circle
+title: Publishing
+icon: fa-upload
+group: help-concepts
 ---
 
 Publishing

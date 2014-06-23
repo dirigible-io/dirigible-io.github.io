@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Data Structures
-icon: fa-question-circle
+title: Data Structures
+icon: fa-table
+group: help-features
 ---
 
 Data Structures

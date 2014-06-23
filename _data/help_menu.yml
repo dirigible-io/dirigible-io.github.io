@@ -1,0 +1,41 @@
+name: Help
+navbar: Samples
+icon: fa-gift
+link: ../samples/index.html
+navigation: 
+  - name: Project
+    icon: fa-lightbulb-o
+    url: project.html
+  - name: Dynamic Applications
+    icon: fa-bolt
+    url: dynamic_applications.html
+  - name: Architecture
+    icon: fa-building-o
+    url: architecture.html
+  - name: API
+    icon: fa-sitemap
+    url: api.html
+  - name: Features
+    icon: fa-info
+    group: help-features
+  - name: Concepts
+    icon: fa-info
+    group: help-concepts
+  - name: Tooling
+    icon: fa-gavel
+    url: tooling.html
+  - name: Perspectives
+    icon: fa-info
+    group: help-perspectives
+  - name: Editors and Views
+    icon: fa-info
+    group: help-editors-and-views
+  - name: Services
+    icon: fa-info
+    group: help-services
+  - name: License
+    icon: fa-info
+    url: license.html
+  - name: Credits
+    icon: fa-film
+    url: credits.html

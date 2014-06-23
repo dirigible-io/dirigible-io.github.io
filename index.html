@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+
+{% for menu in site.data.menu %}
+<h2>{{ menu.menu }}</h2>
+{% endfor %}
     <div class="intro-header grid" id="home">
 
         <div class="container">

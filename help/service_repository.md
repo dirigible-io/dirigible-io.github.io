@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Repository Service
-icon: fa-question-circle
+title: Repository
+icon: fa-inbox
+group: help-services
 ---
 
 Repository Service

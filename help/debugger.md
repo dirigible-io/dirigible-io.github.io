@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Debug
-icon: fa-question-circle
+title: Debug
+icon: fa-wrench
+group: help-perspectives
 ---
 
 Debug

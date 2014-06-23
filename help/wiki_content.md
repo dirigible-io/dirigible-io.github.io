@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Wiki Content
-icon: fa-question-circle
+title: Wiki Content
+icon: fa-quote-right
+group: help-features
 ---
 
 Wiki Content

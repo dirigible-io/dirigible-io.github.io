@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Help - License
+title: License
 icon: fa-question-circle
 ---
 

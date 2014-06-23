@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Operational Service
-icon: fa-question-circle
+title: Operational
+icon: fa-tachometer
+group: help-services
 ---
 
 Operational Service
@@ -23,6 +24,3 @@ Operational Service exposes some utility functions.
 > Parameter: *logout*
 > 
 > http //[host]:[port]/dirigible/ *op?logout*
-
-
-

@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Access Log Service
-icon: fa-question-circle
+title: Access Log
+icon: fa-key
+group: help-services
 ---
 
 Access Log Service

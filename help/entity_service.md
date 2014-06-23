@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Entity Service
-icon: fa-question-circle
+title: Entity Service
+icon: fa-retweet
+group: help-concepts
 ---
 
 Entity Service

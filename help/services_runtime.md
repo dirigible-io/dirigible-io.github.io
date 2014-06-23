@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Runtime Services
-icon: fa-question-circle
+title: Runtime
+icon: fa-home
+group: help-services
 ---
 
 Runtime Services

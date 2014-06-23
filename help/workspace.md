@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Workspace
-icon: fa-question-circle
+title: Workspace
+icon: fa-desktop
+group: help-concepts
 ---
 
 Workspace

@@ -1,7 +1,8 @@
 ---
-layout: help
-title: Samples - Scheduled Job
-icon: fa-gift
+layout: samples
+title: Scheduled Job
+icon: fa-clock-o
+group: simple
 ---
 
 Scheduled Job

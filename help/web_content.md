@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Web Content
-icon: fa-question-circle
+title: Web Content
+icon: fa-globe
+group: help-features
 ---
 
 Web Content

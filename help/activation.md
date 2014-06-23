@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Activation
-icon: fa-question-circle
+title: Activation
+icon: fa-sign-in
+group: help-concepts
 ---
 
 Activation

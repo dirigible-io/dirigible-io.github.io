@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Help - Credits
+title: Credits
 icon: fa-question-circle
 ---
 

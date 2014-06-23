@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Search Service
-icon: fa-question-circle
+title: Search
+icon: fa-search
+group: help-services
 ---
 
 Search Service
@@ -29,5 +30,3 @@ More info about the query syntax of Apache Lucene can be found [here](http://luc
 > Parameter: *reindex*
 > 
 > http //[host]:[port]/dirigible/ *search?reindex*
-
-

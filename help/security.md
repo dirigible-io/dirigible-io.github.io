@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Security
-icon: fa-question-circle
+title: Security
+icon: fa-shield
+group: help-features
 ---
 
 Security

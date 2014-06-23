@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Logging Service
-icon: fa-question-circle
+title: Logging
+icon: fa-video-camera
+group: help-services
 ---
 
 Logging Service

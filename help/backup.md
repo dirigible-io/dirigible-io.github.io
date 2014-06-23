@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Backup
-icon: fa-question-circle
+title: Backup
+icon: fa-floppy-o
+group: help-features
 ---
 
 Backup - Project Import and Export

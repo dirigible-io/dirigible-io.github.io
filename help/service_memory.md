@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Memory Service
-icon: fa-question-circle
+title: Memory
+icon: fa-bar-chart-o
+group: help-services
 ---
 
 Memory Service
@@ -25,4 +26,3 @@ To retrieve the chart compliant data:
 
 > Parameter: *log*
 > The endpoint is: */memory?log*
-

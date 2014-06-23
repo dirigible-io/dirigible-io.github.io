@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Git
-icon: fa-question-circle
+title: Git Integration
+icon: fa-github
+group: help-features
 ---
 
 Git Integration

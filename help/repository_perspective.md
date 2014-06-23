@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Repository Perspective
-icon: fa-question-circle
+title: Repository
+icon: fa-inbox
+group: help-perspectives
 ---
 
 Repository Perspective

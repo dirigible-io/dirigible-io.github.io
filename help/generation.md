@@ -1,7 +1,8 @@
 ---
 layout: help
-title: Help - Generation
-icon: fa-question-circle
+title: Generation
+icon: fa-cog
+group: help-concepts
 ---
 
 Generation
