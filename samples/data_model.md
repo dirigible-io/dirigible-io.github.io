@@ -1,8 +1,7 @@
 ---
-layout: samples
-title: Samples - Data Model
-icon: fa-th-large
-group: simple
+layout: help
+title: Samples
+icon: fa-gift
 ---
 
 Data Model

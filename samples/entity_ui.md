@@ -1,8 +1,7 @@
 ---
-layout: samples
+layout: help
 title: Samples - Entity User Interface
-icon: fa-picture-o
-group: simple
+icon: fa-gift
 ---
 
 Entity User Interface

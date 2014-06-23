@@ -1,8 +1,7 @@
 ---
-layout: samples
+layout: help
 title: Samples - Entity Service
-icon: fa-retweet
-group: simple
+icon: fa-gift
 ---
 
 Entity Service

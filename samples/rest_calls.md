@@ -1,8 +1,7 @@
 ---
-layout: samples
+layout: help
 title: Samples - REST Call
-icon: fa-phone-square
-group: simple
+icon: fa-gift
 ---
 
 REST Call

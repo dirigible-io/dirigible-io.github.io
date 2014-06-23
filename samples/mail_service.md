@@ -1,8 +1,7 @@
 ---
-layout: samples
+layout: help
 title: Samples - Mail Service
-icon: fa-envelope
-group: simple
+icon: fa-gift
 ---
 
 Mail Service
