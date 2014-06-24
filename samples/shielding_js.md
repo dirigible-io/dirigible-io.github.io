@@ -2,6 +2,7 @@
 layout: samples
 title: Shielding
 icon: fa-shield
+group: simple
 ---
 
 Shielding JavaScript Service
