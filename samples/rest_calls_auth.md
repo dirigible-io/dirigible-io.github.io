@@ -35,9 +35,6 @@ var content = entity.getContent();
 var input = ioLib.read(content);
 http.consume(entity);
 
-var input = ioLib.read(content);
-http.consume(entity);
-
 response.getWriter().println(input);
 </code></pre>
 
