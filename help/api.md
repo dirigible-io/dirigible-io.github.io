@@ -56,4 +56,10 @@ There are several predefined injected objects, which can be used directly from t
 
 * *input* - the object representing a [Message](http://camel.apache.org/maven/current/camel-core/apidocs/org/apache/camel/Message.html) body in case of Route step
 
+* *extensionManager* - the [object](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/extensions/ExtensionManager.html) holding the [extension points and extensions](extension_definitions.html) meta-data.
+
+* *indexer* - utility uses [Apache Lucene](http://lucene.apache.org/). *getIndex([index name])* returns a [CustomMemoryIndexer](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/lucene/CustomMemoryIndexer.html) instance
+
+* *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. *toHtml([confluence text])* render it as HTML as also shown [here](../samples/confluence_to_html.html).
+
 Full Javadoc can be found [here](http://www.dirigible.io/apidocs)

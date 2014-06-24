@@ -12,7 +12,7 @@ Overview
 ---
 
 An integral part of every application is the user documentation. For this purpose we introduced a special type of artifacts which are placed in a predefined sub-folder of a project. This type of artifacts follows the de-facto standard nowadays format for documenting behaviors and algorithms of applications as well as general information about the program itself - wiki. 
-The supported markup language as of now is [confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) - well accepted by the community.
+The supported markup language as of now is [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) - well accepted by the community.
 
 The wiki pages have to be placed under WikiContent folder of a project with *.wiki file extension. Once they are requested by GET request, underground transformation has been triggered which convert the confluence format to HTML and send the well formed web content back.
 
