@@ -27,8 +27,6 @@ http.consume(entity);
 response.getWriter().println(input);
 </code></pre>
 
-> The present restriction is that you can make REST calls only to services in the current domain
-
 Parsing *input* to JSON 
 
 <pre><code>var json = JSON.parse(input);
