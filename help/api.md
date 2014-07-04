@@ -67,3 +67,5 @@ There are several predefined injected objects, which can be used directly from t
 * *xml* - XML to JSON and vice-versa - *toJson(xmlString)* and *fromJson(jsonString)*
 
 Full Javadoc can be found [here](http://www.dirigible.io/apidocs)
+
+Samples how to use the APIs can be found [here](http://samples.dirigible.io)
