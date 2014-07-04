@@ -20,9 +20,11 @@ Simple Samples
 * User Interface - to complete the stack of capabilities for user interaction use-cases, you can go through the sample showing how to create User Interface based on jQuery, Bootstrap and the other related well proved AJAX libraries
 * [Mail Service](mail_service.html) - send email with only 5 lines of code
 * [REST Calls](rest_calls.html) - example of how to send REpresentational State Transfer calls to other services
+* [REST Call with Authorization Header](rest_calls_auth.html) - shows how to add Authorization Header for a REST call 
 * [Simple Routing](simple_routing.html) - more advanced topics follows concerning integration of your application with external services. The first one shows the most simple integration service you can ever have - restful service with simple state based implementation
 * [Shielding JavaScript Service](shielding_js.html) - the second one shows how to model your own web service and expose it, by connecting it to a JavaScript service as implementation.
 * [Scheduling Job on JavaScript Service](scheduled_job.html) - next sample shows how to schedule a job which triggers the execution of a JavaScript Service.
+* Using simple data [storage](storage.html) - how to put, get, clear, delete binary content 
 * Documentation - how to add the documentation of your project using some templating technics
 
 Solution Samples

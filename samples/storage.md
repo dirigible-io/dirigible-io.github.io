@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Storage Sample
-icon: fa-envelope
+icon: fa-camera
 group: simple
 ---
 
@@ -22,7 +22,7 @@ Replace the generated code in *storage_usage.js* with the following:
 
 <pre><code>function toString(bytes) {
     var s = "";
-    for(var i=0,l=bytes.length; i<l; i++) {
+    for(var i=0, l=bytes.length; i < l; i++) {
         s += String.fromCharCode(bytes[i]);
     }
     return s;
@@ -42,3 +42,8 @@ response.getWriter().close();
 
 Select *Preview* tab.
 Click on *storage_usage.js* from the *Workspace Explorer* and check the result.
+
+> put(path, data) - add binary data at given path
+> get(path) - retrieves binary data by given path
+> delete(path) - removes binary data by given path
+> clear() - removes all the data from the storage

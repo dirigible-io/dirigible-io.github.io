@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Entity Service
-icon: fa-retweet
+icon: fa-rss
 group: simple
 ---
 

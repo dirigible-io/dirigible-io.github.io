@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Authorization
-icon: fa-phone-square
+icon: fa-lock
 group: simple
 ---
 
