@@ -8,7 +8,7 @@ group: simple
 Storage Sample
 ===
 
-Create new project or use existing once.
+Create new project or use existing one.
 
 Create new *Scripting Service*
 
@@ -44,6 +44,9 @@ Select *Preview* tab.
 Click on *storage_usage.js* from the *Workspace Explorer* and check the result.
 
 > put(path, data) - add binary data at given path
+
 > get(path) - retrieves binary data by given path
+
 > delete(path) - removes binary data by given path
+
 > clear() - removes all the data from the storage

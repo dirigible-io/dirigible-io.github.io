@@ -8,7 +8,7 @@ group: simple
 Mail Service
 ===
 
-Create new project or use existing once.
+Create new project or use existing one.
 
 Create new *Scripting Service*
 
