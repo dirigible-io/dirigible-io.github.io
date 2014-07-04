@@ -26,7 +26,7 @@ Now the project structure should look like this
 
 ![Mail Service 4](images/mail_service/mail_service_4.png)
 
-Replace the generated code in *mail_sender.js* with the following
+Replace the generated code in *mail_sender.js* with the following:
 
 <pre><code>var from = 'employee@your.company.com';
 var to = 'boss@your.company.com';
@@ -36,7 +36,7 @@ mail.sendMail(from, to, title, body);
 response.getWriter().println('Email was sent successfully');
 </code></pre>
 
-Select *Web Viewer* tab.
+Select *Preview* tab.
 Click on *mail_sender.js* from the *Workspace Explorer*.
 Accessing the scripting service will send the email.
 

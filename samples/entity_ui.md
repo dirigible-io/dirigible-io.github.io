@@ -31,7 +31,7 @@ For the Title on the next page you can enter *Manage Books*
 ![Entity Service UI 5](bookstore/31_books_entity_service_ui_5.png)
 
 After clicking Finish button the generation is triggered. You can see the result under the WebContent folder
-When you select the file with active Web Viewer you shall see the resulted running page.
+When you select the file with active Preview you shall see the resulted running page.
 
 ![Entity Service UI 6](bookstore/32_books_entity_service_ui_6.png)
 

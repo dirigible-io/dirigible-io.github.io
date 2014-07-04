@@ -36,7 +36,7 @@ Now we can use activation action from the project's pop-up menu to enable the se
 
 ![Entity Service](bookstore/21_books_entity_service_activate.png)
 
-During the activation the artifact goes to the sandbox of the logged-in user. We can see the result of calling the service right away in the Web Viewer (sould be opened by default in the Workspace Perspective), so find it (next to Properties view) and select it. Now go to the Workspace Explorer where the project is managed and select the service artifact (books.js). This will trigger the construction of the right URL of the service endpoint in the sandbox, hence you will see the result in the Web Viewer.
+During the activation the artifact goes to the sandbox of the logged-in user. We can see the result of calling the service right away in the Preview (sould be opened by default in the Workspace Perspective), so find it (next to Properties view) and select it. Now go to the Workspace Explorer where the project is managed and select the service artifact (books.js). This will trigger the construction of the right URL of the service endpoint in the sandbox, hence you will see the result in the Preview.
 
 ![Entity Service](bookstore/22_books_entity_service_test.png)
 

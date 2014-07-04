@@ -69,5 +69,5 @@ e.g.
 *https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
 </code></pre>
 
-or just select them in Workspace Explorer and see the result in the Web Viewer.
+or just select them in Workspace Explorer and see the result in the Preview.
 

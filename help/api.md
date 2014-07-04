@@ -62,4 +62,6 @@ There are several predefined injected objects, which can be used directly from t
 
 * *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. *toHtml([confluence text])* render it as HTML as also shown [here](../samples/confluence_to_html.html).
 
+* *storage* - simple binary storage. *put(path, data)*, *get(path)*, *clear()* and *delete(path)* are supported
+
 Full Javadoc can be found [here](http://www.dirigible.io/apidocs)

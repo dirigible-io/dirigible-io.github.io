@@ -35,7 +35,7 @@ Features
 	* *Workspace* perspective for full support of project management (new, cut, copy, paste, delete, refresh, etc.)
 	* *Database* perspective for RDBMS management including SQL Console
 	* Enhanced *Code Editor* with highlight support for JavaScript, Ruby, Groovy, HTML, JSON, XML, etc.
-	* *Web Viewer* for easy testing of changes in web, wiki and scripting services
+	* *Preview* for easy testing of changes in web, wiki and scripting services
 	* Configurable *Log Viewer* providing the server side logs and traces
 	* Lots of *template based wizards* for creating new content and services
 	* *Import* and *Export* of project(s) content
