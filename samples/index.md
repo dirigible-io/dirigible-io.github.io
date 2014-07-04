@@ -25,6 +25,7 @@ Simple Samples
 * [Shielding JavaScript Service](shielding_js.html) - the second one shows how to model your own web service and expose it, by connecting it to a JavaScript service as implementation.
 * [Scheduling Job on JavaScript Service](scheduled_job.html) - next sample shows how to schedule a job which triggers the execution of a JavaScript Service.
 * Using simple data [storage](storage.html) - how to put, get, clear, delete binary content 
+* [XML to JSON](xml.html) and vice-versa conversions
 * Documentation - how to add the documentation of your project using some templating technics
 
 Solution Samples
