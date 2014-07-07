@@ -16,9 +16,9 @@ Choose *Blank Server-Side JavaScript Service* from the list of available templat
 
 ![Mail Service 2](images/mail_service/mail_service_2.png)
 
-Give it some meaningful name (e.g *file_storage_upload.js*)
+Give it some meaningful name (e.g *file_upload.js*)
 
-Replace the generated code in *file_storage_upload.js* with the following:
+Replace the generated code in *file_upload.js* with the following:
 
 <pre><code>var uploadLib = require("upload");
 if(request.getMethod()=="POST"){
@@ -34,9 +34,9 @@ Create new *Scripting Service*
 
 Choose *Blank Server-Side JavaScript Service* from the list of available templates
 
-Give it some meaningful name (e.g *file_storage_download.js*)
+Give it some meaningful name (e.g *file_download.js*)
 
-Replace the generated code in *file_storage_download.js* with the following:
+Replace the generated code in *file_download.js* with the following:
 
 <pre><code>if(request.getMethod()=="GET"){
     var fileName = xss.escapeSql(request.getParameter("fileName"));
