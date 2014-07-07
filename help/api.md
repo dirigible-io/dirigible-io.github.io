@@ -68,4 +68,4 @@ There are several predefined injected objects, which can be used directly from t
 
 Full Javadoc can be found [here](http://www.dirigible.io/apidocs)
 
-Samples how to use the APIs can be found [here](http://samples.dirigible.io)
+Samples about how to use the APIs can be found [here](http://samples.dirigible.io)
