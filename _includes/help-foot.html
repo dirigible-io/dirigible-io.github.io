@@ -30,8 +30,8 @@
 <script>
     var nonav = $.url().param("nonav");
     if (nonav) {
-        $("#navigation").css("display", "none");
-        $("#footer").css("display", "none");
+        $("#navigation").remove();
+        $("#footer").remove();
     }
 </script>
 </body>
