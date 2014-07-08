@@ -4,7 +4,7 @@ title: Samples
 icon: fa-gift
 ---
 
-Dirigible Samples Space
+Dirigible Samples
 ===
 
 Dirigible Samples collect various applications created to demonstrate the main usages and strengths of the toolkit.

@@ -4,7 +4,7 @@ title: Help
 icon: fa-question-circle
 ---
 
-Dirigible Help Portal
+Dirigible Help
 ---
 
 Dirigible Help Portal gives access to product documentation and also related information.
