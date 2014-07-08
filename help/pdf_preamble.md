@@ -4,7 +4,7 @@ title: Dirigible User's Guide
 icon: fa-question-circle
 ---
 
-Dirigible User's Guide
+Dirigible User's Guide v1.2
 ===
 
 This User's Guide contains the latest documentation available on-line at:
