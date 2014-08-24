@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Setup on Tomcat with PostgreSQL
+title: Tomcat with PostgreSQL
 icon: fa-cogs
 group: help-setup
 ---
@@ -34,7 +34,9 @@ Create system user for dirigible database
 ---
 
 > psql dirigible_database
+
 > create user dirigible_system with password 'dirigible1234';
+
 > grant all on database dirigible_database to dirigible_system;
 
 Datasource Configuration
@@ -60,7 +62,8 @@ Copy the deployable artifacts to <TOMCAT_HOME>/webapps.
 Start
 ---
 
-Run Tomcat server via strtup.sh
-The IDE should be available at: http://localhost:8080/com.sap.dirigible.ide-[version]/ide/index.html
-or at: http://localhost:8080/dirigible-ide/ide/index.html, if you follow the best practices and have renamed the produced *.war files for the local Tomcat setup 
+Run Tomcat server via strtup.sh 
+
+The IDE should be available at: *http://localhost:8080/com.sap.dirigible.ide-[version]/ide/index.html*
+or at: *http://localhost:8080/dirigible-ide/ide/index.html*, if you follow the best practices and have renamed the produced *.war files for the local Tomcat setup 
 
