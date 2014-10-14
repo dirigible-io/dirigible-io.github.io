@@ -1,7 +1,7 @@
 ---
 layout: help
 title: SQL Console
-icon: fa-terminal
+icon: fa-database
 group: help-editors-and-views
 ---
 
