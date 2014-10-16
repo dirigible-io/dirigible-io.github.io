@@ -6,8 +6,7 @@ group: simple
 ---
 
 Config
----
-
+===
 
 
 1. Create a new project or use an existing one.
@@ -18,6 +17,7 @@ Config
 <br></br>
 4. Give the service a meaningful name (e.g **config.js**).
 5. Replace the generated code in <samp>file\_storage\_upload.js</samp> with the following:
+<br></br>
 <pre><code>var ioLib = require("io");
 var method = request.getMethod();
 if (method == "POST") {

@@ -5,21 +5,17 @@ icon: fa-camera
 group: simple
 ---
 
-Storage Sample
+Storage
 ===
 
-Create new project or use existing one.
-
-Create new *Scripting Service*
-
-Choose *Blank Server-Side JavaScript Service* from the list of available templates
-
+1. Create a new project or use an existing one.
+2. Create a new *Scripting Service*
+3. Choose **Blank Server-Side JavaScript Service** from the list of available templates.
+<br></br>
 ![Mail Service 2](images/mail_service/mail_service_2.png)
-
-Give it some meaningful name (e.g *storage_usage.js*)
-
-Replace the generated code in *storage_usage.js* with the following:
-
+<br></br>
+4. Give the service a meaningful name (e.g **storage_usage.js**).
+5. Replace the generated code in *storage_usage.js* with the following:
 <pre><code>function toString(bytes) {
     var s = "";
     for(var i=0, l=bytes.length; i < l; i++) {
@@ -39,9 +35,9 @@ response.setContentType("text/html");
 response.getWriter().flush();
 response.getWriter().close();
 </code></pre>
-
-Select *Preview* tab.
-Click on *storage_usage.js* from the *Workspace Explorer* and check the result.
+6. Select the *Preview* tab.
+<br></br>
+7. Click on *storage_usage.js* from the *Workspace Explorer* and check the result.
 
 > put(path, data) - add binary data at given path
 
