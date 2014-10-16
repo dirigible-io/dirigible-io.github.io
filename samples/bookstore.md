@@ -5,11 +5,13 @@ icon: fa-book
 group: solution
 ---
 
-# BookStore #
+BookStore
+---
 
 The *BookStore* sample demonstrates how you can build a simple online shop. It shows how to create a domain model in the target database, how to generate RESTful services on top of the modeled entities, and finally how to generate simple management user interface as a basis for the actual Web design.
 
-## Project Creation ##
+Project Creation
+---
 
 <ol> 
 <li>
@@ -38,7 +40,8 @@ First, open the perspective where you want to create a project. The _Workspace_ 
 <p>There are several predefined folders, tightly related to the artifact types, which can be placed there as well as the corresponding activities you can make on them.</p>
 
 
-## Data Model ##
+Data Model
+---
 
 Data models a.k.a [domain models](http://en.htmlpedia.org/wiki/Domain_model) is the set of entities of your application and also their relations.
 In Dirigible, we use also the term [data structures](../help/data_structures.html), which is more related to the actual artifact - the data descriptor.
