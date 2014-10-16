@@ -7,7 +7,7 @@ icon: fa-gift
 Dirigible Samples
 ===
 
-Dirigible Samples collect various applications created to demonstrate the main usages and strengths of the cloud toolkit.
+This section collects various applications created to demonstrate the main use purposes and strengths of the cloud toolkit.
 They are built on scenarios with different complexity level, from exemplary samples targeting demonstration of single features to complete end-to-end solutions.
 
 Exemplary Samples

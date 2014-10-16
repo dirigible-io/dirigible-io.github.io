@@ -5,23 +5,20 @@ icon: fa-cog
 group: simple
 ---
 
-Config Sample
-===
+Config
+---
 
-Create new project or use existing one.
 
-Create new *Scripting Service*
 
-Choose *Blank Server-Side JavaScript Service* from the list of available templates
-
-![Mail Service 2](images/mail_service/mail_service_2.png)
-
-Give it some meaningful name (e.g *config.js*)
-
-Replace the generated code in *file_storage_upload.js* with the following:
-
+1. Create a new project or use an existing one.
+2. Create a new *Scripting Service* . 
+3. Choose **Blank Server-Side JavaScript Service** from the list of available templates.
+<br></br>
+![Mail Service 2](images/mail_service/mail_service_2.png)  
+<br></br>
+4. Give the service a meaningful name (e.g **config.js**).
+5. Replace the generated code in <samp>file\_storage\_upload.js</samp> with the following:
 <pre><code>var ioLib = require("io");
-
 var method = request.getMethod();
 if (method == "POST") {
     var input = ioLib.read(request.getReader());
@@ -65,3 +62,5 @@ response.getWriter().close();
 > delete(path) - removes properties by given path
 
 > clear() - removes all properties from the storage
+
+

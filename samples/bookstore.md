@@ -5,46 +5,43 @@ icon: fa-book
 group: solution
 ---
 
-BookStore Sample
-===
+# BookStore #
 
-Overview
----
+The *BookStore* sample demonstrates how you can build a simple online shop. It shows how to create a domain model in the target database, how to generate RESTful services on top of the modeled entities, and finally how to generate simple management user interface as a basis for the actual Web design.
 
-BookStore sample follows the steps required to build a simple online shop.
-It will show you how to create the domain model in the target database, how to generate the RESTful services on top of the modeled entities and finally how to generate simple management user interface as a basis for the actual web design later.
+## Project Creation ##
 
-Project Creation
----
+<ol> 
+<li>
 
-First you need to create a project in your private workspace. Workspace perspective is the default one.
+First, open the perspective where you want to create a project. The _Workspace_ perspective is the default one. </li>
 
-![Workspace Empty](bookstore/1_books_workspace_empty.png)
-
-Go to the main menu *File->New->Project*
+<li> From the main menu, select <i>File</i> -> <i>New</i> -> <i>Project</i>.
 
 ![New Project Menu](bookstore/2_books_new_project_menu.png)
 
-In the just opened wizard enter the project name - "bookstore" and click Next
+</li>
 
-![New Project Wizard Name](bookstore/3_books_new_project_wizard_name.png)
-
-From the list you can choose from several predefined project templates. 
-In this case just go to the first one - "Blank Dynamic Application"
+<li> In the wizard, enter the project name <b>bookstore</b> and click <i>Next</i>.  </li>
+<br></br>
+<li> From the list you can choose from several predefined project templates. In this case, just go to the first one - <b>Blank Dynamic Application</b>. 
 
 ![New Project Wizard Template](bookstore/4_books_new_project_wizard_template.png)
+</li>
 
-Click Finish and open the project in the workspace to see the folder layout
+<li> Click <i>Finish<i> and open the project in the workspace to see the folder layout.
 
-![New Project Layout](bookstore/5_books_new_project_layout.png)
+![New Project Layout](bookstore/5_books_new_project_layout.png) </li>
 
-There are several predefined folders which are tightly related to the types of the artifacts which can be placed there as well as the corresponding activities you can make on them.
+</ol>
 
-Data Model
-===
+<p>There are several predefined folders, tightly related to the artifact types, which can be placed there as well as the corresponding activities you can make on them.</p>
 
-Data models a.k.a [domain models](http://en.htmlpedia.org/wiki/Domain_model) is the set of the entities of your application and also their relations.
-In Dirigible we use also the term [data structures](../help/data_structures.html), which is more related to the actual artifact - the data descriptor.
+
+## Data Model ##
+
+Data models a.k.a [domain models](http://en.htmlpedia.org/wiki/Domain_model) is the set of entities of your application and also their relations.
+In Dirigible, we use also the term [data structures](../help/data_structures.html), which is more related to the actual artifact - the data descriptor.
 Let create the first model entity of the [BookStore](bookstore.html) sample - the books table.
 
 Select the DataStructures sub-folder of a project and open the pop-up menu (right-click).
