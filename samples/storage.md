@@ -23,14 +23,11 @@ Storage
     }
     return s;
 }
-
 var byteArray = [49,50,51]; // string "123"
 storage.put("/a/b/c", byteArray);
 var retrievedData = storage.get("/a/b/c");
 var result = toString(retrievedData);
-
 response.getWriter().println(result);
-
 response.setContentType("text/html");
 response.getWriter().flush();
 response.getWriter().close();

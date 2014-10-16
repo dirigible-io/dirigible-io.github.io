@@ -23,15 +23,13 @@ var method = request.getMethod();
 if (method == "POST") {
     var input = ioLib.read(request.getReader());
     var message = JSON.parse(input);
-    
     if(message.path && message.key && message.value){
         config.putProperty(message.path, message.key, message.value);
     }
 } else if (method == "GET") {
     var list = xss.escapeSql(request.getParameter("list"));
     var path = xss.escapeSql(request.getParameter("path"));
-    var key = xss.escapeSql(request.getParameter("key"));
-    
+    var key = xss.escapeSql(request.getParameter("key"));   
     if(list && path){
         var properties = config.getProperties(path);
         if (properties) {
@@ -46,7 +44,6 @@ if (method == "POST") {
     config.clear();
     response.getWriter().println("Config cleared!");
 }
-
 response.getWriter().flush();
 response.getWriter().close();
 </code></pre>
