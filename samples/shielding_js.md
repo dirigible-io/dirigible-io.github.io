@@ -9,7 +9,7 @@ Shielding JavaScript Service
 ===
 
 Often, by security reasons, the original endpoint of a service should not be exposed directly.
-To make simple redirect from a public endpoint to an internal end-point of a scripting service, we can use the routing functionality from the **Integration Services** section.
+To make simple redirect from a public endpoint to an internal end-point of a scripting service, we can use the routing functionality from the "**Integration Services**" section.
 
 1. Create a project **routing**.
 2. Then create a JavaScript service named **service_impl.js**.

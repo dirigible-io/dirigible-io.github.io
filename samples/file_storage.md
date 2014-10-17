@@ -31,7 +31,6 @@ if(request.getMethod()=="POST"){
 	response.getWriter().println(JSON.stringify(storedFiles));
 }
 </code></pre>
-<br></br>
 7. Repeat steps **2**, **3** and **4**. Enter a name for the new service, for example, **download.js**.
 8. Replace the generated code in **download.js** with the following:
 <br></br>

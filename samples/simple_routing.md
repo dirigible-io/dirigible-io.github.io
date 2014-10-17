@@ -28,7 +28,9 @@ The general steps are valid for all other template types for the different integ
 6. On the next page, enter the required parameters for this particular template:
 
 > Route Identifier: *simple_routing*
+
 > Endpoint Address: *simple_routing_endpoint*
+
 > Condition Parameter Name: *name_parameter*
 
 ![Content Based Routing 4](bookstore/111_content_based_routing_4.png)
@@ -60,5 +62,5 @@ The general steps are valid for all other template types for the different integ
 
 > *http //[host]:[port]/dirigible/camel/simple_routing_endpoint*
 
-The pattern which is used for generating the location URL can be found [here](../help/integration_services.html)
+The pattern which is used for generating the location URL can be found [here](../help/integration_services.html).
 

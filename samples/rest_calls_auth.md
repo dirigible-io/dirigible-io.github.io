@@ -40,4 +40,5 @@ http.consume(entity);
 response.getWriter().println(input);
 </code></pre>
 
+<br></br>
 For more information, see the *[API](../help/api.html)* documentation.

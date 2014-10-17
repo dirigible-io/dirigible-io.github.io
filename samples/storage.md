@@ -34,7 +34,7 @@ response.getWriter().close();
 </code></pre>
 6. Select the *Preview* tab.
 <br></br>
-7. Click on *storage_usage.js* from the *Workspace Explorer* and check the result.
+7. Click on **storage_usage.js** from the *Workspace Explorer* and check the result.
 
 > put(path, data) - add binary data at given path
 

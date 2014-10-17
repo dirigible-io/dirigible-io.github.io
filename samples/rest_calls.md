@@ -49,4 +49,5 @@ response.getWriter().println(input);
 <pre><code>var deleteRequest = http.createDelete(url);
 </code></pre>
 
+<br></br>
 For more information, see the *[API](../help/api.html)* documentation.
