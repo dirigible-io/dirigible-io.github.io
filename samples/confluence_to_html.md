@@ -9,8 +9,8 @@ group: simple
 Confluence to HTML
 ===
 
-Nowadays is already de-facto standard approach to write the application related documentation in some [Wiki](http://en.wikipedia.org/wiki/Wiki) markup language.
-Using such a simplified language gives to the document writer, in this case usually a developer, the freedom to focus on the content instead of formatting.
+Nowadays it is already a defult standard approach to write the application-related documentation in some [wiki](http://en.wikipedia.org/wiki/Wiki) markup language. The use of such a simplified language gives the document writer, in this case a developer, the freedom to focus on the dev content instead of formatting.
+
 We choose to support [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) format in scripting services. 
 
 <pre><code>

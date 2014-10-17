@@ -8,56 +8,59 @@ group: simple
 Entity User Interface
 ===
 
-After the creation of the data model and the entity service, now we will going to generate an user interface for entity management (list, new, edit, delete...)
+After creating the data model and the entity service, let's now generate user interface for entity management (list, new, edit, delete...)
 
-Select the *books.entity* and open the pop-up menu. Choose *Generate->User Interface for Entity Service*
-
+1. Select **books.entity** and open the pop-up menu. 
+2. Choose *Generate* -> *User Interface for Entity Service*.
+<br></br>
 ![Entity Service UI 1](bookstore/27_books_entity_service_ui_1.png)
-
-From the wizard select the template "List and Manage View"
-
+<br></br>
+3. From the wizard, select the template **List and Manage View**.
+<br></br>
 ![Entity Service UI 2](bookstore/28_books_entity_service_ui_2.png)
-
-Click Next and select all the columns from the list. You can use "Select All" button
-
+<br></br>
+4. Click *Next*.
+5. Select all columns from the list. You can use the *Select All* button.
+<br></br>
 ![Entity Service UI 3](bookstore/29_books_entity_service_ui_3.png)
-
-On the next page enter the name of the page *books_manage.html*
-
+<br></br>
+6. On the next page, enter the name **books_manage.html** and click *Next*.
+<br></br>
 ![Entity Service UI 4](bookstore/30_books_entity_service_ui_4.png)
-
-For the Title on the next page you can enter *Manage Books*
-
+<br></br>
+7. In _Page Title_, enter **Manage Books**.
+<br></br>
 ![Entity Service UI 5](bookstore/31_books_entity_service_ui_5.png)
-
-After clicking Finish button the generation is triggered. You can see the result under the WebContent folder
-When you select the file with active Preview you shall see the resulted running page.
-
+<br></br>
+8. Click *Finish*.
+The generation is triggered. You can see the result under the **WebContent** folder.
+9. When you select the file with active *Preview*, you should see the running result page.
+<br></br>
 ![Entity Service UI 6](bookstore/32_books_entity_service_ui_6.png)
-
-For the real test of the web page and the entity service you can [Publish](../help/publishing.html) the project
-
+<br></br>
+10. For the real test of the Web page and the entity service, you can [Publish](../help/publishing.html) the project.
+<br></br>
 ![Project Publish](bookstore/104_books_project_publish.png)
-
+<br></br>
 or
-
+<br></br>
 ![Project Publish Popup](bookstore/106_books_project_publish_popup.png)
-
-Now fo to the Registry perspective to find the link to the page, so that we can open it in an external browser.
-From the Registry embedded page menu choose Web->Content
-
+<br></br>
+Now, go to the **Registry** perspective to find the page link.
+11. From the **Registry** embedded page menu, choose *Web* -> *Content* to open it in an external browser.
+<br></br>
 ![Entity Service UI 7](bookstore/33_books_entity_service_ui_7.png)
-
-Drill-down in the bookstore project folder and click on the page which is listed.
-To open the page in a new tab click on the icon on the right side
-
+<br></br>
+12. Drill-down in the **BookStore** project folder and click on the page which is listed.
+13. To open the page in a new tab, click on the icon on the right-hand side.
+<br></br>
 ![Entity Service UI 8](bookstore/34_books_entity_service_ui_8.png)
-
-Click on "Edit" button and input the information about the first book you want to have in your store.
-
+<br></br>
+14. Click the *Edit* button and input the information about the first book you want to have in your store.
+<br></br>
 ![Entity Service UI 9](bookstore/35_books_entity_service_ui_9.png)
-
-Click Save button and see the inserted record in the table above
-
+<br></br>
+15. Click the *Save* button and see the record inserted in the table above.
+<br></br>
 ![Entity Service UI 10](bookstore/36_books_entity_service_ui_10.png)
 
