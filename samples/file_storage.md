@@ -5,21 +5,19 @@ icon: fa-file-word-o
 group: simple
 ---
 
-File Storage Sample
+File Storage
 ===
 
-Create new project and name it *file_storage*.
-
-Create new *Scripting Service*
-
-Choose *Blank Server-Side JavaScript Service* from the list of available templates
-
+1. Create a new project and name it **file_storage**.
+2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
+3. Choose *New* -> *Scripting Service*.
+4. Choose **Server-Side JavaScript Service** from the list of available templates.
+<br></br>
 ![Mail Service 2](images/mail_service/mail_service_2.png)
-
-Give it some meaningful name (e.g *upload.js*)
-
-Replace the generated code in *upload.js* with the following:
-
+<br></br>
+5. Give it a meaningful name (e.g **upload.js**).
+6. Replace the generated code in **upload.js** with the following:
+<br></br>
 <pre><code>var uploadLib = require("upload");
 if(request.getMethod()=="POST"){
     var files = uploadLib.consumeFiles(request);
@@ -33,19 +31,13 @@ if(request.getMethod()=="POST"){
 	response.getWriter().println(JSON.stringify(storedFiles));
 }
 </code></pre>
-
-Create new *Scripting Service*
-
-Choose *Blank Server-Side JavaScript Service* from the list of available templates
-
-Give it some meaningful name (e.g *download.js*)
-
-Replace the generated code in *download.js* with the following:
-
+<br></br>
+7. Repeat steps **2**, **3** and **4**. Enter a name for the new service, for example, **download.js**.
+8. Replace the generated code in **download.js** with the following:
+<br></br>
 <pre><code>if(request.getMethod()=="GET"){
     var fileName = xss.escapeSql(request.getParameter("fileName"));
     var file = fileStorage.get(fileName);
-
     if(file){
         response.setHeader("content-disposition", "inline");
         response.setHeader("content-disposition", "attachment; filename="+fileName);
@@ -69,22 +61,32 @@ response.getWriter().close();
 
 > clear() - removes all files from the storage
 
-Create new file in *WebContent* folder and name it *index.html*
+Now, create a new file in the **WebContent** folder and name it **index.html**.
 
-Please inside the following code
+Then, enter the following code inside in the file:
 
 <pre><code>< !DOCTYPE html>
+<br></br>
 < html>
+<br></br>
 < body>
-
+<br></br>
 < form action="/dirigible/js/file_storage/upload.js" method="post" enctype="multipart/form-data">
+<br></br>
 < label for="file">Filename:</label>
+<br></br>
 < input type="file" name="file" id="file" multiple>
+<br></br>
 < br>
+<br></br>
 < input type="submit" name="submit" value="Submit">
+<br></br>
 < /form>
-
+<br></br>
 < /body>
+<br></br>
 < /html>
-
+<br></br>
 </code></pre>
+
+

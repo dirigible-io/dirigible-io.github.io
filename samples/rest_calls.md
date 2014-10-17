@@ -8,9 +8,11 @@ group: simple
 REST Call
 ===
 
-Create a project **RESTCall** and a JavaScript service **rest_call.js** with the following content:
+1. Create a project **RESTCall**.
+2. Then create a JavaScript service named **rest_call.js**.
+3. Within the service code, enter the following content:
 
-**GET Call**
+*GET Call*
 <pre><code>var ioLib = require('io');
 
 var url = 'http://rest.call/example';
@@ -27,23 +29,23 @@ http.consume(entity);
 response.getWriter().println(input);
 </code></pre>
 
-Parsing *input* to JSON 
+*Parsing 'input' to JSON* 
 
 <pre><code>var json = JSON.parse(input);
 </code></pre>
 
-**POST Call**
+*POST Call*
 
 <pre><code>var postRequest = http.creatPost(url);
 </code></pre>
 
 
-**PUT Call**
+*PUT Call*
 
 <pre><code>var putRequest = http.createPut(url);
 </code></pre>
 
-**DELETE Call**
+*DELETE Call*
 <pre><code>var deleteRequest = http.createDelete(url);
 </code></pre>
 

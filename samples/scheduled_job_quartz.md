@@ -8,8 +8,8 @@ group: simple
 Scheduled Job with Quartz
 ===
 
-In the integrated Camel engine you can use the most popular job scheduling library - [Quartz](http://quartz-scheduler.org/).
-A simple job which is triggering at midnight every day and prints in the default output some message looks like following:
+In the integrated Camel engine, you can use the most popular job scheduling library - [Quartz](http://quartz-scheduler.org/).
+A simple job which is triggering every day at midnight, and prints in the default output some message, looks like the following:
 
 <pre><code>
 < routes xmlns="http://camel.apache.org/schema/spring">

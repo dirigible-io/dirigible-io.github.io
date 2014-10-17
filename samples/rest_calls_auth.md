@@ -8,9 +8,11 @@ group: simple
 REST Call with Authorization Header
 ===
 
-Most of the RESTfull services playing role as remote APIs require some kind of authentication. In the following example we use *Basic* scheme with authorization header as it specified at [RFC 2617](https://www.ietf.org/rfc/rfc2617.txt). The target service could be OData service, from which we explicitly ask for JSON format as well.
+Most of the RESTfull services playing role as remote APIs require some kind of authentication. In the following example, we use *Basic* scheme with authorization header as specified at [RFC 2617](https://www.ietf.org/rfc/rfc2617.txt). The target service could be OData service, from which we explicitly ask for JSON format as well.
  
-Create a *Project* *Authorization* and a *JavaScript* service *rest_call_authorization.js* with the following content:
+1. Create a project **Authorization**.
+2. Then create a JavaScript service named **rest_call_authorization.js**.
+3. Within the service code, enter the following content:
 
 *GET Call*
 <pre><code>var ioLib = require('io');
@@ -38,4 +40,4 @@ http.consume(entity);
 response.getWriter().println(input);
 </code></pre>
 
-For more information check the *[API](../help/api.html)* documentation
+For more information, see the *[API](../help/api.html)* documentation.

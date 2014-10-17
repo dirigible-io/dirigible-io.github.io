@@ -10,13 +10,14 @@ Config
 
 
 1. Create a new project or use an existing one.
-2. Create a new *Scripting Service* . 
-3. Choose **Blank Server-Side JavaScript Service** from the list of available templates.
+2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
+3. Choose *New* -> *Scripting Service*.
+4. Choose **Server-Side JavaScript Service** from the list of available templates.
 <br></br>
 ![Mail Service 2](images/mail_service/mail_service_2.png)  
 <br></br>
-4. Give the service a meaningful name (e.g **config.js**).
-5. Replace the generated code in <samp>file\_storage\_upload.js</samp> with the following:
+5. Give the service a meaningful name (e.g **config.js**).
+6. Replace the generated code in <samp>file\_storage\_upload.js</samp> with the following:
 <br></br>
 <pre><code>var ioLib = require("io");
 var method = request.getMethod();
