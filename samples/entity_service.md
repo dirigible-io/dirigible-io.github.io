@@ -8,7 +8,7 @@ group: simple
 Entity Service
 ===
 
-In the context of Dirigible, the Entity Service means a RESTful service which exposes the [CRUD](http://en.wikipedia.org/wiki/Create,\_read,\_update\_and\_delete] methods on top of the database table. The following steps shows how to generate such an entity service on top of existing table.
+In the context of Dirigible, the Entity Service means a RESTful service which exposes the [CRUD](http://en.wikipedia.org/wiki/Create,\_read,\_update\_and\_delete) methods on top of the database table. The following steps shows how to generate such an entity service on top of existing table.
 
 1. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 2. From the menu, choose *New* -> *Scripting Service*.
