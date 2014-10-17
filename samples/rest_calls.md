@@ -12,7 +12,7 @@ REST Call
 2. Then create a JavaScript service named **rest_call.js**.
 3. Within the service code, enter the following content:
 
-*GET Call*
+<b><i>GET Call</b></i>
 <pre><code>var ioLib = require('io');
 
 var url = 'http://rest.call/example';
@@ -29,23 +29,23 @@ http.consume(entity);
 response.getWriter().println(input);
 </code></pre>
 
-*Parsing 'input' to JSON* 
+<b><i>Parsing 'input' to JSON</b></i>
 
 <pre><code>var json = JSON.parse(input);
 </code></pre>
 
-*POST Call*
+<b><i>POST Call</b></i>
 
 <pre><code>var postRequest = http.creatPost(url);
 </code></pre>
 
 
-*PUT Call*
+<b><i>PUT Call</b></i>
 
 <pre><code>var putRequest = http.createPut(url);
 </code></pre>
 
-*DELETE Call*
+<b><i>DELETE Call</b></i>
 <pre><code>var deleteRequest = http.createDelete(url);
 </code></pre>
 

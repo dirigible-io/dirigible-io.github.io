@@ -14,7 +14,7 @@ Most of the RESTfull services playing role as remote APIs require some kind of a
 2. Then create a JavaScript service named **rest_call_authorization.js**.
 3. Within the service code, enter the following content:
 
-*GET Call*
+<i><b>GET Call</b></i>
 <pre><code>var ioLib = require('io');
 
 var url = 'http://rest.call/example';

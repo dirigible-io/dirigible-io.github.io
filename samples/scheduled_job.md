@@ -23,10 +23,13 @@ systemLib.println('Scheduled Job Triggered at: '  + new Date());
 5. Choose **Scheduling Job Triggering a JavaScript Service**.
 6. Enter the following parameters:
 <br></br>
+
 > Route Identifier: *route_js*
+
 > Endpoint Address: *http //localhost:9001/dirigible/js/routing/service_job.js*
 <br></br>
-7. Click *Finish*. The generated routes artifact should looks like:
+
+Now click *Finish*. The generated routes artifact should looks like:
 <pre><code>
 < routes xmlns="http://camel.apache.org/schema/spring">
     < route id="route_job">

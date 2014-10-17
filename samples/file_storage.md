@@ -66,27 +66,18 @@ Now, create a new file in the **WebContent** folder and name it **index.html**.
 Then, enter the following code inside in the file:
 
 <pre><code>< !DOCTYPE html>
-<br></br>
 < html>
-<br></br>
 < body>
-<br></br>
+
 < form action="/dirigible/js/file_storage/upload.js" method="post" enctype="multipart/form-data">
-<br></br>
 < label for="file">Filename:</label>
-<br></br>
 < input type="file" name="file" id="file" multiple>
-<br></br>
 < br>
-<br></br>
 < input type="submit" name="submit" value="Submit">
-<br></br>
 < /form>
-<br></br>
+
 < /body>
-<br></br>
 < /html>
-<br></br>
 </code></pre>
 
 
