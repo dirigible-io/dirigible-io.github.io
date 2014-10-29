@@ -16,12 +16,12 @@ There are several predefined injected objects which can be used directly from th
 * *datasource* - the default JDBC [Datasource](http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) configured at server instance level.
 
 * *db* - an utillity object with methods:
-	* 'int createSequence(String sequenceName, int start)'
-	* 'int getNext(String sequenceName)'
-	* 'int dropSequence(String sequenceName)'
-	* 'boolean existSequence(String sequenceName)'
-	* 'String createLimitAndOffset(String limit, String offset)' - used for paging
-	* 'String createTopAndStart(int limit, int offset)' - used for paging
+	* <code>int createSequence(String sequenceName, int start)</code>
+	* <code>int getNext(String sequenceName)</code>
+	* <code>int dropSequence(String sequenceName)</code>
+	* <code>boolean existSequence(String sequenceName)</code>
+	* <code>String createLimitAndOffset(String limit, String offset)</code> - used for paging
+	* <code>String createTopAndStart(int limit, int offset)</code> - used for paging
 
 * *request* - the standard [HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html) object
 
