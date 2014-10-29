@@ -34,12 +34,12 @@ There are several predefined injected objects which can be used directly from th
 * *io* - Apache Commons [IOUtils](http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/IOUtils.html)
 
 * *http* - Apache Commons [Http Client](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/overview-tree.html) wrapped utility object with methods:
-	* [HttpGet](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpGet.html) createGet(String strURL)
-	* [HttpPost](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPost.html) createPost(String strURL)
-	* [HttpPut](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPut.html) createPut(String strURL)
-	* [HttpDelete](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpDelete.html) createDelete(String strURL)
-	* [DefaultHttpClient](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/client/DefaultHttpClient.html) createHttpClient()
-	* void consume([HttpEntity](http://hc.apache.org/httpcomponents-core-4.2.x/httpcore/apidocs/org/apache/http/HttpEntity.html) entity)
+	* <code>[HttpGet](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpGet.html) createGet(String strURL)</code>
+	* [HttpPost](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPost.html) <code>createPost(String strURL)</code>
+	* [HttpPut](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPut.html) <code>createPut(String strURL)</code>
+	* [HttpDelete](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpDelete.html) <code>createDelete(String strURL)</code>
+	* [DefaultHttpClient](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/client/DefaultHttpClient.html) <code>createHttpClient()</code>
+	* <code>void consume([HttpEntity](http://hc.apache.org/httpcomponents-core-4.2.x/httpcore/apidocs/org/apache/http/HttpEntity.html) entity)</code>
 
 * *base64* - Apache Commons Codecs [Base64](http://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/Base64.html)
 * *hex* - Apache Commons Codecs [Hex](http://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/Hex.html)
