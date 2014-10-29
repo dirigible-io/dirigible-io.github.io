@@ -7,27 +7,27 @@ icon: fa-question-circle
 API
 ===
 
-There are several predefined injected objects, which can be used directly from the script code:
+There are several predefined injected objects which can be used directly from the script code:
 
-* *context* - a standard [Map](http://docs.oracle.com/javase/6/docs/api/java/util/Map.html) that can be used as a context holder during the execution
+* *context* - a standard [Map](http://docs.oracle.com/javase/6/docs/api/java/util/Map.html) that can be used as a context holder during execution.
 
-* *out* - the standard [System](http://docs.oracle.com/javase/7/docs/api/java/lang/System.html) output, which is redirected to the trace file
+* *out* - the standard [System](http://docs.oracle.com/javase/7/docs/api/java/lang/System.html) output, which is redirected to the trace file.
 
-* *datasource* - the default JDBC [Datasource](http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) configured at server instance level
+* *datasource* - the default JDBC [Datasource](http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) configured at server instance level.
 
 * *db* - an utillity object with methods:
-	* int createSequence(String sequenceName, int start)
-	* int getNext(String sequenceName)
-	* int dropSequence(String sequenceName)
-	* boolean existSequence(String sequenceName)
-	* String createLimitAndOffset(String limit, String offset) - used for paging
-	* String createTopAndStart(int limit, int offset) - used for paging
+	* 'int createSequence(String sequenceName, int start)'
+	* 'int getNext(String sequenceName)'
+	* 'int dropSequence(String sequenceName)'
+	* 'boolean existSequence(String sequenceName)'
+	* 'String createLimitAndOffset(String limit, String offset)' - used for paging
+	* 'String createTopAndStart(int limit, int offset)' - used for paging
 
 * *request* - the standard [HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html) object
 
 * *response* - the standard [HttpServletResponse](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html) object
 
-* *user* - the name of the current logged in user
+* *user* - the name of the current logged-in user
 
 * *repository* - the reference to Dirigible Content Repository
 
@@ -49,7 +49,7 @@ There are several predefined injected objects, which can be used directly from t
 * *upload* - Apache Commons [File Upload Servlet](http://commons.apache.org/proper/commons-fileupload/apidocs/org/apache/commons/fileupload/servlet/ServletFileUpload.html)
 
 * *url* - [URLEncode](http://docs.oracle.com/javase/6/docs/api/java/net/URLEncoder.html) and [URLDecoder](http://docs.oracle.com/javase/6/docs/api/java/net/URLDecoder.html) wrapped in an object with methods:
-	* void encode(String s, String enc) and 
+	* void encode(String s, String enc)  
 	* void decode(String s, String enc)
 
 * *uuid* - Universally Unique Identifier ([UUID](http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html)) 128-bit generator
@@ -60,12 +60,12 @@ There are several predefined injected objects, which can be used directly from t
 
 * *indexer* - utility uses [Apache Lucene](http://lucene.apache.org/). *getIndex([index name])* returns a [CustomMemoryIndexer](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/lucene/CustomMemoryIndexer.html) instance
 
-* *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. *toHtml([confluence text])* render it as HTML as also shown [here](../samples/confluence_to_html.html).
+* *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. *toHtml([confluence text])* render it as HTML, as also shown [here](../samples/confluence_to_html.html).
 
 * *storage* - simple binary storage - *put(path, data)*, *get(path)*, *clear()* and *delete(path)* are supported
 
 * *xml* - XML to JSON and vice-versa - *toJson(xmlString)* and *fromJson(jsonString)*
 
-Full Javadoc can be found [here](http://www.dirigible.io/apidocs)
+Full Javadoc can be found at [Dirigible API](http://www.dirigible.io/apidocs).
 
-Samples about how to use the APIs can be found [here](http://samples.dirigible.io)
+Samples about how to use the APIs can be found at [Dirigible Samples](http://samples.dirigible.io).
