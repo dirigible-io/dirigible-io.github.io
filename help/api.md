@@ -35,10 +35,10 @@ There are several predefined injected objects which can be used directly from th
 
 * *http* - Apache Commons [Http Client](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/overview-tree.html) wrapped utility object with methods:
 	* <code>[HttpGet](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpGet.html) createGet(String strURL)</code>
-	* [HttpPost](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPost.html) <code>createPost(String strURL)</code>
-	* [HttpPut](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPut.html) <code>createPut(String strURL)</code>
-	* [HttpDelete](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpDelete.html) <code>createDelete(String strURL)</code>
-	* [DefaultHttpClient](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/client/DefaultHttpClient.html) <code>createHttpClient()</code>
+	* <code>[HttpPost](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPost.html) createPost(String strURL)</code>
+	* <code>[HttpPut](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPut.html) createPut(String strURL)</code>
+	* <code>[HttpDelete](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpDelete.html) createDelete(String strURL)</code>
+	* <code>[DefaultHttpClient](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/client/DefaultHttpClient.html) createHttpClient()</code>
 	* <code>void consume([HttpEntity](http://hc.apache.org/httpcomponents-core-4.2.x/httpcore/apidocs/org/apache/http/HttpEntity.html) entity)</code>
 
 * *base64* - Apache Commons Codecs [Base64](http://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/Base64.html)
@@ -49,8 +49,8 @@ There are several predefined injected objects which can be used directly from th
 * *upload* - Apache Commons [File Upload Servlet](http://commons.apache.org/proper/commons-fileupload/apidocs/org/apache/commons/fileupload/servlet/ServletFileUpload.html)
 
 * *url* - [URLEncode](http://docs.oracle.com/javase/6/docs/api/java/net/URLEncoder.html) and [URLDecoder](http://docs.oracle.com/javase/6/docs/api/java/net/URLDecoder.html) wrapped in an object with methods:
-	* void encode(String s, String enc)  
-	* void decode(String s, String enc)
+	* <code>void encode(String s, String enc)</code>  
+	* <code>void decode(String s, String enc)</code>
 
 * *uuid* - Universally Unique Identifier ([UUID](http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html)) 128-bit generator
 
@@ -58,13 +58,13 @@ There are several predefined injected objects which can be used directly from th
 
 * *extensionManager* - the [object](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/extensions/ExtensionManager.html) holding the [extension points and extensions](extension_definitions.html) meta-data.
 
-* *indexer* - utility uses [Apache Lucene](http://lucene.apache.org/). *getIndex([index name])* returns a [CustomMemoryIndexer](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/lucene/CustomMemoryIndexer.html) instance
+* *indexer* - utility uses [Apache Lucene](http://lucene.apache.org/). Method <code>getIndex([index name])</code> returns a [CustomMemoryIndexer](http://www.dirigible.io/apidocs/com/sap/dirigible/repository/ext/lucene/CustomMemoryIndexer.html) instance
 
-* *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. *toHtml([confluence text])* render it as HTML, as also shown [here](../samples/confluence_to_html.html).
+* *wiki* - [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) to HTML converter utility. Method <code>toHtml([confluence text])</code> renders it as HTML, as also shown [here](../samples/confluence_to_html.html).
 
-* *storage* - simple binary storage - *put(path, data)*, *get(path)*, *clear()* and *delete(path)* are supported
+* *storage* - simple binary storage - <code>put(path, data)</code>, <code>get(path)</code>, <code>clear()</code> and <code>delete(path)</code> are supported
 
-* *xml* - XML to JSON and vice-versa - *toJson(xmlString)* and *fromJson(jsonString)*
+* *xml* - XML to JSON and vice-versa: <code>toJson(xmlString)</code> and <code>fromJson(jsonString)</code>
 
 Full Javadoc can be found at [Dirigible API](http://www.dirigible.io/apidocs).
 
