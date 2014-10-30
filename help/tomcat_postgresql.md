@@ -9,29 +9,27 @@ Setup on Tomcat with PostgreSQL
 ===
 
 
-Tomcat
----
+**Tomcat**
 
 Download and unpack Apache Tomcat 7.0.x from [here](http://tomcat.apache.org/download-70.cgi).
 
-PostgreSQL
----
+**PostgreSQL**
 
-Install postgresql on Linux (Debian based) with:
+Install *postgresql* on Linux (Debian-based) with:
 
 > sudo apt-get update
+
 > sudo apt-get install postgresql postgresql-contrib
 
-Create Database
----
+**Create Database**
 
-Create the default database for dirigible:
+Create the default database for Dirigible:
 
 > sudo -i -u postgres
+
 > createdb dirigible_database
 
-Create system user for dirigible database
----
+**Create system user for Dirigible database**
 
 > psql dirigible_database
 
@@ -39,13 +37,11 @@ Create system user for dirigible database
 
 > grant all on database dirigible_database to dirigible_system;
 
-Datasource Configuration
----
+**Datasource Configuration**
 
-Download the postgresql JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html)
-Copy postgresql-*.jar file to <TOMCAT_HOME>/lib directory.
-
-Open the file <TOMCAT_HOME>/conf/context.xml and add the following within the context:
+1. Download the *postgresql* JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
+2. Copy **postgresql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
+3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
 <pre><code>
     < Resource name="jdbc/DefaultDB" auth="Container"
@@ -54,16 +50,16 @@ Open the file <TOMCAT_HOME>/conf/context.xml and add the following within the co
           username="dirigible_system" password="dirigible1234" maxActive="20" maxIdle="10" maxWait="-1"/>
 </code></pre>
 
-Deploy
----
+**Deploy**
 
-Copy the deployable artifacts to <TOMCAT_HOME>/webapps.
+Copy the deployable artifacts to *<TOMCAT_HOME>/webapps*.
 
-Start
----
+**Start**
 
-Run Tomcat server via strtup.sh 
+Run Tomcat server via *strtup.sh*. 
 
-The IDE should be available at: *http://localhost:8080/com.sap.dirigible.ide-[version]/ide/index.html*
-or at: *http://localhost:8080/dirigible-ide/ide/index.html*, if you follow the best practices and have renamed the produced *.war files for the local Tomcat setup 
+The IDE should be available at the following locations: 
+
+* *http://localhost:8080/com.sap.dirigible.ide-[version]/ide/index.html*
+* *http://localhost:8080/dirigible-ide/ide/index.html* (in case you follow the best practices and have renamed the produced WAR files for the local Tomcat setup)
 
