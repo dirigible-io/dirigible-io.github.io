@@ -76,7 +76,6 @@ var library1 = require('sample_project/library1');
 
 > Relative paths ('.', '..') are not supported. The project name must be explicitly defined.
 
-
 Ruby
 ---
 
@@ -126,3 +125,56 @@ Module (module1.groovy):
     }
 }
 </code></pre>
+
+Java
+---
+
+Beyond the scope of scripting runtimes, we can benefit from the mature, well known and type safety [Java](http://en.wikipedia.org/wiki/Java_(programming_language)). 
+Taking advantage from the standard and third-party class libraries is crucial, when writing enterprise software
+
+Services
+---
+
+Combining the idea of [injected](http://www.dirigible.io/help/api.html) objects in the execution context and the [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification, results in very familiar and handy code:
+
+<pre><code>package test.src.java;
+
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class HelloWorld {
+
+    public void service(HttpServletRequest request, HttpServletResponse response, Map<String, Object> scope) throws Exception {
+        response.getWriter().println("Hello World!");
+        response.setContentType("text/html");
+    }
+}
+</code></pre>
+
+Classes
+---
+
+Except the [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) like classes, we can create ordinary objects, [POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object), while making the best of inheritance, polymorphism, generics and so on.
+
+<pre><code>package test.src.java;
+
+public class Calculator {
+
+    public static int sum(int x, int y) {
+        return x + y;
+    }
+}
+</code></pre>
+
+The final structure of the project looks like:
+<pre><code>
+test
+    |_ScriptingServices
+                       |_src
+                            |_test
+                                  |_HelloWorld.java
+                                  |_Calculator.java
+</code></pre>
+
+> Note that the package name starts with the name of the project *test* and continues with the subfolders under *ScriptingServices*
