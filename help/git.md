@@ -13,6 +13,8 @@ Goal: providing the simplest way to synchronize sources with the remote source c
 
 ###Available Commands### 
 
+jkwhfjkwhfqj
+
 *	*Clone* - clones remote Git repository to the toolkit as a project.
 
 > Constraint: Remote Git repository must contain only one project.

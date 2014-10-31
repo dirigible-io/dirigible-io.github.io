@@ -23,7 +23,7 @@ Ideally, the markup should be _readable_ and even *clearly understandable* when 
  
 After all, we want people to concentrate on words, not on where the angle-brackets should go.
  
-Kinds of Markup
+Kinds of Markup:
 * Text Effects
 * Headings
 * Text Breaks
@@ -41,7 +41,8 @@ Ideally, the markup should be *readable* and even **clearly understandable** whe
  
 After all, we want people to concentrate on words, not on where the angle-brackets should go.
  
-Kinds of Markup
+Kinds of Markup:
+
 * Text Effects
 * Headings
 * Text Breaks
