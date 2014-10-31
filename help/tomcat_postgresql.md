@@ -29,7 +29,7 @@ Create the default database for Dirigible:
 
 > createdb dirigible_database
 
-###Create system user for Dirigible database###
+###Create System User for Dirigible Database###
 
 > psql dirigible_database
 

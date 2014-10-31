@@ -8,17 +8,14 @@ group: help-features
 Scripting Services
 ===
 
-JavaScript
----
+###JavaScript###
 
-Services
----
+**Services**	
 
-Primary language used to implement services in Dirigible is JavaScript. Being quite popular as a client-side scripting, it became also prefered language for server-side business logic as well.
-For the underlying execution engine is used the most mature JavaScript engine written in Java - [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) by Mozilla.
-You can write your algorithms in *.js files and store them within the ScriptingServices folder. After the Activation or Publishing they can be executed by accessing the endpoint respectively at the [sandbox](activation.html) or [public registry](publication.html).
+Primary language used to implement services in Dirigible is JavaScript. Being quite popular as client-side scripting, it became also the preferable language for server-side business logic. For the underlying execution engine is used the most mature JavaScript engine written in Java - [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) by Mozilla.
+You can write your algorithms in ***.js** files and store them within the *ScriptingServices* folder. After the activation or publishing, they can be executed by accessing the endpoint at [sandbox](activation.html) or [public registry](publication.html), respectively.
 
-An example JavaScript service looks like this:
+Exemplary JavaScript service:
 
 <pre><code>var systemLib = require('system');
 
@@ -43,12 +40,11 @@ response.getWriter().close();
 This example shows two major benefits:
 
 *	Modularization based on built-in [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) ('require' function on the first line)
-*	Native usage of the Java objects as [API](api.html) injected in the execution context (database, response)
+*	Native usage of Java objects as [API](api.html) injected in the execution context (database, response)
 
-Libraries (Modules)
----
+###Libraries (Modules)###
 
-You can create your own library modules in *.jslib files. Just do not forget to add the public parts in the *exports*.
+You can create your own library modules in ***.jslib** files. Just do not forget to add the public parts in the *exports*.
 
 <pre><code>exports.generateGuid = function() {
     var guid = uuid.randomUUID();
@@ -58,9 +54,9 @@ You can create your own library modules in *.jslib files. Just do not forget to 
 
 > The libraries are not directly exposed as services, hence they do not have accessible endpoints in the registry.
 
-The reference of the library module from the service is done by using the standard function *require()* where the parameter is the location of the module constructed as follows:
-*<project_name>/<module_path>*
-Module path includes the full path to the module in the project structure without the predefined folder ScriptingServices and also without the extension *.jslib.
+The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module constructed as follows: **<project_name>/<module_path>**
+
+Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension ***.jslib**.
 
 
 <pre><code>/sample_project
@@ -77,22 +73,19 @@ var library1 = require('sample_project/library1');
 > Relative paths ('.', '..') are not supported. The project name must be explicitly defined.
 
 
-Ruby
----
+###Ruby###
 
-Language which also expanding its popularity in web development scenarios last years is [Ruby](http://www.ruby-lang.org/en/).
-You can use also the standard modularization provided by the language as well as the injected context objects in the same way as in JavaScript.
-The execution engine used as runtime container is [jRuby](http://jruby.org/)
+Language which also expands its popularity in Web development scenarios last years is [Ruby](http://www.ruby-lang.org/en/). You can also use the standard modularization provided by the language, as well as the injected context objects in the same way as in JavaScript. The execution engine used as runtime container is [jRuby](http://jruby.org/)
 
-Example service which has reference to a module can be generated from the Scripting Services wizard directly:
+Below is an example service that has reference to a module and can be generated directly from the *Scripting Services* wizard.
 
-Service (sample.rb):
+**Service (sample.rb):**
 
 <pre><code>require "/sample_project/module1"
 Module1.helloworld("Jim")
 </code></pre>
 
-and Module (module1.rb):
+**Module (module1.rb):**
 
 <pre><code>module Module1
   def self.helloworld(name)
@@ -102,23 +95,22 @@ and Module (module1.rb):
 end
 </code></pre>
 
-> Note that in Ruby you have to put a dollar sign ('$') in the beginning of the API objects ($response) as they are global objects
+> Note that in Ruby you have to put a dollar sign ('$') in the beginning of the API objects ($response) as they are global objects.
 
-Groovy
----
+###Groovy###
 
-Groovy is yet another powerful language for web development nowadays with its static types, OOP abilities and many more.
+Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and many more.
 
 Corresponding examples in Groovy:
 
-Service (sample.groovy):
+**Service (sample.groovy):**
 <pre><code>import sample_project.module1;
 
 def object = new Module1();
 object.hello(response);
 </code></pre>
 
-Module (module1.groovy):
+**Module (module1.groovy):**
 
 <pre><code>class Module1{
     void hello(def response){
