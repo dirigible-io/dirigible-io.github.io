@@ -9,17 +9,17 @@ Features
 ===
 
 * [*Data Structures*](data_structures.html)
-	* Creation of table model (JSON formatted ***.table** descriptor) and actual creation of the corresponding database table during activation.
-	* Creation of view model (JSON formatted ***.view** descriptor) and actual creation of the corresponding database view during activation.
-	* Creation of delimiter separated values (***.dsv**) data files and populating the corresponding database table during activation.
-	* Importing of data files (***.dsv**) on the fly as direct update to corresponding table.
+	* Creation of table model (JSON formatted **\*.table** descriptor) and actual creation of the corresponding database table during activation.
+	* Creation of view model (JSON formatted **\*.view** descriptor) and actual creation of the corresponding database view during activation.
+	* Creation of delimiter separated values (**\*.dsv**) data files and populating the corresponding database table during activation.
+	* Importing of data files (**\*.dsv**) on the fly as direct update to corresponding table.
 	* Automatic altering of existing tables from the models on compatible changes (new columns added).
 * [*Extension Definitions*](extension_definitions.html)
 	* Creation of extension points (JSON formatted descriptor)
 	* Creation of extensions by a given extension point (JSON formatted descriptor)
 * [*Scripting Services*](scripting_services.html)
-	* Support of **JavaScript** language by using Mozilla Rhino as runtime container (***.js**)
-	* Support of **CommonJS** based modularization of JavaScript services (***.jslib**)
+	* Support of **JavaScript** language by using Mozilla Rhino as runtime container (**\*.js**)
+	* Support of **CommonJS** based modularization of JavaScript services (**\*.jslib**)
 	* Support of **Ruby** language by using jRuby as runtime container along with the standard for the language modularization
 	* Support of **Groovy** language by using Groovy as runtime container along with the standard for the language modularization
 	* Support of predefined API as injected global objects (request, response, datasource, httpclient, repository, etc.) for all supported languages
@@ -43,7 +43,7 @@ Features
 	* *Repository* perspective for low-level repository content management
 * [*Security*](security.html)
 	* Role based access management
-	* Security Constraints Model (JSON formatted ***.access**) support
+	* Security Constraints Model (JSON formatted **\*.access**) support
 	* Several predefined roles, which can be used out-of-the-box (*Everyone*, *Administrator*, *Manager*, *PowerUser*, *User*, *ReadWrite*, *ReadOnly*)
 * [*Registry*](registry.html)
 	* Activation support - exposing the artifacts from the user's workspace publicly 

@@ -25,7 +25,7 @@ This feature can be also used for importing sample projects from public sources,
 
 ###Backup Data###
 
-Except creating backup of the project, it is good practice to have backup of the content. This can be easily done by exporting tables data into *.dsv* files.
+Except creating backup of the project, it is good practice to have backup of the content. This can be easily done by exporting tables data into **\*.dsv** files.
 
 ![Select Table for Export](images/features/backup/data.png)
 
