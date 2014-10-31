@@ -13,7 +13,7 @@ Scripting Services
 **Services**	
 
 Primary language used to implement services in Dirigible is JavaScript. Being quite popular as client-side scripting, it became also the preferable language for server-side business logic. For the underlying execution engine is used the most mature JavaScript engine written in Java - [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) by Mozilla.
-You can write your algorithms in ***.js** files and store them within the *ScriptingServices* folder. After the activation or publishing, they can be executed by accessing the endpoint at [sandbox](activation.html) or [public registry](publication.html), respectively.
+You can write your algorithms in **\*.js** files and store them within the *ScriptingServices* folder. After the activation or publishing, they can be executed by accessing the endpoint at [sandbox](activation.html) or [public registry](publication.html), respectively.
 
 Exemplary JavaScript service:
 
@@ -44,7 +44,7 @@ This example shows two major benefits:
 
 ###Libraries (Modules)###
 
-You can create your own library modules in ***.jslib** files. Just do not forget to add the public parts in the *exports*.
+You can create your own library modules in **\*.jslib** files. Just do not forget to add the public parts in the *exports*.
 
 <pre><code>exports.generateGuid = function() {
     var guid = uuid.randomUUID();
@@ -56,7 +56,7 @@ You can create your own library modules in ***.jslib** files. Just do not forget
 
 The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module constructed as follows: **<project_name>/<module_path>**
 
-Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension ***.jslib**.
+Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension **\*.jslib**.
 
 
 <pre><code>/sample_project

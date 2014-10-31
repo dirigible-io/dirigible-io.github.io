@@ -28,7 +28,7 @@ There are several predefined roles coming by default, which can be used for dyna
 > More roles can be added only via custom build of the Dirigible's Runtime component.
 
 1. As soon as the Roles definition is well [standardized](http://docs.oracle.com/javaee/5/tutorial/doc/bncav.html#bncay), *User*/*Principals* to Roles assignments are platform specific. For SAP HANA Cloud Platfrom, you can refer at [SAP_HANA_Cloud.pdf](https://help.hana.ondemand.com/help/SAP_HANA_Cloud_Platform.pdf) -> section **1.3.10.3.1**.
-2. Once we have defined the roles and the User-to-Roles assignments, it comes the definition of the protected resources. It can be done by a simple JSON formatted ***.access** file under the *SecurityConstraints* project's sub-folder. 
+2. Once we have defined the roles and the User-to-Roles assignments, it comes the definition of the protected resources. It can be done by a simple JSON formatted **\*.access** file under the *SecurityConstraints* project's sub-folder. 
 3. A wizard generates the sample **main.access** file, which looks like this:
 <pre><code>[
   {

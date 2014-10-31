@@ -16,7 +16,7 @@ on-premise service, public service, etc). Both inbound and outbound services are
 
 ###Routes###
 
-The term *Route* is directly taken from the Apache Camel context and refers to *definition of routing rules*. The extension of the definition file is ***.routes**.
+The term *Route* is directly taken from the Apache Camel context and refers to *definition of routing rules*. The extension of the definition file is **\*routes**.
 
 Sample route descriptor looks like this:
 
