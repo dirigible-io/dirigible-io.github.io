@@ -11,7 +11,8 @@ Git Integration
 There is a Git connector for team development in the cloud toolkit. 
 Goal: providing the simplest way to synchronize sources with the remote source control repository, and to leave the more complex operations (e.g. merging) for external tools.
 
-###Available commands### 
+###Available Commands### 
+
 *	*Clone* - clones remote Git repository to the toolkit as a project.
 
 > Constraint: Remote Git repository must contain only one project.

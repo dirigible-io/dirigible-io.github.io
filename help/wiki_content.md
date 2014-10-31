@@ -50,19 +50,17 @@ Kinds of Markup
 
 ----
 
-Templating
----
+###Templating###
 
-Simple templating is also supported similar to [web content](web_content.html):
+Simple templating is supported similar to [web content](web_content.html):
 
-*	*header.html* is a special page, which is recognized as a static header, so that, if exists, it is rendered in the beginning of a requested regular page
-*	*footer.html* is a special page, which is recognized as a static footer, so that, if exists, it is rendered in the end of a requested regular page
-*	*nohf* is a parameter, which can be added to the request URL to disable adding of header and footer
+*	*header.html* - a special page, which is recognized as a static header so that, if exists, it is rendered in the beginning of a requested regular page.
+*	*footer.html* - a special page, which is recognized as a static footer so that, if exists, it is rendered at the end of a requested regular page.
+*	*nohf* - a parameter, which can be added to the request URL to disable adding of header and footer.
 
-Sample Pages
----
+###Sample Pages###
 
-Sample header and footer as well as navigation page could look like:
+Sample header and footer, as well as navigation page could look like:
 
 *	[header.html](wiki_sample_header.txt)
 *	[footer.html](wiki_sample_footer.txt)
@@ -74,15 +72,13 @@ Sample header and footer as well as navigation page could look like:
 ...
 </code></pre>
 
-and of course some custom css for the wiki content
+And of course, some custom CSS for the wiki content:  [wiki.css](wiki_sample_css.txt)
 
-* [wiki.css](wiki_sample_css.txt)
 
-Batch of Wiki Pages
----
+###Batch of Wiki Pages###
 
-Sometimes it is helpful to combine several already existing pages to a single page. 
-For this purpose you have to create a file with extension \*.wikis and to list in it all the wiki pages that you want to merge.
+Sometimes it is helpful to combine several already existing pages into a single page. 
+For this purpose, you have to create a file with extension **\*.wikis** and to list in it all wiki pages that you want to merge.
 
 File: *single.wikis*
 
