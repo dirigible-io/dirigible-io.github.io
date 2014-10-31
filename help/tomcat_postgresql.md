@@ -9,11 +9,11 @@ Setup on Tomcat with PostgreSQL
 ===
 
 
-**Tomcat**
+###Tomcat###
 
 Download and unpack Apache Tomcat 7.0.x from [here](http://tomcat.apache.org/download-70.cgi).
 
-**PostgreSQL**
+###PostgreSQL###
 
 Install *postgresql* on Linux (Debian-based) with:
 
@@ -21,7 +21,7 @@ Install *postgresql* on Linux (Debian-based) with:
 
 > sudo apt-get install postgresql postgresql-contrib
 
-**Create Database**
+###Create Database###
 
 Create the default database for Dirigible:
 
@@ -29,7 +29,7 @@ Create the default database for Dirigible:
 
 > createdb dirigible_database
 
-**Create system user for Dirigible database**
+###Create system user for Dirigible database###
 
 > psql dirigible_database
 
@@ -37,7 +37,7 @@ Create the default database for Dirigible:
 
 > grant all on database dirigible_database to dirigible_system;
 
-**Datasource Configuration**
+###Datasource Configuration###
 
 1. Download the *postgresql* JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
 2. Copy **postgresql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
@@ -50,11 +50,11 @@ Create the default database for Dirigible:
           username="dirigible_system" password="dirigible1234" maxActive="20" maxIdle="10" maxWait="-1"/>
 </code></pre>
 
-**Deploy**
+###Deploy###
 
 Copy the deployable artifacts to *<TOMCAT_HOME>/webapps*.
 
-**Start**
+###Start###
 
 Run Tomcat server via *strtup.sh*. 
 
