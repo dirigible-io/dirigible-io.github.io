@@ -122,13 +122,11 @@ object.hello(response);
 
 ###Java###
 
-Beyond the scope of scripting runtimes, we can benefit from the mature, well known and type safety [Java](http://en.wikipedia.org/wiki/Java_(programming_language). 
-Taking advantage from the standard and third-party class libraries is crucial, when writing enterprise software
+Beyond the scope of scripting runtimes, we can benefit from the mature and well known [Java](http://en.wikipedia.org/wiki/Java_programming_language). Taking advantage from the standard and third-party class libraries is crucial when writing enterprise software.
 
-Services
----
+**Services**
 
-Combining the idea of [injected](http://www.dirigible.io/help/api.html) objects in the execution context and the [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification, results in very familiar and handy code:
+Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in very familiar and handy code:
 
 <pre><code>package test.src.java;
 
@@ -145,10 +143,9 @@ public class HelloWorld {
 }
 </code></pre>
 
-Classes
----
+**Classes**
 
-Except the [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) like classes, we can create ordinary objects, [POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object), while making the best of inheritance, polymorphism, generics and so on.
+Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary objects ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)), while making the best of inheritance, polymorphism, generics, and so on.
 
 <pre><code>package test.src.java;
 
@@ -160,7 +157,8 @@ public class Calculator {
 }
 </code></pre>
 
-The final structure of the project looks like:
+The final project structure looks like this:
+
 <pre><code>
 test
     /ScriptingServices
@@ -170,4 +168,4 @@ test
                                  /Calculator.java
 </code></pre>
 
-> Note that the package name starts with the name of the project *test* and continues with the subfolders under *ScriptingServices*
+> Note that the package name starts with the name of the *test* project, followed by the subfolders names under *ScriptingServices*.
