@@ -170,11 +170,11 @@ public class Calculator {
 The final structure of the project looks like:
 <pre><code>
 test
-    |_ScriptingServices
-                       |_src
-                            |_test
-                                  |_HelloWorld.java
-                                  |_Calculator.java
+    /ScriptingServices
+                      /src
+                           /test
+                                 /HelloWorld.java
+                                 /Calculator.java
 </code></pre>
 
 > Note that the package name starts with the name of the project *test* and continues with the subfolders under *ScriptingServices*
