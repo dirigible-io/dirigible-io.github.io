@@ -8,26 +8,24 @@ group: help-features
 Backup - Project Import and Export
 ===
 
-There is a possibility to export and import content of a given project or multiple projects as a zip archive for e.g. backup purposes. This is the simplest yet fastest way to transfer project content to Dirigible.
-The actions are available thru the main or pop-up menu
+It is possible for you to export and import content of a given project or multiple projects as a ZIP archive. This is the simplest and fastest way to transfer project content to Dirigible. The actions are available through both the main and the context menu.
 
-Export
+###Export###
 
 ![Project Export](../samples/bookstore/102_books_project_export.png)
 
-and Import
+###Import###
 
 ![Project Import](../samples/bookstore/103_books_project_import.png)
 
-> You can use this functionality also in cases of mass import of project artifacts - e.g. images in the web content
 
-This feature can be used also for import of sample projects from public sources or sharing of projects between accounts, although for real team source management the recommended approach is via [Git](git.html).
+> You can use this functionality also in the case of mass import of project artifacts - for example, images in the Web content.
 
-Backup Data
----
+This feature can be also used for importing sample projects from public sources, or for sharing projects between accounts (although for real team-source management, the recommended approach is via [Git](git.html)).
 
-Except creating backup of the project it is good practice to have backup of the content.
-This can be easily done by exporting tables data into *.dsv* files.
+###Backup Data###
+
+Except creating backup of the project, it is good practice to have backup of the content. This can be easily done by exporting tables data into **\*.dsv** files.
 
 ![Select Table for Export](images/features/backup/data.png)
 

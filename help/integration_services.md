@@ -8,18 +8,15 @@ group: help-features
 Integration Services
 ===
 
-Overview
----
+###Overview###
 
-Integration Services are the connection points between the application logic and the external services - 3-thd party cloud services, 
-On-Premise services, public services, etc. There are support for in-bound as well as the out-bound services - consumption and provisioning. 
-By utilizing one of the most mature and well known framework as underlying technology - 
+An _Integration Service_ is the connection point between the application logic and an external service (third party cloud service, 
+on-premise service, public service, etc). Both inbound and outbound services are supported, through consumption and provisioning. By utilizing one of the most mature and well known framework as underlying technology - 
 [Apache Camel](http://camel.apache.org/), there are lots of ready-to-use integration patterns.
 
-Routes
----
+###Routes###
 
-The term *Route* is directly taken from the Apache Camel's context and refers to *definition of routing rules*. The extension of the definition file is "\*.routes"
+The term *Route* is directly taken from the Apache Camel context and refers to *definition of routing rules*. The extension of the definition file is **\*routes**.
 
 Sample route descriptor looks like this:
 
@@ -43,18 +40,17 @@ Sample route descriptor looks like this:
 < /routes>
 </code></pre>
 
-The original source is [here](http://camel.apache.org/content-based-router.html)
+You can find the original source [here](http://camel.apache.org/content-based-router.html).
 
-Once you [activate|activation.wiki] or [publish|publishing.wiki] the project the route descriptor is read by the runtime agent and the route is enabled in the container.
-The end-point of such an integration service is exposed by the Camel container at the location constructed by the following pattern:
+Once you [Activate](activation.wiki) or [Publish](publishing.wiki) the project, the route descriptor is read by the runtime agent, and the route is enabled in the container. 
 
-The pattern for the endpoint location of routes:
+The endpoint of such an integration service is exposed by the Camel container at the location constructed by the following pattern:
 
-> *http //[host]:[port]/dirigible/camel/[servlet name - (from uri="servlet:///XXX")]*
+> *http //<host>:<port>/dirigible/camel/<servlet name - (from uri="servlet:///XXX")>*
 
-e.g.
+For example:
 
-> *http //[host]:[port]/dirigible/camel/simple_routing_endpoint*
+> *http //my.dev.host:12345/dirigible/camel/simple_routing_endpoint*
 
-More information about the supported integration patterns can be found at the [samples](../samples/index.wiki) portal.
+For more information about the supported integration patterns, see [Samples](../samples).
 
