@@ -16,7 +16,7 @@ The default artifacts are:
 *	*DataStructures*          - contains database-related artifacts, such as tables, views, etc. (more info [here](data_structures.html))
 *	*IntegrationServices*     - contains the definitions about the routes and related artifacts (more info [here](integration_services.html))
 *	*ScriptingServices*       - contains the JavaScript, Ruby, Groovy, etc. server-side services and related artifacts (more info [here](scripting_services.html))
-*	*SecurityConstraints *    - contains the access control definitions artifacts (more info [here](security_constraints.html))
+*	*SecurityConstraints*    - contains the access control definitions artifacts (more info [here](security_constraints.html))
 *	*TestCases*               - contains the unit tests for the scripting services and related artifacts (more info [here](test_cases.html))
 *	*WebContent*              - contains the static pages as well as client-side scripting artifacts (more info [here](web_content.html))
 *	*WikiContent*             - contains the confluence-formatted wiki pages and related artifacts (more info [here](wiki_content.html))
