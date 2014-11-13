@@ -13,6 +13,7 @@ The toolkit offers *Debug* functionality. The goal is to facilitate developers i
 ###Debug Perspective###
 
 ![Debugger Debug View](images/features/debugger/5_debugger_debug_view.png)
+
 *	*Sessions* - contains all debug execution sessions.
 *	*Variables/Values* - contains variables and their values, available in the current scope of execution.
 *	*File/Row/Source* - contains inforamation about in witch file and witch row, a *Breakpoint* is set. 
@@ -33,7 +34,7 @@ The toolkit offers *Debug* functionality. The goal is to facilitate developers i
 
 ![Project](images/features/debugger/1_project.png)
 
-*simple_service.js*
+**simple_service.js**:
 <pre><code>
 main();
 
@@ -74,7 +75,7 @@ function createStudent(name, age){
 }
 </code></pre>
 
-*library_jslib*
+**library_jslib**:
 <pre><code>
 exports.generateGuid = function() {
     var guid = ''+uuid.randomUUID();
@@ -82,7 +83,7 @@ exports.generateGuid = function() {
 };
 </code></pre>
 
-*require_service.js*
+**require_service.js**:
 <pre><code>
 var guidGen = require('/DebuggerDemo/library');
 var user = 'Test User';
