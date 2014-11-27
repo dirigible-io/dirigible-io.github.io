@@ -8,7 +8,7 @@ Dirigible User's Guide v1.2
 ===
 
 
-This User's Guide contains the latest documentation available on-line at:
+This User's Guide contains the latest documentation available online at:
 
 > [http://help.dirigible.io](http://help.dirigible.io)
 > 
