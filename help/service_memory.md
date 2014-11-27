@@ -12,7 +12,7 @@ Memory Service dumps the current information from the [Runtime](http://docs.orac
 
 > The endpoint is: */memory*
 
-The result is in JSON format, e.g.:
+The result is in JSON format, for example:
 
 <pre><code>{
   "totalMemory":126353408,

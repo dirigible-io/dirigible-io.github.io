@@ -8,10 +8,10 @@ group: help-services
 Search Service
 ===
 
-Search Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index over the Repository content.
+Search Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index over the *Repository* content.
 
 * Main use case - search by query string
-
+<br></br>
 The endpoint is: */search*
 
 > Parameter: *q*
@@ -21,11 +21,10 @@ The endpoint is: */search*
 > Explicit search for *name* or *path* fields e.g.:
 > 
 > http //[host]:[port]/dirigible/ *search?q=path:<term>*
+<br></br>
+For more information about the query syntax of Apache Lucene, see [Apache Lucene](http://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
 
-
-More info about the query syntax of Apache Lucene can be found [here](http://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
-
-* Hard reindex the memory store
+* Hard reindex of the memory store
 
 > Parameter: *reindex*
 > 

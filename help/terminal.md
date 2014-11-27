@@ -8,9 +8,11 @@ group: help-editors-and-views
 Terminal
 ===
 
-Via the Terminal view you can execute OS commands.
+Via the *Terminal* view, you can execute OS commands.  
 
-Linux Example: *bash -c "ls -al"*
+Examples:
 
-Windows Example: *cmd /c "dir"*
+* Linux OS: *bash -c "ls -al"*
+
+* Microsoft Windows OS: *cmd /c "dir"*
 
