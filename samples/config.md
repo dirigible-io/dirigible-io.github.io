@@ -70,4 +70,5 @@ With REST client, send a **POST** request to the service, with the following bod
 </code></pre>
 
 Then access the **config.js** service in the following manner:
-**http //<host>:<port>/dirigible/services/js/<project-name>/<scripting-service-name>?path=properties&list=true**
+
+> http //[host]:[port]/dirigible/services/js/[project-name]/[scripting-service-name]?path=properties&list=true
