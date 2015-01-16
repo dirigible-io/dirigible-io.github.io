@@ -1,15 +1,15 @@
 ---
 layout: samples
-title: Config Sample
+title: Configuration Sample
 icon: fa-cog
 group: simple
 ---
 
-Config
+Configuration
 ===
 
 
-1. Create a new project or use an existing one.
+1. Create a new project and name it **config_project**
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
@@ -17,7 +17,7 @@ Config
 ![Mail Service 2](images/mail_service/mail_service_2.png)  
 <br></br>
 5. Give the service a meaningful name (e.g **config.js**).
-6. Replace the generated code in <samp>file\_storage\_upload.js</samp> with the following:
+6. Replace the generated code in <samp>config.js</samp> with the following:
 <br></br>
 <pre><code>var ioLib = require("io");
 var method = request.getMethod();
@@ -61,4 +61,13 @@ response.getWriter().close();
 
 > clear() - removes all properties from the storage
 
+With REST client, send a **POST** request to the service, with the following body:
+<pre><code>{  
+   "path": "properties",
+   "key": "key",
+   "value": "test"
+}
+</code></pre>
 
+Then access the **config.js** service in the following manner:
+**http //<host>:<port>/dirigible/services/js/<project-name>/<scripting-service-name>?path=properties&list=true**
