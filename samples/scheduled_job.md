@@ -12,29 +12,26 @@ In real-world applications, there is need of some tasks to be executed in the ba
 For this purpose, we use the well accepted term Job and this example shows how to schedule it to be executed periodically.
 
 1. Create a project **routing**.
-2. Then create a JavaScript service named **service_job.js**.
-3. Within the service code, enter the following content:
-<br></br>
-<pre><code>var systemLib = require('system');
-<br></br>
-systemLib.println('Scheduled Job Triggered at: '  + new Date());
-</code></pre>
-4. From the menu, go to *New* -> *Integration Service*.
-5. Choose **Scheduling Job Triggering a JavaScript Service**.
-6. Enter the following parameters:
+2. From the menu, go to *New* -> *Integration Service*.
+3. Choose **Scheduled Job Triggering a JavaScript Service**.
+4. Enter the following parameters:
 <br></br>
 
-> Route Identifier: *route_js*
+> Route Identifier: *job*
 
-> Endpoint Address: *http //localhost:9001/dirigible/js/routing/service_job.js*
+> Endpoint Address: *endpoint*
 <br></br>
 
-Now click *Finish*. The generated routes artifact should looks like:
-<pre><code>
-< routes xmlns="http://camel.apache.org/schema/spring">
-    < route id="route_job">
-        < from uri="timer://route_job?period=10000&amp;repeatCount=10&amp;fixedRate=true" />
-        < to uri="http://localhost:9001/dirigible/js/routing/service_job.js"/>
-    < /route>
-< /routes>
+Now click *Finish*.
+
+Under the *IntegrationServices* and *ScriptingServices* folders, *job_name.job* and *endpoint.js* files are generated.
+
+The generated **job_name.job** artifact should looks like:
+<pre><code>{
+  "name":"job",
+  "description":"job Description",
+  "expression":"0/5 * * * * ?",
+  "type":"javascript",
+  "module":"/routing/endpoint.js"
+}
 </code></pre>

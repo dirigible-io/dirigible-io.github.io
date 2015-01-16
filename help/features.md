@@ -19,7 +19,7 @@ Features
 	* Creation of extensions by a given extension point (JSON formatted descriptor)
 * [*Scripting Services*](scripting_services.html)
 	* Support of **JavaScript** language by using Mozilla Rhino as runtime container (**\*.js**)
-	* Support of **CommonJS** based modularization of JavaScript services (**\*.jslib**)
+	* Support of **CommonJS** based modularization of JavaScript services (**\*.js**)
 	* Support of **Ruby** language by using jRuby as runtime container along with the standard for the language modularization
 	* Support of **Groovy** language by using Groovy as runtime container along with the standard for the language modularization
 	* Support of predefined API as injected global objects (request, response, datasource, httpclient, repository, etc.) for all supported languages
@@ -29,8 +29,9 @@ Features
 	* Support of Confluence format for wiki pages
 	* Support of customizable header, footer and css for wiki pages
 * [*Integration Services*](integration_services.html)
-	* Support of dynamic routes by using **Apache Camel**
-	* Support of **JavaScript** breakouts in routes
+	* Support of dynamic routes
+	* Shielding services
+	* Job scheduling
 * [*Tooling*](tooling.html)
 	* *Workspace* perspective for full support of project management (New, Cut, Copy, Paste, Delete, Refresh, etc.)
 	* *Database* perspective for RDBMS management including SQL Console

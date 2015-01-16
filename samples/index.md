@@ -21,8 +21,8 @@ Exemplary Samples
 * [Mail Service](mail_service.html) - sends e-mails with only 5 lines of code.
 * [REST Calls](rest_calls.html) - demonstrates how to send REpresentational State Transfer calls to other services.
 * [REST Call with Authorization Header](rest_calls_auth.html) - shows how to add Authorization Header for a REST call.
-* [Simple Routing](simple_routing.html) - provides more advanced topics concerning the integration of your application with external services. The first one shows the most simple integration service you can ever have - RESTful service with simple state-based implementation.
-* [Shielding JavaScript Service](shielding_js.html) - the second one shows how to model your own Web service and expose it by connecting it to a JavaScript service as implementation.
+* [Routing by Parameter](simple_routing.html) - provides more advanced topics concerning the integration of your application with external services. The first one shows the most simple integration service you can ever have - RESTful service with simple state-based implementation.
+* [Shielding a JavaScript Service](shielding_js.html) - the second one shows how to model your own Web service and expose it by connecting it to a JavaScript service as implementation.
 * [Scheduling Job on JavaScript Service](scheduled_job.html) - the next sample shows how to schedule a job that triggers execution of a JavaScript service.
 * Using simple data [storage](storage.html) - demonstrates how to put, get, clear, and delete binary content. 
 * [XML to JSON](xml.html) and vice-versa conversions

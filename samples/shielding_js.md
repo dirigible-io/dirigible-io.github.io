@@ -9,40 +9,43 @@ Shielding JavaScript Service
 ===
 
 Often, by security reasons, the original endpoint of a service should not be exposed directly.
-To make simple redirect from a public endpoint to an internal end-point of a scripting service, we can use the routing functionality from the "**Integration Services**" section.
+To make simple redirect from a public endpoint to an internal end-point of a scripting service, we can use the shielding functionality from the "**Integration Services**" section.
 
 1. Create a project **routing**.
-2. Then create a JavaScript service named **service_impl.js**.
-3. Within the service code, enter the following content:
-<pre><code>var systemLib = require('system');
-systemLib.println("Hello World!");
-response.getWriter().println("Hello World!");
-response.getWriter().flush();
-response.getWriter().close();
-</code></pre>
-4. Using the menu create *New->Integration Service* and choose *Proxy REST Service Shielding a JavaScript Service*
+2. Using the menu create *New->Integration Service* and choose *Shielding a JavaScript Service*
 Enter the parameters:
 
-> Route Identifier: *route_js*
+> Route Identifier: *shiled*
 
-> Endpoint Address: *route_js_endpoint*
-
-> Original Endpoint: *http //localhost:9001/dirigible/js/routing/service_impl.js*
+> Endpoint Address: *endpoint*
 
 Click *Finish*. The generated routes artifact should look like:
-<pre><code>< routes xmlns="http://camel.apache.org/schema/spring">
-    < route id="route_js">
-        < from uri="servlet:///route_js_endpoint" />
-        < to uri="http://localhost:9001/dirigible/js/routing/service_impl.js?bridgeEndpoint=true"/>
-    < /route>
-< /routes>
+<pre><code>{  
+   "name":"shiled",
+   "properties":{
+      "myKey1":"myValue1",
+      "myKey2":"myValue2"
+   },
+   "steps":[  
+      {  
+         "type":"javascript",
+         "module":"/routing/endpoint.js",
+         "name":"1",
+         "properties":{
+            "step1Key1":"step1Value1",
+            "step1Key2":"step1Value2"
+         }
+      }
+   ]
+}
 </code></pre>
 
+Under the *IntegrationServices* and *ScriptingServices* folders, *flow_name.flow* and *endpoint.js* files are generated.
 Now *Activate* ot *Publish* the project. (See [Activate](../help/activation.html) or [Publish](../help/publishing.html))
 <br></br>
 Then, check the result at:
 
-> *http //[host]:[port]/dirigible/camel/route_js_endpoint*
+> *http //[host]:[port]/dirigible/services/flow/routing/flow_name.flow*
 
 In general, you can bridge any local service using this approach.
 
