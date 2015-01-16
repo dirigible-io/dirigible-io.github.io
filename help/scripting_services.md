@@ -44,7 +44,7 @@ This example shows two major benefits:
 
 ###Libraries (Modules)###
 
-You can create your own library modules in **\*.jslib** files. Just do not forget to add the public parts in the *exports*.
+You can create your own library modules in **\*.js** files. Just do not forget to add the public parts in the *exports*.
 
 <pre><code>exports.generateGuid = function() {
     var guid = uuid.randomUUID();
@@ -52,21 +52,21 @@ You can create your own library modules in **\*.jslib** files. Just do not forge
 };
 </code></pre>
 
-> The libraries are not directly exposed as services, hence they do not have accessible endpoints in the registry.
+> Libraries are exposed as services, hence they have accessible endpoints in the registry.
 
 The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module constructed as follows: **<project_name>/<module_path>**
 
-Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension **\*.jslib**.
+Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension **\*.js**.
 
 
 <pre><code>/sample_project
     /ScriptingServices
-        /service1.js
-        /library1.jslib
+        /service.js
+        /library.js
         
-library1.jslib is refered in service1.js:
+library.js is refered in service.js:
 ...
-var library1 = require('sample_project/library1');
+var library = require('sample_project/library');
 ...
 </code></pre>
 
