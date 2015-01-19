@@ -62,11 +62,11 @@ To find the URL, you can go to the **Registry** perspective.
 <br></br>
 The naming convention for the service endpoints URLs is as follows:
 
-> *[protocol]://[host]:[port]/[dirigible's runtime application context]/[scripting container mapping]/[project]/[service path]*
+> *[protocol]://[host]:[port]/[dirigible's runtime application context]/services/js/[project]/[service-name]*
 
 **For example:**
 
-> *https ://dirigibleide.hana.ondemand.com/dirigible/js/bookstore/books.js*
+> *https ://dirigibleide.hana.ondemand.com/dirigible/services/js/bookstore/books.js*
 
 
 The scripting containers mappings are:
