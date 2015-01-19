@@ -36,20 +36,27 @@ if(request.getMethod()=="POST"){
 <br></br>
 <pre><code>if(request.getMethod()=="GET"){
     var fileName = xss.escapeSql(request.getParameter("fileName"));
-    var file = fileStorage.get(fileName);
-    if(file){
-        response.setHeader("content-disposition", "inline");
-        response.setHeader("content-disposition", "attachment; filename="+fileName);
-        response.setContentType(file.contentType);         
-        response.setContentLength(file.data.length);  
-        io.write(file.data, response.getOutputStream());
-    }else{
-        response.getWriter().println("No file with name '" + fileName + "' found");
-        response.setContentType("text/html");
+    if(fileName) {
+        var file = fileStorage.get(fileName);
+        if(file){
+            response.setHeader("content-disposition", "inline");
+            response.setHeader("content-disposition", "attachment; filename="+fileName);
+            response.setContentType(file.contentType);
+        
+            response.setContentLength(file.data.length);
+        
+            io.write(file.data, response.getOutputStream());
+        }else{
+            response.getWriter().println("No file with name '" + fileName + "' found");
+            response.setContentType("text/html");
+        }
+        
+    } else {
+        response.getWriter().println("Please add 'fileName' query parameter.")
     }
 }
 response.getWriter().flush();
-response.getWriter().close();
+response.getWriter().close()
 </code></pre>
 
 > put(path, data, contentType) - add file at given path
@@ -68,8 +75,8 @@ Then, enter the following code inside in the file:
 < html>
 < body>
 
-< form action="/dirigible/js/file_storage/upload.js" method="post" enctype="multipart/form-data">
-< label for="file">Filename:</label>
+< form action="/dirigible/services/js/file_storage/upload.js" method="post" enctype="multipart/form-data">
+< label for="file">Filename:< /label>
 < input type="file" name="file" id="file" multiple>
 < br>
 < input type="submit" name="submit" value="Submit">
