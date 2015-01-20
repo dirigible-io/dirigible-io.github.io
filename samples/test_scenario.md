@@ -1,8 +1,8 @@
 ---
 layout: samples
-title: Test Case
+title: Test Scenario
 icon: fa-gift
-
+group: test
 ---
 
 Test Scenario
