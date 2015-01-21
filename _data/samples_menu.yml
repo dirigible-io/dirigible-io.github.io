@@ -9,3 +9,6 @@ navigation:
   - name: Solution Samples
     icon: fa fa-info
     group: solution
+  - name: Test Scenario
+    icon: fa fa-info
+    group: test    
