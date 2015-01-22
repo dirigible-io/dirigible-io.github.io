@@ -36,6 +36,9 @@ navigation:
   - name: Services
     icon: fa-info
     group: help-services
+  - name: FAQ
+    icon: fa-question
+    url: faq.html
   - name: License
     icon: fa-info
     url: license.html
