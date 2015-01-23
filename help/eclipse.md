@@ -9,9 +9,9 @@ Setup Development Environment on Eclipse
 ===
 
 
-#### Eclipse
 
-The IDE part can be run directly via Eclipse. This is useful when testing new features during development.
+
+Dirigible can be run directly via Eclipse. This is useful when testing new features during development.
 
 ##### Prerequisites
 

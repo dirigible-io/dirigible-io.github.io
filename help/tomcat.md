@@ -9,7 +9,6 @@ Setup on Tomcat
 ===
 
 
-#### Tomcat
 
 The Tomcat specific WAR files can be deployed on [Tomcat](http://tomcat.apache.org/) web container. In this case the built-in Derby database is used.
 

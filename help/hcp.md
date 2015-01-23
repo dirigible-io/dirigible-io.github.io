@@ -9,7 +9,6 @@ Setup on HANA Cloud Platform
 ===
 
 
-#### HANA Cloud Platform
 
 Deploy on [HANA Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
 
