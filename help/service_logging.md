@@ -14,13 +14,13 @@ Logging Service exposes the list of log files as well as their content.
 
 * To list all the available log files, use:
 
-> http //<host>:<port>/dirigible/ *logging*
+> `http //[host]:[port]/[dirigible application context]/ *logging*`
 
 * To retrieve the content of a log file (e.g. *ljs_trace.log*), use:
 
 > Parameter: *log*
 > 
-> http //<host>:<port>/dirigible/ *logging?log=ljs_trace.log*
+> `http //[host]:[port]/[dirigible application context]/ *logging?log=ljs_trace.log*`
 
 
 The user interface in the IDE for accessing the logs is [Log Viewer](log_viewer.html).

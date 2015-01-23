@@ -25,4 +25,4 @@ The result is in JSON format, for example:
 To retrieve the chart compliant data:
 
 > Parameter: *log*
-> The endpoint is: */memory?log*
+> The endpoint is: `*/memory?log*`

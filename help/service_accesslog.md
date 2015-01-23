@@ -15,27 +15,31 @@ Via the Access Logs Service one can manage the locations to be filtered and regi
 For Management of Locations:
 
 <pre>
-GET: http //[host]:[port]/dirigible/ *acclog*
+GET: http //[host]:[port]/[dirigible application context]/ *acclog*
  
-POST: http //[host]:[port]/dirigible/ *acclog* /<project_name>/<location>
+POST: http //[host]:[port]/[dirigible application context]/ *acclog* /<project_name>/<location>
  
-DELETE: http //[host]:[port]/dirigible/ *acclog* /<project_name>/<location>
+DELETE: http //[host]:[port]/[dirigible application context]/ *acclog* /<project_name>/<location>
  
-DELETE: http //[host]:[port]/dirigible/ *acclog* /all
+DELETE: http //[host]:[port]/[dirigible application context]/ *acclog* /all
 
-GET: http //[host]:[port]/dirigible/ *acclog* /locations
+GET: http //[host]:[port]/[dirigible application context]/ *acclog* /locations
 </pre>
 
 For chart compliant data:
 
 Parameter *hitsPerPattern* - hits count calculated grouped by the locations above
-GET: http //[host]:[port]/dirigible/ *acclog* ? *hitsPerPattern*
+
+`GET: http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerPattern*`
 
 Parameter *hitsPerProject* - hits count calculated grouped by the project names
-GET: http //[host]:[port]/dirigible/ *acclog* ? *hitsPerProject*
+
+`GET: http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerProject*`
 
 Parameter *hitsPerURI* - hits count calculated grouped by the actual requested URI
-GET: http //[host]:[port]/dirigible/ *acclog* ? *hitsPerURI*
+
+`GET: http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerURI*`
 
 Parameter *hitsByURI* - hits count calculated grouped hierarchically
-GET: http //[host]:[port]/dirigible/ *acclog* ? *hitsByURI*
+
+`GET: http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsByURI*`

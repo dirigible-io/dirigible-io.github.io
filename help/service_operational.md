@@ -17,10 +17,10 @@ Operational Service exposes some utility functions.
 
 > Parameter: *user*
 > 
-> http //[host]:[port]/dirigible/ *op?user*
+> `http //[host]:[port]/[dirigible application context]/ *op?user*`
 
 * To log-out from the the current user session:
 
 > Parameter: *logout*
 > 
-> http //[host]:[port]/dirigible/ *op?logout*
+> `http //[host]:[port]/[dirigible application context]/ *op?logout*`

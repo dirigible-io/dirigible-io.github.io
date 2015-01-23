@@ -52,7 +52,7 @@ Create the default database for Dirigible:
 
 ###Deploy###
 
-Copy the deployable artifacts to *<TOMCAT_HOME>/webapps*.
+Copy the deployable artifact e.g. `dirigible-all-tomcat-xxx.war` to *<TOMCAT_HOME>/webapps*.
 
 ###Start###
 
@@ -60,6 +60,6 @@ Run Tomcat server via *strtup.sh*.
 
 The IDE should be available at the following locations: 
 
-* *http://localhost:8080/com.sap.dirigible.ide-[version]/ide/index.html*
-* *http://localhost:8080/dirigible-ide/ide/index.html* (in case you follow the best practices and have renamed the produced WAR files for the local Tomcat setup)
+* `http://localhost:8080/dirigible-all-tomcat-xxx/services/index.html` IDE
+* `http://localhost:8080/dirigible-all-tomcat-xxx/services/ui/index.html` Registry
 

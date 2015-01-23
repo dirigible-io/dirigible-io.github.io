@@ -74,30 +74,6 @@ var library = require('sample_project/library');
 
 
 
-###Ruby###
-
-Language which also expands its popularity in Web development scenarios last years is [Ruby](http://www.ruby-lang.org/en/). You can also use the standard modularization provided by the language, as well as the injected context objects in the same way as in JavaScript. The execution engine used as runtime container is [jRuby](http://jruby.org/)
-
-Below is an example service that has reference to a module and can be generated directly from the *Scripting Services* wizard.
-
-**Service (sample.rb):**
-
-<pre><code>require "/sample_project/module1"
-Module1.helloworld("Jim")
-</code></pre>
-
-**Module (module1.rb):**
-
-<pre><code>module Module1
-  def self.helloworld(name)
-    puts "Hello, #{name}"
-    $response.getWriter().println("Hello World!")
-  end
-end
-</code></pre>
-
-> Note that in Ruby you have to put a dollar sign ('$') in the beginning of the API objects ($response) as they are global objects.
-
 ###Groovy###
 
 Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and many more.

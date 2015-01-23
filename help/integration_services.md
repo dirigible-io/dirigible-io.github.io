@@ -13,9 +13,9 @@ Integration Services
 An _Integration Service_ is the connection point between the application logic and an external service (third party cloud service, 
 on-premise service, public service, etc). Both inbound and outbound services are supported, through consumption and provisioning.
 
-###Route###
+###Flow###
 
-The term *Route* is directly taken from the [Apache Camel](http://camel.apache.org/) context and refers to *definition of routing rules*.
+The term *Flow* is used for simplicity to separate this kind of integration services.
 
 The descriptor of the flow looks like this:
 
@@ -68,11 +68,11 @@ Once you [Activate](activation.wiki) or [Publish](publishing.wiki) the project, 
 
 The endpoint of such an integration service is exposed and can be consumed by the following pattern:
 
-> *http //[host]:[port]/dirigible/services/flow/[project-name]/[flow-name]*
+> *http //[host]:[port]/[dirigible application context]/services/flow/[project-name]/[flow-name]*
 
 For example:
 
-> *http //my.dev.host:12345/dirigible/services/flow/project/example.flow*
+> *http //example.com/dirigible/services/flow/project/example.flow*
 
 For more information about the supported integration patterns, see [Samples](../samples).
 
