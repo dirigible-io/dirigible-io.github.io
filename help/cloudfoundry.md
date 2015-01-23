@@ -9,7 +9,7 @@ Setup on CloudFoundry
 ===
 
 
-#### CloudFoundry
+You can deploy Tomcat based WAR files e.g. `dirigible-all-tomcat-xxx.war` produced during the build on any CloudFoundry supported Cloud Platform.
 
 ##### Prerequisites
 
