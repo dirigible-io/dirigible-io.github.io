@@ -54,7 +54,7 @@ You can create your own library modules in **\*.js** files. Just do not forget t
 
 > Libraries are exposed as services, hence they have accessible endpoints in the registry.
 
-The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module constructed as follows: **<project_name>/<module_path>**
+The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module.
 
 Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension **\*.js**.
 
@@ -66,7 +66,7 @@ Module path includes the full path to the module in the project structure withou
         
 library.js is refered in service.js:
 ...
-var library = require('sample_project/library');
+var library = require('library');
 ...
 </code></pre>
 
@@ -104,7 +104,7 @@ Beyond the scope of scripting runtimes, we can benefit from the mature and well 
 
 Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in very familiar and handy code:
 
-<pre><code>package test.src.java;
+<pre><code>package src.test.java;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -123,7 +123,7 @@ public class HelloWorld {
 
 Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary objects ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)), while making the best of inheritance, polymorphism, generics, and so on.
 
-<pre><code>package test.src.java;
+<pre><code>package src.test.java;
 
 public class Calculator {
 

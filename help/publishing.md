@@ -30,8 +30,7 @@ The space within the *Repository*, where all the public artifact are placed, is 
       /registry             (public space)
         /public             (placeholder)
           /ScriptingServices
-            /project1
-              /service1.js
+            /service1.js
       /users
         /<user>             (private space)
           /workspace

@@ -68,11 +68,11 @@ Once you [Activate](activation.wiki) or [Publish](publishing.wiki) the project, 
 
 The endpoint of such an integration service is exposed and can be consumed by the following pattern:
 
-> *http //[host]:[port]/[dirigible application context]/services/flow/[project-name]/[flow-name]*
+> *http //[host]:[port]/[dirigible application context]/services/flow/[flow-name]*
 
 For example:
 
-> *http //example.com/dirigible/services/flow/project/example.flow*
+> *http //example.com/dirigible/services/flow/example.flow*
 
 For more information about the supported integration patterns, see [Samples](../samples).
 

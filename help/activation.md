@@ -24,8 +24,7 @@ or
        /sandbox
          /<user>             (private space)
            /ScriptingServices
-             /project1
-               /service1.js
+             /service1.js
        /users
          /<user>             (private space)
            /workspace
@@ -43,6 +42,7 @@ There is a default *auto-activation* mechanism, which can perform the activation
 The auto-activation is enabled only for:
 
 *	Scripting services
+*	Integration services
 *	Web content
 *	Wiki content
  
@@ -50,7 +50,6 @@ For:
 
 *	Data structures
 *	Security constraints
-*	Integration services
 *	Extension definitions
 
 there is no sandboxing supported, nor auto-activation. The activation process is equal to [publication](publication.html) in this case.
