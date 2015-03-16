@@ -177,9 +177,9 @@ The only real modularization framework for Java nowadays, isn't it?
 
 ## How to integrate my dynamic language? ##
 
-- Have a look at `com.sap.dirigible/com.sap.dirigible.parent/runtime/com.sap.dirigible.runtime.groovy` plugin for runtime integration
-- Register your own script executor provider by `com.sap.dirigible.runtime.scripting.IScriptExecutorProvider`
-- Create your own Apache Velocity based templates for your language and register them using `com.sap.dirigible.ide.template.type` extension point    
+- Have a look at `org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy` plugin for runtime integration
+- Register your own script executor provider by `org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider`
+- Create your own Apache Velocity based templates for your language and register them using `org.eclipse.dirigible.ide.template.type` extension point    
 
 ## How to integrate my Java based framework? ##
 
@@ -188,7 +188,7 @@ The only real modularization framework for Java nowadays, isn't it?
 
 ## How to register my injected service? ##
 
-Once you make the your injected service available as OSGi plugin packaged into your WAR file, you can use the interface `com.sap.dirigible.runtime.scripting.IContextService` to register it. Actual configurations should be similar to ones at `com.sap.dirigible.runtime.wiki` plugin 
+Once you make the your injected service available as OSGi plugin packaged into your WAR file, you can use the interface `org.eclipse.dirigible.runtime.scripting.IContextService` to register it. Actual configurations should be similar to ones at `org.eclipse.dirigible.runtime.wiki` plugin 
 
 ## How to integrate my non-Java framework? ##
 
@@ -196,7 +196,7 @@ It depends on the particular framework. Usually it is via the "Command" feature.
 
 ## How to add my own templates? ##
 
-Use `com.sap.dirigible.ide.template.type` extension point similar as in `com.sap.dirigible.ide.template.ui.*` plugins
+Use `org.eclipse.dirigible.ide.template.type` extension point similar as in `org.eclipse.dirigible.ide.template.ui.*` plugins
 
 ## How to build my own Dirigible? ##
 
