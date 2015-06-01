@@ -50,6 +50,34 @@ Create the default database for Dirigible:
           username="dirigible_system" password="dirigible1234" maxActive="20" maxIdle="10" maxWait="-1"/>
 </code></pre>
 
+###web.xml###
+Be sure the initial parameter *jndiDefaultDataSource* is uncommented
+<pre><code>
+    <init-param>
+        <param-name>jndiDefaultDataSource</param-name>
+        <param-value>java:comp/env/jdbc/DefaultDB</param-value>
+    </init-param>
+</code></pre>
+
+Also, initial parameter *jdbcAutoCommit* must be set to true
+
+<pre><code>
+    <init-param>
+        <param-name>jdbcAutoCommit</param-name>
+        <param-value>true</param-value>
+    </init-param>
+</code></pre>
+
+Lastly, the resource reference for the datasource have to be uncommented too
+
+<pre><code>
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+</code></pre>
+
 ###Deploy###
 
 Copy the deployable artifact e.g. `dirigible-all-tomcat-xxx.war` to *<TOMCAT_HOME>/webapps*.
