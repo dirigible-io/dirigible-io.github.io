@@ -53,29 +53,29 @@ Create the default database for Dirigible:
 ###web.xml###
 Be sure the initial parameter *jndiDefaultDataSource* is uncommented
 <pre><code>
-    <init-param>
-        <param-name>jndiDefaultDataSource</param-name>
-        <param-value>java:comp/env/jdbc/DefaultDB</param-value>
-    </init-param>
+    < init-param>
+        < param-name>jndiDefaultDataSource< /param-name>
+        < param-value>java:comp/env/jdbc/DefaultDB< /param-value>
+    < /init-param>
 </code></pre>
 
 Also, initial parameter *jdbcAutoCommit* must be set to true
 
 <pre><code>
-    <init-param>
-        <param-name>jdbcAutoCommit</param-name>
-        <param-value>true</param-value>
-    </init-param>
+    < init-param>
+        < param-name>jdbcAutoCommit< /param-name>
+        < param-value>true< /param-value>
+    < /init-param>
 </code></pre>
 
 Lastly, the resource reference for the datasource have to be uncommented too
 
 <pre><code>
-    <resource-ref>
-        <res-ref-name>jdbc/DefaultDB</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-    </resource-ref>
+    < resource-ref>
+        < res-ref-name>jdbc/DefaultDB< /res-ref-name>
+        < res-type>javax.sql.DataSource< /res-type>
+        < res-auth>Container< /res-auth>
+    < /resource-ref>
 </code></pre>
 
 ###Deploy###
