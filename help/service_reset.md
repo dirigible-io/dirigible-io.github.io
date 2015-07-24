@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Reset
-icon: fa-tachometer
+icon: fa-recycle
 group: help-services
 ---
 
