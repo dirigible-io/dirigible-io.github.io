@@ -20,12 +20,12 @@ To be able to use the service:
 
 * To get the catalog of the full content:
 
-> `http //[host]:[port]/[dirigible application context]/ *repository*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *repository*`
 
 
 * To get the index of a given collection:
 
-> `http //[host]:[port]/[dirigible application context]/ *repository/db/dirigible*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *repository/db/dirigible*`
 
 <pre><code>{
     "name" : "root",
@@ -52,5 +52,5 @@ To be able to use the service:
 
 * To get the content of a given artifact:
 
-> `http //[host]:[port]/[dirigible application context]/ *repository/db/dirigible/registry/WebContent/[my_web_project]/index.html*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *repository/db/dirigible/registry/WebContent/[my_web_project]/index.html*`
 

@@ -16,11 +16,11 @@ The endpoint is: */search*
 
 > Parameter: *q*
 > 
-> `http //[host]:[port]/[dirigible application context]/ *search?q=[search_query]*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *search?q=[search_query]*`
 > 
 > Explicit search for *name* or *path* fields e.g.:
 > 
-> `http //[host]:[port]/[dirigible application context]/ *search?q=path:<term>*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *search?q=path:<term>*`
 
 
 For more information about the query syntax of Apache Lucene, see [Apache Lucene](http://lucene.apache.org/core/2_9_4/queryparsersyntax.html).
@@ -29,4 +29,4 @@ For more information about the query syntax of Apache Lucene, see [Apache Lucene
 
 > Parameter: *reindex*
 > 
-> `http //[host]:[port]/[dirigible application context]/ *search?reindex*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *search?reindex*`

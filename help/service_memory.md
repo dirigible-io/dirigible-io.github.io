@@ -12,6 +12,8 @@ Memory Service dumps the current information from the [Runtime](http://docs.orac
 
 > The endpoint is: */memory*
 
+> **GET** `http //[host]:[port]/[dirigible application context]/ */memory*`
+
 The result is in JSON format, for example:
 
 <pre><code>{
@@ -25,4 +27,5 @@ The result is in JSON format, for example:
 To retrieve the chart compliant data:
 
 > Parameter: *log*
-> The endpoint is: `*/memory?log*`
+> 
+> **GET** `http //[host]:[port]/[dirigible application context]/ */memory?log*`
