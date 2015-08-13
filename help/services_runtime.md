@@ -20,5 +20,7 @@ There are several REST services available at runtime, which can give you another
 * [Export](service_export.html)
 * [Clone Import](service_clone_import.html)
 * [Clone Export](service_clone_export.html)
-* [Project Import](service_clone_import.html)
+* [Project Import](service_project_import.html)
 * [Reset](service_reset.html)
+* [Data Import](service_data_import.html)
+* [Data Export](service_data_export.html)

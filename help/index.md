@@ -51,5 +51,13 @@ Browse Dirigible Help Portal to get up-to-date information about the features, l
 	* [Logging](service_logging.html)
 	* [Access Log](service_accesslog.html)
 	* [Repository](service_repository.html)
+	* [Import](service_import.html)
+	* [Export](service_export.html)
+	* [Clone Import](service_clone_import.html)
+	* [Clone Export](service_clone_export.html)
+	* [Project Import](service_project_import.html)
+	* [Reset](service_reset.html)
+	* [Data Import](service_data_import.html)
+	* [Data Export](service_data_export.html)
 * [Samples](../samples/index.html)
 
