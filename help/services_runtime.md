@@ -24,3 +24,4 @@ There are several REST services available at runtime, which can give you another
 * [Reset](service_reset.html)
 * [Data Import](service_data_import.html)
 * [Data Export](service_data_export.html)
+* [Messaging](service_messaging.html)
