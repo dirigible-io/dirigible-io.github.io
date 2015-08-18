@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
+p {
+  margin: 0 0 10px;
+}
+
 .grid {
     -- background-color: #dfdfdf;
     --background-color: #f6b65b;
@@ -191,7 +195,7 @@ p.copyright {
 }
 
 .logo-small {
-    width: 45px; height: 30px;
+    width: 45px; height: 30px;    padding-top: 60px;
 }
 
 
@@ -224,4 +228,22 @@ p.copyright {
     padding: 5px !important;
     background-color: #428bca !important;
     color: #ffffff !important;
+}
+
+.post{
+	font-size: 1.2em;
+    font-weight: 400;
+	margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.post-item {
+  margin: 0px;
+}
+
+.post-info{
+	font-size: 12px;
+    color: #999;
+	margin-bottom: 25px;
+	
 }

@@ -67,97 +67,37 @@ layout: default
     <div class="container">
         <div class="row text-center">
  		<div class="col-lg-6 heading-lead page-scroll">
+			<div class="row text-left">
                 <div class="clearfix"></div>
 	        <h2><i class="fa fa-rss fa-fw"></i>
                 News and Updates</h2>
-                <table class="text-left" align="center">
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-05-08]</i> Initial contribution has been approved 
-                		<a href="https://dev.eclipse.org/ipzilla/show_bug.cgi?id=9548">9548</a>. Dirigible officially became 
-                		<a href="https://projects.eclipse.org/projects/ecd.dirigible">Eclipse Project</a> - part of the 
-                		<a href="https://www.eclipse.org/ecd/">Eclipse Cloud Development</a></td>
-			</tr>
-			
-			
-			
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-04-24]</i> New Release 
-                		<a href="https://github.com/SAP/cloud-dirigible/releases/tag/2.0.150424">2.0.150424</a>
-                		- Orion as editor in Dirigible
-                		</td>
-			</tr>
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-03-16]</i> New Release 
-                		<a href="https://github.com/SAP/cloud-dirigible/releases/tag/2.0.150316">2.0.150316</a>
-                		- the first one with org.eclipse.dirigible root package and EPL v1.0 license
-                		</td>
-			</tr>
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-03-09]</i> Dirigible at EclipseCon NA 2015 - 
-                		<a href="https://www.eclipsecon.org/na2015/session/introduction-eclipse-cloud-developer-tooling">Introduction to Eclipse Cloud Developer Tooling</a>
-                		all together
-                		<a href="https://twitter.com/delchevn/status/575081119407738881">Martin, Nedelcho, John, Tyler and Simon</a>
-                		</td>
-			</tr>
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-02-23]</i> New Release 
-                		<a href="https://github.com/SAP/cloud-dirigible/releases/tag/2.0.150223">2.0.150223</a>
-                		- RCP native Eclipse plugins, Repository impl for FS, Server-less RT
-                		</td>
-			</tr>
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2015-01-21]</i> New Release 
-                		<a href="https://github.com/SAP/cloud-dirigible/releases/tag/2.0.150121">2.0.150121</a>
-                		- OSGi-fied Runtime, new Flow Engine, support for Markdown, Textile, TracWiki, TWiki and many more... 
-                		</td>
-			</tr>
-			
-			<tr><td style="padding-right: 20px;">
-                		<i>[2014-10-27]</i> Dirigible - one of the founders of Cloud Development Initiative at Eclipse together with Orion, Che and Flux - <a href="https://www.eclipse.org/org/press-release/20141027_cloud_initiative.php">Eclipse Announces Cloud Development Industry Initiative</a></td>
-			</tr>
-		</table>
-                </div>
-                
+			<div>
+				{% for post in site.posts %}
+					{% if post.categories contains 'news' %}
+						<p class="post-item">
+							{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+						</p>
+					{% endif %}
+				{% endfor %}
+			</div>
+			</div>
+        </div>
 	        <div class="col-lg-6 heading-lead page-scroll">
+			<div class="row text-left">
                 <div class="clearfix"></div>
 	        <h2><i class="fa fa-comments-o fa-fw"></i>
                 Blog it out!</h2>
-		<table class="text-left" align="center">
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://dirigible-logbook.blogspot.com/">Start of Journey</a>
-				</td><td>Nedelcho Delchev</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/03/24/dirigible-on-hana-cloud-platform">Dirigible on SAP HANA Cloud Platform</a>
-				</td><td>Nedelcho Delchev</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/06/11/dirigible--extensions-vs-configurations">Dirigible - Extensions vs Configurations</a>
-				</td><td>Yordan Pavlov</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/people/georgi.pavlov/blog/2014/08/04/dirigible-is-the-fast-track-to-your-hcp-hana-instance">Dirigible is the fast track to your HCP HANA DB instance</a>
-				</td><td>Georgi Pavlov</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/08/19/dirigible--to-replicate-or-not-to-replicate">Dirigible - To Replicate or Not To Replicate</a>
-				</td><td>Nedelcho Delchev</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/10/15/dirigible--terminal-services">Dirigible - Terminal Services</a>
-				</td><td>Nedelcho Delchev</td>
-			</tr>
-			<tr><td style="padding-right: 20px;">
-					<a target="_blank" href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/10/22/dirigible-enables-dynamic-in-memory-java-runtime">Dirigible enables dynamic in-memory Java runtime</a>
-				</td><td>Yordan Pavlov</td>
-			</tr>
-		</table>
-          </div>
+				<div>
+					{% for post in site.posts %}
+						{% if post.categories contains 'posts' %}
+							<p class="post-item">
+								{{ post.date | date: '%Y-%m-%d' }}  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+							</p>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			</div>
 	    </div>
 	</div>
 	
