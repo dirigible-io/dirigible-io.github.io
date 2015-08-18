@@ -66,6 +66,8 @@ There are several predefined injected objects which can be used directly from th
 
 * *xml* - XML to JSON and vice-versa: <code>toJson(xmlString)</code> and <code>fromJson(jsonString)</code>
 
+* *messageHub* - passive message hub with functions: <code>subscribe(client, topic)</code>, <code>send(client, topic, subject, body)</code>, <code>receive(client, topic?)</code>. Optional functions: <code>registerClient(client)</code>, <code>registerTopic(client)</code>, <code>cleanup()</code>
+
 Full Javadoc can be found at [Dirigible API](http://www.dirigible.io/apidocs).
 
 Samples about how to use the APIs can be found at [Dirigible Samples](http://samples.dirigible.io).
