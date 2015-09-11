@@ -15,17 +15,13 @@ For offline mode development environment, Dirigible provide standalone plugins t
 
 ##### Prerequisites
 
-- [Eclipse IDE](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/keplersr2) Kepler for Java EE Developers
+- [Eclipse IDE](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/marsr) Mars for Java EE Developers
 
 ##### Steps
 
-1. Install Mylyn WikiText feature from the latest release:
+1. Install the RCP plugins of Dirigible as described at:
 
-        http://download.eclipse.org/mylyn/releases/latest
-
-2. Install the RCP plugins of Dirigible from:
-
-		http://dirigible.io/p2/rcp
+		http://download.dirigible.io/
 
 That's it. You can make use of the most productive development model ever existed just from your standard Eclipse IDE.
 
@@ -33,4 +29,4 @@ That's it. You can make use of the most productive development model ever existe
 
 > In this environment, it is a kind of limited functionality caused by the server-less execution. There is no running HTTP server, which processes the requests like in the hosted variant. Besides the enhanced security filters and real time web content processing, you can use the offline mode for scripting services development. The engines integration can run server-less in this case.
 
-> If you need fully functional Dirigible, but on your local machine, you can always deploy it on standalone Tomcat as WAR artifact.
+> If you need fully functional Dirigible, but on your local machine, you can always deploy it on standalone Tomcat as WAR or just download and run the single JAR executable.
