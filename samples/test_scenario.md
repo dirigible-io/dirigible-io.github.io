@@ -199,18 +199,10 @@ If you want to skip the prerequisites steps, open Dirigible from [here](http://t
 	![Landing page](images/test_scenario/27.png)
 
 41. Select the project and **Publish** it again
-42. From the **Preview** view, click the **Open** button
-
-	![Landing page](images/test_scenario/28.png)
-
-43. If this is the first time to use this instance of dirigible, a dialog alarming that pop-up was blocked should be displayed
-44. Allow pop-ups from dirigible
-45. Click again the **Open** button
-46. The page should be opened in new tab
-47. Try adding some entries
-48. Go back to dirigible and switch to the **Database** perspective
-49. In the **SQL Console** view execute again the same query
+42. Try adding some entries
+43. Go back to dirigible and switch to the **Database** perspective
+44. In the **SQL Console** view execute again the same query
 	> select * from students
-50. This time the query should return the entries you had enter
+45. This time the query should return the entries you had enter
 
 
