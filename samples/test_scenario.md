@@ -200,7 +200,7 @@ If you want to skip the prerequisites steps, open Dirigible from [here](http://t
 
 41. Select the project and **Publish** it again
 42. Try adding some entries
-43. Go back to dirigible and switch to the **Database** perspective
+43. Switch to the **Database** perspective
 44. In the **SQL Console** view execute again the same query
 	> select * from students
 45. This time the query should return the entries you had enter
