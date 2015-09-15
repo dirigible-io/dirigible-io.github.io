@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="container">
+	<div class="post">
+		<div>
+			{% for post in site.tags.news %}
+				{% if post.categories contains 'news' %}
+					<p class="post-position">
+						{{ post.brief }}
+					</p>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>	
+</div>
+	

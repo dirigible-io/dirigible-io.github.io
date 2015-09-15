@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Start of Journey"
-category: posts
+category: blogs
+tag: blogs
+brief: <h4><a href='blogs/2014/03/21/blogs_start_of_journey.html'>The Beginning</a></h4> <sub class="post-info">March 21, 2014 by Nedelcho Delchev</sub></br> The initial idea was to make use of the very promising Eclipse RAP technology...</br>
 ---
 
 ###The Beginning

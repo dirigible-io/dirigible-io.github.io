@@ -2,6 +2,8 @@
 layout: post
 title: "New Release 2.0.150316"
 category: news
+tag: news
+brief: <h4><a href='news/2015/03/16/news_new_release_root_package.html'>New Release 2.0.150316</a></h4> <sub class="post-info">March 16, 2015</sub></br>
 ---
 
 ###New Release 2.0.150316

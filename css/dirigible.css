@@ -238,7 +238,12 @@ p.copyright {
 }
 
 .post-item {
-  margin: 0px;
+	margin: 0px;
+}
+
+.post-position{
+	margin: 0px;
+	margin-bottom: 30px;
 }
 
 .post-info{

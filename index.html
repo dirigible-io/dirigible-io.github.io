@@ -66,37 +66,39 @@ layout: default
     <div class="content-section-a">
     <div class="container">
         <div class="row text-center">
- 		<div class="col-lg-6 heading-lead page-scroll">
-			<div class="row text-left">
-                <div class="clearfix"></div>
-	        <h2><i class="fa fa-rss fa-fw"></i>
-                News and Updates</h2>
-			<div>
-				{% for post in site.posts %}
-					{% if post.categories contains 'news' %}
-						<p class="post-item">
-							{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-						</p>
-					{% endif %}
-				{% endfor %}
-			</div>
-			</div>
-        </div>
-	        <div class="col-lg-6 heading-lead page-scroll">
-			<div class="row text-left">
-                <div class="clearfix"></div>
-	        <h2><i class="fa fa-comments-o fa-fw"></i>
-                Blog it out!</h2>
-				<div>
-					{% for post in site.posts %}
-						{% if post.categories contains 'posts' %}
-							<p class="post-item">
-								{{ post.date | date: '%Y-%m-%d' }}  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-							</p>
-						{% endif %}
-					{% endfor %}
+			<div class="col-lg-6 heading-lead page-scroll">
+				<div class="row text-left">
+					<div class="clearfix"></div>
+				<h2><i class="fa fa-rss fa-fw"></i>
+					News and Updates</h2>
+					<div>
+						{% for post in site.tags.news limit:6 %}
+							{% if post.categories contains 'news' %}
+								<p class="post-item">
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+								</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<a href="{{ site.url }}/news.html">all news ...</a>
 				</div>
 			</div>
+			<div class="col-lg-6 heading-lead page-scroll">
+				<div class="row text-left">
+					<div class="clearfix"></div>
+				<h2><i class="fa fa-comments-o fa-fw"></i>
+					Blog it out!</h2>
+					<div>
+						{% for post in site.tags.blogs limit:6 %}
+							{% if post.categories contains 'blogs' %}
+								<p class="post-item">
+									{{ post.date | date: '%Y-%m-%d' }}  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+								</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<a href="{{ site.url }}/blogs.html">all blogs ...</a>
+				</div>
 			</div>
 	    </div>
 	</div>

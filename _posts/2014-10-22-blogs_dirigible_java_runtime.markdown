@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Dirigible enables dynamic in-memory Java runtime"
-category: posts
+category: blogs
+tag: blogs
+brief: <h4><a href='blogs/2014/10/22/blogs_dirigible_java_runtime.html'>Dirigible enables dynamic in-memory Java runtime</a></h4> <sub class="post-info">October 22, 2014 by Yordan Pavlov</sub></br> In attempt to attract the 9 million happy Java developers to the Dirigible community, we have...
 ---
 
 ###Dirigible enables dynamic in-memory Java runtime
 
-<sub class="post-info">October 22, 2014 by Yordan	Pavlov</sub>
+<sub class="post-info">October 22, 2014 by Yordan Pavlov</sub>
 
 In attempt to attract the 9 million happy Java developers to the Dirigible community, we have</br>
 introduced Java as runtime language. Yes, finally we can run our Java code in the cloud the way<br>
