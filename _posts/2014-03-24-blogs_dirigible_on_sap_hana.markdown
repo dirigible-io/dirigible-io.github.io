@@ -17,6 +17,7 @@ management, monitoring…?<br>
 What if you can write the whole application in JavaScript? You like Ruby? What about Groovy as well? And still in the same environment?<br> 
 What if you can run directly Apache Camel's Routes as simplified integration services and scheduled jobs?<br>
 What if you can browse your database schema or catalog and execute your query and update scripts again in the same environment?<br>
+
 <a href="http://scn.sap.com/servlet/JiveServlet/downloadImage/38-104450-417291/503-400/dirigible_sample.png"><img alt="show_view.png" class="jive-image" height="319" src="http://scn.sap.com/servlet/JiveServlet/downloadImage/38-104450-417291/503-400/dirigible_sample.png"></a><br>
 
 
