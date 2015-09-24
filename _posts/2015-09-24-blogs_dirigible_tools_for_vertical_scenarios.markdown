@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Tools for Vertical Scenarios"
+title: "Dirigible - Toolkit for Vertical Scenarios"
 category: blogs
 tag: blogs
 brief: <h4><a href='blogs/2015/09/24/blogs_dirigible_tools_for_vertical_scenarios.html'>Tools for Vertical Scenarios</a></h4> <sub class="post-info">September 24, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
 ---
 
-###Tools for Vertical Scenarios
+###Dirigible - Toolkit for Vertical Scenarios###
 
 <sub class="post-info">September 24, 2015 by Nedelcho Delchev</sub>
 
-What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?
+What does vertical scenario mean? Why building applications covering such scenarios need special toolkit and why all these relates to Dirigible?
 
 Starting the work on your next cloud application, you have to set the key concepts, architecture, boundary conditions, dependencies, development model, language, tools and many more aspects, which can lead you up to either fast delivery or fail-fast situation. If you do not ask your-self questions about these aspects every time starting a project, in these turbulent times you will not be agile enough, hence not innovative enough, hence - dull coward. Assuming that - you are here and read these article, this means you are agile, innovative, devoted to be perfect each time, so let's continue - what do you need to start and where from?
 
