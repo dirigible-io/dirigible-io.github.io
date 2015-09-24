@@ -3,7 +3,7 @@ layout: post
 title: "Dirigible - Toolkit for Vertical Scenarios"
 category: blogs
 tag: blogs
-brief: <h4><a href='blogs/2015/09/24/blogs_dirigible_tools_for_vertical_scenarios.html'>Tools for Vertical Scenarios</a></h4> <sub class="post-info">September 24, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
+brief: <h4><a href='blogs/2015/09/24/blogs_dirigible_tools_for_vertical_scenarios.html'>Dirigible - Toolkit for Vertical Scenarios</a></h4> <sub class="post-info">September 24, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
 ---
 
 ###Dirigible - Toolkit for Vertical Scenarios###
