@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Milestone 1 of Release 2.1 is ready"
+category: news
+tag: news
+brief: <h4><a href='news/2015/09/23/news_2_1_m1.html</a></h4> <sub class="post-info">September 24, 2015</sub></br> Milestone 1 of Release 2.1 is ready...<br>
+---
+
+###Milestone 1 of Release 2.1 is ready
+
+<sub class="post-info">September 23, 2015</sub>
+
+The M1 for Release 2.1 is ready for test.
+
+You can download it locally from <a href="http://download.dirigible.io">http://download.dirigible.io</a> or test it on-line at <a href="http://trial.dirigible.io">http://trial.dirigible.io</a>
+
+
