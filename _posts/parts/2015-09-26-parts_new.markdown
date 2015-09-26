@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Test part"
+category: parts
+tag: parts
+brief: something something 
+---
+
+test part
