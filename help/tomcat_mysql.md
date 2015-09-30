@@ -21,9 +21,9 @@ Install *mysql* on Linux (Debian-based) with:
 
 > sudo apt-get install mysql-server
 
-> sudo mysql_install_db
+> sudo mysql\_install\_db
 
-> sudo /usr/bin/mysql_secure_installation
+> sudo /usr/bin/mysql\_secure\_installation
 
 ###Create Database###
 
@@ -39,9 +39,9 @@ Create the default database for Dirigible:
 
 > CREATE DATABASE dirigible_database;
 
-> CREATE USER 'dirigible_system'@'localhost' IDENTIFIED BY 'dirigible1234';
+> CREATE USER \'dirigible_system\'@\'localhost\' IDENTIFIED BY \'dirigible1234\';
 
-> GRANT ALL PRIVILEGES ON dirigible_database.* TO 'dirigible_system'@'localhost' WITH GRANT OPTION;
+> GRANT ALL PRIVILEGES ON dirigible_database.* TO \'dirigible_system\'@\'localhost\' WITH GRANT OPTION;
 
 ###Datasource Configuration###
 
