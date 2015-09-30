@@ -16,9 +16,7 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 ##### Steps
 
-1. Download `dirigible.war` for Tomcat from:
-        
-        http://download.dirigible.io
+1. Download `dirigible.war` for Tomcat from [http://download.dirigible.io](http://download.dirigible.io)
 
 2. Configure Users store:
 
