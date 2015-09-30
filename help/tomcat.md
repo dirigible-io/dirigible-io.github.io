@@ -16,7 +16,10 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 ##### Steps
 
-1. For simplicity rename the WAR `dirigible-all-tomcat-xxx.war` to `dirigible.war`.
+1. Download `dirigible.war` for Tomcat from:
+        
+        http://download.dirigible.io
+
 2. Configure Users store:
 
         <tomcat-users>
