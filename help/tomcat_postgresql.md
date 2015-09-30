@@ -80,7 +80,7 @@ Lastly, the resource reference for the datasource have to be uncommented too
 
 ###Deploy###
 
-Copy the deployable artifact e.g. `dirigible-all-tomcat-xxx.war` to *<TOMCAT_HOME>/webapps*.
+Copy the deployable artifact e.g. `dirigible.war` to *<TOMCAT_HOME>/webapps*.
 
 ###Start###
 
@@ -88,6 +88,6 @@ Run Tomcat server via *strtup.sh*.
 
 The IDE should be available at the following locations: 
 
-* `http://localhost:8080/dirigible-all-tomcat-xxx/services/index.html` IDE
-* `http://localhost:8080/dirigible-all-tomcat-xxx/services/ui/index.html` Registry
+* `http://localhost:8080/dirigible/services/index.html` IDE
+* `http://localhost:8080/dirigible/services/ui/index.html` Registry
 
