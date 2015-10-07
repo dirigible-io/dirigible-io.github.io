@@ -6,7 +6,7 @@ tag: news
 brief: <h4><a href='news/2015/10/07/news_new_release_2_1.html'>New Release 2.1.151007</a></h4> <sub class="post-info">October 10, 2015</sub></br> First official release at Eclipse Foundation...<br>
 ---
 
-###New Release 2.0.150424
+###New Release 2.0.151007-R
 
 <sub class="post-info">October 07, 2015</sub>
 	
