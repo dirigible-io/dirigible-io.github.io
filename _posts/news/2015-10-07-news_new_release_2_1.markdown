@@ -1,0 +1,25 @@
+---
+layout: post
+title: "New Release 2.1.151007"
+category: news
+tag: news
+brief: <h4><a href='news/2015/10/07/news_new_release_2_1.html'>New Release 2.1.151007</a></h4> <sub class="post-info">October 10, 2015</sub></br> First official release at Eclipse Foundation...<br>
+---
+
+###New Release 2.0.150424
+
+<sub class="post-info">April 24, 2015</sub>
+	
+New Release [2.1.151007](https://wiki.eclipse.org/Dirigible/Downloads/2.1.151007-R)
+first official release at Eclipse Foundation!
+
+It contains all the major [features](https://projects.eclipse.org/projects/ecd.dirigible/releases/2.1) for 
+database management, workspace management, source code editing, runtime engines and registry/repository life-cycle management.
+
+The full list of bug-fixes and enhancements can be found [here](https://bugs.eclipse.org/bugs/buglist.cgi?cmdtype=runnamed&list_id=12828926&namedcmd=Dirigible%202.1%20Closed)
+
+The instant trial is updated accordingly with the released version [here](http://trial.dirigible.io).
+
+The source code is available at GitHub [repository](https://github.com/eclipse/dirigible/tree/2.1.151007-R).
+
+####Congratulations for this great achievement!
