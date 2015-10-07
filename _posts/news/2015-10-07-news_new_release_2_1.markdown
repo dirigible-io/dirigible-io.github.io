@@ -8,7 +8,7 @@ brief: <h4><a href='news/2015/10/07/news_new_release_2_1.html'>New Release 2.1.1
 
 ###New Release 2.0.150424
 
-<sub class="post-info">April 24, 2015</sub>
+<sub class="post-info">October 07, 2015</sub>
 	
 New Release [2.1.151007](https://wiki.eclipse.org/Dirigible/Downloads/2.1.151007-R)
 first official release at Eclipse Foundation!
