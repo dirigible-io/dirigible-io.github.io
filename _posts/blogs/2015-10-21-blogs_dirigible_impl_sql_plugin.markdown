@@ -16,6 +16,7 @@ Hmmm ... why at all you would need this?
 In general you do not. You can rely on the standard JavaScript, supported by default as a primary language for services in Dirigible. If you prefer Java you are still in the supported default options. But, what if you want to use your preferred language like Ruby, Groovy, Pyton, Scala and many other JVM and non-JVM modern languages? The good news - it's not so difficult. In this tutorial we will give you the major steps and directions, which can guide you throughout such integrations.
 
 Let's take something simple e.g. SQL script. The engine, which executes this language is the underlying RDBMS itself, but from Dirigible's point of view the database is abstracted via JDBC interface. So, let's create a new feature - 'SQL Services' support. It will provide the following:
+
 1. Editor for SQL script with highlighting of the keywords
 2. Icon in Workspace and Repository views showing that *.sql files are recognized
 3. Activator/Publisher, which will take care of the transfer of the SQL artifacts to Sandbox/Registry
@@ -54,6 +55,7 @@ Add a reference of the icon and the necessary file extension in **org.eclipse.di
 #### Publisher adaptation
 There are a few adaptation that can enable *.sql artifact to be considered as supported scripting services.
 To do that:
+
 1. Add the corresponding constant for SQL extension in **ARTIFACT_EXTENSION** in the class **org.eclipse.dirigible.repository.api.ICommonConstants** e.g. <code>public static final String SQL = ".sql";</code>
 2. Add **SQL_CONTAINER_MAPPING** and **SQL_SANDBOX_MAPPING** in class **org.eclipse.dirigible.ide.common.CommonParameters** in similar way like the others.
 3. Add the corresponding artifact extension and mappings in the static list and maps in class **org.eclipse.dirigible.ide.scripts.publish.ScriptsPublisher** in similar way like the others.
@@ -72,6 +74,7 @@ Add corresponding **ENGINE_TYPE** <code>public static final String SQL = "sql";<
 Do the same for **ENGINE_ALIAS**
 
 Modify/check:
+
 1. **.project** file
 2. **MANIFEST.MF** file names, dependencies, exported packages
 3. In **OSGi-INF** folder create a sql-executor.xml with corresponding references
@@ -80,6 +83,7 @@ Modify/check:
 6. Add the module definition in the parent's pom.xml, e.g. <code>< module>org.eclipse.dirigible.runtime.sql< /module></code>
 
 In the source folder (*src*), you should finally have at least:
+
 1. **org.eclipse.dirigible.runtime.filter.SQLRegistrySecureFilter.java**
 
 
@@ -257,7 +261,8 @@ Add the SQL plugin to the feature.xml accordingly
 ---
 
 #### Include Plugin for Packaging
-You have to include just created plugin into the configuration files for Equinox OSGi
+You have to include just created plugin into the configuration files for Equinox OSGi:
+
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
 
@@ -266,6 +271,7 @@ You have to include just created plugin into the configuration files for Equinox
 ---
 
 #### Security Constrains web.xml
+
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
 
@@ -278,6 +284,7 @@ Luckily we have already implemented the extensibility in a way that **SQLScriptE
 
 #### Registry Section for SQL Services
 The plugin containing the registry user interface is **org.eclipse.dirigible.runtime.ui**
+
 1. Create a file **sql.html** in the sub-folder **resources/ui/templates/scripting/sql**
 
 		<div id="content" ng-include="'templates/default.html'"></div>
@@ -296,6 +303,7 @@ The plugin containing the registry user interface is **org.eclipse.dirigible.run
 #### Template for SQL Scripting Service
 To complete the SQL support we can add at least one template to be available in the **New->ScriptinService** wizard.
 To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
+
 1. Create file **sql-service.sql** under the folder **src/org/eclipse/dirigible/ide/template/ui/js/templates**
 
 		SELECT * FROM DGB_FILES
