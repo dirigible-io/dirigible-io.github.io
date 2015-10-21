@@ -256,13 +256,13 @@ In the source folder (*src*), you should finally have at least:
 
 ---
 
-#### Include Plugin as a Feature
+#### Include the Plugin as a Feature
 There is a feature for the runtime plugins in the project **p2.runtime.feature**
 Add the SQL plugin to the feature.xml accordingly
 
 ---
 
-#### Include Plugin for Packaging
+#### Include the Plugin for Packaging
 You have to include just created plugin into the configuration files for Equinox OSGi:
 
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
@@ -272,7 +272,7 @@ You have to include just created plugin into the configuration files for Equinox
 
 ---
 
-#### Security Constrains web.xml
+#### Security Constrains in web.xml
 
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
