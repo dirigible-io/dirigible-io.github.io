@@ -3,7 +3,7 @@ layout: post
 title: "Dirigible - Implement SQL Plugin"
 category: blogs
 tag: blogs
-brief: <h4><a href='blogs/2015/09/24/blogs_dirigible_impl_sql_plugin.html'>Dirigible - Implement SQL Plugin</a></h4> <sub class="post-info">October 21, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
+brief: <h4><a href='blogs/2015/10/21/blogs_dirigible_impl_sql_plugin.html'>Dirigible - Implement SQL Plugin</a></h4> <sub class="post-info">October 21, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
 ---
 
 ###Dirigible - Implement SQL Plugin###
@@ -30,7 +30,7 @@ Let's start...
 ---
 
 
-## Editor for SQL
+#### Editor for SQL
 Luckily we support two web editors in Dirigible - Orion and ACE. The later has good support for SQL Language, hence we can use it directly.
 Be sure that you enable the support of your language in the corresponding editor by adding the file extension to the editor's 'extensions' parameter in the plugin.xml. In this case in plugin **org.eclipse.dirigible.ide.editor.ace**, extension point **org.eclipse.ui.editors**, class **org.eclipse.dirigible.ide.editor.ace.AceEditor**.
 
@@ -40,7 +40,7 @@ Be sure that you enable the support of your language in the corresponding editor
 
 ---
 
-## Icon for *.sql files
+#### Icon for *.sql files
 Add an icon in the **resources** folder of the **org.eclipse.dirigible.ide.repository.ui** plugin, e.g. **icon-sql.png**.
 Add a reference of the icon and the necessary file extension in **org.eclipse.dirigible.ide.repository.ui.viewer.AbstractArtifactLabelProvider** similar like the other cases.
 
@@ -51,7 +51,7 @@ Add a reference of the icon and the necessary file extension in **org.eclipse.di
 
 ---
 
-## Publisher adaptation
+#### Publisher adaptation
 There are a few adaptation that can enable *.sql artifact to be considered as supported scripting services.
 To do that:
 1. Add the corresponding constant for SQL extension in **ARTIFACT_EXTENSION** in the class **org.eclipse.dirigible.repository.api.ICommonConstants** e.g. <code>public static final String SQL = ".sql";</code>
@@ -64,7 +64,7 @@ We are done at the IDE side! Now we go to the Runtime to implement the execution
 
 ---
 
-## Engine for SQL
+#### Engine for SQL
 Create a new plugin which will contain all the execution engine related artifacts for the SQL support. As a template you can use already available for Java **org.eclipse.dirigible.runtime.java** - e.g. **org.eclipse.dirigible.runtime.sql**
 
 Add corresponding **ENGINE_TYPE** <code>public static final String SQL = "sql";</code> in **org.eclipse.dirigible.repository.api.ICommonConstants**
@@ -250,13 +250,13 @@ In the source folder (*src*), you should finally have at least:
 
 ---
 
-## Include Plugin for Packaging
+#### Include Plugin for Packaging
 There is a feature for the runtime plugins in the project **p2.runtime.feature**
 Add the SQL plugin to the feature.xml accordingly
 
 ---
 
-## Include Plugin for Packaging
+#### Include Plugin for Packaging
 You have to include just created plugin into the configuration files for Equinox OSGi
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
@@ -265,18 +265,18 @@ You have to include just created plugin into the configuration files for Equinox
 
 ---
 
-## Security Constrains web.xml
+#### Security Constrains web.xml
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
 
 ---
 
-## Flows and Jobs Integration
+#### Flows and Jobs Integration
 Luckily we have already implemented the extensibility in a way that **SQLScriptExecutorProvider** from above is automatically registered and can be used in Flows.
 
 ---
 
-## Registry Section for SQL Services
+#### Registry Section for SQL Services
 The plugin containing the registry user interface is **org.eclipse.dirigible.runtime.ui**
 1. Create a file **sql.html** in the sub-folder **resources/ui/templates/scripting/sql**
 
@@ -293,7 +293,7 @@ The plugin containing the registry user interface is **org.eclipse.dirigible.run
 
 ---
 
-## Template for SQL Scripting Service
+#### Template for SQL Scripting Service
 To complete the SQL support we can add at least one template to be available in the **New->ScriptinService** wizard.
 To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
 1. Create file **sql-service.sql** under the folder **src/org/eclipse/dirigible/ide/template/ui/js/templates**
@@ -320,7 +320,7 @@ To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
 		...
 		
 <br>
-<img src="/img/posts/icon_sql.png"/>
+<img src="/img/posts/sql_template.png"/>
 <br>
 
 # Congratulations!
