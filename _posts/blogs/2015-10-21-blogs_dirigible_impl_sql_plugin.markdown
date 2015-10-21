@@ -23,6 +23,8 @@ Let's take something simple e.g. SQL script. The engine, which executes this lan
 4. Runtime dispatcher, which will provide the endpoint for access for these services
 5. Runtime executor, which will take the artifact and will do the processing
 6. Infrastructure - pom.xml, config.ini, feature.xml
+7. User interface for endpoints in Registry
+8. Sample template for SQL Service
 
 *If you are Eclipse RCP/RAP and OSGi developer, you can skip this blog and go directly by cloning the sources and looking for the Java and JavaScript plugins as example.*
 
@@ -254,7 +256,7 @@ In the source folder (*src*), you should finally have at least:
 
 ---
 
-#### Include Plugin for Packaging
+#### Include Plugin as a Feature
 There is a feature for the runtime plugins in the project **p2.runtime.feature**
 Add the SQL plugin to the feature.xml accordingly
 
