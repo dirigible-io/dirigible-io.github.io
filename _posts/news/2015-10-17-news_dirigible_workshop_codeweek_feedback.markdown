@@ -23,11 +23,11 @@ It is collected in the forum's topic:
 The mailing list dirigible-dev @ eclipse.org is always open to receive new ideas as well.
 
 <br>
-<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_1.jpg"/>
+<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_1.jpg" width="600px"/>
 <br>
-<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_2.jpg"/>
+<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_2.jpg" width="600px"/>
 <br>
-<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_3.jpg"/>
+<img src="/img/posts/Dirigible_CodeWeek_Workshop_20151017_3.jpg" width="600px"/>
 <br>
 
 The presentation (in Bulgarian language) can be found [here](http://www.dirigible.io/img/posts/Dirigible_CodeWeek_Workshop_20151017.pptx)
