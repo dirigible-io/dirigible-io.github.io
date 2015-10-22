@@ -10,7 +10,7 @@ brief: <h4><a href='news/2015/10/17/news_dirigible_workshop_codeweek_feedback.ht
 
 <sub class="post-info">October 17, 2015</sub>
 
-In short - great event! We are looking forward for the next one...
+Great event! We are looking forward for the next one...
 
 There were various group of participants - students, teachers, evangelists, junior and senior experts from commercial companies and geeks.
 
