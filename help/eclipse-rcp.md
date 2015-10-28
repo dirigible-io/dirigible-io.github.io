@@ -19,9 +19,9 @@ For offline mode development environment, Dirigible provide standalone plugins t
 
 ##### Steps
 
-1. Install the RCP plugins of Dirigible as described at:
+1. Install the RCP plugins of Dirigible from:
 
-		http://download.dirigible.io/
+		http://download.eclipse.org/dirigible/drops/R-2.1-201510071717/p2/rcp/
 
 That's it. You can make use of the most productive development model ever existed just from your standard Eclipse IDE.
 
