@@ -18,7 +18,7 @@ In this blog we will go over why and how the all known Orion editor is integrate
 Our choice for using the Orion editor as the primary editor in Dirigible is bases on that it is has the best support and tooling for JavaScript. Also JavaScript is the language of choice for writing services with Dirigible. Beyond these arguments, **Dirigible** and **Orion** are part of the [Eclipse Cloud Development iniciative](https://www.eclipse.org/ecd/), that strives to set up the standarts and the best practices for **"developing in the cloud for the cloud"**. Taking advantage of the open source eco system is key mindset, layed in the foundations of the project.
 
 <br>
-<img src="/img/posts/injected_api_in_orion.png"/>
+<img src="/img/posts/injected_api_in_orion.png" width="700px"/>
 <br>
 
 ---
@@ -27,7 +27,7 @@ Our choice for using the Orion editor as the primary editor in Dirigible is base
 Tern.js is a code-analysis and code-completion library for JavaScript. It can run both on client-side and on server-side. In order to achive real time proposals and to remove the overhead from server communication, in Dirigible we use Tern.js as a client-side library. In addition to the JavaScript code-completion, Tern.js allows to introduce custom suggestions - the way to integrate and allow code-completion for [Dirigible API](http://www.dirigible.io/help/api.html).
 
 <br>
-<img src="/img/posts/injected_api_code_completion.png"/>
+<img src="/img/posts/injected_api_code_completion.png" width="700px"/>
 <br>
 
 ---

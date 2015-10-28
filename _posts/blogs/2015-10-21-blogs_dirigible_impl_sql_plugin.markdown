@@ -268,7 +268,7 @@ You have to include just created plugin into the configuration files for Equinox
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
 2. In the project **releng/dirigible-runtime-tomcat** > sub-folder **src/main/webapp/WEB-INF/configuration** > file **config.ini**
 
-     be very careful with the spaces in the beginning of the line
+     be very careful with the white spaces in the beginning of the line
 
 ---
 
