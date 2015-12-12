@@ -62,16 +62,16 @@ layout: default
 	    </div>
     </div>
     
-    <!-- /.container -->
-    <hr/>
-    <div class="content-section-a">
-    <div class="container">
-        <div class="row text-center">
-			<div class="col-lg-6 heading-lead page-scroll">
-				<div class="row text-left">
-					<div class="clearfix"></div>
-				<h2><i class="fa fa-rss fa-fw"></i>
-					News and Updates</h2>
+    
+    <div class="content-section-a" id="news">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">News and Updates</h2>
 					<div>
 						{% for post in site.tags.news limit:6 %}
 							{% if post.categories contains 'news' %}
@@ -82,13 +82,27 @@ layout: default
 						{% endfor %}
 					</div>
 					<a href="{{ site.url }}/news.html">all news ...</a>
-				</div>
-			</div>
-			<div class="col-lg-6 heading-lead page-scroll">
-				<div class="row text-left">
-					<div class="clearfix"></div>
-				<h2><i class="fa fa-comments-o fa-fw"></i>
-					Blog it out!</h2>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6 col-sm-6">
+                    <span class="pictogram"><i class="fa fa-rss fa-fw"></i></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b" id="blogs">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+					<h2 class="section-heading">Blog it out!</h2>
 					<div>
 						{% for post in site.tags.blogs limit:6 %}
 							{% if post.categories contains 'blogs' %}
@@ -99,18 +113,21 @@ layout: default
 						{% endfor %}
 					</div>
 					<a href="{{ site.url }}/blogs.html">all blogs ...</a>
-				</div>
-			</div>
-	    </div>
-	</div>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+					<span class="pictogram"><i class="fa fa-comments-o fa-fw"></i></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+    
+   
 	
-	<div class="container"><hr>
-    </div>
-    </div>
-
-
-
-    <div class="banner grid">
+	<div class="banner grid">
         <div class="container" id="contact">
 
             <div class="row">
