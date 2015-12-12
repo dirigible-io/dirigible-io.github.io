@@ -30,6 +30,12 @@ Objects
 
 * * *
 
+* *datasources* - the container of the custom JDBC [Datasources](http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) configured at server instance level.
+
+> $.getNamedDatasources();
+
+* * *
+
 * *request* - the standard [HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html) object
 
 > $.getRequest();
@@ -117,9 +123,15 @@ Services
 
 * * *
 
-* *connectivity* - a service linking the underlying configuration sorage provided by the platform. Interface can be found [here](https://github.com/eclipse/dirigible/blob/c68c51f112b9d55f9c5dbf0f3589d11bfd3b22b0/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.core/src/org/eclipse/dirigible/runtime/scripting/IConnectivityService.java).
+* *connectivity* - a service linking the underlying configuration storage provided by the platform. Interface can be found [here](https://github.com/eclipse/dirigible/blob/c68c51f112b9d55f9c5dbf0f3589d11bfd3b22b0/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.core/src/org/eclipse/dirigible/runtime/scripting/IConnectivityService.java).
 
 > $.getConnectivityService();
+
+* * *
+
+* *templatingEngine* - a service exposing the internal Velocity engine to users. Interface can be found [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/template/ITemplatingService.java).
+
+> $.getTemplatingService();
 
 * * *
 	
