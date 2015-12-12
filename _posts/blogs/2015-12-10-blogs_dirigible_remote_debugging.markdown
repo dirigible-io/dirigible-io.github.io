@@ -33,8 +33,8 @@ The two important specific steps that i needed to perform before i had remote de
 			<configuration>
 				<source>1.7</source>
 				<target>1.7</target>
-		               <debug>true</debug>
-		               <debuglevel>lines,vars,source</debuglevel> 
+		        <debug>true</debug>
+		        <debuglevel>lines,vars,source</debuglevel> 
 			</configuration>
 		</plugin>
 		
