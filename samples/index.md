@@ -16,8 +16,6 @@ Exemplary Samples
 * [Data Model](data_model.html) - provides detailed description of the supported data structure descriptors and the corresponding database artifacts.
 * [Entity Service](entity_service.html) - creates a domain model object and generates a RESTful service on top.
 * [Entity User Interface](entity_ui.html) - generates pattern-based user interface on top of an [entity service](entity_service.html).
-* JavaScript Service & Library - implements your own custom algorithms by using the most popular dynamic language - JavaScript. Along with the fairly good number of out-of-the-box utilities, implied in the context to speed up the developer productivity, it also shows how you can create your own set of functions and pack them as a libraries for later reuse.
-* User Interface - to complete the stack of capabilities for user interaction use cases, you can try the sample about how to create user interface based on jQuery, Bootstrap and other related and proved AJAX libraries.
 * [Mail Service](mail_service.html) - sends e-mails with only 5 lines of code.
 * [REST Calls](rest_calls.html) - demonstrates how to send REpresentational State Transfer calls to other services.
 * [REST Call with Authorization Header](rest_calls_auth.html) - shows how to add Authorization Header for a REST call.
@@ -26,7 +24,12 @@ Exemplary Samples
 * [Scheduling Job on JavaScript Service](scheduled_job.html) - the next sample shows how to schedule a job that triggers execution of a JavaScript service.
 * Using simple data [storage](storage.html) - demonstrates how to put, get, clear, and delete binary content. 
 * [XML to JSON](xml.html) and vice-versa conversions
-* Documentation - demonstrates how to add the documentation of your project by using template technics.
+* [Configurations](config.html) - a sample service demonstrating how to use Configuration Storage
+* [Wiki Markup](confluence_to_html.html) - how to us the wiki markup engines from your source code
+* [File Upload](file_storage.html) - service for upload and store files
+* [Multiple Datasources](multidb_service.html) - how to retrieve and use custom datasource
+* [Templating](templating_service) - use Velocity based syntax to generate pages from your application
+
 
 Solution Samples
 ---

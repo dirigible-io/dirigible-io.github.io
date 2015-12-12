@@ -26,16 +26,17 @@ The first page of this wizard lets you choose among several artifacts related to
 <br></br>
 ![New DataStructures Wizard 2](bookstore/8_books_new_ds_wizard_2.png)
 <br></br>
-<pre><code>BOOK_ID                 INTEGER         not null    primaryKey
-BOOK_ISBN               CHAR        13  not null
-BOOK_TITLE              VARCHAR     200 not null
-BOOK_AUTHOR             VARCHAR     100 not null
-BOOK_EDITOR             VARCHAR     100
-BOOK_PUBLISHER          VARCHAR     100
-BOOK_FORMAT             VARCHAR     100
-BOOK_PUBLICATION_DATE   DATE
-BOOK_PRICE              DOUBLE          not null
-</code></pre>
+
+		BOOK_ID                 INTEGER         not null    primaryKey
+		BOOK_ISBN               CHAR        13  not null
+		BOOK_TITLE              VARCHAR     200 not null
+		BOOK_AUTHOR             VARCHAR     100 not null
+		BOOK_EDITOR             VARCHAR     100
+		BOOK_PUBLISHER          VARCHAR     100
+		BOOK_FORMAT             VARCHAR     100
+		BOOK_PUBLICATION_DATE   DATE
+		BOOK_PRICE              DOUBLE          not null
+
 <br></br>
 ![New DataStructures Wizard 3](bookstore/9_books_new_ds_wizard_3.png)
 <br></br>
@@ -47,93 +48,94 @@ BOOK_PRICE              DOUBLE          not null
 <br></br>
 ![New DataStructures Content](bookstore/11_books_new_ds_content.png)
 <br></br>
-<pre><code>{
-  "tableName":"BOOKS",
-  "columns":
-    [
-      {
-        "name":"BOOK_ID",
-        "type":"INTEGER",
-        "length":"0",
-        "notNull":"true",
-        "primaryKey":"true",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_ISBN",
-        "type":"CHAR",
-        "length":"13",
-        "notNull":"true",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_TITLE",
-        "type":"VARCHAR",
-        "length":"200",
-        "notNull":"true",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_AUTHOR",
-        "type":"VARCHAR",
-        "length":"100",
-        "notNull":"true",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_EDITOR",
-        "type":"VARCHAR",
-        "length":"100",
-        "notNull":"false",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_PUBLISHER",
-        "type":"VARCHAR",
-        "length":"100",
-        "notNull":"false",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_FORMAT",
-        "type":"VARCHAR",
-        "length":"100",
-        "notNull":"false",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_PUBLICATION_DATE",
-        "type":"DATE",
-        "length":"0",
-        "notNull":"false",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-      ,
-      {
-        "name":"BOOK_PRICE",
-        "type":"DOUBLE",
-        "length":"0",
-        "notNull":"true",
-        "primaryKey":"false",
-        "defaultValue":""
-      }
-    ]
-}
-</code></pre>
+
+		{
+		  "tableName":"BOOKS",
+		  "columns":
+		    [
+		      {
+		        "name":"BOOK_ID",
+		        "type":"INTEGER",
+		        "length":"0",
+		        "notNull":"true",
+		        "primaryKey":"true",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_ISBN",
+		        "type":"CHAR",
+		        "length":"13",
+		        "notNull":"true",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_TITLE",
+		        "type":"VARCHAR",
+		        "length":"200",
+		        "notNull":"true",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_AUTHOR",
+		        "type":"VARCHAR",
+		        "length":"100",
+		        "notNull":"true",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_EDITOR",
+		        "type":"VARCHAR",
+		        "length":"100",
+		        "notNull":"false",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_PUBLISHER",
+		        "type":"VARCHAR",
+		        "length":"100",
+		        "notNull":"false",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_FORMAT",
+		        "type":"VARCHAR",
+		        "length":"100",
+		        "notNull":"false",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_PUBLICATION_DATE",
+		        "type":"DATE",
+		        "length":"0",
+		        "notNull":"false",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		      ,
+		      {
+		        "name":"BOOK_PRICE",
+		        "type":"DOUBLE",
+		        "length":"0",
+		        "notNull":"true",
+		        "primaryKey":"false",
+		        "defaultValue":""
+		      }
+		    ]
+		}
+
 <br></br>
 For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html)
 Now, you have to create the real database artifact in the underlying database. 

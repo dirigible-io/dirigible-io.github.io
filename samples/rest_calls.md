@@ -13,41 +13,39 @@ REST Call
 3. Within the service code, enter the following content:
 
 <b><i>GET Call</b></i>
-<pre><code>var ioLib = require('io');
 
-var url = 'http://rest.call/example';
+		var ioLib = require('io');
 
-var getRequest = http.createGet(url);
-var httpClient = http.createHttpClient();
-var httpResponse = httpClient.execute(getRequest);
-var entity = httpResponse.getEntity();
-var content = entity.getContent();
+		var url = 'http://rest.call/example';
+		
+		var getRequest = http.createGet(url);
+		var httpClient = http.createHttpClient();
+		var httpResponse = httpClient.execute(getRequest);
+		var entity = httpResponse.getEntity();
+		var content = entity.getContent();
+		
+		var input = ioLib.read(content);
+		http.consume(entity);
+		
+		response.getWriter().println(input);
 
-var input = ioLib.read(content);
-http.consume(entity);
-
-response.getWriter().println(input);
-</code></pre>
 
 <b><i>Parsing 'input' to JSON</b></i>
 
-<pre><code>var json = JSON.parse(input);
-</code></pre>
+		var json = JSON.parse(input);
 
 <b><i>POST Call</b></i>
 
-<pre><code>var postRequest = http.creatPost(url);
-</code></pre>
-
+		var postRequest = http.creatPost(url);
 
 <b><i>PUT Call</b></i>
 
-<pre><code>var putRequest = http.createPut(url);
-</code></pre>
-
+		var putRequest = http.createPut(url);
+		
 <b><i>DELETE Call</b></i>
-<pre><code>var deleteRequest = http.createDelete(url);
-</code></pre>
 
+		var deleteRequest = http.createDelete(url);
+		
 <br></br>
+
 For more information, see the *[API](../help/api.html)* documentation.

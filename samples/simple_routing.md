@@ -35,50 +35,51 @@ The general steps are valid for all other template types for the different integ
 <br></br>
 7. Click *Finish* and inspect the generated artifact, which should look like this:
 <br></br>
-<pre><code>{  
-   "name":"simple_routing",
-   "properties":{
-      "myKey2":"myValue2",
-      "myKey1":"myValue1"
-   },
-   "steps":[  
-      {  
-         "type":"condition",
-         "name":"1",
-         "cases":[  
-            {  
-               "key":"name",
-               "value":"Joe",
-               "flow":{
-                  "name":"WelcomeJoe",
-                  "steps":[  
-                     {  
-                     	"name":"4",
-                        "type":"output",
-                        "message":"Welcome Joe"
-                     }
-                  ]
-               }
-            },
-            {  
-               "key":"name",
-               "value":"null",
-               "flow":{  
-			      "name":"NoName",
-                  "steps":[  
-                     {  
-                     	"name":"5",
-                        "type":"output",
-                        "message":"Add to the request URL '?name=Joe'"
-                     }
-                  ]
-               }
-            }
-         ]
-      }
-   ]
-}
-</code></pre>
+
+		{  
+		   "name":"simple_routing",
+		   "properties":{
+		      "myKey2":"myValue2",
+		      "myKey1":"myValue1"
+		   },
+		   "steps":[  
+		      {  
+		         "type":"condition",
+		         "name":"1",
+		         "cases":[  
+		            {  
+		               "key":"name",
+		               "value":"Joe",
+		               "flow":{
+		                  "name":"WelcomeJoe",
+		                  "steps":[  
+		                     {  
+		                     	"name":"4",
+		                        "type":"output",
+		                        "message":"Welcome Joe"
+		                     }
+		                  ]
+		               }
+		            },
+		            {  
+		               "key":"name",
+		               "value":"null",
+		               "flow":{  
+					      "name":"NoName",
+		                  "steps":[  
+		                     {  
+		                     	"name":"5",
+		                        "type":"output",
+		                        "message":"Add to the request URL '?name=Joe'"
+		                     }
+		                  ]
+		               }
+		            }
+		         ]
+		      }
+		   ]
+		}
+
 8. Now *Activate* ot *Publish* the project and it's done. (See [Activate](../help/activation.html) or [Publish](../help/publishing.html))
 <br></br>
 9. Go to following location and try it:

@@ -16,22 +16,23 @@ Storage
 <br></br>
 4. Give the service a meaningful name (e.g **storage_usage.js**).
 5. Replace the generated code in *storage_usage.js* with the following:
-<pre><code>function toString(bytes) {
-    var s = "";
-    for(var i=0, l=bytes.length; i < l; i++) {
-        s += String.fromCharCode(bytes[i]);
-    }
-    return s;
-}
-var byteArray = [49,50,51]; // string "123"
-storage.put("/a/b/c", byteArray);
-var retrievedData = storage.get("/a/b/c");
-var result = toString(retrievedData);
-response.getWriter().println(result);
-response.setContentType("text/html");
-response.getWriter().flush();
-response.getWriter().close();
-</code></pre>
+
+		function toString(bytes) {
+		    var s = "";
+		    for(var i=0, l=bytes.length; i < l; i++) {
+		        s += String.fromCharCode(bytes[i]);
+		    }
+		    return s;
+		}
+		var byteArray = [49,50,51]; // string "123"
+		$.getBinaryStorage().put("/a/b/c", byteArray);
+		var retrievedData = $.getBinaryStorage().get("/a/b/c");
+		var result = toString(retrievedData);
+		$.getResponse().getWriter().println(result);
+		$.getResponse().setContentType("text/html");
+		$.getResponse().getWriter().flush();
+		$.getResponse().getWriter().close();
+		
 6. Select the *Preview* tab.
 <br></br>
 7. Click on **storage_usage.js** from the *Workspace Explorer* and check the result.

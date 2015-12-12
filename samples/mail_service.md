@@ -25,13 +25,14 @@ Mail Service
 <br></br>
 7. Now replace the generated code in **mail_sender.js** with the following:
 <br></br>
-<pre><code>var from = 'employee@your.company.com';
-var to = 'boss@your.company.com';
-var title = 'Test Email Service';
-var body = 'Hello Boss! The mail service is up and running!';
-mail.sendMail(from, to, title, body);
-response.getWriter().println('Email was sent successfully');
-</code></pre>
+
+		var from = 'employee@your.company.com';
+		var to = 'boss@your.company.com';
+		var title = 'Test Email Service';
+		var body = 'Hello Boss! The mail service is up and running!';
+		$.getMailService().sendMail(from, to, title, body);
+		$.getResponse().getWriter().println('Email was sent successfully');
+
 8. Select the *Preview* tab.
 9. Click on **mail_sender.js** from the *Workspace Explorer*.
 The operation for the scripting service access  will send the e-mail.

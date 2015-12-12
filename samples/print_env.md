@@ -18,15 +18,16 @@ Print Environment Variables
 5. Give it a meaningful name (e.g **printenv.js**).
 6. Replace the generated code in **printenv.js** with the following:
 <br></br>
-<pre><code>response.setContentType("text/html");
-var p = java.lang.System.getProperties();
-var keys = p.keys();
-while (keys.hasMoreElements()) {
-  var key = keys.nextElement();
-  var value = p.get(key);
-  response.getWriter().println(key + ": " + value + "<br>");
-}
-response.getWriter().flush();
-response.getWriter().close();
-</code></pre>
+
+		response.setContentType("text/html");
+		var p = java.lang.System.getProperties();
+		var keys = p.keys();
+		while (keys.hasMoreElements()) {
+		  var key = keys.nextElement();
+		  var value = p.get(key);
+		  response.getWriter().println(key + ": " + value + "<br>");
+		}
+		response.getWriter().flush();
+		response.getWriter().close();
+
 

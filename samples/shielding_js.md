@@ -20,25 +20,25 @@ Enter the parameters:
 > Endpoint Address: *endpoint*
 
 Click *Finish*. The generated routes artifact should look like:
-<pre><code>{  
-   "name":"shiled",
-   "properties":{
-      "myKey1":"myValue1",
-      "myKey2":"myValue2"
-   },
-   "steps":[  
-      {  
-         "type":"javascript",
-         "module":"/routing/endpoint.js",
-         "name":"1",
-         "properties":{
-            "step1Key1":"step1Value1",
-            "step1Key2":"step1Value2"
-         }
-      }
-   ]
-}
-</code></pre>
+
+		{  
+		   "name":"shiled",
+		   "properties":{
+		      "myKey1":"myValue1",
+		      "myKey2":"myValue2"
+		   },
+		   "steps":[  
+		      {  
+		         "type":"javascript",
+		         "module":"/routing/endpoint.js",
+		         "name":"1",
+		         "properties":{
+		            "step1Key1":"step1Value1",
+		            "step1Key2":"step1Value2"
+		         }
+		      }
+		   ]
+		}
 
 Under the *IntegrationServices* and *ScriptingServices* folders, *flow_name.flow* and *endpoint.js* files are generated.
 Now *Activate* ot *Publish* the project. (See [Activate](../help/activation.html) or [Publish](../help/publishing.html))

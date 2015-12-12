@@ -17,24 +17,25 @@ XML to JSON and vice-versa
 <br></br>
 5. Give it a meaningful name (e.g **xml_usage.js**).
 6. Replace the generated code in **xml_usage.js** with the following:
-<pre><code>var jsonObject = {};
-jsonObject.root = {};
-jsonObject.root.a = 5;
-jsonObject.root.b = "test1";
-<br></br>
-var xmlString = xml.fromJson(JSON.stringify(jsonObject));
-<br></br>
-response.getWriter().println(xmlString);
-<br></br>
-response.setContentType("application/xml");
-response.getWriter().flush();
-response.getWriter().close();
-</code></pre>
+
+		var jsonObject = {};
+		jsonObject.root = {};
+		jsonObject.root.a = 5;
+		jsonObject.root.b = "test1";
+		
+		var xmlString = $.getXmlUtils().fromJson(JSON.stringify(jsonObject));
+		
+		$.getResponse().getWriter().println(xmlString);
+		
+		$.getResponse().setContentType("application/xml");
+		$.getResponse().getWriter().flush();
+		$.getResponse().getWriter().close();
+
+
 7. Select the *Preview* tab.
 8. Click on **xml_usage.js** from the *Workspace Explorer* and check the raw result:
-<pre><code>
-< root >< b >test1< /b >< a >5< /a >< /root >
-</code></pre>
+
+		<root><b>test1</b><a>5</a></root>
 
 > toJson(xmlString) - converts XML content to JSON
 

@@ -27,11 +27,12 @@ Now click *Finish*.
 Under the *IntegrationServices* and *ScriptingServices* folders, *job_name.job* and *endpoint.js* files are generated.
 
 The generated **job_name.job** artifact should looks like:
-<pre><code>{
-  "name":"job",
-  "description":"job Description",
-  "expression":"0/5 * * * * ?",
-  "type":"javascript",
-  "module":"/routing/endpoint.js"
-}
-</code></pre>
+
+		{
+		  "name":"job",
+		  "description":"job Description",
+		  "expression":"0/5 * * * * ?",
+		  "type":"javascript",
+		  "module":"/routing/endpoint.js"
+		}
+
