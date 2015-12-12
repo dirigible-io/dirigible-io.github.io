@@ -50,7 +50,9 @@ Summing up the steps:
 
 2.Clear previous deployments if any and make sure the work directory is clear (very important!), and deploy
 
-3.Start Tomcat in debug mode: catalina jpda start
+3.Start Tomcat in debug mode:
+
+> catalina jpda start
 
 4.In Eclipse, launch a Debug launch configuration with default settings.
 
