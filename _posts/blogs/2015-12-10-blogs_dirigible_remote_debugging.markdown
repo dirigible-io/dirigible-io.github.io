@@ -3,7 +3,7 @@ layout: post
 title: "Developer - Remote debugging Dirigible source code"
 category: blogs
 tag: blogs
-brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_remote_debugging.html'>Developer - Remote debugging Dirigible source code</a></h4> <sub class="post-info">December 10, 2015 by Georgi Pavlov</sub></br>While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach...<br>
+brief: <h4><a href='blogs/2015/12/10/blogs_dirigible_remote_debugging.html'>Developer - Remote debugging Dirigible source code</a></h4> <sub class="post-info">December 10, 2015 by Georgi Pavlov</sub></br>While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach...<br>
 ---
 
 ###Developer - Remote debugging Dirigible source code###
