@@ -67,6 +67,8 @@ Notice, the construction of the string in the param-value. The pattern is to add
 **On this stage**: We have setup Dirigible to lookup a named javax.sql.DataSource from JDNI and make it available to its features.
  
 ####Step 4: Register the Data Source in Dirigible injected API
+**Note**: Before proceeding, make sure that Tomcat is restarted if it was online when Step 1 and 2 were accomplished, or start it now if it was offline.
+
 Open Dirigible IDE and select **Window > Preferences** from its menu:
 
 <br>
