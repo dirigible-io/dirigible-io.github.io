@@ -3,7 +3,7 @@ layout: post
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup"
 category: blogs
 tag: blogs
-brief: <h4><a href='blogs/2016/01/07/blogs_dirigible_custom_ds_1.html'>BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup</a></h4> <sub class="post-info">January 7, 2016 by Georgi Pavlov</sub></br> Since Dirigible v2.2 M3 it is possible to setup multiple custom data sources. Get acquainted and learn how to take the most out of this feature...<br>
+brief: <h4><a href='blogs/2016/01/07/blogs_dirigible_custom_ds_1.html'>BYODS (Bring Your Own Data Source) in Dirigible - Part I":" Custom Data Sources setup</a></h4> <sub class="post-info">January 7, 2016 by Georgi Pavlov</sub></br> Since Dirigible v2.2 M3 it is possible to setup multiple custom data sources. Get acquainted and learn how to take the most out of this feature...<br>
 ---
 
 #BYODS (Bring Your Own Data Source) in Dirigible
