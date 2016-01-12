@@ -115,7 +115,7 @@ If you follow this routine, rebuild Dirigible with a bundle that contains your c
 ###Dissecting IDialectSpecifier
 Now, as promised, let’s get back to the main interface for dialects. Its methods can be grouped according to their purpose. We shall review the more important of each one here.
 
-####SQL statement construction callbacks
+#####SQL statement construction callbacks
 There are a number of methods that are invoked during the construction of statements (queries and updates) by the Dirigible database related tools:
 
 - `String specify(String sql);`
@@ -139,17 +139,17 @@ The `createLimitAndOffset` and `createTopAndStart` methods are concerned with tw
 
 The set of `getAlter*` methods are handling the `ALTER <table-name> TABLE ADD` construct in dialect specific manner. There are actually two pairs of methods, each pair concerned with a variant of handling the column ADD syntax. In each pair there is a method handling the opening part of the construction and there is one for the closing part.
 
-####ResultSet iteration callbacks
+#####ResultSet iteration callbacks
 The following methods are used by Dirigible while iterating a query ResultSet:
 
 - `InputStream getBinaryStream(ResultSet resultSet, String columnName) throws SQLException;`
 
-####Common data type model translation
+#####Common data type model translation
 - `String getSpecificType(String commonType);`
 
 The `getSpecificType` method is responsible to translate between the common types used in Dirigible and database-specific ones.
 
-####Query templates
+#####Query templates
 Dirigible tools such as the SQLConsole and the Database browser collaborate with the action *Show Content* to set a generic query, listing the contents a table and execute it. It is the following method that is invoked to provision that generic query:
 
 - `String getContentQueryScript(String catalogName, String schemaName, String tableName);`
@@ -158,7 +158,7 @@ Another one is concerned with provisioning a query that will perform database sp
 
 - `String getSchemaFilterScript();`
 
-####Database Metadata
+#####Database Metadata
 There are also methods concerned with the general description of the data base:
 
 - `boolean isSchemaFilterSupported();`
@@ -174,7 +174,7 @@ Similarly `isSchemaFilterSupported` is used by the Database Browser to invoke up
 
 But above all it's worth mentioning here the `isDialectForName` method. As you probably noted, this was the only one that was part of the minimal implementation of a dialect. What it does essentially is to assess the dialect where it is declared is applicable for the database product name supplied as argument for the `productName` parameter of the method. The value of the `productName` parameter is the string supplied by JDBC drivers implementation of [DatabaseMetaData#getDatabaseProductName](https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#getDatabaseProductName()) API. Dirigible uses this to determine, which of the available service implementations of IDialectSpecifier is applicable for a given database.
 
-####Wrapping up
+###Wrapping up
 Summing up what we already know about the `IDialectSpecifier` interface, here is a slightly more elaborated variant of the minimal dialect implementation that we started with:
 
 	public class H2DBSpecifier extends RDBGenericDialectSpecifier {
