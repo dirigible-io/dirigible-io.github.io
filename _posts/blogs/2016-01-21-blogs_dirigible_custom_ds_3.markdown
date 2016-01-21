@@ -47,7 +47,7 @@ It is integrated also into the InjectedAPI and therefore in your scripting servi
 ###Key design notes
 Onboarding a Mongo DB data source leverages exactly the same integration mechanism in Dirigible as any other (relational) data source. This feature has been discussed in detail in the previous BYODS [blog](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html) series. The obvious advantage of this approach is that it follows an established path. That simplicity comes at the cost of a few reasonable prerequisites listed below.
 
-#####JDBC API
+####JDBC API
 JDBC is the standard API used by Dirigible internally to integrate data sources and by developers to use them. Therefore, you will need a JDBC compliant driver to provision access to a Mongo database. Its role is to reconcile the conceptual differences between the relational model centric JDBC API and the NoSQL document store world.
 
 In Mongo, despite the name “[Java driver](https://docs.mongodb.org/ecosystem/drivers/java/)” that you will find on Mongo DB’s site concerning Java clients, this has nothing to do with JDBC drivers. It is a Java client API. If you look around for available JDBC drivers for Mongo DB, they are not exactly abundant either. What’s more troublesome here is that virtually all available drivers actually try to translate between Mongo DB’s native query language and SQL. While this works perfectly well for us in terms of technical integration, it does not comply with our goal to make Mongo DB’s developers feel at home in Dirigible, because it would be fairly weird for them to write SQL to query a document database. 
@@ -55,11 +55,11 @@ To fill this gap and for the sake of this example we’ve prototyped a driver th
 
 The fine print? Once again, this driver is a prototype and as of the time of this writing there’s still nothing comparable (Meaning happily abusing the JDBC API as a standard protocol for Mongo DB but reusing its own query language). Show some love for it and we will further enhance it. The rest of the drivers out there translate to/from SQL, which will work for the InjectedAPI if you are happy with this approach, but not with the Dirigible database tools in the IDE’s Database perspective.
 
-#####Query language
+####Query language
 In order to execute query or update statements from Dirigible, your back-end needs to be able to interpret a formal language that can be encoded in strings because that’s the input it will get. There are options here, but it would be best to re-use a query language if your database already has one. Developers who are already used to it will feel at home and make the best use of the database capabilities. Other options, but less desirable for the same reasons, are to translate to and from SQL or other suitable language.
 MongoDB has a concept of query language. Queries are BSON encoded documents that are input to the operation [find](https://docs.mongodb.org/manual/reference/command/find/#dbcmd.find). Our JDBC driver takes documents in that format as string input to its query operations in the JDBC API, converts internally to BSON documents and invokes the operation find on the Mongo DB Java client. The JDBC query operations string input therefore needs to be compliant with Mongo's `find` operation input parameter [specification](https://docs.mongodb.org/manual/reference/command/find/#dbcmd.find). 
 
-#####Result sets
+####Result sets
 Results are returned as JDBC [ResultSet](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html), i.e. in a table form. The driver of choice should be capable of transforming internally to this form of results presentation from Mongo's documents format.
 
 - **Row data.** 
@@ -74,10 +74,10 @@ These are all important considerations when implementing and using the result se
 ###Provisioning
 The setup of a Mongo DB data source is no different from what we already did in [Part I](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html), so here we shall cut short and focus only on the details that you need to provide.
 
-#####Step 1: Provision JDBC drivers classes
+####Step 1: Provision JDBC drivers classes
 Get the JDBC driver source from [Github](https://github.com/eclipselabs/mongodb-jdbc-driver) and use [Maven](https://maven.apache.org/) to build. Copy the build result in Tomcat’s lib directory.
 
-#####Step 2: Bind a Data Source to JNDI
+####Step 2: Bind a Data Source to JNDI
 Edit Tomcat’s conf/context.xml to add a resource:
 
 	<Resource name="jdbc/MongoDB" auth="Container"
@@ -88,7 +88,7 @@ Edit Tomcat’s conf/context.xml to add a resource:
 
 Note: Remember to change the placeholders in this example with actual values. **<YOUR_NAME_HERE>** and **<YOUR_PASSWORD_HERE>** are respectively the user name and password for a valid user of the database.
 
-#####Step 3: Configure application reference
+####Step 3: Configure application reference
 Add the following init parameter to the bridge servlet in the web.xml
 
 	<init-param>
@@ -96,7 +96,7 @@ Add the following init parameter to the bridge servlet in the web.xml
 		<param-value>java:comp/env/jdbc/MongoDB</param-value>
 	</init-param> 
 
-#####Step 4: Register the data source
+####Step 4: Register the data source
 Go to Dirigible IDE Preferences, locate Data Sources and create a new one. Fill in the following details in dialog that pops up:
 
 - Id: `mongodb`
