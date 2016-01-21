@@ -12,33 +12,33 @@ brief: <h4><a href='blogs/2016/01/21/blogs_dirigible_custom_ds_3.html'>BYODS (Br
 
 In previous [blogs](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html) in the "BYODS in Dirigible" series we explored how data sources are integrated in general with most examples focusing on relational databases as options. But what about [NoSQL](https://en.wikipedia.org/wiki/NoSQL)?
 
-Dirigible welcomes [Mongo DB](https://www.mongodb.org/) onboard! Starting with version 2.2 Mongo DB is supported out-of-the-box. You can explore it in the IDE and develop scripting services for it. Taking advantage of NoSQL document storage is now an entirely viable option. This is the first stage of our roadmap for onboarding NoSQL development. It uses JDBC as standard communication protocol and API. We are well aware that it is not native to NoSql development and is rather a ìquick way inî. On next stage, we plan to explore the options to provision [Apache TinkerPop](https://tinkerpop.incubator.apache.org/) as a well-recognized standard Graph API (to which Mongo DB also complies) to scripting services via the [Injected API](http://www.dirigible.io/help/api.html). We shall seek also for convenient ways to provide access to native Graph APIs of NoSql data stores with all pros and cons that go along with that.
+Dirigible welcomes [Mongo DB](https://www.mongodb.org/) onboard! Starting with version 2.2 Mongo DB is supported out-of-the-box. You can explore it in the IDE and develop scripting services for it. Taking advantage of NoSQL document storage is now an entirely viable option. This is the first stage of our roadmap for onboarding NoSQL development. It uses JDBC as standard communication protocol and API. We are well aware that it is not native to NoSql development and is rather a ‚Äúquick way in‚Äù. On next stage, we plan to explore the options to provision [Apache TinkerPop](https://tinkerpop.incubator.apache.org/) as a well-recognized standard Graph API (to which Mongo DB also complies) to scripting services via the [Injected API](http://www.dirigible.io/help/api.html). We shall seek also for convenient ways to provide access to native Graph APIs of NoSql data stores with all pros and cons that go along with that.
 
-But first things first. We shall now explore what weíve got for Mongo DB developers in Dirigible 2.2.
+But first things first. We shall now explore what we‚Äôve got for Mongo DB developers in Dirigible 2.2.
 
 ##Part III: MongoDB custom data source
 
-Whatís in the box? With a Mongo DB custom data source integrated in Dirigible Database tools, you can explore the related database instance list of collections and examine collection documents:
+What‚Äôs in the box? With a Mongo DB custom data source integrated in Dirigible Database tools, you can explore the related database instance list of collections and examine collection documents:
 
 <br>
 	<img src="/img/posts/20160121-0/3-0.png"/>
 <br>
 
-As with any other relational data source, you can also execute queries and updates but hence, using Mongoís native BSON-based query language:
+As with any other relational data source, you can also execute queries and updates but hence, using Mongo‚Äôs native BSON-based query language:
 
 <br>
 	<img src="/img/posts/20160121-0/3-1.png"/>
 <br>
 
-It is integrated also into the InjectedAPI and therefore in your scripting service you can request the data source by its name, get a connection and execute a statement using Mongoís native query language, and iterate the result set (here, using the JDBC API. Read below for more options):
+It is integrated also into the InjectedAPI and therefore in your scripting service you can request the data source by its name, get a connection and execute a statement using Mongo‚Äôs native query language, and iterate the result set (here, using the JDBC API. Read below for more options):
 
-	var ds = $.getNamedDatasources().get(ëmongodbí);
+	var ds = $.getNamedDatasources().get(‚Äòmongodb‚Äô);
 	var conn = ds.getConnection();
 	try {
 	    var stmt = conn.createStatement();
-	    var rs = stmt.executeQuery(ë{ìfindî:îtestCollectionî}í);
+	    var rs = stmt.executeQuery(‚Äò{‚Äúfind‚Äù:‚ÄùtestCollection‚Äù}‚Äô);
 	    while (rs.next()) {
-	        $.getResponse().getWriter().println(rs.getString(1)+':'+rs.getString(ìnameî) + '<br>');
+	        $.getResponse().getWriter().println(rs.getString(1)+':'+rs.getString(‚Äúname‚Äù) + '<br>');
 	    }
 	} finally {
 	   conn.close();
@@ -49,13 +49,13 @@ Onboarding a Mongo DB data source leverages exactly the same integration mechani
 ####JDBC API
 JDBC is the standard API used by Dirigible internally to integrate data sources and by developers to use them. Therefore, you will need a JDBC compliant driver to provision access to a Mongo database. Its role is to reconcile the conceptual differences between the relational model centric JDBC API and the NoSQL document store world.
 
-In Mongo, despite the name ì[Java driver](https://docs.mongodb.org/ecosystem/drivers/java/)î that you will find on Mongo DBís site concerning Java clients, this has nothing to do with JDBC drivers. It is a Java client API. If you look around for available JDBC drivers for Mongo DB, they are not exactly abundant either. Whatís more troublesome here is that virtually all available drivers actually try to translate between Mongo DBís native query language and SQL. While this works perfectly well for us in terms of technical integration, it does not comply with our goal to make Mongo DBís developers feel at home in Dirigible, because it would be fairly weird for them to write SQL to query a document database. 
-To fill this gap and for the sake of this example weíve prototyped a driver that can send native queries encoded as BSON to Mongo DB. It is available on [Github](https://github.com/eclipselabs/mongodb-jdbc-driver).
+In Mongo, despite the name ‚Äú[Java driver](https://docs.mongodb.org/ecosystem/drivers/java/)‚Äù that you will find on Mongo DB‚Äôs site concerning Java clients, this has nothing to do with JDBC drivers. It is a Java client API. If you look around for available JDBC drivers for Mongo DB, they are not exactly abundant either. What‚Äôs more troublesome here is that virtually all available drivers actually try to translate between Mongo DB‚Äôs native query language and SQL. While this works perfectly well for us in terms of technical integration, it does not comply with our goal to make Mongo DB‚Äôs developers feel at home in Dirigible, because it would be fairly weird for them to write SQL to query a document database. 
+To fill this gap and for the sake of this example we‚Äôve prototyped a driver that can send native queries encoded as BSON to Mongo DB. It is available on [Github](https://github.com/eclipselabs/mongodb-jdbc-driver).
 
-The fine print? Once again, this driver is a prototype and as of the time of this writing thereís still nothing comparable (Meaning happily abusing the JDBC API as a standard protocol for Mongo DB but reusing its own query language). Show some love for it and we will further enhance it. The rest of the drivers out there translate to/from SQL, which will work for the InjectedAPI if you are happy with this approach, but not with the Dirigible database tools in the IDEís Database perspective.
+The fine print? Once again, this driver is a prototype and as of the time of this writing there‚Äôs still nothing comparable (Meaning happily abusing the JDBC API as a standard protocol for Mongo DB but reusing its own query language). Show some love for it and we will further enhance it. The rest of the drivers out there translate to/from SQL, which will work for the InjectedAPI if you are happy with this approach, but not with the Dirigible database tools in the IDE‚Äôs Database perspective.
 
 ####Query language
-In order to execute query or update statements from Dirigible, your back-end needs to be able to interpret a formal language that can be encoded in strings because thatís the input it will get. There are options here, but it would be best to re-use a query language if your database already has one. Developers who are already used to it will feel at home and make the best use of the database capabilities. Other options, but less desirable for the same reasons, are to translate to and from SQL or other suitable language.
+In order to execute query or update statements from Dirigible, your back-end needs to be able to interpret a formal language that can be encoded in strings because that‚Äôs the input it will get. There are options here, but it would be best to re-use a query language if your database already has one. Developers who are already used to it will feel at home and make the best use of the database capabilities. Other options, but less desirable for the same reasons, are to translate to and from SQL or other suitable language.
 MongoDB has a concept of query language. Queries are BSON encoded documents that are input to the operation [find](https://docs.mongodb.org/manual/reference/command/find/#dbcmd.find). Our JDBC driver takes documents in that format as string input to its query operations in the JDBC API, converts internally to BSON documents and invokes the operation find on the Mongo DB Java client. The JDBC query operations string input therefore needs to be compliant with Mongo's `find` operation input parameter [specification](https://docs.mongodb.org/manual/reference/command/find/#dbcmd.find). 
 
 ####Result sets
@@ -70,14 +70,14 @@ Our JDBC driver makes a best effort to return stable value by index, relying on 
 
 These are all important considerations when implementing and using the result sets returned by queries.
 
-##Provisioning
+###Provisioning
 The setup of a Mongo DB data source is no different from what we already did in [Part I](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html), so here we shall cut short and focus only on the details that you need to provide.
 
 #####Step 1: Provision JDBC drivers classes
-Get the JDBC driver source from [Github](https://github.com/eclipselabs/mongodb-jdbc-driver) and use [Maven](https://maven.apache.org/) to build. Copy the build result in Tomcatís lib directory.
+Get the JDBC driver source from [Github](https://github.com/eclipselabs/mongodb-jdbc-driver) and use [Maven](https://maven.apache.org/) to build. Copy the build result in Tomcat‚Äôs lib directory.
 
 #####Step 2: Bind a Data Source to JNDI
-Edit Tomcatís conf/context.xml to add a resource:
+Edit Tomcat‚Äôs conf/context.xml to add a resource:
 
 	<Resource name="jdbc/MongoDB" auth="Container"
 				type="javax.sql.DataSource" 
@@ -105,10 +105,10 @@ Go to Dirigible IDE Preferences, locate Data Sources and create a new one. Fill 
 
 Finally, confirm all dialogs.
 
-And thatís pretty much it. You should have a new data source by the name `mongodb` by now.
+And that‚Äôs pretty much it. You should have a new data source by the name `mongodb` by now.
  
-##Putting it to use
-Now that weíve got a Mongo DB data source in Dirigible, put it to some good use. 
+###Putting it to use
+Now that we‚Äôve got a Mongo DB data source in Dirigible, put it to some good use. 
  
 	/* globals $ */
 	/* eslint-env node, dirigible */
@@ -121,7 +121,7 @@ Now that weíve got a Mongo DB data source in Dirigible, put it to some good use.
 	var conn = ds.getConnection();
 	try {
 	    var stmt = conn.createStatement();
-	    var rs = stmt.executeQuery(ë{find:"testCollection"}í);
+	    var rs = stmt.executeQuery(‚Äò{find:"testCollection"}‚Äô);
 	    while (rs.next()) {
 		var rsDoc = rs.getObject(-100);
 		for(var prop in rsDoc){
@@ -149,7 +149,7 @@ Next, we get a connection to the Mongo DB data source that we setup on previous 
 Then, we create a statement and execute it using the standard JDBC API but the native Mongo DB query language:
 
 	var stmt = conn.createStatement();
-	var rs = stmt.executeQuery(ë{find:"testCollection"}í);
+	var rs = stmt.executeQuery(‚Äò{find:"testCollection"}‚Äô);
 
 Now we are ready to iterate on the result set and output some results. Note how we use the standard JDBC API for iteration and the little trick that our Mongo DB JDBC driver is capable of with the `rs.getObject(-100);` statement. Once we get hold of the JSON document for the current iteration we use pure JavaScript and no JDBC to make some use of it:
 
