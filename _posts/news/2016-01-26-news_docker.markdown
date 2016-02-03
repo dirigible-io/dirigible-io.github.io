@@ -8,7 +8,7 @@ brief: <h4><a href='news/2016/01/26/news_docker.html'>Docker image for Dirigible
 
 ###Docker image for Dirigible
 
-<sub class="post-info">January 26, 2015</sub>
+<sub class="post-info">January 26, 2016</sub>
 	
 Docker image for Dirigible is created ... finally.
 
