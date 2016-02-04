@@ -32,4 +32,10 @@ New Release [2.2.160203-R](http://download.eclipse.org/dirigible/drops/R-2.2-201
 * The source code is available at GitHub repository [here](https://github.com/eclipse/dirigible/tree/2.2.160203-R).
 * The instant trial is updated accordingly with the released version [here](http://trial.dirigible.io).
 
+####Milestones release notes
+* [2.2 M1](http://www.dirigible.io/news/2015/11/17/news_new_milestone_2_2_1.html)
+* [2.2 M2](http://www.dirigible.io/news/2015/12/17/news_new_milestone_2_2_2.html)
+* [2.2 M3](http://www.dirigible.io/news/2016/01/19/news_new_milestone_2_2_3.html)
+
+
 ####Enjoy!
