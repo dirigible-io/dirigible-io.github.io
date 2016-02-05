@@ -20,7 +20,7 @@ There are two types of innovations:
 **Sustaining innovation** is innovation that leads to improvement of an existing technology, product or service.
 Example of sustaining innovation is the electrical bulb - the evolution from the incandescent bulb to an energy saving bulb and then to the LED bulb. Through that evolution process the function of the electrical bulb didn't change, it became more energy efficient, emitting more light and having longer life. This sustaining innovation improved the existing "bulb business", but didn't create new business opportunities.
 
-The second type of innovations - the **disruptive innovation**, is so powerful that it can develop new markets, re-shape existing ones, create industries that did not exist before and have an enormous effect over the "way the things are done". Examples for innovations of such scale are:
+The second type of innovations - the **disruptive innovation**, is so powerful that it can develop new markets, re-shape existing ones, create industries that did not exist before and have an enormous effect over the **"way the things are done"**. Examples for innovations of such scale are:
 
 * **Ford model T** - the first serial produced automobile for mass consumption
 * **Cellular phones** - Nokia gives to the market the cellular phones that soon replaced the fixed line telephones
@@ -31,7 +31,7 @@ The second type of innovations - the **disruptive innovation**, is so powerful t
 Almost all industries and lines of business have suffered disruptive innovations based on software through the last 10 years.
 
 ###Overview
-It is time to go back to our topic and "Develop from Mobile for Mobile". What do we mean by this and how the native mobile application development is related in the context of the Dirigible? First of all, let's introduce <a href="https://tabrisjs.com/" target="_blank">Tabris.js</a>. It is a mobile framework that allows you to develop native iOS and Android mobile applications, written entirely in JavaScript. This framework is the right choice when native performance, native look and feel and single code-base (JavaScript) is wanted. Last but not least, it is possible to use existing JavaScript libraries and native extensions to extend the core functionality, when needed. 
+It is time to go back to our topic and **"Develop from Mobile for Mobile"**. What do we mean by this and how the native mobile application development is related in the context of the Dirigible? First of all, let's introduce <a href="https://tabrisjs.com/" target="_blank">Tabris.js</a>. It is a mobile framework that allows you to develop native iOS and Android mobile applications, written entirely in JavaScript. This framework is the right choice when native performance, native look and feel and single code-base (JavaScript) is wanted. Last but not least, it is possible to use existing JavaScript libraries and native extensions to extend the core functionality, when needed. 
 
 Unlike other frameworks that use webviews or cross-platform intermediate runtimes, Tabris.js executes the JavaScript directly on the device and renders everything using native widgets. Thanks to the framework capabilities, the developers now can focus more on the mobile application development and less on the platform specifics (iOS and Android).
 
@@ -50,7 +50,7 @@ Now let's see how you can **"Develop from Mobile for Mobile"** with Dirigible.
 2. From the home screen click the **"Develop"** tile and then launch the IDE from the **"Web IDE"** tile.
 
 	<br>
-		<img src="/img/posts/20160205-0/1-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/1-0.png"/>
 	<br>
 
 3. Close the **"Get Started"** wizard if you don't have projects in the Dirigible instance.
@@ -58,76 +58,76 @@ Now let's see how you can **"Develop from Mobile for Mobile"** with Dirigible.
 5. Create new **"Hello World"** native mobile application. **Right click on the project->New->Mobile App**. From the list of available templates select **"Tabris.js Hello World"**.
 
 	<br>
-		<img src="/img/posts/20160205-0/2-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/2-0.png"/>
 	<br>
 
 6. Expand your project and navigate to the **"package.json"** file under the **"MobileApplications"** folder. Select the file and open the **"Preview"** tab.
 7. Copy from the **"Preview"** tab the URL to the application.
 
 	<br>
-		<img src="/img/posts/20160205-0/3-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/3-0.png"/>
 	<br>
 
 8. (Optional) Login into your <a href="https://tabrisjs.com" target="_blank">https://tabrisjs.com</a> account and select the **"My Scripts"** tab. From there **"Link Script"** that we've created with the Dirigible.
 
 	<br>
-		<img src="/img/posts/20160205-0/4-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/4-0.png"/>
 	<br>
 
 9. Open the **"Tabris.js"** mobile client from your device. If you've linked the script from your tabris.js account, the application can be found under the **"MY SCRIPTS"** tab, if not, then type the URL in the **"URL"** tab.
 
 	<br>
-		<img src="/img/posts/20160205-0/5-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/5-0.png"/>
 	<br>
 
 	<br>
-		<img src="/img/posts/20160205-0/6-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/6-0.png"/>
 	<br>
 
 10. Now let's take the most from the **"In-System Development"** concept and apply it on the native mobile application. Switch back to the Dirigible IDE and update the application.
 
 	<br>
-		<img src="/img/posts/20160205-0/7-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/7-0.png"/>
 	<br>
 
 11. Back to the device, it is time to refresh the content of the application.
 
 	<br>
-		<img src="/img/posts/20160205-0/8-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/8-0.png"/>
 	<br>
 
 12. Whoah, that is a real **"zero time to market"**. The changes were applied immediately and the content of application was updated.
 
 	<br>
-		<img src="/img/posts/20160205-0/9-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/9-0.png"/>
 	<br>
 
 13. But what abot the **"Develop from Mobile for Mobile"** concept and more precisely the first part of the moto **"Develop from Mobile..."**? While you are on the device, luanch the web browser and open the **"Dirigible Registry"** (the home screen). Click on the **"Develop"** tile, on the next page select the **"Light IDE"** and you are ready to go.
 
 	<br>
-		<img src="/img/posts/20160205-0/10-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/10-0.png"/>
 	<br>
 	
 	<br>
-		<img src="/img/posts/20160205-0/11-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/11-0.png"/>
 	<br>
 
 14. Navigate down to the application sources and apply some changes.
 
 	<br>
-		<img src="/img/posts/20160205-0/12-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/12-0.png"/>
 	<br>
 
 15. Hit the **"Publish"** button, so the applied changes will be available immediately.
 
 	<br>
-		<img src="/img/posts/20160205-0/13-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/13-0.png"/>
 	<br>
 
 16. Convince yourself, that the **"Develop from Mobile for Mobile"** is real, available right now, applicable and easy to use.
 
 	<br>
-		<img src="/img/posts/20160205-0/14-0.png"/>
+		<img class="img-responsive" src="/img/posts/20160205-0/14-0.png"/>
 	<br>
 
 ###Conclusion
