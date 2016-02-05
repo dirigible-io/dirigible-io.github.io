@@ -41,7 +41,7 @@ Now let's see how you can **"Develop from Mobile for Mobile"** with Dirigible.
 
 ######Prerequisites
 * Have installed the tabris mobile client on a iOS or Android device from <a href="https://tabrisjs.com/download" target="_blank">here</a>
-* Have account at <a href="tabrisjs.com" target="_blank"> https://tabrisjs.com </a> (not mandatory)
+* Have account at <a href="https://tabrisjs.com" target="_blank"> https://tabrisjs.com </a> (not mandatory)
 * Have deployed your own instance of Dirigible as described <a href="https://github.com/eclipse/dirigible/blob/master/README.md#get-started" target="_blank">here</a> (not mandatory)
 
 ######Steps
