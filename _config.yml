@@ -1,5 +1,5 @@
 name: Dirigible
-markdown: kramdown
+markdown: redcarpet
 highlighter: pygments
 baseurl:
 url: http://dirigible.io
