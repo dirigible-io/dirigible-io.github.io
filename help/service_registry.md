@@ -25,7 +25,7 @@ To be able to use the service:
 
 * To get the index of a given collection:
 
-> **GET** `http //[host]:[port]/[dirigible application context]/ *registry/db/dirigible*`
+> **GET** `http //[host]:[port]/[dirigible application context]/ *registry/*`
 
 		{
 		   "name":"root",
