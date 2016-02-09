@@ -27,28 +27,28 @@ To be able to use the service:
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *repository/db/dirigible*`
 
-<pre><code>{
-    "name" : "root",
-	"path" : "/",
-	"files" : [ {
-		"name" : "registry",
-		"path" : "/dirigible/repository/db/dirigible/registry/",
-		"folder" : true
-	}, {
-		"name" : "sandbox",
-		"path" : "/dirigible/repository/db/dirigible/sandbox/",
-		"folder" : true
-	}, {
-		"name" : "templates",
-		"path" : "/dirigible/repository/db/dirigible/templates/",
-		"folder" : true
-	}, {
-		"name" : "users",
-		"path" : "/dirigible/repository/db/dirigible/users/",
-		"folder" : true
-	} ]
-}
-</code></pre>
+		{
+		    "name" : "root",
+			"path" : "/",
+			"files" : [ {
+				"name" : "registry",
+				"path" : "/dirigible/repository/db/dirigible/registry/",
+				"folder" : true
+			}, {
+				"name" : "sandbox",
+				"path" : "/dirigible/repository/db/dirigible/sandbox/",
+				"folder" : true
+			}, {
+				"name" : "templates",
+				"path" : "/dirigible/repository/db/dirigible/templates/",
+				"folder" : true
+			}, {
+				"name" : "users",
+				"path" : "/dirigible/repository/db/dirigible/users/",
+				"folder" : true
+			} ]
+		}
+
 
 * To get the content of a given artifact:
 

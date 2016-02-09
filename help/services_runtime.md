@@ -16,6 +16,7 @@ There are several REST services available at runtime, which can give you another
 * [Logging](service_logging.html)
 * [Access Log](service_accesslog.html)
 * [Repository](service_repository.html)
+* [Registry](service_registry.html)
 * [Import](service_import.html)
 * [Export](service_export.html)
 * [Clone Import](service_clone_import.html)
