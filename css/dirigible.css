@@ -13,7 +13,7 @@ p {
 }
 
 .grid {
-    background-color: #6690b9;
+    background-color: #93B1CE;
     color: #454545;
 }
 
@@ -24,7 +24,7 @@ p {
 }
 
 .social-media {
-    background: #426a90;
+    background: #6186AA;
     padding-top: 20px;
     margin-bottom: -20px;
 }
@@ -185,7 +185,7 @@ p.copyright {
 	padding: 20px;
 	margin: 0;
 	font-size: 18em;
-    color: #6690b9 !important;
+    color: #93B1CE !important;
     text-align: center;
 	vertical-align:text-middle;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
@@ -202,8 +202,8 @@ p.copyright {
 
 .navbar-default {
     font-size: 1.2em;
-    background: #426a90;
-    border-color: #426a90;
+    background: #6186AA;
+    border-color: #6186AA;
     color: white;
 }
 
