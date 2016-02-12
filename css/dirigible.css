@@ -18,7 +18,7 @@ p {
 }
 
 .btn-primary {
-    color: #fff;
+    color: #fff !important;
     background-color: #2a435c !important;
     border: 1px solid #2a435c !important;
 }
@@ -205,10 +205,6 @@ p.copyright {
     background: #426a90;
     border-color: #426a90;
     color: white;
-}
-
-.navbar-default .navbar-nav {
-    color: #eee;
 }
 
 .navbar-default .navbar-brand {
