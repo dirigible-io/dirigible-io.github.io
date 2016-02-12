@@ -13,10 +13,24 @@ p {
 }
 
 .grid {
-    -- background-color: #dfdfdf;
-    --background-color: #f6b65b;
-    background-color: #f1f0ee;
+    background-color: #6690b9;
     color: #454545;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2a435c !important;
+    border: 1px solid #2a435c !important;
+}
+
+.social-media {
+    background: #426a90;
+    padding-top: 20px;
+    margin-bottom: -20px;
+}
+
+a {
+    color: #2a435c !important;
 }
 
 .intro-header {
@@ -35,16 +49,15 @@ p {
 	margin: 0;
 	font-family: "Montserrat", Arial, sans-serif;
 	font-size: 8em;
-	--text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
 }
 
 @font-face {
-font-family: ‘Montserrat’;
-src: url(‘webfont.eot’); 
-src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
-    url(‘webfont.svg#svgFontName’) format(‘svg’),
-    url(‘webfont.woff’) format(‘woff’),
-    url(‘webfont.ttf’)  format(‘truetype’);
+font-family: ï¿½Montserratï¿½;
+src: url(ï¿½webfont.eotï¿½); 
+src: url(ï¿½webfont.eot?#iefixï¿½) format(ï¿½embedded-opentypeï¿½),
+    url(ï¿½webfont.svg#svgFontNameï¿½) format(ï¿½svgï¿½),
+    url(ï¿½webfont.woffï¿½) format(ï¿½woffï¿½),
+    url(ï¿½webfont.ttfï¿½)  format(ï¿½truetypeï¿½);
 }
 
 .intro-divider {
@@ -54,12 +67,8 @@ src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
 }
 
 .intro-message > h3 {
-	--text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-	--text-transform:uppercase;
 	font-size: 1.8em;
-    -- color: #428bca;
     color: #454545;
---    font-family: Raleway, Arial;
 }
 
 @media (max-width: 767px) {
@@ -121,7 +130,6 @@ src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
 
 .banner h2 {
 	margin: 0;
-	--text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 	font-size: 3em;
 	color: #454545;
 }
@@ -145,7 +153,6 @@ src: url(‘webfont.eot?#iefix’) format(‘embedded-opentype’),
 @media (max-width: 767px) {
 	.banner h2 {
 		margin: 0;
-		--text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 		font-size: 3em;
 	}
 
@@ -171,42 +178,46 @@ p.copyright {
 
 .light {
     font-weight: 400;
+    color: white;
 }
 
 .pictogram {
 	padding: 20px;
 	margin: 0;
 	font-size: 18em;
-    color: #428bca;
+    color: #2a435c !important;
     text-align: center;
 	vertical-align:text-middle;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-    --border-color: #f7c71c;
-    --color: #eeeeee;
-    --border: 10% solid;
 }
 
 .logo {
     border-radius: 10%;
     width: 300px; height: 220px;
-    --border-color: #f7c71c;
-    --color: #eeeeee;
-    --border: 10px solid;
 }
 
 .logo-small {
     width: 45px; height: 30px;    padding-top: 60px;
 }
 
-
-
 .navbar-default {
-    --background-image: url('../img/navbar-bg.png');
-    --background-repeat: no-repeat;
-    --height: 64px;
     font-size: 1.2em;
+    background: #426a90;
+    border-color: #426a90;
+    color: white;
 }
 
+.navbar-default .navbar-nav {
+    color: #eee;
+}
+
+.navbar-default .navbar-brand {
+    color: #bbb;
+}
+
+.navbar-default .navbar-nav {
+    color: white;
+}
 
 .lead {
 	font-size: 1.2em;
@@ -226,8 +237,8 @@ p.copyright {
 .btn-register {
     margin:5px;
     padding: 5px !important;
-    background-color: #428bca !important;
-    color: #ffffff !important;
+    background-color: #428bca;
+	border-color: #428bca;
 }
 
 .post{
