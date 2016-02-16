@@ -8,7 +8,7 @@ group: help-services
 Search Service
 ===
 
-Search Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index over the *Repository* content.
+Search Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index on the full *Repository* content.
 
 * Main use case - search by query string
 
