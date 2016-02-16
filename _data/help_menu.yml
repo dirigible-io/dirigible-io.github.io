@@ -15,6 +15,18 @@ navigation:
   - name: API
     icon: fa-sitemap
     url: api.html
+  - name: Develop
+    icon: fa-code
+    group: help-develop
+  - name: Discover
+    icon: fa-search
+    group: help-discover
+  - name: Operate
+    icon: fa-wrench
+    group: help-operate
+  - name: Monitor
+    icon: fa-area-chart
+    group: help-monitor
   - name: Setup
     icon: fa-info
     group: help-setup
