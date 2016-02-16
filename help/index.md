@@ -10,8 +10,8 @@ Dirigible Help
 Dirigible Help Portal gives access to product documentation and also related information.
 Browse Dirigible Help Portal to get up-to-date information about the features, life-cycle aspects, tip-and-tricks and many more...
 
-[General Overview](project.html)
-===
+General Overview
+=====
 
 * [Project](project.html)
 * [Dynamic Applications](dynamic_applications.html)
@@ -22,7 +22,7 @@ Browse Dirigible Help Portal to get up-to-date information about the features, l
 
 
 Develop
-====
+======
 
 * [Web IDE](develop_web_ide.html)
 * [Light IDE](develop_light_ide.html)
@@ -30,7 +30,7 @@ Develop
 
 
 Discover
-====
+======
 
 * [Web Content Registry](service_registry_web.html)
 * [Wiki Pages Registry](service_registry_wiki.html)
@@ -43,7 +43,7 @@ Discover
 * [Test Registry](service_registry_test.html)
 
 Operate
-====
+======
 
 * [Import](service_import.html)
 * [Export](service_export.html)
@@ -52,16 +52,17 @@ Operate
 * [Project Import](service_project_import.html)
 
 Monitor
-===
+======
 
 * [Memory](service_memory.html)
 * [Logging](service_logging.html)
 * [Access Log](service_accesslog.html)
 
 
-[Features](features.html)
-===
+Features
+=====
 
+* [Highlights](features.html)
 * [Data Structures](data_structures.html)
 * [Scripting Services](scripting_services.html)
 * [Integration Services](integration_services.html)
@@ -73,20 +74,23 @@ Monitor
 * [Git Integration](git.html)
 * [Backup](backup.html)
 
-[Concepts](concepts.html)
-===
+Concepts
+=====
 
+* [Concepts](concepts.html)
 * [Workspace](workspace.html)
 * [Activation](activation.html)
 * [Publishing](publishing.html)
 * [Generation](generation.html)
 * [Entity Service](entity_service.html)
 
-[Tooling](tooling.html)
-===
+Tooling
+=====
+
+* [Overview](tooling.html)
 
 Perspectives
-=====
+=======
 
 * [Workspace](workspace_perspective.html)
 * [Database](database_perspective.html)
@@ -95,14 +99,14 @@ Perspectives
 * [Debug](debugger.html)
 
 Editors and Views
-=====
+=======
 
 * [Source Editor](source_editor.html)
 * [SQL Console](sql_console.html)
 * [Log Viewer](log_viewer.html)
 	
-[Services](services_runtime.html)
-===
+Services
+=====
 
 * [Operational](service_operational.html)
 * [Memory](service_memory.html)
@@ -140,11 +144,13 @@ Editors and Views
 * [Test Registry](service_registry_test.html)
 * [Test Execution](service_test.html)
 
-[Samples](../samples/index.html)
-===
+Samples
+=====
+
+[Simple Samples](../samples/index.html)
 
 Setup
-===
+=====
 
 * [Tomcat](tomcat.html)
 * [Tomcat with PostgreSQL](tomcat_postgresql.html)
@@ -153,12 +159,29 @@ Setup
 * [Cloud Foundry](cloudfoundry.html)
 * [SAP HANA Cloud Platform](hcp.html)
 * [Docker](docker.html)
-
-
-Development Environment
-===
-
 * [Eclipse](eclipse.html)
 
+Updates
+=====
 
+* [News](/news.html)
+* [Blogs](/blogs.html)
+
+References
+=====
+
+- Project Home
+[http://www.dirigible.io](http://www.dirigible.io)
+
+- Trial Instance
+[http://trial.dirigible.io](http://trial.dirigible.io)
+
+- Forum
+[https://www.eclipse.org/forums/index.php/m/1688357/](https://www.eclipse.org/forums/index.php/m/1688357/)
+
+- Mailing List
+[https://dev.eclipse.org/mailman/listinfo/dirigible-dev](https://dev.eclipse.org/mailman/listinfo/dirigible-dev)
+
+- Bugzilla
+[https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible](https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible)
 
