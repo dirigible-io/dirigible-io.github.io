@@ -15,7 +15,12 @@ Navigate throughout all the registered user interfaces under Web Content space.
 	<img class="img-responsive" src="/help/images/discover/discover_web.png"/>
 <br>
 
-Service
-====
+General Info
+=====
 
-The RESTful service is also available [here](service_registry_web.html)
+General information about user interfaces support can be found [here](web_content.html)
+
+REST Service
+=====
+
+The REST service is also available [here](service_registry_web.html)

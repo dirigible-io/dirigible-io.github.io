@@ -15,7 +15,13 @@ Navigate throughout all the registered wiki pages under Wiki Content space. Wiki
 	<img class="img-responsive" src="/help/images/discover/discover_wiki.png"/>
 <br>
 
-Service
+General Info
+=====
+
+General information about the wiki pages support can be found [here](wiki_content.html)
+
+
+REST Service
 ====
 
-The RESTful service is also available [here](service_registry_wiki.html)
+The REST service is also available [here](service_registry_wiki.html)
