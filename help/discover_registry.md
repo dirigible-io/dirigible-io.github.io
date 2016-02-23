@@ -14,3 +14,13 @@ Browse the raw content of the Registry containing all the published artifacts. I
 <br>
 	<img class="img-responsive" src="/help/images/discover/discover_registry.png"/>
 <br>
+
+Overview
+=====
+
+General information about the Registry component can be found [here](registry.html)
+
+Service
+=====
+
+The REST service is also available [here](service_registry.html)

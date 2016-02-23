@@ -19,12 +19,10 @@ The default behavior of the adapter on a request to collection (instead of parti
 ###Templates###
 
 Common pattern in user interfaces of Web-based business applications is simplified templating - usually static header and footer.
-To support this feature, we introduced a special handling of HTML pages:
+To support this feature, we introduced a client side include script in the HTML5 templates:
 
 *	*header.html* - a special page, which is recognized as a static header so that, if exists, it is rendered in the beginning of a requested regular page.
 *	*footer.html* - a special page, which is recognized as a static footer so that, if exists, it is rendered at the end of a requested regular page.
-*	*index.html* - a special page, which is recognized as a welcome page so that no header and footer are added to it.
-*	*nohf* - a parameter, which can be added to the request URL to disable adding of header and footer.
 
 To boost developer productivity in the most common cases, we provide a set of templates, which can help during UI creation. There is a set of templates, which can be used with [entity services](entity_service.html), a list of entities, master-detail, input form, and so on. For more information, see [Entity User Interface](../samples/entity_ui.html).
 

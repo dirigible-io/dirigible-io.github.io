@@ -51,14 +51,6 @@ Kinds of Markup:
 
 ----
 
-###Templating###
-
-Simple templating is supported similar to [web content](web_content.html):
-
-*	*header.html* - a special page, which is recognized as a static header so that, if exists, it is rendered in the beginning of a requested regular page.
-*	*footer.html* - a special page, which is recognized as a static footer so that, if exists, it is rendered at the end of a requested regular page.
-*	*nohf* - a parameter, which can be added to the request URL to disable adding of header and footer.
-
 ###Sample Pages###
 
 Sample header and footer, as well as navigation page could look like:

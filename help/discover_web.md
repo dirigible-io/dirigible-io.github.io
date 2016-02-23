@@ -8,19 +8,19 @@ group: help-discover
 User Interfaces
 ===
 
-Navigate throughout all the registered user interfaces under Web Content space.
+Navigate throughout all the registered user interfaces under the WebContent space.
 
 
 <br>
 	<img class="img-responsive" src="/help/images/discover/discover_web.png"/>
 <br>
 
-General Info
+Overview
 =====
 
-General information about user interfaces support can be found [here](web_content.html)
+General information about the user interfaces support can be found [here](web_content.html)
 
-REST Service
+Service
 =====
 
 The REST service is also available [here](service_registry_web.html)
