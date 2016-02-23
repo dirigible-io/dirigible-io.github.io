@@ -24,4 +24,6 @@ General information about the wiki pages support can be found [here](wiki_conten
 Service
 ====
 
-The REST service is also available [here](service_registry_wiki.html)
+The REST service for discovery is available [here](service_registry_wiki.html)
+
+The REST service for provisioning is available [here](service_wiki.html)

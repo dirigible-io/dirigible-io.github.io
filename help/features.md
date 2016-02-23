@@ -32,6 +32,8 @@ Features
 	* Support of dynamic routes
 	* Shielding services
 	* Job scheduling
+* [*Mobile Applications*](mobile_apps.html)
+	* Support of a native Mobile Applications development via Tabris.js
 * [*Tooling*](tooling.html)
 	* *Workspace* perspective for full support of project management (New, Cut, Copy, Paste, Delete, Refresh, etc.)
 	* *Database* perspective for RDBMS management including SQL Console
