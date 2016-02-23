@@ -1,7 +1,7 @@
 ---
 layout: help
-title: Browse Content
-icon: fa-search
+title: User Interfaces
+icon: fa-globe
 group: help-discover
 ---
 
@@ -12,5 +12,5 @@ Browse the raw content of the Registry containing all the published artifacts. I
 
 
 <br>
-	<img class="img-responsive" src="/help/images/discover_registry.png"/>
+	<img class="img-responsive" src="/img/help/discover_registry.png"/>
 <br>

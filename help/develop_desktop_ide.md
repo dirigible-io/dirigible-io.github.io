@@ -12,5 +12,5 @@ There is an update site with Eclipse based plugins convenient especially for 'Ja
 
 
 <br>
-	<img class="img-responsive" src="/img/posts/rcp_main.png"/>
+	<img class="img-responsive" src="/help/images/desktop_ide.png"/>
 <br>
