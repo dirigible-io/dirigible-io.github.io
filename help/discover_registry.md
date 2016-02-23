@@ -12,5 +12,5 @@ Browse the raw content of the Registry containing all the published artifacts. I
 
 
 <br>
-	<img class="img-responsive" src="/help/images/discover_registry.png"/>
+	<img class="img-responsive" src="/help/images/discover/discover_registry.png"/>
 <br>

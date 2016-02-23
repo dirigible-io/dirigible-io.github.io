@@ -12,5 +12,5 @@ For quick fixes with simple source code editing and publishing capabilities, the
 
 
 <br>
-	<img class="img-responsive" src="/help/images/light_ide.png"/>
+	<img class="img-responsive" src="/help/images/develop/light_ide.png"/>
 <br>

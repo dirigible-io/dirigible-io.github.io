@@ -12,5 +12,5 @@ The environment itself runs directly in a browser, therefore does not require ad
 
 
 <br>
-	<img class="img-responsive" src="/help/images/web_ide.png"/>
+	<img class="img-responsive" src="/help/images/develop/web_ide.png"/>
 <br>

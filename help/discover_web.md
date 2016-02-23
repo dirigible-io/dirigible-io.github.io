@@ -12,5 +12,5 @@ Navigate throughout all the registered user interfaces under Web Content space.
 
 
 <br>
-	<img class="img-responsive" src="/img/help/discover_web.png"/>
+	<img class="img-responsive" src="/help/images/discover/discover_web.png"/>
 <br>
