@@ -10,6 +10,8 @@ brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Underst
 Understanding Dirigible
 ===
 
+<sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub>
+
 During the past couple of years Dirigible evolved from an RAP based Web IDE for
 simplification and adaptation of SOAP based Web services to a full fledged
 Dev Platform with its own yet unique to some extents architecture and features.

@@ -8,6 +8,8 @@ brief: <h4><a href='blogs/2016/01/21/blogs_repositories.html'>Developer - Reposi
 
 ##Repositories, repositories, repositories...
 
+<sub class="post-info">January 21, 2016 by Nedelcho Delchev</sub>
+
 What exactly the term Repository means in the context of Dirigible?
 How it is related to my projects' life-cycle management?
 Is there a benefit to have the whole content in a single place?

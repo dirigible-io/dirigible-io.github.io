@@ -8,6 +8,8 @@ brief: <h4><a href='blogs/2016/02/05/blogs_develop_from_mobile_for_mobile.html'>
 
 ##Develop from Mobile for Mobile
 
+<sub class="post-info">February 5, 2016 by Yordan Pavlov</sub>
+
 or what will be the next big breakthrough in the way native mobile applications are developed.
 
 ###Innovations
