@@ -8,7 +8,7 @@ brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Underst
 
 
 Understanding Dirigible
-==
+===
 
 During the past couple of years Dirigible evolved from an RAP based Web IDE for
 simplification and adaptation of SOAP based Web services to a full fledged
@@ -22,7 +22,7 @@ We will explain the current focus, priorities and future vision.
 
 
 Blocking vs. non-Blocking
-====
+---
 
 There are tons of discussions about the significant improvements in the performance,
 using the non-blocking a.k.a asynchronous programming model. 
@@ -44,7 +44,7 @@ All the current Injected APIs are synchronous.
 
 
 Events and Flows
-====
+---
 
 Following the above statements, in Dirigible we highly encourage the 
 you to use the declarative Flows services to achieve the non-blocking
@@ -56,7 +56,7 @@ but in this case the responsibility of the optimization, debugging and bug-fixin
 
 
 Dependency Management
-====
+---
 
 There are plenty of package management tools and dependency management descriptor files 
 out there. Starting with the fact that
@@ -91,7 +91,7 @@ is not present at the moment.
 
 
 JavaScript vs. Java vs. ?
-====
+---
 
 The scripting languages are the ones chosen in Dirigible by several reasons.
 The project's ultimate driving force - shortest development turn-around time,
@@ -111,7 +111,7 @@ with highlighting, code analysis and code completion - such as Orion.
 
 
 Domain Driven Design vs. Model Driven Architecture
-====
+---
 
 Domain Driven Design (DDD) is the natural choice of what Dirigible aims to provide -
 the dev platform for business services. The starting point of the development 
@@ -141,7 +141,7 @@ Hence, in Dirigible we see DDD with one-time generation as a primary approach an
 
 
 Microservices vs. Monoliths
-====
+---
 
 There is a big noise related to the Microservices concepts although they are 
 neither new nor unknown in the technology space until now.
@@ -164,7 +164,7 @@ on a very high (and expensive) level - TCP/HTTP/File System.
 
 
 Roles Separation vs. One Man Army
-====
+---
 
 Depending on the project scale, there is a common suggestion, which constantly appears - separation of roles. 
 This leads to the implied conclusion that the different roles (personas) mean different persons.
@@ -179,7 +179,7 @@ to develop your next generation business application.
 
 
 Open Source vs. Proprietary
-====
+---
 
 Dirigible is an open source project. It is based on a huge set of the open source frameworks.
 If there weren't such open source methodologies and initiatives, our world would
