@@ -8,13 +8,13 @@ group: help-features
 Test Cases
 ===
 
-###Overview###
+### Overview
 
 Following the best practices, unit tests are always an integral part of the application code itself. For this reason, in the cloud toolkit there is a predefined place for them and kind of deep integration with the scripting services.
 
 The language supported for test cases is the same as of the target scripting service you want to test. Technically, the unit tests are not different than the services, hence the separation in this regard is only semantical. You can code in the test cases everything the way you do in scripting services. All API objects, the context, and the usage of libraries are supported transparently.
 
-###Writing a Test Case###
+### Writing a Test Case
 
 1. Select a project and, from the context menu, choose an action. 
 2. Choose *New* -> *Test Case*.

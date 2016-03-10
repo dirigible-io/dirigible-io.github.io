@@ -8,12 +8,12 @@ group: help-features
 Integration Services
 ===
 
-###Overview###
+### Overview
 
 An _Integration Service_ is the connection point between the application logic and an external service (third party cloud service, 
 on-premise service, public service, etc). Both inbound and outbound services are supported, through consumption and provisioning.
 
-###Flow###
+### Flow
 
 The term *Flow* is used for simplicity to separate this kind of integration services.
 

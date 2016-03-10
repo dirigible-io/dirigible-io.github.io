@@ -16,11 +16,11 @@ To access the user interface, you can point to the runtime context; the default 
 
 > *http //[host]:[port]/dirigible*
 
-###End-Points###
+### End-Points
 
 From the index page of the *Registry*, you can navigate to the corresponding sub-pages for browsing the raw content of the *Repository*, published [user interfaces](web_content.html) (html, css, client-side javascript, etc.), [documentation](wiki_content.html) of the applications, lookup of the [scripting services](scripting_services.html) endpoints and the integration services endpoints.
 
-###Monitoring Tools###
+### Monitoring Tools
 
 The last phase of the applications lifecycle includes administration and monitoring.
 

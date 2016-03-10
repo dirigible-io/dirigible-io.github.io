@@ -15,8 +15,7 @@ There are two separated areas:
 * At the top, you can enter the SQL script compliant to the underlying database system.
 * At the bottom, you get the result of the execution in fixed text format.
 
-![Database Perspective](images/tooling/perspectives/database/database-perspective.png)
+    ![Database Perspective](images/tooling/perspectives/database/database-perspective.png)
 
-<br></br>
 
 There is also distinction between the *Query* and *Update* statements, which the user can execute depending on their role.

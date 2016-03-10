@@ -10,7 +10,7 @@ Extension Definitions
 
 Extensibility is an important requirement for business applications built to follow custom processes in LoB areas. There are patterns already well known in the most popular languages and frameworks, such as plugins in Eclipse, BAdIs in ABAP, services in Java, etc. In the cloud toolkit, we have chosen the simplest and most powerful way to define extensions. It provides just a generic description of the extension points and extensions, without explicitly defining the contract.
 
-###Extension Points###
+### Extension Points
 An *Extension Point* is the place in the core module where it is expected to be enhanced by the custom created modules. It is a simple JSON formated file with extension **\*.extensionpoint** placed in project folder *Extension_Definitions*.
 
 <pre><code>{
@@ -19,7 +19,7 @@ An *Extension Point* is the place in the core module where it is expected to be 
 }
 </code></pre>
 
-###Extensions###
+### Extensions
 An *Extension* is the actual plug-in in the custom module which extends the core functionality. It is a simple JSON formated file with extension **\*.extension**, again in project folder *Extension_Definitions*.
 
 <pre><code>{
@@ -32,7 +32,7 @@ An *Extension* is the actual plug-in in the custom module which extends the core
 <pre><code>The *"extension"* parameter above should point to a valid [Scripting Service](scripting_services.html) in the same language.
 </code></pre>
 
-###Calling Extensions###
+### Calling Extensions
 
 Within the core module, you can iterate over the defined extensions and call theirs functions:
 

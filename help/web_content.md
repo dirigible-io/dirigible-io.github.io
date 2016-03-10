@@ -8,7 +8,7 @@ group: help-features
 Web Content
 ===
 
-###Overview###
+### Overview
 
 Web Content includes all the static client-side resources, such as HTML files, CSS, and related theme ingredients, as well as dynamic scripts (e.g. JavaScript) and images. In general, the Web content adapter plays a role of a tunnel, which takes the desired resource location from the request path, loads the corresponding content from the repository, and sends it back without any modification.
 
@@ -16,7 +16,7 @@ The default behavior of the adapter on a request to collection (instead of parti
 
 > If the specific "application/json" *Accept* header is supplied with the request itself, then a JSON formatted array with sub-folders and resources will be returned.
 
-###Templates###
+### Templates
 
 Common pattern in user interfaces of Web-based business applications is simplified templating - usually static header and footer.
 To support this feature, we introduced a client side include script in the HTML5 templates:

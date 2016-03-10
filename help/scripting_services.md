@@ -8,7 +8,7 @@ group: help-features
 Scripting Services
 ===
 
-###JavaScript###
+### JavaScript
 
 **Services**	
 
@@ -42,7 +42,7 @@ This example shows two major benefits:
 *	Modularization based on built-in [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) ('require' function on the first line)
 *	Native usage of Java objects as [API](api.html) injected in the execution context (database, response)
 
-###Libraries (Modules)###
+### Libraries (Modules)
 
 You can create your own library modules in **\*.js** files. Just do not forget to add the public parts in the *exports*.
 
@@ -75,7 +75,7 @@ library.js is refered in service.js:
 
 
 
-###Groovy###
+### Groovy
 
 Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and many more.
 
@@ -98,7 +98,7 @@ Corresponding examples in Groovy:
 		}
 
 
-###Java###
+### Java
 
 Beyond the scope of scripting runtimes, we can benefit from the mature and well known [Java](http://en.wikipedia.org/wiki/Java_programming_language). Taking advantage from the standard and third-party class libraries is crucial when writing enterprise software.
 

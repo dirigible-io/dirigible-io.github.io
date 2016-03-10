@@ -14,4 +14,4 @@ Reset Service clean up the content to its initial state after the installation.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *reset*`
 
-** Use with caution! **
+**Use with caution!**

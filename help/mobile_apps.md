@@ -8,7 +8,7 @@ group: help-features
 Mobile Applications
 ===
 
-###Overview###
+### Overview
 
 Mobile Application support in Dirigible is via [Tabris.js](http://tabrisjs.com). It is a mobile framework that allows you to develop native iOS and Android mobile applications, written entirely in JavaScript. This framework is the right choice when native performance, native look and feel and single code-base (JavaScript) is wanted. Last but not least, it is possible to use existing JavaScript libraries and native extensions to extend the core functionality, when needed.
 
