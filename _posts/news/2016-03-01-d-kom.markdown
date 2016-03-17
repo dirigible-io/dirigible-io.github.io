@@ -3,7 +3,7 @@ layout: post
 title: "What's New in Dirigible - d-kom Sofia 2016 presentation"
 category: news
 tag: news
-brief: <h4><a href='news/2016/03/01/2016-03-01-d-kom.html'>What's New in Dirigible - d-kom Sofia 2016 presentation</a></h4> <sub class="post-info">March 01, 2016</sub></br>On a local d-kom event at Sofia, presentation about "What's New in Dirigible" was held by Yordan Pavlov ...<br>
+brief: <h4><a href='news/2016/03/01/d-kom.html'>What's New in Dirigible - d-kom Sofia 2016 presentation</a></h4> <sub class="post-info">March 01, 2016</sub></br>On a local d-kom event at Sofia, presentation about "What's New in Dirigible" was held by Yordan Pavlov ...<br>
 ---
 
 ### What's New in Dirigible - d-kom Sofia 2016 presentation
