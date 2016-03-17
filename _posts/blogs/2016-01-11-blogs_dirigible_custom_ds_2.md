@@ -6,7 +6,7 @@ tag: blogs
 brief: <h4><a href='blogs/2016/01/11/blogs_dirigible_custom_ds_2.html'>BYODS (Bring Your Own Data Source) in Dirigible - Part II":" Extending supported databases for custom data sources</a></h4> <sub class="post-info">January 11, 2016 by Georgi Pavlov</sub></br> Dirigible supports multiple database products by means of dialect adapters that can be used to extend the support to new ones...<br>
 ---
 
-#BYODS (Bring Your Own Data Source) in Dirigible
+## BYODS (Bring Your Own Data Source) in Dirigible
 
 <sub class="post-info">January 11, 2016 by Georgi Pavlov</sub>
 
@@ -15,26 +15,26 @@ In the previous [Part I](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigibl
 One of the setup steps requires a minimal development and integration effort and in this Part II, we explore in details this particular task that is necessary to accomplish the integration of a new data source kind in Dirigible. It is a one-time job per database product that can then be reused for any concrete instance.
 
 
-##Part II: Extending supported databases for custom data sources
+### Part II: Extending supported databases for custom data sources
 
 The relational database world enjoy the standard query language SQL for ages. However, database systems are often not entirely compliant with the standard. For example, it happens that they implement subset or extensions of it and ultimately end up with *variants* of SQL. We call these variants database (SQL) *dialects*. An optimal and correct use of a database requires to take this into account. This is why Dirigible and alike tools need to ‘know’ dialects to be able to truly support the corresponding database. And since the list of databases and applicable dialects out there is quite big, and it grows, it is reasonable to support some sensible, popular minimum of these and provide a mechanism to extend the support.
  
 The databases that are currently supported in Dirigible (in version 2.2 M3) are MySQL, PostgreSQL, Derby, SAPDB, SAP HANA DB, Sybase and MongoDB. Dirigible speaks their dialects already and you can create custom data sources configured for running instances of these databases as discussed in [Part I](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html). Let us now explore what is how to extend this list to support also [H2](http://www.h2database.com/) database and be able to create custom data sources for it too.
 
-###Hitting the wall
+#### Hitting the wall
 Let us first try to employ the routine from [Part I](http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html) with H2 and see what happens.
 
-#####Step 1: Provision the drivers
+###### Step 1: Provision the drivers
 Supply a copy of the [database JDBC drivers](http://www.h2database.com/html/download.html) in Tomcat’s lib directory. H2 JDBC drivers are bundled together with the DB code so this means the database jar needs to be put there.
 
-#####Step 2: Bind to JNDI
+###### Step 2: Bind to JNDI
 Edit Tomcat’s conf/context.xml to add a resource:
 
 	<Resource name="jdbc/H2" auth="Container" type="javax.sql.DataSource"
 				username="sa" password="" driverClassName="org.h2.Driver"
 				url="jdbc:h2:mem: "/>
 
-#####Step 3: Configure application reference
+###### Step 3: Configure application reference
 Add the following init parameter to the bridge servlet in the web.xml
 
 	<init-param>
@@ -42,19 +42,21 @@ Add the following init parameter to the bridge servlet in the web.xml
 		<param-value>java:comp/env/jdbc/H2</param-value>
 	</init-param>
 
-#####Step 4: Register the data source
+###### Step 4: Register the data source
 <br>
 	<img src="/img/posts/20160111-0/2-0.png"/>
 <br>
  
-#####Verify results
+#### Verify results
 Let’s go now and check our H2 database in the Database perspective in Dirigible’s IDE. Ooops:
+
 <br>
 	<img src="/img/posts/20160111-0/2-1.png"/>
 <br>
+
 What happened? Yep! Dirigible clearly doesn’t speak H2 dialect. Let’s see what we can do to teach it.
 
-###A new dialect onboard
+#### A new dialect onboard
 We need to accomplish the following steps in order to achieve our goal:
 
 - Provide a class implementing the [IDialectSpecifier](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java) interface
@@ -66,7 +68,7 @@ Except for the first task that is purely development and requires mostly domain 
 
 Let’s focus on each part now.
 
-####Implementation
+#### Implementation
 Technologies such as Dirigible delegate to concrete dialects the handling of database-specific statements and the interface [IDialectSpecifier](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java) defines this contract. In addition, the interface also specifies some more generic characteristics of a database product kind, such as if it is a schemaless database or not (Yes, we look at you NoSQL! But more on that in a future blog). 
 
 To make things easier and reduce redundant code to the minimum, Dirigible provides an out-of-the-box, convenience, common implementation for relational databases called [RDBGenericDialectSpecifier](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/RDBGenericDialectSpecifier.java).
@@ -86,7 +88,7 @@ An absolutely minimal implementation of a dialect is the following
 
 It doesn’t do much but is just enough to get us going. We will leave it as it is for now and proceed with some plumbing. Later, we shall come back to the class for a more elaborate insight and implementation.
 
-####Bundling
+#### Bundling
 What we need to achieve on this stage is to declare a new OSGi (declarative) [service](http://wiki.osgi.org/wiki/Declarative_Services) so that Dirigible can find and use it. Each out-of-the-box dialect is declared as a service component, with its service interface ([IDialectSpecifier](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java)) physically residing in its own bundle (org.eclipse.dirigible.repository.datasource), and an implementation class in another (org.eclipse.dirigible.repository.datasource.dialects). Detaching the interface and its implementations allows seamless, dynamic discovery of available dialects at runtime without disruption when new dialects are onboarded.
  
 Let’s get down to it.
@@ -108,14 +110,15 @@ Next, we need to register the new service component in its bundle MANIFETS.MF in
 And that’s all folks! 
 
 If you follow this routine, rebuild Dirigible with a bundle that contains your correctly registered dialect and deploy it, you will be able to happily explore the H2 database:
+
 <br>
 	<img src="/img/posts/20160111-0/2-2.png"/>
-<br> 
+<br>
 
-###Dissecting IDialectSpecifier
+### Dissecting IDialectSpecifier
 Now, as promised, let’s get back to the main interface for dialects. Its methods can be grouped according to their purpose. We shall review the more important of each one here.
 
-#####SQL statement construction callbacks
+#### SQL statement construction callbacks
 There are a number of methods that are invoked during the construction of statements (queries and updates) by the Dirigible database related tools:
 
 - `String specify(String sql);`
@@ -139,17 +142,17 @@ The `createLimitAndOffset` and `createTopAndStart` methods are concerned with tw
 
 The set of `getAlter*` methods are handling the `ALTER <table-name> TABLE ADD` construct in dialect specific manner. There are actually two pairs of methods, each pair concerned with a variant of handling the column ADD syntax. In each pair there is a method handling the opening part of the construction and there is one for the closing part.
 
-#####ResultSet iteration callbacks
+#### ResultSet iteration callbacks
 The following methods are used by Dirigible while iterating a query ResultSet:
 
 - `InputStream getBinaryStream(ResultSet resultSet, String columnName) throws SQLException;`
 
-#####Common data type model translation
+#### Common data type model translation
 - `String getSpecificType(String commonType);`
 
 The `getSpecificType` method is responsible to translate between the common types used in Dirigible and database-specific ones.
 
-#####Query templates
+#### Query templates
 Dirigible tools such as the SQLConsole and the Database browser collaborate with the action *Show Content* to set a generic query, listing the contents a table and execute it. It is the following method that is invoked to provision that generic query:
 
 - `String getContentQueryScript(String catalogName, String schemaName, String tableName);`
@@ -158,7 +161,7 @@ Another one is concerned with provisioning a query that will perform database sp
 
 - `String getSchemaFilterScript();`
 
-#####Database Metadata
+#### Database Metadata
 There are also methods concerned with the general description of the data base:
 
 - `boolean isSchemaFilterSupported();`
@@ -174,7 +177,7 @@ Similarly `isSchemaFilterSupported` is used by the Database Browser to invoke up
 
 But above all it's worth mentioning here the `isDialectForName` method. As you probably noted, this was the only one that was part of the minimal implementation of a dialect. What it does essentially is to assess the dialect where it is declared is applicable for the database product name supplied as argument for the `productName` parameter of the method. The value of the `productName` parameter is the string supplied by JDBC drivers implementation of [DatabaseMetaData#getDatabaseProductName](https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#getDatabaseProductName()) API. Dirigible uses this to determine, which of the available service implementations of IDialectSpecifier is applicable for a given database.
 
-###Wrapping up
+#### Wrapping up
 Summing up what we already know about the `IDialectSpecifier` interface, here is a slightly more elaborated variant of the minimal dialect implementation that we started with:
 
 	public class H2DBSpecifier extends RDBGenericDialectSpecifier {

@@ -6,7 +6,7 @@ tag: blogs
 brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_branding.html'>Tutorial - How to re-brand Dirigible workbench</a></h4> <sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub></br> Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name...<br>
 ---
 
-###Tutorial - How to re-brand Dirigible workbench###
+### Tutorial - How to re-brand Dirigible workbench
 
 <sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub>
 
@@ -61,12 +61,12 @@ You have to include branding plugin into the configuration files for Equinox OSG
 Below you can get an impression what is achievable.
 
 
-#####Business Theme - /business
+##### Business Theme - /business
 <br>
 <img src="/img/posts/branding_business.png" width="700px"/>
 <br>
 
-#####Fancy Theme - /fancy
+##### Fancy Theme - /fancy
 <br>
 <img src="/img/posts/branding_fancy.png" width="700px"/>
 <br>

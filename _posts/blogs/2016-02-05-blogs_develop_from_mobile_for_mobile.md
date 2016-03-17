@@ -6,13 +6,13 @@ tag: blogs
 brief: <h4><a href='blogs/2016/02/05/blogs_develop_from_mobile_for_mobile.html'>Develop from Mobile for Mobile</a></h4> <sub class="post-info">February 05, 2016 by Yordan Pavlov</sub></br>or what will be the next big breakthrough in the way native mobile applications are developed...<br>
 ---
 
-##Develop from Mobile for Mobile
+## Develop from Mobile for Mobile
 
 <sub class="post-info">February 5, 2016 by Yordan Pavlov</sub>
 
 or what will be the next big breakthrough in the way native mobile applications are developed.
 
-###Innovations
+### Innovations
 Before starting with the **"Develop from Mobile for Mobile"** topic, let's say few words about the innovations.
 There are two types of innovations:
 
@@ -32,21 +32,21 @@ The second type of innovations - the **disruptive innovation**, is so powerful t
 
 Almost all industries and lines of business have suffered disruptive innovations based on software through the last 10 years.
 
-###Overview
+### Overview
 It is time to go back to our topic and **"Develop from Mobile for Mobile"**. What do we mean by this and how the native mobile application development is related in the context of the Dirigible? First of all, let's introduce <a href="https://tabrisjs.com/" target="_blank">Tabris.js</a>. It is a mobile framework that allows you to develop native iOS and Android mobile applications, written entirely in JavaScript. This framework is the right choice when native performance, native look and feel and single code-base (JavaScript) is wanted. Last but not least, it is possible to use existing JavaScript libraries and native extensions to extend the core functionality, when needed. 
 
 Unlike other frameworks that use webviews or cross-platform intermediate runtimes, Tabris.js executes the JavaScript directly on the device and renders everything using native widgets. Thanks to the framework capabilities, the developers now can focus more on the mobile application development and less on the platform specifics (iOS and Android).
 
-###Demo
+### Demo
 
 Now let's see how you can **"Develop from Mobile for Mobile"** with Dirigible.
 
-######Prerequisites
+###### Prerequisites
 * Have installed the tabris mobile client on a iOS or Android device from <a href="https://tabrisjs.com/download" target="_blank">here</a>
 * Have account at <a href="https://tabrisjs.com" target="_blank"> https://tabrisjs.com </a> (not mandatory)
 * Have deployed your own instance of Dirigible as described <a href="https://github.com/eclipse/dirigible/blob/master/README.md#get-started" target="_blank">here</a> (not mandatory)
 
-######Steps
+###### Steps
 
 1. Launch your own Dirigible instance or use the <a href="http://trial.dirigible.io" target="_blank">free trial</a>.
 2. From the home screen click the **"Develop"** tile and then launch the IDE from the **"Web IDE"** tile.
@@ -132,14 +132,14 @@ Now let's see how you can **"Develop from Mobile for Mobile"** with Dirigible.
 		<img class="img-responsive" src="/img/posts/20160205-0/14-0.png"/>
 	<br>
 
-###Conclusion
+### Conclusion
 
 We've seen that a cross platform (iOS and Android) native mobile applications can be developed only with the help of a web browser and nothing more. The integration between <a href="http://www.dirigible.io/" target="_blank">Dirigible</a> and <a href="https://tabrisjs.com" target="_blank">Tabris.js</a> enables the developers to reach all their customers and make changes to the product with a **"zero time to market"** speed.
  
 The bottom line is this:
 **"By teaching ourselves to look through the lens of the theory to the future, we can actually see the future very clearly!"**
 
-###Additional Resources
+### Additional Resources
 
 <a href="http://www.claytonchristensen.com/key-concepts/" target="_blank">What is a "Disruptive Innovation" by Clayton Christensen</a>
 

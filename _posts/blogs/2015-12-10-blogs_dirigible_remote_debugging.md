@@ -6,7 +6,7 @@ tag: blogs
 brief: <h4><a href='blogs/2015/12/10/blogs_dirigible_remote_debugging.html'>Developer - Remote debugging Dirigible source code</a></h4> <sub class="post-info">December 10, 2015 by Georgi Pavlov</sub></br>While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach...<br>
 ---
 
-###Developer - Remote debugging Dirigible source code###
+### Developer - Remote debugging Dirigible source code
 
 <sub class="post-info">December 10, 2015 by Georgi Pavlov</sub>
 
@@ -23,8 +23,8 @@ One such example is the configurable database access in the repository services.
 You could think that setting up remote debugging is as trivial as with any other web application and mostly it is with a few caveats that can ruin your day.
 The two important specific steps that i needed to perform before i had remote debugging working for me were:
 
-1.Build Dirigible with debug info
-===
+#### 1.Build Dirigible with debug info
+
 	
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -38,13 +38,12 @@ The two important specific steps that i needed to perform before i had remote de
 			</configuration>
 		</plugin>
 		
-2.Clear the work directory in Tomcat (!) 
-===
+#### 2.Clear the work directory in Tomcat (!) 
+
 
 ...because in my case I had previously deployed Dirigible. OSGi is using it for its bundles and it will interfere with fresh deployments
 
-Summing up the steps:
-=====
+#### Summing up the steps:
 
 1.Build Dirigible with debug info
 
