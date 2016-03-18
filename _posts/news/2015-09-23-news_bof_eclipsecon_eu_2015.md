@@ -6,7 +6,7 @@ tag: news
 brief: <h4><a href='news/2015/09/23/news_bof_eclipsecon_eu_2015.html'>BoF at EclipseCon Europe 2015 scheduled</a></h4> <sub class="post-info">September 24, 2015</sub></br> BoF at EclipseCon Europe 2015 scheduled...<br>
 ---
 
-###BoF at EclipseCon Europe 2015 scheduled
+### BoF at EclipseCon Europe 2015 scheduled
 
 <sub class="post-info">September 23, 2015</sub>
 

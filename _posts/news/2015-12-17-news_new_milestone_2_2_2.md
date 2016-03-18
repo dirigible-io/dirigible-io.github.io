@@ -6,7 +6,7 @@ tag: news
 brief: <h4><a href='news/2015/12/17/news_new_milestone_2_2_2.html'>New Milestone 2.2.151217-M2</a></h4> <sub class="post-info">December 17, 2015</sub></br> Local (File System based) Repository added ...<br>
 ---
 
-###New Milestone 2.2.151217-M2
+### New Milestone 2.2.151217-M2
 
 <sub class="post-info">December 17, 2015</sub>
 	
@@ -29,4 +29,4 @@ The full list of bug-fixes and enhancements can be found [here](https://bugs.ecl
 
 The source code is available at GitHub [repository](https://github.com/eclipse/dirigible/tree/2.2.151217-M2).
 
-####Enjoy!
+#### Enjoy!

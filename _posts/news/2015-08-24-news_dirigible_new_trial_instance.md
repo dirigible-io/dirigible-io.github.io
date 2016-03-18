@@ -6,7 +6,7 @@ tag: news
 brief: <h4><a href='news/2015/08/24/news_dirigible_new_trial_instance.html'>New Trial Instance at Eclipse.org</a></h4> <sub class="post-info">August 24, 2015</sub></br> Trial instance of Dirigible has been moved to Eclipse.org...<br>
 ---
 
-###New Trial Instance at Eclipse.org
+### New Trial Instance at Eclipse.org
 
 <sub class="post-info">August 24, 2015</sub>
 
