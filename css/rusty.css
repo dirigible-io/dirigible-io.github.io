@@ -246,6 +246,14 @@ p.copyright {
     color: #eee !important;
 }
 
+.submenu a {
+    color: #eee !important;
+}
+
+.submenu a:hover {
+    color: #333 !important;
+}
+
 .lead {
 	font-size: 1.2em;
 	font-weight: 400;
