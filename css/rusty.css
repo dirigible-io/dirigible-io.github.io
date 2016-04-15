@@ -243,15 +243,7 @@ p.copyright {
 }
 
 .navbar-default .navbar-nav li a {
-    color: #eee !important;
-}
-
-.submenu a {
-    color: #eee !important;
-}
-
-.submenu a:hover {
-    color: #333 !important;
+    color: #bbb !important;
 }
 
 .lead {
