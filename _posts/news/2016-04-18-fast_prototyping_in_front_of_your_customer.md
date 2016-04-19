@@ -9,7 +9,7 @@ brief: <h4><a href='news/2016/04/18/fast_prototyping_in_front_of_your_customer.h
 ### Fast Prototyping in Front of Your Customer
 
 
-Last week Georgi Georgiev, our marketing expert, held a presentation about "What is Dirigible" and "How to Prototype Fast in Front of Your Customer", at local <a href="http://cloud.b2bmedia.bg/" target="_blank">cloud</a> event in Sofia. 
+Last week <a href="https://www.linkedin.com/in/georgingeorgiev" target="_blank">Georgi Georgiev</a>, our marketing expert, held a presentation about "What is Dirigible" and "How to Prototype Fast in Front of Your Customer", at local <a href="http://cloud.b2bmedia.bg/" target="_blank">cloud</a> event in Sofia. 
 
 Some images from the presentation, are available at:
 
