@@ -99,11 +99,12 @@ layout: rusty_home
 	                <div>
 						{% for post in site.tags.blogs limit:6 %}
 							{% if post.categories contains 'blogs' %}
-								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }}  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+								<p class="post-position">
+									{{ post.brief }}
 								</p>
 							{% endif %}
 						{% endfor %}
+						
 					</div>
 					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
 	            </div>
