@@ -6,3 +6,6 @@ navigation:
   - name: Database
     icon: fa-check
     url: database.html
+  - name: HTTP Request
+    icon: fa-check
+    url: http_request.html
