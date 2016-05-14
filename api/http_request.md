@@ -7,7 +7,7 @@ icon: fa-check
 HTTP Request
 ===
 
-HTTP Request object provided to the server side service implementation.
+HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.
 
 - Module: **api/http/request**
 - Definition: [https://github.com/dirigiblelabs/core_api/issues/4](https://github.com/dirigiblelabs/core_api/issues/4)

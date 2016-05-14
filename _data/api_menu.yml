@@ -3,9 +3,21 @@ navbar: Samples
 icon: fa-gift
 link: ../samples/index.html
 navigation: 
-  - name: Database
+  - name: Console
     icon: fa-check
-    url: database.html
+    url: console.html
   - name: HTTP Request
     icon: fa-check
     url: http_request.html
+  - name: HTTP Response
+    icon: fa-check
+    url: http_response.html
+  - name: HTTP Session
+    icon: fa-check
+    url: http_session.html
+  - name: HTTP Client
+    icon: fa-check
+    url: http_client.html
+  - name: Database
+    icon: fa-check
+    url: database.html
