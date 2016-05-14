@@ -1,14 +1,21 @@
 ---
 layout: api
 title: Database
-icon: fa-database
+icon: fa-check
 ---
 
-Database API
+Database
 ===
 
+Standard access to the registered relational data sources.
+
 - Module: **api/database**
-- Example:
+- Definition: https://github.com/dirigiblelabs/core_api/issues/9
+- Source: https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/database.js
+- Status: **stable**
+
+Basic Usage
+---
 
 ```javascript
 /* globals $ */
