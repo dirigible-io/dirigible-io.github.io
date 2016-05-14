@@ -1,0 +1,8 @@
+name: API
+navbar: Samples
+icon: fa-gift
+link: ../samples/index.html
+navigation: 
+  - name: Database
+    icon: fa-check
+    url: database.html
