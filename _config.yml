@@ -1,22 +1,14 @@
 name: Dirigible
-baseurl:
-url: http://dirigible.io
-gems:
-  - jekyll-sitemap
-
-markdown: redcarpet
-
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript","tables", "with_toc_data"]
-
-#markdown: kramdown
-
+markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
   use_coderay: true
   coderay:
     coderay_line_numbers: true
     coderay_css: class
-
-highlighter: pygments # default python pygments have been replaced by pygments.rb
-  
+highlighter: rouge
+baseurl:
+url: http://dirigible.io
+gems:
+  - jekyll-sitemap
