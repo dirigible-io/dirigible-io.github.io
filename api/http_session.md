@@ -1,7 +1,8 @@
 ---
 layout: api
 title: HTTP Session
-icon: fa-check
+icon: fa-ellipsis-v
+group: api-http
 ---
 
 HTTP Session

@@ -1,7 +1,8 @@
 ---
 layout: api
 title: HTTP Response
-icon: fa-check
+icon: fa-ellipsis-v
+group: api-http
 ---
 
 HTTP Response
