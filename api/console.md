@@ -17,7 +17,7 @@ Console object is used to write messages to the default logging output. It has s
 Basic Usage
 ---
 
-~~~javascript
+~~~ javascript
 /* globals $ */
 /* eslint-env node, dirigible */
 
