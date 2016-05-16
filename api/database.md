@@ -10,8 +10,8 @@ Database
 Standard access to the registered relational data sources.
 
 - Module: **api/database**
-- Definition: [https://github.com/dirigiblelabs/core_api/issues/9](https://github.com/dirigiblelabs/core_api/issues/9)
-- Source: [https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/database.js)
+- Definition: [/core_api/issues/9](https://github.com/dirigiblelabs/core_api/issues/9)
+- Source: [/api/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/database.js)
 - Status: **stable**
 
 Basic Usage

@@ -1,7 +1,7 @@
 ---
 layout: api
 title: HTTP Client
-icon: fa-ellipsis-v
+icon: fa-ellipsis-h
 group: api-http
 ---
 
@@ -11,8 +11,8 @@ HTTP Client
 HTTP Client is used by scripting services to call external services via HTTP.
 
 - Module: **api/http/client**
-- Definition: [https://github.com/dirigiblelabs/core_api/issues/3](https://github.com/dirigiblelabs/core_api/issues/3)
-- Source: [https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/client.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/client.js)
+- Definition: [/core_api/issues/3](https://github.com/dirigiblelabs/core_api/issues/3)
+- Source: [/api/http/client.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/client.js)
 - Status: **stable**
 
 Basic Usage

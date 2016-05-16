@@ -10,7 +10,7 @@ Console
 Console object is used to write messages to the default logging output. It has several log levels INFO, WARNING, ERROR, TRACE. 
 
 - Module: **built-in**
-- Definition: [https://github.com/dirigiblelabs/core_api/issues/2](https://github.com/dirigiblelabs/core_api/issues/2)
+- Definition: [/core_api/issues/2](https://github.com/dirigiblelabs/core_api/issues/2)
 - Source: provided by the core
 - Status: **stable**
 

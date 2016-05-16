@@ -1,7 +1,7 @@
 ---
 layout: api
 title: HTTP Request
-icon: fa-ellipsis-v
+icon: fa-ellipsis-h
 group: api-http
 ---
 
@@ -11,8 +11,8 @@ HTTP Request
 HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.
 
 - Module: **api/http/request**
-- Definition: [https://github.com/dirigiblelabs/core_api/issues/4](https://github.com/dirigiblelabs/core_api/issues/4)
-- Source: [https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/request.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/request.js)
+- Definition: [/core_api/issues/4](https://github.com/dirigiblelabs/core_api/issues/4)
+- Source: [/api/http/request.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/request.js)
 - Status: **stable**
 
 Basic Usage
