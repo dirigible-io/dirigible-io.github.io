@@ -17,7 +17,7 @@ Console object is used to write messages to the default logging output. It has s
 Basic Usage
 ---
 
-~~~ javascript
+```javascript
 /* globals $ */
 /* eslint-env node, dirigible */
 
@@ -26,4 +26,4 @@ console.error("Error message.");
 console.warn("Warning message.");
 console.log("Log message.");
 console.trace("Trace.");
-~~~
+```
