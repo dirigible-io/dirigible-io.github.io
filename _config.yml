@@ -1,6 +1,6 @@
 name: Dirigible
 markdown: kramdown
-highlighter: rouge
+highlighter: pygments
 baseurl:
 url: http://dirigible.io
 gems:
