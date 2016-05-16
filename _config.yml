@@ -2,11 +2,12 @@ name: Dirigible
 markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
   use_coderay: true
   coderay:
     coderay_line_numbers: true
     coderay_css: class
-highlighter: pygments
+highlighter: rouge
 baseurl:
 url: http://dirigible.io
 gems:
