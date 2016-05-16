@@ -1,5 +1,11 @@
 name: Dirigible
 markdown: kramdown
+kramdown:
+  input: GFM
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: true
+    coderay_css: class
 highlighter: pygments
 baseurl:
 url: http://dirigible.io
