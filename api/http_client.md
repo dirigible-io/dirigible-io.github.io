@@ -18,7 +18,7 @@ HTTP Client is used by scripting services to call external services via HTTP.
 Basic Usage
 ---
 
-```javascript
+{% highlight javascript %}
 /* globals $ */
 /* eslint-env node, dirigible */
 
@@ -31,4 +31,4 @@ response.println(httpResponse.statusMessage);
 response.println(httpResponse.data);
 response.flush();
 response.close();
-```
+{% endhighlight %}
