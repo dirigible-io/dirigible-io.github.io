@@ -21,3 +21,6 @@ navigation:
   - name: Mail
     icon: fa fa-ellipsis-v
     url: mail.html
+  - name: Utils
+    icon: fa fa-ellipsis-v
+    group: api-utils

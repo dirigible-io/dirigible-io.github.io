@@ -1,0 +1,65 @@
+---
+layout: api
+title: XSS
+icon: fa-ellipsis-h
+group: api-utils
+---
+
+XSS
+===
+
+XSS object is used to escape special symbols in order to prevent XSS attacks.
+
+- Module: **api/utils/xss**
+- Definition: [/core_api/issues/10](https://github.com/dirigiblelabs/core_api/issues/10)
+- Source: [/api/utils/xss.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/utils/xss.js)
+- Status: **stable**
+
+Basic Usage
+---
+
+```javascript
+/* globals $ */
+/* eslint-env node, dirigible */
+
+var xss = require('api/utils/xss');
+var response = require('api/http/response');
+
+var raw = 'a\'b,c|d;e"f';
+var escaped = xss.escapeCsv(raw);
+response.println("CSV");
+response.println(raw);
+response.println(escaped);
+
+raw = '<br><lt>';
+escaped = xss.escapeHtml(raw);
+response.println();
+response.println("HTML");
+response.println(raw);
+response.println(escaped);
+
+raw = '"hi" I\'m John';
+escaped = xss.escapeJavaScript(raw);
+response.println();
+response.println("JavaScript");
+response.println(raw);
+response.println(escaped);
+
+raw = "John's bag";
+escaped = xss.escapeSql(raw);
+response.println();
+response.println("SQL");
+response.println(raw);
+response.println(escaped);
+
+raw = "<tag>";
+escaped = xss.escapeXml(raw);
+response.println();
+response.println("XML");
+response.println(raw);
+response.println(escaped);
+
+
+response.flush();
+response.close();
+```
