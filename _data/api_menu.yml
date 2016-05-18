@@ -6,9 +6,12 @@ navigation:
   - name: Console
     icon: fa fa-ellipsis-v
     url: console.html
-  - name: HTTP
+  - name: Config
     icon: fa fa-ellipsis-v
-    group: api-http
+    url: config.html
   - name: Database
     icon: fa fa-ellipsis-v
     url: database.html
+  - name: HTTP
+    icon: fa fa-ellipsis-v
+    group: api-http
