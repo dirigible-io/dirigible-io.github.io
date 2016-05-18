@@ -2,7 +2,7 @@
 layout: help
 title: Monitor Memory
 icon: fa-line-chart
-group: help-operate
+group: help-monitor
 ---
 
 Monitor Memory

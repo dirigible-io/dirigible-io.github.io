@@ -2,7 +2,7 @@
 layout: help
 title: Configure Monitoring
 icon: fa-wrench
-group: help-operate
+group: help-monitor
 ---
 
 Configure Monitoring
@@ -12,7 +12,7 @@ Register the locations for which the statistics shall be collected.
 
 
 <br>
-	<img class="img-responsive" src="/help/images/monitor/configure.png"/>
+	<img class="img-responsive" src="/help/images/monitor/monitor_configure.png"/>
 <br>
 
 
