@@ -8,61 +8,64 @@ group: help-features
 Integration Services
 ===
 
-### Overview
+Overview
+---
 
 An _Integration Service_ is the connection point between the application logic and an external service (third party cloud service, 
 on-premise service, public service, etc). Both inbound and outbound services are supported, through consumption and provisioning.
 
-### Flow
+Flow
+---
 
 The term *Flow* is used for simplicity to separate this kind of integration services.
 
 The descriptor of the flow looks like this:
 
-<pre><code>{  
-   "name":"id",
-   "properties":{
-      "myKey2":"myValue2",
-      "myKey1":"myValue1"
-   },
-   "steps":[  
-      {  
-         "type":"condition",
-         "name":"1",
-         "cases":[  
-            {  
-               "key":"name",
-               "value":"Joe",
-               "flow":{
-                  "name":"WelcomeJoe",
-                  "steps":[  
-                     {  
-                     	"name":"4",
-                        "type":"output",
-                        "message":"Welcome Joe"
-                     }
-                  ]
-               }
-            },
-            {  
-               "key":"name",
-               "value":"null",
-               "flow":{  
-			      "name":"NoName",
-                  "steps":[  
-                     {  
-                     	"name":"5",
-                        "type":"output",
-                        "message":"Add to the request URL '?name=Joe'"
-                     }
-                  ]
-               }
-            }
-         ]
-      }
-   ]
-}
-</code></pre>
+```javascript
+	{  
+	   "name":"id",
+	   "properties":{
+	      "myKey2":"myValue2",
+	      "myKey1":"myValue1"
+	   },
+	   "steps":[  
+	      {  
+	         "type":"condition",
+	         "name":"1",
+	         "cases":[  
+	            {  
+	               "key":"name",
+	               "value":"Joe",
+	               "flow":{
+	                  "name":"WelcomeJoe",
+	                  "steps":[  
+	                     {  
+	                     	"name":"4",
+	                        "type":"output",
+	                        "message":"Welcome Joe"
+	                     }
+	                  ]
+	               }
+	            },
+	            {  
+	               "key":"name",
+	               "value":"null",
+	               "flow":{  
+				      "name":"NoName",
+	                  "steps":[  
+	                     {  
+	                     	"name":"5",
+	                        "type":"output",
+	                        "message":"Add to the request URL '?name=Joe'"
+	                     }
+	                  ]
+	               }
+	            }
+	         ]
+	      }
+	   ]
+	}
+```
 
 Once you [Activate](activation.wiki) or [Publish](publishing.wiki) the project, the flow descriptor is read by the runtime agent, and the route is enabled in the container. 
 

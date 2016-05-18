@@ -9,11 +9,13 @@ Setup on Tomcat with PostgreSQL
 ===
 
 
-###Tomcat###
+Tomcat
+---
 
 Download and unpack Apache Tomcat 7.0.x from [here](http://tomcat.apache.org/download-70.cgi).
 
-###PostgreSQL###
+PostgreSQL
+---
 
 Install *postgresql* on Linux (Debian-based) with:
 
@@ -21,7 +23,8 @@ Install *postgresql* on Linux (Debian-based) with:
 
 > sudo apt-get install postgresql postgresql-contrib
 
-###Create Database###
+Create Database
+---
 
 Create the default database for Dirigible:
 
@@ -29,7 +32,8 @@ Create the default database for Dirigible:
 
 > createdb dirigible_database
 
-###Create System User for Dirigible Database###
+Create System User for Dirigible Database
+---
 
 > psql dirigible_database
 
@@ -37,57 +41,63 @@ Create the default database for Dirigible:
 
 > grant all on database dirigible_database to dirigible_system;
 
-###Datasource Configuration###
+Datasource Configuration
+---
 
 1. Download the *postgresql* JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
 2. Copy **postgresql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
 3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
-<pre><code>
-    < Resource name="jdbc/DefaultDB" auth="Container"
+```xml
+    <Resource name="jdbc/DefaultDB" auth="Container"
           type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
           url="jdbc:postgresql://127.0.0.1:5432/dirigible_database"
           username="dirigible_system" password="dirigible1234" maxActive="20" maxIdle="10" maxWait="-1"/>
-</code></pre>
+```
 
-###web.xml###
+web.xml
+---
+
 Be sure the initial parameter *jndiDefaultDataSource* is uncommented
-<pre><code>
-    < init-param>
-        < param-name>jndiDefaultDataSource< /param-name>
-        < param-value>java:comp/env/jdbc/DefaultDB< /param-value>
+
+```xml
+    <init-param>
+        <param-name>jndiDefaultDataSource</param-name>
+        <param-value>java:comp/env/jdbc/DefaultDB</param-value>
     < /init-param>
-</code></pre>
+```
 
 Also, initial parameter *jdbcAutoCommit* must be set to true
 
-<pre><code>
-    < init-param>
-        < param-name>jdbcAutoCommit< /param-name>
-        < param-value>true< /param-value>
-    < /init-param>
-</code></pre>
+```xml
+    <init-param>
+        <param-name>jdbcAutoCommit</param-name>
+        <param-value>true</param-value>
+    </init-param>
+```
 
 Lastly, the resource reference for the datasource have to be uncommented too
 
-<pre><code>
-    < resource-ref>
-        < res-ref-name>jdbc/DefaultDB< /res-ref-name>
-        < res-type>javax.sql.DataSource< /res-type>
-        < res-auth>Container< /res-auth>
-    < /resource-ref>
-</code></pre>
+```xml
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+```
 
-###Deploy###
+Deploy
+---
 
-Copy the deployable artifact e.g. `dirigible.war` to *<TOMCAT_HOME>/webapps*.
+Copy the deployable artifact e.g. `ROOT.war` to *<TOMCAT_HOME>/webapps*.
 
-###Start###
+Start
+---
 
 Run Tomcat server via *strtup.sh*. 
 
 The IDE should be available at the following locations: 
 
-* `http://localhost:8080/dirigible/services/index.html` IDE
-* `http://localhost:8080/dirigible/services/ui/index.html` Registry
+* `http://localhost:8080/services/index.html` IDE
+* `http://localhost:8080/services/ui/index.html` Registry
 

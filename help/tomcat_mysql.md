@@ -55,10 +55,10 @@ Datasource Configuration
 3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
 ```xml
-        <Resource name="jdbc/DefaultDB" auth="Container" type="javax.sql.DataSource"
-               maxActive="100" maxIdle="30" maxWait="10000"
-               username="dirigible_system" password="dirigible1234" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/dirigible_database?useUnicode=true&amp;characterEncoding=UTF-8"/>
+    <Resource name="jdbc/DefaultDB" auth="Container" type="javax.sql.DataSource"
+           maxActive="100" maxIdle="30" maxWait="10000"
+           username="dirigible_system" password="dirigible1234" driverClassName="com.mysql.jdbc.Driver"
+           url="jdbc:mysql://localhost:3306/dirigible_database?useUnicode=true&amp;characterEncoding=UTF-8"/>
 ```
 
 web.xml

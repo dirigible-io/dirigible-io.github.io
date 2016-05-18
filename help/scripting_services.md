@@ -8,7 +8,8 @@ group: help-features
 Scripting Services
 ===
 
-### JavaScript
+JavaScript
+---
 
 **Services**	
 
@@ -17,25 +18,26 @@ You can write your algorithms in **\*.js** files and store them within the *Scri
 
 Exemplary JavaScript service:
 
-		var systemLib = require('system');
-		
-		var count;
-		var connection = datasource.getConnection();
-		try {
-		    var statement = connection.createStatement();
-		    var rs = statement.executeQuery('SELECT COUNT(*) FROM BOOKS');
-		    while (rs.next()) {
-		        count = rs.getInt(1);
-		    }
-		    systemLib.println('count: '  + count);
-		} finally {
-		    connection.close();
-		}
-		
-		response.getWriter().println(count);
-		response.getWriter().flush();
-		response.getWriter().close();
-
+```jaavascript
+	var systemLib = require('system');
+	
+	var count;
+	var connection = datasource.getConnection();
+	try {
+	    var statement = connection.createStatement();
+	    var rs = statement.executeQuery('SELECT COUNT(*) FROM BOOKS');
+	    while (rs.next()) {
+	        count = rs.getInt(1);
+	    }
+	    systemLib.println('count: '  + count);
+	} finally {
+	    connection.close();
+	}
+	
+	response.getWriter().println(count);
+	response.getWriter().flush();
+	response.getWriter().close();
+```
 
 This example shows two major benefits:
 
@@ -46,11 +48,12 @@ This example shows two major benefits:
 
 You can create your own library modules in **\*.js** files. Just do not forget to add the public parts in the *exports*.
 
-		exports.generateGuid = function() {
-		    var guid = uuid.randomUUID();
-		    return guid;
-		};
-
+```javascript
+	exports.generateGuid = function() {
+	    var guid = uuid.randomUUID();
+	    return guid;
+	};
+```
 
 > Libraries are exposed as services, hence they have accessible endpoints in the registry.
 
@@ -75,7 +78,8 @@ library.js is refered in service.js:
 
 
 
-### Groovy
+Groovy
+---
 
 Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and many more.
 
@@ -83,22 +87,25 @@ Corresponding examples in Groovy:
 
 **Service (sample.groovy):**
 		
-		import sample_project.module1;
-		
-		def object = new Module1();
-		object.hello(response);
-
+```groovy
+	import sample_project.module1;
+	
+	def object = new Module1();
+	object.hello(response);
+```
 
 **Module (module1.groovy):**
 
-		class Module1{
-		    void hello(def response){
-		        response.getWriter().println("Hello from Module1")
-		    }
-		}
+```groovy
+	class Module1{
+	    void hello(def response){
+	        response.getWriter().println("Hello from Module1")
+	    }
+	}
+```
 
-
-### Java
+Java
+---
 
 Beyond the scope of scripting runtimes, we can benefit from the mature and well known [Java](http://en.wikipedia.org/wiki/Java_programming_language). Taking advantage from the standard and third-party class libraries is crucial when writing enterprise software.
 
@@ -106,34 +113,36 @@ Beyond the scope of scripting runtimes, we can benefit from the mature and well 
 
 Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in very familiar and handy code:
 
-		package src.test.java;
-		
-		import java.util.Map;
-		import javax.servlet.http.HttpServletRequest;
-		import javax.servlet.http.HttpServletResponse;
-		
-		public class HelloWorld {
-		
-		    public void service(HttpServletRequest request, HttpServletResponse response, Map<String, Object> scope) throws Exception {
-		        response.getWriter().println("Hello World!");
-		        response.setContentType("text/html");
-		    }
-		}
-
+```java
+	package src.test.java;
+	
+	import java.util.Map;
+	import javax.servlet.http.HttpServletRequest;
+	import javax.servlet.http.HttpServletResponse;
+	
+	public class HelloWorld {
+	
+	    public void service(HttpServletRequest request, HttpServletResponse response, Map<String, Object> scope) throws Exception {
+	        response.getWriter().println("Hello World!");
+	        response.setContentType("text/html");
+	    }
+	}
+```
 
 **Classes**
 
 Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary objects ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)), while making the best of inheritance, polymorphism, generics, and so on.
 
-		package src.test.java;
-		
-		public class Calculator {
-		
-		    public static int sum(int x, int y) {
-		        return x + y;
-		    }
-		}
-
+```java
+	package src.test.java;
+	
+	public class Calculator {
+	
+	    public static int sum(int x, int y) {
+	        return x + y;
+	    }
+	}
+```
 
 The final project structure looks like this:
 
