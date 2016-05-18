@@ -18,7 +18,8 @@ You can write your algorithms in **\*.js** files and store them within the *Scri
 
 Exemplary JavaScript service:
 
-```jaavascript
+```javascript
+
 	var systemLib = require('system');
 	
 	var count;
@@ -37,6 +38,7 @@ Exemplary JavaScript service:
 	response.getWriter().println(count);
 	response.getWriter().flush();
 	response.getWriter().close();
+	
 ```
 
 This example shows two major benefits:
@@ -49,10 +51,12 @@ This example shows two major benefits:
 You can create your own library modules in **\*.js** files. Just do not forget to add the public parts in the *exports*.
 
 ```javascript
+
 	exports.generateGuid = function() {
 	    var guid = uuid.randomUUID();
 	    return guid;
 	};
+	
 ```
 
 > Libraries are exposed as services, hence they have accessible endpoints in the registry.
@@ -69,10 +73,13 @@ Module path includes the full path to the module in the project structure withou
         
 library.js is refered in service.js:
 
-		...
-		var library = require('library');
-		...
+```javascript
 
+	...
+	var library = require('library');
+	...
+		
+```
 
 > Relative paths ('.', '..') are not supported. The project name must be explicitly defined.
 
@@ -88,20 +95,24 @@ Corresponding examples in Groovy:
 **Service (sample.groovy):**
 		
 ```groovy
+
 	import sample_project.module1;
 	
 	def object = new Module1();
 	object.hello(response);
+	
 ```
 
 **Module (module1.groovy):**
 
 ```groovy
+
 	class Module1{
 	    void hello(def response){
 	        response.getWriter().println("Hello from Module1")
 	    }
 	}
+	
 ```
 
 Java
@@ -114,6 +125,7 @@ Beyond the scope of scripting runtimes, we can benefit from the mature and well 
 Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in very familiar and handy code:
 
 ```java
+
 	package src.test.java;
 	
 	import java.util.Map;
@@ -134,6 +146,7 @@ Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) 
 Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary objects ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)), while making the best of inheritance, polymorphism, generics, and so on.
 
 ```java
+
 	package src.test.java;
 	
 	public class Calculator {
@@ -142,6 +155,7 @@ Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we ca
 	        return x + y;
 	    }
 	}
+	
 ```
 
 The final project structure looks like this:
