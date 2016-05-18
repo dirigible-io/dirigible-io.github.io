@@ -26,4 +26,4 @@ Dirigible can be run directly via Eclipse. This is useful when testing new featu
 4. Use `dirigible-local.launch` file for `Run As` configuration.
 5. Open a web browser and go to:
 
-        http://localhost:8080/dirigible
+        http://localhost:8080/ui/index.html

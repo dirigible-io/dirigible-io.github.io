@@ -16,7 +16,7 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 ##### Steps
 
-1. Download `dirigible.war` for Tomcat from [http://download.dirigible.io](http://download.dirigible.io)
+1. Download `ROOT.war` for Tomcat from [http://download.dirigible.io](http://download.dirigible.io)
 
 2. Configure Users store:
 
@@ -29,6 +29,6 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 4. Open a web browser and go to:
 
-        http://localhost:8080/dirigible
+        http://localhost:8080/
 
 4. Login with dirigible/dirigible.

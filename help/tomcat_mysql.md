@@ -9,11 +9,13 @@ Setup on Tomcat with MySQL
 ===
 
 
-###Tomcat###
+Tomcat
+---
 
 Download and unpack Apache Tomcat 7.0.x from [here](http://tomcat.apache.org/download-70.cgi).
 
-###MySQL###
+MySQL
+---
 
 Install *mysql* on Linux (Debian-based) with:
 
@@ -25,7 +27,8 @@ Install *mysql* on Linux (Debian-based) with:
 
 > sudo /usr/bin/mysql\_secure\_installation
 
-###Create Database###
+Create Database
+---
 
 Create the default database for Dirigible:
 
@@ -33,7 +36,8 @@ Create the default database for Dirigible:
 
 > createdb dirigible_database
 
-###Create System User for Dirigible Database###
+Create System User for Dirigible Database
+---
 
 > mysql -u root -p
 
@@ -43,56 +47,62 @@ Create the default database for Dirigible:
 
 > GRANT ALL PRIVILEGES ON dirigible_database.* TO 'dirigible_system'@'localhost' WITH GRANT OPTION;
 
-###Datasource Configuration###
+Datasource Configuration
+---
 
 1. Download the *mysql* JDBC driver version 5.1 from [here](http://dev.mysql.com/downloads/connector/j/).
 2. Copy **mysql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
 3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
-<pre><code>
-        <  Resource name="jdbc/DefaultDB" auth="Container" type="javax.sql.DataSource"
+```xml
+        <Resource name="jdbc/DefaultDB" auth="Container" type="javax.sql.DataSource"
                maxActive="100" maxIdle="30" maxWait="10000"
                username="dirigible_system" password="dirigible1234" driverClassName="com.mysql.jdbc.Driver"
                url="jdbc:mysql://localhost:3306/dirigible_database?useUnicode=true&amp;characterEncoding=UTF-8"/>
-</code></pre>
+```
 
-###web.xml###
+web.xml
+---
+
 Be sure the initial parameter *jndiDefaultDataSource* is uncommented
-<pre><code>
-    < init-param>
-        < param-name>jndiDefaultDataSource< /param-name>
-        < param-value>java:comp/env/jdbc/DefaultDB< /param-value>
-    < /init-param>
-</code></pre>
+
+```xml
+    <init-param>
+        <param-name>jndiDefaultDataSource</param-name>
+        <param-value>java:comp/env/jdbc/DefaultDB</param-value>
+    </init-param>
+```
 
 Also, initial parameter *jdbcAutoCommit* must be set to false (default)
 
-<pre><code>
-    < init-param>
-        < param-name>jdbcAutoCommit< /param-name>
-        < param-value>false< /param-value>
-    < /init-param>
-</code></pre>
+```xml
+    <init-param>
+        < param-name>jdbcAutoCommit</param-name>
+        < param-value>false</param-value>
+    </init-param>
+```
 
 Lastly, the resource reference for the datasource have to be uncommented too
 
-<pre><code>
-    < resource-ref>
-        < res-ref-name>jdbc/DefaultDB< /res-ref-name>
-        < res-type>javax.sql.DataSource< /res-type>
-        < res-auth>Container< /res-auth>
-    < /resource-ref>
-</code></pre>
+```xml
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+```
 
-###Deploy###
+Deploy
+---
 
-Copy the deployable artifact e.g. `dirigible.war` to *<TOMCAT_HOME>/webapps*.
+Copy the deployable artifact e.g. `ROOT.war` to *<TOMCAT_HOME>/webapps*.
 
-###Start###
+Start
+---
 
 Run Tomcat server via *strtup.sh*. 
 
 The IDE should be available at the following locations: 
 
-* `http://localhost:8080/dirigible/services/index.html` IDE
-* `http://localhost:8080/dirigible/services/ui/index.html` Registry
+* `http://localhost:8080/services/index.html` IDE
+* `http://localhost:8080/services/ui/index.html` Registry
