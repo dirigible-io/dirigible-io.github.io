@@ -3,15 +3,18 @@ navbar: Samples
 icon: fa-gift
 link: ../samples/index.html
 navigation: 
-  - name: Console
-    icon: fa fa-ellipsis-v
-    url: console.html
   - name: Config
     icon: fa fa-ellipsis-v
     url: config.html
+  - name: Console
+    icon: fa fa-ellipsis-v
+    url: console.html
   - name: Database
     icon: fa fa-ellipsis-v
     url: database.html
+  - name: Globals
+    icon: fa fa-ellipsis-v
+    url: globals.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
