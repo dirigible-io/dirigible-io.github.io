@@ -23,30 +23,30 @@ The default artifacts are:
 
 Exemplary layout of a project:
 
-<pre><code>
-  /db
-    /dirigible
-      /users
-        /<user>             (private space)
-          /workspace
-            /project1
-              /DataStructures
-                /data1.table
-                /data1.dsv
-              /IntegrationServices
-                /connector1.routes
-              /ScriptingServices
-                /service1.js
-              /SecurityConstraints
-                /main.access
-              /TestCases
-                /service1_test.js
-              /WebContent
-                /index.html
-                /default.css
-              /WikiContent
-                /project1.wiki
-                /license.wiki
-</code></pre>
+
+	  /db
+	    /dirigible
+	      /users
+	        /<user>             (private space)
+	          /workspace
+	            /project1
+	              /DataStructures
+	                /data1.table
+	                /data1.dsv
+	              /IntegrationServices
+	                /connector1.routes
+	              /ScriptingServices
+	                /service1.js
+	              /SecurityConstraints
+	                /main.access
+	              /TestCases
+	                /service1_test.js
+	              /WebContent
+	                /index.html
+	                /default.css
+	              /WikiContent
+	                /project1.wiki
+	                /license.wiki
+
 
 The project management can be done via the views and editors in the [workspace perspective](workspace_perspective.html).

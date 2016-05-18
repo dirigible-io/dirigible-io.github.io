@@ -14,7 +14,8 @@ The Tomcat specific WAR files can be deployed on [Tomcat](http://tomcat.apache.o
 
 More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html).
 
-##### Steps
+Steps
+---
 
 1. Download `ROOT.war` for Tomcat from [http://download.dirigible.io](http://download.dirigible.io)
 
