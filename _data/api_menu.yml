@@ -18,3 +18,6 @@ navigation:
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
+  - name: Mail
+    icon: fa fa-ellipsis-v
+    url: mail.html

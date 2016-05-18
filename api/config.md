@@ -18,7 +18,6 @@ Basic Usage
 ---
 
 ```javascript
-
 /* globals $ */
 /* eslint-env node, dirigible */
 
