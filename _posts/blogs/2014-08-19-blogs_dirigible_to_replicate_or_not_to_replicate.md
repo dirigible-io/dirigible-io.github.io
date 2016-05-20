@@ -3,6 +3,7 @@ layout: post
 title: "Dirigible - To Replicate or Not To Replicate"
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2014/08/19/blogs_dirigible_to_replicate_or_not_to_replicate.html'>Dirigible - To Replicate or Not To Replicate</a></h4> <sub class="post-info">August 19, 2014 by Nedelcho Delchev</sub></br> The existential question, which only seems to offer two equal and yet feasible options...<br>
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "Developer - Repositories, repositories, repositories..."
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2016/01/21/blogs_repositories.html'>Developer - Repositories, repositories, repositories...</a></h4> <sub class="post-info">January 21, 2016 by Nedelcho Delchev</sub></br>What exactly the term Repository means in the context of Dirigible...<br>
 ---
 

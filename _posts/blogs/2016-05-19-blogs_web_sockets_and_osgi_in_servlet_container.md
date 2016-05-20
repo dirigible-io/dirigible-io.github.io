@@ -3,6 +3,7 @@ layout: post
 title: "WebSockets and Equinox OSGi in a Servlet Container"
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2016/05/19/blogs_web_sockets_and_osgi_in_servlet_container.html'>WebSockets and Equinox OSGi in a Servlet Container</a></h4> <sub class="post-info">May 19, 2016 by Nedelcho Delchev</sub></br>How to use WebSockets, coming as a standard feature with the modern Servlet Containers (e.g. Tomcat 7.x) from within the internal Equinox OSGi environment deployed as a WAR application archive? If you have not asked yourself such a question so far, just forget it and live in peace ...<br>
 ---
 

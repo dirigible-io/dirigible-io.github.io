@@ -3,6 +3,7 @@ layout: post
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source"
 category: blogs
 tag: blogs
+author: georgi.pavlov
 brief: <h4><a href='blogs/2016/01/21/blogs_dirigible_custom_ds_3.html'>BYODS (Bring Your Own Data Source) in Dirigible - Part III":" MongoDB custom data source</a></h4> <sub class="post-info">January 21, 2016 by Georgi Pavlov</sub></br> Dirigible welcomes Mongo DB onboard! Starting with version 2.2 Mongo DB is supported out-of-the-box...<br>
 ---
 

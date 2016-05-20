@@ -3,6 +3,7 @@ layout: post
 title: "Developer - Groovy is back"
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2015/12/21/blogs_groovy_is_back.html'>Developer - Groovy is back</a></h4> <sub class="post-info">December 21, 2015 by Nedelcho Delchev</sub></br>Groovy Dev Platform powered by Eclipse Dirigible...<br>
 ---
 

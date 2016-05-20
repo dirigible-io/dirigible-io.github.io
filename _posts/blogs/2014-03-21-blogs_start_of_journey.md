@@ -3,6 +3,7 @@ layout: post
 title: "Start of Journey"
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2014/03/21/blogs_start_of_journey.html'>The Beginning</a></h4> <sub class="post-info">March 21, 2014 by Nedelcho Delchev</sub><br> The initial idea was to make use of the very promising Eclipse RAP technology in our development, related to Service Adaptation part, of SOA tools. The question was - Can we build Web-based tooling for Web Services ...<br>
 ---
 

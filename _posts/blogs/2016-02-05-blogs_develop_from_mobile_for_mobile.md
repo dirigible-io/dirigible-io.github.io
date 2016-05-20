@@ -3,6 +3,7 @@ layout: post
 title: "Develop from Mobile for Mobile"
 category: blogs
 tag: blogs
+author: yordan.pavlov
 brief: <h4><a href='blogs/2016/02/05/blogs_develop_from_mobile_for_mobile.html'>Develop from Mobile for Mobile</a></h4> <sub class="post-info">February 05, 2016 by Yordan Pavlov</sub></br>or what will be the next big breakthrough in the way native mobile applications are developed...<br>
 ---
 

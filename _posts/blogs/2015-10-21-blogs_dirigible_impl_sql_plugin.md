@@ -3,6 +3,7 @@ layout: post
 title: "Tutorial - How to implement a plugin for SQL language support"
 category: blogs
 tag: blogs
+author: nedelcho.delchev
 brief: <h4><a href='blogs/2015/10/21/blogs_dirigible_impl_sql_plugin.html'>Tutorial - How to implement a plugin for SQL language support</a></h4> <sub class="post-info">October 21, 2015 by Nedelcho Delchev</sub></br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
 ---
 

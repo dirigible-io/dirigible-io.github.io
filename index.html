@@ -164,9 +164,14 @@ layout: rusty_home
 	                <div>
 						{% for post in site.tags.blogs limit:6 %}
 							{% if post.categories contains 'blogs' %}
-								<p class="post-position">
-									{{ post.brief }}
-								</p>
+								<div>
+									<p class="post-position">
+										<img class="img-responsive col-sm-2" src="/img/team/{{ post.author }}.png" style="border-radius: 50%;" width="60px">
+										<div class="col-sm-10">
+										{{ post.brief }}
+										</div>
+									</p>
+								<div>
 							{% endif %}
 						{% endfor %}
 						
