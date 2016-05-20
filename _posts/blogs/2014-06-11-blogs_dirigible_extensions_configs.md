@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/06/11/blogs_dirigible_extensions_configs.html'>Di
 Dirigible - Extensions vs Configurations
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
 <br>
 		

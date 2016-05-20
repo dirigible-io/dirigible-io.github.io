@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/08/04/blogs_dirigible_fast_track_to_hcp.html'>Dir
 Dirigible is the fast track to your HCP HANA DB instance
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
 <br>
 

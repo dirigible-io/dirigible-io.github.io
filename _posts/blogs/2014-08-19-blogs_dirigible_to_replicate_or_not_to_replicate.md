@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/08/19/blogs_dirigible_to_replicate_or_not_to_repl
 Dirigible - To Replicate or Not To Replicate
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

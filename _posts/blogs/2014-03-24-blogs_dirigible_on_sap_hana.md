@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/03/24/blogs_dirigible_on_sap_hana.html'>Dirigible
 Dirigible on SAP HANA Cloud Platform
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

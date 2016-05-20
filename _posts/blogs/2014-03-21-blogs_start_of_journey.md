@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/03/21/blogs_start_of_journey.html'>The Beginning<
 The Beginning
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

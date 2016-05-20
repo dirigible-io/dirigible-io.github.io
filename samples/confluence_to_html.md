@@ -13,13 +13,17 @@ Nowadays it is already a default standard approach to write the application-rela
 
 We choose to support [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) format in scripting services. 
 
-		/* globals $ */
-		/* eslint-env node, dirigible */
-		
-		$.getResponse().getWriter().println($.get("wiki").toHtml("h1. Hello World!\n Confluence Rulez!"));
-				
-		$.getResponse().setContentType("text/html");
-		$.getResponse().getWriter().flush();
-		$.getResponse().getWriter().close();
+```javascript
+
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	$.getResponse().getWriter().println($.get("wiki").toHtml("h1. Hello World!\n Confluence Rulez!"));
+			
+	$.getResponse().setContentType("text/html");
+	$.getResponse().getWriter().flush();
+	$.getResponse().getWriter().close();
+
+```
 
 > wiki.toHtml([some confluence text here]); does the trick

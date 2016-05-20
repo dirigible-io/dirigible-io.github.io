@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/12/10/blogs_dirigible_remote_debugging.html'>Deve
 Developer - Remote debugging Dirigible source code
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
 <br>
 

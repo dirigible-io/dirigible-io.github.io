@@ -28,7 +28,8 @@ Exemplary Samples
 * [Wiki Markup](confluence_to_html.html) - how to us the wiki markup engines from your source code
 * [File Upload](file_storage.html) - service for upload and store files
 * [Multiple Datasources](multidb_service.html) - how to retrieve and use custom datasource
-* [Templating](templating_service) - use Velocity based syntax to generate pages from your application
+* [Templating](templating_service.html) - use Velocity based syntax to generate pages from your application
+* [Environment Variables](print_env.html) - prints environment variables
 
 
 Solution Samples

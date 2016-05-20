@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2016/01/11/blogs_dirigible_custom_ds_2.html'>BYODS (Br
 BYODS (Bring Your Own Data Source) in Dirigible
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
 <br>
 

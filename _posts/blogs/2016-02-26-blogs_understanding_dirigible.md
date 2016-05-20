@@ -11,6 +11,7 @@ brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Underst
 Understanding Dirigible
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

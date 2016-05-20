@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/10/15/blogs_dirigible_terminal_services.html'>Dir
 Dirigible - Terminal Services
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

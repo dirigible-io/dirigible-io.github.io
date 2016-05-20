@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2014/10/22/blogs_dirigible_java_runtime.html'>Dirigibl
 Dirigible enables dynamic in-memory Java runtime
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
 <br>
 

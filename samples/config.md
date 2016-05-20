@@ -18,37 +18,40 @@ Configuration
 <br></br>
 5. Give the service a meaningful name (e.g **config.js**).
 6. Replace the generated code in <samp>config.js</samp> with the following:
-<br></br>
 
-		var ioLib = require("io");
-		var method = $.getRequest().getMethod();
-		if (method == "POST") {
-		    var input = ioLib.read(request.getReader());
-		    var message = JSON.parse(input);
-		    if(message.path && message.key && message.value){
-		        $.getConfigurationStorage().putProperty(message.path, message.key, message.value);
-		    }
-		} else if (method == "GET") {
-		    var list = $.getXssUtils().escapeSql(request.getParameter("list"));
-		    var path = $.getXssUtils().escapeSql(request.getParameter("path"));
-		    var key = $.getXssUtils().escapeSql(request.getParameter("key"));   
-		    if(list && path){
-		        var properties = $.getConfigurationStorage().getProperties(path);
-		        if (properties) {
-		            properties.list(response.getWriter());
-		        } else {
-		            $.getResponse().getWriter().println("No configs found on path '" + path +"'");
-		        }
-		    } else if(path && key){
-		        $.getResponse().getWriter().println("" + config.getProperty(path, key));
-		    }    
-		} else if (method == "DELETE") {
-		    $.getConfigurationStorage().clear();
-		    $.getResponse().getWriter().println("Config cleared!");
-		}
-		$.getResponse().getWriter().flush();
-		$.getResponse().getWriter().close();
 
+```javascript
+
+	var ioLib = require("io");
+	var method = $.getRequest().getMethod();
+	if (method == "POST") {
+	    var input = ioLib.read(request.getReader());
+	    var message = JSON.parse(input);
+	    if(message.path && message.key && message.value){
+	        $.getConfigurationStorage().putProperty(message.path, message.key, message.value);
+	    }
+	} else if (method == "GET") {
+	    var list = $.getXssUtils().escapeSql(request.getParameter("list"));
+	    var path = $.getXssUtils().escapeSql(request.getParameter("path"));
+	    var key = $.getXssUtils().escapeSql(request.getParameter("key"));   
+	    if(list && path){
+	        var properties = $.getConfigurationStorage().getProperties(path);
+	        if (properties) {
+	            properties.list(response.getWriter());
+	        } else {
+	            $.getResponse().getWriter().println("No configs found on path '" + path +"'");
+	        }
+	    } else if(path && key){
+	        $.getResponse().getWriter().println("" + config.getProperty(path, key));
+	    }    
+	} else if (method == "DELETE") {
+	    $.getConfigurationStorage().clear();
+	    $.getResponse().getWriter().println("Config cleared!");
+	}
+	$.getResponse().getWriter().flush();
+	$.getResponse().getWriter().close();
+
+```
 
 > getProperty(path, key) - get property value by given path
 
@@ -64,11 +67,15 @@ Configuration
 
 With REST client, send a **POST** request to the service, with the following body:
 
-		{  
-		   "path": "properties",
-		   "key": "key",
-		   "value": "test"
-		}
+```javascript
+
+	{
+	   "path": "properties",
+	   "key": "key",
+	   "value": "test"
+	}
+
+```
 
 Then access the **config.js** service in the following manner:
 

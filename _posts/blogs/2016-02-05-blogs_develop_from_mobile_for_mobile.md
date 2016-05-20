@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2016/02/05/blogs_develop_from_mobile_for_mobile.html'>
 Develop from Mobile for Mobile
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
 <br>
 

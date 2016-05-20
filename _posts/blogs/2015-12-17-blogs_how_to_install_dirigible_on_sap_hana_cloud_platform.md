@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/12/17/blogs_how_to_install_dirigible_on_sap_hana_
 Tutorial - How to install Dirigible on SAP HANA Cloud Platform
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/slavomir.grigorov.png" style="border-radius: 50%;">
 <br>
 

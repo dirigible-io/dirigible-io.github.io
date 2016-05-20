@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2016/01/21/blogs_repositories.html'>Developer - Reposi
 Repositories, repositories, repositories...
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

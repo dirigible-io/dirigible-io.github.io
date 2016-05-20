@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/10/21/blogs_dirigible_impl_sql_plugin.html'>Tutor
 Tutorial - How to implement a plugin for SQL language support
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

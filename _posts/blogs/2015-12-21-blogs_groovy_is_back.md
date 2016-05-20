@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/12/21/blogs_groovy_is_back.html'>Developer - Groo
 Developer - Groovy is back
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

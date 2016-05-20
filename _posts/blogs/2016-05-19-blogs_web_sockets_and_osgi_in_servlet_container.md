@@ -11,6 +11,7 @@ brief: <h4><a href='blogs/2016/05/19/blogs_web_sockets_and_osgi_in_servlet_conta
 WebSockets and Equinox OSGi in a Servlet Container
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

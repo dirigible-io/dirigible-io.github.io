@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_orion_editor.html'>How the 
 How the Orion editor is integrated in Dirigible
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
 <br>
 

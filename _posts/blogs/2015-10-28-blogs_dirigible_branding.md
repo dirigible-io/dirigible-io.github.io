@@ -10,6 +10,7 @@ brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_branding.html'>Tutorial - H
 Tutorial - How to re-brand Dirigible workbench
 ===
 
+<br>
 <img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
 <br>
 

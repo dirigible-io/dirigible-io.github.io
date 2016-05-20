@@ -14,32 +14,35 @@ Most of the RESTfull services playing role as remote APIs require some kind of a
 2. Then create a JavaScript service named **rest_call_authorization.js**.
 3. Within the service code, enter the following content:
 
-<i><b>GET Call</b></i>
+GET Call
+---
 
-		var ioLib = require('io');
-		
-		var url = 'http://rest.call/example';
-		var user = 'user1';
-		var password = 'secret1';
-		
-		var getRequest = http.createGet(url);
-		var httpClient = http.createHttpClient(true);
-		var credentials = http.createUsernamePasswordCredentials(user, password);    
-		var scheme = http.createBasicScheme();
-		var authorizationHeader = scheme.authenticate(credentials, getRequest);
-		getRequest.addHeader(http.createBasicHeader("Accept", "application/json"));
-		getRequest.addHeader(authorizationHeader);
-		    
-		var httpResponse = httpClient.execute(getRequest);
-		    
-		var entity = httpResponse.getEntity();
-		var content = entity.getContent();
-		    
-		var input = ioLib.read(content);
-		http.consume(entity);
-		
-		response.getWriter().println(input);
+```javascript
 
-<br></br>
+	var ioLib = require('io');
+	
+	var url = 'http://rest.call/example';
+	var user = 'user1';
+	var password = 'secret1';
+	
+	var getRequest = http.createGet(url);
+	var httpClient = http.createHttpClient(true);
+	var credentials = http.createUsernamePasswordCredentials(user, password);    
+	var scheme = http.createBasicScheme();
+	var authorizationHeader = scheme.authenticate(credentials, getRequest);
+	getRequest.addHeader(http.createBasicHeader("Accept", "application/json"));
+	getRequest.addHeader(authorizationHeader);
+	    
+	var httpResponse = httpClient.execute(getRequest);
+	    
+	var entity = httpResponse.getEntity();
+	var content = entity.getContent();
+	    
+	var input = ioLib.read(content);
+	http.consume(entity);
+	
+	response.getWriter().println(input);
+
+```
 
 For more information, see the *[API](../help/api.html)* documentation.
