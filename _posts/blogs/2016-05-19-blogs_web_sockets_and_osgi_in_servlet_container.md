@@ -11,6 +11,9 @@ brief: <h4><a href='blogs/2016/05/19/blogs_web_sockets_and_osgi_in_servlet_conta
 WebSockets and Equinox OSGi in a Servlet Container
 ===
 
+<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
+<br>
+
 <sub class="post-info">May 19, 2016 by Nedelcho Delchev</sub>
 
 
@@ -41,13 +44,13 @@ The first problem is how to make the WebSockets API classes to be visible at run
 1. OSGi's parent and context class-loaders have to be set to *fwk*
 2. the transitive packages are listed in the *extra* property
 
-		osgi.*=@null
-		org.osgi.*=@null
-		eclipse.*=@null
-		
-		osgi.parentClassloader=fwk
-		osgi.contextClassLoaderParent=fwk
-		org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,javax.mail,javax.mail.internet,org.eclipse.dirigible.ide.bridge
+	osgi.*=@null
+	org.osgi.*=@null
+	eclipse.*=@null
+	
+	osgi.parentClassloader=fwk
+	osgi.contextClassLoaderParent=fwk
+	org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,javax.mail,javax.mail.internet,org.eclipse.dirigible.ide.bridge
 
 The actual file can be found [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/all.tomcat/src/main/webapp/WEB-INF/launch.ini)
 

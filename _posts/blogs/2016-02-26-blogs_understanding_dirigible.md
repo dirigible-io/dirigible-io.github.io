@@ -11,6 +11,9 @@ brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Underst
 Understanding Dirigible
 ===
 
+<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
+<br>
+
 <sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub>
 
 During the past couple of years Dirigible evolved from an RAP based Web IDE for

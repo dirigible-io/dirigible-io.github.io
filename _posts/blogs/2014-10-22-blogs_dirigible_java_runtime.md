@@ -7,7 +7,11 @@ author: yordan.pavlov
 brief: <h4><a href='blogs/2014/10/22/blogs_dirigible_java_runtime.html'>Dirigible enables dynamic in-memory Java runtime</a></h4> <sub class="post-info">October 22, 2014 by Yordan Pavlov</sub></br> In attempt to attract the 9 million happy Java developers to the Dirigible community, we have introduced Java as runtime language. Yes, finally we can run our Java code in the cloud the way we like it, with Dirigible...<br>
 ---
 
-### Dirigible enables dynamic in-memory Java runtime
+Dirigible enables dynamic in-memory Java runtime
+===
+
+<img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
+<br>
 
 <sub class="post-info">October 22, 2014 by Yordan Pavlov</sub>
 

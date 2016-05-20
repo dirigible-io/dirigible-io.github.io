@@ -7,7 +7,11 @@ author: nedelcho.delchev
 brief: <h4><a href='blogs/2014/10/15/blogs_dirigible_terminal_services.html'>Dirigible - Terminal Services</a></h4> <sub class="post-info">October 15, 2014 by Nedelcho Delchev</sub></br> In response of the great interest related to Shellshock, Dirigible provided several possibilities to use low level OS commands...<br>
 ---
 
-### Dirigible - Terminal Services
+Dirigible - Terminal Services
+===
+
+<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
+<br>
 
 <sub class="post-info">October 15, 2014 by Nedelcho Delchev</sub>
 

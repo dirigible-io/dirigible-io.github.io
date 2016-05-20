@@ -7,7 +7,11 @@ author: georgi.pavlov
 brief: <h4><a href='blogs/2014/08/04/blogs_dirigible_fast_track_to_hcp.html'>Dirigible is the fast track to your HCP HANA DB instance</a></h4> <sub class="post-info">August 4, 2014 by Georgi Pavlov</sub></br> Just recently I was on site with a customer with the task to develop an HCP extension to their Successfactors subscription. The timelines were very tight and the team had zero experience with HCP and its related toolset and entry points...<br>
 ---
 
-### Dirigible is the fast track to your HCP HANA DB instance
+Dirigible is the fast track to your HCP HANA DB instance
+===
+
+<img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
+<br>
 
 <sub class="post-info">August 4, 2014 by Georgi Pavlov</sub>
 		
