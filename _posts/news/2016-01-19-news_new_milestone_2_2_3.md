@@ -3,7 +3,6 @@ layout: post
 title: "New Milestone 2.2.160119-M3"
 category: news release
 release: 2.2.160119-M3
-download: download.eclipse.org/dirigible/drops/M20160119-1919/index.html
 tag: news
 brief: <h4><a href='news/2016/01/19/news_new_milestone_2_2_3.html'>New Milestone 2.2.160119-M3</a></h4> <sub class="post-info">January 19, 2016</sub><br> Adaptation of UI templates to use the widget types meta-data - date, integer and float ...<br>
 ---

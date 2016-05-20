@@ -3,7 +3,6 @@ layout: post
 title: "New Release 2.1.151007"
 category: news release
 release: 2.1.151007-R
-download: download.eclipse.org/dirigible/drops/R-2.1-201510071717/index.html
 tag: news
 brief: <h4><a href='news/2015/10/07/news_new_release_2_1.html'>New Release 2.1.151007</a></h4> <sub class="post-info">October 07, 2015</sub><br> First official release at Eclipse Foundation...<br>
 ---

@@ -3,7 +3,6 @@ layout: post
 title: "New Release 2.2.160203-R"
 category: news release
 release: 2.2.160203-R
-download: download.eclipse.org/dirigible/drops/R-2.2-201602032020/index.html
 tag: news
 brief: <h4><a href='news/2016/02/03/news_new_release_2_2.html'>New Release 2.2.160203-R</a></h4> <sub class="post-info">February 03, 2016</sub><br> Adaptation of UI templates to use the widget types meta-data - date, integer and float ...<br>
 ---

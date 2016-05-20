@@ -3,7 +3,6 @@ layout: post
 title: "New Release 2.4.160519-R"
 category: news release
 release: 2.4.160519-R
-download: download.eclipse.org/dirigible/drops/R-2.4-201605191919/index.html
 tag: news
 brief: <h4><a href='news/2016/05/19/news_new_release_2_4.html'>New Release 2.4.160519-R</a></h4> <sub class="post-info">May 19, 2016</sub><br> Websockets support for Scripting Services, Migration to RAP 3.0.2, API 2.0 Introduction ...<br>
 ---
