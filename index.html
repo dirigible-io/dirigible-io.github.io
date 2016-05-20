@@ -162,7 +162,7 @@ layout: rusty_home
 	            <div class="col-sm-8">
 	                <h2>Blog it out!</h2>
 	                <div>
-						{% for post in site.tags.blogs limit:6 %}
+						{% for post in site.tags.blogs limit:10 %}
 							{% if post.categories contains 'blogs' %}
 								<div>
 									<p class="post-position">
