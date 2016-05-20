@@ -170,6 +170,19 @@ layout: rusty_home
 					</div>
 					<a class="btn btn-default" href="{{ site.url }}/news.html" target="_blank">All News ...</a>
 	            </div>
+	            <div class="col-sm-4">
+	                <h2>Releases</h2>
+	                <div>
+						{% for post in site.tags.news limit:6 %}
+							{% if post.categories contains 'release' %}
+								<p class="post-item">
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.download }}">{{ post.release }}</a>
+								</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<a class="btn btn-primary" href="http://download.eclipse.org/dirigible" target="_blank">Downloads</a>
+	            </div>
 	        </div>
             
 
