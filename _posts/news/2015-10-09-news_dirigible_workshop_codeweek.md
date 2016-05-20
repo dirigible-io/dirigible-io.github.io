@@ -3,7 +3,7 @@ layout: post
 title: "Dirigible Workshop CodeWeek"
 category: news
 tag: news
-brief: <h4><a href='news/2015/10/09/news_dirigible_workshop_codeweek.html'>Dirigible Workshop CodeWeek</a></h4> <sub class="post-info">October 09, 2015</sub></br> From Saturday, October 17, 2015 at 10:00 to Saturday, October 17, 2015 at 16:00...<br>
+brief: <h4><a href='news/2015/10/09/news_dirigible_workshop_codeweek.html'>Dirigible Workshop CodeWeek</a></h4> <sub class="post-info">October 09, 2015</sub><br> From Saturday, October 17, 2015 at 10:00 to Saturday, October 17, 2015 at 16:00...<br>
 ---
 
 ### Dirigible Workshop CodeWeek

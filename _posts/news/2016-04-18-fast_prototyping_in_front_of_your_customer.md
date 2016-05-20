@@ -3,7 +3,7 @@ layout: post
 title: "Fast Prototyping in Front of Your Customer - Presentation"
 category: news
 tag: news
-brief: <h4><a href='news/2016/04/18/fast_prototyping_in_front_of_your_customer.html'>Fast Prototyping in Front of Your Customer - Presentation</a></h4> <sub class="post-info">April 18, 2016</sub></br> Presentation from Georgi Georgiev, about "Fast Prototyping in Front of Your Customer" at local cloud event in Sofia ...<br>
+brief: <h4><a href='news/2016/04/18/fast_prototyping_in_front_of_your_customer.html'>Fast Prototyping in Front of Your Customer - Presentation</a></h4> <sub class="post-info">April 18, 2016</sub><br> Presentation from Georgi Georgiev, about "Fast Prototyping in Front of Your Customer" at local cloud event in Sofia ...<br>
 ---
 
 ### Fast Prototyping in Front of Your Customer

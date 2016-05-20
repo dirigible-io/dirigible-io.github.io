@@ -3,7 +3,7 @@ layout: post
 title: "Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation"
 category: news
 tag: news
-brief: <h4><a href='news/2016/03/08/eclipsecon.html'>Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation</a></h4> <sub class="post-info">March 08, 2016</sub></br>At EclipseCon, presentation about "Cloud Development with Dirigible in the Eyes of a Java-saurus" was held by Vladimir Pavlov ...<br>
+brief: <h4><a href='news/2016/03/08/eclipsecon.html'>Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation</a></h4> <sub class="post-info">March 08, 2016</sub><br>At EclipseCon, presentation about "Cloud Development with Dirigible in the Eyes of a Java-saurus" was held by Vladimir Pavlov ...<br>
 ---
 
 ### Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation

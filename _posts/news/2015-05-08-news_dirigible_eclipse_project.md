@@ -3,7 +3,7 @@ layout: post
 title: "Dirigible officially became Eclipse Project"
 category: news
 tag: news
-brief: <h4><a href='news/2015/05/08/news_dirigible_eclipse_project.html'>Initial contribution has been approved</a></h4> <sub class="post-info">May 08, 2015</sub></br> Initial contribution has been approved...<br>
+brief: <h4><a href='news/2015/05/08/news_dirigible_eclipse_project.html'>Initial contribution has been approved</a></h4> <sub class="post-info">May 08, 2015</sub><br> Initial contribution has been approved...<br>
 ---
 
 ### Initial contribution has been approved

@@ -4,7 +4,7 @@ title: "Tutorial - How to re-brand Dirigible workbench"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_branding.html'>Tutorial - How to re-brand Dirigible workbench</a></h4> <sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub></br> Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name...<br>
+brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_branding.html'>Tutorial - How to re-brand Dirigible workbench</a></h4> <sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub><br> Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name...<br>
 ---
 
 Tutorial - How to re-brand Dirigible workbench

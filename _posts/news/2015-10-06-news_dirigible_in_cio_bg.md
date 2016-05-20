@@ -3,7 +3,7 @@ layout: post
 title: "Dirigible - integrated environment for developing applications in the Cloud"
 category: news
 tag: news
-brief: <h4><a href='news/2015/10/06/news_dirigible_in_cio_bg.html'>Dirigible - integrated environment for developing applications in the Cloud</a></h4> <sub class="post-info">September 24, 2015</sub></br> The project started its development more than five years ago in the local unit to SAP in Bulgaria,...<br>
+brief: <h4><a href='news/2015/10/06/news_dirigible_in_cio_bg.html'>Dirigible - integrated environment for developing applications in the Cloud</a></h4> <sub class="post-info">September 24, 2015</sub><br> The project started its development more than five years ago in the local unit to SAP in Bulgaria,...<br>
 ---
 
 ### Dirigible - integrated environment for developing applications in the Cloud

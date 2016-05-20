@@ -3,7 +3,7 @@ layout: post
 title: "Docker image for Dirigible"
 category: news
 tag: news
-brief: <h4><a href='news/2016/01/26/news_docker.html'>Docker image for Dirigible</a></h4> <sub class="post-info">January 26, 2016</sub></br> Docker container descriptor and built image...<br>
+brief: <h4><a href='news/2016/01/26/news_docker.html'>Docker image for Dirigible</a></h4> <sub class="post-info">January 26, 2016</sub><br> Docker container descriptor and built image...<br>
 ---
 
 ### Docker image for Dirigible

@@ -4,7 +4,7 @@ title: "Understanding Dirigible"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Understanding Dirigible</a></h4> <sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub></br>During the past years Dirigible evolved from a RAP based web IDE for simplification and adaptation of SOAP based web services to a full fledged Dev Platform...<br>
+brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Understanding Dirigible</a></h4> <sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub><br>During the past years Dirigible evolved from a RAP based web IDE for simplification and adaptation of SOAP based web services to a full fledged Dev Platform...<br>
 ---
 
 

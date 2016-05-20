@@ -4,7 +4,7 @@ title: "How the Orion editor is integrated in Dirigible"
 category: blogs
 tag: blogs
 author: yordan.pavlov
-brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_orion_editor.html'>How the Orion editor is integrated in Dirigible</a></h4> <sub class="post-info">October 28, 2015 by Yordan Pavlov</sub></br>Why Orion? How the code-completion is achieved? How the Orion editor is integrated with RAP?...<br>
+brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_orion_editor.html'>How the Orion editor is integrated in Dirigible</a></h4> <sub class="post-info">October 28, 2015 by Yordan Pavlov</sub><br>Why Orion? How the code-completion is achieved? How the Orion editor is integrated with RAP?...<br>
 ---
 
 How the Orion editor is integrated in Dirigible

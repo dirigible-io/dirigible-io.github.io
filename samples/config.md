@@ -13,9 +13,13 @@ Configuration
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
-<br></br>
+
+<br>
+
 ![Mail Service 2](images/mail_service/mail_service_2.png)  
-<br></br>
+
+<br>
+
 5. Give the service a meaningful name (e.g **config.js**).
 6. Replace the generated code in <samp>config.js</samp> with the following:
 

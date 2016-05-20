@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Eclipse Cloud Developer Tooling"
 category: news
 tag: news
-brief: <h4><a href='news/2015/03/09/news_introduction_to_the_team.html'>Dirigible at EclipseCon</a></h4> <sub class="post-info">March 09, 2015</sub></br> Introduction to Eclipse Cloud Developer Tooling at EclipseCon NA 2015...<br>
+brief: <h4><a href='news/2015/03/09/news_introduction_to_the_team.html'>Dirigible at EclipseCon</a></h4> <sub class="post-info">March 09, 2015</sub><br> Introduction to Eclipse Cloud Developer Tooling at EclipseCon NA 2015...<br>
 ---
 
 ### Dirigible at EclipseCon
