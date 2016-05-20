@@ -173,10 +173,10 @@ layout: rusty_home
 	            <div class="col-sm-4">
 	                <h2>Releases</h2>
 	                <div>
-						{% for post in site.tags.news limit:6 %}
+						{% for post in site.tags.release limit:6 %}
 							{% if post.categories contains 'release' %}
 								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.release }}</a>
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 								</p>
 							{% endif %}
 						{% endfor %}
