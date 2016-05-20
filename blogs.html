@@ -6,9 +6,14 @@ layout: rusty
 		<div>
 			{% for post in site.tags.blogs %}
 				{% if post.categories contains 'blogs' %}
-					<p class="post-position">
-						{{ post.brief }}
-					</p>
+					<div>
+						<p class="post-position">
+							<img class="img-responsive col-sm-1" src="/img/team/{{ post.author }}.png" style="border-radius: 50%;">
+							<div class="col-sm-11">
+							{{ post.brief }}
+							</div>
+						</p>
+					</div>
 				{% endif %}
 			{% endfor %}
 		</div>
