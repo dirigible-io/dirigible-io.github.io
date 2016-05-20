@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "New Milestone 2.2.151217-M2"
+title: "Milestone 2.2.151217-M2"
 category: news release
 release: 2.2.151217-M2
 tag: news
 brief: <h4><a href='news/2015/12/17/news_new_milestone_2_2_2.html'>New Milestone 2.2.151217-M2</a></h4> <sub class="post-info">December 17, 2015</sub><br> Local (File System based) Repository added ...<br>
 ---
 
-### New Milestone 2.2.151217-M2
+Milestone 2.2.151217-M2
+===
 
 <sub class="post-info">December 17, 2015</sub>
 	

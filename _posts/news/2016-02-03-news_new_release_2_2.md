@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "New Release 2.2.160203-R"
+title: "Release 2.2.160203-R"
 category: news release
 release: 2.2.160203-R
 tag: news
 brief: <h4><a href='news/2016/02/03/news_new_release_2_2.html'>New Release 2.2.160203-R</a></h4> <sub class="post-info">February 03, 2016</sub><br> Adaptation of UI templates to use the widget types meta-data - date, integer and float ...<br>
 ---
 
-### New Release 2.2.160203-R
+Release 2.2.160203-R
+===
 
 <sub class="post-info">February 03, 2016</sub>
 	

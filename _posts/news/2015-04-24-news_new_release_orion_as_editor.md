@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "New Release 2.0.150424"
+title: "Release 2.0.150424"
 category: news release
 release: 2.0.150424
 tag: news
 brief: <h4><a href='news/2015/04/24/news_new_release_orion_as_editor.html'>New Release 2.0.150424</a></h4> <sub class="post-info">April 24, 2015</sub><br> Orion as editor in Dirigible...<br>
 ---
 
-### New Release 2.0.150424
+Release 2.0.150424
+===
 
 <sub class="post-info">April 24, 2015</sub>
 	
