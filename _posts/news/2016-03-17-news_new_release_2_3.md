@@ -3,7 +3,7 @@ layout: post
 title: "New Release 2.3.160317-R"
 category: news release
 release: 2.3.160317-R
-download: http://download.eclipse.org/dirigible/drops/R-2.3-201603171717/index.html
+download: download.eclipse.org/dirigible/drops/R-2.3-201603171717/index.html
 tag: news
 brief: <h4><a href='news/2016/03/17/news_new_release_2_3.html'>New Release 2.3.160317-R</a></h4> <sub class="post-info">March 17, 2016</sub><br> Integrated tern.js definition for Tabris.js in Orion, Runtime Catalog Service, Listeners concept ...<br>
 ---

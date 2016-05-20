@@ -3,7 +3,7 @@ layout: post
 title: "New Milestone 2.2.151117-M1"
 category: news release
 release: 2.2.151117-M1
-download: http://download.eclipse.org/dirigible/drops/M20151117-1717/index.html
+download: download.eclipse.org/dirigible/drops/M20151117-1717/index.html
 tag: news
 brief: <h4><a href='news/2015/11/17/news_new_milestone_2_2_1.html'>New Milestone 2.2.151117-M1</a></h4> <sub class="post-info">November 17, 2015</sub><br> Local (File System based) Repository added ...<br>
 ---

@@ -176,7 +176,7 @@ layout: rusty_home
 						{% for post in site.tags.news limit:6 %}
 							{% if post.categories contains 'release' %}
 								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.download }}">{{ post.release }}</a>
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="http://{{ post.download }}">{{ post.release }}</a>
 								</p>
 							{% endif %}
 						{% endfor %}
