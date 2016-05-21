@@ -49,6 +49,12 @@ Utils
 * [xml](utils_xml.html)
 * [xss](utils_xss.html)
 
+Websockets
+---
+
+* [websocket](websocket.html)
+
+---
 
 Samples
 ---

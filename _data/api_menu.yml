@@ -9,6 +9,9 @@ navigation:
   - name: Console
     icon: fa fa-ellipsis-v
     url: console.html
+ - name: Context
+    icon: fa fa-ellipsis-v
+    url: context.html
   - name: Database
     icon: fa fa-ellipsis-v
     url: database.html
@@ -24,3 +27,6 @@ navigation:
   - name: Utils
     icon: fa fa-ellipsis-v
     group: api-utils
+  - name: Websocket
+    icon: fa fa-ellipsis-v
+    url: websocket.html
