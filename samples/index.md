@@ -4,7 +4,7 @@ title: Samples
 icon: fa-gift
 ---
 
-Dirigible Samples
+Eclipse Dirigible<sup>&trade;</sup> Samples
 ===
 
 This section collects various applications created to demonstrate the main use purposes and strengths of the cloud toolkit.

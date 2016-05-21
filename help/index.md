@@ -4,11 +4,11 @@ title: Help
 icon: fa-question-circle
 ---
 
-Dirigible Help
+Eclipse Dirigible<sup>&trade;</sup> Help
 ---
 
-Dirigible Help Portal gives access to product documentation and also related information.
-Browse Dirigible Help Portal to get up-to-date information about the features, life-cycle aspects, tip-and-tricks and many more...
+Eclipse Dirigible<sup>&trade;</sup> Help Portal gives access to product documentation and also related information.
+Browse Dirigible Help Portal to get up-to-date information about the features, life-cycle aspects, tips-and-tricks and many more...
 
 General Overview
 =====
