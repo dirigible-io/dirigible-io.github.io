@@ -5,13 +5,13 @@ icon: fa-question-circle
 ---
 
 Eclipse Dirigible<sup>&trade;</sup> Help
----
+===
 
 Eclipse Dirigible<sup>&trade;</sup> Help Portal gives access to product documentation and also related information.
 Browse Dirigible Help Portal to get up-to-date information about the features, life-cycle aspects, tips-and-tricks and many more...
 
 General Overview
-=====
+---
 
 * [Project](project.html)
 * [Dynamic Applications](dynamic_applications.html)
@@ -22,7 +22,7 @@ General Overview
 
 
 Develop
-======
+---
 
 * [Web IDE](develop_web_ide.html)
 * [Light IDE](develop_light_ide.html)
@@ -30,7 +30,7 @@ Develop
 
 
 Discover
-======
+---
 
 * [Web Content Registry](service_registry_web.html)
 * [Wiki Pages Registry](service_registry_wiki.html)
@@ -43,7 +43,7 @@ Discover
 * [Test Registry](service_registry_test.html)
 
 Operate
-======
+---
 
 * [Import](service_import.html)
 * [Export](service_export.html)
@@ -52,7 +52,7 @@ Operate
 * [Project Import](service_project_import.html)
 
 Monitor
-======
+---
 
 * [Memory](service_memory.html)
 * [Logging](service_logging.html)
@@ -60,7 +60,7 @@ Monitor
 
 
 Features
-=====
+---
 
 * [Highlights](features.html)
 * [Data Structures](data_structures.html)
@@ -75,7 +75,7 @@ Features
 * [Backup](backup.html)
 
 Concepts
-=====
+---
 
 * [Concepts](concepts.html)
 * [Workspace](workspace.html)
@@ -85,12 +85,12 @@ Concepts
 * [Entity Service](entity_service.html)
 
 Tooling
-=====
+---
 
 * [Overview](tooling.html)
 
 Perspectives
-=======
+----
 
 * [Workspace](workspace_perspective.html)
 * [Database](database_perspective.html)
@@ -99,14 +99,14 @@ Perspectives
 * [Debug](debugger.html)
 
 Editors and Views
-=======
+----
 
 * [Source Editor](source_editor.html)
 * [SQL Console](sql_console.html)
 * [Log Viewer](log_viewer.html)
 	
 Services
-=====
+---
 
 * [Operational](service_operational.html)
 * [Memory](service_memory.html)
@@ -145,12 +145,12 @@ Services
 * [Test Execution](service_test.html)
 
 Samples
-=====
+---
 
 [Simple Samples](../samples/index.html)
 
 Setup
-=====
+---
 
 * [Tomcat](tomcat.html)
 * [Tomcat with PostgreSQL](tomcat_postgresql.html)
@@ -162,13 +162,13 @@ Setup
 * [Eclipse](eclipse.html)
 
 Updates
-=====
+---
 
 * [News](/news.html)
 * [Blogs](/blogs.html)
 
 References
-=====
+---
 
 - Project Home
 [http://www.dirigible.io](http://www.dirigible.io)

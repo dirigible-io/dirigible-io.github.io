@@ -5,12 +5,12 @@ icon: fa-question-circle
 ---
 
 Eclipse Dirigible<sup>&trade;</sup> API
----
+===
 
 Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the injected API availability, versions and status.
 
 Core
-=====
+---
 
 * [config](config.html)
 * [console](console.html)
@@ -19,19 +19,19 @@ Core
 
 
 Database
-======
+---
 
 * [database](database.html)
 
 
 Platform
-======
+---
 
 * [mail](mail.html)
 
 
 HTTP
-======
+---
 
 * [request](http_request.html)
 * [response](http_response.html)
@@ -40,7 +40,7 @@ HTTP
 
 
 Utils
-======
+---
 
 * [base64](utils_base64.html)
 * [digest](utils_digest.html)
@@ -51,19 +51,19 @@ Utils
 
 
 Samples
-=====
+---
 
 [Simple Samples](../samples/index.html)
 
 
 Updates
-=====
+---
 
 * [News](/news.html)
 * [Blogs](/blogs.html)
 
 References
-=====
+---
 
 - Project Home
 [http://www.dirigible.io](http://www.dirigible.io)
