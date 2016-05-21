@@ -8,7 +8,7 @@
   <meta name="author" content="dirigible.io">
   <link rel="shortcut icon" type="image/png" href="../img/favicon.png" />
 
-  <title>Eclipse Dirigible | {{ page.title }}</title>
+  <title>Eclipse Dirigible<sup>&trade;</sup> | {{ page.title }}</title>
 
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="./"> <i class="fa fa-home"></i>
-              <span class="light">Eclipse Dirigible <sup>&trade;</sup></span>
+              <span class="light">Eclipse Dirigible<sup>&trade;</sup></span>
                <b>{{ site.data[collection_name].name }}</b>
             </a>
           </div>
@@ -60,9 +60,21 @@
                 </a>
               </li>
               <li>
-                <a href="{{site.data[collection_name].link}}">
-                  <i class="fa {{ site.data[collection_name].icon }}"></i>
-                  {{ site.data[collection_name].navbar }}
+                <a href="../help/index.html">
+                  <i class="fa fa-play-circle"></i>
+                  Help
+                </a>
+              </li>
+              <li>
+                <a href="../api/index.html">
+                  <i class="fa fa-play-circle"></i>
+                  API
+                </a>
+              </li>
+              <li>
+                <a href="../samples/index.html">
+                  <i class="fa fa-play-circle"></i>
+                  Samples
                 </a>
               </li>
             </ul>            
