@@ -4,7 +4,7 @@ title: API
 icon: fa-question-circle
 ---
 
-API
+API v1.0 is deprecated
 ===
 
 There are several predefined injected APIs, which can be used directly from the script code. The new version promotes use of holder object *$* and corresponding getters. There are four major types of injected APIs - objects, services, utilities and extensions:
