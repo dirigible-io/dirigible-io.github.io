@@ -19,30 +19,6 @@ Basic Usage
 
 ```javascript
 /* globals $ */
-Labels
-fix provided
-prio2
- Milestone
-No milestone
- Assignee
-No one—assign yourself
-Notifications
-
-  Unsubscribe
-You’re receiving notifications because you authored the thread.
-1 participant
-
-@delchev
- Lock conversation
-@delchev
-   Dirigible Labs member
-delchev commented 2 days ago
-API for 'websocket'
- @delchev
-     Dirigible Labs member
-delchev commented 10 minutes ago • edited
-Usage
-
 /* eslint-env node, dirigible */
 
 var globals = require("api/globals");
