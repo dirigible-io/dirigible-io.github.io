@@ -3,7 +3,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  use_coderay: true
+  enable_coderay: true
   coderay:
     coderay_line_numbers: true
     coderay_css: class

@@ -9,7 +9,7 @@ navigation:
   - name: Console
     icon: fa fa-ellipsis-v
     url: console.html
- - name: Context
+  - name: Context
     icon: fa fa-ellipsis-v
     url: context.html
   - name: Database
