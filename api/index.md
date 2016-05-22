@@ -28,6 +28,7 @@ Platform
 ---
 
 * [mail](mail.html)
+* [messaging](messaging.html)
 
 
 HTTP
