@@ -14,7 +14,7 @@ navigation:
     url: architecture.html
   - name: API
     icon: fa-sitemap
-    url: api/index.html
+    url: ../api/index.html
   - name: Develop
     icon: fa-code
     group: help-develop
