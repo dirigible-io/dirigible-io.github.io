@@ -4,7 +4,7 @@ title: Messaging
 icon: fa-check
 ---
 
-Mail
+Messaging
 ===
 
 Messaging object is used to access the built-in passive messaging hub. One can registers as a client, subscribes to a topic and receives routed messages from the other clients.
