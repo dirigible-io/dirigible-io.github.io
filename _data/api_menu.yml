@@ -18,6 +18,9 @@ navigation:
   - name: Globals
     icon: fa fa-ellipsis-v
     url: globals.html
+  - name: Env
+    icon: fa fa-ellipsis-v
+    url: env.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
