@@ -21,6 +21,9 @@ navigation:
   - name: Env
     icon: fa fa-ellipsis-v
     url: env.html
+  - name: Files
+    icon: fa fa-ellipsis-v
+    url: files.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
