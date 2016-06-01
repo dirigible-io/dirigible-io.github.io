@@ -18,6 +18,7 @@ Core
 * [context](context.html)
 * [env](env.html)
 * [files](files.html)
+* [indexing](indexing.html)
 
 
 Database
