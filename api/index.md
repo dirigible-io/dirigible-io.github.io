@@ -18,7 +18,6 @@ Core
 * [context](context.html)
 * [env](env.html)
 * [files](files.html)
-* [indexing](indexing.html)
 
 
 Database
@@ -32,6 +31,7 @@ Platform
 
 * [mail](mail.html)
 * [messaging](messaging.html)
+* [indexing](indexing.html)
 
 
 HTTP
