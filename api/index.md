@@ -41,6 +41,7 @@ HTTP
 * [response](http_response.html)
 * [session](http_session.html)
 * [client](http_client.html)
+* [upload](http_upload.html)
 
 
 Utils

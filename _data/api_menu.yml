@@ -24,12 +24,12 @@ navigation:
   - name: Files
     icon: fa fa-ellipsis-v
     url: files.html
-  - name: Indexing
-    icon: fa fa-ellipsis-v
-    url: indexing.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
+  - name: Indexing
+    icon: fa fa-ellipsis-v
+    url: indexing.html
   - name: Mail
     icon: fa fa-ellipsis-v
     url: mail.html
