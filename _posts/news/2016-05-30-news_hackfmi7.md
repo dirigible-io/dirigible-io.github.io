@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "HackFMI7"
+title: "Brainstormers at HackFMI7"
 category: news
 tag: news
-brief: <h4><a href='news/2016/05/30/news_hackfmi7.html'>HackFMI7</a></h4> <sub class="post-info">May 30, 2016</sub><br> Websockets support for Scripting Services, Migration to RAP 3.0.2, API 2.0 Introduction ...<br>
+brief: <h4><a href='news/2016/05/30/news_hackfmi7.html'>HackFMI7</a></h4> <sub class="post-info">May 30, 2016</sub><br> Over the weekend, the seventh edition of HackFMI - Hack for Start! took place...<br>
 ---
 
-HackFMI7
+Brainstormers at HackFMI7
 ===
 
 <sub class="post-info">May 30, 2016</sub>
