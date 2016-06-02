@@ -14,31 +14,22 @@ navigation:
     url: context.html
   - name: Database
     icon: fa fa-ellipsis-v
-    url: database.html
+    group: api-db
   - name: Globals
     icon: fa fa-ellipsis-v
     url: globals.html
   - name: Env
     icon: fa fa-ellipsis-v
     url: env.html
-  - name: Files
-    icon: fa fa-ellipsis-v
-    url: files.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
-  - name: Indexing
+  - name: Input/Output
     icon: fa fa-ellipsis-v
-    url: indexing.html
-  - name: Mail
+    group: api-io
+  - name: Services
     icon: fa fa-ellipsis-v
-    url: mail.html
-  - name: Messaging
-    icon: fa fa-ellipsis-v
-    url: messaging.html
+    group: api-service
   - name: Utils
     icon: fa fa-ellipsis-v
     group: api-utils
-  - name: Websocket
-    icon: fa fa-ellipsis-v
-    url: websocket.html

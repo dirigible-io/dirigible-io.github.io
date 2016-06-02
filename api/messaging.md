@@ -1,7 +1,8 @@
 ---
 layout: api
 title: Messaging
-icon: fa-check
+icon: fa-ellipsis-h
+group: api-service
 ---
 
 Messaging
@@ -9,9 +10,9 @@ Messaging
 
 Messaging object is used to access the built-in passive messaging hub. One can registers as a client, subscribes to a topic and receives routed messages from the other clients.
 
-- Module: **api/messaging**
+- Module: **api/service/messaging**
 - Definition: [/core_api/issues/11](https://github.com/dirigiblelabs/core_api/issues/11)
-- Source: [/api/messaging.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/messaging.js)
+- Source: [/api/service/messaging.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/service/messaging.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,7 +23,7 @@ Basic Usage
 /* eslint-env node, dirigible */
 
 var response = require('api/http/response');
-var messaging = require('api/messaging');
+var messaging = require('api/service/messaging');
 
 messaging.registerClient("client1");
 messaging.registerClient("client2");

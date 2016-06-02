@@ -17,21 +17,12 @@ Core
 * [globals](globals.html)
 * [context](context.html)
 * [env](env.html)
-* [files](files.html)
 
 
 Database
 ---
 
 * [database](database.html)
-
-
-Platform
----
-
-* [mail](mail.html)
-* [messaging](messaging.html)
-* [indexing](indexing.html)
 
 
 HTTP
@@ -44,6 +35,20 @@ HTTP
 * [upload](http_upload.html)
 
 
+Input/Output
+---
+
+* [files](files.html)
+* [websocket](websocket.html)
+
+
+Services
+---
+
+* [mail](mail.html)
+* [messaging](messaging.html)
+* [indexing](indexing.html)
+
 Utils
 ---
 
@@ -54,10 +59,6 @@ Utils
 * [xml](utils_xml.html)
 * [xss](utils_xss.html)
 
-Websockets
----
-
-* [websocket](websocket.html)
 
 ---
 

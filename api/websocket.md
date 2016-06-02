@@ -1,7 +1,8 @@
 ---
 layout: api
 title: Websocket
-icon: fa-check
+icon: fa-ellipsis-h
+group: api-io
 ---
 
 Websocket
@@ -9,9 +10,9 @@ Websocket
 
 Websocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.
 
-- Module: **api/websocket**
+- Module: **api/service/websocket**
 - Definition: [/core_api/issues/26](https://github.com/dirigiblelabs/core_api/issues/26)
-- Source: [/api/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/websocket.js)
+- Source: [/api/service/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/service/websocket.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,7 +23,7 @@ Basic Usage
 /* eslint-env node, dirigible */
 
 var globals = require("api/globals");
-var websocket = require("api/websocket");
+var websocket = require("api/service/websocket");
 var context = require("api/context");
 
 var websocketSession = websocket.getSession();

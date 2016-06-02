@@ -1,7 +1,8 @@
 ---
 layout: api
 title: Database
-icon: fa-check
+icon: fa-ellipsis-h
+group: api-db
 ---
 
 Database
@@ -9,9 +10,9 @@ Database
 
 Standard access to the registered relational data sources.
 
-- Module: **api/database**
+- Module: **api/db/database**
 - Definition: [/core_api/issues/9](https://github.com/dirigiblelabs/core_api/issues/9)
-- Source: [/api/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/database.js)
+- Source: [/api/db/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/db/database.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,7 +22,7 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/database');
+var database = require('api/db/database');
 var response = require('api/http/response');
 
 var datasource = database.getDatasource(); // default
@@ -56,7 +57,7 @@ Sequence Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/database');
+var database = require('api/db/database');
 var response = require('api/http/response');
 
 var datasource = database.getDatasource();
@@ -79,7 +80,7 @@ Paging Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/database');
+var database = require('api/db/database');
 var response = require('api/http/response');
 
 var datasource = database.getDatasource();

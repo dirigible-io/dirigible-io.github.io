@@ -1,7 +1,8 @@
 ---
 layout: api
 title: Indexing
-icon: fa-check
+icon: fa-ellipsis-h
+group: api-service
 ---
 
 Indexing
@@ -9,9 +10,9 @@ Indexing
 
 Indexing module is used for creating an in-memory full-text-search capable storage.
 
-- Module: **api/indexing**
+- Module: **api/service/indexing**
 - Definition: [/core_api/issues/8](https://github.com/dirigiblelabs/core_api/issues/8)
-- Source: [/api/indexing.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/indexing.js)
+- Source: [/api/service/indexing.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/service/indexing.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,7 +22,7 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var indexing = require('api/indexing');
+var indexing = require('api/service/indexing');
 var response = require('api/http/response');
 
 var index = indexing.getIndex("myIndex");
