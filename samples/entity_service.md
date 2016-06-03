@@ -31,7 +31,7 @@ In the context of Dirigible, the Entity Service means a REST service which expos
 
 	![Entity Service](bookstore/22_books_entity_service_test.png)
 
-	>	In this case - just an empty JSON array.
+	> In this case - just an empty JSON array.
 
 10. To discover all available services, you should go to the [Registry](../help/registry.html).
 11. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.
@@ -47,9 +47,11 @@ In the context of Dirigible, the Entity Service means a REST service which expos
 
 
 The naming convention for the service endpoints URLs is as follows:
+
 > *{protocol}://{host}:{port}/{dirigible's runtime application context}/services/js/{project}/{service-name}*
 
 **For example:**
+
 > *https ://dirigibleide.hana.ondemand.com/dirigible/services/js/bookstore/books.js*
 
 
