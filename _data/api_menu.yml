@@ -27,6 +27,9 @@ navigation:
   - name: Input/Output
     icon: fa fa-ellipsis-v
     group: api-io
+  - name: Network
+    icon: fa fa-ellipsis-v
+    group: api-net
   - name: Services
     icon: fa fa-ellipsis-v
     group: api-service
