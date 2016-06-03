@@ -25,6 +25,7 @@ Develop
 7. Now replace the generated code in **mail_sender.js** with the following one:
 
 	```javascript
+	
 	/* globals $ */
 	/* eslint-env node, dirigible */
 	
@@ -41,6 +42,7 @@ Develop
 	response.println("Email was sent successfully");
 	response.flush();
 	response.close();
+	
 	```
 
 8. Now select the **Preview** view.
