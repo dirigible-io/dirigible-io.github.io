@@ -17,7 +17,7 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 
 	![New DataStructures Menu](bookstore/6_books_new_ds_menu.png)
 
-	The first page of this wizard lets you choose among several artifacts related to the domain model. In this case, you need a table to store the books metadata, such as ISBN, Title, Author, etc.
+	> The first page of this wizard lets you choose among several artifacts related to the domain model. In this case, you need a table to store the books metadata, such as ISBN, Title, Author, etc.
 
 3. Choose **Database Table** and click **Next**.
 4. Use the **Add**/**Remove** buttons to create the actual table layout.
@@ -122,14 +122,13 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 	
 	```
 
-	For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html). Now, you have to create the real database artifact in the underlying database. 
+	> For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html). Now, you have to create the real database artifact in the underlying database. 
 
 8. Choose the **Publish** action from the project's popup menu.
 
 	![New DataStructures Publish](bookstore/12_books_new_ds_publish.png)
 
-
-	Once you have published the project successfully, you can go to the **Database** perspective to double check the table definition.
+	> Once you have published the project successfully, you can go to the **Database** perspective to double check the table definition.
 
 9. From the main menu, go to **Window** -> **Show Perspective** -> **Database**.
 10. Open the database schema node and find the **BOOKS** table.
