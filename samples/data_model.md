@@ -12,6 +12,8 @@ Data models a.k.a [domain models](http://en.htmlpedia.org/wiki/Domain_model) are
 
 Let's create the first model entity of the [BookStore](bookstore.html) sample - the books table.
 
+Develop
+--
 1. Select the **DataStructures** sub-folder of a project and open the pop-up menu using right-click.
 2. From the menu, choose **New -> Data Structure**.
 
@@ -130,9 +132,13 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 
 	> Once you have published the project successfully, you can go to the **Database** perspective to double check the table definition.
 
-9. From the main menu, go to **Window** -> **Show Perspective** -> **Database**.
-10. Open the database schema node and find the **BOOKS** table.
-11. Right-click and choose **Open Table Definition**. This will open the **Table Definition Viewer**.
+Discover
+--
+To discover all available database tables, you can go to the [Database Perspective](../help/database_perspective.html).
+
+2. From the main menu, go to **Window** -> **Show Perspective** -> **Database**.
+3. Open the database schema node and find the **BOOKS** table.
+4. Right-click and choose **Open Table Definition**. This will open the **Table Definition Viewer**.
 
 	![Table Definition](bookstore/15_books_db_table_def.png)
 

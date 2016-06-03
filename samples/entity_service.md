@@ -10,6 +10,8 @@ Entity Service
 
 In the context of Dirigible, the Entity Service means a REST service which exposes the [CRUD](http://en.wikipedia.org/wiki/Create,\_read,\_update\_and\_delete) methods on top of the database table. The following steps shows how to generate such an entity service on top of existing table.
 
+Develop
+--
 1. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 2. From the menu, choose **New** -> **Scripting Service**.
 
@@ -33,15 +35,17 @@ In the context of Dirigible, the Entity Service means a REST service which expos
 
 	> In this case - just an empty JSON array.
 
-10. To discover all available services, you should go to the [Registry](../help/registry.html).
-11. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.
-12. The **Registry** perspective represents a view to the enabled runtime content. From its menu, choose **Discover** -> **JavaScript** to open the currently available server-side JavaScript service endpoints.
+Discover
+--
+To discover all available services, you can go to the [Registry](../help/registry.html).
 
-13. You can see the list of available endpoints, where you can find yours by naming convention: **{project}/{service path}**
+1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.
+2. The **Registry** perspective represents a view to the enabled runtime content. From its menu, choose **Discover** -> **JavaScript** to open the currently available server-side JavaScript service endpoints.
+3. You can see the list of available endpoints, where you can find yours by naming convention: **{project}/{service path}**
 
 	![Entity Service](bookstore/25_books_entity_service_registry_2.png)
 
-14. You directly open (and make HTTP GET request) to the service by clicking on the icon.
+4. You directly open (and make HTTP GET request) to the service by clicking on the icon.
 
 	![Entity Service](bookstore/26_books_entity_service_registry_3.png)
 
