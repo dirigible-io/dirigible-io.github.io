@@ -47,7 +47,8 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 	![New DataStructures Content](bookstore/11_books_new_ds_content.png)
 
 	
-```javascript
+	```javascript
+
 		{
 		  "tableName": "BOOKS",
 		  "columns": 
@@ -118,9 +119,10 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 		      }
 		    ]
 		}
-```
+	
+	```
 
-For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html). Now, you have to create the real database artifact in the underlying database. 
+	For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html). Now, you have to create the real database artifact in the underlying database. 
 
 8. Choose the **Publish** action from the project's popup menu.
 
