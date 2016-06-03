@@ -24,6 +24,7 @@ Develop
 
 7. Now replace the generated code in **mail_sender.js** with the following one:
 
+
 	```javascript
 	
 	/* globals $ */
