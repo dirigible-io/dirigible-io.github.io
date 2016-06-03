@@ -24,27 +24,26 @@ Develop
 
 7. Now replace the generated code in **mail_sender.js** with the following one:
 
+```javascript
 
-	```javascript
+	/* globals $ */
+	/* eslint-env node, dirigible */
 	
-		/* globals $ */
-		/* eslint-env node, dirigible */
-		
-		var mail = require('api/service/mail');
-		var response = require('api/http/response');
-		
-		var from = "sample@dirigble.io";
-		var to = "example@gmail.com";
-		var subject = "Mail Sample";
-		var content = "The mail sample from http://diriglble.io is working!";
-		
-		mail.send(from, to, subject, content);
-		
-		response.println("Email was sent successfully");
-		response.flush();
-		response.close();
+	var mail = require('api/service/mail');
+	var response = require('api/http/response');
 	
-	```
+	var from = "sample@dirigble.io";
+	var to = "example@gmail.com";
+	var subject = "Mail Sample";
+	var content = "The mail sample from http://diriglble.io is working!";
+	
+	mail.send(from, to, subject, content);
+	
+	response.println("Email was sent successfully");
+	response.flush();
+	response.close();
+
+```
 
 8. Now select the **Preview** view.
 9. Click on **mail_sender.js** from the **Workspace Explorer**.
