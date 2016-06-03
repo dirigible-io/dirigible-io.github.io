@@ -48,7 +48,7 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 
 	
 	```javascript
-	
+
 		{
 		  "tableName": "BOOKS",
 		  "columns": 
@@ -119,6 +119,7 @@ Let's create the first model entity of the [BookStore](bookstore.html) sample - 
 		      }
 		    ]
 		}
+	
 	```
 
 	For more information about data structure types and their descriptors, see [Data Structures](../help/data_structures.html). Now, you have to create the real database artifact in the underlying database. 
