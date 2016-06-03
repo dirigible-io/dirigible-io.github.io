@@ -39,6 +39,12 @@ Input/Output
 ---
 
 * [files](files.html)
+* [streams](streams.html)
+
+
+Network
+---
+
 * [websocket](websocket.html)
 
 

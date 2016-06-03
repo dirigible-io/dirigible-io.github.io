@@ -2,7 +2,7 @@
 layout: api
 title: Websocket
 icon: fa-ellipsis-h
-group: api-io
+group: api-net
 ---
 
 Websocket
@@ -12,7 +12,7 @@ Websocket API provides access to the Session object for management of the bi-dir
 
 - Module: **api/service/websocket**
 - Definition: [/core_api/issues/26](https://github.com/dirigiblelabs/core_api/issues/26)
-- Source: [/api/service/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/service/websocket.js)
+- Source: [/api/net/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/net/websocket.js)
 - Status: **stable**
 
 Basic Usage
@@ -23,7 +23,7 @@ Basic Usage
 /* eslint-env node, dirigible */
 
 var globals = require("api/globals");
-var websocket = require("api/service/websocket");
+var websocket = require("api/net/websocket");
 var context = require("api/context");
 
 var websocketSession = websocket.getSession();
