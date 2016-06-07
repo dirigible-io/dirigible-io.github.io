@@ -10,9 +10,9 @@ UUID
 
 UUID object is used to generate random universally unique identifiers.
 
-- Module: **api/utils/uuid**
+- Module: **utils/uuid**
 - Definition: [/core_api/issues/22](https://github.com/dirigiblelabs/core_api/issues/22)
-- Source: [/api/utils/uuid.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/utils/uuid.js)
+- Source: [/utils/uuid.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/uuid.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var uuid = require('api/utils/uuid');
-var response = require('api/http/response');
+var uuid = require('utils/uuid');
+var response = require('net/http/response');
 
 response.println(uuid.randomUUID());
 response.println(uuid.fromString('14a3ddce-f86d-4f51-a2e0-6e497b94bbe5'));

@@ -10,9 +10,9 @@ HTTP Session
 
 HTTP Session object provided to the scripting services implementation to hold session attributes for multiple client requests.
 
-- Module: **api/http/session**
+- Module: **net/http/session**
 - Definition: [/core_api/issues/5](https://github.com/dirigiblelabs/core_api/issues/5)
-- Source: [/api/http/session.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/session.js)
+- Source: [/net/http/session.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/session.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var response = require('api/response');
-var session = require('api/session');
+var session = require('net/http/session');
+var response = require('net/http/response');
 
 session.setAttribute("attr1", "value1");
 var attr = session.getAttribute("attr1");

@@ -10,9 +10,9 @@ HTTP Client
 
 HTTP Client is used by scripting services to call external services via HTTP.
 
-- Module: **api/http/client**
+- Module: **net/http/client**
 - Definition: [/core_api/issues/3](https://github.com/dirigiblelabs/core_api/issues/3)
-- Source: [/api/http/client.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/client.js)
+- Source: [/net/http/client.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/client.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var httpClient = require('api/http/client');
-var response = require('api/http/response');
+var httpClient = require('net/http/client');
+var response = require('net/http/response');
 
 var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
 

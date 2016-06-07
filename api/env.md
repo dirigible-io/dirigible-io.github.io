@@ -9,9 +9,9 @@ Env
 
 Env object is used for access of the environment variables.
 
-- Module: **api/env**
+- Module: **core/env**
 - Definition: [/core_api/issues/33](https://github.com/dirigiblelabs/core_api/issues/33)
-- Source: [/api/env.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/env.js)
+- Source: [/core/env.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/env.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,8 +21,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var env = require('api/env');
-var response = require('api/http/response');
+var env = require('core/env');
+var response = require('net/http/response');
 
 var os = env.get("os.name");
 response.println("[OS]: " + os);

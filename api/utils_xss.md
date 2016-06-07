@@ -10,9 +10,9 @@ XSS
 
 XSS object is used to escape special symbols in order to prevent XSS attacks.
 
-- Module: **api/utils/xss**
+- Module: **utils/xss**
 - Definition: [/core_api/issues/10](https://github.com/dirigiblelabs/core_api/issues/10)
-- Source: [/api/utils/xss.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/utils/xss.js)
+- Source: [/utils/xss.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/xss.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var xss = require('api/utils/xss');
-var response = require('api/http/response');
+var xss = require('utils/xss');
+var response = require('net/http/response');
 
 var raw = 'a\'b,c|d;e"f';
 var escaped = xss.escapeCsv(raw);

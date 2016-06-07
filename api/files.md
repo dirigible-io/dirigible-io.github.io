@@ -10,9 +10,9 @@ Files
 
 Files module provides an access to the underlying File System, where the Dirigible server is deployed on.
 
-- Module: **api/io/files**
+- Module: **io/files**
 - Definition: [/core_api/issues/21](https://github.com/dirigiblelabs/core_api/issues/21)
-- Source: [/api/io/files.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/io/files.js)
+- Source: [/io/files.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/io/files.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var files = require('api/io/files');
-var response = require('api/http/response');
+var files = require('io/files');
+var response = require('net/http/response');
 
 var file = files.get("../temp/./..");
 

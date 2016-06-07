@@ -10,9 +10,9 @@ HTTP Upload
 
 HTTP Upload is used to consume files posted as multipart request.
 
-- Module: **api/http/upload**
+- Module: **net/http/upload**
 - Definition: [/core_api/issues/24](https://github.com/dirigiblelabs/core_api/issues/24)
-- Source: [/api/http/upload.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/http/upload.js)
+- Source: [/net/http/upload.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/upload.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,9 +22,9 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var upload = require('api/http/upload');
-var request = require('api/http/request');
-var response = require('api/http/response');
+var upload = require('net/http/upload');
+var request = require('net/http/request');
+var response = require('net/http/response');
 
 if (request.getMethod() === "POST") {
 	if (upload.isMultipartContent()) {

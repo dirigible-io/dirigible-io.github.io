@@ -9,9 +9,9 @@ Globals
 
 Globals object is used to store and manage properties in the global store.
 
-- Module: **api/globals**
+- Module: **core/globals**
 - Definition: [/core_api/issues/7](https://github.com/dirigiblelabs/core_api/issues/7)
-- Source: [/api/globals.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/globals.js)
+- Source: [/core/globals.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/globals.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,8 +21,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var response = require('api/http/response');
-var globals = require('api/globals');
+var globals = require('core/globals');
+var response = require('net/http/response');
 
 globals.set("attr1", "value1");
 var attr = globals.get("attr1");

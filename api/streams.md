@@ -10,9 +10,9 @@ Streams
 
 Streams module provides classes and utilities for working with streams.
 
-- Module: **api/io/streams**
+- Module: **io/streams**
 - Definition: [/core_api/issues/34](https://github.com/dirigiblelabs/core_api/issues/34)
-- Source: [/api/io/streams.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/io/streams.js)
+- Source: [/io/streams.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/io/streams.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var streams = require('api/io/streams');
-var response = require('api/http/response');
+var streams = require('io/streams');
+var response = require('net/http/response');
 
 var outputStream = streams.createByteArrayOutputStream();
 

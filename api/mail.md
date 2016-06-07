@@ -10,9 +10,9 @@ Mail
 
 Mail object is used to send e-mails through the mail service.
 
-- Module: **api/service/mail**
+- Module: **service/mail**
 - Definition: [/core_api/issues/12](https://github.com/dirigiblelabs/core_api/issues/12)
-- Source: [/api/service/mail.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/service/mail.js)
+- Source: [/service/mail.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/mail.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var mail = require('api/service/mail');
-var response = require('api/http/response');
+var mail = require('service/mail');
+var response = require('net/http/response');
 
 var from = "dirigiblelabs@eclipse.org";
 var to = "example@gmail.com";

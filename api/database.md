@@ -10,9 +10,9 @@ Database
 
 Standard access to the registered relational data sources.
 
-- Module: **api/db/database**
+- Module: **db/database**
 - Definition: [/core_api/issues/9](https://github.com/dirigiblelabs/core_api/issues/9)
-- Source: [/api/db/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/db/database.js)
+- Source: [/db/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/db/database.js)
 - Status: **stable**
 
 Basic Usage
@@ -22,8 +22,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/db/database');
-var response = require('api/http/response');
+var database = require('db/database');
+var response = require('net/http/response');
 
 var datasource = database.getDatasource(); // default
 //var datasource = db.getNamedDatasource("name-of-the-datasource");
@@ -57,8 +57,8 @@ Sequence Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/db/database');
-var response = require('api/http/response');
+var database = require('db/database');
+var response = require('net/http/response');
 
 var datasource = database.getDatasource();
 
@@ -80,8 +80,8 @@ Paging Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var database = require('api/db/database');
-var response = require('api/http/response');
+var database = require('db/database');
+var response = require('net/http/response');
 
 var datasource = database.getDatasource();
 

@@ -9,9 +9,9 @@ Config
 
 Config object is used to store and manage properties in the Configuration Store.
 
-- Module: **api/config**
+- Module: **core/config**
 - Definition: [/core_api/issues/16](https://github.com/dirigiblelabs/core_api/issues/16)
-- Source: [/api/config.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/config.js)
+- Source: [/core/config.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/config.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,8 +21,8 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var config = require('api/config');
-var response = require('api/http/response');
+var config = require('core/config');
+var response = require('net/http/response');
 
 var properties = {
 		"property1": "value1",
