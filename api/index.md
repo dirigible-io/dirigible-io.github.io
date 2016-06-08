@@ -12,11 +12,12 @@ Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent informat
 Core
 ---
 
+* [assert](assert.html)
 * [config](config.html)
 * [console](console.html)
-* [globals](globals.html)
 * [context](context.html)
 * [env](env.html)
+* [globals](globals.html)
 
 
 Database
@@ -25,27 +26,27 @@ Database
 * [database](database.html)
 
 
-HTTP
----
-
-* [request](http_request.html)
-* [response](http_response.html)
-* [session](http_session.html)
-* [client](http_client.html)
-* [upload](http_upload.html)
-
-
-Input/Output
+IO
 ---
 
 * [files](files.html)
 * [streams](streams.html)
 
 
-Network
+Net
 ---
 
 * [websocket](websocket.html)
+
+
+Net/HTTP
+----
+
+* [request](http_request.html)
+* [response](http_response.html)
+* [session](http_session.html)
+* [client](http_client.html)
+* [upload](http_upload.html)
 
 
 Services

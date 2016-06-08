@@ -3,6 +3,9 @@ navbar: Samples
 icon: fa-gift
 link: ../samples/index.html
 navigation: 
+  - name: Assert
+    icon: fa fa-ellipsis-v
+    url: assert.html
   - name: Config
     icon: fa fa-ellipsis-v
     url: config.html
@@ -15,12 +18,12 @@ navigation:
   - name: Database
     icon: fa fa-ellipsis-v
     group: api-db
-  - name: Globals
-    icon: fa fa-ellipsis-v
-    url: globals.html
   - name: Env
     icon: fa fa-ellipsis-v
     url: env.html
+  - name: Globals
+    icon: fa fa-ellipsis-v
+    url: globals.html
   - name: HTTP
     icon: fa fa-ellipsis-v
     group: api-http
