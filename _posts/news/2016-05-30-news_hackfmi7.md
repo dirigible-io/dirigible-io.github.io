@@ -15,7 +15,7 @@ Over the weekend, the seventh edition of <a href="http://hackfmi.com/" target="_
 
 There were plenty of interesting ideas, code and lots of fun!
 
-We are proud that the team **Brainstormers** - Mariana, Stoyan, Antoni and Georgi were among the <a href="http://hackfmi.com/hackfmi7-the-winners/" target="_blank">winners</a>!
+We are proud that the team **Brainstormers** - Marina, Stoyan, Antonio, Emil, Ignat and Georgi were among the <a href="http://hackfmi.com/hackfmi7-the-winners/" target="_blank">winners</a>!
 
 <br>
 <img class="img-responsive" src="/img/posts/20160530/brainstormers1.jpg"/>
