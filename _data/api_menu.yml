@@ -66,7 +66,7 @@ navigation:
   - name: Utils UUID
     icon: fa fa-ellipsis-v
     url: utils_uuid.html
-  - name: Utils xml
+  - name: Utils XML
     icon: fa fa-ellipsis-v
     url: utils_xml.html
   - name: Utils XSS
@@ -75,4 +75,3 @@ navigation:
   - name: Websocket
     icon: fa fa-ellipsis-v
     url: websocket.html
-    
