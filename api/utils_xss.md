@@ -2,7 +2,6 @@
 layout: api
 title: XSS
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 XSS

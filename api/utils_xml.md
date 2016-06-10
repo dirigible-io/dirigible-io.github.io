@@ -2,7 +2,6 @@
 layout: api
 title: XML
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 XML

@@ -2,7 +2,6 @@
 layout: api
 title: Streams
 icon: fa-ellipsis-h
-group: api-io
 ---
 
 Streams

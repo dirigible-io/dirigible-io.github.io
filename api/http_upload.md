@@ -2,7 +2,6 @@
 layout: api
 title: HTTP Upload
 icon: fa-ellipsis-h
-group: api-http
 ---
 
 HTTP Upload

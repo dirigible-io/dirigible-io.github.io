@@ -2,7 +2,6 @@
 layout: api
 title: HTTP Response
 icon: fa-ellipsis-h
-group: api-http
 ---
 
 HTTP Response

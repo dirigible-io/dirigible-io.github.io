@@ -2,7 +2,6 @@
 layout: api
 title: HTTP Request
 icon: fa-ellipsis-h
-group: api-http
 ---
 
 HTTP Request

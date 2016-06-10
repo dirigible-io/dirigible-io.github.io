@@ -2,7 +2,6 @@
 layout: api
 title: Files
 icon: fa-ellipsis-h
-group: api-io
 ---
 
 Files

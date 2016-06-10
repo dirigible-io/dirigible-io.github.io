@@ -2,7 +2,6 @@
 layout: api
 title: Websocket
 icon: fa-ellipsis-h
-group: api-net
 ---
 
 Websocket

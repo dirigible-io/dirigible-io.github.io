@@ -2,7 +2,6 @@
 layout: api
 title: Indexing
 icon: fa-ellipsis-h
-group: api-service
 ---
 
 Indexing

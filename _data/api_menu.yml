@@ -17,25 +17,62 @@ navigation:
     url: context.html
   - name: Database
     icon: fa fa-ellipsis-v
-    group: api-db
+    url: database.html
   - name: Env
     icon: fa fa-ellipsis-v
     url: env.html
+  - name: Files
+    icon: fa fa-ellipsis-v
+    url: files.html
   - name: Globals
     icon: fa fa-ellipsis-v
     url: globals.html
-  - name: HTTP
+  - name: HTTP Client
     icon: fa fa-ellipsis-v
-    group: api-http
-  - name: Input/Output
+    url: http_request.html
+  - name: HTTP Request
     icon: fa fa-ellipsis-v
-    group: api-io
-  - name: Network
+    url: http_request.html
+  - name: HTTP Response
     icon: fa fa-ellipsis-v
-    group: api-net
-  - name: Services
+    url: http_response.html
+  - name: HTTP Session
     icon: fa fa-ellipsis-v
-    group: api-service
-  - name: Utils
+    url: http_session.html
+  - name: HTTP Upload
     icon: fa fa-ellipsis-v
-    group: api-utils
+    url: http_upload.html
+  - name: Indexing
+    icon: fa fa-ellipsis-v
+    url: indexing.html
+  - name: Mail
+    icon: fa fa-ellipsis-v
+    url: mail.html
+  - name: Messaging
+    icon: fa fa-ellipsis-v
+    url: messaging.html
+  - name: Streams
+    icon: fa fa-ellipsis-v
+    url: streams.html
+  - name: Utils Base64
+    icon: fa fa-ellipsis-v
+    url: utils_base64.html
+  - name: Utils Digest
+    icon: fa fa-ellipsis-v
+    url: utils_digest.html
+  - name: Utils HEX
+    icon: fa fa-ellipsis-v
+    url: utils_hex.html
+  - name: Utils UUID
+    icon: fa fa-ellipsis-v
+    url: utils_uuid.html
+  - name: Utils xml
+    icon: fa fa-ellipsis-v
+    url: utils_xml.html
+  - name: Utils XSS
+    icon: fa fa-ellipsis-v
+    url: utils_xss.html
+  - name: Websocket
+    icon: fa fa-ellipsis-v
+    url: websocket.html
+    

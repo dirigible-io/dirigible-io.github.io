@@ -2,7 +2,6 @@
 layout: api
 title: Base64
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 Base64

@@ -2,7 +2,6 @@
 layout: api
 title: Mail
 icon: fa-ellipsis-h
-group: api-service
 ---
 
 Mail

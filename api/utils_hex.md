@@ -2,7 +2,6 @@
 layout: api
 title: Hex
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 Hex

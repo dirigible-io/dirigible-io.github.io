@@ -2,7 +2,6 @@
 layout: api
 title: Messaging
 icon: fa-ellipsis-h
-group: api-service
 ---
 
 Messaging

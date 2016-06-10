@@ -2,7 +2,6 @@
 layout: api
 title: HTTP Session
 icon: fa-ellipsis-h
-group: api-http
 ---
 
 HTTP Session

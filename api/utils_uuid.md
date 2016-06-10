@@ -2,7 +2,6 @@
 layout: api
 title: UUID
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 UUID

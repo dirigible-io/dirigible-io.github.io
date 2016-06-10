@@ -2,7 +2,6 @@
 layout: api
 title: Database
 icon: fa-ellipsis-h
-group: api-db
 ---
 
 Database

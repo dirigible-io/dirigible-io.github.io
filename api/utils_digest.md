@@ -2,7 +2,6 @@
 layout: api
 title: Digest
 icon: fa-ellipsis-h
-group: api-utils
 ---
 
 Digest
