@@ -21,6 +21,9 @@ navigation:
   - name: Env
     icon: fa fa-ellipsis-v
     url: env.html
+  - name: Exec
+    icon: fa fa-ellipsis-v
+    url: exec.html
   - name: Files
     icon: fa fa-ellipsis-v
     url: files.html

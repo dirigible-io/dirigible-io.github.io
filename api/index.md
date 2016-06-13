@@ -52,9 +52,11 @@ Net/HTTP
 Services
 ---
 
+* [exec](exec.html)
+* [indexing](indexing.html)
 * [mail](mail.html)
 * [messaging](messaging.html)
-* [indexing](indexing.html)
+
 
 Utils
 ---
