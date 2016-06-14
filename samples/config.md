@@ -26,44 +26,63 @@ Configuration
 
 ```javascript
 
-	var ioLib = require("io");
-	var method = $.getRequest().getMethod();
-	if (method == "POST") {
-	    var input = ioLib.read(request.getReader());
-	    var message = JSON.parse(input);
-	    if(message.path && message.key && message.value){
-	        $.getConfigurationStorage().putProperty(message.path, message.key, message.value);
-	    }
-	} else if (method == "GET") {
-	    var list = $.getXssUtils().escapeSql(request.getParameter("list"));
-	    var path = $.getXssUtils().escapeSql(request.getParameter("path"));
-	    var key = $.getXssUtils().escapeSql(request.getParameter("key"));   
-	    if(list && path){
-	        var properties = $.getConfigurationStorage().getProperties(path);
-	        if (properties) {
-	            properties.list(response.getWriter());
-	        } else {
-	            $.getResponse().getWriter().println("No configs found on path '" + path +"'");
-	        }
-	    } else if(path && key){
-	        $.getResponse().getWriter().println("" + config.getProperty(path, key));
-	    }    
-	} else if (method == "DELETE") {
-	    $.getConfigurationStorage().clear();
-	    $.getResponse().getWriter().println("Config cleared!");
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	processRequest();
+	
+	function processRequest() {
+		var request = require('net/http/request');
+		var response = require('net/http/response');
+		var xss = require('utils/xss');
+		var config = require('core/config');
+		
+		var method = request.getMethod();
+		
+		if (method === "GET") {
+		    var list = xss.escapeSql(request.getParameter("list"));
+		    var path = xss.escapeSql(request.getParameter("path"));
+		    var key = xss.escapeSql(request.getParameter("key"));   
+		
+			if (list) {
+				response.println(readConfiguration(config, path));
+			} else {
+				response.println(readConfigurationProperty(config, path, key));
+			}
+		} else if (method === "POST") {
+		    var data = JSON.parse(request.readInputText());
+			storeConfiguration(config, data)
+			response.println("Configuration stored");
+		} else if (method === "DELETE") {
+		   	config.clear();
+		    response.println("Config cleared!");
+		}
+	
+		response.flush();
+		response.close();
 	}
-	$.getResponse().getWriter().flush();
-	$.getResponse().getWriter().close();
+	
+	
+	function readConfiguration(config, path) {
+		return config.getJson(path);
+	}
+	
+	function readConfigurationProperty(config, path, key) {
+		return config.get(path, key);
+	}
+	function storeConfiguration(config, data) {
+		config.set(data.path, data.key, data.value);
+	}
 
 ```
 
-> getProperty(path, key) - get property value by given path
+> get(path, key) - get property value by given path
 
-> getProperties(path) - retrieves properties by given path
+> getJson(path) - retrieves properties by given path in a JSON format
 
-> putProperty(path, key, value) - add property at given path
+> set(path, key, value) - add property at given path
 
-> putProperties(path, properties) - add properties at given path
+> setJson(path, properties) - add properties at given path
 
 > delete(path) - removes properties by given path
 
@@ -83,4 +102,4 @@ With REST client, send a **POST** request to the service, with the following bod
 
 Then access the **config.js** service in the following manner:
 
-> http //[host]:[port]/dirigible/services/js/[project-name]/[scripting-service-name]?path=properties&list=true
+> http //[host]:[port]/services/js/[project-name]/[scripting-service-name]?path=properties&list=true
