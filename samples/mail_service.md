@@ -27,22 +27,22 @@ Develop
 
 	```javascript
 	
-	/* globals $ */
-	/* eslint-env node, dirigible */
-	
-	var mail = require('service/mail');
-	var response = require('net/http/response');
-	
-	var from = "sample@dirigble.io";
-	var to = "example@gmail.com";
-	var subject = "Mail Sample";
-	var content = "The mail sample from http://diriglble.io is working!";
-	
-	mail.send(from, to, subject, content);
-	
-	response.println("Email was sent successfully");
-	response.flush();
-	response.close();
+		/* globals $ */
+		/* eslint-env node, dirigible */
+		
+		var mail = require('service/mail');
+		var response = require('net/http/response');
+		
+		var from = "sample@dirigble.io";
+		var to = "example@gmail.com";
+		var subject = "Mail Sample";
+		var content = "The mail sample from http://diriglble.io is working!";
+		
+		mail.send(from, to, subject, content);
+		
+		response.println("Email was sent successfully");
+		response.flush();
+		response.close();
 	
 	```
 
