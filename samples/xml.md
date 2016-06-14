@@ -24,8 +24,8 @@ Develop
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var xml = require('api/utils/xml');
-var response = require('api/http/response');
+var xml = require('utils/xml');
+var response = require('net/http/response');
 
 var jsonInput = {
 	'firstName': 'John',
