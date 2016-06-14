@@ -17,20 +17,18 @@ GET Call
 
 ```javascript
 
-	var ioLib = require('io');
-
-	var url = 'http://rest.call/example';
+	/* globals $ */
+	/* eslint-env node, dirigible */
 	
-	var getRequest = http.createGet(url);
-	var httpClient = http.createHttpClient();
-	var httpResponse = httpClient.execute(getRequest);
-	var entity = httpResponse.getEntity();
-	var content = entity.getContent();
+	var httpClient = require('net/http/client');
+	var response = require('net/http/response');
 	
-	var input = ioLib.read(content);
-	http.consume(entity);
+	var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
 	
-	response.getWriter().println(input);
+	response.println(httpResponse.statusMessage);
+	response.println(httpResponse.data);
+	response.flush();
+	response.close();
 
 ```
 
@@ -48,7 +46,30 @@ POST Call
 
 ```javascript
 
-	var postRequest = http.creatPost(url);
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	var http = require('net/http/client');
+	var response = require('net/http/response');
+	
+	var bodyContent = JSON.stringify({
+		'firstName': 'John',
+		'lastName': 'Doe',
+		'age': 24
+	});
+	
+	var httpResponse = http.request({
+	    method: 'POST',
+	    host: 'http://httpbin.org',
+	    path: '/post',
+	    binary: false,
+	    body: bodyContent
+	});
+	
+	response.println(httpResponse.statusMessage);
+	response.println(httpResponse.data);
+	response.flush();
+	response.close();
 
 ```
 
@@ -57,7 +78,30 @@ PUT Call
 
 ```javascript
 
-	var putRequest = http.createPut(url);
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	var http = require('net/http/client');
+	var response = require('net/http/response');
+	
+	var bodyContent = JSON.stringify({
+		'firstName': 'John',
+		'lastName': 'Doe',
+		'age': 24
+	});
+	
+	var httpResponse = http.request({
+	    method: 'PUT',
+	    host: 'http://httpbin.org',
+	    path: '/put',
+	    binary: false,
+	    body: bodyContent
+	});
+	
+	response.println(httpResponse.statusMessage);
+	response.println(httpResponse.data);
+	response.flush();
+	response.close();
 
 ```
 
@@ -66,7 +110,23 @@ DELETE Call
 
 ```javascript
 
-	var deleteRequest = http.createDelete(url);
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	var http = require('net/http/client');
+	var response = require('net/http/response');
+	
+	var httpResponse = http.request({
+	    method: 'DELETE',
+	    host: 'http://httpbin.org',
+	    path: '/delete',
+	    binary: false
+	});
+	
+	response.println(httpResponse.statusMessage);
+	response.println(httpResponse.data);
+	response.flush();
+	response.close();
 
 ```
 
