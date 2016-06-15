@@ -4,14 +4,14 @@ title: Thread
 icon: fa-check
 ---
 
-Thread
+Threads
 ===
 
-Thread utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.
+Threads utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.
 
-- Module: **core/thread**
+- Module: **core/threads**
 - Definition: [/core_api/issues/29](https://github.com/dirigiblelabs/core_api/issues/29)
-- Source: [/core/thread.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/thread.js)
+- Source: [/core/threads.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/threads.js)
 - Status: **stable**
 
 Basic Usage
@@ -21,7 +21,7 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var thread = require('core/thread');
+var threads = require('core/threads');
 var response = require('net/http/response');
 
 response.setContentType("text/plain; charset=UTF-8");
@@ -32,7 +32,7 @@ function runnable() {
 };
 
 // Pass a JavaScript function
-var worker = thread.create(runnable, "I am a thread");
+var worker = threads.create(runnable, "I am a thread");
 response.println(worker.getName());
 worker.start();
 worker.join(); // to be able to print to the response

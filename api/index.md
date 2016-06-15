@@ -18,7 +18,7 @@ Core
 * [context](context.html)
 * [env](env.html)
 * [globals](globals.html)
-* [thread](thread.html)
+* [threads](threads.html)
 
 
 Database
