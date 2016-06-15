@@ -57,6 +57,9 @@ navigation:
   - name: Streams
     icon: fa fa-ellipsis-v
     url: streams.html
+  - name: Thread
+    icon: fa fa-ellipsis-v
+    url: thread.html
   - name: Utils Base64
     icon: fa fa-ellipsis-v
     url: utils_base64.html

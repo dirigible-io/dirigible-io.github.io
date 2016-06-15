@@ -18,6 +18,7 @@ Core
 * [context](context.html)
 * [env](env.html)
 * [globals](globals.html)
+* [thread](thread.html)
 
 
 Database
@@ -75,31 +76,4 @@ Samples
 ---
 
 [Simple Samples](../samples/index.html)
-
-
----
-
-Updates
----
-
-* [News](/news.html)
-* [Blogs](/blogs.html)
-
-References
----
-
-- Project Home
-[http://www.dirigible.io](http://www.dirigible.io)
-
-- Trial Instance
-[http://trial.dirigible.io](http://trial.dirigible.io)
-
-- Forum
-[https://www.eclipse.org/forums/index.php/m/1688357/](https://www.eclipse.org/forums/index.php/m/1688357/)
-
-- Mailing List
-[https://dev.eclipse.org/mailman/listinfo/dirigible-dev](https://dev.eclipse.org/mailman/listinfo/dirigible-dev)
-
-- Bugzilla
-[https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible](https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible)
 
