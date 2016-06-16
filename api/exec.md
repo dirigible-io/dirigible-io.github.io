@@ -12,7 +12,7 @@ Exec object is used for executing a scripting service programmatically.
 - Module: **service/exec**
 - Definition: [/core_api/issues/36](https://github.com/dirigiblelabs/core_api/issues/36)
 - Source: [/service/exec.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/exec.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

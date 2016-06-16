@@ -12,7 +12,7 @@ HTTP Request object provided to the scripting services implementation. It contai
 - Module: **net/http/request**
 - Definition: [/core_api/issues/4](https://github.com/dirigiblelabs/core_api/issues/4)
 - Source: [/net/http/request.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/request.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

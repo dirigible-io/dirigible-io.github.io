@@ -12,7 +12,7 @@ Indexing module is used for creating an in-memory full-text-search capable stora
 - Module: **service/indexing**
 - Definition: [/core_api/issues/8](https://github.com/dirigiblelabs/core_api/issues/8)
 - Source: [/service/indexing.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/indexing.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

@@ -12,7 +12,7 @@ HTTP Session object provided to the scripting services implementation to hold se
 - Module: **net/http/session**
 - Definition: [/core_api/issues/5](https://github.com/dirigiblelabs/core_api/issues/5)
 - Source: [/net/http/session.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/session.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

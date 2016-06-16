@@ -12,7 +12,7 @@ Mail object is used to send e-mails through the mail service.
 - Module: **service/mail**
 - Definition: [/core_api/issues/12](https://github.com/dirigiblelabs/core_api/issues/12)
 - Source: [/service/mail.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/mail.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

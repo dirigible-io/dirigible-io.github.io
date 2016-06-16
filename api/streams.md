@@ -12,7 +12,7 @@ Streams module provides classes and utilities for working with streams.
 - Module: **io/streams**
 - Definition: [/core_api/issues/34](https://github.com/dirigiblelabs/core_api/issues/34)
 - Source: [/io/streams.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/io/streams.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

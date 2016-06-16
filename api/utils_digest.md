@@ -12,7 +12,7 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 - Module: **utils/digest**
 - Definition: [/core_api/issues/20](https://github.com/dirigiblelabs/core_api/issues/20)
 - Source: [/utils/digest.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/digest.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

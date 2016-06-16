@@ -12,7 +12,7 @@ HTTP Upload is used to consume files posted as multipart request.
 - Module: **net/http/upload**
 - Definition: [/core_api/issues/24](https://github.com/dirigiblelabs/core_api/issues/24)
 - Source: [/net/http/upload.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/upload.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

@@ -12,7 +12,7 @@ Base64 object is used to encode/decode in base64.
 - Module: **utils/base64**
 - Definition: [/core_api/issues/18](https://github.com/dirigiblelabs/core_api/issues/18)
 - Source: [/utils/base64.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/base64.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

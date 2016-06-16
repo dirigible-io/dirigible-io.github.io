@@ -12,7 +12,7 @@ Websocket API provides access to the Session object for management of the bi-dir
 - Module: **service/websocket**
 - Definition: [/core_api/issues/26](https://github.com/dirigiblelabs/core_api/issues/26)
 - Source: [/net/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/websocket.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

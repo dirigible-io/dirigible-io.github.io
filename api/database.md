@@ -12,7 +12,7 @@ Standard access to the registered relational data sources.
 - Module: **db/database**
 - Definition: [/core_api/issues/9](https://github.com/dirigiblelabs/core_api/issues/9)
 - Source: [/db/database.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/db/database.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

@@ -37,6 +37,7 @@ IO
 Net
 ---
 
+* [soap](soap.html)
 * [websocket](websocket.html)
 
 

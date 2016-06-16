@@ -12,7 +12,7 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 - Module: **api/utils/hex**
 - Definition: [/core_api/issues/19](https://github.com/dirigiblelabs/core_api/issues/19)
 - Source: [/api/utils/base64.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/api/utils/hex.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

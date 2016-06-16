@@ -12,7 +12,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
 - Module: **utils/xml**
 - Definition: [/core_api/issues/25](https://github.com/dirigiblelabs/core_api/issues/25)
 - Source: [/utils/xml.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/xml.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

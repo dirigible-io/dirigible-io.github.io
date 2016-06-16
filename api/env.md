@@ -12,7 +12,7 @@ Env object is used for access of the environment variables.
 - Module: **core/env**
 - Definition: [/core_api/issues/33](https://github.com/dirigiblelabs/core_api/issues/33)
 - Source: [/core/env.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/env.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

@@ -12,7 +12,7 @@ UUID object is used to generate random universally unique identifiers.
 - Module: **utils/uuid**
 - Definition: [/core_api/issues/22](https://github.com/dirigiblelabs/core_api/issues/22)
 - Source: [/utils/uuid.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/uuid.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

@@ -12,7 +12,7 @@ Globals object is used to store and manage properties in the global store.
 - Module: **core/globals**
 - Definition: [/core_api/issues/7](https://github.com/dirigiblelabs/core_api/issues/7)
 - Source: [/core/globals.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/globals.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

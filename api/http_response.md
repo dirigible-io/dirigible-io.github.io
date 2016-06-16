@@ -12,7 +12,7 @@ HTTP Response object provided to the scripting services implementation to create
 - Module: **net/http/response**
 - Definition: [/core_api/issues/1](https://github.com/dirigiblelabs/core_api/issues/1)
 - Source: [/net/http/response.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/response.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

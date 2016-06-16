@@ -54,6 +54,9 @@ navigation:
   - name: Messaging
     icon: fa fa-ellipsis-v
     url: messaging.html
+  - name: SOAP
+    icon: fa fa-ellipsis-v
+    url: soap.html
   - name: Streams
     icon: fa fa-ellipsis-v
     url: streams.html

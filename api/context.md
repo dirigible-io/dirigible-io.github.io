@@ -12,7 +12,7 @@ Context object is used to store and manage properties for a single execution flo
 - Module: **core/context**
 - Definition: [/core_api/issues/6](https://github.com/dirigiblelabs/core_api/issues/6)
 - Source: [/core/context.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/context.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

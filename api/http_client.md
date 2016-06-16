@@ -12,7 +12,7 @@ HTTP Client is used by scripting services to call external services via HTTP.
 - Module: **net/http/client**
 - Definition: [/core_api/issues/3](https://github.com/dirigiblelabs/core_api/issues/3)
 - Source: [/net/http/client.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/client.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

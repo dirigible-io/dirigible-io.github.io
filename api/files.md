@@ -12,7 +12,7 @@ Files module provides an access to the underlying File System, where the Dirigib
 - Module: **io/files**
 - Definition: [/core_api/issues/21](https://github.com/dirigiblelabs/core_api/issues/21)
 - Source: [/io/files.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/io/files.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

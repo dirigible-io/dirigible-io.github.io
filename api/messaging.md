@@ -12,7 +12,7 @@ Messaging object is used to access the built-in passive messaging hub. One can r
 - Module: **service/messaging**
 - Definition: [/core_api/issues/11](https://github.com/dirigiblelabs/core_api/issues/11)
 - Source: [/service/messaging.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/messaging.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

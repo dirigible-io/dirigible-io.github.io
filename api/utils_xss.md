@@ -12,7 +12,7 @@ XSS object is used to escape special symbols in order to prevent XSS attacks.
 - Module: **utils/xss**
 - Definition: [/core_api/issues/10](https://github.com/dirigiblelabs/core_api/issues/10)
 - Source: [/utils/xss.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/xss.js)
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---

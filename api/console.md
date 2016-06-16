@@ -12,7 +12,7 @@ Console object is used to write messages to the default logging output. It has s
 - Module: **built-in**
 - Definition: [/core_api/issues/2](https://github.com/dirigiblelabs/core_api/issues/2)
 - Source: provided by the core
-- Status: **stable**
+- Status: **beta**
 
 Basic Usage
 ---
