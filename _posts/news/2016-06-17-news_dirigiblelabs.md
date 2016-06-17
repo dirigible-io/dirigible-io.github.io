@@ -17,7 +17,7 @@ What is it?
 
 In short this is a place at GitHub [https://github.com/dirigiblelabs](https://github.com/dirigiblelabs) where developers can collaborate and openly share their projects built with and run on Eclipse Dirigible. 
 
-There are some important points, which have to be underlined:
+There are some important points, which have to be emphasized:
 
 * The projects are not official Eclipse Foundation projects
 * The developers must not use Eclipse provided collaboration and project management services e.g Bugzilla, IPzilla, Forum, Wiki, etc.
