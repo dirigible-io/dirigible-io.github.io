@@ -27,3 +27,18 @@ console.warn("Warning message.");
 console.log("Log message.");
 console.trace("Trace.");
 ```
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**info(message, parameters)**   | Logs a message with level INFO | -
+**error(message, parameters)**   | Logs a message with level ERROR | -
+**warn(message, parameters)**   | Logs a message with level WARN | -
+**log(message, parameters)**   | Logs a message with level INFO | -
+**trace(message, parameters)**   | Logs a message with level ERROR with the full stack trace | -

@@ -34,3 +34,21 @@ try {
 response.flush();
 response.close();
 ```
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**assertTrue(condition, message)**   | Asserts the condition is true and throws an Error with the message otherwise | -
+**assertFalse(condition, message)**   | Asserts the condition is false and throws an Error with the message otherwise | -
+**assertEquals(o1, o2, message)**   | Asserts the equality of the two objects is true and throws an Error with the message otherwise | -
+**assertNull(o, message)**   | Asserts the object is null and throws an Error with the message otherwise | -
+**assertNotNull(o, message)**   | Asserts the object is not null and throws an Error with the message otherwise | -
+**assertFail(o, message)**   | Throws an Error with the message as convenience | -
+
+
