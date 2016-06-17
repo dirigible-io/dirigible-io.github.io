@@ -39,7 +39,7 @@
               <li class="dropdown keep-open side-item{% if menu.group == page.group %} open{% endif %}">
                 <a href="#" class="dropdown-toggle">{{ menu.name }} <b class="caret"></b></a>
                 <ul class="dropdown-menu">{% for p in site.pages %}{% if p.group == menu.group %}
-                  <li class="side-item{% if p.url == page.url %} active{% endif %}">
+                  <li class="{% if p.url == page.url %} active{% endif %}">
                     <a href="{{ p.url }}"> <i class="fa {{ p.icon }}"></i>
                       {{ p.title }}
                     </a>
