@@ -3,88 +3,88 @@ navbar: Samples
 icon: fa-gift
 link: ../samples/index.html
 navigation: 
-  - name: Assert
-    icon: fa fa-ellipsis-v
-    url: assert.html
-  - name: Config
-    icon: fa fa-ellipsis-v
-    url: config.html
-  - name: Console
-    icon: fa fa-ellipsis-v
+  - name: console
+    icon: fa fa-caret-right
     url: console.html
-  - name: Context
-    icon: fa fa-ellipsis-v
+  - name: core/assert
+    icon: fa fa-caret-right
+    url: assert.html
+  - name: core/config
+    icon: fa fa-caret-right
+    url: config.html
+  - name: core/context
+    icon: fa fa-caret-right
     url: context.html
-  - name: Database
-    icon: fa fa-ellipsis-v
-    url: database.html
-  - name: Env
-    icon: fa fa-ellipsis-v
+  - name: core/env
+    icon: fa fa-caret-right
     url: env.html
-  - name: Exec
-    icon: fa fa-ellipsis-v
-    url: exec.html
-  - name: Files
-    icon: fa fa-ellipsis-v
-    url: files.html
-  - name: Globals
-    icon: fa fa-ellipsis-v
+  - name: core/globals
+    icon: fa fa-caret-right
     url: globals.html
-  - name: HTTP Client
-    icon: fa fa-ellipsis-v
-    url: http_request.html
-  - name: HTTP Request
-    icon: fa fa-ellipsis-v
-    url: http_request.html
-  - name: HTTP Response
-    icon: fa fa-ellipsis-v
-    url: http_response.html
-  - name: HTTP Session
-    icon: fa fa-ellipsis-v
-    url: http_session.html
-  - name: HTTP Upload
-    icon: fa fa-ellipsis-v
-    url: http_upload.html
-  - name: Indexing
-    icon: fa fa-ellipsis-v
-    url: indexing.html
-  - name: Mail
-    icon: fa fa-ellipsis-v
-    url: mail.html
-  - name: Messaging
-    icon: fa fa-ellipsis-v
-    url: messaging.html
-  - name: SOAP
-    icon: fa fa-ellipsis-v
-    url: soap.html
-  - name: Streams
-    icon: fa fa-ellipsis-v
-    url: streams.html
-  - name: Threads
-    icon: fa fa-ellipsis-v
+  - name: core/threads
+    icon: fa fa-caret-right
     url: threads.html
-  - name: Utils Base64
-    icon: fa fa-ellipsis-v
-    url: utils_base64.html
-  - name: Utils Digest
-    icon: fa fa-ellipsis-v
-    url: utils_digest.html
-  - name: Utils HEX
-    icon: fa fa-ellipsis-v
-    url: utils_hex.html
-  - name: Utils UUID
-    icon: fa fa-ellipsis-v
-    url: utils_uuid.html
-  - name: Utils XML
-    icon: fa fa-ellipsis-v
-    url: utils_xml.html
-  - name: Utils XSS
-    icon: fa fa-ellipsis-v
-    url: utils_xss.html
-  - name: Websocket
-    icon: fa fa-ellipsis-v
+  - name: db/database
+    icon: fa fa-caret-right
+    url: database.html
+  - name: io/files
+    icon: fa fa-caret-right
+    url: files.html
+  - name: io/streams
+    icon: fa fa-caret-right
+    url: streams.html
+  - name: net/soap
+    icon: fa fa-caret-right
+    url: soap.html
+  - name: net/websocket
+    icon: fa fa-caret-right
     url: websocket.html
+  - name: net/http/client
+    icon: fa fa-caret-right
+    url: http_client.html
+  - name: net/http/request
+    icon: fa fa-caret-right
+    url: http_request.html
+  - name: net/http/response
+    icon: fa fa-caret-right
+    url: http_response.html
+  - name: net/http/session
+    icon: fa fa-caret-right
+    url: http_session.html
+  - name: net/http/upload
+    icon: fa fa-caret-right
+    url: http_upload.html
+  - name: service/exec
+    icon: fa fa-caret-right
+    url: exec.html
+  - name: service/indexing
+    icon: fa fa-caret-right
+    url: indexing.html
+  - name: service/mail
+    icon: fa fa-caret-right
+    url: mail.html
+  - name: service/messaging
+    icon: fa fa-caret-right
+    url: messaging.html
+  - name: utils/base64
+    icon: fa fa-caret-right
+    url: utils_base64.html
+  - name: utils/digest
+    icon: fa fa-caret-right
+    url: utils_digest.html
+  - name: utils/hex
+    icon: fa fa-caret-right
+    url: utils_hex.html
+  - name: utils/uuid
+    icon: fa fa-caret-right
+    url: utils_uuid.html
+  - name: utils/xml
+    icon: fa fa-caret-right
+    url: utils_xml.html
+  - name: utils/xss
+    icon: fa fa-caret-right
+    url: utils_xss.html
   - name: #
-    icon: fa fa-ellipsis-v
+    icon: fa fa-caret-right
     url: index.html
     

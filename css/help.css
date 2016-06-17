@@ -170,6 +170,7 @@ table.tablesorter thead tr th:hover {
 }
 .side-item {
 	float: initial !important;
+	margin-bottom: -20px  !important;
 }
 
 #content {
