@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dirigible Labs is live"
+title: "Dirigible Labs is live!"
 category: news
 tag: news
 brief: <h4><a href='news/2016/06/17/news_dirigiblelabs.html'>Dirigible Labs is live!</a></h4> <sub class="post-info">June 17, 2016</sub><br> We are happy to announce that the Dirigible Labs space is live!...<br>
