@@ -45,3 +45,20 @@ response.println(config.get("/path/to/properties"));
 response.flush();
 response.close();
 ```
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**get(path, key)**   | Returns the value per key from a set at the given path | *string*
+**set(path, key, value)**   | Sets the value by a key of a set at the given path | -
+**delete(path)**   | Deletes a properties set at the given path | -
+**clear()**   | Deletes all the properties sets | -
+**getJson(path)**   | Returns the properties set at the given path as JSON | *string*
+**setJson(path, json)**   | Creates or update the properties set at the given path from JSON | -

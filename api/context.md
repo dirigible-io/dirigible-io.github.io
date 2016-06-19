@@ -31,3 +31,16 @@ response.println("[Attribute]: " + attr);
 response.flush();
 response.close();
 ```
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**get(key)**   | Returns the value per key from the context parameters | *string*
+**set(key, value)**   | Sets the value per key to the context parameters | -
