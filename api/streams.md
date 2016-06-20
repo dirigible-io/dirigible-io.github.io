@@ -73,22 +73,13 @@ Function     | Description | Returns
 #### InputStream
 
 
-Function     | Description | Returns
------------- | ----------- | --------
-
 
 #### OutputStream
 
 
-Function     | Description | Returns
------------- | ----------- | --------
-
 
 #### ByteArrayInputStream
 
-
-Function     | Description | Returns
------------- | ----------- | --------
 
 
 #### ByteArrayOutputStream
