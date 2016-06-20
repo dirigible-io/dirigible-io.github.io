@@ -31,3 +31,59 @@ response.println(httpResponse.data);
 response.flush();
 response.close();
 ```
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**get(url, options)**   | Makes a HTTP GET request to a remote service at the URL by the HttpOptions and returns the result | *Response*
+**post(url, options)**   | Makes a HTTP POST request to a remote service at the URL by the HttpOptions and returns the result | *Response*
+**put(url, options)**   | Makes a HTTP PUT request to a remote service at the URL by the HttpOptions and returns the result | *Response*
+**delete(url, options)**   | Makes a HTTP DELETE request to a remote service at the URL by the HttpOptions and returns the result | *Response*
+**request(options)**   | Makes a HTTP request to a remote service and returns the result | *HttpResponse*
+
+
+### Objects
+
+---
+
+#### HttpResponse
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**statusCode**   | The Response status code | *int*
+**statusMessage**   | The Response status message | *string*
+**data**   | The Response data | *array of bytes*
+**httpVersion**   | The HTTP version of the Response | *string*
+**headers**   | The Response headers | *array of HttpHeader*
+
+
+#### HttpHeader
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**name**   | The name of the header | *string*
+**value**   | The value of the header | *string*
+
+
+#### HttpOptions
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**host**   | The host parameter | *string*
+**port**   | The port parameter | *int*
+**method**   | The method parameter - GET, POST, PUT, DELETE. Default GET | *string*
+**charset**   | The charset parameter. Default  | *string*
+**headers**   | The Response headers | *array of HttpHeader*
+
+
+

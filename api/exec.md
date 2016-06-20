@@ -36,3 +36,22 @@ response.println("Printing output parameter: " + result.context.output_param);
 response.flush();
 response.close();
 ```
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**js(path, context)**   | Executes the given JavaScript service by path | *the resulting context object*
+**test(path, context)**   | Executes the given JavaScript test case by path | *the resulting context object*
+**flow(path, context)**   | Executes the given Flow service by path | *the resulting context object*
+**job(path, context)**   | Executes the given Job service by path | *the resulting context object*
+**sql(path, context)**   | Executes the given SQL service by path | *the resulting context object*
+**wiki(path, context)**   | Executes the given JavaScript transformer by path | *the resulting context object*
+**command(path, context)**   | Executes the given shell Command service by path | *the resulting context object*
+
+
