@@ -35,3 +35,15 @@ response.println("Mail sent");
 response.flush();
 response.close();
 ```
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**send(from, to, subject, content)**   | Sends an e-mail with the given subject and content to the given recipient(s) from a given sender | -

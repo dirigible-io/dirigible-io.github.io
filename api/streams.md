@@ -45,3 +45,59 @@ response.flush();
 response.close();
 ```
 
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**read(inputStream)**   | Reads an InputStream to an array of bytes | *array of byte*
+**write(outputStream, bytes)**   | Writes an array of bytes to an OutputStream | -
+**read(inputStream)**   | Reads an InputStream and returns the result as a string representation | *string*
+**write(outputStream, text)**   | Writes a string to an OutputStream | -
+**copy(inputStream, outputStream)**   | Copies an InputStream to an OutputStream | -
+**copyLarge(inputStream, outputStream)**   | Copies an InputStream to an OutputStream optimized for large data | -
+**createByteArrayInputStream(bytes)**   | Creates an ByteArrayInputStream from the array of bytes | *ByteArrayInputStream*
+**createByteArrayOutputStream()**   | Creates an ByteArrayOutputStream | *ByteArrayOutputStream*
+
+### Objects
+
+---
+
+#### InputStream
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+
+
+#### OutputStream
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+
+
+#### ByteArrayInputStream
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+
+
+#### ByteArrayOutputStream
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getBytes()**   | Returns the array of bytes contained in this ByteArrayOutputStream | *array of byte*
+**getText()**   | Returns a string representation of the array of bytes contained in this ByteArrayOutputStream | *string*
+
+
+

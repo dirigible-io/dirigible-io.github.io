@@ -79,3 +79,38 @@ jsSocket.send('{"module": "/chat/chat_service.js","params": {"type":"list", "fro
 
 */
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getSession()**   | Returns the Websocket Session | *WebsocketSession*
+**getOpenSessions()**   | Returns the an array of the currently active Websocket Sessions | *array of WebsocketSession*
+
+
+
+
+### Objects
+
+---
+
+#### WebsocketSession
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**sendText(text)**   | Sends synchronously a text via the Websocket | -
+**sendTextAsync(text)**   | Sends asynchronously a text via the Websocket | -
+**getId()**   | Returns the ID of this Websocket Session | *string*
+**close()**   | Closes this Websocket Session | *string*
+
+
+
+

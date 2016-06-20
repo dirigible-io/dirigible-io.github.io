@@ -60,3 +60,46 @@ index.clear();
 response.flush();
 response.close();
 ```
+
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getIndex(name)**   | Returns an Index by a given name. Creates it if needed. | *Index*
+
+
+
+
+### Objects
+
+---
+
+#### Index
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**add(document)**   | Adds a document to the Index | -
+**search(term)**   | Returns the matching documents | *array of Document*
+**clear()**   | Removes all the documents from the Index | -
+
+
+#### Document
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**id**   | The ID of the Document | *string*
+**content**   | The content of the Document | *string*
+
+
+
+

@@ -45,3 +45,49 @@ for(var i = 0; i < messages.length; i ++) {
 response.flush();
 response.close();
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**registerClient(client)**   | Registers a client to the messaging service | -
+**unregisterClient(client)**   | Unregisters a client from the messaging service | -
+**isClientExists(client)**   | Returns true if the client has been already registered to the messaging service and false otherwise | *boolean*
+**registerTopic(topic)**   | Registers a topic to the messaging service | -
+**unregisterTopic(topic)**   | Unregisters a topic from the messaging service | -
+**isTopicExists(topic)**   | Returns true if the topic has been already registered to the messaging service and false otherwise | *boolean*
+**subscribe(client, topic)**   | Subscribes a client to the given topic | -
+**unsubscribe(client, topic)**   | Unsubscribes a client from the given topic | -
+**isSubscriptionExists(client, topic)**   | Returns true if the subscription has been already registered to the messaging service and false otherwise | *boolean*
+**send(sender, topic, subject, body)**   | Sends a message to the messaging service | -
+**receive(receiver)**   | Receives the messages routed to the given receiver | *array of Message*
+**receiveByTopic(receiver, topic)**   | Receives the messages routed to the given receiver for the given topic | *array of Message*
+**route()**   | Performs the routing process | -
+**cleanup()**   | Performs the clean-up process | -
+
+
+### Objects
+
+---
+
+#### Message
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**id**   | The Message id | *long*
+**topic**   | The Message topic | *string*
+**subject**   | The Message subject | *string*
+**body**   | The Message body | *string*
+**sender**   | The Message sender | *string*
+**createdBy**   | The user who has been created the Message | *string*
+**createdAt**   | The time when the Message has been created | *Date*
+
+
