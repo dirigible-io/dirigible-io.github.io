@@ -44,3 +44,36 @@ if (request.getMethod() === "POST") {
 response.flush();
 response.close();
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**parseRequest()**   | Returns an array of HttpFileEntry objects by parsing the HTTP request | *array of HttpFileEntry*
+**isMultipartContent()**   | Returns true if the HTTP request contains files content and false otherwise | *boolean*
+
+
+
+### Objects
+
+---
+
+#### HttpFileEntry
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**name**   | The HttpFileEntry name | *string*
+**data**   | The HttpFileEntry binary data | *array of byte*
+**contentType**   | The HttpFileEntry's data content type | *string*
+**size**   | The HttpFileEntry's data size | *int*
+
+        
+        

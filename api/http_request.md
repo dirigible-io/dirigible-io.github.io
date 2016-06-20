@@ -66,12 +66,15 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**name**   | The Cookie name | *string*
-**value**   | The Cookie value | *string*
-**maxAge**   | The Cookie maximum age | *int*
-**path**   | The URI path to which the client should return the Cookie | *string*
-**domain**   | The domain name set to this Cookie | *string*
-**secure**   | Returns true if the client is sending cookies only over a secure protocol | *string*
+**name**   | The HttpCookie name | *string*
+**value**   | The HttpCookie value | *string*
+**comment**   | The HttpCookie comment section | *string*
+**maxAge**   | The HttpCookie maximum age | *int*
+**path**   | The URI path to which the client should return the HttpCookie | *string*
+**domain**   | The domain name set to this HttpCookie | *string*
+**secure**   | Returns true if the client is sending HttpCookie only over a secure protocol | *string*
+**version**   | Returns the version of the protocol this cookie complies with | *0*
+**httpOnly**   | The HttpCookie will not be exposed to the client-side scripting code if true | *boolean*
 
 
 #### HttpRequestInfo

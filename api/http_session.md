@@ -31,3 +31,29 @@ response.println("[Attribute]: " + attr);
 response.flush();
 response.close();
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getAttribute(name)**   | Returns the HTTP session attribute by name | *string*
+**setAttribute(name, value)**   | Sets the HTTP session attribute by name and value | *string*
+**removeAttribute(name)**   | Removes the HTTP session attribute by name | *string*
+**getAttributeNames()**   | Returns all the HTTP session attributes names | *array of string*
+**getId()**   | Returns the HTTP session ID | *string*
+**getCreationTime()**   | Returns the time when the HTTP session has been initialized | *Date*
+**getLastAccessedTime()**   | Returns the time when the HTTP session has been last accessed | *Date*
+**getMaxInactiveInterval()**   | Returns the maximum inactive interval of this HTTP session | *int*
+**setMaxInactiveInterval(interval)**   | Sets the maximum inactive interval of this HTTP session | -
+**invalidate()**   | Invalidates this HTTP session | -
+
+
+
+
