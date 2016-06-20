@@ -42,10 +42,10 @@ Definition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**get(url, options)**   | Makes a HTTP GET request to a remote service at the URL by the HttpOptions and returns the result | *Response*
-**post(url, options)**   | Makes a HTTP POST request to a remote service at the URL by the HttpOptions and returns the result | *Response*
-**put(url, options)**   | Makes a HTTP PUT request to a remote service at the URL by the HttpOptions and returns the result | *Response*
-**delete(url, options)**   | Makes a HTTP DELETE request to a remote service at the URL by the HttpOptions and returns the result | *Response*
+**get(url, options)**   | Makes a HTTP GET request to a remote service at the URL by the HttpOptions and returns the result | *HttpResponse*
+**post(url, options)**   | Makes a HTTP POST request to a remote service at the URL by the HttpOptions and returns the result | *HttpResponse*
+**put(url, options)**   | Makes a HTTP PUT request to a remote service at the URL by the HttpOptions and returns the result | *HttpResponse*
+**delete(url, options)**   | Makes a HTTP DELETE request to a remote service at the URL by the HttpOptions and returns the result | *HttpResponse*
 **request(options)**   | Makes a HTTP request to a remote service and returns the result | *HttpResponse*
 
 
