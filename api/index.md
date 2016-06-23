@@ -9,12 +9,19 @@ Eclipse Dirigible<sup>&trade;</sup> API
 
 Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the injected API availability, versions and status.
 
+
+
+Built-in
+---
+
+* [console](console.html)
+
+
 Core
 ---
 
 * [assert](assert.html)
 * [config](config.html)
-* [console](console.html)
 * [context](context.html)
 * [env](env.html)
 * [globals](globals.html)

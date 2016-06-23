@@ -11,7 +11,7 @@ SOAP utility exposes web services frameowrk for manipulating SOAP messages, maki
 
 - Module: **net/soap**
 - Definition: [/core_api/issues/37](https://github.com/dirigiblelabs/core_api/issues/37)
-- Source: [/core/soap.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/soap.js)
+- Source: [/net/soap.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/soap.js)
 - Status: **beta**
 
 Basic Usage
