@@ -30,3 +30,29 @@ response.println(hex.decode('48657820456e636f646564'));
 response.flush();
 response.close();
 ```
+
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**decode(input)**   | Decode an input string from HEX | *string*
+**encode(input)**   | Encode an input string to HEX | *string*
+
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

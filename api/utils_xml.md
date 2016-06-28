@@ -47,3 +47,28 @@ response.println(xml.toJson(xmlInput));
 response.flush();
 response.close();
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**fromJson(json)**   | Converts a JSON to a XML string | *string*
+**toJson(xml)**   | Converts a XML to JSON string | *string*
+
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

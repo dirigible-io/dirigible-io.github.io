@@ -30,3 +30,29 @@ response.println(uuid.validate('14a3ddce-f86d-4f51-a2e0-6e497b94bbe5'));
 response.flush();
 response.close();
 ```
+
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**validate(input)**   | Validates whether the provided input is a valid UUID string | *boolean*
+**random()**   | Returns a random UUID string | *string*
+
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

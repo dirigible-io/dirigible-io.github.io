@@ -62,3 +62,39 @@ response.println(escaped);
 response.flush();
 response.close();
 ```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**escapeCsv(data)**   | Escapes the CSV string | *string*
+**escapeHtml(data)**   | Escapes the CSV string | *string*
+**escapeJava(data)**   | Escapes the CSV string | *string*
+**escapeJavaScript(data)**   | Escapes the CSV string | *string*
+**escapeSql(data)**   | Escapes the CSV string | *string*
+**escapeXml(data)**   | Escapes the CSV string | *string*
+**unescapeCsv(data)**   | Unescapes the CSV string | *string*
+**unescapeHtml(data)**   | Unescapes the CSV string | *string*
+**unescapeJava(data)**   | Unescapes the CSV string | *string*
+**unescapeJavaScript(data)**   | Unescapes the CSV string | *string*
+**unescapeSql(data)**   | Unescapes the CSV string | *string*
+**unescapeXml(data)**   | Unescapes the CSV string | *string*
+
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+
+

@@ -30,3 +30,29 @@ response.println(base64.decode('YWRtaW46YWRtaW4='));
 response.flush();
 response.close();
 ```
+
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**decode(input)**   | Decode an input string from Base64 | *string*
+**encode(input)**   | Encode an input string to Base64 | *string*
+
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+
