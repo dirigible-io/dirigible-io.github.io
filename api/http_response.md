@@ -108,3 +108,11 @@ Constant     | Description | Type
 
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

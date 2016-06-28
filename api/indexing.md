@@ -102,4 +102,11 @@ Function     | Description | Returns
 
 
 
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+
 

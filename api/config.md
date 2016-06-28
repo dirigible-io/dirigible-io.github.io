@@ -62,3 +62,12 @@ Function     | Description | Returns
 **clear()**   | Deletes all the properties sets | -
 **getJson(path)**   | Returns the properties set at the given path as JSON | *string*
 **setJson(path, json)**   | Creates or update the properties set at the given path from JSON | -
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

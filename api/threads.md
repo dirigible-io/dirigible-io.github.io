@@ -81,3 +81,11 @@ Function     | Description | Returns
 **notify()**   | Wakes up a single thread waiting for this object | -
 **notifyAll()**   | Wakes up all the threads waiting for this object | -
 
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ❌  | ❌

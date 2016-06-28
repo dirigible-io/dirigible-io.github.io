@@ -96,3 +96,12 @@ Function     | Description | Returns
 **setReadable(readable)**   | Makes the File readable depending on the parameter |
 **setWritable(writable)**   | Makes the File writable depending on the parameter |
 
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

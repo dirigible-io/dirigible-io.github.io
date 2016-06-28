@@ -75,5 +75,12 @@ Function     | Description | Returns
 **contentType**   | The HttpFileEntry's data content type | *string*
 **size**   | The HttpFileEntry's data size | *int*
 
-        
-        
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

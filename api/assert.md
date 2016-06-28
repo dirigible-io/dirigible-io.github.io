@@ -52,3 +52,11 @@ Function     | Description | Returns
 **assertFail(o, message)**   | Throws an Error with the message as convenience | -
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

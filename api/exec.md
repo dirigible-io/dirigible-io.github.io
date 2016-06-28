@@ -55,3 +55,10 @@ Function     | Description | Returns
 **command(path, context)**   | Executes the given shell Command service by path | *the resulting context object*
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

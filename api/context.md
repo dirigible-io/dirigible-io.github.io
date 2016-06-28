@@ -44,3 +44,12 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **get(key)**   | Returns the value per key from the context parameters | *string*
 **set(key, value)**   | Sets the value per key to the context parameters | -
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

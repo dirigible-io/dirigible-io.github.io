@@ -91,3 +91,11 @@ Function     | Description | Returns
 **createdAt**   | The time when the Message has been created | *Date*
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

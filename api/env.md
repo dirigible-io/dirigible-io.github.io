@@ -66,3 +66,11 @@ Function     | Description | Returns
 **getUserName()**   | Returns the 'user.name' value from the environments variables | *string*
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

@@ -143,3 +143,13 @@ Function     | Description | Returns
 **addAttribute(name, value)**   | Creates and add an attribute | *Element*
 **isSOAPElement()**   | Returns true if the Element is SOAP Element and false otherwise (e.g. CDATA, PDATA, etc.) | *string*
 
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
+

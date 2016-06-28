@@ -44,3 +44,12 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **get(key)**   | Returns the value per key from the global parameters | *string*
 **set(key, value)**   | Sets the value per key to the global parameters | -
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌

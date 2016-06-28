@@ -167,3 +167,10 @@ Function     | Description | Returns
 **genTopAndStart(limit, offset)**   | Returns the SQL snippet for paging depending of the database dialect | *string*
 
 
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
