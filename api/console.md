@@ -50,4 +50,4 @@ Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
- :white_check_mark:  | :white_check_mark:  | :red_circle:
+ ✅  | ✅  | 🚫
