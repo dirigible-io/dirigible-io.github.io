@@ -42,3 +42,12 @@ Function     | Description | Returns
 **warn(message, parameters)**   | Logs a message with level WARN | -
 **log(message, parameters)**   | Logs a message with level INFO | -
 **trace(message, parameters)**   | Logs a message with level ERROR with the full stack trace | -
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ [x]  | [x]     | [ ]
