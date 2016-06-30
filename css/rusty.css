@@ -290,3 +290,11 @@ p.copyright {
 	margin-bottom: 25px;
 	bottom: .60em;
 }
+
+
+#carousel-home-generic {
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: #ac8355;
+}
