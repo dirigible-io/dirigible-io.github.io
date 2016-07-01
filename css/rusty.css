@@ -298,3 +298,8 @@ p.copyright {
     border-radius: 4px;
     border-color: #ac8355;
 }
+
+.breadcrumb {
+	border-radius: 0px !important;
+}
+}
