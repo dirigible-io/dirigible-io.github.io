@@ -1,13 +1,13 @@
 /* 
 
-#93B1CE 
-#284157
-#203446
-#3a536c
-#428bca
-#62abea
+#93B1CE -> #ffad33
+#284157 -> #4d2e00
+#203446 -> #331f00
+#3a536c -> #663d00
+#428bca -> #5b5b3e
 
 */
+
 
 body, html {
 	height: 100%;
@@ -24,26 +24,27 @@ p {
 }
 
 a {
-    color: #428bca;
+    color: #804d00;
 }
 
 a:hover {
-    color: #62abea;
+    color: #a06d20;
 }
 
+
 .grid {
-    background-color: #93B1CE;
+    background-color: #ffad33;
     color: #454545;
 }
 
 .btn-primary {
     color: #fff !important;
-    background-color: #284157 !important;
-    border: 1px solid #284157 !important;
+    background-color: #4d2e00 !important;
+    border: 1px solid #4d2e00 !important;
 }
 
 .social-media {
-    background: #284157;
+    background: #4d2e00;
     padding-top: 20px;
     margin-bottom: -20px;
 }
@@ -208,7 +209,7 @@ p.copyright {
 	padding: 20px;
 	margin: 0;
 	font-size: 18em;
-    color: #93B1CE !important;
+    color: #ffad33 !important;
     text-align: center;
 	vertical-align:text-middle;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
@@ -231,8 +232,8 @@ p.copyright {
 
 .navbar-default {
     font-size: 1.2em;
-    background: #203446;
-    border-color: #203446;
+    background: #331f00;
+    border-color: #331f00;
     color: white;
 }
 
@@ -262,8 +263,8 @@ p.copyright {
 .btn-register {
     margin:5px;
     padding: 5px !important;
-    background-color: #428bca;
-	border-color: #428bca;
+    background-color: #663d00;
+	border-color: #663d00;
 }
 
 .post{
@@ -293,12 +294,12 @@ p.copyright {
     border-width: 3px;
     border-style: solid;
     border-radius: 4px;
-    border-color: #3a536c;
+    border-color: #663d00;
 }
 
 .breadcrumb {
 	border-radius: 0px !important;
-	background: #284157;
+	background: #4d2e00;
 	color: #eee !important;
 }
 
