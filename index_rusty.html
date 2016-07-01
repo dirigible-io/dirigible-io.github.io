@@ -9,7 +9,7 @@ layout: rusty_home
                 <div class="clearfix"></div>
 	            <h2><i class="fa fa-question-circle fa-fw"></i>
                 What is Dirigible?</h2>
-	            <p>Eclipse Dirigible <sup>&trade;</sup> is a Cloud Development Platform providing development tools and runtime environment. It supports full development life-cycle of on-demand applications by leveraging in-system programming models and rapid application development techniques.</p>
+	            <p>Eclipse Dirigible<sup>&trade;</sup> is a Cloud Development Platform providing development tools and runtime environment. It supports full development life-cycle of on-demand applications by leveraging in-system programming models and rapid application development techniques.</p>
 	            <a class="btn btn-default" href="http://www.dirigible.io/project.html">Overview</a>
 	        </div>
 	        <div class="col-lg-4 heading-lead">
@@ -21,14 +21,40 @@ layout: rusty_home
 	            <a class="btn btn-default" href="http://www.dirigible.io/features.html">Features</a>
 	        </div>
 	        <div class="col-lg-4 heading-lead">
-		<hr class="section-heading-spacer">
+				<hr class="section-heading-spacer">
                 <div class="clearfix"></div>
 	        <h2><i class="fa fa-github fa-fw"></i>
                 Is it free?</h2>
 	            <p>YES<br/>All the Eclipse Dirigible project's source code and sample applications are licensed under 
 	            <a href='https://www.eclipse.org/legal/epl-v10.html' target='_blank'>Eclipse Public License - v 1.0</a>
 	            and maintained at <a href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>.</p>
-	            <a class="btn btn-default" href="https://github.com/eclipse/dirigible" target="_blank">Sources</a>
+	            <a class="btn btn-default" href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-lg-4 heading-lead page-scroll">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa-code fa-fw"></i>
+                Web IDE</h2>
+	            <p>Dirigible provides full-fledged Web IDE with variety of Editors, Views, Wizards and Preference pages grouped in Perspectives - the same user experience that you are already familiar with.</p>
+	            <a class="btn btn-default" href="help/develop_web_ide.html">WebIDE</a>
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa-server fa-fw"></i>
+                App Server</h2>
+	            <p>Dirigible integrates a collection of execution engines covering all the aspects of a modern Cloud Application - database models, scripting RESTful services, user interfaces, work-flows, scheduled jobs, security definitions, even template engines.</p>
+	            <a class="btn btn-default" href="help/scripting_services.html">Scripting Services</a>
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	        <h2><i class="fa fa-database fa-fw"></i>
+                Content Repository</h2>
+	            <p>Projects artifacts which are authored via the Web IDE and executed by the engines of the App Server at runtime are stored in the Content Repository. This simplifies the life-cycle management, governance, scaling and other mission critical aspects of the cloud applications built with Dirigible.</p>
+	            <a class="btn btn-default" href="help/architecture.html" target="_blank">Architecture</a>
 	        </div>
 	    </div>
     </div>
@@ -43,26 +69,90 @@ layout: rusty_home
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">News and Updates</h2>
-					<div>
-						{% for post in site.tags.news limit:6 %}
-							{% if post.categories contains 'news' %}
-								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-								</p>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<a class="btn btn-default" href="{{ site.url }}/news.html" target="_blank">All News ...</a>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6 col-sm-6">
-                    <span class="pictogram"><i class="fa fa-rss fa-fw"></i></span>
-                </div>
-            </div>
+	            
+	            <div id="carousel-home-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-home-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-home-generic" data-slide-to="1" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="2" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="3" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="4" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="5" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="6" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="7" class=""></li>
+						<li data-target="#carousel-home-generic" data-slide-to="8" class=""></li>
+					</ol>
 
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+					
+						<div class="item active">
+						  <img src="img/home/Cockpit.png" alt="">
+						  <div class="carousel-caption">
+							Cloud Development Platform covering end-to-end development and operations life-cycle of applications 
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/WebIDE.png" alt="">
+						  <div class="carousel-caption">
+							Full-fledged WebIDE in the browser - no installations required
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/PatternUI.png" alt="">
+						  <div class="carousel-caption">
+							Pattern based user interface templates and generators
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/DBPerspective.png" alt="">
+						  <div class="carousel-caption">
+							Direct access to the SQL databases for inspection and alteration
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/Orion.png" alt="">
+						  <div class="carousel-caption">
+							Powerful source code editor with highlighting, code assist, search/replace
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/Tabris.png" alt="">
+						  <div class="carousel-caption">
+							Mobile applications development support with Tabris
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/Discover.png" alt="">
+						  <div class="carousel-caption">
+							Holistic view on the available services, web content and configurations 
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/Transport.png" alt="">
+						  <div class="carousel-caption">
+							Automated repository transport, backup and clone 
+						  </div>
+						</div>
+						<div class="item">
+						  <img src="img/home/Monitor.png" alt="">
+						  <div class="carousel-caption">
+							Monitor various basic metrics - access log, response time, memory...
+						  </div>
+						</div>
+						
+					</div>
+					<!-- Controls -->
+				  <a class="left carousel-control" href="#carousel-home-generic" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-home-generic" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				  </a>
+				</div>
+
+			</div>
         </div>
         <!-- /.container -->
 
@@ -74,25 +164,56 @@ layout: rusty_home
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-					<h2 class="section-heading">Blog it out!</h2>
-					<div>
-						{% for post in site.tags.blogs limit:6 %}
+	            <div class="col-sm-8">
+	                <h2>Blog it out!</h2>
+	                <div>
+						{% for post in site.tags.blogs limit:10 %}
 							{% if post.categories contains 'blogs' %}
+								<div>
+									<p class="post-position">
+										<img class="img-responsive col-sm-1" src="/img/team/{{ post.author }}.png" style="border-radius: 50%;">
+										<div class="col-sm-11">
+										{{ post.brief }}
+										</div>
+									</p>
+								</div>
+							{% endif %}
+						{% endfor %}
+						
+					</div>
+					<br>
+					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
+	            </div>
+	            <div class="col-sm-4">
+	                <h2>News and Updates</h2>
+	                <div>
+						{% for post in site.tags.news limit:6 %}
+							{% if post.categories contains 'news' %}
 								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }}  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 								</p>
 							{% endif %}
 						{% endfor %}
 					</div>
-					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-					<span class="pictogram"><i class="fa fa-comments-o fa-fw"></i></span>
-                </div>
-            </div>
+					<br>
+					<a class="btn btn-default" href="{{ site.url }}/news.html" target="_blank">All News ...</a>
+	            </div>
+	            <div class="col-sm-4">
+	                <h2>Releases</h2>
+	                <div>
+						{% for post in site.tags.release limit:6 %}
+							{% if post.categories contains 'release' %}
+								<p class="post-item">
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+								</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<br>
+					<a class="btn btn-primary" href="http://download.eclipse.org/dirigible" target="_blank">Downloads</a>
+	            </div>
+	        </div>
+            
 
         </div>
         <!-- /.container -->
