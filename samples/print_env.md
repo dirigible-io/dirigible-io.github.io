@@ -8,6 +8,9 @@ group: simple
 Print Environment Variables
 ===
 
+Develop
+---
+
 1. Create a new project and name it **env_var**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
@@ -24,15 +27,30 @@ Print Environment Variables
 
 ```javascript
 
-	response.setContentType("text/html");
-	var p = java.lang.System.getProperties();
-	var keys = p.keys();
-	while (keys.hasMoreElements()) {
-	  var key = keys.nextElement();
-	  var value = p.get(key);
-	  response.getWriter().println(key + ": " + value + "<br>");
-	}
-	response.getWriter().flush();
-	response.getWriter().close();
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	var env = require('core/env');
+	var response = require('net/http/response');
+	
+	var allEnvVars = env.getAll();
+	allEnvVars.forEach(function (envVar) {
+		response.println(envVar.key + "=" + envVar.value);
+	});
+	
+	response.flush();
+	response.close();
 ```
 
+<div class="btn-toolbar pull-right">
+	<a class="btn btn-primary" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_env_print_all.git">Run</a>
+	<a class="btn btn-info" href="http://www.dirigible.io/api/env.html">API</a>
+</div>
+
+Discover
+--
+To discover all available services, you can go to the [Registry](../help/registry.html).
+
+1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.
+2. The **Registry** perspective represents a view to the enabled runtime content. From its menu, choose **Discover** -> **JavaScript** to open the currently available server-side JavaScript service endpoints.
+3. You can see the list of available endpoints, where you can find yours by naming convention: **{project}/{service path}**

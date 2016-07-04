@@ -8,6 +8,9 @@ group: simple
 Read and Write Files
 ===
 
+Develop
+--
+
 1. Create a new project and name it **files_read_write**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
@@ -58,7 +61,15 @@ Read and Write Files
 
 ```
 
-<a class="btn btn-primary pull-right" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_io_files_read_write.git">Run</a>
-&nbsp;
-<a class="btn btn-primary pull-right" href="http://www.dirigible.io/api/files.html">API</a>
+<div class="btn-toolbar pull-right">
+	<a class="btn btn-primary" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_io_files_read_write.git">Run</a>
+	<a class="btn btn-info" href="http://www.dirigible.io/api/files.html">API</a>
+</div>
 
+Discover
+--
+To discover all available services, you can go to the [Registry](../help/registry.html).
+
+1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.
+2. The **Registry** perspective represents a view to the enabled runtime content. From its menu, choose **Discover** -> **JavaScript** to open the currently available server-side JavaScript service endpoints.
+3. You can see the list of available endpoints, where you can find yours by naming convention: **{project}/{service path}**
