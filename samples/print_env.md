@@ -18,7 +18,7 @@ Develop
 
 <br>
 
-![Mail Service 2](images/mail_service/mail_service_2.png)
+![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
 
 <br>
 
