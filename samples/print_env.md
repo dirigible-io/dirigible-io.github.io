@@ -15,13 +15,6 @@ Develop
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
-
-<br>
-
-![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
-
-<br>
-
 5. Give it a meaningful name (e.g **printenv.js**).
 6. Replace the generated code in **printenv.js** with the following:
 

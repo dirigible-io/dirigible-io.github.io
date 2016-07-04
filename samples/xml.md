@@ -14,9 +14,6 @@ Develop
 2. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 3. Choose **New** -> **Scripting Service**.
 4. From the list of available templates choose **Server-Side JavaScript Service**.
-
-![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
-
 5. Give it a meaningful name (e.g **xml_usage.js**).
 6. Replace the generated code in **xml_usage.js** with the following one:
 

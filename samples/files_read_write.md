@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Read and Write Files
-icon: fa-list
+icon: fa-file-o
 group: simple
 ---
 
@@ -15,13 +15,6 @@ Develop
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
-
-<br>
-
-![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
-
-<br>
-
 5. Give it a meaningful name (e.g **files_read_write.js**).
 6. Replace the generated code in **files_read_write.js** with the following:
 

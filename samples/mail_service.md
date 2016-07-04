@@ -14,15 +14,8 @@ Develop
 2. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 3. Choose **New** -> **Scripting Service**.
 4. From the list of available templates choose **Server-Side JavaScript Service** .
-
-	![Mail Service 2](images/mail_service/mail_service_2.png)
-
 5. Give it a meaningful name (e.g **mail_sender.js**) and click **Finish**.
-6. After the generation, the project structure should look like this:
-
-	![Mail Service 4](images/mail_service/mail_service_4.png)
-
-7. Now replace the generated code in **mail_sender.js** with the following one:
+6. Now replace the generated code in **mail_sender.js** with the following one:
 
 ```javascript
 
@@ -50,7 +43,7 @@ Develop
 	> This will send a HTTP GET request to the service and it will send the e-mail.
 
 
-	![Mail Service 5](images/mail_service/mail_service_5.png)
+![Mail Service 5](images/mail_service/mail_service_5.png)
 
 Discover
 --
