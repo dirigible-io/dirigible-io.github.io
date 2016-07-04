@@ -6,18 +6,18 @@ title: Project
 Project
 ===
 
-Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. The applications created with Dirigible comply with the [Dynamic Applications](dynamic_applications.html) concept and structure.
+Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. The applications created with Dirigible comply with the [Dynamic Applications](dynamic_applications.html) concept and structure.
 
 The main project goal is to provide all required capabilities needed to develop and run an end-to-end meaningful vertical scenario in the cloud for the shortest time ever. 
 
 The environment itself runs directly in a browser, therefore does not require additional downloads and installations. It packs all the needed containers, which makes it a self-contained and well-integrated software bundle that can be deployed on any Java based Web server, such as Tomcat, Jetty, JBoss, etc.
 
-Dirigible project came out of an internal [SAP](http://www.sap.com) initiative to address the extension and adaptation use cases related to SOA and Enterprise Services. On one hand, in this project were implied the lessons learned from the standard tools and approaches so far. On the other hand, there were added features aligned with the most recent technologies and architectural patterns related to [Web 2.0](http://en.wikipedia.org/wiki/Web_2.0) and [HTML5](http://en.wikipedia.org/wiki/HTML5). This made it complete enough to be used as the only tool and environment needed for building and running on-demand application in the cloud.
+Eclipse Dirigible project came out of an internal [SAP](http://www.sap.com) initiative to address the extension and adaptation use cases related to SOA and Enterprise Services. On one hand, in this project were implied the lessons learned from the standard tools and approaches so far. On the other hand, there were added features aligned with the most recent technologies and architectural patterns related to [Web 2.0](http://en.wikipedia.org/wiki/Web_2.0) and [HTML5](http://en.wikipedia.org/wiki/HTML5). This made it complete enough to be used as the only tool and environment needed for building and running applications in the cloud.
 
 
-From the beginning, the project follows the principles of Simplicity, Openness, Agility, Completeness and Perfection, which provides a sustainable environment where with minimal effort is achieved maximum impact.
+From the beginning, the project follows the principles of Simplicity, Openness, Agility, Completeness and Perfection, which provides a sustainable environment where maximum impact is achieved with minimal effort.
 
-* [Features](features.html) section describes in detail what is included in the project. 
-* [Concepts](concepts.html) section gives you an overview about the internal and the chosen patterns. 
-* [Samples](samples.html) section shows you how to start and build your first dynamic Web application in seconds.
+* The [Features](features.html) section describes in detail what is included in the project. 
+* The [Concepts](concepts.html) section gives you an overview about the internal and the chosen patterns. 
+* The [Samples](samples.html) section shows you how to start and build your first dynamic Web application in seconds.
 
