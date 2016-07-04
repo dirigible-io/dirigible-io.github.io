@@ -43,7 +43,7 @@ Develop
 ```
 
 <div class="btn-toolbar pull-right">
-	<a class="btn btn-primary" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_env_print_all.git">Run</a>
+	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_env_print_all.git">Run</a>
 	<a class="btn btn-info" href="http://www.dirigible.io/api/env.html">API</a>
 </div>
 

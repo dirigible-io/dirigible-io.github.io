@@ -15,48 +15,49 @@ Develop
 3. Choose **New** -> **Scripting Service**.
 4. From the list of available templates choose **Server-Side JavaScript Service**.
 
-	![Mail Service 2](images/mail_service/mail_service_2.png)
+![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
 
 5. Give it a meaningful name (e.g **xml_usage.js**).
 6. Replace the generated code in **xml_usage.js** with the following one:
 
 ```javascript
-/* globals $ */
-/* eslint-env node, dirigible */
 
-var xml = require('utils/xml');
-var response = require('net/http/response');
-
-var jsonInput = {
-	'firstName': 'John',
-	'lastName': 'Doe',
-	'bio': {
-		'age': 24,
-		'sex': 'male'
-	}
-};
-
-var xmlInput = 
-	"<firstName>John</firstName>" +
-	"<lastName>Doe</lastName>" + 
-	"<bio>" + 
-	"<age>24</age>" +
-	"<sex>male</sex>" +
-	"</bio>";
-
-response.println(xml.fromJson(jsonInput));
-response.println(xml.toJson(xmlInput));
-
-response.flush();
-response.close();
+	/* globals $ */
+	/* eslint-env node, dirigible */
+	
+	var xml = require('utils/xml');
+	var response = require('net/http/response');
+	
+	var jsonInput = {
+		'firstName': 'John',
+		'lastName': 'Doe',
+		'bio': {
+			'age': 24,
+			'sex': 'male'
+		}
+	};
+	
+	var xmlInput = 
+		"<firstName>John</firstName>" +
+		"<lastName>Doe</lastName>" + 
+		"<bio>" + 
+		"<age>24</age>" +
+		"<sex>male</sex>" +
+		"</bio>";
+	
+	response.println(xml.fromJson(jsonInput));
+	response.println(xml.toJson(xmlInput));
+	
+	response.flush();
+	response.close();
 ```
 
 7. Select the **Preview** tab.
 8. Click on **xml_usage.js** from the *Workspace Explorer* and check the raw result:
 
 ```xml
-<firstName>John</firstName><lastName>Doe</lastName><bio><sex>male</sex><age>24</age></bio>
-{"firstName":"John","lastName":"Doe","bio":{"sex":"male","age":24}}
+	<firstName>John</firstName><lastName>Doe</lastName><bio><sex>male</sex><age>24</age></bio>
+	{"firstName":"John","lastName":"Doe","bio":{"sex":"male","age":24}}
 ```
 
 > toJson(xmlString) - converts XML content to JSON

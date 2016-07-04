@@ -18,7 +18,7 @@ Develop
 
 <br>
 
-![Mail Service 2](images/mail_service/mail_service_2.png)
+![New JavaScript service Wizard](images/new_javascript_service_wizard.png)
 
 <br>
 
@@ -62,7 +62,7 @@ Develop
 ```
 
 <div class="btn-toolbar pull-right">
-	<a class="btn btn-primary" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_io_files_read_write.git">Run</a>
+	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_io_files_read_write.git">Run</a>
 	<a class="btn btn-info" href="http://www.dirigible.io/api/files.html">API</a>
 </div>
 
