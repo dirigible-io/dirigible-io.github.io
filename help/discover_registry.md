@@ -8,7 +8,7 @@ group: help-discover
 Browse Content
 ===
 
-Browse the raw content of the Registry containing all the published artifacts. Inspect the source of the HTML or Wiki pages as well as the code for the scripting services in JavaScript, Java, SQL and Shell Commands.
+Browse the raw content of the Registry containing all the published artifacts. Inspect the source of the HTML or Wiki pages, as well as the code for the scripting services in JavaScript, Java, SQL, and Shell Commands.
 
 
 <br>
@@ -18,9 +18,9 @@ Browse the raw content of the Registry containing all the published artifacts. I
 Overview
 =====
 
-General information about the Registry component can be found [here](registry.html)
+General information about the Registry component can be found [here](registry.html).
 
 Service
 =====
 
-The REST service is also available [here](service_registry.html)
+The REST service is also available [here](service_registry.html).
