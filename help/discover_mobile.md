@@ -8,7 +8,7 @@ group: help-discover
 Mobile Apps
 ===
 
-Navigate throughout all the registered mobile applications under the MobileApplications space.
+Navigate throughout all the registered mobile applications in the MobileApplications space.
 
 
 <br>
@@ -18,12 +18,12 @@ Navigate throughout all the registered mobile applications under the MobileAppli
 Overview
 =====
 
-General information about the mobile applications support can be found [here](mobile_apps.html)
+General information about the mobile applications support can be found [here](mobile_apps.html).
 
 
 Services
 ====
 
-The REST service for discovery is available [here](service_registry_mobile.html)
+The REST service for discovery is available [here](service_registry_mobile.html).
 
-The REST service for provisioning is available [here](service_mobile.html)
+The REST service for provisioning is available [here](service_mobile.html).
