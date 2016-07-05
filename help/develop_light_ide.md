@@ -8,7 +8,7 @@ group: help-develop
 Light IDE
 ===
 
-For quick fixes with simple source code editing and publishing capabilities, there is a lightweight development environment convenient even from mobile devices.
+For quick fixes, with simple source code editing and publishing capabilities, there is a lightweight development environment convenient for mobile devices.
 
 
 <br>
