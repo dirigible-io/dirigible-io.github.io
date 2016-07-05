@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Docker
-icon: fa-ship
+icon: fa-cogs
 group: help-setup
 ---
 
@@ -27,4 +27,4 @@ Docker Image
 
         http://[docker container ip]:8888/
         
-4. Optionally you can enhance and customize the Dockerfile from [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/docker/Dockerfile)
+4. (Optional) Enhance and customize the Dockerfile from [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/docker/Dockerfile)
