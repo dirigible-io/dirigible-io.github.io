@@ -8,7 +8,7 @@ group: help-monitor
 Configure Monitoring
 ===
 
-Register the locations for which the statistics shall be collected.
+Register the locations for which you want to collect statistics.
 
 
 <br>
@@ -19,11 +19,10 @@ Register the locations for which the statistics shall be collected.
 Overview
 =====
 
-Monitoring gives a holistic overview of the system status based on the collected data from the service invocations and resource provisioning.
-In the configuration screen, you can set the endpoints for which the statistics data will be collected.  
+Monitoring gives a holistic overview of the system status, which is based on the collected data from service invocations and resource provisioning. In the configuration screen, you can set the endpoints for which statistics data will be collected.  
 
 
 Services
 ====
 
-No REST service available for this operation.
+No REST service is available for this operation.
