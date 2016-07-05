@@ -8,7 +8,7 @@ group: help-monitor
 Monitor Memory
 ===
 
-Statistics of the Free, Total and Maximum memory available in the current instance.
+Statistics of the free, total, and maximum memory available in the current instance.
 
 
 <br>
@@ -18,10 +18,10 @@ Statistics of the Free, Total and Maximum memory available in the current instan
 Overview
 =====
 
-Monitoring of the used Memory can give an overview about the load of the instance. It is the first indicator in case of a memory leak in your applications.
+Monitoring of the used memory can give an overview about the load of the instance. It is the first indicator in case of a memory leak in your applications.
 
 
 Services
 ====
 
-The REST service for clone import is available [here](service_memory.html)
+The REST service for clone import is available [here](service_memory.html).
