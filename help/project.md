@@ -6,7 +6,7 @@ title: Project
 Project
 ===
 
-Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. The applications created with Dirigible comply with the [Dynamic Applications](dynamic_applications.html) concept and structure.
+Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. The applications created with Eclipse Dirigible comply with the [Dynamic Applications](dynamic_applications.html) concept and structure.
 
 The main project goal is to provide all required capabilities needed to develop and run an end-to-end meaningful vertical scenario in the cloud for the shortest time ever. 
 
@@ -17,7 +17,7 @@ Eclipse Dirigible project came out of an internal [SAP](http://www.sap.com) init
 
 From the beginning, the project follows the principles of Simplicity, Openness, Agility, Completeness and Perfection, which provides a sustainable environment where maximum impact is achieved with minimal effort.
 
-* The [Features](features.html) section describes in detail what is included in the project. 
-* The [Concepts](concepts.html) section gives you an overview about the internal and the chosen patterns. 
-* The [Samples](samples.html) section shows you how to start and build your first dynamic Web application in seconds.
+* [Features](features.html) section describes in detail what is included in the project. 
+* [Concepts](concepts.html) section gives you an overview about the internal and the chosen patterns. 
+* [Samples](samples.html) section shows you how to start and build your first dynamic Web application in seconds.
 
