@@ -26,13 +26,13 @@ Install *postgresql* on Linux (Debian-based) with:
 Create Database
 ---
 
-Create the default database for Dirigible:
+Create the default database for Eclipse Dirigible:
 
 > sudo -i -u postgres
 
 > createdb dirigible_database
 
-Create System User for Dirigible Database
+Create System User for the Eclipse Dirigible Database
 ---
 
 > psql dirigible_database
@@ -45,7 +45,7 @@ Datasource Configuration
 ---
 
 1. Download the *postgresql* JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
-2. Copy **postgresql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
+2. Copy the **postgresql-*.jar** file to the *<TOMCAT_HOME>/lib* directory.
 3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
 ```xml
@@ -58,7 +58,7 @@ Datasource Configuration
 web.xml
 ---
 
-Be sure the initial parameter *jndiDefaultDataSource* is uncommented
+Make sure the initial parameter *jndiDefaultDataSource* is uncommented.
 
 ```xml
     <init-param>
@@ -67,7 +67,7 @@ Be sure the initial parameter *jndiDefaultDataSource* is uncommented
     < /init-param>
 ```
 
-Also, initial parameter *jdbcAutoCommit* must be set to true
+Also, the initial parameter *jdbcAutoCommit* must be set to true.
 
 ```xml
     <init-param>
@@ -76,7 +76,7 @@ Also, initial parameter *jdbcAutoCommit* must be set to true
     </init-param>
 ```
 
-Lastly, the resource reference for the datasource have to be uncommented too
+Lastly, the resource reference for the datasource has to be uncommented.
 
 ```xml
     <resource-ref>
@@ -98,6 +98,6 @@ Run Tomcat server via *strtup.sh*.
 
 The IDE should be available at the following locations: 
 
-* `http://localhost:8080/services/index.html` IDE
-* `http://localhost:8080/services/ui/index.html` Registry
+* IDE: `http://localhost:8080/services/index.html` 
+* Registry: `http://localhost:8080/services/ui/index.html` 
 
