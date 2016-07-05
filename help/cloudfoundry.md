@@ -1,27 +1,27 @@
 ---
 layout: help
-title: CloudFoundry
+title: Cloud Foundry
 icon: fa-cogs
 group: help-setup
 ---
 
-Setup on CloudFoundry
+Setup on Cloud Foundry
 ===
 
 
-You can deploy Tomcat based WAR files, for example `dirigible.war`, produced during the build on any CloudFoundry-supported Cloud Platform.
+You can deploy Tomcat based WAR files, for example `dirigible.war`, produced during the build on any Cloud Platform supporting Cloud Foundry.
 
 ##### Prerequisites
 
-- [CloudFoundry Cli](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html)
+- [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html)
 
 ##### Steps
 
-1. Login to the CloudFoundry Platform with:
+1. Login to the Cloud Foundry Platform with:
 
 		cf login -a [CloudFoundry Platform Host]
 
-2. Deploy on the CloudFoundry-supported Cloud Platform with:
+2. Deploy on the Cloud Platform supporting Cloud Foundry with:
 
 		cf push dirigible -p [path to the target directory]/dirigible.war -b https://github.com/dirigible-io/java-buildpack
 
