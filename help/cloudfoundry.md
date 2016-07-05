@@ -9,7 +9,7 @@ Setup on CloudFoundry
 ===
 
 
-You can deploy Tomcat based WAR files e.g. `dirigible.war` produced during the build on any CloudFoundry supported Cloud Platform.
+You can deploy Tomcat based WAR files, for example `dirigible.war`, produced during the build on any CloudFoundry-supported Cloud Platform.
 
 ##### Prerequisites
 
@@ -17,11 +17,11 @@ You can deploy Tomcat based WAR files e.g. `dirigible.war` produced during the b
 
 ##### Steps
 
-1. Login to CloudFoundry Platform with:
+1. Login to the CloudFoundry Platform with:
 
 		cf login -a [CloudFoundry Platform Host]
 
-2. Deploy on the CloudFoundry supported Cloud Platform with:
+2. Deploy on the CloudFoundry-supported Cloud Platform with:
 
 		cf push dirigible -p [path to the target directory]/dirigible.war -b https://github.com/dirigible-io/java-buildpack
 
@@ -29,4 +29,4 @@ You can deploy Tomcat based WAR files e.g. `dirigible.war` produced during the b
 
         http://dirigible.[CloudFoundry Platform Host]/
 
-4. Login with user `dirigible` and password `dirigible` which are set by default in the custom buildpack used above.
+4. Login with user `dirigible` and password `dirigible`, which are set by default in the custom buildpack used above.
