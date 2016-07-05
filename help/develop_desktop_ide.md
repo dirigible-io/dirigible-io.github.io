@@ -8,7 +8,7 @@ group: help-develop
 Desktop IDE
 ===
 
-There is an update site with Eclipse based plugins convenient especially for 'Java-saurus' developers, who will never go to a Web IDE for theirs daily tasks.
+There is an update site with Eclipse based plugins convenient especially for Java-saurus developers, who will never go to a Web IDE for theirs daily tasks.
 
 
 <br>
