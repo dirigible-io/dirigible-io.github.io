@@ -8,7 +8,7 @@ group: help-discover
 Wiki Pages
 ===
 
-Navigate throughout all the registered wiki pages under the WikiContent space. Wiki pages first go thru transformation and then served.
+Navigate throughout all the registered wiki pages in the WikiContent space. Wiki pages first go through transformation and then are published.
 
 
 <br>
@@ -18,12 +18,12 @@ Navigate throughout all the registered wiki pages under the WikiContent space. W
 Overview
 =====
 
-General information about the wiki pages support can be found [here](wiki_content.html)
+General information about the wiki pages support can be found [here](wiki_content.html).
 
 
 Service
 ====
 
-The REST service for discovery is available [here](service_registry_wiki.html)
+The REST service for discovery is available [here](service_registry_wiki.html).
 
-The REST service for provisioning is available [here](service_wiki.html)
+The REST service for provisioning is available [here](service_wiki.html).
