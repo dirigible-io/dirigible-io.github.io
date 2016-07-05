@@ -8,7 +8,7 @@ group: help-develop
 Web IDE
 ===
 
-The environment itself runs directly in a browser, therefore does not require additional downloads and installations. It has a rich set of editors, wizards and viewers, and also supports debugging, operations and monitoring.
+The environment runs directly in a browser and therefore does not require additional downloads and installations. It has a rich set of editors, wizards, and viewers and supports debugging, operations, and monitoring.
 
 
 <br>
