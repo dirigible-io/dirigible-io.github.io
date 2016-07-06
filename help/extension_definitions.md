@@ -8,30 +8,30 @@ group: help-features
 Extension Definitions
 ===
 
-Extensibility is an important requirement for business applications built to follow custom processes in LoB areas. There are patterns already well known in the most popular languages and frameworks, such as plugins in Eclipse, BAdIs in ABAP, services in Java, etc. In the cloud toolkit, we have chosen the simplest and most powerful way to define extensions. It provides just a generic description of the extension points and extensions, without explicitly defining the contract.
+Extensibility is an important requirement for business applications built to follow custom processes in Line of Business(LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.
 
 Extension Points
 ---
 
-An *Extension Point* is the place in the core module where it is expected to be enhanced by the custom created modules. It is a simple JSON formated file with extension **\*.extensionpoint** placed in project folder *Extension_Definitions*.
+An *Extension Point* is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple JSON formated **\*.extensionpoint** file and is placed in the *Extension_Definitions* project folder.
 
 ```javascript
 	{
 	  "extension-point":"/project1/extensionPoint1",
-	  "description":"description for the extension point 1"
+	  "description":"description for extension point 1"
 	}
 ```
 
 Extensions
 ---
 
-An *Extension* is the actual plug-in in the custom module which extends the core functionality. It is a simple JSON formated file with extension **\*.extension**, again in project folder *Extension_Definitions*.
+An *Extension* is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formated **\*.extension** file and can be found in the *Extension_Definitions* project folder.
 
 ```javascript
 	{
 	  "extension":"/project1/extension1",
 	  "extension-point":"/project1/extensionPoint1",
-	  "description":"description for the extension 1"
+	  "description":"description for extension 1"
 	}
 ```
 
@@ -51,4 +51,4 @@ Within the core module, you can iterate over the defined extensions and call the
 	}
 ```
 
-In the code above, the extension is a JavaScript Service Library (*extension1.jslib*) within the same project, which has exposed function *enhanceProcess()*.
+In the code above, the extension is a JavaScript Service Library (*extension1.jslib*) within the same project, and it has exposed an  *enhanceProcess()* function.
