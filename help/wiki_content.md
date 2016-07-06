@@ -18,7 +18,8 @@ Example wiki page in confluence format:
 <pre><code>
 h4. Confluence Markup
  
-Ideally, the markup should be _readable_ and even *clearly understandable* when editing it. Inserting formatting should require few keystrokes and little thought.
+Ideally, the markup should be _readable_ and even *clearly understandable* when editing it. 
+Inserting formatting should require few keystrokes and little thought.
  
 After all, we want people to concentrate on words, not on where the angle-brackets should go.
  
