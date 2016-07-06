@@ -17,6 +17,7 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial;
 	font-weight: 700;
+	color: #284157
 }
 
 p {
@@ -37,9 +38,37 @@ a:hover {
 }
 
 .btn-primary {
-    color: #fff !important;
-    background-color: #284157 !important;
-    border: 1px solid #284157 !important;
+    color: #fff;
+    background-color: #284157;
+    border: 1px solid #284157;
+}
+
+footer .btn-primary {
+	border: 1px solid #93B1CE;
+}
+
+footer a {
+	color: #83a1bd;
+}
+
+footer h4 {
+	color: #eeeeee;	
+}
+
+footer li {
+	color: #93B1CE 
+}
+
+.btn-primary:hover {
+	color: #fff;
+    background-color: #428bca;
+    border: 1px solid #357ebd;
+}
+
+.btn-default:hover {
+	color: #fff;
+    background-color: #284157;
+    border: 1px solid #284157;
 }
 
 .social-media {
@@ -83,7 +112,6 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 
 .intro-message > h3 {
 	font-size: 2.8em;
-    color: #454545;
 }
 
 .intro-messager {
@@ -126,7 +154,7 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 }
 
 .content-section-a {
-	background-color: #f1f0ee;
+	background-color: #93B1CE;
 	padding: 50px 0;
 }
 
@@ -191,7 +219,7 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 }
 
 footer {
-	background-color: #f8f8f8;
+	background-color: #284157;
 	padding: 50px 0;
 }
 
@@ -208,7 +236,7 @@ p.copyright {
 	padding: 20px;
 	margin: 0;
 	font-size: 18em;
-    color: #93B1CE !important;
+    color: #284157;
     text-align: center;
 	vertical-align:text-middle;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
