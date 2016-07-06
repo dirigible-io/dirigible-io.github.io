@@ -13,10 +13,12 @@ JavaScript
 
 **Services**	
 
-Primary language used to implement services in Dirigible is JavaScript. Being quite popular as client-side scripting, it became also the preferable language for server-side business logic. For the underlying execution engine is used the most mature JavaScript engine written in Java - [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) by Mozilla.
-You can write your algorithms in **\*.js** files and store them within the *ScriptingServices* folder. After the activation or publishing, they can be executed by accessing the endpoint at [sandbox](activation.html) or [public registry](publication.html), respectively.
+Primary language used to implement services in Eclipse Dirigible is JavaScript. Being quite popular for client-side scripting, it became also the preferable language for server-side business logic. [Rhino](https://developer.mozilla.org/en-US/docs/Rhino) by Mozilla is used as the underlying execution engine as it is one of the most mature JavaScript engines written in Java.
 
-Exemplary JavaScript service:
+
+You can write your algorithms in **\*.js** files and store them within the *ScriptingServices* folder. After activation or publishing, they can be executed by accessing the endpoint at the [sandbox](activation.html) or the [public registry](publication.html) respectively.
+
+Example JavaScript service:
 
 ```javascript
 
@@ -43,12 +45,12 @@ Exemplary JavaScript service:
 
 This example shows two major benefits:
 
-*	Modularization based on built-in [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) ('require' function on the first line)
+*	Modularization based on built-in [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) (the 'require' function on the first line)
 *	Native usage of Java objects as [API](api.html) injected in the execution context (database, response)
 
 ### Libraries (Modules)
 
-You can create your own library modules in **\*.js** files. Just do not forget to add the public parts in the *exports*.
+You can create your own library modules in **\*.js** files. Make sure you add the public parts in the *exports*.
 
 ```javascript
 
@@ -59,11 +61,11 @@ You can create your own library modules in **\*.js** files. Just do not forget t
 	
 ```
 
-> Libraries are exposed as services, hence they have accessible endpoints in the registry.
+> Libraries are exposed as services so that they have accessible endpoints in the registry.
 
-The reference of the library module from the service is performed by using the standard function *require()*, where the parameter is the location of the module.
+The reference of the library module from the service is made by using the standard function *require()*, where the parameter is the location of the module.
 
-Module path includes the full path to the module in the project structure without the predefined folder *ScriptingServices*, and also without the extension **\*.js**.
+The module path includes the full path to the module in the project structure without the predefined *ScriptingServices* folder and without the **\*.js** extension.
 
 
 		/sample_project
@@ -88,7 +90,7 @@ library.js is refered in service.js:
 Groovy
 ---
 
-Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and many more.
+Groovy is yet another powerful language for Web development nowadays with its static types, OOP abilities, and more.
 
 Corresponding examples in Groovy:
 
@@ -118,11 +120,11 @@ Corresponding examples in Groovy:
 Java
 ---
 
-Beyond the scope of scripting runtimes, we can benefit from the mature and well known [Java](http://en.wikipedia.org/wiki/Java_programming_language). Taking advantage from the standard and third-party class libraries is crucial when writing enterprise software.
+Beyond the scope of scripting runtimes, we can benefit from the mature and well known [Java](http://en.wikipedia.org/wiki/Java_programming_language). You can take advantage from the standard and third-party class libraries when writing enterprise software.
 
 **Services**
 
-Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in very familiar and handy code:
+Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) in the execution context and [Servlet](http://en.wikipedia.org/wiki/Java_Servlet) specification results in a very familiar and handy code:
 
 ```java
 
@@ -143,7 +145,7 @@ Combining the idea of [Injected Objects](http://www.dirigible.io/help/api.html) 
 
 **Classes**
 
-Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary objects ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)), while making the best of inheritance, polymorphism, generics, and so on.
+Besides [Servlet](http://en.wikipedia.org/wiki/Java_Servlet)-like classes, we can also create ordinary ([POJO](http://en.wikipedia.org/wiki/Plain_Old_Java_Object)) objects, making the best of inheritance, polymorphism, generics, and so on.
 
 ```java
 
