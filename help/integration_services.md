@@ -11,13 +11,12 @@ Integration Services
 Overview
 ---
 
-An _Integration Service_ is the connection point between the application logic and an external service (third party cloud service, 
-on-premise service, public service, etc). Both inbound and outbound services are supported, through consumption and provisioning.
+The _Integration Service_ is the connection point between the application logic and an external service, such as a third party cloud service, on-premise service, public service and so on. Both inbound and outbound services are supported through consumption and provisioning.
 
 Flow
 ---
 
-The term *Flow* is used for simplicity to separate this kind of integration services.
+The term *Flow* is used in order to separate the kinds of integration services.
 
 The descriptor of the flow looks like this:
 
