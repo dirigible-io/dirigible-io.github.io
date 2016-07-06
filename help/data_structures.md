@@ -20,7 +20,9 @@ Tables
 *Table Model* is a JSON formatted **\*.table** descriptor. It represents the layout of the database table, which will be created during the activation process.
 
 Example descriptor:
+
 ```javascript
+
 	{
 	  "tableName":"TEST001",
 	  "columns":
