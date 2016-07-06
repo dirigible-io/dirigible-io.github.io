@@ -11,7 +11,7 @@ Setup Development Environment on Eclipse
 
 
 
-Dirigible can be run directly via Eclipse. This is useful when testing new features during development.
+Eclipse Dirigible can be run directly in Eclipse. This is useful for testing new features during the development process.
 
 ##### Prerequisites
 
