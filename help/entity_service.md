@@ -8,26 +8,26 @@ group: help-concepts
 Entity Service
 ===
 
-In general, the Entity Service is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, etc. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it connects the database store as data transfer layer.
+In general, the Entity Service is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it,the database store is connected as a data transfer layer.
 
-Working following RESTful paradigm on business software components, soon it turns out that there is a service pattern, which is used very often - **domain object management**. Having in mind also the past experience from Web services, we decided to enhance the standard functionality of such services without breaking the REST principles. These enhancements are useful especially for generic utilities and user interface generation.
+ The **domain object management** i the service pattern that is used most often when following the RESTful paradigm on business software components. In Eclipse Dirigible, the standard functionality of Web services is enhanced but without breaking the REST principles. This is useful for generic utilities and used interface generation.
 
-First of all, let's list what we have as a standard:
+Standard functionality:
 
 *	*GET* method
-	*	If the requested path points directly to the service endpoint (no additional parameters), it lists all the entities of this type (in this collection)
-	*	If the request contains an *id* parameter, the service returns only the requested entity
-*	*POST* method - creates an entity, getting the fields from the request body (JSON formatted) and auto-generated ID
-*	*PUT* method - updates the entity, getting the ID from the request body (JSON formatted)
-*	*DELETE* method - deletes the entity by the provided ID parameter, which is mandatory
+	*	If the requested path points directly to the service endpoint (no additional parameters), it lists all the entities of this type (in this collection).
+	*	If the request contains an *id* parameter, the service returns only the requested entity.
+*	*POST* method - creates an entity, getting the fields from the request body (JSON formatted) and auto-generated ID.
+*	*PUT* method - updates the entity, getting the ID from the request body (JSON formatted).
+*	*DELETE* method - deletes the entity by the provided ID parameter, which is mandatory.
 
-The enhancements we added to the standard functionality - on *GET* with the following parameters:
-*	*count* - returns the number of the entities collection size
-*	*metadata* - returns the simplified descriptor of the entity in JSON (see below)
-*	*sort* - indicates the order of the entities
-*	*desc* - indicates the reverse order used with the above parameter
-*	*limit* - used for paging, returns limited result set
-*	*offset* - used for paging, result set starts from the offset value
+Enhancements to the standard functionality of *GET* with the following parameters:
+*	*count* - returns the number of the entities collection size.
+*	*metadata* - returns the simplified descriptor of the entity in JSON (see below).
+*	*sort* - indicates the order of the entities.
+*	*desc* - indicates the reverse order used with the above parameter.
+*	*limit* - used for paging, returns limited result set.
+*	*offset* - used for paging, result set starts from the offset value.
 
 Example metadata for an entity:
 
@@ -47,21 +47,19 @@ Example metadata for an entity:
 }
 </code></pre>
 
-These enhancements we see as the minimal and simplest valuable extension to the REST. Similar but more complex specifications, which intentionally we do not included so far are [OData](http://en.wikipedia.org/wiki/Open_Data_Protocol) and [GData](http://en.wikipedia.org/wiki/GData).
-
 All these features of entity services are implied during the generation process. The template uses as input a database table and an entity service name, which are entered in the corresponding [wizard](../samples/entity_service.html).
-Just select the **\*.entity** artifact in the *Workspace Explorer* and use the context menu *Generate* -> *User Interface for Entity Service*.
+Just select the **\*.entity** artifact in the *Workspace Explorer*. From the context menu *Generate*, select *User Interface for Entity Service*.
 
-There are several limitations for the table to be entity-service compliant:
+Limitations for the table to be entity-service compliant:
 
 *	There should be only one column as a primary key, which will be used for its *identity*.
-*	There should be only one set of database column types, which are supported by default for generation (simple types only; clob, blob are not supported).
+*	There should be only one set of database column types, which are supported by default for generation (simple types only as clob and blob are not supported).
 
-We do not generate generic query methods either, because:
-* On one hand, it will cover only very simple cases with reasonable performance (which can be easily written anyway as additional methods, by parameters)
-* On the other hand, for the complex queries there is no sense to introduce additional layer, which will also result in undesired performance in comparison to the well-analyzed by the developer SQL script.
+Generic query methods are not generated because:
+* It will cover only very simple cases with reasonable performance
+* For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.
 
-Entity services are generated by using JavaScript language, hence they can be accessed right after the generation and publishing on:
+Entity services are generated in JavaScript, hence they can be accessed right after the generation and publishing on:
 
 <pre><code>
 [protocol]://[host]:[port]/[dirigible application context]/services/js/[project]/[entity service path]
@@ -71,5 +69,5 @@ e.g.
 https ://example.com/dirigible/services/js/bookstore/books.js
 </code></pre>
 
-or just select them in *Workspace Explorer* and see the result in the **Preview**.
+or just select them in the *Workspace Explorer* and see the result in the **Preview**.
 
