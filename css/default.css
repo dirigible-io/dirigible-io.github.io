@@ -44,7 +44,9 @@ a:hover {
 }
 
 footer .btn-primary {
-	border: 1px solid #93B1CE;
+	border: 1px solid #284157;
+	background-color: #ccc;
+	color: #284157;
 }
 
 footer a {
@@ -57,18 +59,6 @@ footer h4 {
 
 footer li {
 	color: #93B1CE 
-}
-
-.btn-primary:hover {
-	color: #fff;
-    background-color: #428bca;
-    border: 1px solid #357ebd;
-}
-
-.btn-default:hover {
-	color: #fff;
-    background-color: #284157;
-    border: 1px solid #284157;
 }
 
 .social-media {
