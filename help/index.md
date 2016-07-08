@@ -104,6 +104,8 @@ Editors and Views
 * [Source Editor](source_editor.html)
 * [SQL Console](sql_console.html)
 * [Log Viewer](log_viewer.html)
+* [Log Console](log_console.html)
+* [Terminal](terminal.html)
 	
 Services
 ---
