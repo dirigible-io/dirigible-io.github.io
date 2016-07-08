@@ -154,14 +154,15 @@ Samples
 Setup
 ---
 
-* [Tomcat](tomcat.html)
-* [Tomcat with PostgreSQL](tomcat_postgresql.html)
-* [Tomcat with MySQL](tomcat_mysql.html)
-* [Eclipse](eclipse_rcp.html)
-* [Cloud Foundry](cloudfoundry.html)
-* [SAP HANA Cloud Platform](hcp.html)
-* [Docker](docker.html)
-* [Eclipse](eclipse.html)
+* [Tomcat](setup_tomcat.html)
+* [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
+* [Tomcat with MySQL](setup_tomcat_mysql.html)
+* [Eclipse](setup_eclipse_rcp.html)
+* [Cloud Foundry](setup_cloudfoundry.html)
+* [SAP HANA Cloud Platform](setup_hcp.html)
+* [Docker](setup_docker.html)
+* [Eclipse](setup_eclipse.html)
+* [Environment Variables](setup_env_vars.html)
 
 Updates
 ---

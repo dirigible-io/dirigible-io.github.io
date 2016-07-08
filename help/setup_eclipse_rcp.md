@@ -13,11 +13,13 @@ Setup Offline Tooling on Eclipse
 
 For offline development, Eclipse Dirigible provides standalone plugins for Eclipse. Most of the functionality leverage the single source paradigm promoted by RAP, meaning that the same plugins can be used in a Web and in a standalone environment. The benefits of standalone Eclipse is not only the ability to work offline, but also the possibility to reuse the huge set of features already available as RCP plugins, for example JDT, JSDT, EGit, etc. 
 
-##### Prerequisites
+Prerequisites
+---
 
 - [Eclipse IDE](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/marsr) for Java EE Developers
 
-##### Steps
+Steps
+---
 
 1. Install the RCP plugins of Dirigible from:
 

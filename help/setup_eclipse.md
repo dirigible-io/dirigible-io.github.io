@@ -13,12 +13,14 @@ Setup Development Environment on Eclipse
 
 Eclipse Dirigible can be run directly in Eclipse. This is useful for testing new features during the development process.
 
-##### Prerequisites
+Prerequisites
+---
 
 - [Maven 3.0.x](http://maven.apache.org/)
 - [Eclipse IDE](https://www.eclipse.org/)
 
-##### Steps
+Steps
+---
 
 1. Import the project as existing Maven project into your local Eclipse environment.
 2. Go to project `org.eclipse.dirigible/org.eclipse.dirigible.parent/platform/org.eclipse.dirigible.platform.target` and open the file `org.eclipse.dirigible.platform.base.target` using the Target Editor.

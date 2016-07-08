@@ -9,11 +9,13 @@ Docker Image
 ===
 
 
-##### Prerequisites
+Prerequisites
+---
 
 - [Install Docker](https://docs.docker.com/engine/installation/)
 
-##### Steps
+Steps
+---
       
 1. Pull the already built container from `Quay.io`.
 

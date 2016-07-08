@@ -11,11 +11,13 @@ Setup on Cloud Foundry
 
 You can deploy Tomcat based WAR files, for example `dirigible.war`, produced during the build on any Cloud Platform supporting Cloud Foundry.
 
-##### Prerequisites
+Prerequisites
+---
 
 - [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html)
 
-##### Steps
+Steps
+---
 
 1. Login to the Cloud Foundry Platform with:
 
