@@ -1,13 +1,23 @@
 ---
 layout: blue
 ---
+
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">News</li>
+</ol>
+
 <div class="container">
+	<h1>News and Updates</h1>
 	<div class="post">
 		<div>
 			{% for post in site.tags.news %}
 				{% if post.categories contains 'news' %}
 					<p class="post-position">
-						{{ post.brief }}
+						<div class="img-responsive col-sm-1"><h1><i class="fa fa-newspaper-o fa-fw"></i></h1></div>
+						<div class="col-sm-11">
+							{{ post.brief }}
+						</div>
 					</p>
 				{% endif %}
 			{% endfor %}

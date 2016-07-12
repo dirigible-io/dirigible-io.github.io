@@ -4,21 +4,19 @@ layout: blue
 
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
-  <li class="active">Blogs</li>
+  <li><a href="/apps.html">Apps</a></li>
+  <li class="active">Core Apps</li>
 </ol>
-
-
+	
 <div class="container">
-	<h1>Blog Posts</h1>
 	<div class="post">
 		<div>
-			{% for post in site.tags.blogs %}
-				{% if post.categories contains 'blogs' %}
+			{% for post in site.tags.core %}
+				{% if post.categories contains 'apps' %}
 					<div>
 						<p class="post-position">
-							<img class="img-responsive col-sm-1" src="/img/team/{{ post.author }}.png" style="border-radius: 50%;">
 							<div class="col-sm-11">
-							{{ post.brief }}
+							<i class="fa fa-{{ post.icon }} fa-fw"></i>	<a href="{{ post.info }}">{{ post.brief }}</a>
 							</div>
 						</p>
 					</div>
@@ -27,3 +25,8 @@ layout: blue
 		</div>
 	</div>
 </div>
+
+
+<br/>
+<hr/>
+<br/>

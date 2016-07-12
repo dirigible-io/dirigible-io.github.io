@@ -1,0 +1,96 @@
+---
+layout: blue
+---
+
+	<ol class="breadcrumb">
+	  <li><a href="/">Home</a></li>
+	  <li class="active">Apps</li>
+	</ol>
+	
+	
+	<div class="container">
+		<h2>Core</h2>
+		<div class="row">
+		
+			{% for post in site.tags.core limit:3 %}
+					{% if post.categories contains 'apps' %}
+					
+					
+						<div class="col-lg-4 heading-lead page-scroll">
+							<hr class="section-heading-spacer">
+			                <div class="clearfix"></div>
+				            <h2><i class="fa fa-{{ post.icon }} fa-fw"></i>
+				            {{ post.title }}</h2>
+				            <p>{{ post.brief }}</p>
+				            <a class="btn btn-default" href="{{ post.info }}"><i class="fa fa-info-circle fa-fw"></i>Info</a>
+							<a class="btn btn-default" href="{{ post.git }}"><i class="fa fa-github fa-fw"></i>GitHub</a>
+				        </div>
+								
+			
+					{% endif %}
+				{% endfor %}
+				
+				
+		</div>
+		<hr>
+		<a class="btn btn-default" href="/apps_core.html"><i class="fa fa-info-circle fa-fw"></i>More</a>
+	</div>
+	
+	<br><hr><br>
+	
+	<div class="container">
+		<h2>Samples</h2>
+		<div class="row">
+		
+			{% for post in site.tags.sample  limit:3 %}
+					{% if post.categories contains 'apps' %}
+					
+					
+						<div class="col-lg-4 heading-lead page-scroll">
+							<hr class="section-heading-spacer">
+			                <div class="clearfix"></div>
+				            <h2><i class="fa fa-{{ post.icon }} fa-fw"></i>
+				            {{ post.title }}</h2>
+				            <p>{{ post.brief }}</p>
+				            <a class="btn btn-default" href="{{ post.info }}"><i class="fa fa-info-circle fa-fw"></i>Info</a>
+							<a class="btn btn-default" href="{{ post.git }}"><i class="fa fa-github fa-fw"></i>GitHub</a>
+				        </div>
+								
+			
+					{% endif %}
+				{% endfor %}
+				
+		</div>
+	</div>
+	
+	<br><hr><br>
+	
+	<div class="container">
+		<h2>Templates</h2>
+		<div class="row">
+		
+			{% for post in site.tags.template  limit:3 %}
+					{% if post.categories contains 'apps' %}
+					
+					
+						<div class="col-lg-4 heading-lead page-scroll">
+							<hr class="section-heading-spacer">
+			                <div class="clearfix"></div>
+				            <h2><i class="fa fa-{{ post.icon }} fa-fw"></i>
+				            {{ post.title }}</h2>
+				            <p>{{ post.brief }}</p>
+				            <a class="btn btn-default" href="{{ post.info }}"><i class="fa fa-info-circle fa-fw"></i>Info</a>
+							<a class="btn btn-default" href="{{ post.git }}"><i class="fa fa-github fa-fw"></i>GitHub</a>
+				        </div>
+								
+			
+					{% endif %}
+				{% endfor %}
+				
+		</div>
+	</div>
+	
+	
+	<br/>
+    <hr/>
+    <br/>
