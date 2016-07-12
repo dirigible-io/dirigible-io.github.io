@@ -8,15 +8,15 @@ group: help-perspectives
 Debugging
 ===
 
-The toolkit offers *Debug* functionality. The goal is to facilitate developers in the hunt of server-side bugs.
+The toolkit offers *Debug* functionality in order to support developers in the hunt of server-side bugs.
 
 ### Debug Perspective
 
 ![Debugger Debug View](images/features/debugger/5_debugger_debug_view.png)
 
 *	*Sessions* - contains all debug execution sessions.
-*	*Variables/Values* - contains variables and their values, available in the current scope of execution.
-*	*File/Row/Source* - contains inforamation about in witch file and witch row, a *Breakpoint* is set. 
+*	*Variables/Values* - contains the variables and their values, available in the current scope of execution.
+*	*File/Row/Source* - contains information about the position of the already set *Breakpoints*. 
 
 ### Available Commands
 
