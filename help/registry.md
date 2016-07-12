@@ -8,7 +8,7 @@ group: help-perspectives
 Registry
 ===
 
-The entry point of searching and browsing for service end-points, as well as monitoring and administration at runtime phase, is the **Registry**. Technically, it is a space within the *Repository* where all the [published](publishing.html) artifacts are placed.
+Tthe **Registry** is the entry point for searching and browsing for service end-points, as well as for monitoring and administration at runtime. Technically, it is a space within the *Repository* where all the [published](publishing.html) artifacts are placed.
 
 ![Registry Home](images/features/registry/registry_home.png)
 
@@ -18,7 +18,7 @@ To access the user interface, you can point to the runtime context; the default 
 
 ### End-Points
 
-From the index page of the *Registry*, you can navigate to the corresponding sub-pages for browsing the raw content of the *Repository*, published [user interfaces](web_content.html) (html, css, client-side javascript, etc.), [documentation](wiki_content.html) of the applications, lookup of the [scripting services](scripting_services.html) endpoints and the integration services endpoints.
+From the index page of the *Registry*, you can navigate to the corresponding sub-pages for browsing the raw content of the *Repository*, published [user interfaces](web_content.html), [documentation](wiki_content.html) of the applications, lookup of the [scripting services](scripting_services.html) and the integration services endpoints.
 
 ### Monitoring Tools
 
