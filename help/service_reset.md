@@ -8,7 +8,7 @@ group: help-services
 Reset Service
 ===
 
-Reset Service clean up the content to its initial state after the installation.
+Reset Service returns the content to its initial state after the installation.
 
 > The end-point is: */reset*
 
