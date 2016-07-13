@@ -5,13 +5,13 @@ layout: blue
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
   <li><a href="/apps.html">Apps</a></li>
-  <li class="active">Core Apps</li>
+  <li class="active">Community Extensions</li>
 </ol>
 	
 <div class="container">
 	<div class="post">
 		<div>
-			{% for post in site.tags.core %}
+			{% for post in site.tags.comext %}
 				{% if post.categories contains 'apps' %}
 					<div>
 						<p class="post-position">

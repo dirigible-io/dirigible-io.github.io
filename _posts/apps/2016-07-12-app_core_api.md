@@ -4,7 +4,7 @@ title: Enterprise JavaScript
 icon: gear
 category: apps
 tag: core
-brief: Enterprise JavaScript API definition
+brief: Enterprise JavaScript is a set of API modules that aims at standardization of the usage of the common capabilities in the cloud based business applications  
 git: https://github.com/dirigiblelabs/core_api
 info: apps/2016/07/12/app_core_api.html
 ---
@@ -12,6 +12,8 @@ info: apps/2016/07/12/app_core_api.html
 {{ page.title }}
 ===
 
+
+### Description
 
 Enterprise JavaScript is a set of API modules that aims at
 standardization of the usage of http client and server, database access, files
@@ -57,5 +59,18 @@ For instance:
 	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git={{ page.git }}.git">Run</a>
 	<a class="btn btn-info" href="http://www.dirigible.io/api/index.html">API</a>
 </div>
+
+<br><br>
+
+### Info
+
+Parameter     | Value 
+------------ | ----------- 
+Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
+Repository | [dirigiblelabs/core_api](https://github.com/dirigiblelabs/core_api)
+License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
+Version    | 0.2
+Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v0.2-beta.zip)
+
 
 <br><br>
