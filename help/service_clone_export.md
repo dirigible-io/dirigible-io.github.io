@@ -12,6 +12,6 @@ Clone Export service helps in exporting the content of the whole repository as a
 
 > The end-point is: */clone-export*
 
-Can be useful for copy of development instances and backups.
+Can be useful for copies of development instances and backups.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *clone-export*`
