@@ -8,7 +8,7 @@ group: help-services
 Access Log Service
 ===
 
-Via the Access Logs Service one can manage the locations to be filtered and registered as well as to receive the comprehensive information about the accessed ones for the latest time period.
+Via the Access Logs Service, you can manage the locations to be filtered and registered, and you can receive the comprehensive information about the accessed ones for the latest time period.
 
 > The endpoint is: */acclog*
 
@@ -28,18 +28,18 @@ For Management of Locations:
 
 For chart compliant data:
 
-Parameter *hitsPerPattern* - hits count calculated grouped by the locations above
+Parameter *hitsPerPattern* - hits count calculated grouped by the locations above.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerPattern*`
 
-Parameter *hitsPerProject* - hits count calculated grouped by the project names
+Parameter *hitsPerProject* - hits count calculated grouped by the project names.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerProject*`
 
-Parameter *hitsPerURI* - hits count calculated grouped by the actual requested URI
+Parameter *hitsPerURI* - hits count calculated grouped by the actual requested URI.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsPerURI*`
 
-Parameter *hitsByURI* - hits count calculated grouped hierarchically
+Parameter *hitsByURI* - hits count calculated grouped hierarchically.
 
 > **GET** `http //[host]:[port]/[dirigible application context]/ *acclog* ? *hitsByURI*`
