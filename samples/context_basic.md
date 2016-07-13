@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Context Basic
-icon: fa-commenting
+icon: fa-comment
 group: simple
 ---
 
