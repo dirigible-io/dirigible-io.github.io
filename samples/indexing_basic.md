@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Indexing Basic
-icon: fa-file-o
+icon: fa-list-ol
 group: simple
 ---
 
