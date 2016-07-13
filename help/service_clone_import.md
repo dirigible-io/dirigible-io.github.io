@@ -8,7 +8,7 @@ group: help-services
 Clone Import Service
 ===
 
-Clone Import service provide the end-point for importing cloned content from another instance.
+Clone Import service provides the end-point for importing cloned content from another instance.
 
 > The end-point is: */clone-import*
 
