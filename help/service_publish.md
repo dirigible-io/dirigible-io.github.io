@@ -8,7 +8,7 @@ group: help-services
 Publish Service
 ===
 
-Publish service performs publication of a single artifact from the User's workspace to the Registry
+The Publish service performs the publication of a single artifact from the User's workspace to the Registry.
 
 > The end-point is: */publish*
 
