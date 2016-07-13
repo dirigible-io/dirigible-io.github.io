@@ -8,7 +8,7 @@ group: help-services
 Import Content Service
 ===
 
-Import Content service provide the end-point for importing public registry content from another instance.
+Import Content service provides the end-point for importing public registry content from another instance.
 
 > The end-point is: */import*
 
