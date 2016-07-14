@@ -1,3 +1,4 @@
+---
 layout: samples
 title: Uuid
 icon: fa-openid
