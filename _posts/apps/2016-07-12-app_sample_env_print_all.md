@@ -10,7 +10,7 @@ info: apps/2016/07/12/app_sample_env_print_all.html
 ---
 
 {{ page.title }}
-===
+---
 
 
 This is a sample application demonstrating how to print all the variables of the environment.

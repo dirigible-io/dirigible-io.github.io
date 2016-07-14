@@ -3,14 +3,15 @@ layout: app
 title: Enterprise JavaScript
 icon: gear
 category: apps
-tag: core
+tags:
+- core
 brief: Enterprise JavaScript is a set of API modules that aims at standardization of the usage of the common capabilities in the cloud based business applications  
 git: https://github.com/dirigiblelabs/core_api
 info: apps/2016/07/12/app_core_api.html
 ---
 
 {{ page.title }}
-===
+---
 
 
 ### Description

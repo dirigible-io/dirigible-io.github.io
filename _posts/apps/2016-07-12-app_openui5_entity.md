@@ -3,14 +3,17 @@ layout: app
 title: OpenUI5 Entity
 icon: newspaper-o
 category: apps
-tag: template
+tags:
+- template
+- ui
+- ext
 brief: OpenUI5 templates for entity UX patterns - list, input form, edit form, etc.
 git: https://github.com/dirigiblelabs/core_api
 info: apps/2016/07/12/app_openui5_entity.html
 ---
 
 {{ page.title }}
-===
+---
 
 
 OpenUI5 entity templates includes the following patterns ...

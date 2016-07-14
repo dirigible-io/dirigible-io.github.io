@@ -1,0 +1,42 @@
+---
+layout: blue
+---
+
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li><a href="/catalog.html">Catalog</a></li>
+  <li class="active">Sample Apps</li>
+</ol>
+	
+<div class="container">
+	<h2>Sample Applications</h2>
+	<br>
+	<p>Sample applications show specific aspects of the usage of Eclipse Dirigible and Enterprise JavaScript API.
+    There are two types of samples in this category:
+     <ul>
+     	<li>Simple Samples - demoing a single feature or a single API usage. They are supposed to be highly reusable code snipets.</li>
+     	<li>Solution Samples - showing more complex use-cases much closer to the real world applications.</li>
+     </ul>
+    </p>
+	<br>
+	<div>
+		<div>
+			{% for post in site.tags.sample %}
+				{% if post.categories contains 'apps' %}
+					<div>
+						<p>
+							<div class="col-sm-11">
+								<p><i class="fa fa-{{ post.icon }} fa-fw"></i>	<a href="../{{ post.info }}">{{ post.title }}</a> - {{ post.brief }}...</p>
+							</div>
+						</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+
+<br/>
+<hr/>
+<br/>
