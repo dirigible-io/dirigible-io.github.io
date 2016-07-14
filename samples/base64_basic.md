@@ -1,3 +1,4 @@
+---
 layout: samples
 title: Base64
 icon: fa-unlock-alt
