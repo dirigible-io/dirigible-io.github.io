@@ -1,6 +1,6 @@
 layout: samples
 title: XML
-icon: fa-code
+icon: fa-file-code-o
 group: simple
 ---
 
