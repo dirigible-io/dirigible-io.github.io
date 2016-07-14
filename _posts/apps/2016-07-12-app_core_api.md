@@ -56,14 +56,16 @@ For instance:
 	response.close();
 ```
 
-<div class="btn-toolbar pull-right">
+<div class="btn-toolbar pull-left">
 	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git={{ page.git }}.git">Run</a>
 	<a class="btn btn-info" href="http://www.dirigible.io/api/index.html">API</a>
 </div>
 
 <br><br>
 
-### Info
+### Project Info
+
+#### General
 
 Parameter     | Value 
 ------------ | ----------- 
@@ -73,5 +75,10 @@ License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-
 Version    | 0.2
 Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v0.2-beta.zip)
 
+#### Dependencies
+
+Dependency   | Repository 
+------------ | ----------- 
+- | -
 
 <br><br>
