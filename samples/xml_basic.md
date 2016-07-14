@@ -1,3 +1,4 @@
+---
 layout: samples
 title: XML
 icon: fa-file-code-o
