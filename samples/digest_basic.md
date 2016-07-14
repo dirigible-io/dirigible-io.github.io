@@ -1,3 +1,4 @@
+---
 layout: samples
 title: Digest
 icon: fa-apple
