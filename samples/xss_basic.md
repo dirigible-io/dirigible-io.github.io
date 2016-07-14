@@ -1,3 +1,4 @@
+---
 layout: samples
 title: XSS
 icon: fa-user-times
