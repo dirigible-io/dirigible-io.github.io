@@ -1,3 +1,4 @@
+---
 layout: samples
 title: Hex
 icon: fa-hashtag
