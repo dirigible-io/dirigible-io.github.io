@@ -1,6 +1,6 @@
 layout: samples
 title: XSS
-icon: fa-code
+icon: fa-user-times
 group: simple
 ---
 
