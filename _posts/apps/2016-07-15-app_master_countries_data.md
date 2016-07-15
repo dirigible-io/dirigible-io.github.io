@@ -9,7 +9,7 @@ tags:
 - library
 brief: Contains the table and data records for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
 git: https://github.com/dirigiblelabs/master_countries_data.git
-info: apps/2016/07/14/app_master_countries_data.html
+info: apps/2016/07/15/app_master_countries_data.html
 ---
 
 {{ page.title }}

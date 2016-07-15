@@ -9,7 +9,7 @@ tags:
 - library
 brief: Contains the RESTful services and simple web based user interface for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
 git: https://github.com/dirigiblelabs/master_countries_services.git
-info: apps/2016/07/14/app_master_countries_services.html
+info: apps/2016/07/15/app_master_countries_services.html
 ---
 
 {{ page.title }}
