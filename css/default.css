@@ -80,9 +80,19 @@ footer li {
 }
 
 .intro-message > h1 {
-	margin: 0;
+	margin-bottom: -5%;
 	font-family: "Montserrat", Arial, sans-serif;
 	font-size: 8em;
+}
+
+.intro-message > h2 {
+	font-family: serif;
+	font-weight: lighter;
+	font-size: 1.8em;
+}
+
+.intro-message > h3 {
+	font-size: 3em;
 }
 
 @font-face {
