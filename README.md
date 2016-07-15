@@ -10,7 +10,7 @@ Website address: [www.dirigible.io](www.dirigible.io).
 - Client-side Development
 - Integration Services
 - Mobile Apps Development
-- Buil-in DevOps
+- Built-in DevOps
 
 Learn about these features and many more [here](http://www.dirigible.io/features.html).
 
