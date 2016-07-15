@@ -79,6 +79,6 @@ Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v
 
 Dependency   | Repository 
 ------------ | ----------- 
-- | -
+none | none
 
 <br><br>
