@@ -5,19 +5,18 @@ layout: blue
 <ol class="breadcrumb">
   <li><a href="/">Home</a></li>
   <li><a href="/catalog.html">Catalog</a></li>
-  <li class="active">Services Apps</li>
+  <li class="active">Media Apps</li>
 </ol>
 	
 <div class="container">
-	<h2>Services Applications</h2>
+	<h2>Media Applications</h2>
 	<br>
-	<p>Services applications provide a set of RESTful or other kind of Web Services for data access, 
-	business logic, third-party integrations, utilities and any other type of reusable and remotely accessible functionality. 
+	<p>Media industry related applications.
 	</p>
 	<br>
 	<div>
 		<div>
-			{% for post in site.tags.services %}
+			{% for post in site.tags.media %}
 				{% if post.categories contains 'apps' %}
 					<div>
 						<p>

@@ -7,6 +7,7 @@ tags:
 - travel
 - services
 - masterdata
+- library
 brief: Contains the RESTful services and simple web based user interface about airports - name, codes, coordinates, etc. available at openflights.org    
 git: https://github.com/dirigiblelabs/travel_airports_services.git
 info: apps/2016/07/14/app_travel_airports_services.html
