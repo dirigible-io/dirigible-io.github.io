@@ -6,7 +6,7 @@ category: apps
 tags:
 - travel
 - data
-- masterdata
+- master
 - library
 brief: Contains the table and data records about airports - name, codes, coordinates, etc. available at openflights.org    
 git: https://github.com/dirigiblelabs/travel_airports_data.git
