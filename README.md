@@ -1,4 +1,4 @@
-# Website of Eclipse Dirigible (dirigible-io.github.io)
+# Website of Eclipse Dirigible (dirigible-io.github.io) <img src="http://www.dirigible.io/img/dirigible.svg" align="left" height="60" width="120"> 
 ======================
 Eclipse Dirigible™ is a Cloud Development Platform providing development tools and runtime environment.
 Website address: [www.dirigible.io](www.dirigible.io)
