@@ -36,9 +36,6 @@ navigation:
   - name: Concepts
     icon: fa-info
     group: help-concepts
-  - name: Tooling
-    icon: fa-gavel
-    url: tooling.html
   - name: Perspectives
     icon: fa-info
     group: help-perspectives

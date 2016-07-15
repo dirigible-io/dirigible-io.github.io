@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Features
+title: Overview
 icon: fa-home
 group: help-features
 ---

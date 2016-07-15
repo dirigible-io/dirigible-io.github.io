@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Tooling
-icon: fa-question-circle
+icon: fa-gavel
 group: help-features
 ---
 

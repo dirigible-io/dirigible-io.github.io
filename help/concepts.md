@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Concepts
+title: Overview
 icon: fa-cogs
 group: help-concepts
 ---
