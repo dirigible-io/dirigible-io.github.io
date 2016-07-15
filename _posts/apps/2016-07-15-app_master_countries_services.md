@@ -1,6 +1,6 @@
 ---
 layout: app
-title: Countries Data
+title: Countries Services
 icon: gear
 category: apps
 tags:
