@@ -2,6 +2,7 @@
 layout: help
 title: Tooling
 icon: fa-question-circle
+group: help-features
 ---
 
 Tooling
