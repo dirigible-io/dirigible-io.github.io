@@ -1,7 +1,7 @@
 ---
 layout: help
 title: SQL Execution
-icon: fa-database
+icon: none
 group: help-services
 ---
 
