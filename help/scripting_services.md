@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Scripting Services
-icon: fa-pencil-square-o
+icon: none
 group: help-features
 ---
 
