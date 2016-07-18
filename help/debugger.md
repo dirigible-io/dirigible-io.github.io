@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Debug
-icon: fa-wrench
+icon: none
 group: help-perspectives
 ---
 
