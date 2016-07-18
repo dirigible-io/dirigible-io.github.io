@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Import Content
-icon: fa-upload
+icon: none
 group: help-services
 ---
 
