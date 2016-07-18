@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Integration Services
-icon: fa-puzzle-piece
+icon: none
 group: help-features
 ---
 
