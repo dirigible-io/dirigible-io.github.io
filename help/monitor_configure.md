@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Configure Monitoring
-icon: fa-wrench
+icon: none
 group: help-monitor
 ---
 
