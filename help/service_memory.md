@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Memory
-icon: fa-bar-chart-o
+icon: none
 group: help-services
 ---
 
