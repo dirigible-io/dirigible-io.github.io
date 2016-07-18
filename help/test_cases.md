@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Test Cases
-icon: fa-flask
+icon: none
 group: help-features
 ---
 
