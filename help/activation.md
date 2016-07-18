@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Activation
-icon: fa-sign-in
+icon: none
 group: help-concepts
 ---
 
