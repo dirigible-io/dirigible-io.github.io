@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Wiki Registry
-icon: fa-list
+icon: none
 group: help-services
 ---
 
