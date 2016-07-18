@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Clone Import
-icon: fa-cloud-upload
+icon: none
 group: help-services
 ---
 
