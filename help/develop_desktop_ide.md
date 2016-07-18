@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Desktop IDE
-icon: fa-desktop
+icon: 
 group: help-develop
 ---
 
