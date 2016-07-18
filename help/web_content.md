@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Web Content
-icon: fa-globe
+icon: none
 group: help-features
 ---
 
