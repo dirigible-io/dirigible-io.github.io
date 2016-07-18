@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Import Project
-icon: fa-cubes
+icon: none
 group: help-services
 ---
 
