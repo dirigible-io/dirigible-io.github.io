@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Backup
-icon: fa-floppy-o
+icon: none
 group: help-features
 ---
 
