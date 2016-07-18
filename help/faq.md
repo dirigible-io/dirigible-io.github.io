@@ -45,7 +45,7 @@ FAQ
 
 ---
 
-## <a name='A'>Why vertical scenarios? And why with horizontal scaling?</a> ##
+## <a id='A'>Why vertical scenarios? And why with horizontal scaling?</a> ##
 
 - Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
 - All or nothing – partial doesn't count
