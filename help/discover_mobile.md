@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Mobile Apps
-icon: fa-mobile-phone
+icon: none
 group: help-discover
 ---
 
