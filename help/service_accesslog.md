@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Access Log
-icon: fa-key
+icon: none
 group: help-services
 ---
 
