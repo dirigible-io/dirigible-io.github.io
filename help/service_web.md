@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Web Content Provisioning
-icon: fa-globe
+icon: none
 group: help-services
 ---
 
