@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Source Editor
-icon: fa-code
+icon: none
 group: help-editors-and-views
 ---
 
