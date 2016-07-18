@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Entity Service
-icon: fa-retweet
+icon: none
 group: help-concepts
 ---
 
