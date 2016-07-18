@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Workspace
-icon: fa-tree
+icon: none
 group: help-services
 ---
 
