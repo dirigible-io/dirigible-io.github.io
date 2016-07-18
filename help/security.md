@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Security
-icon: fa-shield
+icon: none
 group: help-features
 ---
 
