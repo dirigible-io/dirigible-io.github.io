@@ -1,7 +1,7 @@
 ---
 layout: help
 title: SAP HANA Cloud Platform
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
