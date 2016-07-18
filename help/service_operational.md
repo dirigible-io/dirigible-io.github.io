@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Operational
-icon: fa-tachometer
+icon: none
 group: help-services
 ---
 
