@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Wiki Content
-icon: fa-quote-right
+icon: none
 group: help-features
 ---
 
