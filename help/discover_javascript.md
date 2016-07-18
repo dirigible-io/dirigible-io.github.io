@@ -1,7 +1,7 @@
 ---
 layout: help
 title: JavaScript Services
-icon: fa-code
+icon: none
 group: help-discover
 ---
 
