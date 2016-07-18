@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Wiki Content Provisioning
-icon: fa-edit
+icon: none
 group: help-services
 ---
 
