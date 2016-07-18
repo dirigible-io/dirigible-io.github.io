@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Repository
-icon: fa-inbox
+icon: none
 group: help-perspectives
 ---
 
