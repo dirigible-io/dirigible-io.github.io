@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Messaging
-icon: fa-envelope-o
+icon: none
 group: help-services
 ---
 
