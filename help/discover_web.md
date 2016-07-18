@@ -1,7 +1,7 @@
 ---
 layout: help
 title: User Interfaces
-icon: fa-globe
+icon: none
 group: help-discover
 ---
 
