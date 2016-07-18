@@ -12,7 +12,7 @@ FAQ
 
 **Concepts**
 
-- [Why vertical scenarios? And why with horizontal scaling?] (#A)
+- Why vertical scenarios? And why with horizontal scaling?
 - Why content-centric with centralized repository?
 - Why In-System Development?
 - Why dynamic languages? Not Java?
@@ -45,7 +45,7 @@ FAQ
 
 ---
 
-## Why vertical scenarios? And why with horizontal scaling?<a name='A'></a> ##
+## Why vertical scenarios? And why with horizontal scaling?##
 
 - Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
 - All or nothing – partial doesn't count
