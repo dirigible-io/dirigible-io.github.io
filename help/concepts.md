@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Overview
-icon: fa-cogs
+icon: none
 group: help-concepts
 ---
 
