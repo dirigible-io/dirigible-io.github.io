@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Reset
-icon: fa-recycle
+icon: none
 group: help-services
 ---
 
