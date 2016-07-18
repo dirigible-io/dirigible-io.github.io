@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Clone Export
-icon: fa-cloud-download
+icon: none
 group: help-services
 ---
 
