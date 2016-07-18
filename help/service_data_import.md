@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Data Import
-icon: fa-toggle-down
+icon: none
 group: help-services
 ---
 
