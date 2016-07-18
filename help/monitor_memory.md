@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Monitor Memory
-icon: fa-line-chart
+icon: none
 group: help-monitor
 ---
 
