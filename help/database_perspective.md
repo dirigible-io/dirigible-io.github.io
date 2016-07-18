@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Database
-icon: fa-th-large
+icon: none
 group: help-perspectives
 ---
 
