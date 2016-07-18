@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Data Export
-icon: fa-toggle-up
+icon: none
 group: help-services
 ---
 
