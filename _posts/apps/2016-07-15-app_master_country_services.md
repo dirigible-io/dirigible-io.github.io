@@ -1,15 +1,15 @@
 ---
 layout: app
-title: Countries Data
+title: Country Services
 icon: gear
 category: apps
 tags:
-- data
+- services
 - master
 - library
-brief: Contains the table and data records for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
-git: https://github.com/dirigiblelabs/master_countries_data.git
-info: apps/2016/07/15/app_master_countries_data.html
+brief: Contains the RESTful services and simple web based user interface for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
+git: https://github.com/dirigiblelabs/master_country_services.git
+info: apps/2016/07/15/app_master_country_services.html
 ---
 
 {{ page.title }}
@@ -64,7 +64,7 @@ Sample entries:
 Parameter     | Value 
 ------------ | ----------- 
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
-Repository | [dirigiblelabs/master_countries_data](https://github.com/dirigiblelabs/master_countries_data)
+Repository | [dirigiblelabs/master_country_services](https://github.com/dirigiblelabs/master_country_services)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
 Version    | -
 Download   | -
@@ -74,6 +74,6 @@ Download   | -
 
 Dependency   | Repository 
 ------------ | ----------- 
-none | none
+master_country_data | [dirigiblelabs/master_country_data](https://github.com/dirigiblelabs/master_country_data)
 
 <br><br>
