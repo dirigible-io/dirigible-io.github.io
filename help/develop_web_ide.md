@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Web IDE
-icon: fa-laptop
+icon: none
 group: help-develop
 ---
 
