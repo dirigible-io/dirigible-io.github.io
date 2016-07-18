@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Git Integration
-icon: fa-github
+icon: none
 group: help-features
 ---
 
