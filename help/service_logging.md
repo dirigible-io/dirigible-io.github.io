@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Logging
-icon: fa-video-camera
+icon: none
 group: help-services
 ---
 
