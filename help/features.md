@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Overview
-icon: fa-home
+icon: none
 group: help-features
 ---
 
