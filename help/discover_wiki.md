@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Wiki Pages
-icon: fa-book
+icon: none
 group: help-discover
 ---
 
