@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Environment Variables
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
