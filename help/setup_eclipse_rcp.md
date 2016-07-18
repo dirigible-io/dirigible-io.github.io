@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Eclipse Offline Tooling
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
