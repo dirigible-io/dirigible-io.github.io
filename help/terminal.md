@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Terminal
-icon: fa-terminal
+icon: none
 group: help-editors-and-views
 ---
 
