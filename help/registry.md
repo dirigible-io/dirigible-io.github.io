@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Registry
-icon: fa-picture-o
+icon: none
 group: help-perspectives
 ---
 
