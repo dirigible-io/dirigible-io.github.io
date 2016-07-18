@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Generation
-icon: fa-cog
+icon: none
 group: help-concepts
 ---
 
