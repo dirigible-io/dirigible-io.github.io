@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Tooling
-icon: fa-gavel
+icon: none
 group: help-features
 ---
 
