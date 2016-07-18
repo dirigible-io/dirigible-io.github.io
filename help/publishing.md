@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Publishing
-icon: fa-upload
+icon: none
 group: help-concepts
 ---
 
