@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Log Viewer
-icon: fa-tags
+icon: none
 group: help-editors-and-views
 ---
 
