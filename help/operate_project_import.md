@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Import Project
-icon: fa-sign-in
+icon: none
 group: help-operate
 ---
 
