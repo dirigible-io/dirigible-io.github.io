@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Cloud Foundry
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
