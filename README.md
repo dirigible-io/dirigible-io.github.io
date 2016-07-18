@@ -20,7 +20,7 @@ Learn about these features and many more [here](http://www.dirigible.io/features
 ###Join us today!
 
 ```
-1. Create an [issue] (https://github.com/dirigible-io/dirigible-io.github.io/issues) and describe your idea.
+1. Create an issue and describe your idea.
 2. Fork the repository.
 3. Work in your branch and why not publish it.
 4. Commit the changes.
