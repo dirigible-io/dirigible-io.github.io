@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Test Execution
-icon: fa-bug
+icon: none
 group: help-services
 ---
 
