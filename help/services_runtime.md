@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Runtime
-icon: fa-home
+icon: none
 group: help-services
 ---
 
@@ -35,8 +35,6 @@ There are several REST services available at runtime, which can give you another
 * [Java Execution](service_java.html)
 * [Flow Registry](service_registry_flow.html)
 * [Flow Execution](service_flow.html)
-* [Job Registry](service_registry_job.html)
-* [Job Execution](service_job.html)
 * [Web Content Registry](service_registry_web.html)
 * [Web Content Provisioning](service_web.html)
 * [Wiki Pages Registry](service_registry_wiki.html)
