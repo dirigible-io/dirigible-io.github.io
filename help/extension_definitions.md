@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Extension Definitions
-icon: fa-external-link
+icon: none
 group: help-features
 ---
 
