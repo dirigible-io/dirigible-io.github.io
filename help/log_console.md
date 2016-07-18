@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Log Console
-icon: fa-print
+icon: none
 group: help-editors-and-views
 ---
 
