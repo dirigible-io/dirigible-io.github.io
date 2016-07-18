@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Clone Instance
-icon: fa-toggle-on
+icon: none
 group: help-operate
 ---
 
