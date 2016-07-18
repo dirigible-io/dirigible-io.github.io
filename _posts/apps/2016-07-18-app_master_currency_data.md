@@ -7,7 +7,7 @@ tags:
 - data
 - master
 - library
-brief: Contains the table and data records for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
+brief: Contains the table and data records for currencies (ISO4217) - code, entiry, name, numeric, minor unit - iso.org
 git: https://github.com/dirigiblelabs/master_currency_data.git
 info: apps/2016/07/18/app_master_currency_data.html
 ---
