@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Publish
-icon: fa-play-circle
+icon: none
 group: help-services
 ---
 
