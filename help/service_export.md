@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Export Content
-icon: fa-download
+icon: none
 group: help-services
 ---
 
