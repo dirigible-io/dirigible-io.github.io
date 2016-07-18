@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Workspace
-icon: fa-desktop
+icon: none
 group: help-perspectives
 ---
 
