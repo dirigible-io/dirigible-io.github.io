@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Browse Content
-icon: fa-search
+icon: none
 group: help-discover
 ---
 
