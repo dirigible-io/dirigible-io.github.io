@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Tomcat
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
