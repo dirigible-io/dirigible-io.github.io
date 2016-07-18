@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Transport Content
-icon: fa-truck
+icon: none
 group: help-operate
 ---
 
