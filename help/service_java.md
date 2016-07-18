@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Java Execution
-icon: fa-coffee
+icon: none
 group: help-services
 ---
 
