@@ -1,7 +1,7 @@
 ---
 layout: help
 title: JavaScript Execution
-icon: fa-code
+icon: none
 group: help-services
 ---
 
