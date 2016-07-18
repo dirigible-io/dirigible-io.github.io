@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Docker
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
