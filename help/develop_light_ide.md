@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Light IDE
-icon: fa-mobile
+icon: none
 group: help-develop
 ---
 
