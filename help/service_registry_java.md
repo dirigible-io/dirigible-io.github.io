@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Java Registry
-icon: fa-list
+icon: none
 group: help-services
 ---
 
