@@ -12,7 +12,7 @@ FAQ
 
 **Concepts**
 
-- [Why vertical scenarios? And why with horizontal scaling?] (https://github.com/dirigible-io/dirigible-io.github.io/blob/master/help/faq.md#why-vertical-scenarios-and-why-with-horizontal-scalin)
+- [Why vertical scenarios? And why with horizontal scaling?] (#A)
 - Why content-centric with centralized repository?
 - Why In-System Development?
 - Why dynamic languages? Not Java?
@@ -45,7 +45,7 @@ FAQ
 
 ---
 
-## Why vertical scenarios? And why with horizontal scaling? ##
+<a name='A'>## Why vertical scenarios? And why with horizontal scaling? ##</a>
 
 - Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
 - All or nothing – partial doesn't count
