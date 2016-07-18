@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Tomcat with MySQL
-icon: fa-cogs
+icon: none
 group: help-setup
 ---
 
