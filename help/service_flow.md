@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Flow Execution
-icon: fa-puzzle-piece
+icon: none
 group: help-services
 ---
 
