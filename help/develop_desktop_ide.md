@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Desktop IDE
-icon: 
+icon: none
 group: help-develop
 ---
 
