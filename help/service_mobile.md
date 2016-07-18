@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Mobile App Provisioning
-icon: fa-mobile
+icon: none
 group: help-services
 ---
 
