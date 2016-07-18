@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Data Structures
-icon: fa-table
+icon: none
 group: help-features
 ---
 
