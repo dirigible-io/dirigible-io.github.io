@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Mobile Apps Registry
-icon: fa-list
+icon: none
 group: help-services
 ---
 
