@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Search Workspace
-icon: fa-search
+icon: none
 group: help-services
 ---
 
