@@ -4,6 +4,8 @@ Eclipse Dirigible is a Cloud Development Platform providing development tools an
 
 Website address: [www.dirigible.io](www.dirigible.io).
 
+![ReadMe-Animation](https://github.com/dirigible-io/dirigible-io.github.io/raw/master/img/readme_animation.gif)
+
 ##Features:
 - Database Management
 - Server-side Development
