@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Uuid
-icon: fa-openid
+icon: fa-caret-right
 group: simple
 ---
 

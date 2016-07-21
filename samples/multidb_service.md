@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Multiple Datasources
-icon: fa-database
+icon: fa-caret-right
 group: simple
 ---
 

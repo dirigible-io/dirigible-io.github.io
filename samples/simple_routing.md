@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Routing
-icon: fa-puzzle-piece
+icon: fa-caret-right
 group: simple
 ---
 

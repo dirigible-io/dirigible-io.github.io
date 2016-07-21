@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Env Basic
-icon: fa-tree
+icon: fa-caret-right
 group: simple
 ---
 

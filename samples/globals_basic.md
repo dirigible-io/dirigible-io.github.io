@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Globals Basic
-icon: fa-globe
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Mail Service
-icon: fa-envelope
+icon: fa-caret-right
 group: simple
 ---
 

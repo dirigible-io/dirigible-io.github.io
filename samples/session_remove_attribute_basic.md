@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Session Remove Attribute
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

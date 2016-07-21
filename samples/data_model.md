@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Data Model
-icon: fa-th-large
+icon: fa-caret-right
 group: simple
 ---
 

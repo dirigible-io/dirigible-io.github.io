@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Hex
-icon: fa-chain-broken
+icon: fa-caret-right
 group: simple
 ---
 

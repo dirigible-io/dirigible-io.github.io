@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Response Cookie
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Entity User Interface
-icon: fa-picture-o
+icon: fa-caret-right
 group: simple
 ---
 

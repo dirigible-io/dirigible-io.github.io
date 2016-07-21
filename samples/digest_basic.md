@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Digest
-icon: fa-apple
+icon: fa-caret-right
 group: simple
 ---
 

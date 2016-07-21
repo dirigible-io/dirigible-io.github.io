@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Read and Write Files
-icon: fa-file-o
+icon: fa-caret-right
 group: simple
 ---
 

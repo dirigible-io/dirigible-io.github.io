@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Session Info
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

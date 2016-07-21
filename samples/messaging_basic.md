@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Messaging
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

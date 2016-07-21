@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Request Info
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

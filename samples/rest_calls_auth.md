@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Authorization
-icon: fa-lock
+icon: fa-caret-right
 group: simple
 ---
 

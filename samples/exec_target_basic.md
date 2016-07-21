@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Exec Target
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

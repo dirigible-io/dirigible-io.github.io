@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: XSS
-icon: fa-times
+icon: fa-caret-right
 group: simple
 ---
 

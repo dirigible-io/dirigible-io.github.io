@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Scheduled Job
-icon: fa-clock-o
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: File Storage Sample
-icon: fa-file-word-o
+icon: fa-caret-right
 group: simple
 ---
 

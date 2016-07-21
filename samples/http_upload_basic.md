@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Http Upload
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Read and Write Streams
-icon: fa-file-video-o 
+icon: fa-caret-right
 group: simple
 ---
 

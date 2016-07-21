@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Storage Sample
-icon: fa-camera
+icon: fa-caret-right
 group: simple
 ---
 

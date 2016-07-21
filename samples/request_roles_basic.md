@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Request Roles
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Websocket
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

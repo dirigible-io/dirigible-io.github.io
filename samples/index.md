@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Samples
-icon: fa-gift
+icon: fa-caret-right
 ---
 
 Eclipse Dirigible<sup>&trade;</sup> Samples

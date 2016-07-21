@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: SOAP
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

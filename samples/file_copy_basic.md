@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: File Copy
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

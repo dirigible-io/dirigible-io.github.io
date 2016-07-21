@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Thread Notify
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Print Environment Variables
-icon: fa-list
+icon: fa-caret-right
 group: simple
 ---
 

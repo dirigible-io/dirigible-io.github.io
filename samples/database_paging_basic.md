@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Database Paging Basic
-icon: fa-table
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: REST Call
-icon: fa-phone-square
+icon: fa-caret-right
 group: simple
 ---
 

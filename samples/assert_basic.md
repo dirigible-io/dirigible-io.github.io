@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Assert Basic
-icon: fa-check-square
+icon: fa-caret-right
 group: simple
 ---
 

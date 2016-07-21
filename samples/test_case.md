@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Test Case
-icon: fa-gift
+icon: fa-caret-right
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Request Method
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

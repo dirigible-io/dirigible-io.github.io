@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: BookStore
-icon: fa-book
+icon: fa-caret-right
 group: solution
 ---
 

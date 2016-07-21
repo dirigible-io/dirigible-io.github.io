@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: XML to JSON
-icon: fa-code
+icon: fa-caret-right
 group: simple
 ---
 

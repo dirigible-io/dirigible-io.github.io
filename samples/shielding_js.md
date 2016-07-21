@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Shielding
-icon: fa-shield
+icon: fa-caret-right
 group: simple
 ---
 

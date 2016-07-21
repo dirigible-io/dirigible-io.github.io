@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Test Scenario
-icon: fa-gift
+icon: fa-caret-right
 group: test
 ---
 

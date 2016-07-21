@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Entity Service
-icon: fa-rss
+icon: fa-caret-right
 group: simple
 ---
 

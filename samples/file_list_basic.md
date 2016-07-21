@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: File List
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

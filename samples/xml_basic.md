@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: XML
-icon: fa-file-code-o
+icon: fa-caret-right
 group: simple
 ---
 

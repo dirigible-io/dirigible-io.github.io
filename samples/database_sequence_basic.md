@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Database Sequence Basic
-icon: fa-indent
+icon: fa-caret-right
 group: simple
 ---
 

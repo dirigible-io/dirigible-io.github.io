@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Thread Wait
-icon: none
+icon: fa-caret-right
 group: simple
 ---
 

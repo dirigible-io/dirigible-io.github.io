@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Templating Service
-icon: fa-paint-brush
+icon: fa-caret-right
 group: simple
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Configuration Sample
-icon: fa-cog
+icon: fa-caret-right
 group: simple
 ---
 

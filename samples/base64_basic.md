@@ -1,7 +1,7 @@
 ---
 layout: samples
 title: Base64
-icon: fa-unlock-alt
+icon: fa-caret-right
 group: simple
 ---
 

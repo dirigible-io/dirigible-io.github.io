@@ -1,8 +1,7 @@
-
 ---
 layout: samples
 title: Confluence to HTML
-icon: fa-picture-o
+icon: fa-caret-right
 group: simple
 ---
 
