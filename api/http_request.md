@@ -46,6 +46,9 @@ Function     | Description | Returns
 **getParameter(name)**   | Returns the value of the parameter by name, if any | *string*
 **getParameterNames()**   | Returns the names of all the parameters | *array of string*
 **getParameters()**   | Returns the all the parameters - name and value pairs | *array of pair*
+**getAttribute(name)**   | Returns the value of the attribute by name, if any | *string*
+**setAttribute(name,value)**   | Sets the value of the attribute by name | -
+**getAttributeNames()**   | Returns the names of all the attribute | *array of string*
 **getHeader(name)**   | Returns the value of the header by name, if any | *string*
 **getHeaderNames()**   | Returns the names of all the headers | *array of string*
 **getCookies()**   | Returns all the cookies from the request | *array of HttpCookie*
