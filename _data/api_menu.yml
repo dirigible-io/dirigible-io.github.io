@@ -54,6 +54,9 @@ navigation:
   - name: net/http/upload
     icon: fa fa-caret-right
     url: http_upload.html
+  - name: net/http/user
+    icon: fa fa-caret-right
+    url: http_user.html
   - name: service/exec
     icon: fa fa-caret-right
     url: exec.html
