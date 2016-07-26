@@ -4,17 +4,7 @@ title: "Developer - Repositories, repositories, repositories..."
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2016/01/21/blogs_repositories.html'>Developer - Repositories, repositories, repositories...</a></h4> <sub class="post-info">January 21, 2016 by Nedelcho Delchev</sub><br>What exactly the term Repository means in the context of Dirigible...<br>
 ---
-
-Repositories, repositories, repositories...
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">January 21, 2016 by Nedelcho Delchev</sub>
 
 What exactly the term Repository means in the context of Dirigible?
 How it is related to my projects' life-cycle management?
@@ -76,7 +66,7 @@ In this case we have multiple transient VMs connected via the RDBMS based Local 
 Single Master Instance and Multiple Slave Instances
 ----
 
-If you want to have immutable production instances and a single or a few instances for development or support, you can choose this option. In this case the "development/support" instance(s) have direct connection (their Local Repository) to the "master" database schema or the "master" root directory (in case of a shared file system). All the other "production" instances have configured a Master Repository to the "master" source on one hand and a Local Repository configured as local file system based one on the other hand. This option gives the flexibility to have secure "production" instances where nobody has even theoretical possibility 
+If you want to have immutable production instances and a single or a few instances for development or support, you can choose this option. In this case the "development/support" instance(s) have direct connection (their Local Repository) to the "master" database schema or the "master" root directory (in case of a shared file system). All the other "production" instances have configured a Master Repository to the "master" source on one hand and a Local Repository configured as local file system based one on the other hand. This option gives the flexibility to have secure "production" instances where nobody has even theoretical possibility
 to break the "master" code base. At the same time to have a special instance(s) can be still accessed by different network access rules (e.g. internal access) for quick debugging and bug-fixing on the fly and on the very same environment.
 
 
@@ -97,21 +87,21 @@ Another option similar to the previous one, is that you can configure the Master
 Configurations
 ---
 
-Configurations parameters for the Repository components can be provided either as initial parameters 
+Configurations parameters for the Repository components can be provided either as initial parameters
 for the DirigibleBridge servlet in the web.xml or as environment variables.
 
 For example to enable the default file-based Local Repository you can use the following snippet:
 
 ```xml
 
-	<!-- Default Repository Provider --> 
+	<!-- Default Repository Provider -->
 	<init-param>
 		<param-name>repositoryProvider</param-name>
 		<param-value>org.eclipse.dirigible.repository.local.LocalRepositoryProvider</param-value>
 	</init-param>
 
 ```
-		
+
 In case you want to use the database Local Repository you can use the following provider instead:
 
 ```java
@@ -119,7 +109,7 @@ In case you want to use the database Local Repository you can use the following 
 	org.eclipse.dirigible.repository.db.DBRepositoryProvider
 
 ```
-		
+
 The corresponding database Master Repository can be enabled by:
 
 ```xml
@@ -131,7 +121,7 @@ The corresponding database Master Repository can be enabled by:
 	</init-param>
 
 ```
-		
+
 and with Git-based Mater Repository:
 
 ```xml
@@ -141,35 +131,35 @@ and with Git-based Mater Repository:
 		<param-name>repositoryProviderMaster</param-name>
 		<param-value>org.eclipse.dirigible.repository.db.GitMasterRepositoryProvider</param-value>
 	</init-param>
-	
+
 	<!-- Master Repository parameters - Git based -->
 	<init-param>
 		<param-name>masterRepositoryGitTarget</param-name>
 		<param-value>master_git_repository</param-value>
 	</init-param>
-	
+
 	<init-param>
 		<param-name>masterRepositoryGitLocation</param-name>
 		<param-value>https://xxx</param-value>
 	</init-param>
-	
+
 	<init-param>
 		<param-name>masterRepositoryGitUser</param-name>
 		<param-value>{git.user}</param-value>
 	</init-param>
-	
+
 	<init-param>
 		<param-name>masterRepositoryGitPassword</param-name>
 		<param-value>{git.password}</param-value>
 	</init-param>
-	
+
 	<init-param>
 		<param-name>masterRepositoryGitBranch</param-name>
 		<param-value>{git.branch}</param-value>
 	</init-param>
 
 ```
-		
+
 Outlook
 ---
 

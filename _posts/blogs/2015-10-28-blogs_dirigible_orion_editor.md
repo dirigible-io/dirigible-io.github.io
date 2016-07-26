@@ -4,21 +4,9 @@ title: "How the Orion editor is integrated in Dirigible"
 category: blogs
 tag: blogs
 author: yordan.pavlov
-brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_orion_editor.html'>How the Orion editor is integrated in Dirigible</a></h4> <sub class="post-info">October 28, 2015 by Yordan Pavlov</sub><br>Why Orion? How the code-completion is achieved? How the Orion editor is integrated with RAP?...<br>
 ---
 
-How the Orion editor is integrated in Dirigible
-===
-
-<br>
-<img class="img-responsive" src="/img/team/yordan.pavlov.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">October 28, 2015 by Yordan Pavlov</sub>
-
-In this blog we will go over why and how the all known Orion editor is integrated in Dirigible.
-
----
+Why Orion? How the code-completion is achieved? How the Orion editor is integrated with RAP?
 
 Why Orion?
 ----
@@ -45,7 +33,7 @@ Tern.js is a code-analysis and code-completion library for JavaScript. It can ru
 How is the Injected API integrated in Orion?
 ----
 
-We use the standard Tern.js approach leveraged by Orion, by declaring objects and functions for code-completion as a JavaScript plugin. You can find the plugin [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/ide/org.eclipse.dirigible.ide.editor.orion/src/org/eclipse/dirigible/ide/editor/orion/api/dirigible.js). After the build of Orion itself, there is a generated [dirigible.json](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/ide/org.eclipse.dirigible.ide.editor.orion/src/org/eclipse/dirigible/ide/editor/orion/api/dirigible.json)  file out of the declarations. 
+We use the standard Tern.js approach leveraged by Orion, by declaring objects and functions for code-completion as a JavaScript plugin. You can find the plugin [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/ide/org.eclipse.dirigible.ide.editor.orion/src/org/eclipse/dirigible/ide/editor/orion/api/dirigible.js). After the build of Orion itself, there is a generated [dirigible.json](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/ide/org.eclipse.dirigible.ide.editor.orion/src/org/eclipse/dirigible/ide/editor/orion/api/dirigible.json)  file out of the declarations.
 
 To use and package the embedded Orion editor in Dirigible we need to go over the following steps:
 
@@ -62,7 +50,7 @@ Add your declaration file in ternWorkerCore.js
 	orion.client/bundles/org.eclipse.orion.client.javascript/web/node_modules/tern/bin/condense --name dirigible --no-spans --plugin doc_comment --def ecma5 --def browser  dirigible.js > orion.client/bundles/org.eclipse.orion.client.javascript/web/tern/defs/dirigible.json
 	mvn clean install
 	copy orion.client/build-js/codeEdit > resources
-	
+
 ---
 
 How it is integrated with RAP?
@@ -75,7 +63,7 @@ By using [RAP](https://www.eclipse.org/rap/) scripting capabilities for callback
 What about Debugging?
 ----
 
-Last but not least, here comes the integrated [debuggier](http://www.dirigible.io/help/debugger.html) in Dirigible. This was not so easy and trivial part, but finally the Dirigible's debugger uses the Orion editor. 
+Last but not least, here comes the integrated [debuggier](http://www.dirigible.io/help/debugger.html) in Dirigible. This was not so easy and trivial part, but finally the Dirigible's debugger uses the Orion editor.
 
 Client-side integration
 -----
@@ -86,20 +74,20 @@ Client-side integration
 	function getBreakpointsEnabled() {
 	    return breakpointsEnabled;
 	}
-	
+
 	function setBreakpointsEnabled(status) {
 		breakpointsEnabled = status;
 	}
-	
+
 	function loadBreakpoint(breakpoint) {
 		handleAddRemoveBreakpoint(breakpoint);
 	}
-	
-	
+
+
 	function setDebugRow(row) {
 		editor.setCaretOffset(editor.getLineStart(row));
 	}
-	
+
 	function handleAddRemoveBreakpoint(lineIndex) {
 		if(typeof(Storage) === "undefined") {
 	    	alert("Session storage is not available!")
@@ -170,7 +158,7 @@ Server-side
 		browser.execute(buildFunctionCall(function, arguments));
 	}
 	...
-	
+
 ```
 
 The whole file can be found [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/ide/org.eclipse.dirigible.ide.editor.orion/src/org/eclipse/dirigible/ide/editor/orion/EditorWidget.java).

@@ -4,17 +4,7 @@ title: "BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data So
 category: blogs
 tag: blogs
 author: georgi.pavlov
-brief: <h4><a href='blogs/2016/01/07/blogs_dirigible_custom_ds_1.html'>BYODS (Bring Your Own Data Source) in Dirigible - Part I":" Custom Data Sources setup</a></h4> <sub class="post-info">January 7, 2016 by Georgi Pavlov</sub><br> Since Dirigible v2.2 M3 it is possible to setup multiple custom data sources. Get acquainted and learn how to take the most out of this feature...<br>
 ---
-
-BYODS (Bring Your Own Data Source) in Dirigible
-===
-
-<br>
-<img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">January 7, 2016 by Georgi Pavlov</sub>
 
 Starting with version Dirigible 2.2 M3, it is possible to register *multiple custom* data sources alongside with the default, system one. This feature allows keeping Dirigible system data completely separate from application data. And now application developers can create applications that span across multiple data sources. Both of these bring much more sense of production-readiness than ever before.
 
@@ -51,7 +41,7 @@ This is a web container and JDBC driver specific step. Modify `<TOMCAT_HOME>/con
 	<Context>
 	…
 	  <Resource name="jdbc/PostgreSQL" auth="Container"
-				type="javax.sql.DataSource" 
+				type="javax.sql.DataSource"
 				driverClassName="org.postgresql.Driver"
 				url="jdbc:postgresql://127.0.0.1:5432/<DB_NAME_HERE>"
 	          	username="<YOUR_USER_HERE>" password="<YOUR_PASSWORD_HERE>"/>
@@ -64,7 +54,7 @@ This is a web container and JDBC driver specific step. Modify `<TOMCAT_HOME>/con
 
 Consult with the [Postgre JDBC driver documentation](https://jdbc.postgresql.org/documentation/92/index.html) for further details including on [setting up for Tomcat](https://jdbc.postgresql.org/documentation/92/tomcat.html). Tomcat’s documentation also has a [dedicated section](https://tomcat.apache.org/tomcat-7.0-doc/jndi-datasource-examples-howto.html#PostgreSQL) on setting up a JDNI javax.sql.DataSource with PostgreSQL.
 
-**On this stage**: We have setup a JNDI [javax.sql.DataSource](https://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) instance named <B>`jdbc/PostgreSQL`</B> that can be looked up and is fully capable of producing connections to a PostgreSQL database as defined by its parameters. 
+**On this stage**: We have setup a JNDI [javax.sql.DataSource](https://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html) instance named <B>`jdbc/PostgreSQL`</B> that can be looked up and is fully capable of producing connections to a PostgreSQL database as defined by its parameters.
 
 Step 3: Configure an application reference to the JNDI-bound Data Source resource
 ----
@@ -87,7 +77,7 @@ Make sure to use the prefix <B>`“jndiCustomDataSource-“`</B> in `param-name`
 Notice, the construction of the string in the param-value. The pattern is to add the prefix <B>`java:comp/env`</B> to the name of the JNDI `javax.sql.DataSource` resource we defined in the previous step in `context.xml`. In our case this is the string <B>`jdbc/PostgreSQL`</B>.
 
 **On this stage**: We have setup Dirigible to lookup a named javax.sql.DataSource from JDNI and make it available to its features.
- 
+
 #### Step 4: Register the Data Source in Dirigible injected API
 **Note**: Before proceeding, make sure that Tomcat is restarted if it was online when previous steps were accomplished, or start it now if it was offline.
 
@@ -95,20 +85,20 @@ Open Dirigible IDE and select **Window > Preferences** from its menu:
 
 <br>
 	<img src="/img/posts/20160107-0/1-0.png"/>
-<br> 
+<br>
 
 In the dialog that pops up, locate <B><I>Data Sources</B></I> in the list on the left, and then click the button <B><I>New…</I></B>
 
 <br>
 	<img src="/img/posts/20160107-0/1-1.png"/>
 <br>
- 
+
 Fill in the pop up as suggested by the screenshot below:
 
 <br>
 	<img src="/img/posts/20160107-0/1-2.png"/>
 <br>
- 
+
 Finally, confirm all dialogs.
 
 **On this stage**: The PostgreSQL `javax.sql.DataSource` is available for the Dirigible Injected API and Database tools.
@@ -122,37 +112,37 @@ Click to expand the dropdown in the *Database Browser* view and voilà, we’ve 
 <br>
 	<img src="/img/posts/20160107-0/1-3.png"/>
 <br>
- 
+
 Let’s explore it like we do with the default one. Drill down its contents and select the table *information_schema.sql_languages*. Right-click on it and choose *Open Definition* from the context menu:
- 
+
 <br>
 	<img src="/img/posts/20160107-0/1-4.png"/>
 <br>
- 
-Find the result in *Table Details*: 
- 
+
+Find the result in *Table Details*:
+
 <br>
 	<img src="/img/posts/20160107-0/1-5.png"/>
 <br>
- 
+
 Now right-click on the table again and select *Show Content* from the context menu. Find the result in *SQL Console*:
 
 <br>
 	<img src="/img/posts/20160107-0/1-6.png"/>
 <br>
- 
+
 Now, let’s try how we can benefit from the new data source programmatically. Follow the implementation steps described in this dirigible [sample](http://www.dirigible.io/samples/multidb_service.html) to create a scripting service that uses the InjectedAPI to get a reference to our custom data source and print some results. Use the following source for the service:
 
 ```javascript
 
 	/* globals $ */
 	/* eslint-env node, dirigible */
-	
+
 	$.getResponse().setContentType("text/html; charset=UTF-8");
 	$.getResponse().setCharacterEncoding("UTF-8");
-	
+
 	var ds = $.getNamedDatasources().get("postgre");
-	
+
 	var conn = ds.getConnection();
 	try {
 	    var stmt = conn.createStatement();
@@ -164,14 +154,14 @@ Now, let’s try how we can benefit from the new data source programmatically. F
 	} finally {
 	   conn.close();
 	}
-	
+
 	$.getResponse().getWriter().flush();
 	$.getResponse().getWriter().close();
 
 ```
 
-The printed results look like that: 
- 
+The printed results look like that:
+
 <br>
 	<img src="/img/posts/20160107-0/1-7.png"/>
 <br>
@@ -179,5 +169,5 @@ The printed results look like that:
 What is next?
 ----
 
-Now that you know how to quickly onboard a data source for a database supported by Dirigible out-of-the-box, you might want learn how to approach the rest that are available out there. That is the topic of the next blog in the series.  
-   
+Now that you know how to quickly onboard a data source for a database supported by Dirigible out-of-the-box, you might want learn how to approach the rest that are available out there. That is the topic of the next blog in the series.
+

@@ -3,14 +3,8 @@ layout: post
 title: "Release 2.2.160203-R"
 category: release
 tag: release
-brief: <h4><a href='news/2016/02/03/news_new_release_2_2.html'>New Release 2.2.160203-R</a></h4> <sub class="post-info">February 03, 2016</sub><br> Adaptation of UI templates to use the widget types meta-data - date, integer and float ...<br>
 ---
 
-Release 2.2.160203-R
-===
-
-<sub class="post-info">February 03, 2016</sub>
-	
 New Release [2.2.160203-R](http://download.eclipse.org/dirigible/drops/R-2.2-201602032020/index.html) released.
 
 #### Features

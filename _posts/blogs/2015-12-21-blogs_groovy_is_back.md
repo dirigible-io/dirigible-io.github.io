@@ -4,17 +4,7 @@ title: "Developer - Groovy is back"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2015/12/21/blogs_groovy_is_back.html'>Developer - Groovy is back</a></h4> <sub class="post-info">December 21, 2015 by Nedelcho Delchev</sub><br>Groovy Dev Platform powered by Eclipse Dirigible...<br>
 ---
-
-Developer - Groovy is back
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">December 21, 2015 by Nedelcho Delchev</sub>
 
 Groovy Dev Platform powered by Eclipse Dirigible is back!
 

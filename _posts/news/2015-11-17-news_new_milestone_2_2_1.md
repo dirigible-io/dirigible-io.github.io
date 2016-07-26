@@ -3,14 +3,8 @@ layout: post
 title: "Milestone 2.2.151117-M1"
 category: release
 tag: release
-brief: <h4><a href='news/2015/11/17/news_new_milestone_2_2_1.html'>New Milestone 2.2.151117-M1</a></h4> <sub class="post-info">November 17, 2015</sub><br> Local (File System based) Repository added ...<br>
 ---
 
-Milestone 2.2.151117-M1
-===
-
-<sub class="post-info">November 17, 2015</sub>
-	
 New Milestone [2.2.151117](https://wiki.eclipse.org/Dirigible/Downloads/2.2.151117-M1) released.
 
 Local (File System based) Repository added.

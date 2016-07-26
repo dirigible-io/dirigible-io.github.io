@@ -4,17 +4,7 @@ title: "Tutorial - How to implement a plugin for SQL language support"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2015/10/21/blogs_dirigible_impl_sql_plugin.html'>Tutorial - How to implement a plugin for SQL language support</a></h4> <sub class="post-info">October 21, 2015 by Nedelcho Delchev</sub><br> What does vertical scenario mean? Why building applications covering such scenarios need special tools and why all these relates to Dirigible?...<br>
 ---
-
-Tutorial - How to implement a plugin for SQL language support
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">October 21, 2015 by Nedelcho Delchev</sub>
 
 How to implement a custom plugin for Dirigible, which brings custom execution engine for a custom development language?
 Hmmm ... why at all you would need this?
@@ -105,11 +95,11 @@ In the source folder (*src*), you should finally have at least:
 
 ```java
 	package org.eclipse.dirigible.runtime.filter;
-	
+
 	public class SQLRegistrySecureFilter extends AbstractRegistrySecureFilter {
-	
+
 		private static final String SQL_SECURED_MAPPING = "/services/sql-secured"; //$NON-NLS-1$
-	
+
 		@Override
 		protected String getSecuredMapping() {
 			return SQL_SECURED_MAPPING;
@@ -123,21 +113,21 @@ In the source folder (*src*), you should finally have at least:
 ```java
 
 	package org.eclipse.dirigible.runtime.registry;
-	
+
 	public class SQLRegistryServlet extends AbstractRegistryServiceServlet {
-	
+
 		private static final long serialVersionUID = -7292896045277229573L;
-	
+
 		@Override
 		protected String getServletMapping() {
 			return "/sql/";
 		}
-	
+
 		@Override
 		protected String getFileExtension() {
 			return ".sql";
 		}
-	
+
 		@Override
 		protected String getRequestProcessingFailedMessage() {
 			return Messages.getString("JavascriptRegistryServlet.REQUEST_PROCESSING_FAILED_S");
@@ -151,7 +141,7 @@ In the source folder (*src*), you should finally have at least:
 ```java
 
 	package org.eclipse.dirigible.runtime.sql;
-	
+
 	import java.io.IOException;
 	import java.sql.Connection;
 	import java.sql.PreparedStatement;
@@ -161,63 +151,63 @@ In the source folder (*src*), you should finally have at least:
 	import java.util.HashMap;
 	import java.util.List;
 	import java.util.Map;
-	
+
 	import javax.servlet.http.HttpServletRequest;
 	import javax.servlet.http.HttpServletResponse;
 	import javax.sql.DataSource;
-	
+
 	import org.eclipse.dirigible.repository.api.ICommonConstants;
 	import org.eclipse.dirigible.repository.api.IRepository;
 	import org.eclipse.dirigible.repository.logging.Logger;
 	import org.eclipse.dirigible.runtime.repository.RepositoryFacade;
 	import org.eclipse.dirigible.runtime.scripting.AbstractScriptExecutor;
-	
+
 	import com.google.gson.Gson;
 	import com.google.gson.JsonArray;
 	import com.google.gson.JsonObject;
 	import com.google.gson.JsonPrimitive;
-	
+
 	public class SQLExecutor extends AbstractScriptExecutor {
-	
+
 		private static final String SQL_MODULE_NAME_CANNOT_BE_NULL = "SQL module name cannot be null.";
-	
+
 		private static final Logger logger = Logger.getLogger(SQLExecutor.class);
-	
+
 		private IRepository repository;
 		private String[] rootPaths;
 		private Map<String, Object> defaultVariables;
-	
+
 		private String classpath;
-	
+
 		public SQLExecutor(IRepository repository, String... rootPaths) {
 			this.repository = repository;
 			this.rootPaths = rootPaths;
 			this.defaultVariables = new HashMap<String, Object>();
 			this.classpath = classpath;
 		}
-	
+
 		@Override
 		public Object executeServiceModule(HttpServletRequest request, HttpServletResponse response, Object input, String module,
 				Map<Object, Object> executionContext) throws IOException {
-	
+
 			String result = null;
 			try {
 				logger.debug("entering: executeServiceModule()"); //$NON-NLS-1$
 				logger.debug("module=" + module); //$NON-NLS-1$
-	
+
 				if (module == null) {
 					throw new IOException(SQL_MODULE_NAME_CANNOT_BE_NULL);
 				}
-	
+
 				String sqlSource = new String(retrieveModule(repository, module, "", rootPaths).getContent());
-	
+
 				DataSource dataSource = RepositoryFacade.getInstance().getDataSource();
 				Connection connection = null;
 				try {
 					connection = dataSource.getConnection();
 					PreparedStatement pstmt = connection.prepareStatement(sqlSource);
 					ResultSet rs = pstmt.executeQuery();
-	
+
 					// get column names
 					ResultSetMetaData rsmd = rs.getMetaData();
 					int columnCnt = rsmd.getColumnCount();
@@ -225,7 +215,7 @@ In the source folder (*src*), you should finally have at least:
 					for (int i = 1; i <= columnCnt; i++) {
 						columnNames.add(rsmd.getColumnName(i).toUpperCase());
 					}
-	
+
 					JsonArray array = new JsonArray();
 					while (rs.next()) {
 						JsonObject obj = new JsonObject();
@@ -236,9 +226,9 @@ In the source folder (*src*), you should finally have at least:
 						}
 						array.add(obj);
 					}
-	
+
 					result = new Gson().toJson(array);
-	
+
 					rs.close();
 					pstmt.close();
 				} finally {
@@ -246,20 +236,20 @@ In the source folder (*src*), you should finally have at least:
 						connection.close();
 					}
 				}
-	
+
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 				throw new IOException(e);
 			}
-	
+
 			return result;
 		}
-	
+
 		@Override
 		protected void registerDefaultVariable(Object scope, String name, Object value) {
 			defaultVariables.put(name, value);
 		}
-	
+
 		@Override
 		protected String getModuleType(String path) {
 			return ICommonConstants.ARTIFACT_TYPE.SCRIPTING_SERVICES;
@@ -319,7 +309,7 @@ The plugin containing the registry user interface is **org.eclipse.dirigible.run
 ```html
 
 	<div id="content" ng-include="'templates/default.html'"></div>
-	
+
 ```
 
 2. Adapt **$routeProvider** in the **app.js** file by adding routing for **sql** pages
@@ -346,7 +336,7 @@ To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
 	SELECT * FROM DGB_FILES
 
 ```
-		
+
 2. Add the definition in the **plugin.xml** accordingly
 
 ```xml
@@ -373,7 +363,7 @@ To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
 	...
 
 ```
-		
+
 <br>
 <img src="/img/posts/sql_template.png"/>
 <br>
@@ -384,4 +374,4 @@ Congratulations!
 If you managed to follow all this - you are a hero!
 
 The git commit for reference is [here](https://github.com/eclipse/dirigible/commit/30a85e9c4420ab71176ba1cb0ab5e1047442f0e3)
-  
+

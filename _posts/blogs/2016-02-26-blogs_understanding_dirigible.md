@@ -4,18 +4,7 @@ title: "Understanding Dirigible"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2016/02/26/blogs_understanding_dirigible.html'>Understanding Dirigible</a></h4> <sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub><br>During the past years Dirigible evolved from a RAP based web IDE for simplification and adaptation of SOAP based web services to a full fledged Dev Platform...<br>
 ---
-
-
-Understanding Dirigible
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">February 26, 2016 by Nedelcho Delchev</sub>
 
 During the past couple of years Dirigible evolved from an RAP based Web IDE for
 simplification and adaptation of SOAP based Web services to a full fledged
@@ -32,28 +21,28 @@ Blocking vs. non-Blocking
 ---
 
 There are tons of discussions about the significant improvements in the performance,
-using the non-blocking a.k.a asynchronous programming model. 
-It is quite successfully used in Node.js, Netty and other frameworks. 
+using the non-blocking a.k.a asynchronous programming model.
+It is quite successfully used in Node.js, Netty and other frameworks.
 We believe it is useful for many specific scenarios,
 especially for long running tasks and complex event processing cases.
 On the other hand, the main target application archetype for Dirigible is the one, that consists of
 a database backed RESTful services exposed to the end user via HTML5 interface.
-This type of applications aim at managing the entities from a 
+This type of applications aim at managing the entities from a
 business derived domain model. In this case the "traditional" i.e. synchronous
-structuring of the source code is much easier for Java, PHP, ABAP programmers 
+structuring of the source code is much easier for Java, PHP, ABAP programmers
 and the all others with the similar background.
 Following this de-facto standard development style of writing business applications,
 we decided not to teach you how to develop in a new way,
-but simply to stick to the synchronous model - no matter that the default language in Dirigible is JavaScript.    
+but simply to stick to the synchronous model - no matter that the default language in Dirigible is JavaScript.
 It could be strange to write JavaScript services in the "Java" way,
 but this is the case in Dirigible and will remain in the future as a primary target.
-All the current Injected APIs are synchronous. 
+All the current Injected APIs are synchronous.
 
 
 Events and Flows
 ---
 
-Following the above statements, in Dirigible we highly encourage the 
+Following the above statements, in Dirigible we highly encourage the
 you to use the declarative Flows services to achieve the non-blocking
 processing of the long running tasks. The underlying flow engine will be responsible
 for the distribution and parallelization of the execution of the given task in the best possible way.
@@ -65,10 +54,10 @@ but in this case the responsibility of the optimization, debugging and bug-fixin
 Dependency Management
 ---
 
-There are plenty of package management tools and dependency management descriptor files 
+There are plenty of package management tools and dependency management descriptor files
 out there. Starting with the fact that
 the major Linux distributions use their own package managers such as APT, RPM, YUM, Zipper,
-throughout the language specific "default" descriptors such as 
+throughout the language specific "default" descriptors such as
 MANIFEST.MF, package.json, gemspec, etc.
 and even the build tools dependency descriptors such as pom.xml, build.xml, bower.json, etc.
 it seems that there is no a silver bullet solution for this problem... obviously.
@@ -92,8 +81,8 @@ is not perfect, but in the reality this is the only working model
 for the large scale applications combining huge set of components
 contributed by the teams that are distributed and diverse.
 Hence, in Dirigible we choose the "non-blocking" approach -
-the dependencies declarations are only to help you to navigate and pull 
-the right components, without stopping you if a single dependency 
+the dependencies declarations are only to help you to navigate and pull
+the right components, without stopping you if a single dependency
 is not present at the moment.
 
 
@@ -106,11 +95,11 @@ requires the time between "coding" and "testing" to be zero or near to zero.
 Complex and time consuming build and deploy processes are just unacceptable. Fact.
 Scripting languages perfectly matches in this case and the whole
 architecture of Dirigible is built around this concept.
-Why at the same time do we support Java? The simple answer is - 
+Why at the same time do we support Java? The simple answer is -
 as an arbitrary scripting language. The detailed one - with in-memory compilation.
 Why JavaScript is the "chosen" one? First class citizen in the
 scripting languages group, widely used already for client and server side
-components, etc. Also important thing, which to some extents depends 
+components, etc. Also important thing, which to some extents depends
 on the same factors,
 there is already available comprehensive source code web based editors,
 with highlighting, code analysis and code completion - such as Orion.
@@ -121,12 +110,12 @@ Domain Driven Design vs. Model Driven Architecture
 ---
 
 Domain Driven Design (DDD) is the natural choice of what Dirigible aims to provide -
-the dev platform for business services. The starting point of the development 
+the dev platform for business services. The starting point of the development
 of a business application is the definition of the domain model entities.
 At this phase nothing else matters - only the players and theirs interactions.
 The ultimate goal of any toolkit is after this design and definition phase to
 generate and run a full-fledged application auto-magically.
-We are not there yet, although you can in just a couple of seconds expose your entity from 
+We are not there yet, although you can in just a couple of seconds expose your entity from
 a database table, thru the RESTful service with pattern-based HTML5 user interface.
 But the important point here is that we know this kind of automatic generation
 is just to have a scaffold as a preview quickly. In this way we can have an idea how the real application will
@@ -150,7 +139,7 @@ Hence, in Dirigible we see DDD with one-time generation as a primary approach an
 Microservices vs. Monoliths
 ---
 
-There is a big noise related to the Microservices concepts although they are 
+There is a big noise related to the Microservices concepts although they are
 neither new nor unknown in the technology space until now.
 How do they reflect on Dirigible? How can we build a business application
 in the Cloud following the Microservices architecture?
@@ -160,20 +149,20 @@ But here comes the major difference - in Dirigible we leverage an unified platfo
 which the services can run on - the Dev Platform. Hence, whether you decide to divide
 your components to run on separate instances (to scale separately) or to
 have them all in a single instance - this is entirely your choice.
-We keep the unified approach, because in the most of the cases the performance of the 
+We keep the unified approach, because in the most of the cases the performance of the
 local communication channel between the components, for example, is the only acceptable choice.
 To be fair here, the Microservices architecture does not come
 because it is the best option - that is because this is an approach to solve the current
 situation, where many different components are written in different languages, run on different
-platforms, hence the unification for the deployment of all these can be done only 
-at a very low level - OS, VM, containers and the communication channel can be established 
+platforms, hence the unification for the deployment of all these can be done only
+at a very low level - OS, VM, containers and the communication channel can be established
 on a very high (and expensive) level - TCP/HTTP/File System.
 
 
 Roles Separation vs. One Man Army
 ---
 
-Depending on the project scale, there is a common suggestion, which constantly appears - separation of roles. 
+Depending on the project scale, there is a common suggestion, which constantly appears - separation of roles.
 This leads to the implied conclusion that the different roles (personas) mean different persons.
 And this, on the other hand, means that the different persons can use
 different tools during the development process of a single solution, doesn't it?
@@ -193,7 +182,7 @@ If there weren't such open source methodologies and initiatives, our world would
 never be the same, that's for sure. Dirigible would have never appeared.
 The collective intelligence - the major benefit of the open source,
 proved already many times that it can beat any
-other proprietary yet closed way of innovations. 
+other proprietary yet closed way of innovations.
 This leads us to the natural evolution of the Dev Platform concept - Dirigible
 to be used as the unified foundation for open source business services and utilities.
 Stay tuned for the exiting news in the next couple of weeks.

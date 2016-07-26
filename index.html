@@ -25,7 +25,7 @@ layout: default_home
                 <div class="clearfix"></div>
 	        	<h2><i class="fa fa-github fa-fw"></i>
                 Is it free?</h2>
-	            <p>YES<br/>All the Eclipse Dirigible project's source code and sample applications are licensed under 
+	            <p>YES<br/>All the Eclipse Dirigible project's source code and sample applications are licensed under
 	            <a href='https://www.eclipse.org/legal/epl-v10.html' target='_blank'>Eclipse Public License - v 1.0</a>
 	            and maintained at <a href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>.</p>
 	            <a class="btn btn-default" href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>
@@ -51,7 +51,7 @@ layout: default_home
 	            	<li>Content repository</li>
 	            	<li>Web IDE</li>
 	            	<li>Variety of features</li>
-	            </ul>	
+	            </ul>
 	            <a class="btn btn-default" href="for_developers.html">Developers Space</a>
 	        </div>
 	        <div class="col-lg-4 heading-lead">
@@ -64,18 +64,18 @@ layout: default_home
 	        </div>
 	    </div>
     </div>
-    
+
     <br/>
     <hr/>
     <br/>
-    
-    
+
+
     <div class="content-section-a" id="news">
 
         <div class="container">
 
             <div class="row">
-	            
+
 	            <div id="carousel-home-generic" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
@@ -92,11 +92,11 @@ layout: default_home
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
-					
+
 						<div class="item active">
 						  <img src="img/home/Cockpit.png" alt="">
 						  <div class="carousel-caption">
-							Cloud Development Platform covering end-to-end development and operations life-cycle of applications 
+							Cloud Development Platform covering end-to-end development and operations life-cycle of applications
 						  </div>
 						</div>
 						<div class="item">
@@ -132,13 +132,13 @@ layout: default_home
 						<div class="item">
 						  <img src="img/home/Discover.png" alt="">
 						  <div class="carousel-caption">
-							Holistic view on the available services, web content and configurations 
+							Holistic view on the available services, web content and configurations
 						  </div>
 						</div>
 						<div class="item">
 						  <img src="img/home/Transport.png" alt="">
 						  <div class="carousel-caption">
-							Automated repository transport, backup and clone 
+							Automated repository transport, backup and clone
 						  </div>
 						</div>
 						<div class="item">
@@ -147,7 +147,7 @@ layout: default_home
 							Monitor various basic metrics - access log, response time, memory...
 						  </div>
 						</div>
-						
+
 					</div>
 					<!-- Controls -->
 				  <a class="left carousel-control" href="#carousel-home-generic" data-slide="prev">
@@ -176,16 +176,22 @@ layout: default_home
 						{% for post in site.tags.blogs limit:10 %}
 							{% if post.categories contains 'blogs' %}
 								<div>
+									{% assign author = site.data.authors[post.author] %}
 									<p class="post-position">
-										<img class="img-responsive col-sm-1" src="/img/team/{{ post.author }}.png" style="border-radius: 50%;">
+										<img class="img-responsive col-sm-1" src="{{ author.avatar }}" style="border-radius: 50%;">
 										<div class="col-sm-11">
-										{{ post.brief }}
+											<h4>
+												<a href="{{ post.url }}">{{ post.title }}</a>
+											</h4>
+											<sub class="post-info">{{ post.date | date: "%B %-d, %Y"}} by {{ author.name }}</sub><br>
+											{{ post.excerpt }}
+											<a href="{{ post.url }}">Read More</a>
 										</div>
 									</p>
 								</div>
 							{% endif %}
 						{% endfor %}
-						
+
 					</div>
 					<br>
 					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
@@ -195,9 +201,9 @@ layout: default_home
 	                <div>
 						{% for post in site.tags.news limit:6 %}
 							{% if post.categories contains 'news' %}
-								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-								</p>
+									<p class="post-item">
+										{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+									</p>
 							{% endif %}
 						{% endfor %}
 					</div>
@@ -218,14 +224,14 @@ layout: default_home
 					<br>
 					<a class="btn btn-primary" href="http://download.eclipse.org/dirigible" target="_blank">Downloads</a>
 	            </div>
-	            
+
 	            <div class="col-sm-4">
 	            	<h2>Tweets</h2>
 		            <a class="twitter-timeline" href="https://twitter.com/dirigible_io" data-tweet-limit="3">Tweets by dirigible_io</a>
 		            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
           		</div>
 	        </div>
-            
+
 
         </div>
         <!-- /.container -->

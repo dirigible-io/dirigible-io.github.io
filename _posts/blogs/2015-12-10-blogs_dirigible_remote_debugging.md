@@ -4,22 +4,12 @@ title: "Developer - Remote debugging Dirigible source code"
 category: blogs
 tag: blogs
 author: georgi.pavlov
-brief: <h4><a href='blogs/2015/12/10/blogs_dirigible_remote_debugging.html'>Developer - Remote debugging Dirigible source code</a></h4> <sub class="post-info">December 10, 2015 by Georgi Pavlov</sub><br>While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach...<br>
 ---
-
-Developer - Remote debugging Dirigible source code
-===
-
-<br>
-<img class="img-responsive" src="/img/team/georgi.pavlov.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">December 10, 2015 by Georgi Pavlov</sub>
 
 While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach.
 
 More specifically, this is the case when Dirigible is deployed in a web container and you need to debug it remotely e.g. from Eclipse.
-This very much affects both supportability but also partially development process too. 
+This very much affects both supportability but also partially development process too.
 
 Wrt **supportability**, being able to debug remotely is very important so that issues can be inspected directly in the defective deployments.
 
@@ -42,14 +32,14 @@ The two important specific steps that i needed to perform before i had remote de
 			<source>1.7</source>
 			<target>1.7</target>
 	        <debug>true</debug>
-	        <debuglevel>lines,vars,source</debuglevel> 
+	        <debuglevel>lines,vars,source</debuglevel>
 		</configuration>
 	</plugin>
 
 ```
-	
+
 2.Clear the work directory in Tomcat (!)
----- 
+----
 
 
 ...because in my case I had previously deployed Dirigible. OSGi is using it for its bundles and it will interfere with fresh deployments
@@ -67,10 +57,10 @@ Summing up the steps:
 
 4.In Eclipse, launch a Debug launch configuration with default settings.
 
- 
+
 Set breakpoints and debug happily.
 
-It would be lovely to have some shortcut for the first two steps (and particularly the second) but I can't figure out anything more suitable than manual work for now. 
+It would be lovely to have some shortcut for the first two steps (and particularly the second) but I can't figure out anything more suitable than manual work for now.
 
 Enjoy!
 

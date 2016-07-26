@@ -3,19 +3,13 @@ layout: post
 title: "Dirigible Labs is live!"
 category: news
 tag: news
-brief: <h4><a href='news/2016/06/17/news_dirigiblelabs.html'>Dirigible Labs is live!</a></h4> <sub class="post-info">June 17, 2016</sub><br> We are happy to announce that the Dirigible Labs space is live!...<br>
 ---
 
-Dirigible Labs is live!
-===
-
-<sub class="post-info">June 17, 2016</sub>
-	
 We are happy to announce that the Dirigible Labs space is live!
 
 What is it?
 
-In short this is a place at GitHub [https://github.com/dirigiblelabs](https://github.com/dirigiblelabs) where developers can collaborate and openly share their projects built with and run on Eclipse Dirigible. 
+In short this is a place at GitHub [https://github.com/dirigiblelabs](https://github.com/dirigiblelabs) where developers can collaborate and openly share their projects built with and run on Eclipse Dirigible.
 
 There are some important points, which have to be emphasized:
 

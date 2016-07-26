@@ -4,17 +4,7 @@ title: "Tutorial - How to re-brand Dirigible workbench"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2015/10/28/blogs_dirigible_branding.html'>Tutorial - How to re-brand Dirigible workbench</a></h4> <sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub><br> Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name...<br>
 ---
-
-Tutorial - How to re-brand Dirigible workbench
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">October 28, 2015 by Nedelcho Delchev</sub>
 
 Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name following your products naming convention instead of Dirigible's ones. It is very easy following the [Eclipse RAP Branding](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.rap.doc%2Fguide%2Farticles%2Fbranding.html&cp=65_4_2) approach.
 
@@ -22,7 +12,7 @@ Being a cloud platform provider or development tools provider company, most prob
 Create a plugin for your theme
 ----
 
-You can use the existing plugin **org.eclipse.rap.design.example** as a template: 
+You can use the existing plugin **org.eclipse.rap.design.example** as a template:
 [https://github.com/eclipse/rap/tree/master/examples/org.eclipse.rap.design.example](https://github.com/eclipse/rap/tree/master/examples/org.eclipse.rap.design.example).
 
 ---
@@ -30,7 +20,7 @@ You can use the existing plugin **org.eclipse.rap.design.example** as a template
 Create an entry point
 ----
 
-Let's assume that we just use the existing example plugin with the existing sample theme with id **org.eclipse.rap.design.example.business.branding** or **org.eclipse.rap.design.example.fancy.branding**. 
+Let's assume that we just use the existing example plugin with the existing sample theme with id **org.eclipse.rap.design.example.business.branding** or **org.eclipse.rap.design.example.fancy.branding**.
 
 The new entrypoint declaration in the **plugin.xml** in the project **org.eclipse.dirigible.ide.ui.rap** should look like:
 
@@ -45,7 +35,7 @@ The new entrypoint declaration in the **plugin.xml** in the project **org.eclips
 	          id="org.eclipse.dirigible.ide.ui.rap.entry.DefaultEntrypoint"
 	          path="/business">
 	    </entrypoint>
-	</extension> 
+	</extension>
 	...
 
 ```

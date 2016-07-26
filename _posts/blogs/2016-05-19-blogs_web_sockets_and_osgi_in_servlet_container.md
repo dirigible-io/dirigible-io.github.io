@@ -4,19 +4,7 @@ title: "WebSockets and Equinox OSGi in a Servlet Container"
 category: blogs
 tag: blogs
 author: nedelcho.delchev
-brief: <h4><a href='blogs/2016/05/19/blogs_web_sockets_and_osgi_in_servlet_container.html'>WebSockets and Equinox OSGi in a Servlet Container</a></h4> <sub class="post-info">May 19, 2016 by Nedelcho Delchev</sub><br>How to use WebSockets, coming as a standard feature with the modern Servlet Containers (e.g. Tomcat 7.x) from within the internal Equinox OSGi environment deployed as a WAR application archive? If you have not asked yourself such a question so far, just forget it and live in peace ...<br>
 ---
-
-
-WebSockets and Equinox OSGi in a Servlet Container
-===
-
-<br>
-<img class="img-responsive" src="/img/team/nedelcho.delchev.png" style="border-radius: 50%;">
-<br>
-
-<sub class="post-info">May 19, 2016 by Nedelcho Delchev</sub>
-
 
 How to use WebSockets, coming as a standard feature with the modern Servlet Containers (e.g. Tomcat 7.x) from within the embedded Equinox OSGi environment deployed as a WAR application archive? If you haven't asked yourself such a question so far, just forget it and live in peace...
 But in case you have already quite serious reasons to separate the functionality of your huge and complex application to plugins to be manageable and already have chosen the OSGi way with the Eclipse Equinox implementation and in the same time you want your application in the Web, most probably you already know the nasty issues that appear ones you try something aside from the standard "ServletBridge" scenario.
@@ -33,7 +21,7 @@ The Problem
 ===
 
 Now, assuming you got the idea how the architecture looks like and you are convinced it worths the effort - what is the problem?
-On one side we have the web application environment, which is as standard as any other web application running on the Tomcat server. You can have there Servelts, WebSockets, etc. You have access to the shared libraries within the Tomcat/lib folder as any other application has.  
+On one side we have the web application environment, which is as standard as any other web application running on the Tomcat server. You can have there Servelts, WebSockets, etc. You have access to the shared libraries within the Tomcat/lib folder as any other application has.
 
 The Solution
 ===
@@ -48,7 +36,7 @@ The first problem is how to make the WebSockets API classes to be visible at run
 	osgi.*=@null
 	org.osgi.*=@null
 	eclipse.*=@null
-	
+
 	osgi.parentClassloader=fwk
 	osgi.contextClassLoaderParent=fwk
 	org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,javax.mail,javax.mail.internet,org.eclipse.dirigible.ide.bridge
@@ -72,7 +60,7 @@ In your *.target file add the following:
 
 ```
 
-The target platform file of Dirigible can be found [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/platform/org.eclipse.dirigible.platform.target/org.eclipse.dirigible.platform.base.target) 
+The target platform file of Dirigible can be found [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/platform/org.eclipse.dirigible.platform.target/org.eclipse.dirigible.platform.base.target)
 
 After the reloading of the target platform, *javax.websocket* package is available and can be added to a manifest file of the plugin you want to use for the server-side implementation:
 
@@ -83,7 +71,7 @@ After the reloading of the target platform, *javax.websocket* package is availab
 
 ... and the corresponding sample from the Dirigible code-base [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.metrics/META-INF/MANIFEST.MF)
 
-> Important - use package import not plugin dependency as soon as at the runtime the classes will be exposed by the application class-loader not by the OSGi parent class-loader itself. 
+> Important - use package import not plugin dependency as soon as at the runtime the classes will be exposed by the application class-loader not by the OSGi parent class-loader itself.
 
 WebSocket Proxy (outside OSGi)
 ---
@@ -99,23 +87,23 @@ We made the necessary configurations, now we can start with the implementation o
 	public class WebSocketLogBridgeServlet {
 
 		private static final Logger logger = LoggerFactory.getLogger(WebSocketLogBridgeServlet.class);
-	
+
 		private static Map<String, Session> openSessions = new ConcurrentHashMap<String, Session>();
-	
+
 		@OnOpen
 		public void onOpen(Session session) throws IOException {
 			openSessions.put(session.getId(), session);
 			callInternal("onOpen", session, null);
 		}
-	
+
 		protected void callInternal(String methodName, Session session, String message) {
-	
+
 			logger.debug("Getting internal pair...");
-	
+
 			Object logInternal = DirigibleBridge.BRIDGES.get("websocket_log_channel_internal");
-	
+
 			logger.debug("Getting internal pair passed: " + (logInternal != null));
-	
+
 			if (logInternal == null) {
 				String peerError = "Internal WebSocket peer for Log Service is null.";
 				logger.error(peerError);
@@ -126,7 +114,7 @@ We made the necessary configurations, now we can start with the implementation o
 				}
 				return;
 			}
-	
+
 			try {
 				Method method = null;
 				if (message == null) {
@@ -148,18 +136,18 @@ We made the necessary configurations, now we can start with the implementation o
 				logger.error(e.getMessage(), e);
 			}
 		}
-	
+
 		@OnMessage
 		public void onMessage(String message, Session session) {
 			callInternal("onMessage", session, message);
 		}
-	
+
 		@OnError
 		public void onError(Session session, Throwable t) {
 			callInternal("onError", session, t.getMessage());
 			logger.error(t.getMessage(), t);
 		}
-	
+
 		@OnClose
 		public void onClose(Session session) {
 			openSessions.remove(session.getId());
@@ -167,7 +155,7 @@ We made the necessary configurations, now we can start with the implementation o
 		}
 
 	...
-	
+
 ```
 
 full source code [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/bridge/org.eclipse.dirigible.bridge/src/org/eclipse/dirigible/ide/bridge/WebSocketLogBridgeServlet.java)
@@ -186,12 +174,12 @@ The source code of the DirigibleBridge can be found [here](https://github.com/ec
 WebSocket Bridge (inside OSGi)
 ---
 
-We have already the WebSocket end-point, which will accept the connections and will redirect the corresponding calls to the internal "bridge" object. Let's have a look at the bridge implementation itself: 
+We have already the WebSocket end-point, which will accept the connections and will redirect the corresponding calls to the internal "bridge" object. Let's have a look at the bridge implementation itself:
 
 ```java
 
 		...
-	
+
 		private static Map<String, Session> openSessions = new ConcurrentHashMap<String, Session>();
 
 		@OnOpen
@@ -200,23 +188,23 @@ We have already the WebSocket end-point, which will accept the connections and w
 			session.getBasicRemote().sendText("[log] open: " + session.getId());
 			logger.debug("[ws:log] onOpen: " + session.getId());
 		}
-	
+
 		@OnMessage
 		public void onMessage(String message, Session session) {
 			logger.debug("[ws:log] onMessage: " + message);
 		}
-	
+
 		@OnError
 		public void onError(Session session, String error) {
 			logger.debug("[ws:log] onError: " + error);
 		}
-	
+
 		@OnClose
 		public void onClose(Session session) {
 			openSessions.remove(session.getId());
 			logger.debug("[ws:log] onClose: Session " + session.getId() + " has ended");
 		}
-	
+
 		public static void sendText(String sessionId, String message) {
 			try {
 				if (sessionId == null) {
@@ -231,7 +219,7 @@ We have already the WebSocket end-point, which will accept the connections and w
 				logger.error(e.getMessage(), e);
 			}
 		}
-	
+
 		@Override
 		public void log(String level, String message) {
 			for (Session session : openSessions.values()) {
@@ -259,41 +247,41 @@ Ones we have the implementation of the internal (bridge) part of the pair, we ha
 ```java
 
 	public class MetricsActivator implements BundleActivator {
-	
+
 		private static final Logger logger = Logger.getLogger(MetricsActivator.class);
-	
+
 		WebSocketLogBridgeServletInternal webSocketLogBridgeServletInternal;
-	
+
 		@Override
 		public void start(BundleContext context) throws Exception {
-	
+
 			...
-	
+
 			setupLogChannel();
 		}
-			
+
 		protected void setupLogChannel() {
-	
+
 			logger.debug("Setting log channel internal ...");
-	
+
 			webSocketLogBridgeServletInternal = new WebSocketLogBridgeServletInternal();
-	
+
 			DirigibleBridge.BRIDGES.put("websocket_log_channel_internal", webSocketLogBridgeServletInternal);
-	
+
 			Logger.addListener(webSocketLogBridgeServletInternal);
-	
+
 			logger.debug("Log channel internal has been set.");
-	
+
 		}
-		
+
 		@Override
 		public void stop(BundleContext context) throws Exception {
 			webSocketLogBridgeServletInternal.closeAll();
 			Logger.removeListener(webSocketLogBridgeServletInternal);
 		}
-	
+
 	}
-	
+
 ```
 
 source code [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.metrics/src/org/eclipse/dirigible/runtime/metrics/MetricsActivator.java)
@@ -311,11 +299,11 @@ At this step we are ready with the server side implementation. Let's create a si
 	<script>
 	var connectToLog = function() {
 		try {
-			var logSocket = new WebSocket(((location.protocol === 'https:') ? "wss://" : "ws://") 
+			var logSocket = new WebSocket(((location.protocol === 'https:') ? "wss://" : "ws://")
 					+ window.location.host + "/log");
 		} catch(e) {
 			document.writeln("<div style='background-color: black; font-family: monospace; color: red'>[" + new Date().toISOString() + "][error]" + e.message + "</div>");
-			
+
 		}
 		logSocket.onmessage = function (message) {
 			var color = "#44EE44";
@@ -325,9 +313,9 @@ At this step we are ready with the server side implementation. Let's create a si
 			var date = new Date();
 			var id = date.getTime();
 			document.writeln("<div id='" + id + "' style='background-color: black; font-family: monospace; color: " + color + "'>[" + date.toISOString() + "]" + message.data + "</div>");
-			window.location.hash = "#" + id;				
+			window.location.hash = "#" + id;
 		};
-		
+
 		setInterval(clear, 60000);
 	}
 	var clear = function() {
@@ -338,8 +326,8 @@ At this step we are ready with the server side implementation. Let's create a si
 	...
 
 ```
-		
-source code [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.ui/resources/ui/templates/monitoring/logging/log.html)		
+
+source code [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.ui/resources/ui/templates/monitoring/logging/log.html)
 
 The assumption here is that the protocol of the WebSocket connection has the same security level as the page itself http->ws https->wss. On receiving a log message the "logSocket.onmessage" function is called. The other function "clear" is added just for usability and performance reasons.
 

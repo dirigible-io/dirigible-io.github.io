@@ -3,12 +3,7 @@ layout: post
 title: "Dirigible Workshop CodeWeek - Feedback"
 category: news
 tag: news
-brief: <h4><a href='news/2015/10/17/news_dirigible_workshop_codeweek_feedback.html'>Dirigible Workshop CodeWeek - Feedback</a></h4> <sub class="post-info">October 17, 2015</sub><br>Saturday, October 17, 2015...<br>
 ---
-
-### Dirigible Workshop CodeWeek - Feedback
-
-<sub class="post-info">October 17, 2015</sub>
 
 Great event! We are looking forward for the next one...
 
@@ -16,7 +11,7 @@ There were various group of participants - students, teachers, evangelists, juni
 
 First we gave an overview about the project - history, building blocks, concepts and architecture. Then step by step the participants have created their first Dirigible project.
 
-We gathered tons of feedback about the future capabilities, which can be useful for cloud developers. 
+We gathered tons of feedback about the future capabilities, which can be useful for cloud developers.
 It is collected in the forum's topic:
 [https://www.eclipse.org/forums/index.php/t/1071310/](https://www.eclipse.org/forums/index.php/t/1071310/)
 

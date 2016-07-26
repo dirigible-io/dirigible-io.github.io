@@ -3,14 +3,8 @@ layout: post
 title: "Brainstormers at HackFMI7"
 category: news
 tag: news
-brief: <h4><a href='news/2016/05/30/news_hackfmi7.html'>Brainstormers at HackFMI7</a></h4> <sub class="post-info">May 30, 2016</sub><br> Over the weekend, the seventh edition of HackFMI - Hack for Start! took place...<br>
 ---
 
-Brainstormers at HackFMI7
-===
-
-<sub class="post-info">May 30, 2016</sub>
-	
 Over the weekend, the seventh edition of <a href="http://hackfmi.com/" target="_blank">HackFMI</a> - **Hack for Start!** took place.
 
 There were plenty of interesting ideas, code and lots of fun!
