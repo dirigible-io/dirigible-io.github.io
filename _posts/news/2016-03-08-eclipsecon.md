@@ -9,4 +9,4 @@ On March 08 2016, presentation about "Cloud Development with Dirigible in the Ey
 
 In the session was shown how the development of cloud applications and services with Dirigible looks like - in the eyes of a hard-core veteran Java guy. There was some analogies to the Java (EE) development model and also were explored the differences between the two models.
 
-The presentation can be found on SlideShare: [http://www.slideshare.net/vkpavlov/cloud-development-with-dirigible-in-the-eyes-of-a-javasaurus](http://www.slideshare.net/vkpavlov/cloud-development-with-dirigible-in-the-eyes-of-a-javasaurus)
+The presentation can be found on [SlideShare](http://www.slideshare.net/vkpavlov/cloud-development-with-dirigible-in-the-eyes-of-a-javasaurus)
