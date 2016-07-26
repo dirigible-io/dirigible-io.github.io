@@ -7,7 +7,7 @@ tags:
 - data
 - master
 - library
-brief: Contains the table and data records for currencies according to the ISO4217 standard.
+brief: Contains the table and data records for currencies (ISO4217) - code, entiry, name, numeric, minor unit - iso.org
 git: https://github.com/dirigiblelabs/master_currency_data.git
 info: apps/2016/07/18/app_master_currency_data.html
 ---
