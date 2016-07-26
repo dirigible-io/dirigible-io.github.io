@@ -16,8 +16,7 @@ Ready to use image supported by [Quay.io](http://quay.io) can be used as follows
 
 ###### Resources
 
-[https://docs.docker.com/engine/installation/](https://docs.docker.com/engine/installation/)
-
-[https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
+[Installation](https://docs.docker.com/engine/installation/)
+[Builder](https://docs.docker.com/engine/reference/builder/)
 
 #### Enjoy!
