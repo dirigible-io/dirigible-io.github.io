@@ -9,7 +9,7 @@ tags:
 - library
 brief: Contains the table and data records for currencies according to the ISO4217 standard.
 git: https://github.com/dirigiblelabs/master_currency_data.git
-info: apps/app_master_currency_data.html
+info: apps/2016/07/18/app_master_currency_data.html
 ---
 
 {{ page.title }}
