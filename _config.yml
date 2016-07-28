@@ -13,6 +13,10 @@ url: http://dirigible.io
 gems:
   - jekyll-sitemap
 
+exclude:
+  - CNAME
+  - README.md
+
 defaults:
   -
     scope:
