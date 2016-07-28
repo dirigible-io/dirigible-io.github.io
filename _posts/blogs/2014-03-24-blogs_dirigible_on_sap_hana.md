@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible on SAP HANA Cloud Platform"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

@@ -1,13 +1,11 @@
 ---
-layout: app
 title: Country Services
 icon: gear
-category: apps
 tags:
 - services
 - master
 - library
-brief: Contains the RESTful services and simple web based user interface for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org    
+brief: Contains the RESTful services and simple web based user interface for countries (ISO3166) - name, codes A2, A3, numeric - opengeocode.org
 git: https://github.com/dirigiblelabs/master_country_services.git
 info: apps/2016/07/15/app_master_country_services.html
 ---
@@ -32,11 +30,11 @@ Abbreviations:
 	FFO  : German Federal Foreign Office
 
 Metadata (one entry per line)
-	
+
 	ISO 3166-1 alpha-2
 	ISO 3166-1 alpha-3
 	ISO 3166-1 numeric
-	ISO 3166-1 English short name (Gazetteer order) 
+	ISO 3166-1 English short name (Gazetteer order)
 
 
 Sample entries:
@@ -61,8 +59,8 @@ Sample entries:
 
 #### General
 
-Parameter     | Value 
------------- | ----------- 
+Parameter     | Value
+------------ | -----------
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/master_country_services](https://github.com/dirigiblelabs/master_country_services)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
@@ -72,8 +70,8 @@ Download   | -
 
 #### Dependencies
 
-Dependency   | Repository 
------------- | ----------- 
+Dependency   | Repository
+------------ | -----------
 master_country_data | [dirigiblelabs/master_country_data](https://github.com/dirigiblelabs/master_country_data)
 
 <br><br>

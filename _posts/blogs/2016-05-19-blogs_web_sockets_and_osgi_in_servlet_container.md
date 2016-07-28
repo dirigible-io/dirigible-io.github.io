@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "WebSockets and Equinox OSGi in a Servlet Container"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

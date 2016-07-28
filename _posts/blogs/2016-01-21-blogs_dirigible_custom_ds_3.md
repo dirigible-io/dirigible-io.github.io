@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source"
-category: blogs
-tag: blogs
 author: georgi.pavlov
 ---
 

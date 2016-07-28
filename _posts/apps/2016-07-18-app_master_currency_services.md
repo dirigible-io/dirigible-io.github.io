@@ -1,13 +1,11 @@
 ---
-layout: app
 title: Currency Services
 icon: gear
-category: apps
 tags:
 - services
 - master
 - library
-brief: Contains the table and data records for currencies (ISO4217) - code, entiry, name, numeric, minor unit - iso.org    
+brief: Contains the table and data records for currencies (ISO4217) - code, entiry, name, numeric, minor unit - iso.org
 git: https://github.com/dirigiblelabs/master_currency_services.git
 info: apps/2016/07/18/app_master_currency_services.html
 ---
@@ -49,8 +47,8 @@ Sample entries:
 
 #### General
 
-Parameter     | Value 
------------- | ----------- 
+Parameter     | Value
+------------ | -----------
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/master_currency_services](https://github.com/dirigiblelabs/master_currency_services)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
@@ -60,8 +58,8 @@ Download   | -
 
 #### Dependencies
 
-Dependency   | Repository 
------------- | ----------- 
+Dependency   | Repository
+------------ | -----------
 master_currency_data | [dirigiblelabs/master_currency_data](https://github.com/dirigiblelabs/master_currency_data)
 
 <br><br>

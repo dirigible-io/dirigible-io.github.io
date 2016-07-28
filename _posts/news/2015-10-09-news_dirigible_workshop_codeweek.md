@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dirigible Workshop CodeWeek"
 category: news
 tag: news

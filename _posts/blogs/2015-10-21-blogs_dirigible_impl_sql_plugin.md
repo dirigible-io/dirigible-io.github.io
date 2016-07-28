@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Tutorial - How to implement a plugin for SQL language support"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

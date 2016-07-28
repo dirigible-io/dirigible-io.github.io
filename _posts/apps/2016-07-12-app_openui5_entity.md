@@ -1,8 +1,6 @@
 ---
-layout: app
 title: OpenUI5 Entity
 icon: newspaper-o
-category: apps
 tags:
 - template
 - ui

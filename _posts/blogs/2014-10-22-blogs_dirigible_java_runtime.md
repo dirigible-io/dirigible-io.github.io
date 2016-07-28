@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible enables dynamic in-memory Java runtime"
-category: blogs
-tag: blogs
 author: yordan.pavlov
 ---
 

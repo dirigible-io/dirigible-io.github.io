@@ -1,11 +1,9 @@
 ---
-layout: app
 title: Enterprise JavaScript
 icon: gear
-category: apps
 tags:
 - core
-brief: Enterprise JavaScript is a set of API modules that aims at standardization of the usage of the common capabilities in the cloud based business applications  
+brief: Enterprise JavaScript is a set of API modules that aims at standardization of the usage of the common capabilities in the cloud based business applications
 git: https://github.com/dirigiblelabs/core_api
 info: apps/2016/07/12/app_core_api.html
 ---
@@ -27,13 +25,13 @@ For instance:
 
 	/* globals $ */
 	/* eslint-env node, dirigible */
-	
+
 	var database = require('db/database');
 	var response = require('net/http/response');
-	
+
 	var datasource = database.getDatasource(); // default
 	//var datasource = db.getNamedDatasource("name-of-the-datasource");
-	
+
 	var connection = datasource.getConnection();
 	try {
 	    var statement = connection.prepareStatement("select * from DGB_FILES where FILE_PATH like ?");
@@ -51,7 +49,7 @@ For instance:
 	} finally {
 	    connection.close();
 	}
-	
+
 	response.flush();
 	response.close();
 ```
@@ -67,8 +65,8 @@ For instance:
 
 #### General
 
-Parameter     | Value 
------------- | ----------- 
+Parameter     | Value
+------------ | -----------
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/core_api](https://github.com/dirigiblelabs/core_api)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
@@ -77,8 +75,8 @@ Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v
 
 #### Dependencies
 
-Dependency   | Repository 
------------- | ----------- 
+Dependency   | Repository
+------------ | -----------
 none | none
 
 <br><br>

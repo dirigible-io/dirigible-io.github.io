@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Eclipse Cloud Development - focusing on development in the Cloud"
 category: news
 tag: news

@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Developer - Remote debugging Dirigible source code"
-category: blogs
-tag: blogs
 author: georgi.pavlov
 ---
 

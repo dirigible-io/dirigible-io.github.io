@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Release 2.0.150121"
 category: release
 tag: release

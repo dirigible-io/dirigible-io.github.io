@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Understanding Dirigible"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dirigible - one of the founders of Cloud Development Initiative at Eclipse together with Orion, Che and Flux"
 category: news
 tag: news

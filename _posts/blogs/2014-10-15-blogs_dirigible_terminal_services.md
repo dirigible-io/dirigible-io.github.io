@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible - Terminal Services"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

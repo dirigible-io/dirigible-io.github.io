@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Docker image for Dirigible"
 category: news
 tag: news

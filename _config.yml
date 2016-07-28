@@ -12,3 +12,26 @@ baseurl:
 url: http://dirigible.io
 gems:
   - jekyll-sitemap
+
+defaults:
+  -
+    scope:
+      path: _posts/blogs
+      type: posts
+    values:
+      layout: post
+      category: blogs
+      tag: blogs
+  -
+    scope:
+      path: _posts/news
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: _posts/apps
+      type: posts
+    values:
+      layout: app
+      category: apps

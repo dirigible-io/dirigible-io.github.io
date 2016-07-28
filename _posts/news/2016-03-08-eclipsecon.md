@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation"
 category: news
 tag: news

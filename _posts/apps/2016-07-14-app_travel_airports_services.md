@@ -1,14 +1,12 @@
 ---
-layout: app
 title: Airports Services
 icon: gear
-category: apps
 tags:
 - travel
 - services
 - master
 - library
-brief: Contains the RESTful services and simple web based user interface about airports - name, codes, coordinates, etc. available at openflights.org    
+brief: Contains the RESTful services and simple web based user interface about airports - name, codes, coordinates, etc. available at openflights.org
 git: https://github.com/dirigiblelabs/travel_airports_services.git
 info: apps/2016/07/14/app_travel_airports_services.html
 ---
@@ -33,7 +31,7 @@ As of January 2012, the OpenFlights Airports Database contains 6977 airports spa
 	Timezone			Hours offset from UTC. Fractional hours are expressed as decimals, eg. India is 5.5.
 	DST					Daylight savings time. One of E (Europe), A (US/Canada), S (South America), O (Australia), Z (New Zealand), N (None) or U (Unknown). See also: Help: Time
 	Tz 					database time zone	Timezone in "tz" (Olson) format, eg. "America/Los_Angeles".
-	
+
 The data is ISO 8859-1 (Latin-1) encoded, with no special characters.
 Note: Rules for daylight savings time change from year to year and from country to country. The current data is an approximation for 2009, built on a country level. Most airports in DST-less regions in countries that generally observe DST (eg. AL, HI in the USA, NT, QL in Australia, parts of Canada) are marked incorrectly.
 
@@ -55,8 +53,8 @@ Sample entries:
 
 #### General
 
-Parameter     | Value 
------------- | ----------- 
+Parameter     | Value
+------------ | -----------
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/travel_airports_services](https://github.com/dirigiblelabs/travel_airports_services)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
@@ -65,8 +63,8 @@ Download   | -
 
 #### Dependencies
 
-Dependency   | Repository 
------------- | ----------- 
+Dependency   | Repository
+------------ | -----------
 travel_airports_data | [dirigiblelabs/travel_airports_data](https://github.com/dirigiblelabs/travel_airports_data)
 
 

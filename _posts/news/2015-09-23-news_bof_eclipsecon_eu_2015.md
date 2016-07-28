@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "BoF at EclipseCon Europe 2015 scheduled"
 category: news
 tag: news

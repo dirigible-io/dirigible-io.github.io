@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible - Toolkit for Vertical Scenarios"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

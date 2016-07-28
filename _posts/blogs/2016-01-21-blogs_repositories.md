@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Developer - Repositories, repositories, repositories..."
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "How the Orion editor is integrated in Dirigible"
-category: blogs
-tag: blogs
 author: yordan.pavlov
 ---
 

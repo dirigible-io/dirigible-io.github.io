@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup"
-category: blogs
-tag: blogs
 author: georgi.pavlov
 ---
 

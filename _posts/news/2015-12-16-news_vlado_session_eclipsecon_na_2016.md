@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Session by Vladimir Pavlov about Dirigible has been accepted for EclipseCon NA 2016!"
 category: news
 tag: news

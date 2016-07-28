@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Developer - Groovy is back"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

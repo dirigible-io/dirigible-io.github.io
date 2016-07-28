@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Fast Prototyping in Front of Your Customer - Presentation"
 category: news
 tag: news

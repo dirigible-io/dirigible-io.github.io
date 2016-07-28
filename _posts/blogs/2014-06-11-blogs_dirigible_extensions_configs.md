@@ -1,8 +1,5 @@
 ---
-layout: post
 title:  "Dirigible - Extensions vs Configurations"
-category: blogs
-tag: blogs
 author: yordan.pavlov
 ---
 

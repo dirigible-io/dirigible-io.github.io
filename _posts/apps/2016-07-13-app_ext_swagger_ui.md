@@ -1,8 +1,6 @@
 ---
-layout: app
 title: Swagger User Interface
 icon: th-list
-category: apps
 tags:
 - ext
 - ui

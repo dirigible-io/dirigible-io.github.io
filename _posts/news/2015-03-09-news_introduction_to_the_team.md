@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Introduction to Eclipse Cloud Developer Tooling"
 category: news
 tag: news

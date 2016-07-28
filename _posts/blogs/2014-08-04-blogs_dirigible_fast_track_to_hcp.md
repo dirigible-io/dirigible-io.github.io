@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible is the fast track to your HCP HANA DB instance"
-category: blogs
-tag: blogs
 author: georgi.pavlov
 ---
 

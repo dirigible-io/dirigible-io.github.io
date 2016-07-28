@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Develop from Mobile for Mobile"
-category: blogs
-tag: blogs
 author: yordan.pavlov
 ---
 

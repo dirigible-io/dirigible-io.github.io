@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dirigible - integrated environment for developing applications in the Cloud"
 category: news
 tag: news

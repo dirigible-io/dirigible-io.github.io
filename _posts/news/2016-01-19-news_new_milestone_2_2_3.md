@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Milestone 2.2.160119-M3"
 category: release
 tag: release

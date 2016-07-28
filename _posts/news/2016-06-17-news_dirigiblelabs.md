@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dirigible Labs is live!"
 category: news
 tag: news

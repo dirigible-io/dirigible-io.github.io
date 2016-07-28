@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Brainstormers at HackFMI7"
 category: news
 tag: news

@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Tutorial - How to install Dirigible on SAP HANA Cloud Platform"
-category: blogs
-tag: blogs
 author: slavomir.grigorov
 ---
 

@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Dirigible - To Replicate or Not To Replicate"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Tutorial - How to re-brand Dirigible workbench"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 

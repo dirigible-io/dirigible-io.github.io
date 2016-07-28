@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "New Trial Instance at Eclipse.org"
 category: news
 tag: news

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Dirigible officially became Eclipse Project"
 category: news
 tag: news

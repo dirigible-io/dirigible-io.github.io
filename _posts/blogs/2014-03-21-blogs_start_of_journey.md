@@ -1,8 +1,5 @@
 ---
-layout: post
 title: "Start of Journey"
-category: blogs
-tag: blogs
 author: nedelcho.delchev
 ---
 
