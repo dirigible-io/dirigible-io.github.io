@@ -16,6 +16,12 @@ Website address: [www.dirigible.io](www.dirigible.io).
 
 Learn about these features and many more [here](http://www.dirigible.io/features.html).
 
+##User Guide
+
+The latest documentation is available [here](http://www.dirigible.io/help/).
+
+There is also a list of samples that you can experiment with and reuse in order to get to know the features and APIs provided by Eclipse Dirigible. For more information, go to [the samples page](http://www.dirigible.io/samples/).
+
 ##Contributing
 [These fine people] (https://github.com/dirigible-io/dirigible-io.github.io/graphs/contributors) contribute to the project on a daily basis. 
 
