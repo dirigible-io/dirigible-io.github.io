@@ -13,7 +13,7 @@ info: apps/2016/07/12/app_ext_swagger_ui.html
 ---
 
 
-Swagger user interface can be used to discover and test the RESTfull services available on a given Eclipse Dirigible instance...
+Swagger user interface can be used to discover and test the RESTfull services available on a given Eclipse Dirigible instance.
 
 
 <br><br>
