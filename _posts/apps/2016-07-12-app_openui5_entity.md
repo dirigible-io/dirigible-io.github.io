@@ -14,7 +14,7 @@ info: apps/2016/07/12/app_openui5_entity.html
 ---
 
 
-OpenUI5 entity templates includes the following patterns ...
+OpenUI5 entity templates includes the following patterns:
 
 
 <div class="btn-toolbar pull-right">
