@@ -16,7 +16,7 @@ info: apps/2016/07/12/app_core_api.html
 
 Enterprise JavaScript is a set of API modules that aims at
 standardization of the usage of http client and server, database access, files
-operations, websockets and even threads and streams manipulations for
+operations, websockets, and even threads and streams manipulations for
 JavaScript.
 
 For instance:
