@@ -31,21 +31,22 @@ Enhancements to the standard functionality of *GET* with the following parameter
 
 Example metadata for an entity:
 
-<pre><code>
-{"name":"books","type":"object","properties":
-  [
-    {"name":"book_id","type":"integer","key":"true","required":"true"},
-    {"name":"book_isbn","type":"string"},
-    {"name":"book_title","type":"string"},
-    {"name":"book_author","type":"string"},
-    {"name":"book_editor","type":"string"},
-    {"name":"book_publisher","type":"string"},
-    {"name":"book_format","type":"string"},
-    {"name":"book_publication_date","type":"date"},
-    {"name":"book_price","type":"double"}
-  ]
-}
-</code></pre>
+```javascript
+
+	{"name":"books","type":"object","properties":
+	  [
+	    {"name":"book_id","type":"integer","key":"true","required":"true"},
+	    {"name":"book_isbn","type":"string"},
+	    {"name":"book_title","type":"string"},
+	    {"name":"book_author","type":"string"},
+	    {"name":"book_editor","type":"string"},
+	    {"name":"book_publisher","type":"string"},
+	    {"name":"book_format","type":"string"},
+	    {"name":"book_publication_date","type":"date"},
+	    {"name":"book_price","type":"double"}
+	  ]
+	}
+```
 
 All these features of entity services are implied during the generation process. The template uses as input a database table and an entity service name, which are entered in the corresponding [wizard](../samples/entity_service.html).
 Just select the **\*.entity** artifact in the *Workspace Explorer*. From the context menu *Generate*, select *User Interface for Entity Service*.
@@ -61,13 +62,12 @@ Generic query methods are not generated because:
 
 Entity services are generated in JavaScript, hence they can be accessed right after the generation and publishing on:
 
-<pre><code>
-[protocol]://[host]:[port]/[dirigible application context]/services/js/[project]/[entity service path]
+
+> [protocol]://[host]:[port]/[dirigible application context]/services/js/[project]/[entity service path]
 
 e.g.
 
-https ://example.com/dirigible/services/js/bookstore/books.js
-</code></pre>
+> https ://example.com/dirigible/services/js/bookstore/books.js
 
 or just select them in the *Workspace Explorer* and see the result in the **Preview**.
 
