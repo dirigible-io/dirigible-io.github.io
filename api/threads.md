@@ -4,7 +4,7 @@ title: Thread
 icon: fa-check
 ---
 
-Threads
+{{ page.title }}
 ===
 
 Threads utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.

@@ -5,7 +5,7 @@ icon: none
 group: help-concepts
 ---
 
-Entity Service
+{{ page.title }}
 ===
 
 In general, the Entity Service is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it,the database store is connected as a data transfer layer.

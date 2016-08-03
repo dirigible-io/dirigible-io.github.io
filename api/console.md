@@ -4,7 +4,7 @@ title: Console
 icon: fa-check
 ---
 
-Console
+{{ page.title }}
 ===
 
 Console object is used to write messages to the default logging output. It has several log levels INFO, WARNING, ERROR, TRACE. 

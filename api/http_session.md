@@ -4,7 +4,7 @@ title: HTTP Session
 icon: fa-ellipsis-h
 ---
 
-HTTP Session
+{{ page.title }}
 ===
 
 HTTP Session object provided to the scripting services implementation to hold session attributes for multiple client requests.

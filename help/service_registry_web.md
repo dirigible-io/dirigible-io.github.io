@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Web Registry Service
+{{ page.title }} Service
 ===
 
 Web Content Registry Service lists all the artifacts under the Web Content space.

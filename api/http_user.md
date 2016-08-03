@@ -4,7 +4,7 @@ title: HTTP User
 icon: fa-ellipsis-h
 ---
 
-HTTP User
+{{ page.title }}
 ===
 
 HTTP User gives the information about the currently logged in user, if any.

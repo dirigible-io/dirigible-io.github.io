@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-SQL Service
+{{ page.title }} Service
 ===
 
 SQL Execution Service triggers the execution of a specified service written in SQL.

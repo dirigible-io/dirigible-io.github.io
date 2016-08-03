@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Export Content Service
+{{ page.title }} Service
 ===
 
 Export Content service helps in exporting the content of the public registry as a zip file ready for further import.

@@ -4,7 +4,7 @@ title: Files
 icon: fa-ellipsis-h
 ---
 
-Files
+{{ page.title }}
 ===
 
 Files module provides an access to the underlying File System, where the Dirigible server is deployed on.

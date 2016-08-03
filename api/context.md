@@ -4,7 +4,7 @@ title: Context
 icon: fa-check
 ---
 
-Context
+{{ page.title }}
 ===
 
 Context object is used to store and manage properties for a single execution flow (with or without HTTP request)

@@ -4,7 +4,7 @@ title: HTTP Response
 icon: fa-ellipsis-h
 ---
 
-HTTP Response
+{{ page.title }}
 ===
 
 HTTP Response object provided to the scripting services implementation to create the result, which will be sent back to the client.

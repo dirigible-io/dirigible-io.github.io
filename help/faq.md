@@ -1,10 +1,10 @@
 ---
 layout: help
-title: Help
+title: FAQ
 icon: fa-question-circle
 ---
 
-FAQ
+{{ page.title }}
 ---
 
 *If you have a question that is not covered here, but it should be, please let us know.* 

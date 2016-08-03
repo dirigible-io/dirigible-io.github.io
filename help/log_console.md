@@ -5,7 +5,7 @@ icon: none
 group: help-editors-and-views
 ---
 
-Log Console
+{{ page.title }}
 ===
 
 Log Console is a view next to the Log Viewer which shows the real-time log and trace records produced by all the components of a given instance. Underlying implementation is based on WebSockets technology for synchronous bi-directional communication between the client (the Log Console) and the server (Log WebSocket Service).

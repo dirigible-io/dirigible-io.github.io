@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Integration Services
+{{ page.title }}
 ===
 
 Overview

@@ -4,7 +4,7 @@ title: Mail
 icon: fa-ellipsis-h
 ---
 
-Mail
+{{ page.title }}
 ===
 
 Mail object is used to send e-mails through the mail service.

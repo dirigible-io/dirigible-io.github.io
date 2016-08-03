@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Data Export Service
+{{ page.title }} Service
 ===
 
 Data Export service helps in exporting the data of a table in delimiter separated values file (*.dsv).

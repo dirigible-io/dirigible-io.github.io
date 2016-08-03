@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Setup on Tomcat
+Setup on {{ page.title }}
 ===
 
 

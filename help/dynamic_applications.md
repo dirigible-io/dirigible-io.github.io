@@ -4,7 +4,7 @@ title: Dynamic Applications
 icon: fa-question-circle
 ---
 
-Dynamic Applications
+{{ page.title }}
 ===
 
 We introduced the term *Dynamic Applications* as one that narrows the scope of the target applications, which can be created using 

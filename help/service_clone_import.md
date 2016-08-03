@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Clone Import Service
+{{ page.title }} Service
 ===
 
 Clone Import service provides the end-point for importing cloned content from another instance.

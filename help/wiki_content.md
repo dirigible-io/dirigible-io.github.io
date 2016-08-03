@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Wiki Content
+{{ page.title }}
 ===
 
 Overview

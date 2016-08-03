@@ -4,7 +4,7 @@ title: Database
 icon: fa-ellipsis-h
 ---
 
-Database
+{{ page.title }}
 ===
 
 Standard access to the registered relational data sources.

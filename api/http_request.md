@@ -4,7 +4,7 @@ title: HTTP Request
 icon: fa-ellipsis-h
 ---
 
-HTTP Request
+{{ page.title }}
 ===
 
 HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.

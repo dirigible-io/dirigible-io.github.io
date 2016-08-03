@@ -3,7 +3,7 @@ layout: help
 title: Project
 ---
 
-Project
+{{ page.title }}
 ===
 
 Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. The applications created with Eclipse Dirigible comply with the [Dynamic Applications](dynamic_applications.html) concept and structure.

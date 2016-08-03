@@ -4,7 +4,7 @@ title: Indexing
 icon: fa-ellipsis-h
 ---
 
-Indexing
+{{ page.title }}
 ===
 
 Indexing module is used for creating an in-memory full-text-search capable storage.

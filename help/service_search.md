@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Search Service
+{{ page.title }} Service
 ===
 
 Search Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index on the full *Repository* content.

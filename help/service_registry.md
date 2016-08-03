@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Registry Service
+{{ page.title }} Service
 ===
 
 Registry Service gives read-only access to the Dirigible public Registry content.

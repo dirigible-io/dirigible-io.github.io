@@ -4,7 +4,7 @@ title: Exec
 icon: fa-check
 ---
 
-Exec
+{{ page.title }}
 ===
 
 Exec object is used for executing a scripting service programmatically.

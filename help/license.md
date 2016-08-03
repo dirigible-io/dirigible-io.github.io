@@ -4,7 +4,7 @@ title: License
 icon: fa-question-circle
 ---
 
-License
+{{ page.title }}
 ===
 
 The Dirigible project source code base is provided under the [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)

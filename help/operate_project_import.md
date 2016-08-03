@@ -5,7 +5,7 @@ icon: none
 group: help-operate
 ---
 
-Import Project
+{{ page.title }}
 ===
 
 Import Project service provide the end-point for importing project content in design time format (source). 

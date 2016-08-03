@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Java Registry Service
+{{ page.title }} Service
 ===
 
 Java Registry Service lists all the Java services.

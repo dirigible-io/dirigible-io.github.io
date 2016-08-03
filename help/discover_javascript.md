@@ -5,7 +5,7 @@ icon: none
 group: help-discover
 ---
 
-JavaScript Services
+{{ page.title }}
 ===
 
 Navigate throughout all the registered JavaScript endpoints and perform test calls.

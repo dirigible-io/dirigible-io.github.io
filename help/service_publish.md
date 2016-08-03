@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Publish Service
+{{ page.title }} Service
 ===
 
 The Publish service performs the publication of a single artifact from the User's workspace to the Registry.

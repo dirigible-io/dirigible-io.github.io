@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Setup on HANA Cloud Platform
+Setup on {{ page.title }}
 ===
 
 

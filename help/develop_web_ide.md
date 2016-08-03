@@ -5,7 +5,7 @@ icon: none
 group: help-develop
 ---
 
-Web IDE
+{{ page.title }}
 ===
 
 The environment runs directly in a browser and therefore does not require additional downloads and installations. It has a rich set of editors, wizards, and viewers and supports debugging, operations, and monitoring.

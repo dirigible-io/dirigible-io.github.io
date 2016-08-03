@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Runtime Services
+{{ page.title }} Services
 ===
 
 There are several REST services available at runtime, which can give you another communication channel with Dirigible containers.

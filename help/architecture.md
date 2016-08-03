@@ -4,7 +4,7 @@ title: Architecture
 icon: fa-question-circle
 ---
 
-Architecture
+{{ page.title }}
 ===
 
 The Eclipse Dirigible architecture follows the well proved principles of simplicity and scalability in the classical service-oriented architecture.

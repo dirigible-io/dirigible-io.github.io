@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-SQL Registry Service
+{{ page.title }} Service
 ===
 
 SQL Registry Service lists all the SQL services.

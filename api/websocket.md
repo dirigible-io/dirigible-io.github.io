@@ -4,7 +4,7 @@ title: Websocket
 icon: fa-ellipsis-h
 ---
 
-Websocket
+{{ page.title }}
 ===
 
 Websocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.

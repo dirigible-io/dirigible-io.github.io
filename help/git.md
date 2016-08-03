@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Git Integration
+{{ page.title }}
 ===
 
 There is a Git connector for team development in the cloud toolkit. 

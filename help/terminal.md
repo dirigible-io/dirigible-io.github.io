@@ -5,7 +5,7 @@ icon: none
 group: help-editors-and-views
 ---
 
-Terminal
+{{ page.title }}
 ===
 
 Via the *Terminal* view, you can execute OS commands.  

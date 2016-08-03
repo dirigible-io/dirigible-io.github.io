@@ -4,7 +4,7 @@ title: Config
 icon: fa-check
 ---
 
-Config
+{{ page.title }}
 ===
 
 Config object is used to store and manage properties in the Configuration Store.

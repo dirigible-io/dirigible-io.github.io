@@ -4,7 +4,7 @@ title: Digest
 icon: fa-ellipsis-h
 ---
 
-Digest
+{{ page.title }}
 ===
 
 Digest object is used to encript binary/text with algorithms like md5, sha256 and sha512.

@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Tooling
+{{ page.title }}
 ===
 
 One of the biggest advantages of the Eclipse Dirigible project is its powerful design-time tooling. It claims to be Integrated Development Environment as a Service (IDEaaS). This means that the platform is complete enough to be able to cope with all developer needs. It enables the developers to build a cloud-based dynamic application only via a Web browser.

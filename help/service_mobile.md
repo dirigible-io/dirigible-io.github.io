@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Mobile App Provisioning Service
+{{ page.title }} Service
 ===
 
 Mobile App Provisioning Service provides the code for the application written in JavaScript for Mobile.

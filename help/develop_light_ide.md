@@ -5,7 +5,7 @@ icon: none
 group: help-develop
 ---
 
-Light IDE
+{{ page.title }}
 ===
 
 For quick fixes, with simple source code editing and publishing capabilities, there is a lightweight development environment convenient for mobile devices.

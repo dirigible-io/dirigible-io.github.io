@@ -4,7 +4,7 @@ title: UUID
 icon: fa-ellipsis-h
 ---
 
-UUID
+{{ page.title }}
 ===
 
 UUID object is used to generate random universally unique identifiers.

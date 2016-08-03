@@ -4,7 +4,7 @@ title: SOAP
 icon: fa-check
 ---
 
-SOAP
+{{ page.title }}
 ===
 
 SOAP utility exposes web services frameowrk for manipulating SOAP messages, making calls to external end-points and creating simple web services

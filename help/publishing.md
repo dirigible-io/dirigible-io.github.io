@@ -5,7 +5,7 @@ icon: none
 group: help-concepts
 ---
 
-Publishing
+{{ page.title }}
 ===
 
 There is a conceptual separation between design-time and runtime phases of the development life-cycle.

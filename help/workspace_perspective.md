@@ -5,7 +5,7 @@ icon: none
 group: help-perspectives
 ---
 
-Workspace Perspective
+{{ page.title }} Perspective
 ===
 
 This is the place where you actually develop your dynamic Web applications. This perspective contains all views and editors that may help you in the overall implementation, from domain models via services to the user interface.

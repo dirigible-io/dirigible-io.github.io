@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-JavaScript Registry Service
+{{ page.title }} Service
 ===
 
 JavaScript Registry Service lists all the JavaScript services.

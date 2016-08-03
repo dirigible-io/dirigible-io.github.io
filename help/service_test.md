@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Test Service
+{{ page.title }} Service
 ===
 
 Test Execution Service triggers the execution of a specified unit test written in JavaScript.

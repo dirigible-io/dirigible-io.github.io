@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Test Cases
+{{ page.title }}
 ===
 
 Overview

@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Web Content Provisioning
+{{ page.title }} Service
 ===
 
 Web Content Provisioning Service provides the requested Web Content artifact.

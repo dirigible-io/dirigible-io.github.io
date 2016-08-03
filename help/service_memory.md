@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Memory Service
+{{ page.title }} Service
 ===
 
 Memory Service dumps the current information from the [Runtime](http://docs.oracle.com/javase/6/docs/api/java/lang/Runtime.html).

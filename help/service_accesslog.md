@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Access Log Service
+{{ page.title }} Service
 ===
 
 Via the Access Logs Service, you can manage the locations to be filtered and registered, and you can receive the comprehensive information about the accessed ones for the latest time period.

@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-JavaScript Service
+{{ page.title }} Service
 ===
 
 JavaScript Execution Service triggers the execution of a specified service written in JavaScript.

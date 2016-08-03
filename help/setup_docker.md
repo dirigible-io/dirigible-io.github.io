@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Docker Image
+Setup as a {{ page.title }} Image
 ===
 
 

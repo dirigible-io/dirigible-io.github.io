@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Environment Variables
+{{ page.title }}
 ===
 
 There are a few parameters, which can reconfigure dynamically the behavior of the Eclipse Dirigible instance. They can be either pass as a initialization parameters in the web.xml or more flexible approach - via system parameters a.k.a environment variables.

@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Setup on Tomcat with PostgreSQL
+Setup on {{ page.title }}
 ===
 
 

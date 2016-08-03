@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Mobile Apps Registry Service
+{{ page.title }} Service
 ===
 
 Mobile Apps Registry Service lists all the Mobile Applications.

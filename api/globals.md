@@ -4,7 +4,7 @@ title: Globals
 icon: fa-check
 ---
 
-Globals
+{{ page.title }}
 ===
 
 Globals object is used to store and manage properties in the global store.

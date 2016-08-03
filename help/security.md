@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Security
+{{ page.title }}
 ===
 
 Security is quite a broad topic. We will emphasize mostly on the authentication and authorization concept of [dynamic applications](dynamic_applications.html).

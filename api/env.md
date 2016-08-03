@@ -4,7 +4,7 @@ title: Env
 icon: fa-check
 ---
 
-Env
+{{ page.title }}
 ===
 
 Env object is used for access of the environment variables.

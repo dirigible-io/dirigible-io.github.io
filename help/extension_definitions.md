@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Extension Definitions
+{{ page.title }}
 ===
 
 Extensibility is an important requirement for business applications built to follow custom processes in Line of Business(LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.

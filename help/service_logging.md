@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Logging Service
+{{ page.title }} Service
 ===
 
 Logging Service exposes the list of log files as well as their content.

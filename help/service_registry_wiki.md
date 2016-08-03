@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Wiki Registry Service
+{{ page.title }} Service
 ===
 
 Wiki Pages Registry Service lists all the wiki pages under the Wiki Content space.

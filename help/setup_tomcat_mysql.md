@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Setup on Tomcat with MySQL
+Setup on {{ page.title }}
 ===
 
 

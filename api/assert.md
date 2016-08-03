@@ -4,7 +4,7 @@ title: Assert
 icon: fa-check
 ---
 
-Assert
+{{ page.title }}
 ===
 
 Assert object is used to check given conditions or objects

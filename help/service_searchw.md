@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Search Workspace Service
+{{ page.title }} Service
 ===
 
 Search Workspace Service exposes the [Apache Lucene](http://lucene.apache.org/) memory index on the users's *Workspace* content.

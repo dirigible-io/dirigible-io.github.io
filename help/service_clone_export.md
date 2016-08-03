@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Clone Export Service
+{{ page.title }} Service
 ===
 
 Clone Export service helps in exporting the content of the whole repository as a zip file ready for further import.

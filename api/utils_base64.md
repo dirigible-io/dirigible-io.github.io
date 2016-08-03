@@ -4,7 +4,7 @@ title: Base64
 icon: fa-ellipsis-h
 ---
 
-Base64
+{{ page.title }}
 ===
 
 Base64 object is used to encode/decode in base64.

@@ -5,7 +5,7 @@ icon: none
 group: help-discover
 ---
 
-User Interfaces
+{{ page.title }}
 ===
 
 Navigate throughout all the registered user interfaces in the WebContent space.

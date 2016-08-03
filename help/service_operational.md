@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Operational Service
+{{ page.title }} Service
 ===
 
 Operational Service exposes some utility functions.

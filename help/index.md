@@ -20,17 +20,17 @@ General Overview
 * [License](license.html)
 * [Credits](credits.html)
 
-
-Develop
+Development & Operations
 ---
+
+#### Develop
 
 * [Web IDE](develop_web_ide.html)
 * [Light IDE](develop_light_ide.html)
 * [Desktop IDE](develop_desktop_ide.html)
 
 
-Discover
----
+#### Discover
 
 * [Web Content Registry](service_registry_web.html)
 * [Wiki Pages Registry](service_registry_wiki.html)
@@ -42,8 +42,7 @@ Discover
 * [SQL Registry](service_registry_sql.html)
 * [Test Registry](service_registry_test.html)
 
-Operate
----
+#### Operate
 
 * [Import](service_import.html)
 * [Export](service_export.html)
@@ -51,8 +50,7 @@ Operate
 * [Clone Export](service_clone_export.html)
 * [Project Import](service_project_import.html)
 
-Monitor
----
+#### Monitor
 
 * [Memory](service_memory.html)
 * [Logging](service_logging.html)
@@ -89,8 +87,7 @@ Tooling
 
 * [Overview](tooling.html)
 
-Perspectives
-----
+#### Perspectives
 
 * [Workspace](workspace_perspective.html)
 * [Database](database_perspective.html)
@@ -98,17 +95,18 @@ Perspectives
 * [Registry](registry.html)
 * [Debug](debugger.html)
 
-Editors and Views
-----
+#### Editors and Views
 
 * [Source Editor](source_editor.html)
 * [SQL Console](sql_console.html)
 * [Log Viewer](log_viewer.html)
 * [Log Console](log_console.html)
 * [Terminal](terminal.html)
-	
+
 Services
 ---
+
+#### Management
 
 * [Operational](service_operational.html)
 * [Memory](service_memory.html)
@@ -124,27 +122,44 @@ Services
 * [Reset](service_reset.html)
 * [Data Import](service_data_import.html)
 * [Data Export](service_data_export.html)
+
+#### Development
+
 * [Workspace](service_workspace.html)
 * [Search Workspace](service_searchw.html)
 * [Publish](service_publish.html)
-* [JavaScript Registry](service_registry_js.html)
+
+#### Execution and Provisioning
+
 * [JavaScript Execution](service_javascript.html)
-* [Java Registry](service_registry_java.html)
 * [Java Execution](service_java.html)
-* [Flow Registry](service_registry_flow.html)
 * [Flow Execution](service_flow.html)
-* [Job Registry](service_registry_job.html)
 * [Job Execution](service_job.html)
-* [Web Content Registry](service_registry_web.html)
 * [Web Content Provisioning](service_web.html)
-* [Wiki Pages Registry](service_registry_wiki.html)
 * [Wiki Pages Provisioning](service_wiki.html)
-* [SQL Registry](service_registry_sql.html)
 * [SQL Execution](service_sql.html)
-* [Mobile Apps Registry](service_registry_mobile.html)
 * [Mobile App Provisioning](service_mobile.html)
-* [Test Registry](service_registry_test.html)
 * [Test Execution](service_test.html)
+
+#### Registry
+
+* [JavaScript Registry](service_registry_js.html)
+* [Java Registry](service_registry_java.html)
+* [Flow Registry](service_registry_flow.html)
+* [Job Registry](service_registry_job.html)
+* [Web Content Registry](service_registry_web.html)
+* [Wiki Pages Registry](service_registry_wiki.html)
+* [SQL Registry](service_registry_sql.html)
+* [Mobile Apps Registry](service_registry_mobile.html)
+* [Test Registry](service_registry_test.html)
+
+#### Generation
+
+* [Generation of Data Structure](service_generation_data_structure.html)
+* [Generation of Scripting Service](service_generation_scripting_service.html)
+* [Generation of Generation of Web Content](service_generation_web_content.html)
+* [Generation of Generation of Web Content for Entity](service_generation_web_content_entity.html)
+
 
 Samples
 ---

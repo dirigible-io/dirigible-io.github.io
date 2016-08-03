@@ -5,7 +5,7 @@ icon: none
 group: help-concepts
 ---
 
-Generation
+{{ page.title }}
 ===
 
 Template based generation of artifacts helps for developer productivity in the initial phase of building the application. There are several application components, which have similar behavior and often very similar implementation. 

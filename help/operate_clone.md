@@ -5,7 +5,7 @@ icon: none
 group: help-operate
 ---
 
-Clone Instance
+{{ page.title }}
 ===
 
 Import and Export the whole Repository content including the Users Workspaces and Configurations. 

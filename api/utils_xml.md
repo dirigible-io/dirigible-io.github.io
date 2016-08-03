@@ -4,7 +4,7 @@ title: XML
 icon: fa-ellipsis-h
 ---
 
-XML
+{{ page.title }}
 ===
 
 XML object is used to transfrom from JSON to XML and vice versa.

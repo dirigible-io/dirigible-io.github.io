@@ -5,7 +5,7 @@ icon: none
 group: help-discover
 ---
 
-Wiki Pages
+{{ page.title }}
 ===
 
 Navigate throughout all the registered wiki pages in the WikiContent space. Wiki pages first go through transformation and then are published.

@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Java Service
+{{ page.title }} Service
 ===
 
 Java Execution Service triggers the execution of a specified service written in Java.

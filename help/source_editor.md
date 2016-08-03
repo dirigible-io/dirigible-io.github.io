@@ -5,7 +5,7 @@ icon: none
 group: help-editors-and-views
 ---
 
-Source Editor
+{{ page.title }}
 ===
 
 Technically, the *Source Editor* provided by the cloud toolkit is embedded version of the familiar 

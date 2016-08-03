@@ -4,7 +4,7 @@ title: Streams
 icon: fa-ellipsis-h
 ---
 
-Streams
+{{ page.title }}
 ===
 
 Streams module provides classes and utilities for working with streams.

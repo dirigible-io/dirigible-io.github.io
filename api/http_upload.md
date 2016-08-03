@@ -4,7 +4,7 @@ title: HTTP Upload
 icon: fa-ellipsis-h
 ---
 
-HTTP Upload
+{{ page.title }}
 ===
 
 HTTP Upload is used to consume files posted as multipart request.

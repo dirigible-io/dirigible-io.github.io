@@ -5,7 +5,7 @@ icon: none
 group: help-monitor
 ---
 
-Monitor Memory
+{{ page.title }}
 ===
 
 Statistics of the free, total, and maximum memory available in the current instance.

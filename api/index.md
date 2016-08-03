@@ -7,7 +7,7 @@ icon: fa-question-circle
 Eclipse Dirigible<sup>&trade;</sup> API
 ===
 
-Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the injected API availability, versions and status.
+Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status.
 
 
 

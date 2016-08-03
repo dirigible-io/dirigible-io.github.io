@@ -5,7 +5,7 @@ icon: none
 group: help-monitor
 ---
 
-Configure Monitoring
+{{ page.title }}
 ===
 
 Register the locations for which you want to collect statistics.

@@ -5,7 +5,7 @@ icon: none
 group: help-discover
 ---
 
-Browse Content
+{{ page.title }}
 ===
 
 Browse the raw content of the Registry containing all the published artifacts. Inspect the source of the HTML or Wiki pages, as well as the code for the scripting services in JavaScript, Java, SQL, and Shell Commands.

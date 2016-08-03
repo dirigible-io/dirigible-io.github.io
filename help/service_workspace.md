@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Workspace Service
+{{ page.title }} Service
 ===
 
 Workspace service gives full access for management of projects artifacts within the User's workspace.

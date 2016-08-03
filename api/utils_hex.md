@@ -4,7 +4,7 @@ title: Hex
 icon: fa-ellipsis-h
 ---
 
-Hex
+{{ page.title }}
 ===
 
 Hex object is used to encode/decode text/binary in hexadecimal format.

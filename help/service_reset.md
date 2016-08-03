@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Reset Service
+{{ page.title }} Service
 ===
 
 Reset Service returns the content to its initial state after the installation.

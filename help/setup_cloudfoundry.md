@@ -5,7 +5,7 @@ icon: none
 group: help-setup
 ---
 
-Setup on Cloud Foundry
+Setup on {{ page.title }}
 ===
 
 

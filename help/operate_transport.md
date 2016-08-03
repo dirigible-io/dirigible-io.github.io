@@ -5,7 +5,7 @@ icon: none
 group: help-operate
 ---
 
-Transport Content
+{{ page.title }}
 ===
 
 Import and Export the public artifacts from the Registry. 

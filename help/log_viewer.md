@@ -5,7 +5,7 @@ icon: none
 group: help-editors-and-views
 ---
 
-Log Viewer
+{{ page.title }}
 ===
 
 It lists all available log files.

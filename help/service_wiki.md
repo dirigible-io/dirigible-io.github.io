@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Wiki Content Provisioning
+{{ page.title }} Service
 ===
 
 Wiki Pages Provisioning Service transforms and provides the requested Wiki page.

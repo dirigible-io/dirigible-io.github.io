@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Repository Service
+{{ page.title }} Service
 ===
 
 Repository Service gives full access to the Dirigible Repository API.

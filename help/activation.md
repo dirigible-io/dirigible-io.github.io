@@ -5,7 +5,7 @@ icon: none
 group: help-concepts
 ---
 
-Activation
+{{ page.title }}
 ===
 
 Activation is a concept related to the development lifecycle of an application. The original sources are stored in the workspace of the user. All changes reflect directly on the source artifacts there. When the source artifact is already in the state to be tested, the developer has to perform an *activation* on project level. This will copy the source artifacts from the workspace to the *sandbox*. This place is a fully-functional runtime container isolated for the current user only. The only difference between the *sandbox* and the *registry* space is the user isolation.

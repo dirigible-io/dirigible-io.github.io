@@ -4,7 +4,7 @@ title: XSS
 icon: fa-ellipsis-h
 ---
 
-XSS
+{{ page.title }}
 ===
 
 XSS object is used to escape special symbols in order to prevent XSS attacks.

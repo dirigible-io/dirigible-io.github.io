@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Flow Service
+{{ page.title }} Service
 ===
 
 Flow Execution Service triggers the execution of a specified Flow declaration.

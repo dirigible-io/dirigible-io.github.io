@@ -5,7 +5,7 @@ icon: none
 group: help-discover
 ---
 
-Mobile Apps
+{{ page.title }}
 ===
 
 Navigate throughout all the registered mobile applications in the MobileApplications space.

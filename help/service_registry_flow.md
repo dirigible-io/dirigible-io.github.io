@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Flow Registry Service
+{{ page.title }} Service
 ===
 
 Flow Registry Service lists all the Flow declarations.

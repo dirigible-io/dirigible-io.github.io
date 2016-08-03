@@ -4,7 +4,7 @@ title: HTTP Client
 icon: fa-ellipsis-h
 ---
 
-HTTP Client
+{{ page.title }}
 ===
 
 HTTP Client is used by scripting services to call external services via HTTP.

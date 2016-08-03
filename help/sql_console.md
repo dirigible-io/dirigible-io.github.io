@@ -5,7 +5,7 @@ icon: none
 group: help-editors-and-views
 ---
 
-SQL Console
+{{ page.title }}
 ===
 
 Generic and in the same time the most powerful and dangerous tool for database management - SQL Console.

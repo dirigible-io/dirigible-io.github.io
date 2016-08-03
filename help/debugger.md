@@ -5,7 +5,7 @@ icon: none
 group: help-perspectives
 ---
 
-Debugging
+Debugging Scripting Services in JavaScript
 ===
 
 The toolkit offers *Debug* functionality in order to support developers in the hunt of server-side bugs.
@@ -20,7 +20,6 @@ The toolkit offers *Debug* functionality in order to support developers in the h
 
 ### Available Commands
 
-*	![Button Refresh](images/features/debugger/5_button_refresh.png) Refresh
 *	![Button Step Into](images/features/debugger/5_button_step_into.png) Step Into
 *	![Button Step Over](images/features/debugger/5_button_step_over.png) Step Over
 *	![Button Continue](images/features/debugger/5_button_continue.png) Continue
@@ -119,29 +118,25 @@ response.getWriter().close();
 
     ![Debugger Start Session](images/features/debugger/7_debugger_start_session.png)
 
-3. In the *Debug* view, press the *Refresh* ![Button Refresh](images/features/debugger/5_button_refresh.png) button to list available debug sessions and select one.
-
-    ![Debugger Select Session](images/features/debugger/8_debugger_select_session.png)
-
-4. Press the *Step Into* ![Button Step Into](images/features/debugger/5_button_step_into.png) button to continue with script execution.
+3. Press the *Step Into* ![Button Step Into](images/features/debugger/5_button_step_into.png) button to continue with script execution.
 
     ![Debugger Step Into](images/features/debugger/9_debugger_step_into.png)
 
-5. Set some *Breakpoints*.
-6. Click on the line numbers on the left side of the opened editor.
-7. Press the *Refresh* ![Button Refresh](images/features/debugger/5_button_refresh.png) button to see *Breakpoints* that were set.
+4. Set some *Breakpoints*.
+5. Click on the line numbers on the left side of the opened editor.
+6. Press the *Refresh* ![Button Refresh](images/features/debugger/5_button_refresh.png) button to see *Breakpoints* that were set.
 
     ![Debugger Set Breakpoints](images/features/debugger/10_debugger_set_breakpoints.png)
 
-8. Press the *Continue* ![Button Continue](images/features/debugger/5_button_continue.png) button to resume script execution to the next breakpoint.
+7. Press the *Continue* ![Button Continue](images/features/debugger/5_button_continue.png) button to resume script execution to the next breakpoint.
 
     ![Debugger Continue](images/features/debugger/11_debugger_continue.png)
 
-9. Press the *Continue* ![Button Continue](images/features/debugger/5_button_continue.png) button again.
+8. Press the *Continue* ![Button Continue](images/features/debugger/5_button_continue.png) button again.
 
     ![Debugger Continue](images/features/debugger/12_debugger_continue.png)
 
-10. To exit the *Debug Session*, press the *Skip all breakpoints* ![Button Skip All Breakpoints](images/features/debugger/5_button_skip_all_breakpoints.png) button or continue pressing *Step Over* ![Button Step Over](images/features/debugger/5_button_step_over.png) or *Step Into* ![Button Step Into](images/features/debugger/5_button_step_into.png) until the script execution finishes.
+9. To exit the *Debug Session*, press the *Skip all breakpoints* ![Button Skip All Breakpoints](images/features/debugger/5_button_skip_all_breakpoints.png) button or continue pressing *Step Over* ![Button Step Over](images/features/debugger/5_button_step_over.png) or *Step Into* ![Button Step Into](images/features/debugger/5_button_step_into.png) until the script execution finishes.
 
 
 ### Step 3 - Debugging Scripts Requiring Libraries

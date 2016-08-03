@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Messaging Service
+{{ page.title }} Service
 ===
 
 The Messaging Service provides a passive message hub functionality.

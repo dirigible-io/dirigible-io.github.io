@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Import Content Service
+{{ page.title }} Service
 ===
 
 The Import Content service provides the end-point for importing public registry content from another instance.

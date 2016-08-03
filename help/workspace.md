@@ -5,7 +5,7 @@ icon: none
 group: help-concepts
 ---
 
-Workspace
+{{ page.title }}
 ===
 
 The **Workspace** is the developer's place where he/she creates and manages the application artifacts. The first-level entities are the projects themselves. Each project contains several system folders based on the type of artifacts.

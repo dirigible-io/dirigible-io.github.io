@@ -5,7 +5,7 @@ icon: none
 group: help-services
 ---
 
-Test Registry Service
+{{ page.title }} Service
 ===
 
 Test Registry Service lists all the Test services.
