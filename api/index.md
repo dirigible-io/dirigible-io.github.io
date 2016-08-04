@@ -56,6 +56,7 @@ Net/HTTP
 * [session](http_session.html)
 * [client](http_client.html)
 * [upload](http_upload.html)
+* [user](http_user.html)
 
 
 Services
