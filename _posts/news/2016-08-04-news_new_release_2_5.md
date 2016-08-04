@@ -8,7 +8,7 @@ New version [2.5.160804-R](http://download.eclipse.org/dirigible/drops/R-2.5-201
 
 #### Features
 
-* Enterprise JavaScript API http://www.dirigible.io/api/index.html
+* Enterprise JavaScript API [http://www.dirigible.io/api/index.html](http://www.dirigible.io/api/index.html)
 	* Built-in (console)
 	* Core (assert, config, globals, context, env, threads)
 	* Database (database)
