@@ -28,5 +28,13 @@ Steps
 3. Open a web browser and go to:
 
         http://localhost:8888/
-        
-4. (Optional) Enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/docker/).
+
+Tomcat Image
+---
+
+The same steps can be performed for the standard Tomcat image `dirigible-tomcat`. The default user name and password are 'dirigible/dirigible'
+    
+Contribution
+---
+
+Optionally you can enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/docker/).
