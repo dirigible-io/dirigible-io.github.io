@@ -32,7 +32,7 @@ Steps
 Tomcat Image
 ---
 
-The same steps can be performed for the standard Tomcat image `dirigible-tomcat`. The default user name and password are 'dirigible/dirigible'
+The same steps can be performed for the standard Tomcat image `dirigible-tomcat`. The default user name and password are `dirigible/dirigible`.
     
 Contribution
 ---
