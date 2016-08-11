@@ -4,12 +4,18 @@ author: yordan.pavlov
 ---
 
 
-This blog is the first of series of blogs on the hot topic - **"How to Run Dirigible Anywhere?"**.
-
-Our first target to run Eclipse Dirigible on is **Microsoft Azure**.
+This blog is the first of series of blogs on the hot topic - **"How to Run Dirigible Anywhere?"**. Our first target to run Eclipse Dirigible on is **Microsoft Azure**.
 
 ## Micrsoft Azure
-Why Microsoft Azure? Microsoft Azure public cloud is <TODO> mature enough ...
+Why Microsoft Azure? 
+
+**Microsoft Azure** public cloud has proven to be mature enough to run your enterprise bussines applications, scale your business, benefit from the variety of services it provides, simplify the complex environments, pay only for what you've used and a lot more. It seems to be the right place to run your one **Eclipse Dirigible** instance.
+
+**Here are some resources on why to choose Microsoft Azure:**
+
+* <a href="https://azure.microsoft.com/en-gb/overview/what-is-azure/" target="_blank">What is Azure</a>
+* <a href="https://azure.microsoft.com/en-gb/overview/business-apps-on-azure/" target="_blank">Business Apps on Azure</a>
+*  <a href="https://azure.microsoft.com/en-gb/case-studies/" target="_blank">Case Studies</a>
 
 ## Steps
 Bellow you can find the steps of how to deploy Eclipse Dirigible on Microsoft Azure.
