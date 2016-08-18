@@ -51,6 +51,7 @@ To create the RESTful API I used Eclipse Dirigible's automated scripting servic
 ### Boris:
 
 My part of the application is divided into two similar parts:
+
 * **Entertainments**:
 
 When from another page (“Welcome”, “Transport”, “Events”, “Hotels” or “Sightseeings”) is being navigated to Entertainments, the name of the destination is automatically put into the textbox bellow the “Destination” label. The Entertainments, that are near this city are filtered and are shown together with their entertainment type and category, rating, additional information and destination.
