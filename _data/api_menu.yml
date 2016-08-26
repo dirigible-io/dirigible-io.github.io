@@ -69,6 +69,9 @@ navigation:
   - name: service/messaging
     icon: fa fa-caret-right
     url: messaging.html
+  - name: service/repository
+    icon: fa fa-caret-right
+    url: repository.html
   - name: utils/base64
     icon: fa fa-caret-right
     url: utils_base64.html

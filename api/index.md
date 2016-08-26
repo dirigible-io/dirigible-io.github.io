@@ -66,6 +66,7 @@ Services
 * [indexing](indexing.html)
 * [mail](mail.html)
 * [messaging](messaging.html)
+* [repository](repository.html)
 
 
 Utils
