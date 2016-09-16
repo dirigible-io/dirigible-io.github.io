@@ -24,6 +24,7 @@ Basic Usage
 console.info("Info message: %s", "Hello World!");
 console.error("Error message.");
 console.warn("Warning message.");
+console.debug("Debug message.");
 console.log("Log message.");
 console.trace("Trace.");
 ```
@@ -40,6 +41,7 @@ Function     | Description | Returns
 **info(message, parameters)**   | Logs a message with level INFO | -
 **error(message, parameters)**   | Logs a message with level ERROR | -
 **warn(message, parameters)**   | Logs a message with level WARN | -
+**debug(message, parameters)**   | Logs a message with level DEBUG | -
 **log(message, parameters)**   | Logs a message with level INFO | -
 **trace(message, parameters)**   | Logs a message with level ERROR with the full stack trace | -
 
