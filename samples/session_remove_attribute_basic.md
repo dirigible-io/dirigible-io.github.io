@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Session Remove Attribute
+title: Http Session Remove Attribute
 icon: fa-caret-right
 group: simple
 ---
 
-Session Remove Attribute
+Http Session Remove Attribute
 ===
 
 Develop

@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Info
+title: Http Request Info
 icon: fa-caret-right
 group: simple
 ---
 
-Request Info
+Http Request Info
 ===
 
 Develop

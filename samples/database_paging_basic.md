@@ -1,22 +1,22 @@
 ---
 layout: samples
-title: Database Paging Basic
+title: Database Paging
 icon: fa-caret-right
 group: simple
 ---
 
-Database Paging Basic
+Database Paging
 ===
 
 Develop
 --
 
-1. Create a new project and name it **database_paging_basic**.
+1. Create a new project and name it **database_paging**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
-5. Give it a meaningful name (e.g **database_paging_basic.js**).
-6. Replace the generated code in **database_paging_basic.js** with the following:
+5. Give it a meaningful name (e.g **database_paging.js**).
+6. Replace the generated code in **database_paging.js** with the following:
 
 ```javascript
 

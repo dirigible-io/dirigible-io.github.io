@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Input
+title: Http Request Input
 icon: fa-caret-right
 group: simple
 ---
 
-Request Input
+Http Request Input
 ===
 
 Develop

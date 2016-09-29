@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Http GET
+title: Http Client GET
 icon: fa-caret-right
 group: simple
 ---
 
-Http GET
+Http Client GET
 ===
 
 Develop

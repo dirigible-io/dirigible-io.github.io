@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Response Cookie
+title: Http Response Cookie
 icon: fa-caret-right
 group: simple
 ---
 
-Response Cookie
+Http Response Cookie
 ===
 
 Develop

@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Response
+title: Http Response
 icon: fa-caret-right
 group: simple
 ---
 
-Response
+Http Response
 ===
 
 Develop

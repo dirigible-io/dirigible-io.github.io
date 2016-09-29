@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Roles
+title: Http Request Roles
 icon: fa-caret-right
 group: simple
 ---
 
-Request Roles
+Http Request Roles
 ===
 
 Develop

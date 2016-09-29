@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Parameters
+title: Http Request Parameters
 icon: fa-caret-right
 group: simple
 ---
 
-Request Parameters
+Http Request Parameters
 ===
 
 Develop

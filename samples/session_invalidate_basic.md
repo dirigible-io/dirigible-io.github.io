@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Session Invalidate
+title: Http Session Invalidate
 icon: fa-caret-right
 group: simple
 ---
 
-Session Invalidate
+Http Session Invalidate
 ===
 
 Develop

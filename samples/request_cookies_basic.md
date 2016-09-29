@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Cookies
+title: Http Request Cookies
 icon: fa-caret-right
 group: simple
 ---
 
-Request Cookies
+Http Request Cookies
 ===
 
 Develop

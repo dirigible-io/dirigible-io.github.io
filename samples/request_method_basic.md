@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Method
+title: Http Request Method
 icon: fa-caret-right
 group: simple
 ---
 
-Request Method
+Http Request Method
 ===
 
 Develop

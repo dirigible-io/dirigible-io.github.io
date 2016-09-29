@@ -1,22 +1,22 @@
 ---
 layout: samples
-title: Database Sequence Basic
+title: Database Sequence
 icon: fa-caret-right
 group: simple
 ---
 
-Database Sequence Basic
+Database Sequence
 ===
 
 Develop
 --
 
-1. Create a new project and name it **database_sequence_basic**.
+1. Create a new project and name it **database_sequence**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
 3. Choose *New* -> *Scripting Service*.
 4. Choose **Server-Side JavaScript Service** from the list of available templates.
-5. Give it a meaningful name (e.g **database_sequence_basic.js**).
-6. Replace the generated code in **database_sequence_basic.js** with the following:
+5. Give it a meaningful name (e.g **database_sequence.js**).
+6. Replace the generated code in **database_sequence.js** with the following:
 
 ```javascript
 

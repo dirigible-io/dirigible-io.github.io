@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Session Info
+title: Http Session Info
 icon: fa-caret-right
 group: simple
 ---
 
-Session Info
+Http Session Info
 ===
 
 Develop

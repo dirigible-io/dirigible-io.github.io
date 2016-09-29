@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Session Attribute
+title: Http Session Attribute
 icon: fa-caret-right
 group: simple
 ---
 
-Session Attribute
+Http Session Attribute
 ===
 
 Develop

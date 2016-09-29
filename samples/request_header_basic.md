@@ -1,11 +1,11 @@
 ---
 layout: samples
-title: Request Header
+title: Http Request Header
 icon: fa-caret-right
 group: simple
 ---
 
-Request Header
+Http Request Header
 ===
 
 Develop
