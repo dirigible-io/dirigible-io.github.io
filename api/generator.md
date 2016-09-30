@@ -53,7 +53,7 @@ Definition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**getWorker(type)**   | Returns the generation worker for this type of templates | *Worker*
+**getWorker(category)**   | Returns the generation worker for this category of templates | *Worker*
 
 
 ### Objects
@@ -64,7 +64,7 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**getTemplates()**   | Returns the list of the available templates for this type of worker | *JSON*
+**getTemplates()**   | Returns the list of the available templates for this category | *JSON*
 **generate(parameters)**   | Produces the artifacts based on the chosen template and provided parameters | *-*
 
 
