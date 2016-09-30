@@ -34,16 +34,13 @@ Database
 * [database](database.html)
 
 
-Document
+
+Internal
 ---
 
-* [cmis](cmis.html)
-
-
-Generate/Templates
----
-
+* [exec](exec.html)
 * [generator](generator.html)
+* [repository](repository.html)
 
 
 IO
@@ -74,11 +71,10 @@ Net/HTTP
 Services
 ---
 
-* [exec](exec.html)
+* [cmis](cmis.html)
 * [indexing](indexing.html)
 * [mail](mail.html)
 * [messaging](messaging.html)
-* [repository](repository.html)
 
 
 Utils
