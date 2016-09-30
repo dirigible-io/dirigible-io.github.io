@@ -147,6 +147,7 @@ Function     | Description | Returns
 **getName()**   | Returns the Name of this CmisObject | *string*
 **getType()**   | Returns the Type of this CmisObject | *string*
 **delete()**   | Deletes this CmisObject | *string*
+**rename(newName)**   | Renames this CmisObject | *-*
 
 
 #### Folder
@@ -162,6 +163,7 @@ Function     | Description | Returns
 **isRootFolder()**   | Returns true if this Folder is a root folder and false otherwise | *boolean*
 **getFolderParent(properties)**   | Returns the parent Folder of this Folder | *Folder*
 **delete()**   | Deletes this Folder | *string*
+**rename(newName)**   | Renames this Folder | *-*
 
 
 #### Document
@@ -172,6 +174,7 @@ Function     | Description | Returns
 **getName()**   | Returns the Name of this Document | *string*
 **delete()**   | Deletes this Document | *string*
 **getContentStream()**   | Returns the ContentStream representing the contents of this Document | *string*
+**rename(newName)**   | Renames this Document | *-*
 
 
 

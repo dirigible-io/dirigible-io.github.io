@@ -56,6 +56,11 @@ Function     | Description | Returns
 **setContentLength(length)**   | Sets the content length of the response | -
 **setContentType(type)**   | Sets the content type of the response | -
 **setStatus(status)**   | Sets the status of the response | -
+**getOutputStream()**   | Returns the OutputStream object | *streams.OutputStream*
+**writeStream(inputStream)**   | Writes the inputStream to the output stream of this Response | -
+**writeOutput(bytes)**   | Writes the byte array to the output stream of this Response | -
+
+
 
 
 ### Constants
