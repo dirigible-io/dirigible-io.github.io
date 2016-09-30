@@ -27,6 +27,9 @@ navigation:
   - name: db/database
     icon: fa fa-caret-right
     url: database.html
+  - name: doc/cmis
+    icon: fa fa-caret-right
+    url: cmis.html
   - name: io/files
     icon: fa fa-caret-right
     url: files.html
