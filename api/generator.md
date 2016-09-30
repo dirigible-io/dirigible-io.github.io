@@ -24,7 +24,7 @@ Basic Usage
 var generator = require('gen/generator');
 var response = require('net/http/response');
 
-var genWorker = generator.getWorker(generator.WORKER_TYPE_DATA_STRUCTURES);
+var genWorker = generator.getWorker(generator.WORKER_CATEGORY_DATA_STRUCTURES);
 response.println(genWorker.getTemplates());
 
 var parameters = {
@@ -75,10 +75,10 @@ Function     | Description | Returns
 
 Constant     | Description | Type
 ------------ | ----------- | --------
-**WORKER_TYPE_DATA_STRUCTURES**   | Value is *DataStructures* | *string*
-**WORKER_TYPE_SCRIPTING_SERVICES**   | Value is *ScriptingServices* | *string*
-**WORKER_TYPE_WEB_CONTENT**   | Value is *WebContent* | *string*
-**WORKER_TYPE_WEB_CONTENT_FOR_ENTITY**   | Value is *WebContentForEntity* | *string*
+**WORKER_CATEGORY_DATA_STRUCTURES**   | Value is *DataStructures* | *string*
+**WORKER_CATEGORY_SCRIPTING_SERVICES**   | Value is *ScriptingServices* | *string*
+**WORKER_CATEGORY_WEB_CONTENT**   | Value is *WebContent* | *string*
+**WORKER_CATEGORY_WEB_CONTENT_FOR_ENTITY**   | Value is *WebContentForEntity* | *string*
 
 
 Compatibility
