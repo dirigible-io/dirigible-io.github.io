@@ -30,6 +30,9 @@ navigation:
   - name: doc/cmis
     icon: fa fa-caret-right
     url: cmis.html
+  - name: gen/generator
+    icon: fa fa-caret-right
+    url: generator.html
   - name: io/files
     icon: fa fa-caret-right
     url: files.html

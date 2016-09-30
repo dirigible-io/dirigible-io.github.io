@@ -40,6 +40,12 @@ Document
 * [cmis](cmis.html)
 
 
+Generate/Templates
+---
+
+* [generator](generator.html)
+
+
 IO
 ---
 
