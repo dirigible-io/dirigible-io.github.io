@@ -24,7 +24,7 @@ Steps
 2. Go to the `neo-java-web-sdk-3.xxx/tools` SDK folder.
 3. Deploy with the command:
 
-        neo deploy --account <your_account> --application <application_name> --user <your_user> --host <target_landscape_host> --source <source_directory> --password <your_password>
+        neo deploy --account <your_account> --application <application_name> --user <your_user> --host <target_landscape_host> --source <source_directory> --password <your_password> --runtime neo-java-web --runtime-version 3 -j 8
 
 4. Start with the command:
 
