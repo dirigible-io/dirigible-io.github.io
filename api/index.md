@@ -35,7 +35,7 @@ Database
 
 
 
-Internal
+Platform
 ---
 
 * [exec](exec.html)

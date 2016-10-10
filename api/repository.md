@@ -9,9 +9,9 @@ icon: fa-ellipsis-h
 
 Repository module is used for accessing the development artifacts directly from the underlying Repository Component.
 
-- Module: **service/repository**
+- Module: **platform/repository**
 - Definition: [/core_api/issues/27](https://github.com/dirigiblelabs/core_api/issues/27)
-- Source: [/service/repository.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/repository.js)
+- Source: [/platform/repository.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/platform/repository.js)
 - Status: **beta**
 
 Basic Usage
@@ -21,7 +21,7 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var repository = require('service/repository');
+var repository = require('platform/repository');
 var response = require('net/http/response');
 
 var bytes = [83, 111, 109, 101, 32, 116, 101, 120, 116, 32, 99, 111, 110, 116, 101, 110, 116]; // Some text content

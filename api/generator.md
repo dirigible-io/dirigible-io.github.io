@@ -9,9 +9,9 @@ icon: fa-check
 
 Generator object is used to produce project artifacts based on existing templates programmatically.
 
-- Module: **gen/generator**
+- Module: **platform/generator**
 - Definition: [/core_api/issues/41](https://github.com/dirigiblelabs/core_api/issues/41)
-- Source: [/gen/generator.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/gen/generator.js)
+- Source: [/platform/generator.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/platform/generator.js)
 - Status: **beta**
 
 Basic Usage
@@ -21,9 +21,16 @@ Basic Usage
 /* globals $ */
 /* eslint-env node, dirigible */
 
-var generator = require('gen/generator');
+var generator = require('platform/generator');
 var response = require('net/http/response');
 
+// direct generation
+var template = "<html><body><h1>${caption}</h1></body></html>";
+var parameters = {"caption": "Hello World!"};
+var generated = generator.generate(template, parameters);
+response.println(generated);
+
+// generation of artifacts by using available templates
 var genWorker = generator.getWorker(generator.WORKER_CATEGORY_DATA_STRUCTURES);
 response.println(genWorker.getTemplates());
 
@@ -53,6 +60,7 @@ Definition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
+**generate(template, parameters)**   | Returns the generated content based on the provided template and parameters | *string*
 **getWorker(category)**   | Returns the generation worker for this category of templates | *Worker*
 
 
