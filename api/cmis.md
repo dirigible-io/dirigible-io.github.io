@@ -161,7 +161,7 @@ Function     | Description | Returns
 **createDocument(properties, contentStream, versioningState)**   | Creates a new document under this Folder | *Document*
 **getChildren()**   | Returns an array of CmisObject sub-elements of this Folder | *array of CmisObject*
 **isRootFolder()**   | Returns true if this Folder is a root folder and false otherwise | *boolean*
-**getFolderParent(properties)**   | Returns the parent Folder of this Folder | *Folder*
+**getFolderParent()**   | Returns the parent Folder of this Folder | *Folder*
 **delete()**   | Deletes this Folder | *string*
 **rename(newName)**   | Renames this Folder | *-*
 
@@ -251,7 +251,7 @@ Constant     | Description | Type
 **VERSIONING_STATE_CHECKEDOUT**   | Value is *checkedout* | *string*
 
 
-#### Versioning States
+#### Object Types
 
 Constant     | Description | Type
 ------------ | ----------- | --------
