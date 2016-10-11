@@ -56,7 +56,7 @@ Definition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**parseRequest()**   | Returns an array of HttpFileEntry objects by parsing the HTTP request | *array of HttpFileEntry*
+**parseRequest(lazy)**   | Returns an array of HttpFileEntry objects by parsing the HTTP request. If lazy the data of the items is not preliminary loaded | *array of HttpFileEntry*
 **isMultipartContent()**   | Returns true if the HTTP request contains files content and false otherwise | *boolean*
 
 
@@ -71,9 +71,13 @@ Function     | Description | Returns
 Function     | Description | Returns
 ------------ | ----------- | --------
 **name**   | The HttpFileEntry name | *string*
-**data**   | The HttpFileEntry binary data | *array of byte*
+**lazy**   | Returns true is the file entry is lazy and false otherwise | *boolean*
+**data**   | The HttpFileEntry binary data. If lazy use loadData() or copyData() instead | *array of byte*
 **contentType**   | The HttpFileEntry's data content type | *string*
 **size**   | The HttpFileEntry's data size | *int*
+**loadData()**   | Loads the binary data from the file entry. If already loaded returns the data | *array of byte*
+**copyData(outputStream)**   | Copies the binary data from the file entry to the provided output stream | *-*
+
 
 
 
