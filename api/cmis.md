@@ -173,7 +173,7 @@ Function     | Description | Returns
 **getId()**   | Returns the ID of this Document | *string*
 **getName()**   | Returns the Name of this Document | *string*
 **delete()**   | Deletes this Document | *string*
-**getContentStream()**   | Returns the ContentStream representing the contents of this Document | *string*
+**getContentStream()**   | Returns the ContentStream representing the contents of this Document | *ContentStream*
 **rename(newName)**   | Renames this Document | *-*
 
 
