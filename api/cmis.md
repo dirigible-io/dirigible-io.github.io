@@ -113,8 +113,8 @@ Function     | Description | Returns
 **getRepositoryInfo()**   | Returns the information about the CMIS repository | *RepositoryInfo*
 **getObjectFactory()**   | Returns the ObjectFactory utility | *ObjectFactory*
 **getRootFolder()**   | Returns the root folder of this repository | *Folder*
-**getObject()**   | Returns a sequence by name from this data source. Creates one, if such does not exist. | *Sequence*
-**getObjectByPath()**   | Returns a sequence by name from this data source. Creates one, if such does not exist. | *Sequence*
+**getObject()**   | Returns a CMIS Object by name | *CmisObject*
+**getObjectByPath()**   | Returns a CMIS Object by path | *CmisObject*
 
 
 #### RepositoryInfo
