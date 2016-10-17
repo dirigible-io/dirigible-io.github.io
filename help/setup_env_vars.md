@@ -36,6 +36,9 @@ Parameter     | Description | Default*
 **autoActivateEnabled**   | Enable Auto-Activate option. Artifacts go to Sandbox space on Save | true
 **autoPublishEnabled**   | Enable Auto-Publish option. Artifacts go to Registry space on Save | true
 **enableSandbox**   | Enable Sandboxing" option | false
+**jndiCmisService**   | Lookup and inject an CMIS service from the infrastructure if present | java:comp/env/EcmService (for SAP HCP)
+**jndiCmisServiceName**   | The name of the CMIS repository | cmis:dirigible
+**jndiCmisServiceKey**   | The access key of the CMIS repository | cmis:dirigible:key
 
 
 
