@@ -30,9 +30,6 @@ navigation:
   - name: doc/cmis
     icon: fa fa-caret-right
     url: cmis.html
-  - name: gen/generator
-    icon: fa fa-caret-right
-    url: generator.html
   - name: io/files
     icon: fa fa-caret-right
     url: files.html
@@ -63,9 +60,18 @@ navigation:
   - name: net/http/user
     icon: fa fa-caret-right
     url: http_user.html
-  - name: service/exec
+  - name: platform/exec
     icon: fa fa-caret-right
     url: exec.html
+  - name: platform/generator
+    icon: fa fa-caret-right
+    url: generator.html
+  - name: platform/lifecycle
+    icon: fa fa-caret-right
+    url: lifecycle.html
+  - name: platform/repository
+    icon: fa fa-caret-right
+    url: repository.html
   - name: service/indexing
     icon: fa fa-caret-right
     url: indexing.html
@@ -75,9 +81,6 @@ navigation:
   - name: service/messaging
     icon: fa fa-caret-right
     url: messaging.html
-  - name: service/repository
-    icon: fa fa-caret-right
-    url: repository.html
   - name: utils/base64
     icon: fa fa-caret-right
     url: utils_base64.html

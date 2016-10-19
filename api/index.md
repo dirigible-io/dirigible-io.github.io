@@ -40,6 +40,7 @@ Platform
 
 * [exec](exec.html)
 * [generator](generator.html)
+* [lifecycle](lifecycle.html)
 * [repository](repository.html)
 
 
