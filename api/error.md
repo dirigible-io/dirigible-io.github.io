@@ -47,7 +47,7 @@ Definition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-** createError(errorMessage)**   | Creates an Error with the error message argument and a execution stack trace | Error
+**createError(errorMessage)**   | Creates an Error with the error message argument and a execution stack trace | Error
 
 
 
