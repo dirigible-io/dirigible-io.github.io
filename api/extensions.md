@@ -89,6 +89,7 @@ Function     | Description | Returns
 **getCreatedAt()** | Returns the creation date information | *Date*
 
 #### ExtensionPointDefinition
+
 Function     | Description | Returns
 ------------ | ----------- | --------
 **getLocation()** | Returns the location of the extension point | *string*
