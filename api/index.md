@@ -24,6 +24,7 @@ Core
 * [config](config.html)
 * [context](context.html)
 * [env](env.html)
+* [extensions](extensions.html)
 * [globals](globals.html)
 * [threads](threads.html)
 

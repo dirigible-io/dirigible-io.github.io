@@ -18,6 +18,9 @@ navigation:
   - name: core/env
     icon: fa fa-caret-right
     url: env.html
+  - name: core/extensions
+    icon: fa fa-caret-right
+    url: extensions.html
   - name: core/globals
     icon: fa fa-caret-right
     url: globals.html
