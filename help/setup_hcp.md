@@ -15,8 +15,12 @@ Deploy on the [SAP HANA Cloud Platform](https://account.hana.ondemand.com/) with
 Prerequisites
 ---
 
-- [Account in SAP HANA Cloud Platform](https://help.hana.ondemand.com/help/frameset.htm?65d74d39cb3a4bf8910cd36ec54d2b99.html)
+You need to set up:
+
+- SAP HANA Cloud Platform [developer account](https://help.hana.ondemand.com/help/frameset.htm?65d74d39cb3a4bf8910cd36ec54d2b99.html)
 - [SAP HANA Cloud Platform SDK](https://tools.hana.ondemand.com/#cloud) for Tomcat 8
+- [GIT](https://git-scm.com/)
+- [Maven 3.0.x](http://maven.apache.org/docs/3.0.5/release-notes.html)
 
 Steps
 ---
