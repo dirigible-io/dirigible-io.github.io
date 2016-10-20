@@ -103,7 +103,7 @@ Function     | Description | Returns
 **delete()**   | Deletes the Project | *-*
 **open()**   | Opens the Project | *-*
 **close()**   | Closes the Project | *-*
-**exists()**   | Returns true if the Project already exists in this Workspace and false otherwise | *-*
+**exists()**   | Returns true if the Project already exists in this Workspace and false otherwise | *boolean*
 
 
 #### Folder
@@ -116,7 +116,7 @@ Function     | Description | Returns
 **getFile(name)**   | Returns a File object  from this Folder | *File*
 **create()**   | Creates the Folder | *-*
 **delete()**   | Deletes the Folder | *-*
-**exists()**   | Returns true if the Folder already exists in this Project and false otherwise | *-*
+**exists()**   | Returns true if the Folder already exists in this Project and false otherwise | *boolean*
 
 
 #### File
@@ -127,7 +127,7 @@ Function     | Description | Returns
 **getFullPath()**   | Returns the full path of this File | *string*
 **create(inputStream)**   | Creates the File | *-*
 **delete()**   | Deletes the File | *-*
-**exists()**   | Returns true if the File already exists in this Project and false otherwise | *-*
+**exists()**   | Returns true if the File already exists in this Project and false otherwise | *boolean*
 **getContents()**   | Returns the body of this File | *InputStream*
 **setContents(inputStream)**   | Sets the body of this File | *-*
 
