@@ -84,6 +84,7 @@ Utils
 
 * [base64](utils_base64.html)
 * [digest](utils_digest.html)
+* [error](utils_error.html)
 * [hex](utils_hex.html)
 * [uuid](utils_uuid.html)
 * [xml](utils_xml.html)
