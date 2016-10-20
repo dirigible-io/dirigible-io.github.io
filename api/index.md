@@ -42,6 +42,7 @@ Platform
 * [generator](generator.html)
 * [lifecycle](lifecycle.html)
 * [repository](repository.html)
+* [workspaces](workspaces.html)
 
 
 IO

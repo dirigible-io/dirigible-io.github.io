@@ -65,6 +65,8 @@ Function     | Description | Returns
 **copyLarge(inputStream, outputStream)**   | Copies an InputStream to an OutputStream optimized for large data | -
 **createByteArrayInputStream(bytes)**   | Creates an ByteArrayInputStream from the array of bytes | *ByteArrayInputStream*
 **createByteArrayOutputStream()**   | Creates an ByteArrayOutputStream | *ByteArrayOutputStream*
+**textToByteArray(text)**   | Converts a string to a byte array | *array of byte*
+**byteArrayToText(bytes)**   | Converts a byte array to a string | *string*
 
 ### Objects
 

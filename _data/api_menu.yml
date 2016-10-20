@@ -72,6 +72,9 @@ navigation:
   - name: platform/repository
     icon: fa fa-caret-right
     url: repository.html
+  - name: platform/workspaces
+    icon: fa fa-caret-right
+    url: workspaces.html
   - name: service/indexing
     icon: fa fa-caret-right
     url: indexing.html
