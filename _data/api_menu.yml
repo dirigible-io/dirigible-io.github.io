@@ -92,7 +92,7 @@ navigation:
     url: utils_digest.html
   - name: utils/error
     icon: fa fa-caret-right
-    url: error.html
+    url: utils_error.html
   - name: utils/hex
     icon: fa fa-caret-right
     url: utils_hex.html
