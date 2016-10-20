@@ -7,7 +7,7 @@ icon: fa-check
 {{ page.title }}
 ===
 
-Assert object is used to check given conditions or objects
+Error object is used to create a JavaScript Error object with additional execution stack trace information.
 
 - Module: **utils/error**
 - Definition: [/core_api/issues/43](https://github.com/dirigiblelabs/core_api/issues/43)
