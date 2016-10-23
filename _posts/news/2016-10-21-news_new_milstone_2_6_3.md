@@ -17,6 +17,7 @@ New version [2.6.161021-M3](http://download.eclipse.org/dirigible/drops/M2016102
 #### Media
 
 Join us:
+
 * [EclipseCon] [Enterprise JavaScript ... what the heck?](https://www.eclipsecon.org/europe2016/session/enterprise-javascript-what-heck)
 * [EclipseCon] [Native mobile applications with Dirigible and Tabris](https://www.eclipsecon.org/europe2016/session/native-mobile-applications-dirigible-and-tabris)
 * [EclipseCon] [WebSockets and Equinox OSGi in a Servlet Container](https://www.eclipsecon.org/europe2016/session/websockets-and-equinox-osgi-servlet-container)
