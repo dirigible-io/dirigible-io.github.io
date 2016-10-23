@@ -36,7 +36,7 @@ Develop
 ```
 
 <div class="btn-toolbar pull-right">
-	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/ui/anonymous.html?git=https://github.com/dirigiblelabs/sample_net_http_session_attribute_basic.git">Run</a>
+	<a class="btn btn-warning" href="http://dirigible.eclipse.org/services/web/registry/anonymous.html?git=https://github.com/dirigiblelabs/sample_net_http_session_attribute_basic.git">Run</a>
 	<a class="btn btn-info" href="http://www.dirigible.io/api/http_session.html">API</a>
 </div>
 
