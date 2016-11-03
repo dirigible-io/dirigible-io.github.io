@@ -5,16 +5,12 @@ icon: none
 group: help-setup
 ---
 
-Setup on {{ page.title }}
+# Setup on {{ page.title }}
 ===
-
-
-
 Deploy on the [SAP HANA Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
 
-Prerequisites
+## Prerequisites
 ---
-
 You need to set up:
 
 - SAP HANA Cloud Platform [developer account](https://help.hana.ondemand.com/help/frameset.htm?65d74d39cb3a4bf8910cd36ec54d2b99.html)
@@ -22,9 +18,13 @@ You need to set up:
 - [GIT](https://git-scm.com/)
 - [Maven 3.0.x](http://maven.apache.org/docs/3.0.5/release-notes.html)
 
-Steps
+## Steps
 ---
-1. Download the latest All-In-One WAR file for HANA Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/)
+There are two ways to set up Eclipse Dirigible on SAP HANA Cloud Platform. You can either use console client commands or the SAP HANA Cloud Platform Cockpit.
+
+### Using the Console Client
+---
+1. Download the latest All-In-One WAR file for HANA Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/).
 2. Go to the `neo-java-web-sdk-3.xxx/tools` SDK folder.
 3. Deploy with the command:
 
@@ -35,3 +35,13 @@ Steps
         neo start --account <your_account> --application <application_name> --user <your_user> --host <target_landscape_host> --password <your_password> -y
 
 5. Go to `https://account.hanatrial.ondemand.com/cockpit` and to the Authorizations section. Add Developer and Operator roles to your user to get full access to all features.
+
+### Using the SAP HANA Cloud Platform Cockpit
+---
+
+ 1. Download the latest All-In-One WAR file for HANA Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/)
+ 2. Go to `https://account.hanatrial.ondemand.com/cockpit` and sign in to your account.
+ 3. Go to **Applications** and then to **Java Applications**.
+ 4. Click on **Deploy Applications**. Find the All-In-One WAR file for HANA Cloud Platform and deploy it.
+ 5. Click on the name of your application. Go to **Security** and to the **Roles** section.
+ 6. Add the *Developer* and *Operator* roles to your user account to get full access to all features. To do that, select the role, choose **Assign**, and type your User ID.
