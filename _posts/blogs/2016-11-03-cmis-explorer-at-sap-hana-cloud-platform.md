@@ -3,16 +3,20 @@ title: Document Service Explorer at SAP HANA Cloud Platform
 author: yordan.pavlov
 ---
 
+##Overview
+
 Wondering, how you can easily manage the **SAP HANA Cloud Platform** [Document Service](https://help.hana.ondemand.com/help/frameset.htm?e60b7e45bb57101487a881c7c5487778.html), through the browser? Now this is possible, with the help of **Eclipse Dirigible** and the **CMIS Explorer** application.
 
 In this blog, you will see how to download, configure, deploy and run **Eclipse Dirigible** on the **SAP HANA Cloud Platform**. After that you will go through the steps of installing and running the **CMIS Explorer** application.
 
 ##Download the latest milestone/release of Eclipse Dirigible
+
 - The latest milestone/release can be found on [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/).
 	- At the time of the blog, the latest milestone was *M20161021-1818*
 - From the selected release/milestone, navigate to the **HANA Cloud Platform** category and download the **sap/allinone/ROOT.war** file.
 
 ##Create a document repository in the SAP HANA Cloud Platform
+
 - Log-in into the SAP HANA Cloud Platform
 - Under the **Repositories** section, open the **Document Repositories** tab
 - Create a new document repository
@@ -21,6 +25,7 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 ![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png){: .img-responsive }
 
 ##Deploy Eclipse Dirigible on the SAP HANA Cloud Platform
+
 - Under the **Applications** section, open the **Java Applications** tab
 - Click on the **Deploy Application** button
 - Browse the **ROOT.war** file, that was downloaded
@@ -39,6 +44,7 @@ Finally, the **Deploy Application** wizard should look something like this:
 **Wait till the deployment is finished, but don't start the application yet!**
 
 ##Configure Data Source
+
 *This step can be skipped, if the [https://hanatrial.ondemand.com](https://hanatrial.ondemand.com) landscape is used*.
 
 
@@ -50,10 +56,12 @@ Finally, the **Deploy Application** wizard should look something like this:
 	- Provide the required credentials
 
 ##Assign Security Roles
+
 - Under the **Security** section, open the **Roles** tab
 - Assign the **Developer** and **Operator** roles to your user
 
 ##Launch Eclipse Dirigible
+
 - Go back to the **Overview** section and click on the **Start** button
 - Wait till the application is started
 - Launch Eclipse Dirigible from the **Application URLs** link
@@ -61,6 +69,7 @@ Finally, the **Deploy Application** wizard should look something like this:
 Finally, Eclipse Dirigible is configured, deployed and running into your SAP HANA Cloud Platform account.
 
 ##Install the “CMIS Explorer” on Eclipse Dirigible
+
 - The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblelabs) GitHub organization.
 - Copy the Git URL from the [CMIS Explorer](https://github.com/dirigiblelabs/sample_cmis_explorer)
 - Go back to the **Eclipse Dirigible Registry UI**
@@ -81,6 +90,7 @@ Finally, Eclipse Dirigible is configured, deployed and running into your SAP HAN
 ![Registry UI](/img/posts/20161103-0/4-cmis-explorer.png){: .img-responsive }
 
 ##Recap
+
 In this tutorial, we've downloaded, configured, deployed and ran **Eclipse Dirigible** on the **SAP HANA Cloud Platform**, leveraged the **Document Service** and the **CMIS Explorer** application.
 
 ##Enjoy!
