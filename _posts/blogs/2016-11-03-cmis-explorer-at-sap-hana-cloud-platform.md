@@ -18,7 +18,7 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 - Create a new document repository
 - Please remember the values for the **Name** and the **Repository Key**, as we will need them latter
 
-	![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png)
+![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png){: .img-responsive }
 
 ##Deploy Eclipse Dirigible on the SAP HANA Cloud Platform
 - Under the **Applications** section, open the **Java Applications** tab
@@ -34,7 +34,7 @@ These are the magic settings, that will allow Eclipse Dirigible to connect and u
 
 Finally, the **Deploy Application** wizard should look something like this:
 
-![Deploy Application](/img/posts/20161103-0/2-deploy-application.png) 
+![Deploy Application](/img/posts/20161103-0/2-deploy-application.png){: .img-responsive }
 
 **Wait till the deployment is finished, but don't start the application yet!**
 
@@ -66,7 +66,7 @@ Finally, Eclipse Dirigible is configured, deployed and running into your SAP HAN
 - Go back to the **Eclipse Dirigible Registry UI**
 	- If you are wondering, this is how it looks like:
 
-	![Registry UI](/img/posts/20161103-0/3-registry-ui.png) 
+	![Registry UI](/img/posts/20161103-0/3-registry-ui.png){: .img-responsive }
 
 - Click on the **Develop** tile and after that on the **Web IDE**
 	- *If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”*.
@@ -78,7 +78,7 @@ Finally, Eclipse Dirigible is configured, deployed and running into your SAP HAN
 - The application should be visible in the “Preview” tab, you can copy the link and open it in a new tab
 - The application URL can be found also, through the **Eclipse Dirigible Registry UI**, from **Discover->Web**.
 
-![Registry UI](/img/posts/20161103-0/4-cmis-explorer.png)
+![Registry UI](/img/posts/20161103-0/4-cmis-explorer.png){: .img-responsive }
 
 ##Recap
 In this tutorial, we've downloaded, configured, deployed and ran **Eclipse Dirigible** on the **SAP HANA Cloud Platform**, leveraged the **Document Service** and the **CMIS Explorer** application.
