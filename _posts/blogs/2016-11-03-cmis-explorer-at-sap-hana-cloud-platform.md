@@ -12,13 +12,13 @@ Wondering, how you can easily manage the **SAP HANA Cloud Platform** [Document S
 
 In this blog, you will see how to download, configure, deploy and run **Eclipse Dirigible** on the **SAP HANA Cloud Platform**. After that you will go through the steps of installing and running the **CMIS Explorer** application.
 
-## Download the latest milestone/release of Eclipse Dirigible
+## Download Eclipse Dirigible
 
-* The latest milestone/release can be found on [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/).
+* Download the latest milestone/release, that can be found on [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/).
 	* At the time of the blog, the latest milestone was *M20161021-1818*
 * From the selected release/milestone, navigate to the **HANA Cloud Platform** category and download the **sap/allinone/ROOT.war** file.
 
-## Create a document repository in the SAP HANA Cloud Platform
+## Create a Document Repository
 
 * Log-in into the SAP HANA Cloud Platform
 * Under the **Repositories** section, open the **Document Repositories** tab
@@ -27,7 +27,7 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 
 ![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png){: .img-responsive }
 
-## Deploy Eclipse Dirigible on the SAP HANA Cloud Platform
+## Deploy Eclipse Dirigible
 
 * Under the **Applications** section, open the **Java Applications** tab
 * Click on the **Deploy Application** button
@@ -71,7 +71,7 @@ Finally, the **Deploy Application** wizard should look something like this:
 
 Finally, Eclipse Dirigible is configured, deployed and running into your SAP HANA Cloud Platform account.
 
-## Install the “CMIS Explorer” on Eclipse Dirigible
+## Install the CMIS Explorer
 
 * The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblelabs) GitHub organization.
 * Copy the Git URL from the [CMIS Explorer](https://github.com/dirigiblelabs/sample_cmis_explorer)
