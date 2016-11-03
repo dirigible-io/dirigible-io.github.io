@@ -39,6 +39,9 @@ navigation:
   - name: io/streams
     icon: fa fa-caret-right
     url: streams.html
+  - name: io/zip
+    icon: fa fa-caret-right
+    url: zip.html
   - name: net/soap
     icon: fa fa-caret-right
     url: soap.html
