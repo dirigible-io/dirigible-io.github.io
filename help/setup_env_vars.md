@@ -39,6 +39,12 @@ Parameter     | Description | Default*
 **jndiCmisService**   | Lookup and inject an CMIS service from the infrastructure if present | java:comp/env/EcmService (for SAP HCP)
 **jndiCmisServiceName**   | The name of the CMIS repository | cmis:dirigible
 **jndiCmisServiceKey**   | The access key of the CMIS repository | cmis:dirigible:key
+**jndiCmisServiceAuth**   | The type of authentication of the CMIS repository. The valid values are 'key' and 'destination' | key
+**jndiCmisServiceDestination**   | The destination name where the name and the key of the CMIS repository are stored as User and Password fields (related to SAP HCP) | cmis
+
+
+
+
 
 
 

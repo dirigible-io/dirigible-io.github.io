@@ -115,14 +115,6 @@ Function     | Description | Returns
 **close()**   | Finishes, flushes and closes the zip output stream | *-*
 
 
-#### ZipEntry
-
-
-Function     | Description | Returns
------------- | ----------- | --------
-**getName()**   | Returns the name of the entry | *ZipEntry*
-**close()**   | Closes the input stream | *-*
-
 
 #### ZipEntry
 
