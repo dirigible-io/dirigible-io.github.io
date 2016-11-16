@@ -16,7 +16,7 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 
 1. Download the latest milestone/release, that you can find at [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/).
 
->**Note**: At the time of the blog, the latest milestone was *M20161021-1818*.
+   >**Note**: At the time of the blog, the latest milestone was *M20161021-1818*.
 
 2. From the selected release/milestone, navigate to the **HANA Cloud Platform** category and download the **sap/allinone/ROOT.war** file.
 
