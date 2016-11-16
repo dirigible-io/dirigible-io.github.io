@@ -85,7 +85,7 @@ The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblela
 
 3. Click on the **Develop** tile and after that on the **Web IDE**.
 
-   >**Note**: If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”*.
+   >**Note**: If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”.
 
 4. Right-click on the **Project Explorer** and select **Team > Clone**.
 5. Paste the Git URL, that you’ve copied earlier.
