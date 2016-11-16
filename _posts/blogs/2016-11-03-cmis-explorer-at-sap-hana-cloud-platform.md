@@ -79,13 +79,13 @@ The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblela
 1. Copy the Git URL from the [CMIS Explorer](https://github.com/dirigiblelabs/sample_cmis_explorer).
 2. Go back to the **Eclipse Dirigible Registry UI**.
 
->**Note**: If you are wondering, this is how it looks like:
+   >**Note**: If you are wondering, this is how it looks like:
 
-> ![Registry UI](/img/posts/20161103-0/3-registry-ui.png)
+   >![Registry UI](/img/posts/20161103-0/3-registry-ui.png)
 
 3. Click on the **Develop** tile and after that on the **Web IDE**.
 
->**Note**: If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”*.
+   >**Note**: If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”*.
 
 4. Right-click on the **Project Explorer** and select **Team > Clone**.
 5. Paste the Git URL, that you’ve copied earlier.
