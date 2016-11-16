@@ -35,10 +35,10 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 2. Click on the **Deploy Application** button.
 3. Browse to the **ROOT.war** file, that you have already downloaded.
 4. For the application name, you can specify whatever you want (for example, dirigible, doc, …).
-5. The runtime should be **Java Web Tomcat 8**.
+5. Change the runtime to **Java Web Tomcat 8**.
 6. For the **JVM Arguments** input, enter this:
 			
-			-DjndiCmisServiceName=<name> -DjndiCmisServiceKey=<key>
+			-DjndiCmisServiceName=<name_of_repository> -DjndiCmisServiceKey=<repository_key>
 
 These are the magic settings, that will allow the Eclipse Dirigible to connect and use the document repository. List of all available environment variables can be found [here](www.dirigible.io/help/setup_env_vars.html).
 
