@@ -77,7 +77,7 @@ Finally, the Eclipse Dirigible is configured, deployed and running into your SAP
 
 The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblelabs) GitHub organization.
 
-1. Copy the Git URL from the [CMIS Explorer](https://github.com/dirigiblelabs/sample_cmis_explorer).
+1. Open the [CMIS Explorer](https://github.com/dirigiblelabs/sample_cmis_explorer) in GitHub, choose **Clone or download** and then copy the URL.
 2. Go back to the **Eclipse Dirigible Registry UI**.
 
    >**Note**: If you are wondering, this is how it looks like:
@@ -88,7 +88,7 @@ The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblela
 
    >**Note**: If this is the first time, you are launching the "Web IDE", cancel the “Get Started Project Wizard”.
 
-4. Right-click on the **Project Explorer** and select **Team > Clone**.
+4. Right-click on the **Workspace Explorer** and select **Team > Clone**.
 5. Paste the Git URL, that you’ve copied earlier.
 6. Username and Password are not required, so just click **OK**.
 7. After the project is imported into the workspace, right-click on it and press the **Publish** button.
