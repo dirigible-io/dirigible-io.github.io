@@ -27,7 +27,7 @@ In this blog, you will see how to download, configure, deploy and run **Eclipse 
 3. Create a new document repository.
 4. Please remember the values for the **Name** and the **Repository Key**, as we will need them later on.
 
-![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png)
+![Create a Document Repository](/img/posts/20161103-0/1-create-document-repository.png){: .img-responsive }
 
 ## Deploy Eclipse Dirigible
 
@@ -81,7 +81,7 @@ The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblela
 
    >**Note**: If you are wondering, this is how it looks like:
 
-   >![Registry UI](/img/posts/20161103-0/3-registry-ui.png)
+   >![Registry UI](/img/posts/20161103-0/3-registry-ui.png){: .img-responsive }
 
 3. Click on the **Develop** tile and after that on the **Web IDE**.
 
@@ -95,7 +95,7 @@ The **CMIS Explorer** is a project in the [DirigibleLabs](github.com/dirigiblela
 9. The application should be visible in the **Preview** tab, you can copy the link and open it in a new tab.
 10. The application URL can be found also through the **Eclipse Dirigible Registry UI**, from **Discover > Web**.
 
-![Registry UI](/img/posts/20161103-0/4-cmis-explorer.png)
+![Registry UI](/img/posts/20161103-0/4-cmis-explorer.png){: .img-responsive }
 
 ## Recap
 
