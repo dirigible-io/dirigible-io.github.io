@@ -44,7 +44,7 @@ These are the magic settings, that will allow the Eclipse Dirigible to connect a
 
 Finally, the **Deploy Application** wizard should look something like this:
 
-![Deploy Application](/img/posts/20161103-0/2-deploy-application.png)
+![Deploy Application](/img/posts/20161103-0/2-deploy-application.png){: .img-responsive }
 
 **Wait till the deployment is finished, but don't start the application yet!**
 
