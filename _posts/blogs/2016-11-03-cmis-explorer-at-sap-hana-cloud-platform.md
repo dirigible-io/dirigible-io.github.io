@@ -4,7 +4,7 @@ author: yordan.pavlov
 ---
 
 
-Wondering, how you can easily manage the **SAP HANA Cloud Platform Document Service**, through the browser? Now this is possible, with the help of **Eclipse Dirigible** and the **CMIS Explorer** application.
+Wondering how you can easily manage the **SAP HANA Cloud Platform Document Service** through the browser? Now this is possible, with the help of **Eclipse Dirigible** and the **CMIS Explorer** application.
 
 ## Overview
 
