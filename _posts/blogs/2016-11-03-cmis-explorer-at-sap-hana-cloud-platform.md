@@ -61,8 +61,9 @@ Finally, the **Deploy Application** wizard should look something like this:
 
 ## Assign Security Roles
 
-1. In the **Security** section, open the **Roles** tab.
-2. Assign the **Developer** and **Operator** roles to your user.
+1. After deploying the application in the cockpit, click on its name.
+2. In the **Security** section, open the **Roles** tab.
+3. Assign the **Developer** and **Operator** roles to your user.
 
 ## Launch Eclipse Dirigible
 
