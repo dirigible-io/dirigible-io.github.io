@@ -90,6 +90,9 @@ navigation:
   - name: service/messaging
     icon: fa fa-caret-right
     url: messaging.html
+  - name: service/passwords
+    icon: fa fa-caret-right
+    url: passwords.html
   - name: utils/base64
     icon: fa fa-caret-right
     url: utils_base64.html
