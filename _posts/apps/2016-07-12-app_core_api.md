@@ -65,12 +65,13 @@ For instance:
 
 #### General
 
-Parameter     | Value
------------- | -----------
+Parameter  | Value
+---------- | -----------
+GUID       | core_api
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/core_api](https://github.com/dirigiblelabs/core_api)
 License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
-Version    | 0.2
+Version    | v0.2-beta
 Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v0.2-beta.zip)
 
 #### Dependencies
