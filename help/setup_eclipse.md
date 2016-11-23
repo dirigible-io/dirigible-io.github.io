@@ -28,4 +28,4 @@ Steps
 4. Use **dirigible-local.launch** file for **Run As** configuration.
 5. Open a web browser and go to:
 
-        http://localhost:8080/index.html
+[http://localhost:8080/index.html](http://localhost:8080/index.html)
