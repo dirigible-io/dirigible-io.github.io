@@ -82,6 +82,7 @@ Function     | Description | Returns
 **host**   | The host parameter | *string*
 **port**   | The port parameter | *int*
 **method**   | The method parameter - GET, POST, PUT, DELETE. Default GET | *string*
+**body**     | The body of the HTTP Request | *string*
 **charset**   | The charset parameter. Default  | *string*
 **headers**   | The Response headers | *array of HttpHeader*
 
