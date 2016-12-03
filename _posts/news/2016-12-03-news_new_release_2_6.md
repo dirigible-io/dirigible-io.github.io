@@ -36,6 +36,7 @@ New version [2.6.161203-R](http://download.eclipse.org/dirigible/drops/R-2.6-201
 * [How to Run Dirigible Anywhere - Microsoft Azure - Part II?](http://www.dirigible.io/blogs/2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2.html)
 * [The Java-saurus](http://www.dirigible.io/blogs/2016/09/12/the-java-saurus.html)
 * [Video] [Basics-Documentation](https://www.youtube.com/watch?v=IXvVQgsW9QI)
+* [Video] [Mobile Applications](https://www.youtube.com/watch?v=0a1t2BsO8XA)
 * [EclipseCon] [Enterprise JavaScript ... what the heck?](https://www.eclipsecon.org/europe2016/session/enterprise-javascript-what-heck)
 * [EclipseCon] [Native mobile applications with Dirigible and Tabris](https://www.eclipsecon.org/europe2016/session/native-mobile-applications-dirigible-and-tabris)
 * [EclipseCon] [WebSockets and Equinox OSGi in a Servlet Container](https://www.eclipsecon.org/europe2016/session/websockets-and-equinox-osgi-servlet-container)
