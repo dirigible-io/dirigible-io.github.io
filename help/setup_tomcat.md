@@ -12,7 +12,7 @@ Setup on {{ page.title }}
 
 The Tomcat specific WAR files can be deployed on a [Tomcat](http://tomcat.apache.org/) web container. In this case the built-in Derby database is used.
 
-More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html).
+More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
 
 Steps
 ---

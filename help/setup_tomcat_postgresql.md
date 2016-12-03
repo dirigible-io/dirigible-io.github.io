@@ -12,7 +12,7 @@ Setup on {{ page.title }}
 Tomcat
 ---
 
-Download and unpack Apache Tomcat 7.0.x from [here](http://tomcat.apache.org/download-70.cgi).
+Download and unpack Apache Tomcat 8.0.x from [here](http://tomcat.apache.org/download-80.cgi).
 
 PostgreSQL
 ---
@@ -76,6 +76,15 @@ Also, the initial parameter *jdbcAutoCommit* must be set to true.
     </init-param>
 ```
 
+The type of the datasource is 'jndi' instead of 'local'
+
+```xml
+    <init-param>
+		<param-name>defaultDataSourceType</param-name>
+		<param-value>jndi</param-value>
+	</init-param>
+```
+
 Lastly, the resource reference for the datasource has to be uncommented.
 
 ```xml
@@ -96,8 +105,7 @@ Start
 
 Run Tomcat server via *strtup.sh*. 
 
-The IDE should be available at the following locations: 
+Go to the following locations: 
 
-* IDE: `http://localhost:8080/services/index.html` 
-* Registry: `http://localhost:8080/services/ui/index.html` 
+> http://localhost:8080/
 
