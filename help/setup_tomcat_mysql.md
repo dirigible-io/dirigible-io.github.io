@@ -104,7 +104,7 @@ Lastly, the resource reference for the datasource has to be uncommented.
 Deploy
 ---
 
-Copy the deployable artifact e.g. `ROOT.war` to *<TOMCAT_HOME>/webapps*.
+Copy the deployable artifact e.g. ROOT.war to *<TOMCAT_HOME>/webapps*.
 
 Start
 ---

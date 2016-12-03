@@ -39,7 +39,7 @@ Using the Console Client
 Using the SAP HANA Cloud Platform Cockpit
 ---
  1. Download the latest All-In-One WAR file for HANA Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/)
- 2. Go to `https://account.hanatrial.ondemand.com/cockpit` and sign in to your account.
+ 2. Go to https://account.hanatrial.ondemand.com/cockpit and sign in to your account.
  3. Go to **Applications** and then to **Java Applications**.
  4. Click on **Deploy Applications**. Find the All-In-One WAR file for HANA Cloud Platform and deploy it.
  5. Click on the name of your application. Go to **Security** and to the **Roles** section.
