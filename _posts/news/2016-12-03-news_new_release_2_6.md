@@ -51,4 +51,5 @@ New version [2.6.161203-R](http://download.eclipse.org/dirigible/drops/R-2.6-201
 * The instant trial is updated accordingly with the released version [here](http://trial.dirigible.io).
 
 
+
 #### Enjoy!
