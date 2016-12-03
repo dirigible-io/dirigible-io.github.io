@@ -37,6 +37,8 @@ New version [2.6.161203-R](http://download.eclipse.org/dirigible/drops/R-2.6-201
 * [The Java-saurus](http://www.dirigible.io/blogs/2016/09/12/the-java-saurus.html)
 * [Video] [Basics-Documentation](https://www.youtube.com/watch?v=IXvVQgsW9QI)
 * [Video] [Mobile Applications](https://www.youtube.com/watch?v=0a1t2BsO8XA)
+* [Video] [Deploy on Localhost](https://www.youtube.com/watch?v=OpuRKA6u8-0)
+* [Video] [Deploy on SAP HANA Cloud Platform](https://www.youtube.com/watch?v=z4ZzA11jEKQ)
 * [EclipseCon] [Enterprise JavaScript ... what the heck?](https://www.eclipsecon.org/europe2016/session/enterprise-javascript-what-heck)
 * [EclipseCon] [Native mobile applications with Dirigible and Tabris](https://www.eclipsecon.org/europe2016/session/native-mobile-applications-dirigible-and-tabris)
 * [EclipseCon] [WebSockets and Equinox OSGi in a Servlet Container](https://www.eclipsecon.org/europe2016/session/websockets-and-equinox-osgi-servlet-container)
