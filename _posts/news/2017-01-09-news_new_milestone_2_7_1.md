@@ -19,11 +19,7 @@ New version [2.7.170109-M1](http://download.eclipse.org/dirigible/drops/M2017010
 
 #### Media
 
-Greatest EclipseCon ever:
-
-* [EclipseCon] [Enterprise JavaScript ... what the heck?](https://www.eclipsecon.org/europe2016/session/enterprise-javascript-what-heck)
-* [EclipseCon] [Native mobile applications with Dirigible and Tabris](https://www.eclipsecon.org/europe2016/session/native-mobile-applications-dirigible-and-tabris)
-* [EclipseCon] [WebSockets and Equinox OSGi in a Servlet Container](https://www.eclipsecon.org/europe2016/session/websockets-and-equinox-osgi-servlet-container)
+Special Prize at SAP Labs Sofia - InnoWeek 2016 for the Zeus Project [https://github.com/dirigiblelabs/zeus](https://github.com/dirigiblelabs/zeus)
 
 
 #### Operational
