@@ -19,7 +19,7 @@ Steps
 
 1. Download ROOT.war for Tomcat from [http://download.dirigible.io](http://download.dirigible.io).
 
-2. Configure the Users store:
+2. Configure the Users store under $CATALINA_HOME/conf:
 
         <tomcat-users>
                 <role rolename="Developer"/>
@@ -27,9 +27,11 @@ Steps
                 <role rolename="Everyone"/>
                 <user username="dirigible" password="dirigible" roles="Developer,Operator,Everyone"/>
         </tomcat-users>
+        
+3. Start the Tomcat server
 
 4. Open a web browser and go to:
 
         http://localhost:8080/
 
-4. Login with user dirigible and password dirigible.
+5. Login with user dirigible and password dirigible.
