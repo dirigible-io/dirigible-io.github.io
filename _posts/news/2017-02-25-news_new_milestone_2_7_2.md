@@ -11,6 +11,7 @@ New version [2.7.170225-M2](http://download.eclipse.org/dirigible/drops/M2017022
 * Semantics on data files import - append, replace, delete
 * [Discussion Boards Template](https://github.com/dirigiblelabs/template_web_discussions)
 * CRUD Template with [DAOism](https://github.com/dirigiblelabs/daoism) and [aRESTme](https://github.com/dirigiblelabs/arestme)
+* Cockpit Template
 * Security Fixes
 * Bug-fixes and Re-factoring
 
