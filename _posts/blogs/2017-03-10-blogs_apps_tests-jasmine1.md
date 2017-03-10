@@ -49,5 +49,6 @@ With this setup, selecting a Jasmine test suite .js script file in the user work
 And that's all folks.
 
 ## References
-[Jasmin project](https://jasmine.github.io/)
-[Dirigible Jasmine module project](https://github.com/dirigiblelabs/jasmine)
+
+* [Jasmin project](https://jasmine.github.io/)
+* [Dirigible Jasmine module project](https://github.com/dirigiblelabs/jasmine)
