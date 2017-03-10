@@ -47,7 +47,7 @@ require("jasmine/jasmine_test_runner_svc").service(env);
 ```
 The test results output for HTML capable user agents looks like this:
 
-	<img src="/img/posts/20170310-0/test-dashboard.png"/>
+<img src="/img/posts/20170310-0/test-dashboard.png"/>
 
 And when requested for JSON instead of HTML it will deliver the following payload:
 
