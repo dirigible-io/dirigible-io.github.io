@@ -32,6 +32,14 @@ a:hover {
     color: #62abea;
 }
 
+.grid-home {
+    background-image: url("../img/SAP_d-kom_demojam_2017.jpg"); 
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+    color: #454545;
+}
+
 .grid {
     background-color: #93B1CE;
     color: #454545;
