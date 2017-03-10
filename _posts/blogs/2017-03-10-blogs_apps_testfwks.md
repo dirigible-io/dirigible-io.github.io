@@ -10,11 +10,11 @@ Integration of Third-Party JavaScript Libraries in Dirigible
 
 In the last months I integrated (or tried to integrate) a number of third-party libraries to make them available to the server-side of the platform.
 
-## License
+### License
 
 Before you start your integration efforts, which may turn out significant, make sure you are license compatible or can get along with the library author on the subject. That will spare you a lot of wasted time eventually. As you will see below sometimes the only way to integrate a third party library is to make some changes in its original code and you should ensure that you are on the safe side license-wise to do that.  
 
-## CommonJS
+### CommonJS
 
 CommonJS is designed as a common, standard module loading system, which is a fair attempt when there are some many yet so similar out there already. The downside of standards that are driven not by urgent and inevitable but nice, yet not critical needs is that people implement it with low priority, when they can and to the extent they feel they absolutely need to.   
 
@@ -22,13 +22,13 @@ Dirigible's scripting runtime ([Rhino](https://developer.mozilla.org/en-US/docs/
 
 **Lesson learned:** Explore the dependencies of the library you try to integrate, how they are loaded and assess if Rhino can support that. Chances are that you may need to modify the library's loading mechanism and introduce its dependencies as Dirigible modules too.     
 
-## ECMAScript 2015 (ES6)
+### ECMAScript 2015 (ES6)
 
 [ES6](http://www.ecma-international.org/publications/standards/Ecma-262.htm) introduces a great deal of improvements to JavaScript for good. In fact, they are sometimes so significant that applications and platforms can hardly catch up. For example, Dirigible's JavaScript runtime environment Rhino is ECMAScript 5 compliant and that's quite unfortunate when you need to integrate a great third party library that is pushing ES6 JavaScript to the edge (as they all should). There are translation engines ([Babel](https://babeljs.io)) that are actually trying to fill this gap, but I had problems integrating Babel itself so for now it's not coming to the rescue. The point is that if you have e.g. Symbol in your library code you are likely lost. Sometimes there are useful polifills though so  don;t rush to give up.
 
 **Lesson learned:** Check the JavaScript standard compliance of the third-party library. Look for Symbol or something else that's specific to ES6 if unsure.
 
-## Type checks
+### Type checks
 
 Type checks can be tricky in Rhino and not behave entirely as you might expect.
 For example, neither of the expressions below will evaluate to true in Rhino.
@@ -43,7 +43,7 @@ However, in Chrome for example it most certainly will. Unfortunately, the trick 
 
 **Lesson learned:** Look for use of Object.prototype.toString.apply for type checks and modify accordingly (if possible)
 
-## No globals for you
+### No globals for you
 
 Well written libraries will not tightly rely that they are executed in a browser and make it up for in browser-less environments. That includes global objects and functions. But you will find none of these in Rhino. And you may need to make it up for that if possible at all. For example (using Jasmine as example here), setTimeout is not a global function as Jasmine expects it to be and I need to create and inject it like this (note the use of Java):
 
