@@ -121,4 +121,5 @@ Now, you are all set to benefit from what Jasmine has to offer to you as a devel
 
 ## References
 
-[GitHub project](https://github.com/dirigiblelabs/jasmine) 
+[Jasmin project](https://jasmine.github.io/)
+[Dirigible Jasmin module GitHub project](https://github.com/dirigiblelabs/jasmine) 
