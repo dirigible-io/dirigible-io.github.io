@@ -351,5 +351,8 @@ p.copyright {
 	color: #eee !important;
 }
 
-
+blockquote {
+	color: #6a737d;
+	font-family: serif;
+}
 
