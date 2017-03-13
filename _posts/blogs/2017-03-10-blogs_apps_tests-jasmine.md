@@ -20,7 +20,7 @@ $$j.describe("A suite is just a function", function() {
 
     $$j.it("and can have a negative case", function() {
     	$$j.expect(false).not.toBe(true);
-	});   
+    });   
 
 });
 ```
