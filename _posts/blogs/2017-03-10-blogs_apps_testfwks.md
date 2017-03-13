@@ -20,13 +20,13 @@ CommonJS is designed as a common, standard module loading system, which is a fai
 
 Dirigible's scripting runtime ([Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino)) supports [CommonJS](http://www.commonjs.org) as module management systems. However, you should keep in mind that it is not entirely comparable to the same in [NodeJS](https://nodejs.org). So not every single NodeJS module out there is directly transferable in Dirigible as it is as far as module dependencies are concerned. I am referring to NodeJS here as a platform with pretty rich set of modules that would be beneficial for other CommonJS platforms too, but the principle is the same for any CommonJS-enabled library too. 
 
-**Lesson learned:** Explore the dependencies of the library you try to integrate, how they are loaded and assess if Rhino can support that. Chances are that you may need to modify the library's loading mechanism and introduce its dependencies as Dirigible modules too.     
+> **Lesson learned:** Explore the dependencies of the library you try to integrate, how they are loaded and assess if Rhino can support that. Chances are that you may need to modify the library's loading mechanism and introduce its dependencies as Dirigible modules too.     
 
 ### ECMAScript 2015 (ES6)
 
 [ES6](http://www.ecma-international.org/publications/standards/Ecma-262.htm) introduces a great deal of improvements to JavaScript for good. In fact, they are sometimes so significant that applications and platforms can hardly catch up. For example, Dirigible's JavaScript runtime environment Rhino is ECMAScript 5 compliant and that's quite unfortunate when you need to integrate a great third party library that is pushing ES6 JavaScript to the edge (as they all should). There are translation engines ([Babel](https://babeljs.io)) that are actually trying to fill this gap, but I had problems integrating Babel itself so for now it's not coming to the rescue. The point is that if you have e.g. Symbol in your library code you are likely lost. Sometimes there are useful polifills though so  don;t rush to give up.
 
-**Lesson learned:** Check the JavaScript standard compliance of the third-party library. Look for Symbol or something else that's specific to ES6 if unsure.
+> **Lesson learned:** Check the JavaScript standard compliance of the third-party library. Look for Symbol or something else that's specific to ES6 if unsure.
 
 ### Type checks
 
@@ -41,7 +41,7 @@ Object.prototype.toString.apply(new Function()) === '[object Function]';
 
 However, in Chrome for example it most certainly will. Unfortunately, the trick to use toString for type checks is quite common as it seems and eventually you may hit this problem. The fix is luckily trivial, and is to use something more conventional such as: typeof target === 'function', but it will certainly require that you modify the library code. And this son its own requires that the third-party code licenses you for such modifications. So take care to check beforehand.
 
-**Lesson learned:** Look for use of Object.prototype.toString.apply for type checks and modify accordingly (if possible)
+> **Lesson learned:** Look for use of Object.prototype.toString.apply for type checks and modify accordingly (if possible)
 
 ### No globals for you
 
@@ -64,4 +64,4 @@ jasmineGlobal.setTimeout = function (fn, delay) {
 
 In this example jamsineGlobal is initialized as 'this', which in the context of a Dirigible module is empty (and not window (as expected by Jasmine)   
 
-**Lesson learned:** Look for browser-specific objects such as window, set/clearTimeout/setInterval/clearInterval, document or console. See what exactly is required from them and then mock them delegating to the Rhino/Dirigible environment.
+> **Lesson learned:** Look for browser-specific objects such as window, set/clearTimeout/setInterval/clearInterval, document or console. See what exactly is required from them and then mock them delegating to the Rhino/Dirigible environment.
