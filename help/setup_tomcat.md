@@ -19,7 +19,7 @@ Steps
 
 1. Download ROOT.war for Tomcat from [http://download.dirigible.io](http://download.dirigible.io).
 
-2. Configure the Users store under $CATALINA_HOME/conf:
+2. Configure the Users store under $CATALINA_HOME/conf/tomcat-users.xml:
 
         <tomcat-users>
                 <role rolename="Developer"/>
