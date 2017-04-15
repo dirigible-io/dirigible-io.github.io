@@ -35,7 +35,7 @@ The modules we decided to be part of the initial built-in set of the plugins wer
 * Monitoring
 * Market
 
-Thanks to the team's innovation spirit the "ZEUS" project was born. It combines the best from Kubernetes cloud management capabilities with the Dirigible rapid development techniques and contributes project management utilities. The sources of the ZEUS modules can be found as usual under DirigibleLabs on GitHub - [ZEUS](https://github.com/dirigiblelabs/zeus).
+Thanks to the team's innovation spirit the "ZEUS" project was born. It combines the best from [Kubernetes](https://kubernetes.io/) cloud management capabilities with the Dirigible rapid development techniques and contributes project management utilities. The sources of the ZEUS modules can be found as usual under DirigibleLabs on GitHub - [ZEUS](https://github.com/dirigiblelabs/zeus).
 
 ![containers](/img/posts/20161202/zeus_containers.png){: .img-responsive }
 
