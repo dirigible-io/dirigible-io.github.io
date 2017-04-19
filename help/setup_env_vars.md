@@ -28,7 +28,7 @@ Parameter     | Description | Default*
 **jdbcWaitTimeout**   | Maximum waiting timeout of a connection before to be considered as a hanging connection | 500
 **jdbcWaitCount**   | Maximum number of tries to keep it alive, if free connections are still available | 5
 **repositoryProvider**   | Default Repository Provider. Can be *local* (file-system based), *db* (RDBMS based), rcp (Eclipse Workspace based)  | local
-**repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git* | 
+**repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git*, *zip* | 
 **defaultDataSourceType**   | Type of the Default Database DataSource. Possible options are **jndi** and **local** | local
 **mailSender**   | provided built-in | true
 **homeLocation**   | Whether to check the user roles. Useful to disable in "trial" mode | true
@@ -41,7 +41,7 @@ Parameter     | Description | Default*
 **jndiCmisServiceKey**   | The access key of the CMIS repository | cmis:dirigible:key
 **jndiCmisServiceAuth**   | The type of authentication of the CMIS repository. The valid values are 'key' and 'destination' | key
 **jndiCmisServiceDestination**   | The destination name where the name and the key of the CMIS repository are stored as User and Password fields (related to SAP HCP) | cmis
-
+**defaultTheme**   | The default theme for this instance | default
 
 
 
