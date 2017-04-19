@@ -29,6 +29,16 @@ Parameter     | Description | Default*
 **jdbcWaitCount**   | Maximum number of tries to keep it alive, if free connections are still available | 5
 **repositoryProvider**   | Default Repository Provider. Can be *local* (file-system based), *db* (RDBMS based), rcp (Eclipse Workspace based)  | local
 **repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git*, *zip* | 
+**localRepositoryRootFolder** | The root folder of the repository in case of a *local* | 
+**localRepositoryRootFolderIsAbsolute** | Whether the root folder is absolute or relative, in case of a *local* or *zip* | 
+**masterRepositoryGitTarget** | Target Git folder, in case of a *git* master repository | 
+**masterRepositoryGitLocation** | The Git repository location, in case of a *git* master repository | 
+**masterRepositoryGitUser** | The Git user, in case of a *git* master repository | 
+**masterRepositoryGitPassword** | The Git password, in case of a *git* master repository | 
+**masterRepositoryGitBranch** | The Git branch, in case of a *git* master repository |
+**masterRepositoryZipLocation** | The Zip file location, in case of a *git* master repository | 
+**localDatabaseRootFolder** | The root folder of the local Derby database in case of a *local* | 
+**localCmisRootFolder** | The root folder of the CMIS repository in case of a *local* | 
 **defaultDataSourceType**   | Type of the Default Database DataSource. Possible options are **jndi** and **local** | local
 **mailSender**   | provided built-in | true
 **homeLocation**   | Whether to check the user roles. Useful to disable in "trial" mode | true
