@@ -28,7 +28,7 @@ Parameter     | Description | Default*
 **jdbcWaitTimeout**   | Maximum waiting timeout of a connection before to be considered as a hanging connection | 500
 **jdbcWaitCount**   | Maximum number of tries to keep it alive, if free connections are still available | 5
 **repositoryProvider**   | Default Repository Provider. Can be *local* (file-system based), *db* (RDBMS based), rcp (Eclipse Workspace based)  | local
-**repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git*, *zip* | 
+**repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git*, *zip*, *jar* | 
 **localRepositoryRootFolder** | The root folder of the repository in case of a *local* | 
 **localRepositoryRootFolderIsAbsolute** | Whether the root folder is absolute or relative, in case of a *local* or *zip* | 
 **masterRepositoryGitTarget** | Target Git folder, in case of a *git* master repository | 
@@ -36,7 +36,8 @@ Parameter     | Description | Default*
 **masterRepositoryGitUser** | The Git user, in case of a *git* master repository | 
 **masterRepositoryGitPassword** | The Git password, in case of a *git* master repository | 
 **masterRepositoryGitBranch** | The Git branch, in case of a *git* master repository |
-**masterRepositoryZipLocation** | The Zip file location, in case of a *git* master repository | 
+**masterRepositoryZipLocation** | The Zip file location on the file system, in case of a *zip* master repository | 
+**masterRepositoryJarPath** | The Zip file location in the Jar file accessible via System, Parent or Current Classloaders, in case of a *jar* master repository | 
 **localDatabaseRootFolder** | The root folder of the local Derby database in case of a *local* | 
 **localCmisRootFolder** | The root folder of the CMIS repository in case of a *local* | 
 **defaultDataSourceType**   | Type of the Default Database DataSource. Possible options are **jndi** and **local** | local
