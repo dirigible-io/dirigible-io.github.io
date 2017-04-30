@@ -76,7 +76,5 @@ In order to combine several already existing pages into a single page, you have 
 
 File: *single.wikis*
 
-	<pre><code>
 	part1.md
 	part2.md
-	</code></pre>
