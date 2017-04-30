@@ -85,6 +85,34 @@ Concepts
 * [Generation](generation.html)
 * [Entity Service](entity_service.html)
 
+Artifacts
+---
+
+* [*.table](data_structures.html)
+* [*.view](data_structures.html)
+* [*.append](data_structures.html)
+* [*.replace](data_structures.html)
+* [*.delete](data_structures.html)
+* [*.update](data_structures.html)
+* [*.extensionpoint](extension_definitions.html)
+* [*.extension](extension_definitions.html)
+* [*.flow](integration_services.html)
+* [*.job](integration_services.html)
+* [*.listener](integration_services.html)
+* [*.entity](scripting_services.html)
+* [*.js](scripting_services.html)
+* [*.swagger](scripting_services.html)
+* [*.access](security.html)
+* [*.html](web_content.html)
+* [*.css](web_content.html)
+* [*.confluence](wiki_content.html)
+* [*.md](wiki_content.html)
+* [*.textile](wiki_content.html)
+* [*.tracwiki](wiki_content.html)
+* [*.twiki](wiki_content.html)
+
+
+
 Tooling
 ---
 
@@ -164,11 +192,6 @@ Services
 * [Generation of Generation of Web Content for Entity](service_generation_web_content_entity.html)
 
 
-Samples
----
-
-[Simple Samples](../samples/index.html)
-
 Setup
 ---
 
@@ -181,6 +204,13 @@ Setup
 * [Docker](setup_docker.html)
 * [Development Environment in Eclipse](setup_eclipse.html)
 * [Environment Variables](setup_env_vars.html)
+
+
+Samples
+---
+
+[Simple Samples](../samples/index.html)
+
 
 Updates
 ---
