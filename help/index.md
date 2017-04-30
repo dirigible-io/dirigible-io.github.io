@@ -179,7 +179,7 @@ Setup
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [SAP HANA Cloud Platform](setup_hcp.html)
 * [Docker](setup_docker.html)
-* [Eclipse](setup_eclipse.html)
+* [Development Environment in Eclipse](setup_eclipse.html)
 * [Environment Variables](setup_env_vars.html)
 
 Updates
