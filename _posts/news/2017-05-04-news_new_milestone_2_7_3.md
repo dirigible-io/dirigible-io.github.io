@@ -28,6 +28,7 @@ Join us at JPrime Conference [http://jprime.io/](http://jprime.io/)
 * 20 000+ Unique Sessions
 * 80 000+ Unique Views
 * 160+ Countries
+* 200+ Repositories in DirigibleLabs
 * 2 Customers in Production
 * 5 Applications in Production
 * &euro; 200 000 Turnover
