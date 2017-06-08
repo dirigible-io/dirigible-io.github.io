@@ -1,5 +1,5 @@
 ---
-title: Milestone 2.7.1706008-R
+title: Release 2.7.1706008-R
 category: release
 tag: release
 ---
