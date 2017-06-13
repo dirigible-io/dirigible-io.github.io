@@ -53,8 +53,14 @@ Parameter     | Description | Default*
 **jndiCmisServiceAuth**   | The type of authentication of the CMIS repository. The valid values are 'key' and 'destination' | key
 **jndiCmisServiceDestination**   | The destination name where the name and the key of the CMIS repository are stored as User and Password fields (related to SAP HCP) | cmis
 **defaultTheme**   | The default theme for this instance | default
-
-
+**dataSourceDefaultUrl** | The URL property for the custom JDBC DataSource |
+**dataSourceDefaultDriver** | The Driver property for the custom JDBC DataSource |
+**dataSourceDefaultUser** | The User property for the custom JDBC DataSource |
+**dataSourceDefaultPassword** | The Password property for the custom JDBC DataSource |
+**dataSourceDefaultAutoCommit** | The AutoCommit property for the custom JDBC DataSource |
+**dataSourceDefaultMaxActive** | The MaxActive property for the custom JDBC DataSource |
+**dataSourceDefaultMaxIdle** | The MaxIdle property for the custom JDBC DataSource |
+**dataSourceDefaultMaxWait** | The MaxWait property for the custom JDBC DataSource |
 
 
 
