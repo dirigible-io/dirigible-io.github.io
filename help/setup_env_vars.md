@@ -30,6 +30,7 @@ Parameter     | Description | Default*
 **repositoryProvider**   | Default Repository Provider. Can be *local* (file-system based), *db* (RDBMS based), rcp (Eclipse Workspace based)  | local
 **repositoryProviderMaster**   | Default Repository Provider Master (used for Initial Load or Reset). Can be *filesystem*, *db*, *git*, *zip*, *jar* | 
 **localRepositoryRootFolder** | The root folder of the repository in case of a *local* | 
+**localRepositoryRootFolderName** | The name of the root folder in case of a *local* repository | dirigible_local
 **localRepositoryRootFolderIsAbsolute** | Whether the root folder is absolute or relative, in case of a *local* or *zip* | 
 **masterRepositoryGitTarget** | Target Git folder, in case of a *git* master repository | 
 **masterRepositoryGitLocation** | The Git repository location, in case of a *git* master repository | 
