@@ -23,7 +23,8 @@ The latest documentation is available [here](http://www.dirigible.io/help/).
 There is also a list of samples that you can experiment with and reuse in order to get to know the features and APIs provided by Eclipse Dirigible. For more information, go to [the samples page](http://www.dirigible.io/samples/).
 
 ##Contributing
-[These fine people] (https://github.com/dirigible-io/dirigible-io.github.io/graphs/contributors) contribute to the project on a daily basis. 
+
+[These fine people](https://github.com/dirigible-io/dirigible-io.github.io/graphs/contributors) contribute to the project on a daily basis. 
 
 ###Join us today!
 
