@@ -30,7 +30,7 @@ navigation:
   - name: core/threads 🔸
     icon: fa fa-caret-right
     url: threads.html
-  - name: db/database 🔸
+  - name: db/database 🔸🔹
     icon: fa fa-caret-right
     url: database.html
   - name: doc/cmis 🔸
