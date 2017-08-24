@@ -63,7 +63,7 @@ Net
 * [websocket](websocket.html) 🔸
 
 
-Net/HTTP
+HTTP
 ----
 
 * [request](http_request.html) 🔸
