@@ -111,7 +111,7 @@ navigation:
   - name: utils/uuid 🔸🔹
     icon: fa fa-caret-right
     url: utils_uuid.html
-  - name: utils/xml 🔸
+  - name: utils/xml 🔸🔹
     icon: fa fa-caret-right
     url: utils_xml.html
   - name: utils/xss 🔸

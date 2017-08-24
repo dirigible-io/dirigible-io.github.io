@@ -92,7 +92,7 @@ Utils
 * [error](utils_error.html) 🔸
 * [hex](utils_hex.html) 🔸
 * [uuid](utils_uuid.html) 🔸🔹
-* [xml](utils_xml.html) 🔸
+* [xml](utils_xml.html) 🔸🔹
 * [xss](utils_xss.html) 🔸
 
 
