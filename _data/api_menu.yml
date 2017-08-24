@@ -108,7 +108,7 @@ navigation:
   - name: utils/hex 🔸
     icon: fa fa-caret-right
     url: utils_hex.html
-  - name: utils/uuid 🔸
+  - name: utils/uuid 🔸🔹
     icon: fa fa-caret-right
     url: utils_uuid.html
   - name: utils/xml 🔸
