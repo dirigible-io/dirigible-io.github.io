@@ -43,28 +43,33 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**print(text)**   | Prints the text in the response body | -
-**println(text)**   | Prints the text in the response body with line separator at the end | -
-**flush()**   | Flushes the content in the response to the client | -
+**isValid()**   | Returns true if the current execution context is in a HTTP call | *boolean*
+**print(text)**   | Prints the text to the response body | -
+**println(text)**   | Prints the text to the response body with line separator at the end | -
+**write(bytes)**   | Prints the bytes array to the response body | -
+**isCommitted()**   | Whether response is already committed | *boolean*
+**setContentType()**   | Sets the content type | -
+**flush()**   | Flushes the content to the response to the client | -
 **close()**   | Closes the response stream to the client | -
 **addCookie(cookie)**   | Adds a HttpCookie to the response | -
-**addHeader(name, Value)**   | Adds a header name/value pair to the response | -
-**setHeader(name, Value)**   | Updates a header name/value pair to the response | -
 **containsHeader(name)**   | Checks existence of the header by name | *boolean*
+**encodeURL(url)**   | Returns the encoded *url* parameter | *string*
 **getCharacterEncoding()**   | Returns the character encoding of the response | *string*
-**getContentLength()**   | Returns the content length of the response | *int*
+**encodeRedirectURL()**   | Returns the encoded redirect URL | *string*
 **getContentType()**   | Returns the content type of the response | *string*
-**sendError(code, message)**   | Sends an error instruction to the client with the given code and message | -
-**sendRedirect(location)**   | Sends a redirect instruction to the client to the given location | -
+**sendError(code, message)**   | Sends an error instruction to the client with the given *code* and *message*. The *message* parameter is optional | -
 **setCharacterEncoding(encoding)**   | Sets the character encoding of the response | -
+**sendRedirect(location)**   | Sends a redirect instruction to the client to the given location | -
 **setContentLength(length)**   | Sets the content length of the response | -
-**setContentType(type)**   | Sets the content type of the response | -
+**setHeader(name, value)**   | Updates a header name/value pair to the response | -
+**addHeader(name, value)**   | Adds a header name/value pair to the response | -
 **setStatus(status)**   | Sets the status of the response | -
-**getOutputStream()**   | Returns the OutputStream object | *streams.OutputStream*
-**writeStream(inputStream)**   | Writes the inputStream to the output stream of this Response | -
-**writeOutput(bytes)**   | Writes the byte array to the output stream of this Response | -
-
-
+**reset(status)**   | Resets the response | -
+**getHeader(name)**   | Returns the header value by *name* | -
+**setLocale(language, country, variant)**   | Sets the locale to the response | -
+**getHeaders(name)**   | Returns the array of header values by *name* | *array of string*
+**getHeaderNames()**   | Returns the names of all the headers | *array of string*
+**getLocale()**   | Returns the locale of the response | *string*
 
 
 #### Constants

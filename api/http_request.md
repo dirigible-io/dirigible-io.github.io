@@ -46,7 +46,7 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**isValid()**   | Returns true if the current execution context is in a HTTP call | *string*
+**isValid()**   | Returns true if the current execution context is in a HTTP call | *boolean*
 **getMethod()**   | Returns the HTTP request method - GET, POST, PUT, DELETE, HEAD, TRACE | *string*
 **getRemoteUser()**   | Returns the user name performing the request | *string*
 **getPathInfo()**   | Returns the path info section of the URL | *string*
