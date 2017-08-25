@@ -68,10 +68,10 @@ Net
 HTTP
 ----
 
-* [request](http_request.html) 🔸
-* [response](http_response.html) 🔸
-* [session](http_session.html) 🔸
 * [client](http_client.html) 🔸🔹
+* [request](http_request.html) 🔸🔹
+* [response](http_response.html) 🔸🔹
+* [session](http_session.html) 🔸
 * [upload](http_upload.html) 🔸
 * [user](http_user.html) 🔸
 

@@ -60,10 +60,10 @@ navigation:
   - name: http/client 🔸🔹
     icon: fa fa-caret-right
     url: http_client.html
-  - name: net/http/request 🔸
+  - name: net/http/request 🔸🔹
     icon: fa fa-caret-right
     url: http_request.html
-  - name: net/http/response 🔸
+  - name: net/http/response 🔸🔹
     icon: fa fa-caret-right
     url: http_response.html
   - name: net/http/session 🔸

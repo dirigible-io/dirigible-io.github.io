@@ -121,8 +121,7 @@ Property     | Description | Type
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
@@ -132,8 +131,8 @@ Rhino | Nashorn | V8
 
 ---
 
-
-
+Version 2.x
+---
 
 
 - Module: **net/http/client**
@@ -216,8 +215,7 @@ Function     | Description | Returns
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
