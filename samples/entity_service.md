@@ -5,13 +5,17 @@ icon: fa-caret-right
 group: simple
 ---
 
-Entity Service
+{{ page.title }}
 ===
 
 In the context of Dirigible, the Entity Service means a REST service which exposes the [CRUD](http://en.wikipedia.org/wiki/Create,\_read,\_update\_and\_delete) methods on top of the database table. The following steps shows how to generate such an entity service on top of existing table.
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
+
 1. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 2. From the menu, choose **New** -> **Scripting Service**.
 
@@ -35,8 +39,8 @@ Develop
 
 	> In this case - just an empty JSON array.
 
-Discover
---
+### Discover
+
 To discover all available services, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

@@ -5,8 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-Shielding JavaScript Service
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 Often, by security reasons, the original endpoint of a service should not be exposed directly.
 To make simple redirect from a public endpoint to an internal end-point of a scripting service, we can use the shielding functionality from the "**Integration Services**" section.

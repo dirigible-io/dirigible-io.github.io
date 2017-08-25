@@ -33,6 +33,12 @@ navigation:
   - name: db/database 🔸🔹
     icon: fa fa-caret-right
     url: database.html
+  - name: db/query 🔹
+    icon: fa fa-caret-right
+    url: database_query.html
+  - name: db/update 🔹
+    icon: fa fa-caret-right
+    url: database_update.html
   - name: doc/cmis 🔸
     icon: fa fa-caret-right
     url: cmis.html

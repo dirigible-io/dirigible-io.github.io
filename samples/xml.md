@@ -5,11 +5,15 @@ icon: fa-caret-right
 group: simple
 ---
 
-XML to JSON and vice-versa
+{{ page.title }}
 ===
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
+
 1. Create a new project or use an existing one.
 2. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 3. Choose **New** -> **Scripting Service**.
@@ -61,8 +65,8 @@ Develop
 
 > fromJson(jsonString) - converts JSON content to XML
 
-Discover
---
+### Discover
+
 To discover all available services, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

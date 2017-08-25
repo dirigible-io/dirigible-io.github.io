@@ -5,11 +5,15 @@ icon: fa-caret-right
 group: simple
 ---
 
-Mail Service
+{{ page.title }}
 ===
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
+
 1. Create a new project or use an existing one.
 2. Select the **ScriptingServices** sub-folder of the project and open the pop-up menu.
 3. Choose **New** -> **Scripting Service**.
@@ -45,8 +49,8 @@ Develop
 
 ![Mail Service 5](images/mail_service/mail_service_5.png)
 
-Discover
---
+### Discover
+
 To discover all available services, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

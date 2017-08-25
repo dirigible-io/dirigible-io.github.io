@@ -5,13 +5,17 @@ icon: fa-caret-right
 group: simple
 ---
 
-Entity User Interface
+{{ page.title }}
 ===
 
 After creating the data model and the entity service, let's now generate user interface for entity management (list, new, edit, delete...)
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
+
 1. Select **books.entity** and open the pop-up menu. 
 2. Choose **Generate** -> **User Interface for Entity Service**.
 
@@ -34,8 +38,8 @@ Develop
 
 	![Entity Service UI 6](bookstore/32_books_entity_service_ui_6.png)
 
-Discover
---
+### Discover
+
 To discover all available web pages, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

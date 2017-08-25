@@ -5,15 +5,19 @@ icon: fa-caret-right
 group: simple
 ---
 
-Data Model
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 Data models a.k.a [domain models](http://en.htmlpedia.org/wiki/Domain_model) are the set of entities of your application and also their relations. In Dirigible, we also use the term [data structures](../help/data_structures.html), which is more related to the actual artifact - the data descriptor.
 
 Let's create the first model entity of the [BookStore](bookstore.html) sample - the books table.
 
-Develop
---
 1. Select the **DataStructures** sub-folder of a project and open the pop-up menu using right-click.
 2. From the menu, choose **New -> Data Structure**.
 
@@ -132,8 +136,8 @@ Develop
 
 	> Once you have published the project successfully, you can go to the **Database** perspective to double check the table definition.
 
-Discover
---
+### Discover
+
 To discover all available database tables, you can go to the [Database Perspective](../help/database_perspective.html).
 
 2. From the main menu, go to **Window** -> **Show Perspective** -> **Database**.

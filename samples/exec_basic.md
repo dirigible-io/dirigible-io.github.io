@@ -5,11 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-Exec
+{{ page.title }}
 ===
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
 
 1. Create a new project and name it **exec_basic**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
@@ -79,8 +82,8 @@ After creating the above file:
 	<a class="btn btn-info" href="http://www.dirigible.io/api/exec.html">API</a>
 </div>
 
-Discover
---
+### Discover
+
 To discover all available services, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

@@ -35,6 +35,8 @@ Database
 ---
 
 * [database](database.html) 🔸🔹
+* [query](database_query.html) 🔹
+* [update](database_update.html) 🔹
 
 
 

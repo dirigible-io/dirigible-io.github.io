@@ -5,10 +5,16 @@ icon: fa-caret-right
 group: simple
 ---
 
-Confluence to HTML
+{{ page.title }}
 ===
 
-Nowadays it is already a default standard approach to write the application-related documentation in some [wiki](http://en.wikipedia.org/wiki/Wiki) markup language. The use of such a simplified language gives the document writer, in this case a developer, the freedom to focus on the dev content instead of formatting.
+Version 2.x
+---
+
+### Develop
+
+
+Nowadays it is already a standard to write the application-related documentation in some [wiki](http://en.wikipedia.org/wiki/Wiki) markup language. The use of such a simplified language gives the document writer, in this case a developer, the freedom to focus on the dev content instead of formatting.
 
 We choose to support [Confluence](https://confluence.atlassian.com/display/DOC/Confluence+Wiki+Markup) format in scripting services. 
 

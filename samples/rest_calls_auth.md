@@ -1,12 +1,18 @@
 ---
 layout: samples
-title: Authorization
+title: REST with Authorization
 icon: fa-caret-right
 group: simple
 ---
 
-REST Call with Authorization Header
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 Most of the RESTfull services playing role as remote APIs require some kind of authentication. In the following example, we use *Basic* scheme with authorization header as specified at [RFC 2617](https://www.ietf.org/rfc/rfc2617.txt). The target service could be OData service, from which we explicitly ask for JSON format as well.
  
@@ -14,8 +20,7 @@ Most of the RESTfull services playing role as remote APIs require some kind of a
 2. Then create a JavaScript service named **rest_call_authorization.js**.
 3. Within the service code, enter the following content:
 
-GET Call
----
+#### GET Call
 
 ```javascript
 

@@ -5,8 +5,13 @@ icon: fa-caret-right
 group: simple
 ---
 
-Configuration
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
 
 
 1. Create a new project and name it **config_project**

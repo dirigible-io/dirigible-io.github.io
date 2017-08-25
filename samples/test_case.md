@@ -5,7 +5,7 @@ icon: fa-caret-right
 
 ---
 
-Test Case
+{{ page.title }}
 ===
 
 Description of the topic here...

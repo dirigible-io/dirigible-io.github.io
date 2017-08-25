@@ -5,8 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-Templating Service
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 1. Create a new project and name it **templating**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.

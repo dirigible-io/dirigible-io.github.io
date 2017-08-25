@@ -5,11 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-File Create
+{{ page.title }}
 ===
 
-Develop
---
+Version 2.x
+---
+
+### Develop
+
 
 1. Create a new project and name it **file_create_basic**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.
@@ -46,8 +49,8 @@ Develop
 	<a class="btn btn-info" href="http://www.dirigible.io/api/file.html">API</a>
 </div>
 
-Discover
---
+### Discover
+
 To discover all available services, you can go to the [Registry](../help/registry.html).
 
 1. From the main menu, choose **Window** -> **Show Perspective** -> **Registry**.

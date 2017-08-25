@@ -5,11 +5,16 @@ icon: fa-caret-right
 group: simple
 ---
 
-Multiple Datasources
+{{ page.title }}
 ===
 
-Prerequisites
-====
+Version 2.x
+---
+
+### Develop
+
+
+#### Prerequisites
 
 1. First you have to have pre-configured datasources in the web-xml of your custom Dirigible build e.g.
 
@@ -31,8 +36,7 @@ Prerequisites
 	Type=JNDI
 	Location=java:comp/env/jdbc/XXX
 		
-Steps
-====
+#### Steps
 
 1. Create a new project and name it **multidb**.
 2. Select the *ScriptingServices* sub-folder of the project and open the pop-up menu.

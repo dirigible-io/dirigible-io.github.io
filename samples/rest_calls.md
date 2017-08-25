@@ -5,15 +5,20 @@ icon: fa-caret-right
 group: simple
 ---
 
-REST Call
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 1. Create a project **RESTCall**.
 2. Then create a JavaScript service named **rest_call.js**.
 3. Within the service code, enter the following content:
 
-GET Call
----
+#### GET Call
 
 ```javascript
 
@@ -32,8 +37,8 @@ GET Call
 
 ```
 
-Parsing 'input' to JSON
-----
+#### Parsing 'input' to JSON
+
 
 ```javascript
 
@@ -41,8 +46,8 @@ Parsing 'input' to JSON
 
 ```
 
-POST Call
-----
+#### POST Call
+
 
 ```javascript
 
@@ -73,8 +78,8 @@ POST Call
 
 ```
 
-PUT Call
-----
+#### PUT Call
+
 
 ```javascript
 
@@ -105,8 +110,7 @@ PUT Call
 
 ```
 
-DELETE Call
-----
+#### DELETE Call
 
 ```javascript
 

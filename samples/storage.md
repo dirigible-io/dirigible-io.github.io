@@ -5,8 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-Storage
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 1. Create a new project or use an existing one.
 2. Create a new *Scripting Service*

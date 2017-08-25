@@ -5,8 +5,14 @@ icon: fa-caret-right
 group: simple
 ---
 
-Scheduled Job
+{{ page.title }}
 ===
+
+Version 2.x
+---
+
+### Develop
+
 
 In real-world applications, there is need of some tasks to be executed in the background without user interaction.
 For this purpose, we use the well accepted term Job and this example shows how to schedule it to be executed periodically.
