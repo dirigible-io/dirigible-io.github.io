@@ -57,7 +57,7 @@ navigation:
   - name: net/websocket 🔸
     icon: fa fa-caret-right
     url: websocket.html
-  - name: net/http/client 🔸
+  - name: http/client 🔸🔹
     icon: fa fa-caret-right
     url: http_client.html
   - name: net/http/request 🔸
