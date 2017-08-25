@@ -29,7 +29,6 @@ update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))");
 update.execute("INSERT INTO MY_TABLE VALUES (1, 'ABC')");
 update.execute("INSERT INTO MY_TABLE VALUES (2, 'DEF')");
 update.execute("DROP TABLE MY_TABLE");
-
 ```
 
 
