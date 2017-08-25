@@ -53,8 +53,8 @@ Platform
 IO
 ---
 
-* [files](files.html) 🔸
-* [streams](streams.html) 🔸
+* [files](files.html) 🔸🔹
+* [streams](streams.html) 🔸🔹
 * [zip](zip.html) 🔸
 
 

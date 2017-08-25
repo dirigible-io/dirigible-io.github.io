@@ -42,10 +42,10 @@ navigation:
   - name: doc/cmis 🔸
     icon: fa fa-caret-right
     url: cmis.html
-  - name: io/files 🔸
+  - name: io/files 🔸🔹
     icon: fa fa-caret-right
     url: files.html
-  - name: io/streams 🔸
+  - name: io/streams 🔸🔹
     icon: fa fa-caret-right
     url: streams.html
   - name: io/zip 🔸
@@ -60,10 +60,10 @@ navigation:
   - name: http/client 🔸🔹
     icon: fa fa-caret-right
     url: http_client.html
-  - name: net/http/request 🔸🔹
+  - name: http/request 🔸🔹
     icon: fa fa-caret-right
     url: http_request.html
-  - name: net/http/response 🔸🔹
+  - name: http/response 🔸🔹
     icon: fa fa-caret-right
     url: http_response.html
   - name: net/http/session 🔸
