@@ -72,7 +72,7 @@ HTTP
 * [request](http_request.html) 🔸🔹
 * [response](http_response.html) 🔸🔹
 * [session](http_session.html) 🔸
-* [upload](http_upload.html) 🔸
+* [upload](http_upload.html) 🔸🔹
 * [user](http_user.html) 🔸
 
 

@@ -9,18 +9,113 @@ icon: fa-ellipsis-h
 
 HTTP Upload is used to consume files posted as multipart request.
 
+Version 3.x
+---
+
+- Module: **http/v3/upload**
+- Alias: **http/upload**
+- Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
+- Source: [/http/v3/upload.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/http/v3/upload.js)
+- Facade: [HttpUploadFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java)
+- Status: **alpha**
+
+
+
+### Basic Usage
+
+```javascript
+var upload = require('http/v3/upload');
+var request = require('http/v3/request');
+var response = require('http/v3/response');
+
+if (request.getMethod() === "POST") {
+	if (upload.isMultipartContent()) {
+		var fileItems = upload.parseRequest();
+		for (i=0; i<fileItems.size(); i++) {
+			var fileItem = fileItems.get(i);
+			response.println("File Name: " + fileItem.getName());
+			response.println("File Text: " + fileItem.getText());
+		});
+	} else {
+		response.println("The request's content must be 'multipart'");
+	}
+} else if (request.getMethod() === "GET") {
+	response.println("Use POST request.");
+}
+
+response.flush();
+response.close();
+```
+
+
+
+### Definition
+
+#### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**isMultipartContent()**   | Returns true if the HTTP request contains files content and false otherwise | *boolean*
+**parseRequest()**   | Returns a HttpFileItems object by parsing the HTTP request | *HttpFileItems*
+
+
+
+
+#### Objects
+
+---
+
+##### HttpFileItems
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**get(index)**   | The HttpFileItem object by the *index* | *HttpFileItem*
+**size()**   | The size of the list of HttpFileItem objects | *HttpFileItem*
+
+
+
+##### HttpFileItem
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getContentType()**   | The HttpFileItem's data content type | *string*
+**getName()**   | The HttpFileItem's name | *string*
+**getSize()**   | The HttpFileItem's size | *long*
+**getBytes()**   | Return the HttpFileItem's content as byte array | *array of byte*
+**getBytes()**   | Return the HttpFileItem's content as string | *string*
+**getInputStream()**   | Return the input stream of the HttpFileItem's content | *streams.InputStream*
+**isFormField()**   | Whether the HttpFileItem represents a form field | *boolean*
+**getFieldName()**   | The HttpFileItem's field name | *string*
+
+
+
+### Compatibility
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ✅
+
+---
+
+---
+
+
+Version 2.x
+---
+
 - Module: **net/http/upload**
 - Definition: [/core_api/issues/24](https://github.com/dirigiblelabs/core_api/issues/24)
 - Source: [/net/http/upload.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/upload.js)
 - Status: **beta**
 
-Basic Usage
----
+
+### Basic Usage
 
 ```javascript
-/* globals $ */
-/* eslint-env node, dirigible */
-
 var upload = require('net/http/upload');
 var request = require('net/http/request');
 var response = require('net/http/response');
@@ -47,10 +142,9 @@ response.close();
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -61,11 +155,11 @@ Function     | Description | Returns
 
 
 
-### Objects
+#### Objects
 
 ---
 
-#### HttpFileEntry
+##### HttpFileEntry
 
 
 Function     | Description | Returns
@@ -81,9 +175,7 @@ Function     | Description | Returns
 
 
 
-
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------

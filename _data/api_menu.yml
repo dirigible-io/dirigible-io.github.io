@@ -69,7 +69,7 @@ navigation:
   - name: net/http/session 🔸
     icon: fa fa-caret-right
     url: http_session.html
-  - name: net/http/upload 🔸
+  - name: net/http/upload 🔸🔹
     icon: fa fa-caret-right
     url: http_upload.html
   - name: net/http/user 🔸
