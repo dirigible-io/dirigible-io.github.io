@@ -24,6 +24,8 @@ Version 3.x
 ### Basic Usage
 
 ```javascript
+/* eslint-env node, dirigible */
+
 var upload = require('http/v3/upload');
 var request = require('http/v3/request');
 var response = require('http/v3/response');
@@ -33,9 +35,14 @@ if (request.getMethod() === "POST") {
 		var fileItems = upload.parseRequest();
 		for (i=0; i<fileItems.size(); i++) {
 			var fileItem = fileItems.get(i);
-			response.println("File Name: " + fileItem.getName());
-			response.println("File Text: " + fileItem.getText());
-		});
+			if (!fileItem.isFormField()) {
+				response.println("File Name: " + fileItem.getName());
+				response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
+			} else {
+				response.println("Field Name: " + fileItem.getFieldName());
+				response.println("Field Text: " + fileItem.getText());
+			}
+		}
 	} else {
 		response.println("The request's content must be 'multipart'");
 	}
