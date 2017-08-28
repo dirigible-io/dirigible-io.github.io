@@ -20,8 +20,7 @@ Version 3.x
 - Facade: [JavaFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/JavaFacade.java)
 - Status: **alpha**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 var java = require('core/v3/java');
@@ -29,10 +28,9 @@ var java = require('core/v3/java');
 var uuid = java.call('org.eclipse.dirigible.api.v3.utils.UuidFacade', 'random', []);
 ```
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -43,8 +41,7 @@ Function     | Description | Returns
 **invoke(uuid, methodName, params, deep)**   | Invokes a method of an object by its reference (uuid) with the given parameters. Can return either a primitive or serialized array of primitives or object reference (deep=true). | primitive, serialized array or an object reference
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
