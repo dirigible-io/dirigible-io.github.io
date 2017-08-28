@@ -12,16 +12,16 @@ navigation:
   - name: core/config 🔸
     icon: fa fa-caret-right
     url: config.html
-  - name: core/context 🔸
+  - name: core/context 🔸🔹
     icon: fa fa-caret-right
     url: context.html
-  - name: core/env 🔸
+  - name: core/env 🔸🔹
     icon: fa fa-caret-right
     url: env.html
   - name: core/extensions 🔸
     icon: fa fa-caret-right
     url: extensions.html
-  - name: core/globals 🔸
+  - name: core/globals 🔸🔹
     icon: fa fa-caret-right
     url: globals.html
   - name: java 🔹

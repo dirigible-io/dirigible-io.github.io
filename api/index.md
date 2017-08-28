@@ -23,10 +23,10 @@ Core
 
 * [assert](assert.html) 🔸
 * [config](config.html) 🔸
-* [context](context.html) 🔸
-* [env](env.html) 🔸
+* [context](context.html) 🔸🔹
+* [env](env.html) 🔸🔹
 * [extensions](extensions.html) 🔸
-* [globals](globals.html) 🔸
+* [globals](globals.html) 🔸🔹
 * [java](java.html) 🔹
 * [threads](threads.html) 🔸
 
