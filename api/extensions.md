@@ -7,6 +7,65 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+Version 3.x
+---
+
+- Module: **core/v3/extensions**
+- Alias: **core/extensions**
+- Definition: [https://github.com/eclipse/dirigible/issues/18](https://github.com/eclipse/dirigible/issues/18)
+- Source: [/core/v3/extensions.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/extensions.js)
+- Facade: [ExtensionsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ExtensionsServiceFacade.java)
+- Status: **alpha**
+
+### Basic Usage
+
+```javascript
+var extensions = require('core/v3/extensions');
+var response = require('http/v3/response');
+
+var mainmenu = [];
+var menuExtensions = extensions.getExtensions('ide-menu');
+for (var i=0; i<menuExtensions.length; i++) {
+    var module = menuExtensions[i];
+    menuExtension = require(module);
+    var menu = menuExtension.getMenu();
+    mainmenu.push(menu);
+}
+response.println(JSON.stringify(mainmenu));
+
+```
+
+
+
+Definition
+---
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getExtensionPoints()** | Returns an array of the extension points names | *array of string*
+**getExtensions(extensionPoint)**   | Returns an array of the extensions names for the specified extension point | *array of string*
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ✅
+
+---
+
+---
+
+
+Version 2.x
+---
+
 Extensions module provides classes and utilities for working with extension points and extensions.
 
 - Module: **core/extensions**
@@ -14,8 +73,7 @@ Extensions module provides classes and utilities for working with extension poin
 - Source: [/core/extensions.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/extensions.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -54,10 +112,9 @@ function getExtensionPoint() {
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -74,11 +131,11 @@ Function     | Description | Returns
 **removeExtension(extension, extensionPoint)** | Removes an extension | -
 **removeExtensionPoint(extensionPoint)** | Removes an extension point | -
 
-### Objects
+#### Objects
 
 ---
 
-#### ExtensionDefinition
+##### ExtensionDefinition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -88,7 +145,7 @@ Function     | Description | Returns
 **getCreatedBy()** | Returns the Id of the user, who've created the extension | *string*
 **getCreatedAt()** | Returns the creation date information | *Date*
 
-#### ExtensionPointDefinition
+##### ExtensionPointDefinition
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -98,8 +155,7 @@ Function     | Description | Returns
 **getCreatedAt()** | Returns the creation date information | *Date*
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
