@@ -93,6 +93,7 @@ Utils
 * [digest](utils_digest.html) 🔸🔹
 * [error](utils_error.html) 🔸
 * [hex](utils_hex.html) 🔸🔹
+* [url](utils_url.html) 🔹
 * [uuid](utils_uuid.html) 🔸🔹
 * [xml](utils_xml.html) 🔸🔹
 * [xss](utils_xss.html) 🔸

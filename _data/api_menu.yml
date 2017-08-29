@@ -114,6 +114,9 @@ navigation:
   - name: utils/hex 🔸🔹
     icon: fa fa-caret-right
     url: utils_hex.html
+  - name: utils/url 🔹
+    icon: fa fa-caret-right
+    url: utils_url.html
   - name: utils/uuid 🔸🔹
     icon: fa fa-caret-right
     url: utils_uuid.html

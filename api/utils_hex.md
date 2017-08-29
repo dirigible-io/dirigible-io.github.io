@@ -15,7 +15,7 @@ Version 3.x
 
 - Module: **utils/v3/hex**
 - Alias: **utils/hex**
-- Definition: [https://github.com/eclipse/dirigible/issues/22](https://github.com/eclipse/dirigible/issues/22)
+- Definition: [https://github.com/eclipse/dirigible/issues/23](https://github.com/eclipse/dirigible/issues/23)
 - Source: [/utils/v3/hex.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/hex.js)
 - Facade: [HexFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/HexFacade.java)
 - Status: **alpha**
