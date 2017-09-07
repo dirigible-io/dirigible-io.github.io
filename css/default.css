@@ -47,8 +47,8 @@ a:hover {
 
 .btn-primary {
     color: #203446;
-    background-color: #284157;
-    border: 1px solid #284157;
+    background-color: #203446;
+    border: 1px solid ##203446;
 }
 
 footer .btn-primary {
