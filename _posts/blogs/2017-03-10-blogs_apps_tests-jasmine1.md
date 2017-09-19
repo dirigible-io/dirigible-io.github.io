@@ -3,12 +3,12 @@ title: "Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console"
 author: georgi.pavlov
 ---
 
-In my previous [blog](http://www.dirigible.io/blogs/2017/03/10/blogs_apps_tests-jasmine.html) I introduced [Jasmin](https://jasmine.github.io/) as a testing framework for server-side JavaScript. Here, I will explore how to add the server console as another test results output channel. 
+In my previous [blog](http://www.dirigible.io/blogs/2017/03/10/blogs_apps_tests-jasmine.html) I introduced [Jasmine](https://jasmine.github.io/) as a testing framework for server-side JavaScript. Here I will explore how to add the server console as another test results output channel. 
 
 Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
 ----
 
-In my previous [blog](http://www.dirigible.io/blogs/2017/03/10/blogs_apps_tests-jasmine.html) I introduced [Jasmin](https://jasmine.github.io/) as a testing framework for server-side JavaScript. Here, I will explore how to add the server console as another test results output channel. It is rudimentary, yet handy channel. Lucky for you it comes right out-of-the-box with the [GitHub dirigiblelabs Jasmine project](https://github.com/dirigiblelabs/jasmine).
+In my previous [blog](http://www.dirigible.io/blogs/2017/03/10/blogs_apps_tests-jasmine.html) I introduced [Jasmine](https://jasmine.github.io/) as a testing framework for server-side JavaScript. Here I will explore how to add the server console as another test results output channel. It is rudimentary, yet handy channel. Lucky for you, it comes right out-of-the-box with the [GitHub dirigiblelabs Jasmine project](https://github.com/dirigiblelabs/jasmine).
 To use it, you need to require the console reporter library and integrate it in Jasmine's environment.
   
 ```javascript
