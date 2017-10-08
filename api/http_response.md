@@ -17,8 +17,8 @@ Version 3.x
 - Module: **http/v3/response**
 - Alias: **http/response**
 - Definition: [https://github.com/eclipse/dirigible/issues/13](https://github.com/eclipse/dirigible/issues/13)
-- Source: [/http/v3/response.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/http/v3/response.js)
-- Facade: [HttpResponseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/http/HttpResponseFacade.java)
+- Source: [/http/v3/response.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/response.js)
+- Facade: [HttpResponseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpResponseFacade.java)
 - Status: **alpha**
 
 

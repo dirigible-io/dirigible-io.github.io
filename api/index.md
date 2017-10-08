@@ -9,7 +9,7 @@ Eclipse Dirigible<sup>&trade;</sup> API
 
 Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status.
 
-> 🔸v2, 🔹v3
+> 🔸v2, 🔹v3, ⚠ deprecated
 
 
 Built-in
@@ -66,15 +66,20 @@ Net
 
 
 HTTP
-----
+---
 
 * [client](http_client.html) 🔸🔹
 * [request](http_request.html) 🔸🔹
 * [response](http_response.html) 🔸🔹
 * [session](http_session.html) 🔸🔹
 * [upload](http_upload.html) 🔸🔹
-* [user](http_user.html) 🔸
+* [user](http_user.html) 🔸⚠
 
+
+Security
+---
+
+* [user](security_user.html) 🔹
 
 Services
 ---
@@ -96,7 +101,7 @@ Utils
 * [url](utils_url.html) 🔹
 * [uuid](utils_uuid.html) 🔸🔹
 * [xml](utils_xml.html) 🔸🔹
-* [xss](utils_xss.html) 🔸
+* [xss](utils_xss.html) 🔸⚠
 
 
 

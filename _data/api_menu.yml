@@ -72,7 +72,7 @@ navigation:
   - name: net/http/upload 🔸🔹
     icon: fa fa-caret-right
     url: http_upload.html
-  - name: net/http/user 🔸
+  - name: net/http/user 🔸⚠
     icon: fa fa-caret-right
     url: http_user.html
   - name: platform/exec 🔸
@@ -90,6 +90,9 @@ navigation:
   - name: platform/workspaces 🔸
     icon: fa fa-caret-right
     url: workspaces.html
+  - name: security/user 🔹
+    icon: fa fa-caret-right
+    url: security_user.html
   - name: service/indexing 🔸
     icon: fa fa-caret-right
     url: indexing.html
@@ -123,7 +126,7 @@ navigation:
   - name: utils/xml 🔸🔹
     icon: fa fa-caret-right
     url: utils_xml.html
-  - name: utils/xss 🔸
+  - name: utils/xss 🔸⚠
     icon: fa fa-caret-right
     url: utils_xss.html
   - name: #

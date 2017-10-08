@@ -16,8 +16,8 @@ Version 3.x
 - Module: **http/v3/client**
 - Alias: **http/client**
 - Definition: [https://github.com/eclipse/dirigible/issues/15](https://github.com/eclipse/dirigible/issues/15)
-- Source: [/http/v3/client.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/http/v3/client.js)
-- Facade: [HttpClientFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/http/HttpClientFacade.java)
+- Source: [/http/v3/client.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/client.js)
+- Facade: [HttpClientFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpClientFacade.java)
 - Status: **alpha**
 
 

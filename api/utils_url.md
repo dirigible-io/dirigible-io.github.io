@@ -47,6 +47,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **decode(input)**   | Decode an input string from application/x-www-form-urlencoded format | *string*
 **encode(input)**   | Encode an input string to application/x-www-form-urlencoded format | *string*
+**escape(input)**   | Escape an input string to comply to URI RFC 3986 | *string*
 
 
 
