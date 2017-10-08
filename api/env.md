@@ -42,19 +42,7 @@ response.close();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **get(key)**   | Returns the value per key from the environments variables | *string*
-**set(key, value)**   | Sets the value per key to the environment variables | -
-**getAll(key)**   | Returns the value per key form the environments variables | *array of key/value pairs*
-**getOperatingSystemName()**   | Returns the 'os.name' value from the environments variables | *string*
-**getOperatingSystemArchitecture()**   | Returns the 'os.arch' value from the environments variables | *string*
-**getOperatingSystemVersion()**   | Returns the 'os.version' value from the environments variables | *string*
-**getFileSeparator()**   | Returns the 'file.separator' value from the environments variables | *string*
-**getPathSeparator()**   | Returns the 'path.separator' value from the environments variables | *string*
-**getLineSeparator()**   | Returns the 'line.separator' value from the environments variables | *string*
-**getUserDirectory()**   | Returns the 'user.dir' value from the environments variables | *string*
-**getUserHome()**   | Returns the 'user.home' value from the environments variables | *string*
-**getUserName()**   | Returns the 'user.name' value from the environments variables | *string*
-
-
+**list()**   | Returns the list of the environments variables in JSON formatted string | *string*
 
 ### Compatibility
 
