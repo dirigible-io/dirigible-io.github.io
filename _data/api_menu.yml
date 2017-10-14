@@ -66,15 +66,21 @@ navigation:
   - name: http/response 🔸🔹
     icon: fa fa-caret-right
     url: http_response.html
-  - name: net/http/session 🔸🔹
+  - name: http/session 🔸🔹
     icon: fa fa-caret-right
     url: http_session.html
-  - name: net/http/upload 🔸🔹
+  - name: http/upload 🔸🔹
     icon: fa fa-caret-right
     url: http_upload.html
   - name: net/http/user 🔸⚠
     icon: fa fa-caret-right
     url: http_user.html
+  - name: messaging/producer 🔹
+    icon: fa fa-caret-right
+    url: messaging_producer.html
+  - name: messaging/consumer 🔹
+    icon: fa fa-caret-right
+    url: messaging_consumer.html
   - name: platform/exec 🔸
     icon: fa fa-caret-right
     url: exec.html
@@ -99,7 +105,7 @@ navigation:
   - name: service/mail 🔸
     icon: fa fa-caret-right
     url: mail.html
-  - name: service/messaging 🔸
+  - name: service/messaging 🔸⚠
     icon: fa fa-caret-right
     url: messaging.html
   - name: service/passwords 🔸

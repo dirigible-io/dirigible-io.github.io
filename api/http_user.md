@@ -26,8 +26,7 @@ Version 2.x
 - Source: [/net/http/user.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/http/user.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -44,10 +43,9 @@ response.close();
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -58,8 +56,7 @@ Function     | Description | Returns
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------

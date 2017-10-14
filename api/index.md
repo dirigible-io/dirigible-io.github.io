@@ -76,10 +76,18 @@ HTTP
 * [user](http_user.html) 🔸⚠
 
 
+Messaging
+---
+
+* [producer](messaging_producer.html) 🔹
+* [consumer](messaging_consumer.html) 🔹
+
+
 Security
 ---
 
 * [user](security_user.html) 🔹
+
 
 Services
 ---

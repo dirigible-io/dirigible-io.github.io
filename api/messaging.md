@@ -7,6 +7,18 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+Version 3.x ⚠
+---
+
+Moved to different package in modules [messaging/producer](messaging_producer.html) and [messaging/consumer](messaging_consumer.html). The new version is backed by the full fledged messaging broker [Apache ActiveMQ](http://activemq.apache.org/).
+
+---
+
+---
+
+Version 2.x
+---
+
 Messaging object is used to access the built-in passive messaging hub. One can registers as a client, subscribes to a topic and receives routed messages from the other clients.
 
 - Module: **service/messaging**
@@ -14,8 +26,7 @@ Messaging object is used to access the built-in passive messaging hub. One can r
 - Source: [/service/messaging.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/messaging.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -48,10 +59,9 @@ response.close();
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -73,11 +83,11 @@ Function     | Description | Returns
 **cleanup()**   | Performs the clean-up process | -
 
 
-### Objects
+#### Objects
 
 ---
 
-#### Message
+##### Message
 
 
 Function     | Description | Returns
@@ -92,8 +102,7 @@ Function     | Description | Returns
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
