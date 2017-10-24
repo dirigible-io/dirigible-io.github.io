@@ -39,15 +39,11 @@ Database
 * [update](database_update.html) 🔹
 
 
-
-Platform
+Indexing
 ---
 
-* [exec](exec.html) 🔸
-* [generator](generator.html) 🔸
-* [lifecycle](lifecycle.html) 🔸
-* [repository](repository.html) 🔸
-* [workspaces](workspaces.html) 🔸
+* [searcher](indexing_searcher.html) 🔹
+* [writer](indexing_writer.html) 🔹
 
 
 IO
@@ -56,13 +52,6 @@ IO
 * [files](files.html) 🔸🔹
 * [streams](streams.html) 🔸🔹
 * [zip](zip.html) 🔸
-
-
-Net
----
-
-* [soap](soap.html) 🔸
-* [websocket](websocket.html) 🔸
 
 
 HTTP
@@ -76,11 +65,28 @@ HTTP
 * [user](http_user.html) 🔸⚠
 
 
+Net
+---
+
+* [soap](soap.html) 🔸
+* [websocket](websocket.html) 🔸
+
+
 Messaging
 ---
 
 * [producer](messaging_producer.html) 🔹
 * [consumer](messaging_consumer.html) 🔹
+
+
+Platform
+---
+
+* [exec](exec.html) 🔸
+* [generator](generator.html) 🔸
+* [lifecycle](lifecycle.html) 🔸
+* [repository](repository.html) 🔸
+* [workspaces](workspaces.html) 🔸
 
 
 Security
@@ -93,9 +99,9 @@ Services
 ---
 
 * [cmis](cmis.html) 🔸
-* [indexing](indexing.html) 🔸
+* [indexing](indexing.html) 🔸⚠
 * [mail](mail.html) 🔸
-* [messaging](messaging.html) 🔸
+* [messaging](messaging.html) 🔸⚠
 * [passwords](passwords.html) 🔸
 
 

@@ -42,6 +42,12 @@ navigation:
   - name: doc/cmis 🔸
     icon: fa fa-caret-right
     url: cmis.html
+  - name: indexing/searcher 🔹
+    icon: fa fa-caret-right
+    url: indexing_searcher.html
+  - name: indexing/writer 🔹
+    icon: fa fa-caret-right
+    url: indexing_writer.html
   - name: io/files 🔸🔹
     icon: fa fa-caret-right
     url: files.html
@@ -99,7 +105,7 @@ navigation:
   - name: security/user 🔹
     icon: fa fa-caret-right
     url: security_user.html
-  - name: service/indexing 🔸
+  - name: service/indexing 🔸⚠
     icon: fa fa-caret-right
     url: indexing.html
   - name: service/mail 🔸

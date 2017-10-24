@@ -7,6 +7,18 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+Version 3.x ⚠
+---
+
+Moved to different package in modules [messaging/producer](messaging_producer.html) and [messaging/consumer](messaging_consumer.html). The new version is backed by the full fledged messaging broker [Apache ActiveMQ](http://activemq.apache.org/).
+
+---
+
+---
+
+Version 2.x
+---
+
 Indexing module is used for creating an in-memory full-text-search capable storage.
 
 - Module: **service/indexing**
@@ -14,8 +26,7 @@ Indexing module is used for creating an in-memory full-text-search capable stora
 - Source: [/service/indexing.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/indexing.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -64,10 +75,9 @@ response.close();
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -78,11 +88,11 @@ Function     | Description | Returns
 
 
 
-### Objects
+#### Objects
 
 ---
 
-#### Index
+##### Index
 
 
 Function     | Description | Returns
@@ -92,7 +102,7 @@ Function     | Description | Returns
 **clear()**   | Removes all the documents from the Index | -
 
 
-#### Document
+##### Document
 
 
 Function     | Description | Returns
@@ -102,8 +112,7 @@ Function     | Description | Returns
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------
