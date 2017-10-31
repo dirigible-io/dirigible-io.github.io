@@ -63,6 +63,9 @@ navigation:
   - name: io/zip 🔸
     icon: fa fa-caret-right
     url: zip.html
+  - name: log/logging 🔸
+    icon: fa fa-caret-right
+    url: log_logging.html
   - name: net/soap 🔸
     icon: fa fa-caret-right
     url: soap.html

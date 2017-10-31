@@ -56,6 +56,12 @@ IO
 * [zip](zip.html) 🔸
 
 
+Log
+---
+
+* [logging](log_logging.html) 🔹
+
+
 HTTP
 ---
 
