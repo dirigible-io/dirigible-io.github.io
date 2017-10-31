@@ -135,6 +135,9 @@ navigation:
   - name: utils/error 🔸
     icon: fa fa-caret-right
     url: utils_error.html
+  - name: utils/escape 🔹
+    icon: fa fa-caret-right
+    url: utils_escape.html
   - name: utils/hex 🔸🔹
     icon: fa fa-caret-right
     url: utils_hex.html

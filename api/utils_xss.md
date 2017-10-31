@@ -7,6 +7,18 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+Version 3.x ⚠
+---
+
+Moved to different module - [utils/escape](utils_escape.html).
+
+---
+
+---
+
+Version 2.x
+---
+
 XSS object is used to escape special symbols in order to prevent XSS attacks.
 
 - Module: **utils/xss**
@@ -14,8 +26,7 @@ XSS object is used to escape special symbols in order to prevent XSS attacks.
 - Source: [/utils/xss.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/utils/xss.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -65,10 +76,9 @@ response.close();
 
 
 
-Definition
----
+### Definition
 
-### Functions
+#### Functions
 
 ---
 
@@ -90,8 +100,7 @@ Function     | Description | Returns
 
 
 
-Compatibility
----
+### Compatibility
 
 Rhino | Nashorn | V8
 ----- | ------- | --------

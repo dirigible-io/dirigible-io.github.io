@@ -119,6 +119,7 @@ Utils
 * [base64](utils_base64.html) 🔸🔹
 * [digest](utils_digest.html) 🔸🔹
 * [error](utils_error.html) 🔸
+* [escape](utils_error.html) 🔸🔹
 * [hex](utils_hex.html) 🔸🔹
 * [url](utils_url.html) 🔹
 * [uuid](utils_uuid.html) 🔸🔹
