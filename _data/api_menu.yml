@@ -33,6 +33,9 @@ navigation:
   - name: db/database 🔸🔹
     icon: fa fa-caret-right
     url: database.html
+  - name: db/dao 🔹
+    icon: fa fa-caret-right
+    url: database_dao.html
   - name: db/query 🔹
     icon: fa fa-caret-right
     url: database_query.html
@@ -81,6 +84,9 @@ navigation:
   - name: http/response 🔸🔹
     icon: fa fa-caret-right
     url: http_response.html
+  - name: http/rs 🔹
+    icon: fa fa-caret-right
+    url: http_rs.html
   - name: http/session 🔸🔹
     icon: fa fa-caret-right
     url: http_session.html

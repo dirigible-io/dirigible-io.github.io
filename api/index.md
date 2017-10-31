@@ -35,6 +35,7 @@ Database
 ---
 
 * [database](database.html) 🔸🔹
+* [dao](database_dao.html) 🔹
 * [query](database_query.html) 🔹
 * [sequence](database_sequence.html) 🔹
 * [sql](database_sql.html) 🔹
@@ -71,6 +72,7 @@ HTTP
 * [session](http_session.html) 🔸🔹
 * [upload](http_upload.html) 🔸🔹
 * [user](http_user.html) 🔸⚠
+* [rs](http_rs.html) 🔹
 
 
 Net
