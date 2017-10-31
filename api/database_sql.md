@@ -26,7 +26,7 @@ Version 3.x
 var sql = require('db/v3/sql');
 var response = require('http/v3/response');
 
-var script = sql.getDialect().select().column("FIRST\_NAME").column("LAST\_NAME").from("CUSTOMERS").build();
+var script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
 
 response.println(script);
 
