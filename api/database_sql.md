@@ -14,7 +14,7 @@ Version 3.x
 
 - Module: **db/v3/sql**
 - Alias: **db/sql**
-- Definition: [https://github.com/eclipse/dirigible/issues/48](https://github.com/eclipse/dirigible/issues/48)
+- Definition: [https://github.com/eclipse/dirigible/issues/125](https://github.com/eclipse/dirigible/issues/125)
 - Source: [/db/v3/sql.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/db/v3/sql.js)
 - Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
 - Status: **alpha**
@@ -75,7 +75,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **distinct()**   | Sets the *distinct* flag and returns the current Select SQL builder | *Select*
 **forUpdate()**   | Sets the *forUpdate* flag and returns the current Select SQL builder | *Select*
-**column(name)**   | Adds a column with the given *name* and returns the current Select SQL builder. Use `*` for all | *Select*
+**column(name)**   | Adds a column with the given *name* and returns the current Select SQL builder. Use * for all | *Select*
 **from(table, alias?)**   | Adds a table with the given *table* name and *alias* and returns the current Select SQL builder | *Select*
 **join(table, on, alias?)**   | Adds a *join* clause and returns the current Select SQL builder | *Select*
 **innerJoin(table, on, alias?)**   | Adds a *join* clause and returns the current Select SQL builder | *Select*
