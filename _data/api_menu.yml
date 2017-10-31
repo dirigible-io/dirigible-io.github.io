@@ -36,6 +36,12 @@ navigation:
   - name: db/query 🔹
     icon: fa fa-caret-right
     url: database_query.html
+  - name: db/sequence 🔹
+    icon: fa fa-caret-right
+    url: database_sequence.html
+  - name: db/sql 🔹
+    icon: fa fa-caret-right
+    url: database_sql.html
   - name: db/update 🔹
     icon: fa fa-caret-right
     url: database_update.html

@@ -40,7 +40,7 @@ update.execute("DROP TABLE MY_TABLE");
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**execute(databaseType, datasourceName, sql, parameters)**   | Executes a SQL update against the selected *databaseType* and *datasourceName* with the provided parameters and returns the number of affected rows | *int*
+**execute(sql, parameters?, databaseType?, datasourceName?)**   | Executes a SQL update against the selected *databaseType* and *datasourceName* with the provided parameters and returns the number of affected rows | *int*
 
 
 

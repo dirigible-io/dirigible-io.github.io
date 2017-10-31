@@ -44,7 +44,7 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**execute(databaseType, datasourceName, sql, parameters)**   | Executes a SQL query against the selected *databaseType* and *datasourceName* with the provided parameters | *result-set as JSON object*
+**execute(sql, parameters?, databaseType?, datasourceName?)**   | Executes a SQL query against the selected *databaseType* and *datasourceName* with the provided parameters | *result-set as JSON object*
 
 
 
