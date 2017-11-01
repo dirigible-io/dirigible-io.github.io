@@ -87,9 +87,25 @@ try{
 
 Function     | Description | Returns
 ------------ | ----------- | --------
+get(oConfiguration, loggerName?) |   |  DAO 
 
 
+#### Objects
 
+---
+
+#### DAO
+
+Function     | Description | Returns
+------------ | ----------- | --------
+insert(entity) | inserts array or entity and returns id (or ids of array of entities was supplied as input)  |  any 
+list(oQuerySettings?) | lists entities |  Array 
+find(id, expand?, select?) | returns an entity by its id(if any), optionally expanding inline the associations defined in expand and optionally constraining the entitiy properties to those specified in select |  Object
+update(entity) | updates a persistent entity and returns for its dao chaining  |  DAO
+remove(?id) | delete entity by id, or array of ids, or delete all (if not argument is provided). |  ---
+count() | returns the number of persisted entities |  Number
+createTable() | Creates a table for persisting entities  |  ---
+dropTable() | Drops the entities table  |  ---
 
 Compatibility
 ---
