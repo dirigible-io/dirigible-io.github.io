@@ -26,7 +26,8 @@ Version 3.x
 var logging = require('log/v3/logging');
 
 var logger = logging.getLogger('org.eclipse.dirigible.mylogger');
-logger.warn('Hello from {} {}!', 'My', 'Logger');
+logger.debug('Hello from {} {}!', 'My', 'Logger');
+logger.error('Oops', new Error('Something wrong'));
 ```
 
 
@@ -57,7 +58,7 @@ Function     | Description | Returns
 **error(message, args?)**   | Logs the *message* with the ERROR log level | -
 **debug(message, args?)**   | Logs the *message* with the DEBUG log level | -
 **trace(message, args?)**   | Logs the *message* with the TRACE log level | -
-**log(message, level)**   | Logs the *message* with the provided log *level* | -
+**log(message, level, args?)**   | Logs the *message* with the provided log *level* and optional message parameters | -
 **infoError(message, error)**   | Logs the *error* with the stack trace with the INFO log level | -
 **warnError(message, error)**   | Logs the *error* with the stack trace with the WARN log level | -
 **errorError(message, error)**   | Logs the *error* with the stack trace with the ERROR log level | -
