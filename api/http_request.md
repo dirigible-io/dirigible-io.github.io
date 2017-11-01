@@ -63,6 +63,7 @@ Function     | Description | Returns
 **getContentType()**   | Returns the content type | *string*
 **getBytes()**   | Returns the content as byte array | *array of bytes*
 **getText()**   | Returns the content as text | *string*
+**getJSON()**   | Returns a JSON object, after parsing the content as text | *Object*
 **getParameter(name)**   | Returns the value of the parameter by name, if any | *string*
 **getHeaderNames()**   | Returns the names of all the headers | *array of string*
 **getParameterNames()**   | Returns the names of all the parameters | *array of string*
