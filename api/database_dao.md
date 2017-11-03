@@ -26,7 +26,7 @@ Version 3.x
 var dao = require('db/dao');
 
 //create a DAO from configuration
-var customers = dao.get({
+var customers = dao.create({
   "dbName": "CUSTOMER",
   "properties": [{
       "name": "id",
@@ -87,7 +87,7 @@ try{
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-get(oConfiguration, loggerName?) |   |  DAO 
+create(oConfiguration, loggerName?) | Creates new DAO instances from oConfiguraiton JS object, which can be either standard ORM definition or a standard dirigible table definition |  DAO 
 
 
 #### Objects
@@ -99,7 +99,7 @@ get(oConfiguration, loggerName?) |   |  DAO
 Function     | Description | Returns
 ------------ | ----------- | --------
 insert(entity) | inserts array or entity and returns id (or ids of array of entities was supplied as input)  |  any 
-list(oQuerySettings?) | lists entities |  Array 
+list(oQuerySettings?) | lists entities optionally constrained with the supplied query settings |  Array 
 find(id, expand?, select?) | returns an entity by its id(if any), optionally expanding inline the associations defined in expand and optionally constraining the entitiy properties to those specified in select |  Object
 update(entity) | updates a persistent entity and returns for its dao chaining  |  DAO
 remove(?id) | delete entity by id, or array of ids, or delete all (if not argument is provided). |  ---
