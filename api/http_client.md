@@ -30,7 +30,7 @@ var response = require('http/v3/response');
 var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
 
 response.println(httpResponse.statusMessage);
-response.println(httpResponse.data);
+response.println(httpResponse.text);
 response.flush();
 response.close();
 ```
