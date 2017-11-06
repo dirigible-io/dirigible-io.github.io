@@ -48,7 +48,7 @@ rs.service(helloApiMappings).execute();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **mappings(oConfiguration?)**   | Returns a new API configuration object, optionally initialized with oConfiguration | *RestApi*
-**service(oMappings)**   | Creates an HttpController instance with the supplied mappings. The `oMappings` argument can be a RestApi object created with the `rs.mappings()` method or a JS configuration object such as the one created by the RestAPI `configuration()` method | *HttpController*
+**service(oMappings)**   | Creates an HttpController instance with the supplied mappings. The oMappings argument can be a RestApi object created with the rs.mappings() method or a JS configuration object such as the one created by the RestAPI configuration() method | *HttpController*
 
 
 
