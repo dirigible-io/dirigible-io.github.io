@@ -60,7 +60,7 @@ Function     | Description | Returns
 ##### RestApi
 
 
-Property     | Description | Type
+Property     | Description | Returns
 ------------ | ----------- | --------
 **resource(oConfiguration?)**   | Returns the *resource* configuration object optionally initialized with oConfiguration | *Resource*
 **configuration()**   | Returns the configuration for this *RestApi* object | *Object*
@@ -72,7 +72,7 @@ Property     | Description | Type
 ##### RsResource
 
 
-Property     | Description | Type
+Property     | Description | Returns
 ------------ | ----------- | --------
 **get()**   | Returns the *get* method configuration object | *RsVerb*
 **post()**   | Returns the *post* method configuration object | *RsVerb*
@@ -89,7 +89,7 @@ Property     | Description | Type
 ##### RsVerb
 
 
-Property     | Description | Type
+Property     | Description | Returns
 ------------ | ----------- | --------
 **configuration()**   | Returns the configuration for this *ResourceVerbHandler* object | *Object*
 **consumes(arrMediaTypeStrings)**   | Assigns a consumes constraint for this verb handler configuration. | *RsVerb*
@@ -104,7 +104,7 @@ Property     | Description | Type
 ##### HttpController
 
 
-Property     | Description | Type
+Property     | Description | Returns
 ------------ | ----------- | --------
 **execute(oRequest?, oResponse?)**   | processes HTTP requests, to match path, method and constraints to resource mappings and invoke callback handler functions accordingly and generate response.  | *---*
 
