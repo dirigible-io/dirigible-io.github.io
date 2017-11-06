@@ -99,6 +99,16 @@ Property     | Description | Type
 **catch(function)**   | Assign a catch on error callback function for this verb handler configuration | *RsVerb*
 **finally(function)**   | Assign a finally callback function for this verb handler configuration | *RsVerb*
 
+
+
+##### HttpController
+
+
+Property     | Description | Type
+------------ | ----------- | --------
+**execute(oRequest?, oResponse?)**   | processes HTTP requests, to match path, method and constraints to resource mappings and invoke callback handler functions accordingly and generate response.  | *---*
+
+
 ### Compatibility
 
 
