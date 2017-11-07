@@ -87,6 +87,9 @@ navigation:
   - name: http/rs 🔹
     icon: fa fa-caret-right
     url: http_rs.html
+  - name: http/rs-data 🔹
+    icon: fa fa-caret-right
+    url: http_rs-data.html	
   - name: http/session 🔸🔹
     icon: fa fa-caret-right
     url: http_session.html
