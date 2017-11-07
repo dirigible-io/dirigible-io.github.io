@@ -16,8 +16,8 @@ Version 3.x
 
 - Module: **http/v3/rs**
 - Alias: **http/rs**
-- Definition: [https://github.com/eclipse/dirigible/issues/85](https://github.com/eclipse/dirigible/issues/85)
-- Source: [/http/v3/rs.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/rs.js)
+- Definition: [https://github.com/eclipse/dirigible/issues/149](https://github.com/eclipse/dirigible/issues/149)
+- Source: [/http/v3/rs-data.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/rs-data.js)
 - Facade: none
 - Status: **alpha**
 
