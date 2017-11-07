@@ -62,7 +62,7 @@ rsdata
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**service(oConfiguration?, oProtocolHandlersAdapter?, oDataProtocolDefinition?)**   | Creates a new Data Service instance ready to be further configured and executed | *DataService*
+**service(oConfiguration?, oProtocolHandlersAdapter?, oDataProtocolDefinition?, sLoggerName?)**   | Creates a new Data Service instance ready to be further configured and executed. Optionally, the instance could be supplied with: configuration (oConfiguration) that will be merged after protocol mappings are initiallized; oProtocolHandlersAdapter object for data-to-protocol mapping; oDataProtocolDefinition object for  protocol mappings definition; sLoggerName string to provide logger name for an instance. | *DataService*
 
 
 
@@ -75,8 +75,10 @@ Function     | Description | Returns
 
 Property     | Description | Returns
 ------------ | ----------- | --------
-**mappings()**   | Returns the mapping REST mappings for this data service. The protocol mappings are already setup and the returned object can be used to configure additional mappings or override protocol standard ones. The returned object is of type RestAPI (see (http-rs)[http://www.dirigible.io/api/http_rs.html] for details) | *RestAPI*
+**mappings()**   | Returns the mapping REST mappings for this data service. The protocol mappings are already setup and the returned object can be used to configure additional mappings or override protocol standard ones. The returned object is of type RestAPI (see (http/rs)[http://www.dirigible.io/api/http_rs.html] for details) | *RestAPI*
 **execute(oResquest?, oResponse?)**   | Creates an http controller instance for the mappings in htis data service instance and executes it, with the provided request/response arguments if any | *---*
+**dao(ormConfig?)**   | This is an optional method provided by the default protocol handler adapter in this data service instance. Note that adapters can contribure methods to the DataService api that are specific to their configuraiton needs. The defualt one is based on the dao framework (see (db/dao)[http://www.dirigible.io/api/db_dao.html] for details) and exposes this mehtod as a getter/setter for the dao ORM configuraiton that will be used to setup dao backend used by this data service verb handlers. If no argument is provided the method acts like getter and returns the ORM configuration if any. If an ORM config object is supplied as argument, it will use it to create the backing dao for this data service instance and return the data service instance for method chaining. | *DataService|Object*
+**logger**   | the logger instance used by this data service. Defaults to logger with name 'http.rs.data.service' and can be provided with an argument provided to the module service method.| *---*
 
 
 ### Compatibility
