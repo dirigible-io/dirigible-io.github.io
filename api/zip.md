@@ -10,11 +10,11 @@ icon: fa-ellipsis-h
 Version 3.x
 ---
 
-- Module: **db/v3/database**
-- Alias: **db/database**
-- Definition: [https://github.com/eclipse/dirigible/issues/21](https://github.com/eclipse/dirigible/issues/21)
-- Source: [/db/v3/database.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/db/v3/database.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Module: **io/v3/zip**
+- Alias: **io/zip**
+- Definition: [https://github.com/eclipse/dirigible/issues/20](https://github.com/eclipse/dirigible/issues/20)
+- Source: [/io/v3/zip.js](https://github.com/dirigiblelabs/api-v3-io/blob/master/io/v3/zip.js)
+- Facade: [ZipFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java)
 - Status: **alpha**
 
 
