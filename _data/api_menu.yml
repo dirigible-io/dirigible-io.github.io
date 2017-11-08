@@ -63,7 +63,7 @@ navigation:
   - name: io/streams 🔸🔹
     icon: fa fa-caret-right
     url: streams.html
-  - name: io/zip 🔸
+  - name: io/zip 🔸🔹
     icon: fa fa-caret-right
     url: zip.html
   - name: log/logging 🔸

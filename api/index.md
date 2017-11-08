@@ -54,7 +54,7 @@ IO
 
 * [files](files.html) 🔸🔹
 * [streams](streams.html) 🔸🔹
-* [zip](zip.html) 🔸
+* [zip](zip.html) 🔸🔹
 
 
 Log
