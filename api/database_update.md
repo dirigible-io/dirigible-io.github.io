@@ -42,7 +42,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **execute(sql, parameters?, databaseType?, datasourceName?)**   | Executes a SQL update against the selected *databaseType* and *datasourceName* with the provided parameters and returns the number of affected rows | *int*
 
-
+> parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]
 
 
 Compatibility
