@@ -54,6 +54,19 @@ Function     | Description | Returns
 
 ---
 
+
+
+##### HttpController
+
+
+Property     | Description | Returns
+------------ | ----------- | --------
+**execute(oRequest?, oResponse?)**   | processes HTTP requests, to match path, method and constraints to resource mappings and invoke callback handler functions accordingly and generate response.  | *---*
+**mappings()**   | Returns the mappings configured for this controller instance.  | *ResourceMapppngs*
+
+
+
+
 ##### ResourceMappings
 
 
@@ -98,13 +111,6 @@ Property     | Description | Returns
 **finally(function)**   | Assign a finally callback function for this verb handler configuration | *ResourceMethod*
 **execute(oRequest?, oResponse?)**  | Executes the service | *----*
 
-
-##### HttpController
-
-
-Property     | Description | Returns
------------- | ----------- | --------
-**execute(oRequest?, oResponse?)**   | processes HTTP requests, to match path, method and constraints to resource mappings and invoke callback handler functions accordingly and generate response.  | *---*
 
 
 ### Compatibility
