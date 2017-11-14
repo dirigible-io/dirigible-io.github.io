@@ -28,28 +28,29 @@ Version 3.x
 var rsdata = require('http/v3/rs-data'); 
 
 rsdata
-	.service()
-	.dao({
-	  "table": "COMMENT",
+  .service()
+    .dao({
+	  "table": "CUSTOMERS",
 	  "properties": [{
 		  "name": "id",
 		  "column": "ID",
-		  "type": "Long",
+		  "type": "BIGINT",
 		  "id": true
-		}, {
-		  "name": "topicId",
-		  "column": "TOPIC_ID",
-		  "type": "Long",
-		  "required": true
 		},{
-		  "name": "text",
-		  "column": "TEXT",
-		  "type": "String",
+		  "name": "orgName",
+		  "column": "ORG_NAME",
+		  "type": "VARCHAR",
+		  "size": 255,
+		  "required": true
+	   	},{
+		  "name": "orgDescription",
+		  "column": "ORG_DESCR",
+		  "type": "VARCHAR",
 		  "size": 255,
 		  "required": false
 	   }]
-	})
-	.execute();
+    })
+  .execute();
 ```
 
 
