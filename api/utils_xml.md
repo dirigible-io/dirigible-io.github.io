@@ -37,15 +37,16 @@ var jsonInput = {
 	}
 };
 
-var xmlInput = 
+var xmlInput = "<person>" +
 	"<firstName>John</firstName>" +
 	"<lastName>Doe</lastName>" + 
 	"<bio>" + 
 	"<age>24</age>" +
 	"<sex>male</sex>" +
-	"</bio>";
+	"</bio>" +
+	"</person>";
 
-response.println(xml.fromJson(jsonInput));
+response.println(xml.fromJson(JSON.stringify(jsonInput)));
 response.println(xml.toJson(xmlInput));
 
 response.flush();
