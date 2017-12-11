@@ -6,6 +6,9 @@ navigation:
   - name: console 🔸🔹
     icon: fa fa-caret-right
     url: console.html
+  - name: cms/cmis 🔸🔹
+    icon: fa fa-caret-right
+    url: cmis.html
   - name: core/assert 🔸
     icon: fa fa-caret-right
     url: assert.html
@@ -48,9 +51,6 @@ navigation:
   - name: db/update 🔹
     icon: fa fa-caret-right
     url: database_update.html
-  - name: doc/cmis 🔸
-    icon: fa fa-caret-right
-    url: cmis.html
   - name: indexing/searcher 🔹
     icon: fa fa-caret-right
     url: indexing_searcher.html

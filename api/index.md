@@ -18,62 +18,68 @@ Built-in
 * [console](console.html) 🔸🔹
 
 
+Content Management
+---
+
+* [cmis](cmis.html) 🔸🔹
+
+
 Core
 ---
 
 * [assert](assert.html) 🔸
 * [config](config.html) 🔸
-* [context](context.html) 🔸🔹
-* [env](env.html) 🔸🔹
-* [extensions](extensions.html) 🔸🔹
-* [globals](globals.html) 🔸🔹
-* [java](java.html) 🔹
+* [core/context](context.html) 🔸🔹
+* [core/env](env.html) 🔸🔹
+* [core/extensions](extensions.html) 🔸🔹
+* [core/globals](globals.html) 🔸🔹
+* [core/java](java.html) 🔹
 * [threads](threads.html) 🔸
 
 
 Database
 ---
 
-* [database](database.html) 🔸🔹
-* [dao](database_dao.html) 🔹
-* [query](database_query.html) 🔹
-* [sequence](database_sequence.html) 🔹
-* [sql](database_sql.html) 🔹
-* [update](database_update.html) 🔹
+* [db/database](database.html) 🔸🔹
+* [db/dao](database_dao.html) 🔹
+* [db/query](database_query.html) 🔹
+* [db/sequence](database_sequence.html) 🔹
+* [db/sql](database_sql.html) 🔹
+* [db/update](database_update.html) 🔹
 
 
 Indexing
 ---
 
-* [searcher](indexing_searcher.html) 🔹
-* [writer](indexing_writer.html) 🔹
+* [indexing/searcher](indexing_searcher.html) 🔹
+* [indexing/writer](indexing_writer.html) 🔹
 
 
 IO
 ---
 
-* [files](files.html) 🔸🔹
-* [streams](streams.html) 🔸🔹
-* [zip](zip.html) 🔸🔹
+* [io/files](files.html) 🔸🔹
+* [io/streams](streams.html) 🔸🔹
+* [io/zip](zip.html) 🔸🔹
 
 
 Log
 ---
 
-* [logging](log_logging.html) 🔹
+* [log/logging](log_logging.html) 🔹
 
 
 HTTP
 ---
 
-* [client](http_client.html) 🔸🔹
-* [request](http_request.html) 🔸🔹
-* [response](http_response.html) 🔸🔹
-* [session](http_session.html) 🔸🔹
-* [upload](http_upload.html) 🔸🔹
-* [user](http_user.html) 🔸⚠
-* [rs](http_rs.html) 🔹
-* [rs-data](http_rs-data.html) 🔹
+* [http/client](http_client.html) 🔸🔹
+* [http/request](http_request.html) 🔸🔹
+* [http/response](http_response.html) 🔸🔹
+* [http/session](http_session.html) 🔸🔹
+* [http/upload](http_upload.html) 🔸🔹
+* [http/user](http_user.html) 🔸⚠
+* [http/rs](http_rs.html) 🔹
+* [http/rs-data](http_rs-data.html) 🔹
 
 
 Net
@@ -86,8 +92,8 @@ Net
 Messaging
 ---
 
-* [producer](messaging_producer.html) 🔹
-* [consumer](messaging_consumer.html) 🔹
+* [messaging/producer](messaging_producer.html) 🔹
+* [messaging/consumer](messaging_consumer.html) 🔹
 
 
 Platform
@@ -103,13 +109,12 @@ Platform
 Security
 ---
 
-* [user](security_user.html) 🔹
+* [security/user](security_user.html) 🔹
 
 
 Services
 ---
 
-* [cmis](cmis.html) 🔸
 * [indexing](indexing.html) 🔸⚠
 * [mail](mail.html) 🔸
 * [messaging](messaging.html) 🔸⚠
@@ -119,15 +124,15 @@ Services
 Utils
 ---
 
-* [base64](utils_base64.html) 🔸🔹
-* [digest](utils_digest.html) 🔸🔹
-* [error](utils_error.html) 🔸
-* [escape](utils_error.html) 🔸🔹
-* [hex](utils_hex.html) 🔸🔹
-* [url](utils_url.html) 🔹
-* [uuid](utils_uuid.html) 🔸🔹
-* [xml](utils_xml.html) 🔸🔹
-* [xss](utils_xss.html) 🔸⚠
+* [utils/base64](utils_base64.html) 🔸🔹
+* [utils/digest](utils_digest.html) 🔸🔹
+* [utils/error](utils_error.html) 🔸
+* [utils/escape](utils_error.html) 🔸🔹
+* [utils/hex](utils_hex.html) 🔸🔹
+* [utils/url](utils_url.html) 🔹
+* [utils/uuid](utils_uuid.html) 🔸🔹
+* [utils/xml](utils_xml.html) 🔸🔹
+* [utils/xss](utils_xss.html) 🔸⚠
 
 
 

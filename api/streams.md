@@ -15,8 +15,8 @@ Version 3.x
 - Module: **io/v3/streams**
 - Alias: **io/streams**
 - Definition: [https://github.com/eclipse/dirigible/issues/51](https://github.com/eclipse/dirigible/issues/51)
-- Source: [/io/v3/streams.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/io/v3/streams.js)
-- Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
+- Source: [/io/v3/streams.js](https://github.com/dirigiblelabs/api-v3-io/blob/master/io/v3/streams.js)
+- Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-cms/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
 - Status: **alpha**
 
 
@@ -61,17 +61,6 @@ Function     | Description | Returns
 **copy(inputStream, outputStream)**   | Copies an InputStream to an OutputStream | -
 **createByteArrayInputStream(bytes)**   | Creates an ByteArrayInputStream from the array of bytes | *ByteArrayInputStream*
 **createByteArrayOutputStream()**   | Creates an ByteArrayOutputStream | *ByteArrayOutputStream*
-
-
-**read(inputStream)**   | Reads an InputStream to an array of bytes | *array of byte*
-**write(outputStream, bytes)**   | Writes an array of bytes to an OutputStream | -
-**read(inputStream)**   | Reads an InputStream and returns the result as a string representation | *string*
-**write(outputStream, text)**   | Writes a string to an OutputStream | -
-
-
-**textToByteArray(text)**   | Converts a string to a byte array | *array of byte*
-**byteArrayToText(bytes)**   | Converts a byte array to a string | *string*
-
 
 
 #### Objects
