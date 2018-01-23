@@ -14,7 +14,7 @@ Version 3.x
 - Alias: **core/configurations**
 - Definition: N/A
 - Source: [/core/v3/configurations.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/configurations.js)
-- Facade: [ConfigurationsFacade](https://github.com/eclipse/dirigible/blob/master/modules/commons-config/src/main/java/org/eclipse/dirigible/commons/config/Configuration.java)
+- Facade: [ConfigurationFacade](https://github.com/eclipse/dirigible/blob/master/modules/commons-config/src/main/java/org/eclipse/dirigible/commons/config/Configuration.java)
 - Status: **alpha**
 
 ### Basic Usage
