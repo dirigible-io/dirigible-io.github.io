@@ -29,6 +29,7 @@ Core
 
 * [assert](assert.html) 🔸
 * [config](config.html) 🔸
+* [core/configurations](configurations.html) 🔸
 * [core/context](context.html) 🔸🔹
 * [core/env](env.html) 🔸🔹
 * [core/extensions](extensions.html) 🔸🔹
