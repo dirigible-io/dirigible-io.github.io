@@ -15,6 +15,9 @@ navigation:
   - name: core/config 🔸
     icon: fa fa-caret-right
     url: config.html
+  - name: core/configurations 🔹
+    icon: fa fa-caret-right
+    url: configurations.html
   - name: core/context 🔸🔹
     icon: fa fa-caret-right
     url: context.html
