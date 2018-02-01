@@ -21,20 +21,20 @@ Version 3.x
 
 ```javascript
 var rs = require('http/v3/rs');
-var env = require('core/v3/env');
+var configurations = require('core/v3/configurations');
 
 rs.service()
   .resource("")
     .get(function(ctx, request, response) {
       let credentials = {
-        'envVar1': env.get('ENV_VAR_1'),
-        'envVar2': env.get('ENV_VAR_2')
+        'envVar1': configurations.get('ENV_VAR_1'),
+        'envVar2': configurations.get('ENV_VAR_2')
       };
       response.println(JSON.stringify(credentials));
     }).put(function(ctx, request, response) {
       let credentials = request.getJSON();
-      env.set('ENV_VAR_1', credentials.envVar1);
-      env.set('ENV_VAR_2', credentials.envVar2);
+      configurations.set('ENV_VAR_1', credentials.envVar1);
+      configurations.set('ENV_VAR_2', credentials.envVar2);
     })
   .execute();
 
