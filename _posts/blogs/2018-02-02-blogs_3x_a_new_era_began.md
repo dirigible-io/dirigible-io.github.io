@@ -18,9 +18,13 @@ Based on the feedback we received so far, we had to take a few major decisions:
 
 OSGi based development model coming with Maven and Tycho integration, Orbit repositories and target platform definitions was listed many times as something too complex by younger generation of developers tried to understand the project source code and to become contributors. The comparison was often with the Spring Boot and the other similar frameworks and projects. The decision was not easy, but we jumped to pure Maven project structure. The major benfit from this decision is that now you can build your own stack including also external dependencies easily and in a more natural way.
 
+![dirigible-architecture-components](/img/posts/20180202/dirigible-architecture-components.png){: .img-responsive }  
+
 #### Moved from Eclipse RAP to pure Angular 1.x/Boostrap/GoldenLayout for WebIDE
 
-Eclipse RAP was the most stable part we have been using all the time. As a Web port of the Eclipse Rich Client Platform (RCP), we expected that the thousands of Eclipse plugin developers will recognize Dirigible as the easiest way to port their existing plugins to Web or just to leverage their experience to create some brand new Cloud related plugins. This did not happen. We decided to go to pure Angular 1.x/Boostrap/GoldenLayout user interfaces even for the WebIDE parts. The front-end, then use a set of RESTful services for workspace management, life-cycle management, repository, database, documents, etc., following the standard Web 2.0 approach. That one we anyway set for the applications built with Dirigible,  hence now we are developing Dirigible with Dirigible itself. Finally we can say that!  
+Eclipse RAP was the most stable part we have been using all the time. As a Web port of the Eclipse Rich Client Platform (RCP), we expected that the thousands of Eclipse plugin developers will recognize Dirigible as the easiest way to port their existing plugins to Web or just to leverage their experience to create some brand new Cloud related plugins. This did not happen. We decided to go to pure Angular 1.x/Boostrap/GoldenLayout user interfaces even for the WebIDE parts. The front-end, then use a set of RESTful services for workspace management, life-cycle management, repository, database, documents, etc., following the standard Web 2.0 approach. That one we anyway set for the applications built with Dirigible,  hence now we are developing Dirigible with Dirigible itself. Finally we can say that!
+
+![workspace-v3](/img/posts/20180202/workspace-v3.png){: .img-responsive }  
 
 #### Adapt V8 engine in the API layer
 
@@ -29,6 +33,8 @@ Javascript language and the community around it is quite interesting phenomenon.
 #### Webjars for applications content
 
 To comply with the legacy CI/CD processes, where the requirements such as reproducibility, immutability, testability are must to have features of the underlying framework, we had to add new approach of packaging of the applications for production. We decided to follow the so called "webjars" structures, where the application content (e.g. HTML files, database definitions, extensions, etc.) are packed as a standard Java archive and are accessible at runtime in the same way as they reside within the repository. In this way nobody can change them once they are built into a deployable archive. The side benefit, is that they can be distributed in the same way as the rest of the core modules - as standard Maven dependencies.
+
+![dirigible-lifecycle-flows](/img/posts/20180202/dirigible-lifecycle-flows.png){: .img-responsive }
 
 #### The focus, the development model and the main goal - reconfirmed
 
