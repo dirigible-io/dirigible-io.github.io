@@ -6,7 +6,7 @@ author: nedelcho.delchev
 
 Hello Dirigibles!
 
-### Let's the new era begin!
+### Let the new era begin!
 
 As a community driven project we stick to a very important principle that help us to navigate throughout the new emerging technologies and to focus on the right priorities:
 
