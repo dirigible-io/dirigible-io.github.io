@@ -18,7 +18,7 @@ Version 3.x
 - Alias: **utils/base64**
 - Definition: [https://github.com/eclipse/dirigible/issues/22](https://github.com/eclipse/dirigible/issues/22)
 - Source: [/utils/v3/base64.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/base64.js)
-- Facade: [Base64Facade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Base64Facade.java)
+- Facade: [Base64Facade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Base64Facade.java)
 - Status: **alpha**
 
 

@@ -16,7 +16,7 @@ Version 3.x
 - Module: **built-in**
 - Definition: [https://github.com/eclipse/dirigible/issues/46](https://github.com/eclipse/dirigible/issues/46)
 - Source: [/core/v3/console.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/console.js)
-- Facade: [ConsoleFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java)
+- Facade: [ConsoleFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java)
 - Status: **alpha**
 
 ### Basic Usage

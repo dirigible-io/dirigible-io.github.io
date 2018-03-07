@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **db/database**
 - Definition: [https://github.com/eclipse/dirigible/issues/21](https://github.com/eclipse/dirigible/issues/21)
 - Source: [/db/v3/database.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/db/v3/database.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
 - Status: **alpha**
 
 

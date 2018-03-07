@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **utils/uuid**
 - Definition: [https://github.com/eclipse/dirigible/issues/27](https://github.com/eclipse/dirigible/issues/27)
 - Source: [/utils/v3/uuid.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/uuid.js)
-- Facade: [UuidFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/UuidFacade.java)
+- Facade: [UuidFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/UuidFacade.java)
 - Status: **alpha**
 
 ### Basic Usage
