@@ -10,7 +10,7 @@ icon: fa-ellipsis-h
 Version 3.x ⚠
 ---
 
-Moved to different package in modules [messaging/producer](messaging_producer.html) and [messaging/consumer](messaging_consumer.html). The new version is backed by the full fledged messaging broker [Apache ActiveMQ](http://activemq.apache.org/).
+Moved to different package in modules [indexing/searcher](indexing_searcher.html) and [indexing/writer](indexing_writer.html).
 
 ---
 
