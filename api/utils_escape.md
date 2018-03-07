@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **utils/escape**
 - Definition: [https://github.com/eclipse/dirigible/issues/26](https://github.com/eclipse/dirigible/issues/26)
 - Source: [/utils/v3/escape.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/escape.js)
-- Facade: [EscapeFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/EscapeFacade.java)
+- Facade: [EscapeFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/EscapeFacade.java)
 - Status: **alpha**
 
 

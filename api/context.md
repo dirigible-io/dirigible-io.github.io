@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **core/context**
 - Definition: [https://github.com/eclipse/dirigible/issues/31](https://github.com/eclipse/dirigible/issues/31)
 - Source: [/core/v3/context.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/context.js)
-- Facade: [ContextFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ContextFacade.java)
+- Facade: [ContextFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ContextFacade.java)
 - Status: **alpha**
 
 ### Basic Usage

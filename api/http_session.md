@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **http/session**
 - Definition: [https://github.com/eclipse/dirigible/issues/14](https://github.com/eclipse/dirigible/issues/14)
 - Source: [/http/v3/session.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/session.js)
-- Facade: [HttpSessionFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java)
+- Facade: [HttpSessionFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java)
 - Status: **alpha**
 
 

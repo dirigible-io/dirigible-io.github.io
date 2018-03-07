@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **indexing/writer**
 - Definition: [https://github.com/eclipse/dirigible/issues/110](https://github.com/eclipse/dirigible/issues/110)
 - Source: [/indexing/v3/writer.js](https://github.com/dirigiblelabs/api-v3-indexing/blob/master/indexing/v3/writer.js)
-- Facade: [IndexingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java)
+- Facade: [IndexingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java)
 - Status: **alpha**
 
 

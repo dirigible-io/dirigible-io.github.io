@@ -18,7 +18,7 @@ Version 3.x
 - Alias: **http/request**
 - Definition: [https://github.com/eclipse/dirigible/issues/12](https://github.com/eclipse/dirigible/issues/12)
 - Source: [/http/v3/request.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/request.js)
-- Facade: [HttpRequestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java)
+- Facade: [HttpRequestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java)
 - Status: **alpha**
 
 

@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **core/globals**
 - Definition: [https://github.com/eclipse/dirigible/issues/30](https://github.com/eclipse/dirigible/issues/30)
 - Source: [/core/v3/globals.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/globals.js)
-- Facade: [GlobalsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/GlobalsFacade.java)
+- Facade: [GlobalsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/GlobalsFacade.java)
 - Status: **alpha**
 
 ### Basic Usage

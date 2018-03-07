@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **db/query**
 - Definition: [https://github.com/eclipse/dirigible/issues/48](https://github.com/eclipse/dirigible/issues/48)
 - Source: [/db/v3/query.js](https://github.com/dirigiblelabs/api-v3-db/blob/master/db/v3/query.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-db/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
 - Status: **alpha**
 
 

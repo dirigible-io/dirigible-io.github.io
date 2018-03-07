@@ -14,7 +14,7 @@ Version 3.x
 - Alias: **io/zip**
 - Definition: [https://github.com/eclipse/dirigible/issues/20](https://github.com/eclipse/dirigible/issues/20)
 - Source: [/io/v3/zip.js](https://github.com/dirigiblelabs/api-v3-io/blob/master/io/v3/zip.js)
-- Facade: [ZipFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java)
+- Facade: [ZipFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java)
 - Status: **alpha**
 
 
