@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **utils/digest**
 - Definition: [https://github.com/eclipse/dirigible/issues/24](https://github.com/eclipse/dirigible/issues/24)
 - Source: [/utils/v3/digest.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/digest.js)
-- Facade: [DigestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/DigestFacade.java)
+- Facade: [DigestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/DigestFacade.java)
 - Status: **alpha**
 
 

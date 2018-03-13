@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **messaging/consumer**
 - Definition: [https://github.com/eclipse/dirigible/issues/92](https://github.com/eclipse/dirigible/issues/92)
 - Source: [/messaging/v3/consumer.js](https://github.com/dirigiblelabs/api-v3-messaging/blob/master/messaging/v3/consumer.js)
-- Facade: [MessagingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java)
+- Facade: [MessagingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java)
 - Status: **alpha**
 
 

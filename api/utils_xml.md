@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **utils/xml**
 - Definition: [https://github.com/eclipse/dirigible/issues/28](https://github.com/eclipse/dirigible/issues/28)
 - Source: [/utils/v3/xml.js](https://github.com/dirigiblelabs/api-v3-utils/blob/master/utils/v3/xml.js)
-- Facade: [Xml2JsonFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Xml2JsonFacade.java)
+- Facade: [Xml2JsonFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Xml2JsonFacade.java)
 - Status: **alpha**
 
 

@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **log/logging**
 - Definition: [https://github.com/eclipse/dirigible/issues/121](https://github.com/eclipse/dirigible/issues/121)
 - Source: [/log/v3/logging.js](https://github.com/dirigiblelabs/api-v3-log/blob/master/log/v3/logging.js)
-- Facade: [LogFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-log/src/main/java/org/eclipse/dirigible/api/v3/log/LogFacade.java)
+- Facade: [LogFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-log/src/main/java/org/eclipse/dirigible/api/v3/log/LogFacade.java)
 - Status: **alpha**
 
 

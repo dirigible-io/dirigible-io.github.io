@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **cms/cmis**
 - Definition: [https://github.com/eclipse/dirigible/issues/178](https://github.com/eclipse/dirigible/issues/178)
 - Source: [/cms/v3/cmis.js](https://github.com/dirigiblelabs/api-v3-cms/blob/master/cms/v3/cmis.js)
-- Facade: [CmisFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-cms/src/main/java/org/eclipse/dirigible/api/v3/cms/CmisFacade.java)
+- Facade: [CmisFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-cms/src/main/java/org/eclipse/dirigible/api/v3/cms/CmisFacade.java)
 - Status: **alpha**
 
 

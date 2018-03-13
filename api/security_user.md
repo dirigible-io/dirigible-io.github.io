@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **security/user**
 - Definition: [https://github.com/eclipse/dirigible/issues/17](https://github.com/eclipse/dirigible/issues/17)
 - Source: [/security/v3/user.js](https://github.com/dirigiblelabs/api-v3-security/blob/master/security/v3/user.js)
-- Facade: [UserFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java)
+- Facade: [UserFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java)
 - Status: **alpha**
 
 
