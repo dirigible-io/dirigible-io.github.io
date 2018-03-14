@@ -90,16 +90,16 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
     > _**NOTE:** You can use the **try out** instance, that is available at [http://dirigible.eclipse.org](http://dirigible.eclipse.org) and skip through the **Develop** section_
 
 1. **_Start_**
-    - Put the **_ROOT.war_** into the `${tomcat-dir}/webapps` directory
-    - Execute `./catalina.sh start` from the `${tomcat-dir}/bin` directory
+    - Put the **_ROOT.war_** into the _**${tomcat-dir}/webapps**_ directory
+    - Execute _**./catalina.sh start**_ from the _**${tomcat-dir}/bin**_ directory
 1. **_Login_**
     - Open: [http://localhost:8080](http://localhost:8080)
-    - Log in with the default `dirigible/dirigible` credentials
+    - Log in with the default _**dirigible/dirigible**_ credentials
     ![Login](/img/posts/20180222/login.gif){: .img-responsive }
 1. **_Develop_**
     - Project
         1. Create a project
-            - Click `+ -> Project`
+            - Click _**+ -> Project**_
 
             ![Create Project](/img/posts/20180222/project.gif){: .img-responsive }
 
@@ -107,7 +107,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
         1. Generate a _**Database Table**_
             - Right-click _**New > Generate > Database table**_
             ![Generate a Database Table](/img/posts/20180222/generate.gif){: .img-responsive }
-        1. Edit the `students.table` definition
+        1. Edit the _**students.table**_ definition
             ```json
             {
                 "name": "Students",
@@ -188,7 +188,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
         > _**NOTE:** All backend services are up and running after save/publish, due to the In-System Development_
     - Create a UI
         1. Generate a  _**HTML5 (AngularJS)**_ page
-            - Right-click `New > Generate > HTML5 (AngularJS)`
+            - Right-click _**New > Generate > HTML5 (AngularJS)**_
         1. Edit the page
             ```html
             <!DOCTYPE html>
@@ -222,10 +222,12 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
                             </thead>
                             <tbody>
                                 <tr ng-repeat="student in students">
-                                <td>{{student.id}}</td>
-                                <td>\{{student.firstName\}}</td>
-                                <td>{{student.lastName}}</td>
-                                <td>{{student.age}}</td>
+                                {% raw %}
+                                    <td>{{student.id}}</td>
+                                    <td>{{student.firstName\}}</td>
+                                    <td>{{student.lastName}}</td>
+                                    <td>{{student.age}}</td>
+                                {% endraw %}
                                 </tr>
                             </tbody>
                         </table>
