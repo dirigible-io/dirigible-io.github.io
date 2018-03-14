@@ -139,8 +139,6 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
             - Insert some sample data
                 ```sql
                 insert into students values(1, 'John', 'Doe', 25)
-                ```
-                ```sql
                 insert into students values(2, 'Jane', 'Doe', 23)
                 ```
             > _**Note:** The perspectives are available also from the side menu_
