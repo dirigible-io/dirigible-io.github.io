@@ -105,7 +105,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
 
     - Database table
         1. Generate a _**Database Table**_
-            - Right-click `New > Generate > Database table`
+            - Right-click _**New > Generate > Database table**_
             ![Generate a Database Table](/img/posts/20180222/generate.gif){: .img-responsive }
         1. Edit the `students.table` definition
             ```json
@@ -131,11 +131,11 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
             }
             ```
         1. Publish
-            - Right-click the project and select `Publish`
+            - Right-click the project and select _**Publish**_
             > _**NOTE:** The auto publish function is enabled by default_
         1. Explore
             - The database scheme can be explored from the **_Database perspective_**
-            - Click `Window > Open Perspective > Database`
+            - Click _**Window > Open Perspective > Database**_
             - Insert some sample data
                 ```sql
                 insert into students values(1, 'John', 'Doe', 25)
@@ -146,8 +146,8 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
             > _**Note:** The perspectives are available also from the side menu_
     - REST service
         1. Generate a _**Hello World**_ service
-            - Right-click `New > Generate > Hello World`
-        1. Edit the `students.js` service
+            - Right-click _**New > Generate > Hello World**_
+        1. Edit the _**students.js**_ service
             ```javascript
             var database = require('db/v3/database');
             var response = require('http/v3/response');
@@ -184,7 +184,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
             }
             ```
         1. Explore
-            - The `student.js` service is accessible through the `Preview` view
+            - The _**student.js**_ service is accessible through the _**Preview**_ view
         > _**NOTE:** All backend services are up and running after save/publish, due to the In-System Development_
     - Create a UI
         1. Generate a  _**HTML5 (AngularJS)**_ page
@@ -223,7 +223,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
                             <tbody>
                                 <tr ng-repeat="student in students">
                                 <td>{{student.id}}</td>
-                                <td>{{student.firstName}}</td>
+                                <td>\{{student.firstName\}}</td>
                                 <td>{{student.lastName}}</td>
                                 <td>{{student.age}}</td>
                                 </tr>
