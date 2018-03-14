@@ -220,7 +220,7 @@ The provided **Enterprise JavaScript APIs** leverage some of the mature Java spe
                             </thead>
                             <tbody>
                                 <tr ng-repeat="student in students">
-                           {% raw %}<td>{{student.id}}</td>
+                                    {% raw %}<td>{{student.id}}</td>
                                     <td>{{student.firstName}}</td>
                                     <td>{{student.lastName}}</td>
                                     <td>{{student.age}}</td>{% endraw %}
