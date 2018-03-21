@@ -19,5 +19,5 @@ After the creation of the cloud application, it is provided by the runtime compo
 
 Depending on the target cloud platform, in Eclipse Dirigible can be integrated the services provided by the underlying platform.
 
-![Dirigible Components](dirigible-io.github.io/help/images/architecture.png)
+![Dirigible Components](images/architecture.png)
 
