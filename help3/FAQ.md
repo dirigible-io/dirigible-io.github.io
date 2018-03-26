@@ -12,7 +12,7 @@ icon: fa-question-circle
 
 **Concepts**
 
-- (Why vertical scenarios? And why with horizontal scaling?)[Why vertical scenarios? And why with horizontal scaling?]
+- Why vertical scenarios? And why with horizontal scaling?
 - Why content-centric with centralized repository?
 - Why In-System Development?
 - Why dynamic languages? Not Java?
