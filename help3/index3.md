@@ -14,30 +14,32 @@ General Overview
 ---
 
 * [Project](project.html)
-* [Architecture](architecture.html)
 * [API](api.html)
 * [License](license.html)
 * [Credits](credits.html)
+
+Architecture
+---
+* [Architecture](architecture.html)
 
 Concepts
 ---
 
 * [Concepts](concepts.html)
+* [Dynamic Applications](dynamic_applications.html)
 * [Workspace](workspace.html)
-* [Activation](activation.html)
 * [Publishing](publishing.html)
 * [Generation](generation.html)
 * [Entity Service](entity_service.html)
 
 Setup
 ---
-
+* [Cloud Foundry](setup_cloudfoundry.html)
+* [Docker](setup_docker.html)
+* [SAP HANA Cloud Platform](setup_hcp.html)
 * [Tomcat](setup_tomcat.html)
 * [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
 * [Tomcat with MySQL](setup_tomcat_mysql.html)
-* [Cloud Foundry](setup_cloudfoundry.html)
-* [SAP HANA Cloud Platform](setup_hcp.html)
-* [Docker](setup_docker.html)
 * [Environment Variables](setup_env_vars.html)
 
 Features
@@ -58,9 +60,39 @@ Features
 * [Git Integration](git.html)
 * [Backup](backup.html)
 
-
-Artifacts
+Development & Operations
 ---
+
+#### Develop
+
+* [Web IDE](develop_web_ide.html)
+
+#### Perspectives
+* [Overview](tooling.html)
+* [Workbench]()
+* [Database](database_perspective.html)
+* [Repository](repository_perspective.html)
+* Git
+* Terminal
+
+#### Editors and Views
+
+* [Orion](https://orionhub.org/mixloginstatic/landing.html) 
+* [Ace](https://ace.c9.io/)
+* Core UI framework
+* Message Hub
+* Layouts
+* Toolbar
+
+#### Operations
+
+* [Import](service_import.html)
+* [Export](service_export.html)
+* [Clone Import](service_clone_import.html)
+* [Clone Export](service_clone_export.html)
+* [Project Import](service_project_import.html)
+
+#### Artifacts
 
 * [*.table](data_structures.html)
 * [*.view](data_structures.html)
@@ -85,27 +117,6 @@ Artifacts
 * [*.tracwiki](wiki_content.html)
 * [*.twiki](wiki_content.html)
 
-Development & Operations
----
-
-#### Develop
-
-* [Web IDE](develop_web_ide.html)
-
-#### Perspectives
-* [Overview](tooling.html)
-* [Workspace](workspace_perspective.html)
-* [Database](database_perspective.html)
-* [Repository](repository_perspective.html)
-
-#### Editors and Views
-
-* [Source Editor](source_editor.html)
-* [SQL Console](sql_console.html)
-* [Log Viewer](log_viewer.html)
-* [Log Console](log_console.html)
-* [Terminal](terminal.html)
-
 #### Discover
 
 * [Web Content Registry](service_registry_web.html)
@@ -117,14 +128,6 @@ Development & Operations
 * [Job Registry](service_registry_job.html)
 * [SQL Registry](service_registry_sql.html)
 * [Test Registry](service_registry_test.html)
-
-#### Operate
-
-* [Import](service_import.html)
-* [Export](service_export.html)
-* [Clone Import](service_clone_import.html)
-* [Clone Export](service_clone_export.html)
-* [Project Import](service_project_import.html)
 
 API
 ---
@@ -186,9 +189,6 @@ Services
 * [Generation of Scripting Service](service_generation_scripting_service.html)
 * [Generation of Generation of Web Content](service_generation_web_content.html)
 * [Generation of Generation of Web Content for Entity](service_generation_web_content_entity.html)
-
-
-
 
 
 Samples
