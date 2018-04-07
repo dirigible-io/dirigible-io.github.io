@@ -10,7 +10,7 @@ kramdown:
 highlighter: rouge
 baseurl:
 url: http://dirigible.io
-gems:
+plugins:
   - jekyll-sitemap
 
 exclude:

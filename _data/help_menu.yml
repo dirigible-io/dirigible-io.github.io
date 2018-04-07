@@ -1,55 +1,40 @@
 name: Help
-navbar: Samples
+navbar: Help
 icon: fa-gift
-link: ../samples/index.html
+link: ../help/index.html
 navigation: 
   - name: Project
     icon: fa-lightbulb-o
     url: project.html
-  - name: Dynamic Applications
-    icon: fa-bolt
-    url: dynamic_applications.html
   - name: Architecture
     icon: fa-building-o
     url: architecture.html
+  - name: Concepts
+    icon: fa-book
+    url: concepts.html
+  - name: Setup
+    icon: fa-wrench
+    url: setup.html
+  - name: Features
+    icon: fa-list
+    url: features.html
+  - name: DevOps
+    icon: fa-code
+    url: devops.html
   - name: API
     icon: fa-sitemap
     url: ../api/index.html
-  - name: Develop
-    icon: fa-code
-    group: help-develop
-  - name: Discover
-    icon: fa-search
-    group: help-discover
-  - name: Operate
-    icon: fa-wrench
-    group: help-operate
-  - name: Monitor
-    icon: fa-area-chart
-    group: help-monitor
-  - name: Setup
-    icon: fa-info
-    group: help-setup
-  - name: Features
-    icon: fa-info
-    group: help-features
-  - name: Concepts
-    icon: fa-info
-    group: help-concepts
-  - name: Perspectives
-    icon: fa-info
-    group: help-perspectives
-  - name: Editors and Views
-    icon: fa-info
-    group: help-editors-and-views
   - name: Services
     icon: fa-info
-    group: help-services
+    url: services.html
+  - name: Samples
+    icon: fa-info
+    url: ../samples/index.html
   - name: FAQ
     icon: fa-question
     url: faq.html
   - name: License
-    icon: fa-info
+    icon: fa-balance-scale
     url: license.html
   - name: Credits
     icon: fa-film

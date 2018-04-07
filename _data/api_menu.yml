@@ -6,6 +6,9 @@ navigation:
   - name: console 🔸🔹
     icon: fa fa-caret-right
     url: console.html
+  - name: bpm/process 🔸🔹
+    icon: fa fa-caret-right
+    url: bpm_process.html
   - name: cms/cmis 🔸🔹
     icon: fa fa-caret-right
     url: cmis.html

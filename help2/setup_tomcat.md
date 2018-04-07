@@ -21,19 +21,17 @@ Steps
 
 2. Configure the Users store under $CATALINA_HOME/conf/tomcat-users.xml:
 
-```xml
-<tomcat-users>
-	<role rolename="Developer"/>
-	<role rolename="Operator"/>
-	<role rolename="Everyone"/>
-	<user username="dirigible" password="dirigible" roles="Developer,Operator,Everyone"/>
-</tomcat-users>
-```
-       
+        <tomcat-users>
+                <role rolename="Developer"/>
+                <role rolename="Operator"/>
+                <role rolename="Everyone"/>
+                <user username="dirigible" password="dirigible" roles="Developer,Operator,Everyone"/>
+        </tomcat-users>
+        
 3. Start the Tomcat server
 
 4. Open a web browser and go to:
 
-> http://localhost:8080/
+        http://localhost:8080/
 
 5. Login with user dirigible and password dirigible.

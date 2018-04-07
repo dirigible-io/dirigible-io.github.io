@@ -17,6 +17,11 @@ Built-in
 
 * [console](console.html) 🔸🔹
 
+Business Process Management
+---
+
+* [process](bpm_process.html) 🔹
+
 
 Content Management
 ---

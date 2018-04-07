@@ -9,7 +9,7 @@ Setup on {{ page.title }}
 ===
 
 
-You can deploy Tomcat based WAR files, for example *dirigible.war*, produced during the build on any Cloud Platform supporting Cloud Foundry.
+You can deploy Tomcat based WAR files, for example `dirigible.war`, produced during the build on any Cloud Platform supporting Cloud Foundry.
 
 Prerequisites
 ---

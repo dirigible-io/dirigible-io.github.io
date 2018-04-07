@@ -14,10 +14,34 @@ body {
   margin-top: 51px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: Arial;
-	font-weight: 700;
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
 }
+
+@-ms-viewport {
+  width: device-width;
+}
+
+article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: News Cycle;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+  text-align: left;
+  background-color: #fff;
+}
+
 
 h2 {
 	border-bottom: 1px solid #CACACA;
@@ -170,7 +194,7 @@ table.tablesorter thead tr th:hover {
 }
 .side-item {
 	float: initial !important;
-	margin-bottom: -20px  !important;
+	/* margin-bottom: -20px  !important; */
 }
 
 #content {

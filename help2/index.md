@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Help3
+title: Help
 icon: fa-question-circle
 ---
 
@@ -14,33 +14,48 @@ General Overview
 ---
 
 * [Project](project.html)
+* [Dynamic Applications](dynamic_applications.html)
+* [Architecture](architecture.html)
 * [API](api.html)
 * [License](license.html)
 * [Credits](credits.html)
 
-Architecture
----
-* [Architecture](architecture.html)
-
-Concepts
+Development & Operations
 ---
 
-* [Concepts](concepts.html)
-* [Dynamic Applications](dynamic_applications.html)
-* [Workspace](workspace.html)
-* [Publishing](publishing.html)
-* [Generation](generation.html)
-* [Entity Service](entity_service.html)
+#### Develop
 
-Setup
----
-* [Cloud Foundry](setup_cloudfoundry.html)
-* [Docker](setup_docker.html)
-* [SAP HANA Cloud Platform](setup_hcp.html)
-* [Tomcat](setup_tomcat.html)
-* [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
-* [Tomcat with MySQL](setup_tomcat_mysql.html)
-* [Environment Variables](setup_env_vars.html)
+* [Web IDE](develop_web_ide.html)
+* [Light IDE](develop_light_ide.html)
+* [Desktop IDE](develop_desktop_ide.html)
+
+
+#### Discover
+
+* [Web Content Registry](service_registry_web.html)
+* [Wiki Pages Registry](service_registry_wiki.html)
+* [Mobile Apps Registry](service_registry_mobile.html)
+* [JavaScript Registry](service_registry_js.html)
+* [Java Registry](service_registry_java.html)
+* [Flow Registry](service_registry_flow.html)
+* [Job Registry](service_registry_job.html)
+* [SQL Registry](service_registry_sql.html)
+* [Test Registry](service_registry_test.html)
+
+#### Operate
+
+* [Import](service_import.html)
+* [Export](service_export.html)
+* [Clone Import](service_clone_import.html)
+* [Clone Export](service_clone_export.html)
+* [Project Import](service_project_import.html)
+
+#### Monitor
+
+* [Memory](service_memory.html)
+* [Logging](service_logging.html)
+* [Access Log](service_accesslog.html)
+
 
 Features
 ---
@@ -60,39 +75,18 @@ Features
 * [Git Integration](git.html)
 * [Backup](backup.html)
 
-Development & Operations
+Concepts
 ---
 
-#### Develop
+* [Concepts](concepts.html)
+* [Workspace](workspace.html)
+* [Activation](activation.html)
+* [Publishing](publishing.html)
+* [Generation](generation.html)
+* [Entity Service](entity_service.html)
 
-* [Web IDE](develop_web_ide.html)
-
-#### Perspectives
-* [Overview](tooling.html)
-* [Workbench]()
-* [Database](database_perspective.html)
-* [Repository](repository_perspective.html)
-* Git
-* Terminal
-
-#### Editors and Views
-
-* [Orion](https://orionhub.org/mixloginstatic/landing.html) 
-* [Ace](https://ace.c9.io/)
-* Core UI framework
-* Message Hub
-* Layouts
-* Toolbar
-
-#### Operations
-
-* [Import](service_import.html)
-* [Export](service_export.html)
-* [Clone Import](service_clone_import.html)
-* [Clone Export](service_clone_export.html)
-* [Project Import](service_project_import.html)
-
-#### Artifacts
+Artifacts
+---
 
 * [*.table](data_structures.html)
 * [*.view](data_structures.html)
@@ -117,21 +111,28 @@ Development & Operations
 * [*.tracwiki](wiki_content.html)
 * [*.twiki](wiki_content.html)
 
-#### Discover
 
-* [Web Content Registry](service_registry_web.html)
-* [Wiki Pages Registry](service_registry_wiki.html)
-* [Mobile Apps Registry](service_registry_mobile.html)
-* [JavaScript Registry](service_registry_js.html)
-* [Java Registry](service_registry_java.html)
-* [Flow Registry](service_registry_flow.html)
-* [Job Registry](service_registry_job.html)
-* [SQL Registry](service_registry_sql.html)
-* [Test Registry](service_registry_test.html)
 
-API
+Tooling
 ---
-* [API](api/index.html)
+
+* [Overview](tooling.html)
+
+#### Perspectives
+
+* [Workspace](workspace_perspective.html)
+* [Database](database_perspective.html)
+* [Repository](repository_perspective.html)
+* [Registry](registry.html)
+* [Debug](debugger.html)
+
+#### Editors and Views
+
+* [Source Editor](source_editor.html)
+* [SQL Console](sql_console.html)
+* [Log Viewer](log_viewer.html)
+* [Log Console](log_console.html)
+* [Terminal](terminal.html)
 
 Services
 ---
@@ -191,14 +192,24 @@ Services
 * [Generation of Generation of Web Content for Entity](service_generation_web_content_entity.html)
 
 
+Setup
+---
+
+* [Tomcat](setup_tomcat.html)
+* [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
+* [Tomcat with MySQL](setup_tomcat_mysql.html)
+* [Eclipse](setup_eclipse_rcp.html)
+* [Cloud Foundry](setup_cloudfoundry.html)
+* [SAP HANA Cloud Platform](setup_hcp.html)
+* [Docker](setup_docker.html)
+* [Development Environment in Eclipse](setup_eclipse.html)
+* [Environment Variables](setup_env_vars.html)
+
+
 Samples
 ---
 
-* [Simple Samples](../samples/index.html)
-
-FAQ
----
-* [FAQ](faq.html)
+[Simple Samples](../samples/index.html)
 
 
 Updates
@@ -224,3 +235,4 @@ References
 
 - Bugzilla
 [https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible](https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible)
+

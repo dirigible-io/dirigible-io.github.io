@@ -49,18 +49,10 @@ Datasource Configuration
 3. Open the file *<TOMCAT_HOME>/conf/context.xml* and add the following within the context:
 
 ```xml
-<Resource
-	name="jdbc/DefaultDB"
-	auth="Container"
-	type="javax.sql.DataSource"
-	driverClassName="org.postgresql.Driver"
-	url="jdbc:postgresql://127.0.0.1:5432/dirigible_database"
-	username="dirigible_system"
-	password="dirigible1234"
-	maxActive="20"
-	maxIdle="10"
-	maxWait="-1"
-/>
+    <Resource name="jdbc/DefaultDB" auth="Container"
+          type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+          url="jdbc:postgresql://127.0.0.1:5432/dirigible_database"
+          username="dirigible_system" password="dirigible1234" maxActive="20" maxIdle="10" maxWait="-1"/>
 ```
 
 web.xml
@@ -69,38 +61,38 @@ web.xml
 Make sure the initial parameter *jndiDefaultDataSource* is uncommented.
 
 ```xml
-<init-param>
-	<param-name>jndiDefaultDataSource</param-name>
-	<param-value>java:comp/env/jdbc/DefaultDB</param-value>
-</init-param>
+    <init-param>
+        <param-name>jndiDefaultDataSource</param-name>
+        <param-value>java:comp/env/jdbc/DefaultDB</param-value>
+    < /init-param>
 ```
 
 Also, the initial parameter *jdbcAutoCommit* must be set to true.
 
 ```xml
-<init-param>
-	<param-name>jdbcAutoCommit</param-name>
-	<param-value>true</param-value>
-</init-param>
+    <init-param>
+        <param-name>jdbcAutoCommit</param-name>
+        <param-value>true</param-value>
+    </init-param>
 ```
 
 The type of the datasource is 'jndi' instead of 'local'
 
 ```xml
-<init-param>
-	<param-name>defaultDataSourceType</param-name>
-	<param-value>jndi</param-value>
-</init-param>
+    <init-param>
+		<param-name>defaultDataSourceType</param-name>
+		<param-value>jndi</param-value>
+	</init-param>
 ```
 
 Lastly, the resource reference for the datasource has to be uncommented.
 
 ```xml
-<resource-ref>
-	<res-ref-name>jdbc/DefaultDB</res-ref-name>
-	<res-type>javax.sql.DataSource</res-type>
-	<res-auth>Container</res-auth>
-</resource-ref>
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 ```
 
 Deploy
