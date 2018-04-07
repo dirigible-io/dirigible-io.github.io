@@ -25,10 +25,10 @@ navigation:
     icon: fa-sitemap
     url: ../api/index.html
   - name: Services
-    icon: fa-info
+    icon: fa-cog
     url: services.html
   - name: Samples
-    icon: fa-info
+    icon: fa-gift
     url: ../samples/index.html
   - name: FAQ
     icon: fa-question
