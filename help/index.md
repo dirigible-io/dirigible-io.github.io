@@ -50,7 +50,7 @@ Features
 * [Data Structures](data_structures.html)
 * [Scripting Services](scripting_services.html)
 * [Enterprise JavaScript](../api/index.html)
-* [Integration Services](integration_services.html)
+* [Integration Services](../help2/integration_services.html)
 * [Test Cases](test_cases.html)
 * [Web Content](web_content.html)
 * [Wiki Content](wiki_content.html)
