@@ -41,7 +41,7 @@ Setup
   * [Tomcat with MySQL](setup_tomcat_mysql.html)
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
-* [SAP Cloud Platform](setup_hcp.html)
+* [SAP Cloud Platform](setup_sapcp.html)
 
 Features
 ---
