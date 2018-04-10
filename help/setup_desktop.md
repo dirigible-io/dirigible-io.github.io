@@ -18,12 +18,12 @@ Steps
 
 2. Start it as a standard Java application:
 
-> java -jar dirigible-desktop-all-XXX.jar
+   > java -jar dirigible-desktop-all-XXX.jar
 
-where the *XXX* is the current version you have retrieved at the previous step.
+   where the *XXX* is the current version you have retrieved at the previous step.
 
 3. Open a web browser and go to:
 
-> http://localhost:8080/
+   > http://localhost:8080/
 
 4. Choose a *nickname* and start exploring
