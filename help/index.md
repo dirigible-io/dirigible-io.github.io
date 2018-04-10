@@ -41,7 +41,7 @@ Setup
   * [Tomcat with MySQL](setup_tomcat_mysql.html)
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
-* [SAP Cloud Platform](setup_sapcp.html)
+* [SAP Cloud Platform](https://github.com/dirigible-io/dirigible-io.github.io/blob/master/help/index.md)
 
 Features
 ---
