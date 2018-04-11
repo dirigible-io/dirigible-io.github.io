@@ -7,7 +7,7 @@ icon: book
 Concepts
 ===
 
-There are several must-to-know concepts implied in the cloud toolkit, which have to be understood before starting. Some of them are closely related to the [dynamic applications](dynamic_applications.html) nature and behavior, others just follow the best practices from the service architecture reflected also in the cloud applications.
+There are several must-to-know concepts implied in the cloud toolkit, which have to be understood before starting. Some of them are closely related to the [dynamic applications](concepts_dynamic_applications.html) nature and behavior, others just follow the best practices from the service architecture reflected also in the cloud applications.
 
 Isolated [workspace](workspace.html) for project management is important when we have to share a single server instance to many users. Another related feature is [sand-boxing](activation.html) - the way every user to have its own private runtime space where to test his/her services during the development.
 
