@@ -13,7 +13,7 @@ First comes the concept of a [Repository](concepts_repository.html). It is the p
 
 Next is the concept of a [Workspace](concepts_workspace.html), which is very similar to the well known *workspace* from desktop IDEs e.g. Eclipse. The *workspace* can hold one or more *projects*. One user can have multiple workspaces, but can work in one only at a given moment of time.
 
-[Registry](registry.html) and the related [publishing](publishing.html) processes are taken from the [SOA](http://en.wikipedia.org/wiki/Service-oriented_architecture) (UDDI) and recent API Management to bring some of the strengths, such as discoverability, reusability, loose coupling, relevance, etc.
+[Registry](concepts_registry.html) and the related [publishing](publishing.html) processes are taken from the [SOA](http://en.wikipedia.org/wiki/Service-oriented_architecture) (UDDI) and recent API Management to bring some of the strengths, such as discoverability, reusability, loose coupling, relevance, etc.
 
 To boost the development productivity at the very initial phase, we introduced template-based [generation](concepts_generation.html) of application artifacts via wizards.
 
