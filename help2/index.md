@@ -16,7 +16,7 @@ General Overview
 * [Project](project.html)
 * [Dynamic Applications](dynamic_applications.html)
 * [Architecture](architecture.html)
-* [API](api.html)
+* [API](../api/index.html)
 * [License](license.html)
 * [Credits](credits.html)
 
