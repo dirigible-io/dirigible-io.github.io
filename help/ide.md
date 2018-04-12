@@ -31,7 +31,7 @@ By default, the different views and editors are separated into a few perspective
 * [Git](ide_perspective_git.html)
 * [Database](ide_perspective_database.html)
 * [Repository](ide_perspective_repository.html) 
-* Terminal
+* [Terminal](ide_perspective_terminal.html)
 
 ### Editors
 The editors that have been integrated into the Dirigible IDE are [Orion](http://orionhub.org), [Ace](http://ace.c9.io) and [Monaco](https://microsoft.github.io/monaco-editor/). More sophisticated and visual editors are included in the pipeline.
