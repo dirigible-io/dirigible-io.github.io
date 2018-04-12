@@ -30,7 +30,7 @@ By default, the different views and editors are separated into a few perspective
 * [Workbench](ide_perspective_workbench.html)
 * [Git](ide_perspective_git.html)
 * [Database](ide_perspective_database.html)
-* Repository 
+* [Repository](ide_perspective_repository.html) 
 * Terminal
 
 ### Editors
