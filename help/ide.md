@@ -7,7 +7,7 @@ icon: fa-code
 {{ page.title }}
 ===
 
-### Web IDE, Perspectives, Views, Editors and Layout
+### Web IDE
 
 The environment runs directly in a browser and therefore does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, devops productivity tools, and a new cloud IDE for in-system application development.
 
@@ -17,14 +17,13 @@ The IDE is a composition of perspectives, each consisting of the necessary tools
 * sidebar to the left with shortcuts to the perspectives;
 * status bar at the bottom, for notifications and other use by the tools.
 
+![Workbench Perspective](images/ide_workbench_perspective.png)
+
 The tools that constitute the perspectives are laid out in predefined regions of the work plot, but their position can be changed by using drag and drop. The perspectives are simply predefined configurations, hence different tools may be opened, moved, or closed on the work plot of a perspective for the users’ convenience. The tools can also be maximized, minimized, or even popped out in a separate window.
  
 The tools are the minimal atomic parts in the IDE. They are referred to as views or editors and each type is handled differently.
 
-
-![Workbench Perspective](images/ide_workbench_perspective.png)
-
-### Perspectives and Editors
+### Perspectives
 
 By default, the different views and editors are separated into a few perspectives:
 
