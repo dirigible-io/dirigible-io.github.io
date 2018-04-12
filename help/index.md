@@ -15,7 +15,7 @@ General Overview
 
 * [Project](project.html)
 * [Architecture](architecture.html)
-* [API](api)
+* [API](api/index.html)
 * [License](license.html)
 * [Credits](credits.html)
 
