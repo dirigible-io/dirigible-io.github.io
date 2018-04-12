@@ -28,7 +28,7 @@ The tools are the minimal atomic parts in the IDE. They are referred to as views
 By default, the different views and editors are separated into a few perspectives:
 
 * [Workbench](ide_perspective_workbench.html)
-* Git
+* [Git](ide_perspective_git.html)
 * Database
 * Repository 
 * Terminal
