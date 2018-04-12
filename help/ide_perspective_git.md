@@ -1,3 +1,13 @@
+---
+layout: help
+title: Git
+icon: none
+group: help-perspectives
+---
+
+{{ page.title }} Perspective
+===
+
 The Git perspective aims to present a simplified interface for the most common git operations. It is built from tools that support Git client operations.
 
 ![Git Perspective](images/ide_perspective_git.PNG)
