@@ -22,7 +22,7 @@ icon: fa-question-circle
 </details>
 <details>
 <summary><b>Why content-centric with centralized repository?</b></summary>
-
+ 
 <br> - All artifacts are in a single repository </br>
 <br> - Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository. </br>
 <br> - Simple life-cycle management and transport </br>
@@ -33,7 +33,6 @@ icon: fa-question-circle
 <summary><b>Why In-System Development?</b></summary>
 
 In-System Development is a programming model used when you work directly on a live system.
-
 <br> - Avoid the side-effects of a simulated (local) environment by working on a live system </br>
 <br> - Access to the live data via the same channel which will be used in production</br>
 <br> - All the dependencies and integrations are on place as they will be in production </br>
@@ -96,7 +95,6 @@ In-System Development is a programming model used when you work directly on a li
 <summary><b>Why RAP?</b></summary>
 
 <a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
-
 <br> - Mature and reliable API to develop against</br>
 <br> - Stable framework with great support</br>
 <br> - Standard modularization – OSGi, plugins</br>
@@ -110,7 +108,6 @@ In-System Development is a programming model used when you work directly on a li
 <summary><b>Why Rhino?</b></summary>
 
 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:
-
 <br> - Mature and stable framework</br>
 <br> - Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules</br>
 <br> - Built-in debugger with simple API</br>
@@ -121,7 +118,6 @@ In-System Development is a programming model used when you work directly on a li
 <summary><b>Why JSON for models?</b></summary>
 
 <a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:
-
 <br> - Simple enough and human readable/writable</br>
 <br> - Support by mature frameworks for parsing/serializing</br>
 <br> - Quite popular and proved in web applications context </br>
@@ -131,7 +127,6 @@ In-System Development is a programming model used when you work directly on a li
 <summary><b>Why flat data models?</b></summary>
 
 We use entity-relational data model because:
-
 <br> - Proved by many business applications for years</br>
 <br> - Straight forward implementation on relational-database</br>
 <br> - Easy to understand and use by the developers</br>
@@ -142,7 +137,6 @@ We use entity-relational data model because:
 <summary><b>Why REST instead of server-side generation?</b></summary>
 
 We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0. For us the strong difference is:
-
 <br> - Clean separation of the data services from the user interface</br>
 <br> - Independent development of both including easy mocking</br>
 <br> - Possibility of reuse and/or composition of services in different user interfaces</br>
@@ -213,7 +207,6 @@ The only real modularization framework for Java nowadays, isn't it?
 <summary><b>How to build my own Dirigible?</b></summary>
  
  You can choose which plugins to include in your own target platform from the Dirigible update sites:
-
 - [http://dirigible.io/p2/bridge/](http://dirigible.io/p2/bridge/)
 - [http://dirigible.io/p2/external/](http://dirigible.io/p2/external/)
 - [http://dirigible.io/p2/ide/](http://dirigible.io/p2/ide/)
