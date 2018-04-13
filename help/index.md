@@ -42,6 +42,7 @@ Setup
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
 * [SAP Cloud Platform](setup_sapcp.html)
+* [Environment Variables](setup_environmen_variables.html)
 
 Features
 ---
@@ -65,6 +66,11 @@ Development & Operations
 ---
 
 * [Web IDE](ide.html)
+  * [Workbench](ide_perspective_workbench.html)
+  * [Git](ide_perspective_git.html)
+  * [Database](ide_perspective_database.html)
+  * [Repository](ide_perspective_repository.html) 
+  * [Terminal](ide_perspective_terminal.html)
 * [Artifacts](artifacts.html)
 * [Engines](engines.html)
 * [Services](services.html)
