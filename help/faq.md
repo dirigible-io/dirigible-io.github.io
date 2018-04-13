@@ -122,36 +122,47 @@ In-System Development is a programming model used when you work directly on a li
 <details>
 <summary><b>Why RAP?</b></summary>
 
-<a href="http://eclipse.org/rap/">RAP</a> [RAP](http://eclipse.org/rap/) is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
+<a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
 
-- Mature and reliable API to develop against
-- Stable framework with great support
-- Standard modularization – OSGi, plugins
-- Writing mostly in pure Java with all the benefits it brings by itself
-- Single sourcing - reuse of existing functionality written as Eclipse plugins
-- Possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component
-- Most productive web framework for more complex use-cases like development environments, administration tools, etc.
+* Mature and reliable API to develop against
+
+* Stable framework with great support
+
+* Standard modularization – OSGi, plugins
+
+* Writing mostly in pure Java with all the benefits it brings by itself
+
+* Single sourcing - reuse of existing functionality written as Eclipse plugins
+
+* Possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component
+
+* Most productive web framework for more complex use-cases like development environments, administration tools, etc.
 
 </details>
 <details>
 <summary><b>Why Rhino?</b></summary>
 
-[Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) is JavaScript engine written in Java. We use it as default scripting engine because:
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:
 
-- Mature and stable framework
-- Supports [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) for dynamic loading of modules
-- Built-in debugger with simple API
-- Possibility to invoke standard Java objects directly 
+* Mature and stable framework
+
+* Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules
+
+* Built-in debugger with simple API
+
+* Possibility to invoke standard Java objects directly 
 
 </details>
 <details>
 <summary><b>Why JSON for models?</b></summary>
 
-[JSON](http://www.json.org/) is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:
+<a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:
 
-- Simple enough and human readable/writable
-- Support by mature frameworks for parsing/serializing
-- Quite popular and proved in web applications context 
+* Simple enough and human readable/writable
+
+* Support by mature frameworks for parsing/serializing
+
+* Quite popular and proved in web applications context 
 
 </details>
 <details>
@@ -159,10 +170,13 @@ In-System Development is a programming model used when you work directly on a li
 
 We use entity-relational data model because:
 
-- Proved by many business applications for years
-- Straight forward implementation on relational-database
-- Easy to understand and use by the developers
-- Tools for it are also simple and easy to use 
+* Proved by many business applications for years
+
+* Straight forward implementation on relational-database
+
+* Easy to understand and use by the developers
+
+* Tools for it are also simple and easy to use 
 
 </details>
 <details>
@@ -170,26 +184,33 @@ We use entity-relational data model because:
 
 We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0. For us the strong difference is:
 
-- Clean separation of the data services from the user interface
-- Independent development of both including easy mocking
-- Possibility of reuse and/or composition of services in different user interfaces
-- Possibility of UI-less integration if needed
-- Better operation and support 
+* Clean separation of the data services from the user interface
+
+* Independent development of both including easy mocking
+
+* Possibility of reuse and/or composition of services in different user interfaces
+
+* Possibility of UI-less integration if needed
+
+* Better operation and support 
 
 </details>
 <details>
 <summary><b>Why Activate and Publish?</b></summary>
 
-- Supporting sand-boxing is quite nice feature for developers. It is used during development for quick testing.
-- The sand-box is per user and it get ready on "Activation".
-- "Publish" transfer the artifacts to the central Registry for productive use - one for all. 
+* Supporting sand-boxing is quite nice feature for developers. It is used during development for quick testing.
+
+* The sand-box is per user and it get ready on "Activation".
+
+* "Publish" transfer the artifacts to the central Registry for productive use - one for all. 
 
 </details>
 <details>
 <summary><b>Why one-time-generation?</b></summary>
 
-- It is enough to boost productivity
-- MDA failed, isn't it?
+* It is enough to boost productivity
+
+* MDA failed, isn't it?
 
 </details>
 <details>
@@ -207,15 +228,17 @@ The only real modularization framework for Java nowadays, isn't it?
 <details>
 <summary><b>How to integrate my dynamic language?</b></summary>
  
-- Have a look at `org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy` plugin for runtime integration
-- Register your own script executor provider by `org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider`
-- Create your own Apache Velocity based templates for your language and register them using `org.eclipse.dirigible.ide.template.type` extension point    
+* Have a look at `org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy` plugin for runtime integration
+
+* Register your own script executor provider by `org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider`
+
+* Create your own Apache Velocity based templates for your language and register them using `org.eclipse.dirigible.ide.template.type` extension point    
 
 </details>
 <details>
 <summary><b>How to integrate my Java based framework?</b></summary>
  
- - It is even simpler - wrap it as OSGi plugin (if it isn't already) and add it during the packaging phase as a regular OSGi plugin packaged in a WAR file. 
+* It is even simpler - wrap it as OSGi plugin (if it isn't already) and add it during the packaging phase as a regular OSGi plugin packaged in a WAR file. 
  
 </details>
 <details>
