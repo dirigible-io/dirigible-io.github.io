@@ -17,7 +17,7 @@ Version 3 of Dirigible enables the users to create, manage, and switch between m
 The projects file organization is now non-normative and entirely up-to the preferences of the users.
 The IDE supports multiple editors registered for different file (MIME) types. More than one editor can be registered for one file type and in this case a “Open with…” context menu entry is rendered for the user to select, which one to use.
 
-The main view opened by default in this perspective is the *Workspace* explorer, a standard view on the projects in your [workspace](concept_workspace.html). It shows the folder structure along with the files. 
+The main view opened by default in this perspective is the *Workspace* explorer, a standard view on the projects in your [workspace](concepts_workspace.html). It shows the folder structure along with the files. 
 
 There is a context menu assigned to the project node:
 
