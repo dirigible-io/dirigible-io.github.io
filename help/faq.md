@@ -78,7 +78,7 @@ In-System Development is a programming model used when you work directly on a li
 ***
 <details>
 <summary><b>Why RAP?</b></summary>
-<a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
+<a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:<br>
 - Mature and reliable API to develop against<br>
 - Stable framework with great support<br>
 - Standard modularization – OSGi, plugins<br>
@@ -89,7 +89,7 @@ In-System Development is a programming model used when you work directly on a li
 </details>
 <details>
 <summary><b>Why Rhino?</b></summary>
-<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:<br>
 - Mature and stable framework<br>
 - Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules<br>
 - Built-in debugger with simple API<br>
@@ -97,14 +97,14 @@ In-System Development is a programming model used when you work directly on a li
 </details>
 <details>
 <summary><b>Why JSON for models?</b></summary>
-<a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:
+<a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:<br>
 - Simple enough and human readable/writable<br>
 - Support by mature frameworks for parsing/serializing<br>
 - Quite popular and proved in web applications context <br>
 </details>
 <details>
 <summary><b>Why flat data models?</b></summary>
-We use entity-relational data model because:
+We use entity-relational data model because:<br>
 - Proved by many business applications for years<br>
 - Straight forward implementation on relational-database<br>
 - Easy to understand and use by the developers<br>
@@ -112,7 +112,7 @@ We use entity-relational data model because:
 </details>
 <details>
 <summary><b>Why REST instead of server-side generation?</b></summary>
-We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0. For us the strong difference is:
+We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0. For us the strong difference is:<br>
 - Clean separation of the data services from the user interface<br>
 - Independent development of both including easy mocking<br>
 - Possibility of reuse and/or composition of services in different user interfaces<br>
@@ -162,7 +162,7 @@ The only real modularization framework for Java nowadays, isn't it?
 </details>
 <details>
 <summary><b>How to build my own Dirigible?</b></summary>
- You can choose which plugins to include in your own target platform from the Dirigible update sites:
+ You can choose which plugins to include in your own target platform from the Dirigible update sites:<br>
 - [http://dirigible.io/p2/bridge/](http://dirigible.io/p2/bridge/)<br>
 - [http://dirigible.io/p2/external/](http://dirigible.io/p2/external/)<br>
 - [http://dirigible.io/p2/ide/](http://dirigible.io/p2/ide/)<br>
