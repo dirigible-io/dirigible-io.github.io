@@ -17,17 +17,22 @@ icon: fa-question-circle
 <summary><b>Why vertical scenarios? And why with horizontal scaling?</b></summary>
 
 * Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
+
 * All or nothing – partial doesn't count
+
 * Equal runtime instances based on a single content package for simple and reliable management
 
 </details>
 <details>
 <summary><b>Why content-centric with centralized repository?</b></summary>
 
-- All artifacts are in a single repository
-- Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository.
-- Simple life-cycle management and transport
-- Workspace, Sandbox, Public Registry separation based on the development life-cycle phases
+* All artifacts are in a single repository
+
+* Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository.
+
+* Simple life-cycle management and transport
+
+* Workspace, Sandbox, Public Registry separation based on the development life-cycle phases
 
 </details>
 <details>
@@ -35,58 +40,79 @@ icon: fa-question-circle
 
 In-System Development is a programming model used when you work directly on a live system.
 
-- Avoid the side-effects of a simulated (local) environment by working on a live system 
-- Access to the live data via the same channel which will be used in production
-- All the dependencies and integrations are on place as they will be in production 
-- Shortest development turn-around time 
-- Short life-cycle management process
+* Avoid the side-effects of a simulated (local) environment by working on a live system 
+
+* Access to the live data via the same channel which will be used in production
+
+* All the dependencies and integrations are on place as they will be in production 
+
+* Shortest development turn-around time 
+
+* Short life-cycle management process
 
 </details>
 <details>
 <summary><b>Why In-System Development?</b></summary>
 
-- Perfect match to Dynamic Applications - built for change
-- „Can interpret (rather than compile) the execution of tasks“
-- Existing smooth integration within the web servers
-- No restart required
-- Java is also supported (javax.tools.*)
+* Perfect match to Dynamic Applications - built for change
+
+* „Can interpret (rather than compile) the execution of tasks“
+ 
+* Existing smooth integration within the web servers
+
+* No restart required
+
+* Java is also supported (javax.tools.*)
 
 </details>
 <details>
 <summary><b>Why injected services?</b></summary>
 
-- Available out-of-the-box for developers – request, response, datasource, http, storage, wiki, indexer, repository, user, etc.
-- Standardized API for cloud developers
-- Different language's implementations are possible integrated via the extension point
-- Different provider's implementations can be exposed to developers on their cloud
+* Available out-of-the-box for developers – request, response, datasource, http, storage, wiki, indexer, repository, user, etc.
+
+* Standardized API for cloud developers
+
+* Different language's implementations are possible integrated via the extension point
+
+* Different provider's implementations can be exposed to developers on their cloud
 
 </details>
 <details>
 <summary><b>Why integration services are part of the core?</b></summary>
 
-- Cloud applications usually are extensions to a packaged software (on-premise or on-demand)
-- Re-use of 3-thd party services is very often in this context
-- Replication use-case - major scenario for on-premise to on-demand cross-platform applications 
-- Scheduled jobs as asynchronous activities usually needed
-- Semantic separation of integration and orchestration services from the other general purpose services
+* Cloud applications usually are extensions to a packaged software (on-premise or on-demand)
+
+* Re-use of 3-thd party services is very often in this context
+
+* Replication use-case - major scenario for on-premise to on-demand cross-platform applications 
+
+* Scheduled jobs as asynchronous activities usually needed
+
+* Semantic separation of integration and orchestration services from the other general purpose services
 
 </details>
 <details>
 <summary><b>Why is the extensibility important and for whom?</b></summary>
 
-- Software vendor's code vs customer's specific extension's code
-- Update and Upgrade issues
-- Business agility depends on the process change -ability
-- Bilateral extension-points and extensions descriptors
+* Software vendor's code vs customer's specific extension's code
+
+* Update and Upgrade issues
+
+* Business agility depends on the process change -ability
+
+* Bilateral extension-points and extensions descriptors
 
 </details>
 <details>
 <summary><b>Why it looks like Eclipse in a web browser? Why not more webby style?</b></summary>
 
-- Lower barrier for Eclipse developers
-- Overall experience comfortable for developers proven for years from on-premise tools
-- Using of Workbench API and concepts
-- There are some alternatives already available for the „webby“ guys
+* Lower barrier for Eclipse developers
+
+* Overall experience comfortable for developers proven for years from on-premise tools
+
+* Using of Workbench API and concepts
+
+* There are some alternatives already available for the „webby“ guys
 
 </details>
 
@@ -96,7 +122,7 @@ In-System Development is a programming model used when you work directly on a li
 <details>
 <summary><b>Why RAP?</b></summary>
 
-[RAP](http://eclipse.org/rap/) is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
+<a href="http://eclipse.org/rap/">RAP</a> [RAP](http://eclipse.org/rap/) is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
 
 - Mature and reliable API to develop against
 - Stable framework with great support
