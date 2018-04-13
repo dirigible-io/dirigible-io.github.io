@@ -83,7 +83,7 @@ In-System Development is a programming model used when you work directly on a li
 - Stable framework with great support<br>
 - Standard modularization – OSGi, plugins<br>
 - Writing mostly in pure Java with all the benefits it brings by itself<br>
-- Single sourcing - reuse of existing functionality written as Eclipse plugins</br>
+- Single sourcing - reuse of existing functionality written as Eclipse plugins<br>
 - Possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component<br>
 - Most productive web framework for more complex use-cases like development environments, administration tools, etc.<br>
 </details>
