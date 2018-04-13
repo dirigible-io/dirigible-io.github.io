@@ -14,4 +14,5 @@ Setup
 * [Setup as a Docker Image](setup_docker.html)
 * [Setup on Cloud Foundry](setup_cloudfoundry.html)
 * [Setup on SAP Cloud Platform](setup_sapcp.html)
+* [Environment Variables](setup_environmen_variables.html)
 
