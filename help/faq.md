@@ -16,9 +16,9 @@ icon: fa-question-circle
 <details>
 <summary><b>Why vertical scenarios? And why with horizontal scaling?</b></summary>
 
-- Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
-- All or nothing – partial doesn't count
-- Equal runtime instances based on a single content package for simple and reliable management
+* Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective
+* All or nothing – partial doesn't count
+* Equal runtime instances based on a single content package for simple and reliable management
 
 </details>
 <details>
