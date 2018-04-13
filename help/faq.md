@@ -163,11 +163,11 @@ The only real modularization framework for Java nowadays, isn't it?
 <details>
 <summary><b>How to build my own Dirigible?</b></summary>
  You can choose which plugins to include in your own target platform from the Dirigible update sites:<br>
-- [http://dirigible.io/p2/bridge/](http://dirigible.io/p2/bridge/)<br>
-- [http://dirigible.io/p2/external/](http://dirigible.io/p2/external/)<br>
-- [http://dirigible.io/p2/ide/](http://dirigible.io/p2/ide/)<br>
-- [http://dirigible.io/p2/lib/](http://dirigible.io/p2/lib/)<br>
-- [http://dirigible.io/p2/repository/](http://dirigible.io/p2/repository/)<br>
-- [http://dirigible.io/p2/runtime/](http://dirigible.io/p2/runtime/)<br>
+- <a href="http://dirigible.io/p2/bridge/">http://dirigible.io/p2/bridge/</a><br>
+- <a href="http://dirigible.io/p2/external/">http://dirigible.io/p2/external/</a><br>
+- <a href="http://dirigible.io/p2/ide/">http://dirigible.io/p2/ide/</a><br>
+- <a href="http://dirigible.io/p2/lib/">http://dirigible.io/p2/lib/</a><br>
+- <a href="http://dirigible.io/p2/repository/">http://dirigible.io/p2/repository/</a><br>
+- <a href="http://dirigible.io/p2/runtime/">http://dirigible.io/p2/runtime/</a><br>
 </details>
 
