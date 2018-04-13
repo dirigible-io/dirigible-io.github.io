@@ -140,8 +140,8 @@ The only real modularization framework for Java nowadays, isn't it?
 ***
 <details>
 <summary><b>How to integrate my dynamic language?</b></summary>
-- Have a look at `org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy` plugin for runtime integration<br>
-- Register your own script executor provider by `org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider`<br>
+- Have a look at <a href="org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy">org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy</a> plugin for runtime integration<br>
+- Register your own script executor provider by <a href="org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider">org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider</a><br>
 - Create your own Apache Velocity based templates for your language and register them using `org.eclipse.dirigible.ide.template.type` extension point <br>   
 </details>
 <details>
