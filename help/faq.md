@@ -56,7 +56,7 @@ In-System Development is a programming model used when you work directly on a li
 
 * Perfect match to Dynamic Applications - built for change
 
-* „Can interpret (rather than compile) the execution of tasks“
+* Can interpret (rather than compile) the execution of tasks
  
 * Existing smooth integration within the web servers
 
