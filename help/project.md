@@ -21,4 +21,4 @@ From the beginning, the project follows the principles of **Simplicity**, **Open
 
 * [Features](features.html) section describes in detail what is included in the project. 
 * [Concepts](concepts.html) section gives you an overview about the internal and the chosen patterns. 
-* [Samples](..samples/index.html) section shows you how to start and build your first dynamic Web application in seconds.
+* [Samples](../samples/index.html) section shows you how to start and build your first dynamic Web application in seconds.
