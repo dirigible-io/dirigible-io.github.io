@@ -7,7 +7,7 @@ icon: fa-book
 Concepts
 ===
 
-There are several must-to-know concepts implied in the cloud toolkit, which have to be understood before getting started. Some of them are closely related to the [dynamic applications](dynamic_applications.html) nature and behavior, others just follow the best practices from the service architecture reflected also in the cloud applications.
+There are several must-to-know concepts implied in the cloud toolkit, which have to be understood before getting started. Some of them are closely related to the [dynamic applications](concepts_dynamic_applications.html) nature and behavior, others just follow the best practices from the service architecture reflected also in the cloud applications.
 
 First comes the concept of a [Repository](concepts_repository.html). It is the place where the applications content is stored - such as a database for the Dirigible's instance.
 
