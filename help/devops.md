@@ -18,7 +18,7 @@ The front-facing [Web IDE](ide.html) component is a collection of plugins for pr
 * Search
 * Import
 * Preview
-* Editors - [Orion](ide_editor_orion.html), Ace, Monaco
+* Editors - [Orion](ide_editor_orion.html), [Ace](ide_editor_ace.html), [Monaco](ide_editor_monaco.html)
 * Schema Modeler
 * Entity Data Modeler
 * BPMN Modeler
