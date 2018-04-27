@@ -17,7 +17,7 @@ The IDE is a composition of perspectives, each consisting of the necessary tools
 * sidebar to the left with shortcuts to the perspectives;
 * status bar at the bottom, for notifications and other use by the tools.
 
-![Workbench Perspective](images/ide_workbench_perspective.png)
+![Workbench Perspective](images/ide_workbench_perspective.png){: .img-responsive }
 
 The tools that constitute the perspectives are laid out in predefined regions of the work plot, but their position can be changed by using drag and drop. The perspectives are simply predefined configurations, hence different tools may be opened, moved, or closed on the work plot of a perspective for the users’ convenience. The tools can also be maximized, minimized, or even popped out in a separate window.
  
