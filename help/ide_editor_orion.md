@@ -11,7 +11,7 @@ group: help-editors-and-views
 The default *Source Code Editor* provided in the Dirigible's Workbench perspective is the embedded version of the well known [Orion](http://orionhub.org) editor.
 It supports syntax highlighting for JavaScript, HTML, CSS as well as code-completion. For the server-side JavaScript services, Dirigible supports also the cross-file code-completion based on the [CommonJS](https://en.wikipedia.org/wiki/CommonJS) specification and implemented with [tern.js](http://ternjs.net/). 
 
-![Orion Editor](images/ide_editor_orion.png)
+![Orion Editor](images/ide_editor_orion.png){: .img-responsive }
 
 The *Cut*, *Copy*, *Paste* and *Undo*/*Redo* actions are built-in.
 
