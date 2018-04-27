@@ -26,5 +26,5 @@ In general, a dynamic application consists of components, which can be separated
 *	*Integration Services* - Following the principle of atomicity, one dynamic application should be as self-contained as possible. Unfortunately, in the real world there are always some external services that have to be integrated in your application - for data transfer, triggering external processes, lookup in external sources, etc. For this purpose, we provide capabilities to create simple routing services and dynamic EIPs.
 *	*Documentation* - The documentation is integral part of your application. The target format for describing services and for overall development documentation is already well accepted - **wiki**.
 
-![Target Application](images/target_app.png){: .img-responsive }
+![Target Application](images/target_app.png){: .png-responsive }
 
