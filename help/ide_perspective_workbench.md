@@ -10,7 +10,7 @@ group: help-perspectives
 
 This is the place where the user develops the dynamic applications. This perspective contains all views and editors that may help in the overall implementation, from domain models via services to the user interface.
 
-![Workbench Perspective](images/ide_workbench_perspective.png)
+![Workbench Perspective](images/ide_workbench_perspective.png){: .img-responsive }
 
 The Workbench perspective is comprised of Workspace, Import, Properties, Console and Preview views, plus the editors registered for each file type. In other words, the minimal toolset for file management, preview and editing operations. The new template-based project and artifacts scaffolding generators features are worthy of mention.
 Version 3 of Dirigible enables the users to create, manage, and switch between multiple workspaces through the Workspace view.
@@ -21,7 +21,7 @@ The main view opened by default in this perspective is the *Workspace* explorer,
 
 There is a context menu assigned to the project node:
 
-![Context Menu / New](images/ide_workspace_menu_new.png)
+![Context Menu / New](images/ide_workspace_menu_new.png){: .img-responsive }
 
 Via this context menu, you can create new artifacts such as:
 
