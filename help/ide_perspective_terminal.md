@@ -11,6 +11,6 @@ group: help-perspectives
 The key view in the perspective is a terminal that emulates console client connected to the environment of the Dirigible IDE that can execute commands.
 
 
-![Terminal Perspective](images/ide_perspective_terminal.png)
+![Terminal Perspective](images/ide_perspective_terminal.png){: .img-responsive }
 
 
