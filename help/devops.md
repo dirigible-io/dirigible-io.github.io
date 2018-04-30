@@ -14,7 +14,11 @@ Providing a modern business applications in the Cloud nowadays requires a tight 
 The front-facing [Web IDE](ide.html) component is a collection of plugins for project management, source code editing, modeling, SCM integration, database management and many more.
 
 * [Workbench](ide_perspective_workbench.html)
-* Git
+* [Workbench](ide_perspective_workbench.html)
+* [Git](ide_perspective_git.html)
+* [Database](ide_perspective_database.html)
+* [Repository](ide_perspective_repository.html) 
+* [Terminal](ide_perspective_terminal.html)
 * Search
 * Import
 * Preview
