@@ -16,11 +16,6 @@ Features
 * Automatic altering of existing tables from the models on compatible changes (new columns added).
 * Modelling of the database schema (**\*.dsm** and **\*.schema**) files and creation of the tables, views and constraints during publishing.
 	
-### Extension Definitions
-
-* Creation of extension points (JSON formatted descriptor - **\*.extensionpoint**)
-* Creation of extensions by a given extension point (JSON formatted descriptor - **\*.extension**)
-	
 ### Scripting Services
 
 * Support of **JavaScript** language by using Mozilla Rhino, Nashorn or V8 as runtime execution engine (**\*.js**)
@@ -44,6 +39,11 @@ Features
 ### Mobile Applications
 
 * Support of a native Mobile Applications development via Tabris.js
+	
+### Extension Definitions
+
+* Creation of extension points (JSON formatted descriptor - **\*.extensionpoint**)
+* Creation of extensions by a given extension point (JSON formatted descriptor - **\*.extension**)
 	
 ### Tooling
 
