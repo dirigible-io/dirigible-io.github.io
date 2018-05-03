@@ -21,14 +21,14 @@ Steps
 
 1. Login to the Cloud Foundry Platform with:
 
-		cf login -a [CloudFoundry Platform Host]
+> cf login -a [CloudFoundry Platform Host]
 
 2. Deploy on the Cloud Platform supporting Cloud Foundry with:
 
-		cf push dirigible -p [path to the target directory]/dirigible.war -b https://github.com/dirigible-io/java-buildpack
+> cf push dirigible -p [path to the target directory]/dirigible.war -b https://github.com/dirigible-io/java-buildpack
 
 3. Open a web browser and go to:
 
-        http://dirigible.[CloudFoundry Platform Host]/
+> http://dirigible.[CloudFoundry Platform Host]/
 
-4. Login with user `dirigible` and password `dirigible`, which are set by default in the custom buildpack used above.
+4. Login with user *dirigible* and password *dirigible*, which are set by default in the custom buildpack used above.
