@@ -155,4 +155,4 @@ subjects:
 
 > http://dirigible.[Kubernetes Platform Host]/
 
-4. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image used above.
+4. Login with user *dirigible* and password *dirigible*, which are set by default in the Docker image used above.
