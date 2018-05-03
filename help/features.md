@@ -8,7 +8,7 @@ group: help-features
 Features
 ===
 
-### [*Data Structures*](data_structures.html)
+### Data Structures
 
 * Creation of table model (JSON formatted **\*.table** descriptor) and actual creation of the corresponding database table during publishing.
 * Creation of view model (JSON formatted **\*.view** descriptor) and actual creation of the corresponding database view during publishing.
@@ -16,36 +16,36 @@ Features
 * Automatic altering of existing tables from the models on compatible changes (new columns added).
 * Modelling of the database schema (**\*.dsm** and **\*.schema**) files and creation of the tables, views and constraints during publishing.
 	
-### [*Extension Definitions*](extension_definitions.html)
+### Extension Definitions
 
 * Creation of extension points (JSON formatted descriptor - **\*.extensionpoint**)
 * Creation of extensions by a given extension point (JSON formatted descriptor - **\*.extension**)
 	
-### [*Scripting Services*](scripting_services.html)
+### Scripting Services
 
 * Support of **JavaScript** language by using Mozilla Rhino, Nashorn or V8 as runtime execution engine (**\*.js**)
 * Support of **CommonJS** based modularization of JavaScript services (**\*.js**)
 * Support of strictly defined [Enterprise API](../api/) for JavaScript to be used by the business application developers
 
-### [*WebContent*](web_content.html)
+### WebContent
 
 * Support of client-side Web related artifacts, such as HTML, CSS, JS, pictures, etc.
 	
-### [*WikiContent*](wiki_content.html)
+### WikiContent
 
 * Support of Markdown format for wiki pages
 	
-### [*Integration Services*](integration_services.html)
+### Integration Services
 	
 * Support of Listeners for messages from the built-in message bus (**\*.listener**)
 * Support of scheduled Jobs as triggers for backend services invokation (**\*.job**)
 * Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
 	
-### [*Mobile Applications*](mobile_apps.html)
+### Mobile Applications
 
 * Support of a native Mobile Applications development via Tabris.js
 	
-### [*Tooling*](tooling.html)
+### Tooling
 
 * *Workbench* perspective for full support of project management (New, Cut, Copy, Paste, Delete, Refresh, Import, Export, etc.)
 * *Database* perspective for RDBMS management including SQL Console
@@ -59,13 +59,13 @@ Features
 * *Debug* perspective for debugging backend JavaScript services
 * *Terminal* perspective with the corresponding main view for execution of shell commands on the target instance's OS 
 
-### [*Security*](security.html)
+### Security
 
 * Role based access management for web services as well as the document repository
 * Security Constraints Model (JSON formatted **\*.access**) support
 * Several predefined roles, which can be used out-of-the-box (*Everyone*, *Administrator*, *Manager*, *PowerUser*, *User*, *ReadWrite*, *ReadOnly*)
 
-### [*Registry*](registry.html)
+### Registry
 	
 * Publishing support - exposing the artifacts from the user's workspace publicly 
 * Auto-Publishing support for better usability
@@ -73,4 +73,4 @@ Features
 * Separate lists of endpoints and viewers per type of services - JavaScript, Web, Wiki, etc.
 * Separate browse user interface for Web and Wiki content
 
-	Note: Features set listed above contains only the major part of what is available currently. For better insight what can be done with Dirigible we recommend to [try it out](http://dirigible.eclipse.org).
+> Note: Features set listed above contains only the major part of what is available currently. For better insight what can be done with Dirigible we recommend to [try it out](http://dirigible.eclipse.org).
