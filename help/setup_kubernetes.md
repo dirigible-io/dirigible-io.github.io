@@ -20,7 +20,7 @@ Prerequisites
 Steps
 ---
 
-1. Create an YAML deployment configuration `dirigible.yml`
+1. Create an YAML deployment configuration *dirigible.yml*
 
 ```yaml
 
@@ -149,10 +149,10 @@ subjects:
 
 2. Deploy on the Kubernetes Cluster with:
 
-		kubectl apply -f dirigible.yml
+> kubectl apply -f dirigible.yml
 
 3. Open a web browser and go to:
 
-        http://dirigible.[Kubernetes Platform Host]/
+> http://dirigible.[Kubernetes Platform Host]/
 
 4. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image used above.
