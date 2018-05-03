@@ -23,7 +23,7 @@ There is a context menu assigned to the project node:
 
 ![Context Menu / New](images/ide_workspace_menu_new.png){: .img-responsive }
 
-Via this context menu, you can create new artifacts such as:
+Via this context menu, you can create new [artifacts](artifacts.html) such as:
 
 * Database Table
 * Database View
