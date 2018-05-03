@@ -57,7 +57,13 @@ Features
 * *Document* perspective for *import of binary* files for external documents and pictures
 * *Repository* perspective for low-level repository content management
 * *Debug* perspective for debugging backend JavaScript services
-* *Terminal* perspective with the corresponding main view for execution of shell commands on the target instance's OS 
+* *Terminal* perspective with the corresponding main view for execution of shell commands on the target instance's OS
+
+### Modelling
+
+* Modelling of database schema (**\*.dsm** and **\*.schema**) files
+* Modelling of entity data model (**\*.edm** and **\*.model**) files
+* Modelling of BPMN process (**\*.bpmn**) files
 
 ### Security
 
