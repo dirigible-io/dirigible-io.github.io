@@ -71,6 +71,8 @@ Development & Operations
   * [Database](ide_perspective_database.html)
   * [Repository](ide_perspective_repository.html) 
   * [Terminal](ide_perspective_terminal.html)
+  * [Debugger](ide_perspective_debugger.html)
+  * [Documents](ide_perspective_documentsr.html)
 * [Artifacts](artifacts.html)
 * [Engines](engines.html)
 * [Services](services.html)
