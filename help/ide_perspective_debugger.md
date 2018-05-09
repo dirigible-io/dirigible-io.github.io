@@ -15,3 +15,4 @@ The Debugger perspective is comprised of the following views:
 * Console
 * Preview 
 
+![Debugger Perspective](images/ide_perspective_debugger.png){: .img-responsive }
