@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: REST Call
+title: REST Calls
 icon: fa-caret-right
 group: simple
 ---
@@ -8,130 +8,103 @@ group: simple
 {{ page.title }}
 ===
 
-Version 2.x
----
-
-### Develop
+### Steps
 
 
-1. Create a project **RESTCall**.
-2. Then create a JavaScript service named **rest_call.js**.
+1. Create a project **RESTCalls**.
+2. Then create a JavaScript service named **get_call.js**.
 3. Within the service code, enter the following content:
 
 #### GET Call
 
 ```javascript
 
-	/* globals $ */
-	/* eslint-env node, dirigible */
-	
-	var httpClient = require('net/http/client');
-	var response = require('net/http/response');
-	
-	var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
-	
-	response.println(httpResponse.statusMessage);
-	response.println(httpResponse.data);
-	response.flush();
-	response.close();
+var httpClient = require('http/v3/client');
+var response = require('http/v3/response');
+
+var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
+
+response.println(httpResponse.statusMessage);
+response.println(httpResponse.text);
+response.flush();
+response.close();
 
 ```
 
-#### Parsing 'input' to JSON
-
-
-```javascript
-
-	var json = JSON.parse(input);
-
-```
+2. Then create a JavaScript service named **post_call.js**.
+3. Within the service code, enter the following content:
 
 #### POST Call
 
 
 ```javascript
 
-	/* globals $ */
-	/* eslint-env node, dirigible */
+var httpClient = require('http/v3/client');
+var response = require('http/v3/response');
 	
-	var http = require('net/http/client');
-	var response = require('net/http/response');
-	
-	var bodyContent = JSON.stringify({
+var bodyContent = JSON.stringify({
 		'firstName': 'John',
 		'lastName': 'Doe',
 		'age': 24
 	});
 	
-	var httpResponse = http.request({
-	    method: 'POST',
-	    host: 'http://httpbin.org',
-	    path: '/post',
-	    binary: false,
-	    body: bodyContent
+var httpResponse = httpClient.post('http://httpbin.org/post', {
+	    text: bodyContent
 	});
 	
-	response.println(httpResponse.statusMessage);
-	response.println(httpResponse.data);
-	response.flush();
-	response.close();
+response.println(httpResponse.statusMessage);
+response.println(httpResponse.text);
+response.flush();
+response.close();
 
 ```
+
+2. Then create a JavaScript service named **put_call.js**.
+3. Within the service code, enter the following content:
 
 #### PUT Call
 
 
 ```javascript
 
-	/* globals $ */
-	/* eslint-env node, dirigible */
+var httpClient = require('http/v3/client');
+var response = require('http/v3/response');
 	
-	var http = require('net/http/client');
-	var response = require('net/http/response');
-	
-	var bodyContent = JSON.stringify({
+var bodyContent = JSON.stringify({
 		'firstName': 'John',
 		'lastName': 'Doe',
 		'age': 24
 	});
 	
-	var httpResponse = http.request({
-	    method: 'PUT',
-	    host: 'http://httpbin.org',
-	    path: '/put',
-	    binary: false,
-	    body: bodyContent
+var httpResponse = httpClient.put('http://httpbin.org/post', {
+	    text: bodyContent
 	});
 	
-	response.println(httpResponse.statusMessage);
-	response.println(httpResponse.data);
-	response.flush();
-	response.close();
+response.println(httpResponse.statusMessage);
+response.println(httpResponse.text);
+response.flush();
+response.close();
 
 ```
+2. Then create a JavaScript service named **delete_call.js**.
+3. Within the service code, enter the following content:
 
 #### DELETE Call
 
 ```javascript
 
-	/* globals $ */
-	/* eslint-env node, dirigible */
+var httpClient = require('http/v3/client');
+var response = require('http/v3/response');
 	
-	var http = require('net/http/client');
-	var response = require('net/http/response');
+var httpResponse = httpClient.delete('http://httpbin.org/delete');
 	
-	var httpResponse = http.request({
-	    method: 'DELETE',
-	    host: 'http://httpbin.org',
-	    path: '/delete',
-	    binary: false
-	});
-	
-	response.println(httpResponse.statusMessage);
-	response.println(httpResponse.data);
-	response.flush();
-	response.close();
+response.println(httpResponse.statusMessage);
+response.println(httpResponse.text);
+response.flush();
+response.close();
 
 ```
 
-For more information, see the *[API](../help/api.html)* documentation.
+---
+
+For more information, see the *[API](../api/)* documentation.
