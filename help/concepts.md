@@ -35,4 +35,10 @@ The new Web 2.0 paradigm and the leveraged [REST](http://en.wikipedia.org/wiki/R
 
 There are several editors currently available that provide visual definition of application artifacts such as Database Schema Models, Entity Data Models and BPMN Processes.
 
+### REST framework
+
+Along with the low level HTTP request, response and session handling, Dirigible provides a higher level framework for building REST services. More information on how to use this framework can be found [here](concepts_rest.html).
+
+
+
 

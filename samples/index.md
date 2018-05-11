@@ -13,8 +13,10 @@ They are built on scenarios with different complexity level, from exemplary samp
 Exemplary Samples
 ---
 
-* [REST Call](rest_call.html)
-* [Environment Variables](print_env.html) - prints environment variables
+* [REST Calls](basic_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
+* [REST Call with Binary Response](basic_rest_binary.md) - how to retrieve the binary content from the response
+* [REST Service](basic_rest_service.html) - getting started with the REST framework
+* [Environment Variables](basic_print_env.html) - prints environment variables
 
 #### API Samples
 

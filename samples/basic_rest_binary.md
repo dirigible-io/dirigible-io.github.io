@@ -2,7 +2,7 @@
 layout: samples
 title: REST Call with Binary Response
 icon: fa-caret-right
-group: simple
+group: basic
 ---
 
 {{ page.title }}

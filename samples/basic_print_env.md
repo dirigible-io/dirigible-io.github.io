@@ -2,7 +2,7 @@
 layout: samples
 title: Print Environment Variables
 icon: fa-caret-right
-group: simple
+group: basic
 ---
 
 {{ page.title }}
