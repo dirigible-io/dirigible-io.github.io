@@ -12,10 +12,15 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Exemplary Samples
 
+* [Console Log Levels](basic_console.html) - show how to use the built-in **console** object to print information in the standard output 
+* [Print Environment Variables](basic_print_env.html) - prints environment variables
+
+* [Database Statement](basic_database_statement.html) - getting started with the low level database API
+
 * [REST Calls](basic_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
 * [REST Call with Binary Response](basic_rest_binary.md) - how to retrieve the binary content from the response
 * [REST Service](basic_rest_service.html) - getting started with the REST framework
-* [Environment Variables](basic_print_env.html) - prints environment variables
+
 
 #### Solutions
 
