@@ -18,6 +18,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Database Statement](basic_database_statement.html) - getting started with the low level Database API
 * [Database Query](basic_database_query.html) - using the simplified Query Database API
 
+* [HTTP Request](basic_http_request.html) - basic usage of the HTTP Request API
 * [REST Calls](basic_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
 * [REST Call with Binary Response](basic_rest_binary.md) - how to retrieve the binary content from the response
 * [REST Service](basic_rest_service.html) - getting started with the REST framework
