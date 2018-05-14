@@ -2,7 +2,7 @@
 layout: samples
 title: Database Statement
 icon: fa-caret-right
-group: basic
+group: simple
 ---
 
 {{ page.title }}

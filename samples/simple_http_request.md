@@ -2,7 +2,7 @@
 layout: samples
 title: HTTP Request
 icon: fa-caret-right
-group: basic
+group: simple
 ---
 
 {{ page.title }}

@@ -12,7 +12,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Simple Samples
 
-* [Console Log Levels](simple_console.html) - show how to use the built-in **console** object to print information in the standard output 
+* [Console Log Levels](simple_console.html) - show how to use the built-in **console** object to print information in the standard output
 * [Print Environment Variables](simple_print_env.html) - prints environment variables
 
 * [Database Statement](simple_database_statement.html) - getting started with the low level Database API
@@ -26,7 +26,9 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Complex Samples
 
-
+* [Scheduled Job](complex_job_console.html) - create a **Job** definition, which triggers a JavaScript handler service
+* [Message Listener](complex_listener_queue.html) - create a **Listener** definition, which listens for events coming from a message queue and execute a JavaScript handler service
+* [BPMN Process](complex_process_console.html) - create a **BPMN Process** definition, with a simple Service step, which triggers a JavaScript handler service
 
 
 

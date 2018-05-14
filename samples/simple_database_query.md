@@ -2,7 +2,7 @@
 layout: samples
 title: Database Query
 icon: fa-caret-right
-group: basic
+group: simple
 ---
 
 {{ page.title }}

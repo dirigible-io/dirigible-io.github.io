@@ -41,6 +41,8 @@ console.log("Hello from the My Job!");
 
 	[2018-05-14T12:05:00.061Z] [INFO] Hello from the My Job!
 
+> Note: the log messages in the Console view are in a reverse order - the newest are on top
+
 ---
 
 For more information, see the *[API](../api/)* documentation.

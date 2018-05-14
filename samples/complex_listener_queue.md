@@ -63,6 +63,8 @@ console.log("Hello from My Trigger! Message: " + message);
 	
 	[2018-05-14T11:57:13.174Z] [INFO] Hello from My Trigger! Message: *** I am a message created at: Mon May 14 2018 14:57:13 GMT+0300 (EEST) ***
 
+> Note: the log messages in the Console view are in a reverse order - the newest are on top
+
 ---
 
 For more information, see the *[API](../api/)* documentation.

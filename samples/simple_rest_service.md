@@ -2,7 +2,7 @@
 layout: samples
 title: REST Service
 icon: fa-caret-right
-group: basic
+group: simple
 ---
 
 {{ page.title }}
