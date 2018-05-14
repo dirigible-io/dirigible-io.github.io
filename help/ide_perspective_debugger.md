@@ -11,6 +11,7 @@ group: help-perspectives
 The Web IDE includes a Debugger perspective which is comprised of the following views:
 * Debugger
 * Variables
+* Breakpoints
 * Console
 * Preview 
 
