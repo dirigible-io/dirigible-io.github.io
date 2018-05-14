@@ -3,12 +3,12 @@ navbar: Help
 icon: fa-question-circle
 link: ../help/index.html
 navigation: 
-  - name: Samples
+  - name: Simple Samples
     icon: fa fa-info
-    group: basic
-  - name: Solutions
+    group: simple
+  - name: Complex Samples
     icon: fa fa-info
-    group: solution
+    group: complex
   - name: Tutorials
     icon: fa fa-info
     group: tutorial

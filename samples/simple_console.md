@@ -2,7 +2,7 @@
 layout: samples
 title: Console Log Levels
 icon: fa-caret-right
-group: basic
+group: simple
 ---
 
 {{ page.title }}
