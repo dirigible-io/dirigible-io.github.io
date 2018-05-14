@@ -1,10 +1,11 @@
 ---
 layout: help
 title: Workspace
-icon: fa-files
+icon: none
+group: help-views
 ---
 
-{{ page.title }}
+{{ page.title }} View
 ===
 
 The **Workspace** is the developer's place where he/she creates and manages the application artifacts. The first-level citizens of the *workspace* are the *projects*. Version 3 of Dirigible enables the users to create, manage, and switch between multiple workspaces through the Workspace view.
