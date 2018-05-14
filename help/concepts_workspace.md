@@ -15,6 +15,8 @@ The IDE supports multiple editors registered for different file (MIME) types. Mo
 
 The Workspace explorer displays a standard view on the projects in your [workspace](concepts_workspace.html). It shows the folder structure along with the files. 
 
+![Workspace View](images/ide_view_workspace.png){: .img-responsive }
+
 There is a context menu assigned to the project node:
 
 ![Context Menu / New](images/ide_workspace_menu_new.png){: .img-responsive }
@@ -44,4 +46,4 @@ A single user can have multiple workspaces, containing different set of projects
 
 The artifacts i.e. the project management, can be done via the views and editors in the [Workbench Perspective](ide_perspective_workbench.html).
 
-![Workspace View](images/ide_view_workspace.png){: .img-responsive }
+
