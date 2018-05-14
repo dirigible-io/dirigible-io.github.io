@@ -19,7 +19,7 @@ The front-facing [Web IDE](ide.html) component is a collection of plugins for pr
 * [Repository](ide_perspective_repository.html) 
 * [Terminal](ide_perspective_terminal.html)
 * [Debugger](ide_perspective_debugger.html)
-* [Documents](ide_perspective_documentsr.html)
+* [Documents](ide_perspective_documents.html)
 * Search
 * Import
 * Preview
