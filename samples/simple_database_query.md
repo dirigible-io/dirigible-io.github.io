@@ -11,7 +11,7 @@ group: basic
 ### Steps
 
 
-1. Create a project **DatabaseTest**.
+1. Create a project **database_project**.
 2. Then create a JavaScript service named **database_query.js**.
 3. Within the service code, enter the following content:
 

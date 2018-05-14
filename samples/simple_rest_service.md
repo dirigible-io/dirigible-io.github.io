@@ -11,7 +11,7 @@ group: basic
 ### Steps
 
 
-1. Create a project **RESTService**.
+1. Create a project **rest_service_project**.
 2. Then create a JavaScript service named **rs_service.js**.
 3. Within the service code, enter the following content:
 

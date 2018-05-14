@@ -11,7 +11,7 @@ group: basic
 ### Steps
 
 
-1. Create a project **RESTCallBinary**.
+1. Create a project **rest_call_binary_project**.
 2. Then create a JavaScript service named **get_call_binary.js**.
 3. Within the service code, enter the following content:
 

@@ -11,7 +11,7 @@ group: simple
 ### Steps
 
 
-1. Create a project **ConsoleTest**.
+1. Create a project **console_project**.
 2. Then create a JavaScript service named **console_test.js**.
 3. Within the service code, enter the following content:
 

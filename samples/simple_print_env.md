@@ -11,11 +11,11 @@ group: basic
 ### Steps
 
 
-1. Create a new project and name it **EnvVarTest**.
+1. Create a new project and name it **env_vars_project**.
 2. Select the project folder and open the pop-up menu.
 3. Choose *New* -> *JavaScript Service*.
-4. Give it a meaningful name (e.g **printenv.js**).
-5. Replace the generated code in **printenv.js** with the following:
+4. Give it a meaningful name (e.g **print_env_vars.js**).
+5. Replace the generated code in **print_env_vars.js** with the following:
 
 ```javascript
 

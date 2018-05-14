@@ -11,8 +11,8 @@ group: basic
 ### Steps
 
 
-1. Create a project **DatabaseTest**.
-2. Then create a JavaScript service named **database_test.js**.
+1. Create a project **database_project**.
+2. Then create a JavaScript service named **database_basic.js**.
 3. Within the service code, enter the following content:
 
 #### Log Levels

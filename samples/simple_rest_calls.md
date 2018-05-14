@@ -11,7 +11,7 @@ group: basic
 ### Steps
 
 
-1. Create a project **RESTCalls**.
+1. Create a project **rest_calls**.
 2. Then create a JavaScript service named **get_call.js**.
 3. Within the service code, enter the following content:
 

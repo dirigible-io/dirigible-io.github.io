@@ -11,7 +11,7 @@ group: basic
 ### Steps
 
 
-1. Create a project **HTTPService**.
+1. Create a project **http_service_project**.
 2. Then create a JavaScript service named **http_service.js**.
 3. Within the service code, enter the following content:
 
