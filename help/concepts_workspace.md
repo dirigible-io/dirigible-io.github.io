@@ -13,4 +13,4 @@ A single user can have multiple workspaces, containing different set of projects
 
 The artifacts i.e. the project management, can be done via the views and editors in the [Workbench Perspective](ide_perspective_workbench.html).
 
-
+![Workspace View](images/ide_view_workspace.png){: .img-responsive }
