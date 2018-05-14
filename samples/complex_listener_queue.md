@@ -11,8 +11,8 @@ group: complex
 ### Steps
 
 
-1. Create a project **message_queue_listener_project**.
-2. Then create a JavaScript service named **my_listener_handler.js**.
+1. Create a project **message_queue_listener_project**
+2. Then create a JavaScript service named **my_listener_handler.js**
 3. Within the service code, enter the following content:
 
 #### Log Levels
@@ -57,7 +57,7 @@ console.log("Hello from My Trigger! Message: " + message);
 
 8. Publish the project
 9. Select the **my_trigger.js** file in the *Workspace* view to be able to trigger the invocation of this service via the *Preview* view
-10. In the *Console* view you chould see the following lines:
+10. In the *Console* view you should see the following lines:
 
 	[2018-05-14T11:57:13.197Z] [INFO] Hello from My Listener! Message: *** I am a message created at: Mon May 14 2018 14:57:13 GMT+0300 (EEST) ***
 	
