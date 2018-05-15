@@ -3,7 +3,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-					        <div class="col-lg-4 heading-lead page-scroll">
+					        <div class="col-lg-3 heading-lead page-scroll">
 								<hr class="section-heading-spacer">
 				                <div class="clearfix"></div>
 					            <h4>Project</h4>
@@ -16,7 +16,19 @@
 					                <li><a href="https://projects.eclipse.org/projects/ecd.dirigible" target="_blank" >Manage</a></li>
 					            </ul>
 					        </div>
-					        <div class="col-lg-4 heading-lead">
+					        <div class="col-lg-3 heading-lead">
+								<hr class="section-heading-spacer">
+				                <div class="clearfix"></div>
+					            <h4>Legal</h4>
+					            <ul>
+					            	<li><a href="//www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+									<li><a href="//www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+									<li><a href="//www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+									<li><a href="//www.eclipse.org/legal/epl-2.0/">Eclipse Public License</a></li>
+									<li><a href="//www.eclipse.org/legal/">Legal Resources</a></li>
+								</ul>
+					        </div>
+					        <div class="col-lg-3 heading-lead">
 								<hr class="section-heading-spacer">
 				                <div class="clearfix"></div>
 					            <h4>Documentation</h4>
@@ -27,7 +39,7 @@
 					                <li><a href="{{ site.url }}/blogs.html" target="_blank" >Tutorials</a></li>
 					            </ul>
 					        </div>
-					        <div class="col-lg-4 heading-lead">
+					        <div class="col-lg-3 heading-lead">
 								<hr class="section-heading-spacer">
 					            <div class="clearfix"></div>
 						        	<h4>Community</h4>
@@ -65,6 +77,85 @@
 
         <!-- JavaScript -->
         <script src="{{ site.url }}/js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="{{ site.url }}/gdpr/jquery.ihavecookies.min.js"></script>
+	    <script type="text/javascript">
+	    $(document).ready(function() {
+	        $('body').ihavecookies({
+	            title: 'Accept Cookies & Privacy Policy?',
+	            message: 'This website uses cookies to ensure you get the best experience on our website',
+	            delay: 2000,
+	            expires: 30,
+	            link: '//www.eclipse.org/legal/privacy.php',
+	            onAccept: function(){
+	                //
+	            },
+	            uncheckBoxes: true
+	        });
+	    });
+	    </script>
+	    <style type="text/css">
+	    /* Cookie Dialog */
+	    #gdpr-cookie-message {
+	        position: fixed;
+	        right: 30px;
+	        bottom: 30px;
+	        max-width: 375px;
+	        background-color: #213445;
+	        color: white;
+	        padding: 20px;
+	        border-radius: 5px;
+	        box-shadow: 0 6px 6px rgba(0,0,0,0.25);
+	        margin-left: 30px;
+	        font-family: system-ui;
+	    }
+	    #gdpr-cookie-message h4 {
+	        color: white;
+	        font-family: 'Quicksand', sans-serif;
+	        font-size: 18px;
+	        font-weight: 500;
+	        margin-bottom: 10px;
+	    }
+	    #gdpr-cookie-message p {
+	        color: white;
+	        font-size: 15px;
+	        line-height: 1.5em;
+	    }
+	    #gdpr-cookie-message p:last-child {
+	        margin-bottom: 0;
+	        text-align: right;
+	    }
+	    #gdpr-cookie-message a {
+	        color: white;
+	        text-decoration: none;
+	        font-size: 15px;
+	        padding-bottom: 2px;
+	        border-bottom: 1px dotted rgba(255,255,255,0.75);
+	        transition: all 0.3s ease-in;
+	    }
+	    #gdpr-cookie-message a:hover {
+	        color: white;
+	        border-bottom-color: var(--red);
+	        transition: all 0.3s ease-in;
+	    }
+	    #gdpr-cookie-message button {
+	        border: none;
+	        background: #357ebd;
+	        color: white;
+	        font-family: 'Quicksand', sans-serif;
+	        font-size: 15px;
+	        padding: 7px;
+	        border-radius: 3px;
+	        margin-left: 15px;
+	        cursor: pointer;
+	        transition: all 0.3s ease-in;
+	    }
+	    #gdpr-cookie-message button:hover {
+	        background: #559edd;
+	        color: white;
+	        transition: all 0.3s ease-in;
+	    }
+	    </style>
+	    
         <script src="{{ site.url }}/js/bootstrap.js"></script>
 
         <script>
