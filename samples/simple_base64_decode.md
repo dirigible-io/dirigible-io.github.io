@@ -11,15 +11,15 @@ group: simple
 ### Steps
 
 1. Create a project **utils_project**.
-2. Create a JavaScript service with the name **utils_base64_decode.js**.
+2. Create a JavaScript service with the name **base64_decode.js**.
 3. Enter the following content:
 
 ####
 
 ```javascript
 
-var response = require('http/v3/response');
 var base64 = require('utils/v3/base64');
+var response = require('http/v3/response');
 
 var input = 'PT4/';
 var result = base64.decode(input);
