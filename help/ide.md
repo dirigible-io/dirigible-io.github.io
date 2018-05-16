@@ -38,7 +38,7 @@ By default, the different views and editors are separated into a few perspective
 Each perspective is comprised of different views. Learn more about them following the lins below:
 
 * [Snapshot](ide_view_snapshot.html)
-* [Debugger](ide_view_debuggert.html)
+* [Debugger](ide_view_debugger.html)
 * [Roles](ide_view_roles.html)
 * [Jobs](ide_view_jobs.html)
 * [Documents](ide_view_documents.html)
