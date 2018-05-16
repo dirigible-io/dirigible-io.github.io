@@ -33,6 +33,34 @@ By default, the different views and editors are separated into a few perspective
 * [Repository](ide_perspective_repository.html) 
 * [Terminal](ide_perspective_terminal.html)
 
+### Views
+
+Each perspective is comprised of different views. Learn more about them following the lins below:
+
+* [Snapshot](ide_view_snapshot.html)
+* [Debugger](ide_view_debuggert.html)
+* [Roles](ide_view_roles.html)
+* [Jobs](ide_view_jobs.html)
+* [Documents](ide_view_documents.html)
+* [Git](ide_view_git.html)
+* [Preview](ide_view_preview.html)
+* [Workspace](ide_view_workspace.html)
+* [SQL](ide_view_sql.html)
+* [ExtensionPoints](ide_view_extensionpoints.html)
+* [Terminal](ide_view_terminal.html)
+* [Variables](ide_view_variables.html)
+* [Breakpoints](ide_view_breakpoints.html)
+* [Console](ide_view_console.html)
+* [Logs](ide_view_logs.html)
+* [DataStructures](ide_view_datastructures.html)
+* [Access](ide_view_access.html)
+* [Listeners](ide_view_listeners.html)
+* [Database](ide_view_database.html)
+* [Search](ide_view_search.html)
+* [Import](ide_view_import.html)
+* [Registry](ide_view_registry.html)
+* [Repository](ide_view_repository.html)
+
 ### Editors
 The editors that have been integrated into the Dirigible IDE are [Orion](http://orionhub.org), [Ace](http://ace.c9.io) and [Monaco](https://microsoft.github.io/monaco-editor/). More sophisticated and visual editors are included in the pipeline.
 
