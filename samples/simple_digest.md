@@ -11,7 +11,7 @@ group: simple
 ### Steps
 
 1. Create a project **digest_project**.
-2. Create a JavaScript service with the name **digest_sha1.js**.
+2. Create a JavaScript service with the name **digest_sha512.js**.
 3. Enter the following content:
 
 ####
@@ -22,7 +22,7 @@ var digest = require('utils/v3/digest');
 var response = require('http/v3/response');
 
 var input = [61, 62, 63];
-var result = digest.sha1Hex(input);
+var result = digest.sha512(input);
 
 console.log(result);
 response.println(JSON.stringify(result));
