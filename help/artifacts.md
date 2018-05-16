@@ -29,6 +29,9 @@ icon: fa-code
   - [*.nashorn](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-nashorn) - a Javascript file supposed to be executed specifically by the Java Nashorn engine.
   - [*.v8](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-v8) - a Javascript file supposed to be executed specifically by the Chrome V8 engine.
   - [*.md](https://github.com/eclipse/dirigible/tree/master/modules/engine-wiki) - a Markdown Wiki file.
-
+- Modeling
+  - *.bpmn - an XML file containing a definition of a business process.
+  - *.edm - a SQL file containing an entity data model.
+  - *.dsm - a SQL file containing a database schema model.
   
 The source is [here](https://github.com/eclipse/dirigible/wiki/artefacts-v3-list)
