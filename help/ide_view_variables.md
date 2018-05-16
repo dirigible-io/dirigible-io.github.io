@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Variable
+title: Variables
 icon: none
 group: help-views
 ---
