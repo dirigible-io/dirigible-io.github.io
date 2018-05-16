@@ -1,0 +1,37 @@
+---
+layout: samples
+title: Digest
+icon: fa-caret-right
+group: simple
+---
+
+{{ page.title }}
+===
+
+### Steps
+
+1. Create a project **digest_project**.
+2. Create a JavaScript service with the name **digest_sha1.js**.
+3. Enter the following content:
+
+####
+
+```javascript
+
+var digest = require('utils/v3/digest');
+var response = require('http/v3/response');
+
+var input = [61, 62, 63];
+var result = digest.sha1Hex(input);
+
+console.log(result);
+response.println(JSON.stringify(result));
+
+response.flush();
+response.close();
+
+```
+
+---
+
+For more information, see the *[API](../api/)* documentation.
