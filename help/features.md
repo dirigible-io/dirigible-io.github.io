@@ -59,11 +59,11 @@ Features
 * *Debug* perspective for debugging backend JavaScript services
 * *Terminal* perspective with the corresponding main view for execution of shell commands on the target instance's OS
 
-### Modelling
+### Modeling
 
-* Modelling of database schema (**\*.dsm** and **\*.schema**) files
-* Modelling of entity data model (**\*.edm** and **\*.model**) files
-* Modelling of BPMN process (**\*.bpmn**) files
+* Modeling of database schema (**\*.dsm** and **\*.schema**) files
+* Modeling of entity data model (**\*.edm** and **\*.model**) files
+* Modeling of BPMN process (**\*.bpmn**) files
 
 ### Security
 
