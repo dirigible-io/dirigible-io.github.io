@@ -62,7 +62,7 @@ Development & Operations
   * [Documents](ide_perspective_documentsr.html)
 * **Views**: 
   * [Snapshot](ide_view_snapshot.html)
-  * [Debugger](ide_view_debuggert.html)
+  * [Debugger](ide_view_debugger.html)
   * [Roles](ide_view_roles.html)
   * [Jobs](ide_view_jobs.html)
   * [Documents](ide_view_documents.html)
