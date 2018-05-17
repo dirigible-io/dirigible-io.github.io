@@ -34,4 +34,4 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Tutorials
 
-* [Kubernetes Minikube cluster](tutorial_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minicube cluster.
+* [Kubernetes Minikube cluster](tutorial_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minikube cluster.
