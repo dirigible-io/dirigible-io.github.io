@@ -20,7 +20,9 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 1. Install **Chocolatey** 
 
 1.1. Run the following command:
-`` @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"``
+
+> @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
 If you don't see any errors, you are ready to use Chocolatey! 
 
 1.2. To ensure that Chocolatey is successfully installed, type ``choco`` or ``choco -?``.
@@ -30,7 +32,8 @@ For more information see https://chocolatey.org/install.
 2. Install the Kubernetes command-line tool **kubectl** with Chocolatey 
 
 2.1. Execute the command:
-``choco install kubernetes-cli ``
+
+> choco install kubernetes-cli
 
 2.2. To verify that the version you’ve installed is up-to-date, run ``kubectl version``. 
 
