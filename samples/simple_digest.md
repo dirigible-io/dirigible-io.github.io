@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: Digest
+title: Encrypt a Text with SHA512
 icon: fa-caret-right
 group: simple
 ---
