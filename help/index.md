@@ -60,6 +60,7 @@ Development & Operations
   * [Terminal](ide_perspective_terminal.html)
   * [Debugger](ide_perspective_debugger.html)
   * [Documents](ide_perspective_documentsr.html)
+  * [Operations and Monitoring](ide_perspective_operations.html)
 * **Views**: 
   * [Snapshot](ide_view_snapshot.html)
   * [Debugger](ide_view_debugger.html)
