@@ -9,6 +9,17 @@ icon: fa-check
 
 Assert object is used to check given conditions or objects
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **core/assert**
 - Definition: [/core_api/issues/35](https://github.com/dirigiblelabs/core_api/issues/35)
 - Source: [/core/assert.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/assert.js)

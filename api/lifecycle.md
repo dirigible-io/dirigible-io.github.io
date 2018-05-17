@@ -7,6 +7,17 @@ icon: fa-check
 {{ page.title }}
 ===
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 Lifecycle object is used for publish and activate projects and templates programmatically.
 
 - Module: **platform/lifecycle**

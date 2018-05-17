@@ -9,6 +9,17 @@ icon: fa-ellipsis-h
 
 Websocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **service/websocket**
 - Definition: [/core_api/issues/26](https://github.com/dirigiblelabs/core_api/issues/26)
 - Source: [/net/websocket.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/net/websocket.js)

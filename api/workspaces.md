@@ -9,6 +9,17 @@ icon: fa-check
 
 Workspaces object gives access to the user's workspace. It can be used for creating artifacts such as services and web pages programmatically.
 
+Version 3.x  ⚠
+---
+
+Moved to [Workspace Manager](workspace_manager.html)
+
+---
+
+
+Version 2.x
+---
+
 - Module: **platform/workspaces**
 - Definition: [/core_api/issues/45](https://github.com/dirigiblelabs/core_api/issues/45)
 - Source: [/platform/workspaces.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/platform/workspaces.js)

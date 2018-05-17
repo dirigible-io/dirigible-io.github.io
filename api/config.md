@@ -9,6 +9,17 @@ icon: fa-check
 
 Config object is used to store and manage properties in the Configuration Store.
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **core/config**
 - Definition: [/core_api/issues/16](https://github.com/dirigiblelabs/core_api/issues/16)
 - Source: [/core/config.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/config.js)

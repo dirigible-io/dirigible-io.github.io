@@ -61,20 +61,6 @@ Indexing
 * [indexing/writer](indexing_writer.html) 🔹
 
 
-IO
----
-
-* [io/files](files.html) 🔸🔹
-* [io/streams](streams.html) 🔸🔹
-* [io/zip](zip.html) 🔸🔹
-
-
-Log
----
-
-* [log/logging](log_logging.html) 🔹
-
-
 HTTP
 ---
 
@@ -86,6 +72,20 @@ HTTP
 * [http/user](http_user.html) 🔸⚠
 * [http/rs](http_rs.html) 🔹
 * [http/rs-data](http_rs-data.html) 🔹
+
+
+IO
+---
+
+* [io/files](io_files.html) 🔸🔹
+* [io/streams](io_streams.html) 🔸🔹
+* [io/zip](io_zip.html) 🔸🔹
+
+
+Log
+---
+
+* [log/logging](log_logging.html) 🔹
 
 
 Net
@@ -109,7 +109,7 @@ Platform
 * [generator](generator.html) 🔸
 * [lifecycle](lifecycle.html) 🔸
 * [repository](repository.html) 🔸
-* [workspaces](workspaces.html) 🔸
+* [workspaces](workspaces.html) 🔸⚠
 
 
 Security
@@ -140,7 +140,10 @@ Utils
 * [utils/xml](utils_xml.html) 🔸🔹
 * [utils/xss](utils_xss.html) 🔸⚠
 
+Workspace
+---
 
+* [workspace/manager](workspace_manager.html) 🔹
 
 ---
 

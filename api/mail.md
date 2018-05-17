@@ -9,6 +9,17 @@ icon: fa-ellipsis-h
 
 Mail object is used to send e-mails through the mail service.
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **service/mail**
 - Definition: [/core_api/issues/12](https://github.com/dirigiblelabs/core_api/issues/12)
 - Source: [/service/mail.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/mail.js)

@@ -9,6 +9,17 @@ icon: fa-ellipsis-h
 
 Repository module is used for accessing the development artifacts directly from the underlying Repository Component.
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **platform/repository**
 - Definition: [/core_api/issues/27](https://github.com/dirigiblelabs/core_api/issues/27)
 - Source: [/platform/repository.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/platform/repository.js)

@@ -9,6 +9,17 @@ icon: fa-check
 
 Threads utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **core/threads**
 - Definition: [/core_api/issues/29](https://github.com/dirigiblelabs/core_api/issues/29)
 - Source: [/core/threads.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/threads.js)

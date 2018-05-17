@@ -9,6 +9,17 @@ icon: fa-ellipsis-h
 
 Passwords object is used for a secure store of a confidential data
 
+Version 3.x
+---
+
+None yet.
+
+---
+
+
+Version 2.x
+---
+
 - Module: **service/passwords**
 - Definition: [/core_api/issues/50](https://github.com/dirigiblelabs/core_api/issues/50)
 - Source: [/service/passwords.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/service/passwords.js)
