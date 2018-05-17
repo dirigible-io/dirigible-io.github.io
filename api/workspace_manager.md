@@ -17,7 +17,7 @@ Version 3.x
 - Alias: **workspace/manager**
 - Definition: [https://github.com/eclipse/dirigible/issues/230](https://github.com/eclipse/dirigible/issues/230)
 - Source: [/workspace/v3/manager.js](https://github.com/dirigiblelabs/api-v3-workspace/blob/master/workspace/v3/manager.js)
-- Facade: [BpmFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-workspace/src/main/java/org/eclipse/dirigible/api/v3/workspace/WorkspaceFacade.java)
+- Facade: [BpmFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-workspace/src/main/java/org/eclipse/dirigible/api/v3/workspace/WorkspaceFacade.java)
 - Status: **alpha**
 
 
