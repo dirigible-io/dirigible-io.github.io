@@ -34,4 +34,4 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Tutorials
 
-* [Kubernetes Minikube Cluster](tutorial_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minikube cluster.
+* [Deploying Zeus on Kubernetes Minikube Cluster](tutorial_zeus_on_kubernetes_minikube.md) -  installation and configuration of a Kubernetes Minikube cluster and Zeus deployment.
