@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: Base64
+title: Encode a String to Base64
 icon: fa-caret-right
 group: simple
 ---
