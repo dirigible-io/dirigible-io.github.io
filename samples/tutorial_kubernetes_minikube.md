@@ -25,7 +25,7 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 
 If you don't see any errors, you are ready to use Chocolatey! 
 
-1.2. To ensure that Chocolatey is successfully installed, type ``choco`` or ``choco -?``.
+1.2. To ensure that Chocolatey is successfully installed, type *choco* or *choco -?*.
 
 For more information see https://chocolatey.org/install.
 
@@ -35,20 +35,23 @@ For more information see https://chocolatey.org/install.
 
 > choco install kubernetes-cli
 
-2.2. To verify that the version you’ve installed is up-to-date, run ``kubectl version``. 
+2.2. To verify that the version you’ve installed is up-to-date, run *kubectl version*. 
 
 2.3. Configure kubectl to use a remote Kubernetes cluster:
-``cd C:\users\yourusername (Or wherever your %HOME% directory is)``   
-`` mkdir .kube cd .kube New-Item config -type file``
+
+>cd C:\users\yourusername (Or wherever your %HOME% directory is)  
+mkdir .kube cd .kube New-Item config -type file
 
 Edit the config file with a text editor of your choice.
 
 2.4. Check that kubectl is properly configured by getting the cluster state:
-``kubectl cluster-info``
+
+> kubectl cluster-info
 
 3. Install **Minikube v0.26.1**
 
 Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/download/v0.26.1/minikube-installer.exe) file, and execute the installer. This will automatically add minikube.exe to your path.
 
 4. Start your Minikube cluster by executing the following command:
-``minikube start``
+
+> minikube start
