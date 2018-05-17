@@ -30,8 +30,10 @@ icon: fa-code
   - [*.v8](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-v8) - a Javascript file supposed to be executed specifically by the Chrome V8 engine.
   - [*.md](https://github.com/eclipse/dirigible/tree/master/modules/engine-wiki) - a Markdown Wiki file.
 - Modeling
-  - *.bpmn - an XML file containing a definition of a business process.
-  - *.edm - a SQL file containing an entity data model.
-  - *.dsm - a SQL file containing a database schema model.
+  - *.dsm - an internal XML based format file containing a database schema model diagram.
+  - *.schema - a JSON descriptor for a database schema layout produced by the Database Schema Modeler 
+  - *.edm - an internal XML based format file containing an entity data model diagram.
+  - *.model - a JSON descriptor for an entity data model produced by the Entity Data Modeler
+  - *.bpmn - a BPMN 2.0 XML file containing a definition of a business process.
   
 The source is [here](https://github.com/eclipse/dirigible/wiki/artefacts-v3-list)
