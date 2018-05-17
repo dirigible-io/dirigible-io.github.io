@@ -25,7 +25,7 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 
 If you don't see any errors, you are ready to use Chocolatey! 
 
-1.2. To ensure that Chocolatey is successfully installed, type *choco* or *choco -?*.
+1.2. To ensure that Chocolatey is successfully installed, type **choco** or **choco -?**.
 
 For more information see https://chocolatey.org/install.
 
@@ -35,7 +35,7 @@ For more information see https://chocolatey.org/install.
 
 > choco install kubernetes-cli
 
-2.2. To verify that the version you’ve installed is up-to-date, run *kubectl version*. 
+2.2. To verify that the version you’ve installed is up-to-date, run **kubectl version**. 
 
 2.3. Configure kubectl to use a remote Kubernetes cluster:
 
