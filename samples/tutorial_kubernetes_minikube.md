@@ -2,7 +2,7 @@
 layout: samples
 title: Create a Kubernetes Minikube
 icon: fa-caret-right
-group: tutorials
+group: tutorial
 ---
 
 {{ page.title }}
