@@ -17,36 +17,36 @@ icon: fa-question-circle
 <summary><b>Why vertical scenarios? And why with horizontal scaling?</b></summary>
 - Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective<br>
 - All or nothing – partial doesn't count <br>
-- Equal runtime instances based on a single content package for simple and reliable management <br>
+- Equal runtime instances based on a single content package for simple and reliable management<br>
 </details>
 <details>
 <summary><b>Why content-centric with centralized repository?</b></summary>
-- All artifacts are in a single repository <br>
-- Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository. <br>
-- Simple life-cycle management and transport <br>
-- Workspace, Sandbox, Public Registry separation based on the development life-cycle phases <br>
+- All application artifacts are in a single repository<br>
+- Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository.<br>
+- Simple life-cycle management and transport<br>
+- Workspace, Public Registry separation based on the development life-cycle phases<br>
 </details>
 <details>
 <summary><b>Why In-System Development?</b></summary>
-In-System Development is a programming model used when you work directly on a live system.<br>
-- Avoid the side-effects of a simulated (local) environment by working on a live system <br>
+- In-System Development is a programming model used when you work directly on a live system<br>
+- Avoid the side-effects of a simulated (local) environment by working on a live system<br>
 - Access to the live data via the same channel which will be used in production<br>
-- All the dependencies and integrations are on place as they will be in production <br>
-- Shortest development turn-around time <br>
+- All the dependencies and integrations are on place as they will be in production<br>
+- Shortest development turn-around time<br>
 - Short life-cycle management process<br>
 </details>
 <details>
-<summary><b>Why In-System Development?</b></summary>
+<summary><b>Why dynamic languages?</b></summary>
 - Perfect match to Dynamic Applications - built for change<br>
 - Can interpret (rather than compile) the execution of tasks<br>
 - Existing smooth integration within the web servers<br>
-- No restart required</br>
-- Java is also supported (javax.tools.*)<br>
+- No restart required<br>
+- Java is used for the core components of the platform, while JavaScript is for the application business logic (the glue code)<br>
 </details>
 <details>
 <summary><b>Why injected services?</b></summary>
-- Available out-of-the-box for developers – request, response, datasource, http, storage, wiki, indexer, repository, user, etc.<br>
-- Standardized API for cloud developers<br>
+- Available out-of-the-box for developers – request, response, datasource, http, CMIS storage, BPMN engine, wiki, indexer, user, etc.<br>
+- <a href="../api/index.html" target="_blank">Standardized API</a> for cloud developers<br>
 - Different language's implementations are possible integrated via the extension point<br>
 - Different provider's implementations can be exposed to developers on their cloud<br>
 </details>
@@ -69,46 +69,45 @@ In-System Development is a programming model used when you work directly on a li
 <summary><b>Why it looks like Eclipse in a web browser? Why not more webby style?</b></summary>
 - Lower barrier for Eclipse developers<br>
 - Overall experience comfortable for developers proven for years from on-premise tools<br>
-- Using of Workbench API and concepts<br>
-- There are some alternatives already available for the „webby“ guys<br>
+- Using of Resource like API and concepts<br>
+- There are some themes you can choose from the menu for more "webby" look and feel<br>
 </details>
 
 
 ### **Decisions**
 ***
 <details>
-<summary><b>Why RAP?</b></summary>
+<summary><b>Why moved from RAP to Angular, Bootstrap, GoldenLayout web frameworks?</b></summary>
 <a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:<br>
-- Mature and reliable API to develop against<br>
-- Stable framework with great support<br>
-- Standard modularization – OSGi, plugins<br>
-- Writing mostly in pure Java with all the benefits it brings by itself<br>
-- Single sourcing - reuse of existing functionality written as Eclipse plugins<br>
-- Possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component<br>
-- Most productive web framework for more complex use-cases like development environments, administration tools, etc.<br>
+- RAP is a mature framework and depends on a reliable API, but not so attractive for pure web developers (HTML, JavaScript, etc.)<br>
+- RAP is a stable framework with great support, but also it could be said for Angular 1.x and Bootstrap 3.x<br>
+- RAP rely on the standard modularization – OSGi, plugins, but comes with the complexity of Maven, Tycho, OSGi, Orbit, etc. integration<br>
+- In RAP developers can write mostly in pure Java with all the benefits it brings by itself, but for web developers it turns out it is not a benefit, but a drawback<br>
+- In RAP one can have a single sourcing components - reuse of existing functionality written as Eclipse plugins, which has never happen in the reality<br>
+- RAP has possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component, but it is much more complex than pure web coding<br>
 </details>
 <details>
-<summary><b>Why Rhino?</b></summary>
+<summary><b>Why Rhino? What about Nashorn and V8?</b></summary>
 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:<br>
 - Mature and stable framework<br>
 - Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules<br>
 - Built-in debugger with simple API<br>
-- Possibility to invoke standard Java objects directly <br>
+- Possibility to invoke standard Java objects directly, which is not recommended of course<br>
+- Nashorn and V8 are also supported in v3 API set and above<br>
 </details>
 <details>
 <summary><b>Why JSON for models?</b></summary>
 <a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:<br>
 - Simple enough and human readable/writable<br>
 - Support by mature frameworks for parsing/serializing<br>
-- Quite popular and proved in web applications context <br>
+- Quite popular and proved in web applications context<br>
 </details>
 <details>
 <summary><b>Why flat data models?</b></summary>
-We use entity-relational data model because:<br>
 - Proved by many business applications for years<br>
 - Straight forward implementation on relational-database<br>
-- Easy to understand and use by the developers<br>
-- Tools for it are also simple and easy to use <br>
+- Easy to be understood and used by the developers<br>
+- Tools for it are also simple and easy to use<br>
 </details>
 <details>
 <summary><b>Why REST instead of server-side generation?</b></summary>
@@ -117,22 +116,22 @@ We leverage the use of REST paradigm for the cloud applications created with the
 - Independent development of both including easy mocking<br>
 - Possibility of reuse and/or composition of services in different user interfaces<br>
 - Possibility of UI-less integration if needed<br>
-- Better operation and support <br>
+- Better operations and support<br>
 </details>
 <details>
-<summary><b>Why Activate and Publish?</b></summary>
-- Supporting sand-boxing is quite nice feature for developers. It is used during development for quick testing.<br>
-- The sand-box is per user and it get ready on "Activation".<br>
-- "Publish" transfer the artifacts to the central Registry for productive use - one for all.<br>
+<summary><b>Why Publish?</b></summary>
+- Developers can work safely on multiple workspaces
+- "Publish" transfers the artifacts to the central registry space for public use<br>
 </details>
 <details>
 <summary><b>Why one-time-generation?</b></summary>
-- It is enough to boost productivity<br>
-- MDA failed, isn't it?<br>
+- It is enough to boost productivity in some cases<br>
+- MDA is also supported via Entity Data Modeler<br>
 </details>
 <details>
-<summary><b>Why OSGi?</b></summary>
-The only real modularization framework for Java nowadays, isn't it?
+<summary><b>Why not OSGi?</b></summary>
+ - OSGi is the only real modularization framework for Java, but comes with much more complexity than needed for our case<br>
+ - We moved from OSGi to build only simple Maven dependency management with Java Services and Guice for runtime injections for the backend<br>
 </details>
 
 
@@ -140,34 +139,33 @@ The only real modularization framework for Java nowadays, isn't it?
 ***
 <details>
 <summary><b>How to integrate my dynamic language?</b></summary>
-- Have a look at <a href="org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy">org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.groovy</a> plugin for runtime integration<br>
-- Register your own script executor provider by <a href="org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider">org.eclipse.dirigible.runtime.scripting.IScriptExecutorProvider</a><br>
-- Create your own Apache Velocity based templates for your language and register them using `org.eclipse.dirigible.ide.template.type` extension point <br>   
+ - There is an Engine API which can be implemented, as well as a REST service which can execute the code<br>
+Please, contact us if you plan such an integration<br>
 </details>
 <details>
 <summary><b>How to integrate my Java based framework?</b></summary>
- - It is even simpler - wrap it as OSGi plugin (if it isn't already) and add it during the packaging phase as a regular OSGi plugin packaged in a WAR file.<br>
+ - It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the WAR or the executable JAR files.<br>
 </details>
 <details>
 <summary><b>How to register my injected service?</b></summary>
- Once you make the your injected service available as OSGi plugin packaged into your WAR file, you can use the interface `org.eclipse.dirigible.runtime.scripting.IContextService` to register it. Actual configurations should be similar to ones at `org.eclipse.dirigible.runtime.wiki` plugin.
+ Once you make the your core framework available as a Maven module packaged into your WAR file, you can implement your own [Enterprise JavaScript API](../api/index.html) facade.
 </details>
 <details>
 <summary><b>How to integrate my non-Java framework?</b></summary>
- It depends on the particular framework. Usually it is via the "Command" feature. Please, contact us in case of interest.
+ It depends on the particular framework. Usually, it is via the "Command" feature. Please, contact us in case of interest.
 </details>
 <details>
 <summary><b>How to add my own templates?</b></summary>
- Use `org.eclipse.dirigible.ide.template.type` extension point similar as in `org.eclipse.dirigible.ide.template.ui.*` plugins.
+ It is quite easy - create a project with layout similar to ones from <a href="https://github.com/dirigiblelabs?utf8=%E2%9C%93&q=template-v3&type=&language=" target="_blank">DirigibleLabs</a> 
 </details>
 <details>
 <summary><b>How to build my own Dirigible?</b></summary>
- You can choose which plugins to include in your own target platform from the Dirigible update sites:<br>
-- <a href="http://dirigible.io/p2/bridge/">http://dirigible.io/p2/bridge/</a><br>
-- <a href="http://dirigible.io/p2/external/">http://dirigible.io/p2/external/</a><br>
-- <a href="http://dirigible.io/p2/ide/">http://dirigible.io/p2/ide/</a><br>
-- <a href="http://dirigible.io/p2/lib/">http://dirigible.io/p2/lib/</a><br>
-- <a href="http://dirigible.io/p2/repository/">http://dirigible.io/p2/repository/</a><br>
-- <a href="http://dirigible.io/p2/runtime/">http://dirigible.io/p2/runtime/</a><br>
+ It is a standard Maven based project, so:<br>
+<pre>
+> git clone
+> cd dirigible
+> mvn clean install
+</pre>
+should work.<br>
 </details>
 
