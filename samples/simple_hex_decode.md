@@ -14,8 +14,6 @@ group: simple
 2. Create a JavaScript service with the name **hex_decode.js**.
 3. Enter the following content:
 
-####
-
 ```javascript
 
 var hex = require('utils/v3/hex');
