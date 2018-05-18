@@ -14,8 +14,6 @@ group: simple
 2. Create a JavaScript service with the name **base64_encode.js**.
 3. Enter the following content:
 
-####
-
 ```javascript
 
 var base64 = require('utils/v3/base64');
