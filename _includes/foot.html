@@ -167,6 +167,15 @@
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
           ga('create', 'UA-49027147-1', 'dirigible.io');
+          ga('set', 'forceSSL', true);
+          if(document.cookie.indexOf('cookieControl') > -1){
+            ga('require', 'displayfeatures');
+            ga('set', 'anonymizeIp', undefined);
+            ga('set', '&uid', '1234567');
+          } else {
+            ga('set', 'displayFeaturesTask', null);
+            ga('set', 'anonymizeIp', true);
+          }
           ga('send', 'pageview');
         </script>
     </body>
