@@ -14,8 +14,6 @@ group: simple
 2. Create a JavaScript service with the name **digest_sha512.js**.
 3. Enter the following content:
 
-####
-
 ```javascript
 
 var digest = require('utils/v3/digest');
