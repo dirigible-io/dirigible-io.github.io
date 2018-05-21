@@ -132,7 +132,13 @@ TBD
 
 #### Install Docker on Mac
 
+1. Install it using Hombrew:
+
 > brew cask install docker
+
+2. Open Docker.app and continue the installation of the network (Ctrl+Space)
+
+#### Build the image
 
 Build an image without uploading it:
 
@@ -140,9 +146,15 @@ Build an image without uploading it:
 
 > eval $(minikube docker-env)
 
-2. Build the image with the Docker daemon of Minukube: 
+2. Clone the Zeus packaging project:
 
-> docker build -t zeus
+> git clone https://github.com/dirigiblelabs/zeus-v3-package.git
+
+3. Build the image with the Docker daemon of Minukube: 
+
+> cd zeus-v3-package/zeus
+> mvn clean install
+> docker build -t zeus .
 
 3. Set the image in the pod spec like the build tag: **zeus**
 4. Set the **imagePullPolicy** to **Never**, otherwise Kubernetes will try to download the image
