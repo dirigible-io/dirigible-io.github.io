@@ -13,7 +13,7 @@ group: complex
 
 1. Create a project **job_console_project**
 2. Then create a JavaScript service named **my_job_handler.js**
-3. Within the service code, enter the following content:
+3. Replace the service code with the following content:
 
 #### Log Levels
 
@@ -24,7 +24,7 @@ console.log("Hello from the My Job!");
 ```
 
 4. Then create a **job** descriptor file **my_job.job**
-5. Enter the following JSON content in it:
+5. Replace the content with the following JSON code:
 
 ```json
 
