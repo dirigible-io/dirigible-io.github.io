@@ -12,7 +12,7 @@ group: complex
 
 
 1. Create a project **bpmn_process_project**
-2. Then create a JavaScript service named **my_delegate.js**
+2. Then create a JavaScript service named **my_delegate.js** with the following content:
 
 
 ```javascript
@@ -34,7 +34,7 @@ try {
 3. Then create a Business Process Model (via the New popup menu) named **my_process.bpmn**
 4. Double-click on this file to open the corresponding BPMN editor.
 5. There should be shown on the diagram a **Start Event**, connected to a **MyServiceTask**, connected to an **End Event**.
-6. Select the MyServiceTask
+6. Select the MyServiceTask.
 7. In the Properties section below the diagram, find the **Class fields** property and click on it.
 8. In the **Class fields** dialog find and click on the field **handler**.
 9. Change its value from **myproject/mydelegate.js** to **bpmn_process_project/my_delegate.js** and click save.
