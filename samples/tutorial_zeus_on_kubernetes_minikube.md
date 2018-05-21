@@ -92,7 +92,7 @@ If you want to undeploy Zeus, execute the following command:
 
 To stop Minikube run **minikube stop**.
 
-### Docker
+### Additional Steps with Docker
 
 Build an image without uploading it:
 
