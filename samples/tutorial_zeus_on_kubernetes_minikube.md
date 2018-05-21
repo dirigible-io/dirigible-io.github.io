@@ -16,7 +16,7 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 * .NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)
 * Enabled VT-x or AMD-v virtualization (use the Performance tab for the CPU in the Task Manager to verify it)
 
-### Kubernetes
+### Install Kubernetes command-line tool
 1. Install **Chocolatey** 
 
 1.1. Run the following command:
@@ -48,7 +48,7 @@ Edit the config file with a text editor of your choice.
 
 > kubectl cluster-info
 
-### Installing Minikube and Deploying Zeus 
+### Installing Minikube  
 
 1. Install **Minikube v0.26.1**
 
@@ -58,29 +58,31 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 
 > minikube start
 
-3. Deploy Zeus version 3 on Minikube using kubectl by executing:
+### Deploying Zeus 
+
+1. Deploy Zeus version 3 on Minikube using kubectl by executing:
 
 > kubectl create -f https://raw.githubusercontent.com/dirigiblelabs/zeus-v3-package/master/zeus/zeus.yml
 
-4. Get the necessary information for access
+2. Get the necessary information for access
 
-5.1. Get IP:
+2.1. Get IP:
 
 > minikube ip
 
-5.2. Get port:
+2.2. Get port:
 
 > kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'
 
-5.3. Construct URL: {IP}:{Port}
+2.3. Construct URL: {IP}:{Port}
 
-6. Undeploying Zeus
+3. Undeploying Zeus
 
 If you want to undeploy Zeus, execute the following command:
 
 > kubectl delete -f https://raw.githubusercontent.com/dirigiblelabs/zeus-v3-package/master/zeus/zeus.yml
 
-7. Stop Minikube
+4. Stop Minikube
 
 To stop Minikube run **minikube stop**.
 
@@ -95,6 +97,4 @@ Build an image without uploading it:
 
 >Important note: You have to run eval ** $(minikube docker-env)** on each terminal you want to use, since it only sets the environment variables for the current shell session.
 
-### License
 
-This project is copyrighted by [SAP SE](http://www.sap.com/) and is available under the [Eclipse Public License v 1.0](https://www.eclipse.org/legal/epl-v10.html). See [LICENSE](https://github.com/dirigiblelabs/zeus-v3-package/blob/master/LICENSE) and [NOTICE.txt](https://github.com/dirigiblelabs/zeus-v3-package/blob/master/NOTICE.txt) for further details.
