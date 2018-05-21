@@ -16,7 +16,7 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 * .NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)
 * Enabled VT-x or AMD-v virtualization (use the Performance tab for the CPU in the Task Manager to verify it)
 
-### Install Kubernetes command-line tool
+### Install Kubernetes command-line tool on Windows
 1. Install **Chocolatey** 
 
 1.1. Run the following command:
@@ -35,11 +35,13 @@ For more information see https://chocolatey.org/install.
 
 > choco install kubernetes-cli
 
-2.2. To verify that the version you’ve installed is up-to-date, run **kubectl version**. 
+2.2. To verify that the version you’ve installed is up-to-date, run 
+
+> kubectl version
 
 2.3. Configure kubectl to use a remote Kubernetes cluster:
 
->cd C:\users\yourusername (Or wherever your %HOME% directory is)  
+> cd C:\users\yourusername (Or wherever your %HOME% directory is)  
 mkdir .kube cd .kube New-Item config -type file
 
 Edit the config file with a text editor of your choice.
@@ -48,7 +50,17 @@ Edit the config file with a text editor of your choice.
 
 > kubectl cluster-info
 
-### Install Minikube  
+### Install Kubernetes command-line tool on MacOS
+
+1. Run the following command:
+
+> brew install kubectl
+
+2. To verify that the version you’ve installed is up-to-date, run
+
+> kubectl version
+
+### Install Minikube on Windows
 
 1. Install **Minikube v0.26.1**
 
@@ -57,6 +69,17 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 2. Start your Minikube cluster by executing the following command:
 
 > minikube start
+
+### Install Minikube on MacOS
+
+1. Install **Minikube v0.27.0**
+
+> curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.27.0/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+2. Start your Minikube cluster by executing the following command:
+
+> minikube start
+
 
 ### Deploy Zeus 
 
@@ -101,6 +124,6 @@ Build an image without uploading it:
 3. Set the image in the pod spec like the build tag: **my-image**
 4. Set the **imagePullPolicy** to **Never**, otherwise Kubernetes will try to download the image
 
->Important note: You have to run eval ** $(minikube docker-env)** on each terminal you want to use, since it only sets the environment variables for the current shell session.
+> Important note: You have to run eval ** $(minikube docker-env)** on each terminal you want to use, since it only sets the environment variables for the current shell session.
 
 
