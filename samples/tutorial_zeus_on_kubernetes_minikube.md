@@ -78,7 +78,7 @@ Execute:
 
 or run **minikube dashboard**
 
-In the Kubernetes Dashboard choose Namespace **zeus**. After that select **Discovery and Load Balancing**. Copy the second port from **Internal endpoints** column (e.g. 31111).
+In the Kubernetes Dashboard choose Namespace **zeus**. After that select **Discovery and Load Balancing**. Copy the second port from the **Internal endpoints** column (e.g. 31111).
 
 2.3. Construct URL: {IP}:{Port} and open it in Web browser.
 
