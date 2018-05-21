@@ -71,6 +71,7 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 > minikube ip
 
 2.2. Get port
+
 Execute:
 
 > kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'
