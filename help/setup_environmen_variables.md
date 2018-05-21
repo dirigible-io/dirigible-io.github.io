@@ -124,6 +124,22 @@ Parameter     | Description | Default*
 
 **DIRIGIBLE_JAVASCRIPT_ENGINE_TYPE_DEFAULT**   | The type of the JavaScript engine provider used in this instance | rhino or nashorn or v8 - default is *rhino*
 
+### Operations
+---
+
+#### Logs
+
+**DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT**   | The folder where the log files are stored in | default is **../logs**
+
+### Look & Feel
+---
+
+#### Theme
+
+**DIRIGIBLE_THEME_DEFAULT**   | The name of the default name | default is **Default**
+
+
+
 
 The source is [here](https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/README.md)
 
