@@ -1,6 +1,6 @@
 ---
 layout: help
-title: DataStructures
+title: Data Structures
 icon: none
 group: help-views
 ---
@@ -18,6 +18,6 @@ The Data Structures view lists all data structures defined in the following file
 * *.update - update mode data file in DSV
 * *.replace - replace mode data file in DSV
 
-![Data Structures view](images/ide_view_d.png){: .img-responsive }
+![Data Structures view](images/ide_view_datastructures.png){: .img-responsive }
 
 More info about the type of the artifacts you can find [here](artifacts.html)
