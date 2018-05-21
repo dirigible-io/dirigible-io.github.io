@@ -48,7 +48,7 @@ Edit the config file with a text editor of your choice.
 
 > kubectl cluster-info
 
-### Installing Minikube  
+### Install Minikube  
 
 1. Install **Minikube v0.26.1**
 
@@ -58,7 +58,7 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 
 > minikube start
 
-### Deploying Zeus 
+### Deploy Zeus 
 
 1. Deploy Zeus version 3 on Minikube using kubectl by executing:
 
