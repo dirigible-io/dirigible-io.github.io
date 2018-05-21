@@ -12,4 +12,6 @@ The Extensions view lists all defined extensions and extension points through \*
 
 ![Extensions view](images/ide_view_extensions.png){: .img-responsive }
 
+More info about the type of the artifacts you can find [here](artifacts.html)
+
 

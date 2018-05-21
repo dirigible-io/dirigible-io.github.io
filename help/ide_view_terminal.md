@@ -12,9 +12,9 @@ Via the *Terminal* view, you can execute OS commands.
 
 Examples:
 
-* Linux OS: *bash -c "ls -al"*
+* Linux OS: *ls -al*
 
-* Microsoft Windows OS: *cmd /c "dir"*
+* Microsoft Windows OS: *dir*
 
 ![Terminal view](images/ide_view_terminal.png){: .img-responsive }
 

@@ -40,6 +40,8 @@ or just regular ones:
 *	File 
 *	Folder
 
+More info about the type of the artifacts you can find [here](artifacts.html).
+
 When selecting an artifact, you can use the *Open* or *Open With* actions to load its content in the corresponding editor, for example, [Orion Editor](ide_editor_orion.html).
 
 A single user can have multiple workspaces, containing different set of projects.
