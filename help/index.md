@@ -42,7 +42,7 @@ Setup
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
 * [SAP Cloud Platform](setup_sapcp.html)
-* [Environment Variables](setup_environmen_variables.html)
+* [Environment Variables](setup_environment_variables.html)
 
 Features
 ---

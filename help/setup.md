@@ -15,5 +15,5 @@ Setup
 * [Setup on Kubernetes](setup_kubernetes.html)
 * [Setup on Cloud Foundry](setup_cloudfoundry.html)
 * [Setup on SAP Cloud Platform](setup_sapcp.html)
-* [Environment Variables](setup_environmen_variables.html)
+* [Environment Variables](setup_environment_variables.html)
 

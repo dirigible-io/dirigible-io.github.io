@@ -150,7 +150,7 @@ Build an image without uploading it:
 
 > git clone https://github.com/dirigiblelabs/zeus-v3-package.git
 
-3. Build the image with the Docker daemon of Minukube: 
+3. Build the image with the Docker daemon of Minikube:
 
 > cd zeus-v3-package/zeus
 > mvn clean install
