@@ -46,7 +46,7 @@ Each perspective is comprised of different views. Learn more about them followin
 * [Preview](ide_view_preview.html)
 * [Workspace](ide_view_workspace.html)
 * [SQL](ide_view_sql.html)
-* [ExtensionPoints](ide_view_extensionpoints.html)
+* [Extensions](ide_view_extensions.html)
 * [Terminal](ide_view_terminal.html)
 * [Variables](ide_view_variables.html)
 * [Breakpoints](ide_view_breakpoints.html)

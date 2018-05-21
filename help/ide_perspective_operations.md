@@ -1,6 +1,6 @@
 ---
 layout: help
-title: Operations and Monitoring
+title: Operations
 icon: none
 group: help-perspectives
 ---
@@ -8,7 +8,7 @@ group: help-perspectives
 {{ page.title }} Perspective
 ===
 
-The Web IDE includes an Opperations and Monitoring perspective which is comprised of the following views:
+The Web IDE includes an Operations perspective, which is comprised of the following views:
 
 * Registry
 * Repository
@@ -22,6 +22,6 @@ The Web IDE includes an Opperations and Monitoring perspective which is comprise
 * Terminal
 * Logs
 
-The Opperations and Monitoring perspective enables you to monitor the ongoing processes and operations.
+The Operations perspective enables you to monitor the ongoing processes and operation activities.
 
 ![Operations and Monitoring Perspective](images/ide_perspective_operations.png){: .img-responsive }
