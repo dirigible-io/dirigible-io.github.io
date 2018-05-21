@@ -70,11 +70,16 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 
 > minikube ip
 
-2.2. Get port:
+2.2. Get port
+Execute:
 
 > kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'
 
-2.3. Construct URL: {IP}:{Port}
+or run **minikube dashboard**
+
+In the Kubernetes Dashboard choose Namespace **zeus**. After that select **Discovery and Load Balancing**. Copy the second port from **Internal endpoints** column (e.g. 31111).
+
+2.3. Construct URL: {IP}:{Port} and open it in Web browser.
 
 3. Undeploying Zeus
 
