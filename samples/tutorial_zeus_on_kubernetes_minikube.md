@@ -81,6 +81,10 @@ Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/rel
 > minikube start
 
 
+### Deploy and Run the Guestbook sample
+
+1. Follow the steps described in this tutorial - https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
+
 ### Deploy Zeus 
 
 1. Deploy Zeus version 3 on Minikube using kubectl by executing:
