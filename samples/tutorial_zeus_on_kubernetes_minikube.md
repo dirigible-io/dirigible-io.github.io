@@ -99,7 +99,9 @@ Execute:
 
 > kubectl get services -n zeus -o go-template='{{range .items}}{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}{{end}}'
 
-or run **minikube dashboard**
+or run 
+
+> minikube dashboard
 
 In the Kubernetes Dashboard choose Namespace **zeus**. After that select **Discovery and Load Balancing**. Copy the second port from the **Internal endpoints** column (e.g. 31111).
 
@@ -113,7 +115,9 @@ If you want to undeploy Zeus, execute the following command:
 
 4. Stop Minikube
 
-To stop Minikube run **minikube stop**.
+To stop Minikube run 
+
+> minikube stop
 
 ### Additional Steps with Docker
 
