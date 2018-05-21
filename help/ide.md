@@ -35,7 +35,7 @@ By default, the different views and editors are separated into a few perspective
 
 ### Views
 
-Each perspective is comprised of different views. Learn more about them following the lins below:
+Each perspective is comprised of different views. Learn more about them following the list below:
 
 * [Snapshot](ide_view_snapshot.html)
 * [Debugger](ide_view_debugger.html)
@@ -62,7 +62,22 @@ Each perspective is comprised of different views. Learn more about them followin
 * [Repository](ide_view_repository.html)
 
 ### Editors
-The editors that have been integrated into the Dirigible IDE are [Orion](http://orionhub.org), [Ace](http://ace.c9.io) and [Monaco](https://microsoft.github.io/monaco-editor/). More sophisticated and visual editors are included in the pipeline.
+
+The editors that have been integrated into the Dirigible IDE are 
+
+* [Orion](http://orionhub.org), 
+* [Ace](http://ace.c9.io) and 
+* [Monaco](https://microsoft.github.io/monaco-editor/).
+
+
+### Modelers
+
+There are some more sophisticated visual editors:
+
+* [BPMN Modeler](ide_modeler_bpmn.html)
+* [Database Schema Modeler](ide_modeler_database_schema.html)
+* [Entity Data Modeler](ide_modeler_entity_data.html)
+
 
 ### Layouts
 
