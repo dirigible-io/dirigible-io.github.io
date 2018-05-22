@@ -13,7 +13,7 @@ group: new
 TBD
 
 
-### Install Kubernetes command-line tool on MacOS
+### Install Kubernetes command-line tool
 
 1. Run the following command:
 
@@ -23,7 +23,7 @@ TBD
 
 > kubectl version
 
-### Install Minikube on MacOS
+### Install Minikube 
 
 1. Install **Minikube v0.27.0**
 
@@ -78,7 +78,7 @@ To stop Minikube run
 
 ### Additional Steps with Docker
 
-#### Install Docker on Mac
+#### Install Docker 
 
 1. Install it using Hombrew:
 
