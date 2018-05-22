@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: Deploying Zeus on Kubernetes Minikube
+title: Zeus on Kubernetes with Windows OS
 icon: fa-caret-right
 group: new
 ---
