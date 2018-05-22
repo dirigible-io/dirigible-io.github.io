@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: Deploying Zeus on Kubernetes Minikube
+title: Zeus on Kubernetes
 icon: fa-caret-right
 group: tutorial
 ---
