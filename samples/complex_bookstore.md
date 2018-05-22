@@ -235,7 +235,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			var entity = request.getJSON();
 			entity.id = dao.create(entity);
-			response.setHeader('Content-Location', '/services/v3/js/babylon_project/api/Books.js/' + entity.id);
+			response.setHeader('Content-Location', '/services/v3/js/babylon_project/service/Books.js/' + entity.id);
 			sendResponseCreated(entity);
 		})
 	.resource('{id}')
