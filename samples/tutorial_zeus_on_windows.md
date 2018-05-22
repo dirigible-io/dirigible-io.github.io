@@ -16,7 +16,7 @@ This tutorial was performed on a PC running Windows 10 Enterprise OS.
 * .NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)
 * Enabled VT-x or AMD-v virtualization (use the Performance tab for the CPU in the Task Manager to verify it)
 
-### Install Kubernetes command-line tool on Windows
+### Install Kubernetes command-line tool
 1. Install **Chocolatey** 
 
 1.1. Run the following command:
@@ -50,31 +50,11 @@ Edit the config file with a text editor of your choice.
 
 > kubectl cluster-info
 
-### Install Kubernetes command-line tool on MacOS
-
-1. Run the following command:
-
-> brew install kubectl
-
-2. To verify that the version you’ve installed is up-to-date, run
-
-> kubectl version
-
-### Install Minikube on Windows
+### Install Minikube
 
 1. Install **Minikube v0.26.1**
 
 Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/download/v0.26.1/minikube-installer.exe) file, and execute the installer. This will automatically add minikube.exe to your path.
-
-2. Start your Minikube cluster by executing the following command:
-
-> minikube start
-
-### Install Minikube on MacOS
-
-1. Install **Minikube v0.27.0**
-
-> curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.27.0/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 
 2. Start your Minikube cluster by executing the following command:
 
@@ -123,20 +103,11 @@ To stop Minikube run
 
 > minikube stop
 
-### Additional Steps with Docker
+### Additional Steps 
 
-#### Install Docker on Windows
+#### Install Docker
 
 TBD
-
-
-#### Install Docker on Mac
-
-1. Install it using Hombrew:
-
-> brew cask install docker
-
-2. Open Docker.app and continue the installation of the network (Ctrl+Space)
 
 #### Build the image
 
