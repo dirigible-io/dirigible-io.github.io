@@ -29,7 +29,7 @@ exports.onError = function(error) {
 
 ```
 
-4. Then create a **listener** descriptor file **my_listener.listener**
+4. Then create a **Message Listener** named  **my_listener.listener**
 5. Replace the file content with the following JSON code:
 
 ```json
