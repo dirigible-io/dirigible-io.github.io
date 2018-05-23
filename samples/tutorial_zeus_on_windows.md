@@ -124,7 +124,9 @@ Build an image without uploading it:
 3. Build the image with the Docker daemon of Minikube:
 
 > cd zeus-v3-package/zeus
+
 > mvn clean install
+
 > docker build -t zeus .
 
 3. Set the image in the pod spec like the build tag: **zeus**
