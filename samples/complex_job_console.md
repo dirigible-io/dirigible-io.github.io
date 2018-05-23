@@ -23,7 +23,7 @@ console.log("Hello from the My Job!");
 
 ```
 
-4. Then create a **job** descriptor file **my_job.job**
+4. Then create a **Scheduled Job** named **my_job.job**
 5. Replace the content with the following JSON code:
 
 ```json
