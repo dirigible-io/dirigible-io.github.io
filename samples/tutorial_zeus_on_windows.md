@@ -56,7 +56,7 @@ Edit the config file with a text editor of your choice.
 
 Download the [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/download/v0.26.1/minikube-installer.exe) file, and execute the installer. This will automatically add minikube.exe to your path.
 
-2. Start your Minikube cluster by executing the following command:
+2. Start your Minikube cluster using Bash by executing the following command:
 
 > minikube start
 
@@ -115,9 +115,9 @@ Build an image without uploading it:
 
 1. Set the environment variables with 
 
-> eval $(minikube docker-env)
+> @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i
 
-2. Clone the Zeus packaging project:
+2. Clone the Zeus packaging project using Git Bash by executing:
 
 > git clone https://github.com/dirigiblelabs/zeus-v3-package.git
 
