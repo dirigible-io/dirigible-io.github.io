@@ -29,6 +29,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Scheduled Job](complex_job_console.html) - create a **Job** definition, which triggers a JavaScript handler service
 * [Message Listener](complex_listener_queue.html) - create a **Listener** definition, which listens for events coming from a message queue and execute a JavaScript handler service
 * [BPMN Process](complex_process_console.html) - create a **BPMN Process** definition, with a simple Service step, which triggers a JavaScript handler service
+* [Bookstore Application](complex_bookstore.html) - create a full-stack application for Books management - database, persistence, web service and user interface.
 
 
 
