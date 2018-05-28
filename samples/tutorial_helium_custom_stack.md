@@ -23,9 +23,9 @@ It shows also how to create a facade of a functionality written in Java and to e
 * Create a packaging project - a standard Maven based project with a parent a dependency modules e.g. [https://github.com/dirigiblelabs/sample-v3-helium-custom-stack](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack)
 
 * Create three sub-folders under the root:
-  ** **modules** - for the parts which are developed with Dirigible itself
-  ** **core** - for the plain Java components and API bridges
-  ** **application** - for the packaging project
+  * **modules** - for the parts which are developed with Dirigible itself
+  * **core** - for the plain Java components and API bridges
+  * **application** - for the packaging project
 
 The project structure should look like the example above.
 
