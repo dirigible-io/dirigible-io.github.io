@@ -36,6 +36,7 @@ The functionality for import and export of projects or workspaces as well as clo
 * [Repository](ide_perspective_repository.html) 
 * [Terminal](ide_perspective_terminal.html)
 * [Clone](ide_view_clone.html)
+* [Snapshot](ide_view_snapshot.html)
 * [Logs](ide_view_logs.html)
 * [Console](ide_view_console.html)
 
