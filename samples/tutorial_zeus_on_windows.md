@@ -107,7 +107,15 @@ To stop Minikube run
 
 #### Install Docker
 
-TBD
+1. Run CMD as Administrator
+
+2. Navigate to chocolate **root** folder
+
+3. Execute: 
+
+> choco install docker
+
+4. Confirm with **y**
 
 #### Build the image
 
