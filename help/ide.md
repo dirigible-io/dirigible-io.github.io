@@ -32,6 +32,9 @@ By default, the different views and editors are separated into a few perspective
 * [Database](ide_perspective_database.html)
 * [Repository](ide_perspective_repository.html) 
 * [Terminal](ide_perspective_terminal.html)
+* [Operations](ide_perspective_operations.html)
+* [Documents](ide_perspective_documents.html)
+* [Debugger](ide_perspective_debugger.html)
 
 ### Views
 
@@ -63,7 +66,7 @@ Each perspective is comprised of different views. Learn more about them followin
 
 ### Editors
 
-The editors that have been integrated into the Dirigible IDE are 
+The editors that have been integrated into the Dirigible IDE are: 
 
 * [Orion](http://orionhub.org), 
 * [Ace](http://ace.c9.io) and 
