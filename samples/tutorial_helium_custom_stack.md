@@ -8,9 +8,9 @@ group: tutorial
 {{ page.title }}
 ===
 
-This tutorial will guide you on how to create a custom Dirigible stack for production.
+This tutorial will guide you through the creation of a custom Dirigible stack for production. It also explains how to create a facade of a functionality written in Java and to expose it via API bridge to the application layer - JavaScript.
 Such a custom stack contains only the core components of Dirigible plus the custom services, user interfaces and descriptor files of your Dirigible application.
-It shows also how to create a facade of a functionality written in Java and to expose it via API bridge to the application layer - JavaScript.
+
 
 ### Prerequisites
 
@@ -20,20 +20,23 @@ It shows also how to create a facade of a functionality written in Java and to e
 
 ### Project Structure
 
-* Create a packaging project - a standard Maven based project with a parent a dependency modules e.g. [https://github.com/dirigiblelabs/sample-v3-helium-custom-stack](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack)
+* Create a packaging project - a standard Maven-based project with a parent dependency modules e.g. [https://github.com/dirigiblelabs/sample-v3-helium-custom-stack](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack)
 
 * Create three sub-folders under the root:
+
   * **modules** - for the parts which are developed with Dirigible itself
+  
   * **core** - for the plain Java components and API bridges
+  
   * **application** - for the packaging project
 
-The project structure should look like the example above.
+The project structure should look like the example below.
 
 ### Components
 
 #### Dirigible's Module Structure
 
-The project representing a Dirigible's project in the Maven based parent project structure usually contains only a single file - the **pom.xml** itself.
+The project representing a Dirigible's project in the Maven-based parent project structure usually contains only a single file - the **pom.xml** itself.
 The main goal is to *pull* the latest sources from the SCM repository (e.g. GitHub) and to put them under the standard *resources* folder - **src/main/resources**
 
 A sample *pom.xml* should look like this:
@@ -202,11 +205,11 @@ It can be triggered by choosing the **content** profile as:
 
 > mvn clean install -Pcontent
 
-After synchronizing all the content you would like to run the regular build for actual packaging as:
+After synchronizing all the content, you should run the regular build for actual packaging:
 
 > mvn clean install
 
-The other modules in these project next to the **data** module, contains the **backend services** in JavaScript and the **user interface** web content.
+The other modules in these project next to the **data** module, contain the **backend services** in JavaScript and the **user interface** web content.
 
 #### Java Standard Module with API Bridge
 
@@ -214,7 +217,7 @@ The Java code can be integrated nicely into the custom stack not only as a side-
 
 You can have a look at the sub-project here [https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/tree/master/helium/core/java](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/tree/master/helium/core/java)
 
-The Java side is a facade class which expose a given functionality to the above layer:
+The Java side is a facade class which exposes a given functionality to the above layer:
 
 ```java
 
@@ -230,7 +233,7 @@ public class HeliumFacade {
 
 ```
 
-In our case it is over-simplified to just return a boolean flag and no input parameters present. In general you can use more complex functions described here: [https://github.com/eclipse/dirigible/wiki/api-v3-guidelines](https://github.com/eclipse/dirigible/wiki/api-v3-guidelines)
+In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: [https://github.com/eclipse/dirigible/wiki/api-v3-guidelines](https://github.com/eclipse/dirigible/wiki/api-v3-guidelines)
 
 At the JavaScript side you have an API module, which performs the actual call via the Java bridge:
 
