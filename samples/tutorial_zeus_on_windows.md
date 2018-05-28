@@ -109,7 +109,7 @@ To stop Minikube run
 
 1. Run CMD as Administrator
 
-2. Navigate to chocolate **root** folder
+2. Navigate to Chocolatey **root** folder
 
 3. Execute: 
 
