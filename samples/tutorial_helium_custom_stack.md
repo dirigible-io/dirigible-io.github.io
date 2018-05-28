@@ -8,7 +8,7 @@ group: tutorial
 {{ page.title }}
 ===
 
-This tutorial will guide you how to create a custom Dirigible stack for production.
+This tutorial will guide you on how to create a custom Dirigible stack for production.
 Such a custom stack contains only the core components of Dirigible plus the custom services, user interfaces and descriptor files of your Dirigible application.
 It shows also how to create a facade of a functionality written in Java and to expose it via API bridge to the application layer - JavaScript.
 
