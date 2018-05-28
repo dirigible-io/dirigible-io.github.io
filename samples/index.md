@@ -36,3 +36,5 @@ They are built on scenarios with different complexity level, from exemplary samp
 #### Tutorials
 
 * [Zeus on Kubernetes](tutorial_zeus_on_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minikube cluster and Zeus deployment.
+* [Build a Custom Stack](tutorial_helium_custom_stack.html) - how to combine Dirigible modules with pure Java based ones and how to fine-tune the distribution for production.
+
