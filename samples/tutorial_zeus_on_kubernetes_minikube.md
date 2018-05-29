@@ -25,21 +25,25 @@ To run the local Kubernetes cluster execute the following command:
 
 ### Deploy and Run the Guestbook sample
 
-1. Follow the steps described in this tutorial - https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
+* Follow the steps described in this tutorial - https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
 
-### Deploy Zeus 
+### Deploy Zeus
 
-1. Deploy Zeus version 3 on Minikube using kubectl by executing:
+* Deploy Zeus version 3 on Minikube using kubectl by executing:
 
 > kubectl create -f https://raw.githubusercontent.com/dirigiblelabs/zeus-v3-package/master/zeus/zeus.yml
 
-2. Get the necessary information for access
+* Get the necessary information for access
 
-2.1. Get IP:
+  * Get IP:
 
 > minikube ip
 
-2.2. Get port
+or directly:
+
+> minikube dashboard
+
+  * Get port
 
 Execute:
 
@@ -49,11 +53,66 @@ or run
 
 > minikube dashboard
 
-In the Kubernetes Dashboard choose Namespace **zeus**. After that select **Discovery and Load Balancing**. Copy the second port from the **Internal endpoints** column (e.g. 31111).
 
-2.3. Construct URL: {IP}:{Port} and open it in Web browser.
 
-3. Undeploying Zeus
+### Open Zeus Cockpit
+
+* From the Kubernetes Dashboard:
+  * Change the Namespace to **zeus** (from the sidebar menu)
+  * Select **Discovery and Load Balancing** (from the sidebar menu)
+  * Find the Services section and take the port of the Zeus instance. Copy the second port from the **Internal endpoints** column (e.g. 31111)
+  * Construct URL: {IP}:{Port} and open it in Web browser.
+
+### Create Account
+
+* Go to **Accounts** settings (via the sidebar - last icon)
+  * Select **Partners** view and add a new partner details
+  * Select the **Accounts** view and add a new account details
+
+### Configure the local Cluster
+
+* Go to **Accounts** settings (via the sidebar - last icon)
+* Select **Clusters** view and add a new cluster details as follows
+  * Name: e.g. *local*
+  * URL: *https://{IP}:8443*
+  * Token: from Minikube Dashboard, go to *Config and Storage* -> *Secrets* -> Token
+  * Account: select from the drop down
+
+### Register a Container
+
+* Go to **Templates** perspective
+* Select the **Containers** view
+* Enter the following parameters:
+  * Name: Dirigible
+  * Image: dirigiblelabs/dirigible-tomcat:latest
+  * Protocol: TCP
+  * Port: 8080
+
+### Create a Template
+
+* Go to **Templates** perspective
+* Select the **Templates** section
+* Create a new Template named *Dirigible*
+* Select the row representing the just created Template
+* Select the *Containers* section below
+* Create a new reference to the Container created in the previous step
+* Select the *Services* section
+* Create a new Service with the following details:
+  * Name: http
+  * Type: NodePort
+  * Port: 8080
+  
+### Deploy the Application
+
+* Go to **Applications** perspective
+* Select the **Deploy** view
+* Click on *New* button and enter the following details:
+  * Cluster: select from the drop down
+  * Template: select from the drop down
+  * Name: dirigible
+
+
+### Undeploying Zeus
 
 If you want to undeploy Zeus, execute the following command:
 
