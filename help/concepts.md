@@ -39,6 +39,14 @@ There are several editors currently available that provide visual definition of 
 
 Along with the low level HTTP request, response and session handling, Dirigible provides a higher level framework for building REST services. More information on how to use this framework can be found [here](concepts_rest.html).
 
+### Web Content
+
+The client-side application code transported via the container web channel. Mode information can be found [here](concepts_web_content.html)
+
+### Mobile Apps
+
+Mobile application support in Eclipse Dirigible is achieved via [Tabris.js](http://tabrisjs.com).
+
 
 
 
