@@ -63,6 +63,15 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance | default is *''*
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance | default is *'DefaultDB'*
 
+#### Database Custom
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**<CUSTOM_NAME>_DRIVER**   | The *Driver* name of the custom datasource | *e.g. org.postgresql.Driver*
+**<CUSTOM_NAME>_URL**   | The *URL* of the custom datasource | *e.g. jdbc:postgresql://localhost:5432/<database-name>*
+**<CUSTOM_NAME>_USERNAME**   | The *User Name* of the custom datasource | *-*
+**<CUSTOM_NAME>_PASSWORD**   | The *Password* of the custom datasource | *-*
+
 #### Scheduler
 
 Parameter     | Description | Default*
