@@ -67,10 +67,10 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**<CUSTOM_NAME>_DRIVER**   | The *Driver* name of the custom datasource | *e.g. org.postgresql.Driver*
-**<CUSTOM_NAME>_URL**   | The *URL* of the custom datasource | *e.g. jdbc:postgresql://localhost:5432/<database-name>*
-**<CUSTOM_NAME>_USERNAME**   | The *User Name* of the custom datasource | *-*
-**<CUSTOM_NAME>_PASSWORD**   | The *Password* of the custom datasource | *-*
+**CUSTOM_NAME_DRIVER**   | The *Driver* name of the custom datasource | *e.g. org.postgresql.Driver*
+**CUSTOM_NAME_URL**   | The *URL* of the custom datasource | *e.g. jdbc:postgresql://localhost:5432/<database-name>*
+**CUSTOM_NAME_USERNAME**   | The *User Name* of the custom datasource | *-*
+**CUSTOM_NAME_PASSWORD**   | The *Password* of the custom datasource | *-*
 
 #### Database Derby
 
