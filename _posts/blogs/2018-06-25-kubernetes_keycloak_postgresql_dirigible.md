@@ -27,7 +27,7 @@ is a Cloud Development Platform providing development tools and runtime environm
 
 ## Prerequisites
 
-In this article we assume that you have already running productive ``Kubernetes Cluster`` and configured ``kubectl`` for it. If you don't have such, you can create one by using the [GKE](https://cloud.google.com/kubernetes-engine/) or the open-source [Gardener](https://github.com/gardener) project. Also we need a configured ``Helm`` _(The Kubernetes Package Manager)_, if you don't have it, you can follow [this installation guide](https://docs.helm.sh/using_helm/#installing-helm).
+In this article we assume that you have already running productive __**Kubernetes Cluster**_ and configured _**kubectl**_ for it. If you don't have such, you can create one by using the [GKE](https://cloud.google.com/kubernetes-engine/) or the open-source [Gardener](https://github.com/gardener) project. Also we need a configured _**Helm**_ _(The Kubernetes Package Manager)_, if you don't have it, you can follow [this installation guide](https://docs.helm.sh/using_helm/#installing-helm).
 
 ## Kubernetes Certificate Management Controller
 
@@ -129,7 +129,7 @@ spec:
 ...
 ```
 
-> **Note:** The maximum length of the host name (e.g. ``keycloak.<your-domain-name>``) used for issuing Let's Encrypt certificate is 63 symbols.
+> **Note:** The maximum length of the host name (e.g. _**keycloak.{{your-domain-name}}**_) used for issuing Let's Encrypt certificate is 63 symbols.
 
 The whole YAML is available [here](/img/resources/yaml/keycloak.yaml). Before creating the Kubernetes resources, you should replace the placeholders with the correct values.
 
@@ -206,7 +206,7 @@ spec:
     - host: ide.<your-domain-name>
 ```
 
-> **Note:** The maximum length of the host name (e.g. ``ide.<your-domain-name>``) used for issuing Let's Encrypt certificate is 63 symbols.
+> **Note:** The maximum length of the host name (e.g. _**ide.{{your-domain-name}}**_) used for issuing Let's Encrypt certificate is 63 symbols.
 
 > The whole list of Eclipse Dirigible environment variables can be found [here](http://www.dirigible.io/help/setup_environment_variables.html)
 
@@ -218,10 +218,10 @@ kubectl create -f dirigible.yaml
 
 ## Add Keycloak Client and Users
 
-Open the Keycloak welcome page (``https://keycloak.<your-domain-name>``) and click on the **Admin Console**, login with ``admin/admin`` credentials (see _keycloak.yaml_).
+Open the Keycloak welcome page (_**https://keycloak.{{your-domain-name}}**_) and click on the **Admin Console**, login with _**admin/admin**_ credentials (see _keycloak.yaml_).
 
 1. Create new client named **dirigible**
-1. For the **Root URL** add Root URL: ``http://ide.<your-domain-name>/``
+1. For the **Root URL** add Root URL: _**http://ide.{{your-domain-name>}}**_
 ![Create Keycloak Client](/img/posts/20180625/add-client.png){: .img-responsive }
 1. Add Client Roles:
     - Everyone
@@ -231,7 +231,7 @@ Open the Keycloak welcome page (``https://keycloak.<your-domain-name>``) and cli
 ![Create User](/img/posts/20180625/add-user.png){: .img-responsive }
 1. Assign User's roles from the **dirigible** client
 1. Set password from the **Credentials** tab
-1. Open the Eclipse Dirigible IDE: ``http://ide.<your-domain-name>/`` and login with the credentials that were created previously in the Keycloak Admin Console.
+1. Open the Eclipse Dirigible IDE: _**http://ide.{{your-domain-name}}/**_ and login with the credentials that were created previously in the Keycloak Admin Console.
 ![Login](/img/posts/20180625/login.png){: .img-responsive }
 
 The Keycloak documentation can be found [here](https://www.keycloak.org/docs/2.5/getting_started/index.html). Also you can find out how to enable Keycloak **Social Login** with GitHub [here](https://www.keycloak.org/docs/2.5/server_admin/topics/identity-broker/social/github.html).
