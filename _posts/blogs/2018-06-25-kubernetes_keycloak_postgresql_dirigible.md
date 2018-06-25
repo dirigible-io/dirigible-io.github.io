@@ -221,7 +221,7 @@ kubectl create -f dirigible.yaml
 Open the Keycloak welcome page (_**https://keycloak.YOUR-DOMAIN-NAME**_) and click on the **Admin Console**, login with _**admin/admin**_ credentials (see _keycloak.yaml_).
 
 1. Create new client named **dirigible**
-1. For the **Root URL** add Root URL: _**http://ide.YOUR-DOMAIN-NAME}**_
+1. For the **Root URL** add Root URL: _**http://ide.YOUR-DOMAIN-NAME**_
 ![Create Keycloak Client](/img/posts/20180625/add-client.png){: .img-responsive }
 1. Add Client Roles:
     - Everyone
