@@ -38,5 +38,6 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 * [Zeus on Kubernetes](tutorial_zeus_on_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minikube cluster and Zeus deployment.
 * [Build a Custom Stack](tutorial_helium_custom_stack.html) - how to combine Dirigible modules with pure Java based ones and how to fine-tune the distribution for production.
+* [Generate Application from Model](tutorial_generate_application_from_model.html) - this tutorial will guide you through the creation of an entity data model and generation of a full-stack Dirigible application, from this model.
 
 
