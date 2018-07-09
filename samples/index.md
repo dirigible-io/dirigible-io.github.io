@@ -30,6 +30,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Message Listener](complex_listener_queue.html) - create a **Listener** definition, which listens for events coming from a message queue and execute a JavaScript handler service
 * [BPMN Process](complex_process_console.html) - create a **BPMN Process** definition, with a simple Service step, which triggers a JavaScript handler service
 * [Bookstore Application](complex_bookstore.html) - create a full-stack application for Books management - database, persistence, web service and user interface.
+* [Embedded Dirigible](complex_embedded.html) - embed Dirigible into an arbitrary Java application with specific requirements for the architecture, infrastructure and lifecycle management e.g. SpringBoot, Jakarta EE, etc.
 
 
 
@@ -37,4 +38,5 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 * [Zeus on Kubernetes](tutorial_zeus_on_kubernetes_minikube.html) -  installation and configuration of a Kubernetes Minikube cluster and Zeus deployment.
 * [Build a Custom Stack](tutorial_helium_custom_stack.html) - how to combine Dirigible modules with pure Java based ones and how to fine-tune the distribution for production.
+
 
