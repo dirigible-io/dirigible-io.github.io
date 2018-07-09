@@ -27,11 +27,11 @@ In this tutorial we will create an entity model of a **car service bookings** an
 ## Brands 
 
 1. _**Drag and drop**_ new entity
-    ![Create Entity](img/samples/tutorials/generate-application-from-model/create-entity.gif){: .img-responsive }
+    ![Create Entity](/img/samples/tutorials/generate-application-from-model/create-entity.gif){: .img-responsive }
 1. Name it _**Brands**_
 1. Rename **entityId** to _**Id**_
 1. _**Drag and drop**_ new property
-    ![Add Property](img/samples/tutorials/generate-application-from-model/add-property.gif){: .img-responsive }
+    ![Add Property](/img/samples/tutorials/generate-application-from-model/add-property.gif){: .img-responsive }
 1. Rename **property2** to _**Name**_
 1. Open the properties of the _**Brands**_ entity
 1. Open the **General** tab
@@ -46,7 +46,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. _**Drag and drop**_ new property
 1. Rename **property2** to _**Name**_
 1. Add new relation between _**Models**_ and _**Brands**_
-    ![Add Relation](img/samples/tutorials/generate-application-from-model/add-relation.gif){: .img-responsive }
+    ![Add Relation](/img/samples/tutorials/generate-application-from-model/add-relation.gif){: .img-responsive }
 1. Rename the relation property in the _**Models**_ entity to _**BrandId**_
 1. Open the relation properties
 1. Set **Name** to _**Brand**_
