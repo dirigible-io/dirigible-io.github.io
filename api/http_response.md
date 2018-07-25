@@ -70,6 +70,7 @@ Function     | Description | Returns
 **getHeaders(name)**   | Returns the array of header values by *name* | *array of string*
 **getHeaderNames()**   | Returns the names of all the headers | *array of string*
 **getLocale()**   | Returns the locale of the response | *string*
+**getOutputStream()**   | Returns the OutputStream of the response | *OutputStream*
 
 
 #### Constants
