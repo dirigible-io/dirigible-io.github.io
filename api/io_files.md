@@ -18,7 +18,7 @@ Version 3.x
 - Alias: **io/files**
 - Definition: [https://github.com/eclipse/dirigible/issues/19](https://github.com/eclipse/dirigible/issues/19)
 - Source: [/io/v3/files.js](https://github.com/dirigiblelabs/api-v3-io/blob/master/io/v3/files.js)
-- Facade: [FilesFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-db/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java)
+- Facade: [FilesFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java)
 - Status: **alpha**
 
 
