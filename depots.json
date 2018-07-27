@@ -1,6 +1,6 @@
 [
   {
     "name":"DirigibleLabs",
-    "depot":"https://github.com/dirigiblelabs/depot/blob/master/plugins.json"
+    "depot":"https://raw.githubusercontent.com/dirigiblelabs/depot/master/plugins.json"
   }
 ]
