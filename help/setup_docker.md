@@ -19,20 +19,17 @@ Steps
       
 1. Pull the already built container from *Docker Hub*.
 
-> docker pull dirigiblelabs/dirigible-trial
+> docker pull dirigiblelabs/dirigible-tomcat:latest
         
 2. Start the container.
 
-> docker run -p 8888:8080 dirigiblelabs/dirigible-trial <&- &
+> docker run -p 8888:8080 dirigiblelabs/dirigible-tomcat:latest <&- &
 
 3. Open a web browser and go to:
 
 > http://localhost:8888/
 
-Tomcat Image
----
-
-The same steps can be performed for the standard Tomcat image *dirigible-tomcat*. The default user name and password are *dirigible/dirigible*.
+The default user name and password are *dirigible/dirigible*.
     
 Contribution
 ---
