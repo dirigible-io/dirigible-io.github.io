@@ -74,7 +74,7 @@ Roles: Operator
 
 > Note: You can inspect that be closing the editor and then use Open With from the popup menu on the same file, but choosing Orion editor option
 
-17. After a while open the Operators perspective and select the Access view
+17. After a while open the Operations perspective and select the Access view
 18. You should be able to identify a line similar like this:
 
 	/cms_permissions/private.access	CMIS		/private		READ		Operator		Aug 17, 2018 3:33:00 PM	guest
