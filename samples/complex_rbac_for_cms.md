@@ -74,15 +74,16 @@ Roles: Operator
 
 > Note: You can inspect that be closing the editor and then use Open With from the popup menu on the same file, but choosing Orion editor option
 
-17. After a while open the Operations perspective and select the Access view
-18. You should be able to identify a line similar like this:
+17. Publish the project manually via the popup menu on the project level (in case the Auto-Publish is disabled)
+18. After a while open the Operations perspective and select the Access view
+19. You should be able to identify a line similar like this:
 
 	/cms_permissions/private.access	CMIS		/private		READ		Operator		Aug 17, 2018 3:33:00 PM	guest
 	
-19. Open the Preview of the file secret:
+20. Open the Preview of the file secret:
 
 	http://localhost:8080/services/v3/js/ide-documents/api/read/document/preview?path=/private/secret.txt
 	
-20. Only the users who has the role Operator should be able to see the content of the file
+21. Only the users who has the role Operator should be able to see the content of the file
 
 
