@@ -47,10 +47,12 @@ This is a public notice accessible by Everyone.
 13. Click New button
 14. Fill the form as follows:
 
-	Path: /private
-	Method: READ
-	Scope: CMIS
-	Roles: Operator
+```
+Path: /private
+Method: READ
+Scope: CMIS
+Roles: Operator
+```
 
 15. Click Save button
 16. The content of the file should look like: 
