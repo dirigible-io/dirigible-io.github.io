@@ -27,9 +27,11 @@ A sample content file with a single project with a single service you can find a
 
 5. Enter with the nickname: **dirigible**
 6. You should have already available project "my_project" in your workspace, with a service "hello.js"
-7. The service is even published already, so you can directly execute it by access the location:
+7. The service is even published already, so you can directly execute it by accessing the location:
 
 	http://localhost:8080/services/v3/js/my_project/hello.js
 	
-> Note: The is the simplest way (from life-cycle management PoV) to run an Eclipse Dirigible application. For the master repository you can use a Zip file (as it is shown above), File System based Repository located by a Path to its root folder or Jar file built into or accessible by the default class loader.
+> Note: This is the simplest way (from the life-cycle management PoV) to run an Eclipse Dirigible application.
+
+For the master repository you can use a Zip file (as it is shown above), File System based Repository located by a Path to its root folder or a Jar file built into or accessible by the default class loader.
 
