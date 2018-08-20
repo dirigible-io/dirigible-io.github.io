@@ -19,6 +19,7 @@ A sample content file with a single project with a single service you can find a
 3. Set the environment variables:
 
 	export DIRIGIBLE_MASTER_REPOSITORY_PROVIDER=zip
+
 	export DIRIGIBLE_MASTER_REPOSITORY_ZIP_LOCATION=/home/dirigible/master_sample/repository-snapshot-20180820034353.zip
 
 4. Run with:
