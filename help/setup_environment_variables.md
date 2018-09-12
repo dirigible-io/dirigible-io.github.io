@@ -18,6 +18,14 @@ Parameter     | Description | Default*
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | *local* or *database*
 
 
+### Registry
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_REGISTRY_SYNCH_ROOT_FOLDER**   | The external folder that will be used for synchronizing the public registry | *-*
+
+
 #### Database Repository
 
 Parameter     | Description | Default*
