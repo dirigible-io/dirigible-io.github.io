@@ -10,6 +10,13 @@ Environment Variables
 
 ## Configuration Parameters
 
+### Anonymous Access
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME**   | The name of the property, that will be used to retrieve the anonymous user name | *e.g. MY_USER_VARIABLE*
+
 ### Repository
 ---
 
