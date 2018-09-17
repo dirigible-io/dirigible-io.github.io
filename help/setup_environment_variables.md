@@ -80,12 +80,15 @@ Parameter     | Description | Default*
 
 #### Database - Custom
 
+> Note: Replace *CUSTOME_NAME* with the actual name set by *DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES* e.g. POSTGRES_DRIVER
+
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **CUSTOM_NAME_DRIVER**   | The *Driver* name of the custom datasource | *e.g. org.postgresql.Driver*
 **CUSTOM_NAME_URL**   | The *URL* of the custom datasource | *e.g. jdbc:postgresql://localhost:5432/<database-name>*
 **CUSTOM_NAME_USERNAME**   | The *User Name* of the custom datasource | *-*
 **CUSTOM_NAME_PASSWORD**   | The *Password* of the custom datasource | *-*
+**CUSTOM_NAME_CONNECTION_PROPERTIES**
 
 #### Database Derby
 
@@ -168,6 +171,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_FLOWABLE_DATABASE_PASSWORD**   | The driver of the Flowable engine | *-*
 **DIRIGIBLE_FLOWABLE_DATABASE_DATASOURCE_NAME**   | The datasource name of the Flowable engine, if any configured | *-*
 **DIRIGIBLE_FLOWABLE_DATABASE_SCHEMA_UPDATE**   | Whether to materialize the database layout or not | default is: *true*
+
+### Messaging
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE**   | Whether to use the DefaultDB datasource or built-in KahaDB | *true* (DefaultDB) or *false* (KahaDB) default is *true*
 
 
 ### Engines
