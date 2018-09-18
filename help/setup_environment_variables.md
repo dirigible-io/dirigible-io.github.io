@@ -88,7 +88,7 @@ Parameter     | Description | Default*
 **CUSTOM_NAME_URL**   | The *URL* of the custom datasource | *e.g. jdbc:postgresql://localhost:5432/<database-name>*
 **CUSTOM_NAME_USERNAME**   | The *User Name* of the custom datasource | *-*
 **CUSTOM_NAME_PASSWORD**   | The *Password* of the custom datasource | *-*
-**CUSTOM_NAME_CONNECTION_PROPERTIES**
+**CUSTOM_NAME_CONNECTION_PROPERTIES** | The additional connection properties if any | *-*
 
 #### Database Derby
 
