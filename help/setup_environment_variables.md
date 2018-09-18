@@ -17,14 +17,6 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME**   | The name of the property, that will be used to retrieve the anonymous user name | *e.g. MY_USER_VARIABLE*
 
-### Repository
----
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | *local* or *database*
-
-
 ### Registry
 ---
 
@@ -32,6 +24,12 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_REGISTRY_SYNCH_ROOT_FOLDER**   | The external folder that will be used for synchronizing the public registry | *-*
 
+### Repository
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | *local* or *database*
 
 #### Database Repository
 
