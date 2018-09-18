@@ -39,6 +39,8 @@ Setup
 * [Tomcat](setup_tomcat.html)
   * [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
   * [Tomcat with MySQL](setup_tomcat_mysql.html)
+  * [Tomcat with Sybase](setup_tomcat_sybase.html)
+  * [Tomcat with HANA](setup_tomcat_hana.html)
 * [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
 * [SAP Cloud Platform](setup_sapcp.html)

@@ -12,6 +12,7 @@ Setup
   * [Setup on Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
   * [Setup on Tomcat with MySQL](setup_tomcat_mysql.html)
   * [Setup on Tomcat with Sybase ASE](setup_tomcat_sybase.html)
+  * [Setup on Tomcat with HANA](setup_tomcat_hana.html)
 * [Setup as a Docker Image](setup_docker.html)
 * [Setup on Kubernetes](setup_kubernetes.html)
 * [Setup on Cloud Foundry](setup_cloudfoundry.html)
