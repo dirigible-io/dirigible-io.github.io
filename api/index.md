@@ -32,15 +32,15 @@ Content Management
 Core
 ---
 
-* [assert](assert.html) 🔸
-* [config](config.html) 🔸
+* [assert](assert.html) 🔸⚠
+* [config](config.html) 🔸⚠
 * [core/configurations](configurations.html) 🔹
 * [core/context](context.html) 🔸🔹
 * [core/env](env.html) 🔸🔹
 * [core/extensions](extensions.html) 🔸🔹
 * [core/globals](globals.html) 🔸🔹
 * [core/java](java.html) 🔹
-* [threads](threads.html) 🔸
+* [threads](threads.html) 🔸⚠
 
 
 Database
@@ -91,8 +91,8 @@ Log
 Net
 ---
 
-* [soap](soap.html) 🔸
-* [websocket](websocket.html) 🔸
+* [soap](soap.html) 🔸⚠
+* [websocket](websocket.html) 🔸⚠
 
 
 Messaging
@@ -105,10 +105,10 @@ Messaging
 Platform
 ---
 
-* [exec](exec.html) 🔸
-* [generator](generator.html) 🔸
-* [lifecycle](lifecycle.html) 🔸
-* [repository](repository.html) 🔸
+* [exec](exec.html) 🔸⚠
+* [generator](generator.html) 🔸⚠
+* [lifecycle](lifecycle.html) 🔸⚠
+* [repository](repository.html) 🔸⚠
 * [workspaces](workspaces.html) 🔸⚠
 
 
@@ -132,7 +132,7 @@ Utils
 
 * [utils/base64](utils_base64.html) 🔸🔹
 * [utils/digest](utils_digest.html) 🔸🔹
-* [utils/error](utils_error.html) 🔸
+* [utils/error](utils_error.html) 🔸⚠
 * [utils/escape](utils_error.html) 🔸🔹
 * [utils/hex](utils_hex.html) 🔸🔹
 * [utils/url](utils_url.html) 🔹
