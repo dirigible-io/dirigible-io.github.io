@@ -17,6 +17,16 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME**   | The name of the property, that will be used to retrieve the anonymous user name | *e.g. MY_USER_VARIABLE*
 
+### Branding
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_BRANDING_NAME**   | The brand name | default is *'Eclipse Dirigible'*
+**DIRIGIBLE_BRANDING_BRAND**   | The branding name | default is *'Eclipse Dirigible'*
+**DIRIGIBLE_BRANDING_ICON**   | The branding icon | default is *'../../../../services/v3/web/resources/images/favicon.png'*
+**DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT**   | The branding welcome page | default is *'../../../../services/v3/web/ide/welcome.html'*
+
 ### Registry
 ---
 
