@@ -55,8 +55,12 @@ echo variable1=$variable1
 6. Publish the project
 8. Select the *.command file in the Workspace explorer and inspect the result in the Preview:
 
-	Darwin XXXXXXXXXXXXX 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
-	variable1=value1
+```
+
+    Darwin XXXXXXXXXXXXX 17.7.0 Darwin Kernel Version 17.7.0: Thu Jun 21 22:53:14 PDT 2018; root:xnu-4570.71.2~1/RELEASE_X86_64 x86_64
+    variable1=value1
+
+```
 
 > Note: The working folder is set to the registry/public space under the file-based Repository.
 
