@@ -31,11 +31,12 @@ Set the Environment Variables
 	export HANA_URL=jdbc:sap://<host>:<port>
 	export HANA_USERNAME=<user>
 	export HANA_PASSWORD=<password>
-	export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=false
 	export DIRIGIBLE_SCHEDULER_DATABASE_DRIVER=com.sap.db.jdbc.Driver
 	export DIRIGIBLE_SCHEDULER_DATABASE_URL=jdbc:sap://<host>:<port>
 	export DIRIGIBLE_SCHEDULER_DATABASE_USER=<user>
 	export DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD=<password>
+	export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=false
+	export DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE=false
 	
 
 Deploy
