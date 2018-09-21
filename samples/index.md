@@ -32,7 +32,8 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Bookstore Application](complex_bookstore.html) - create a full-stack application for Books management - database, persistence, web service and user interface.
 * [Embedded Dirigible](complex_embedded.html) - embed Dirigible into an arbitrary Java application with specific requirements for the architecture, infrastructure and lifecycle management e.g. SpringBoot, Jakarta EE, etc.
 * [RBAC for CMS](complex_rbac_for_cms.html) - how to enable the Role Based Access Management for the Content Management System
-* [Master repository](complex_master_repository.html) - how to run an application from a Zip file
+* [Master Repository](complex_master_repository.html) - how to run an application from a Zip file
+* [Shell Command](complex_shell_command.html) - how to execute and arbitrary shell command
 
 
 

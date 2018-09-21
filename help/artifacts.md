@@ -18,17 +18,18 @@ icon: fa-code
   - [*.delete](https://github.com/eclipse/dirigible/tree/master/modules/database-data-structures) - a data file containing list of records to be deleted from the corresponding database table. For deleting all of the records use '*' symbol.
   - [*.update](https://github.com/eclipse/dirigible/tree/master/modules/database-data-structures) - a data file containing list of records to be imported with 'update' mode to the corresponding database table.
 - Security
-  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core-security/src/test/resources/access/test.access).
-  - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core-security) - roles definition file. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core-security/src/test/resources/access/test.roles).
+  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.access).
+  - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - roles definition file. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.roles).
 - Flows
-  - [*.listener](https://github.com/eclipse/dirigible/tree/master/modules/engine-listener) - listener definition describing the link between the message queue or topic and the corresponding handler. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engine-listener/src/test/resources/control/control.listener).
-  - [*.job](https://github.com/eclipse/dirigible/tree/master/modules/engine-job) - job definition describing the period in which the scheduled handler will be executed. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engine-job/src/test/resources/control/control.job).
+  - [*.listener](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener) - listener definition describing the link between the message queue or topic and the corresponding handler. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/control/control.listener).
+  - [*.job](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job) - job definition describing the period in which the scheduled handler will be executed. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/control/control.job).
 - Scripting
-  - [*.js](https://github.com/eclipse/dirigible/tree/master/modules/engine-js) - a Javascript file supposed to be executed either server side by the supported engine (Rhino, Nashorn or V8) or at the client side by the browser's built-in engine.
-  - [*.rhino](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-rhino) - a Javascript file supposed to be executed specifically by the Mozilla Rhino engine.
-  - [*.nashorn](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-nashorn) - a Javascript file supposed to be executed specifically by the Java Nashorn engine.
-  - [*.v8](https://github.com/eclipse/dirigible/tree/master/modules/engine-js-v8) - a Javascript file supposed to be executed specifically by the Chrome V8 engine.
-  - [*.md](https://github.com/eclipse/dirigible/tree/master/modules/engine-wiki) - a Markdown Wiki file.
+  - [*.js](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-js) - a Javascript file supposed to be executed either server side by the supported engine (Rhino, Nashorn or V8) or at the client side by the browser's built-in engine.
+  - [*.rhino](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-js-rhino) - a Javascript file supposed to be executed specifically by the Mozilla Rhino engine.
+  - [*.nashorn](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-js-nashorn) - a Javascript file supposed to be executed specifically by the Java Nashorn engine.
+  - [*.v8](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-js-v8) - a Javascript file supposed to be executed specifically by the Chrome V8 engine.
+  - [*.md](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki) - a Markdown Wiki file.
+  - [*.command](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-command) - a Shell Command service
 - Modeling
   - *.dsm - an internal XML based format file containing a database schema model diagram.
   - *.schema - a JSON descriptor for a database schema layout produced by the Database Schema Modeler 

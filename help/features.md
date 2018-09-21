@@ -35,6 +35,7 @@ Features
 * Support of Listeners for messages from the built-in message bus (**\*.listener**)
 * Support of scheduled Jobs as triggers for backend services invokation (**\*.job**)
 * Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
+* Support of Shell Commands execution (**\*.command**)
 	
 ### Mobile Applications
 
