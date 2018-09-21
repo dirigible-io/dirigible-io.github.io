@@ -60,6 +60,8 @@ echo variable1=$variable1
 
 > Note: The working folder is set to the registry/public space under the file-based Repository.
 
+You can execute an arbitrary command e.g. even Node, Python, Julia, etc., by using the dirigible projects' content published and available under the registry space. For this case the given framework has to be setup in advance and the entry point executable to be added to the PATH environment variable. The standard output is redirected to the service response.
+
 ---
 
 For more information, see the *[API](../api/)* documentation.
