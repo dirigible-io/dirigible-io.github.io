@@ -65,13 +65,13 @@ navigation:
     url: indexing_writer.html
   - name: io/files 🔸🔹
     icon: fa fa-caret-right
-    url: files.html
+    url: io_files.html
   - name: io/streams 🔸🔹
     icon: fa fa-caret-right
-    url: streams.html
+    url: io_streams.html
   - name: io/zip 🔸🔹
     icon: fa fa-caret-right
-    url: zip.html
+    url: io_zip.html
   - name: log/logging 🔸
     icon: fa fa-caret-right
     url: log_logging.html
