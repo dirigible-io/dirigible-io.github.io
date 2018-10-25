@@ -28,12 +28,10 @@ var response = require('http/v3/response');
 
 var connection = database.getConnection();
 try {
-    var statement = connection.prepareStatement("select * from MY_TABLE where MY_PATH like ?");
-    var i = 0;
-    statement.setString(++i, "%");
+    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
     var resultSet = statement.executeQuery();
     while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("MY_PATH"));
+        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
     }
     resultSet.close();
     statement.close();
