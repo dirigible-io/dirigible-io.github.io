@@ -102,13 +102,13 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_DATABASE_DERBY_DEFAULT_ROOT_FOLDER**   | The location used by Derby database | default is *./target/dirigible/derby*
+**DIRIGIBLE_DATABASE_DERBY_ROOT_FOLDER_DEFAULT**   | The location used by Derby database | default is *./target/dirigible/derby*
 
 #### Database H2
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_DATABASE_H2_DEFAULT_ROOT_FOLDER**   | The location used by H2 database | default is: *./target/dirigible/h2*
+**DIRIGIBLE_DATABASE_H2_ROOT_FOLDER_DEFAULT**   | The location used by H2 database | default is: *./target/dirigible/h2*
 **DIRIGIBLE_DATABASE_H2_DRIVER**   | The Driver used by H2 database | default is: *org.h2.Driver*
 **DIRIGIBLE_DATABASE_H2_URL**   | The URL used by H2 database | default is *jdbc:h2:./target/dirigible/h2*
 **DIRIGIBLE_DATABASE_H2_USERNAME**   | The Username used by H2 database | default is *sa*
