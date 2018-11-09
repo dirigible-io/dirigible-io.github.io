@@ -84,7 +84,7 @@ With 200+ Maven artifacts, it's obvious that some modules can be reused even in 
 
 ### Database - ORM:
 
-Dirigible's ORM is compatible with the ``Java Persistence API``:
+Dirigible's ORM is compatible with the _**Java Persistence API**_:
 
 1. Entity
 
