@@ -1,5 +1,5 @@
 ---
-title: Dirigible - Extend, Embed Reuse
+title: Dirigible - Extend, Embed, Reuse
 author: yordan.pavlov
 ---
 
