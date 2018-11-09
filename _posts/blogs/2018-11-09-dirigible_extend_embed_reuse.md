@@ -3,9 +3,9 @@ title: Dirigible - Extend, Embed and Reuse
 author: yordan.pavlov
 ---
 
-The latest major upgrade of Dirigible to 3.x open doors for scenarios like building custom stacks, standardized appplication CI, embedded Dirigible and many more ...
+The latest major upgrade of Dirigible to 3.x opens the door for scenarios like building custom stacks, standardized application CI, embedded Dirigible and many more ...
 
-# Dirigible - Extend, Embed and Reuse
+# Dirigible - Extend, Embed, and Reuse
 
 ## Overview
 
@@ -151,7 +151,7 @@ Dirigible's ORM is compatible with the _**Java Persistence API**_:
 
 ![Embedded-Dirigible](/img/posts/20181109/Embedded-Dirigible.png){: .img-responsive }
 
-The last option is the hybrid/embedded deployment, where a legacy application is running in coexistence with part of the Dirigible stack. The setup targets the scenarios where there is a lot of legacy (Java) code, but the _**low code/no code**_ and _**In-System Development**_ capabilities of Dirigible are desired. 
+The last option is the hybrid/embedded deployment, where a legacy application is running in coexistence with part of the Dirigible stack. The setup targets the scenarios where there is a lot of legacy (Java) code, but the _**low-code/no-code**_ and _**In-System Development**_ capabilities of Dirigible are desired. 
 
 ```java
 ...
@@ -165,11 +165,12 @@ public void callDirigible() {
 }
 ...
 ```
+
 For more details about this setup, check out the embedded Dirigible [sample](https://github.com/eclipse/dirigible/tree/master/releng/embedded-all).
 
 # Resources
 
-Experiment with the **single click deployment** of the following demos from **EclipseCon 2018**:
+Experiment with the **single-click deployment** of the following demos from **EclipseCon 2018**:
 
 1. [![Run on Dirigible](https://img.shields.io/badge/Run%20on%20Dirigible-Bookshop-blue.svg)](http://dirigible.eclipse.org/services/v3/web/ide-deploy-manager/index.html?repository=https://github.com/dirigiblelabs/demo-eclipsecon2018-edm.git&uri=/services/v3/web/bookshop-admin/) ([GitHub](https://github.com/dirigiblelabs/demo-eclipsecon2018-edm))
 
