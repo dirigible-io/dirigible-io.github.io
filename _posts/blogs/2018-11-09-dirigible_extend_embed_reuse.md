@@ -1,11 +1,11 @@
 ---
-title: Dirigible - Extend, Embed and Reuse
+title: Dirigible - Extend, Embed, Reuse
 author: yordan.pavlov
 ---
 
 The latest major upgrade of Dirigible to 3.x opens the door for scenarios like building custom stacks, standardized application CI, embedded Dirigible and many more ...
 
-# Dirigible - Extend, Embed, and Reuse
+# Dirigible - Extend, Embed, Reuse
 
 ## Overview
 
