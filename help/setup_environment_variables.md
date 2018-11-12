@@ -27,6 +27,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_ICON**   | The branding icon | default is *'../../../../services/v3/web/resources/images/favicon.png'*
 **DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT**   | The branding welcome page | default is *'../../../../services/v3/web/ide/welcome.html'*
 
+### Git
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_GIT_ROOT_FOLDER**   | The external folder that will be used for synchronizing git projects | *-*
+
 ### Registry
 ---
 
