@@ -1,5 +1,5 @@
 ---
-title: Dirigible Landed in Faculty of Mathematics and Informatics
+title: Dirigible Landed in the Faculty of Mathematics and Informatics
 author: adriana.daskalova
 ---
 
