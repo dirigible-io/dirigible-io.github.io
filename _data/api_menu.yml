@@ -126,6 +126,9 @@ navigation:
   - name: platform/workspaces 🔸
     icon: fa fa-caret-right
     url: workspaces.html
+  - name: repository/manager 🔹
+    icon: fa fa-caret-right
+    url: repository_manager.html
   - name: security/user 🔹
     icon: fa fa-caret-right
     url: security_user.html
@@ -171,4 +174,7 @@ navigation:
   - name: #
     icon: fa fa-caret-right
     url: index.html
+  - name: workspace/manager 🔹
+    icon: fa fa-caret-right
+    url: workspace_manager.html
     
