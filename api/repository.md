@@ -12,7 +12,7 @@ Repository module is used for accessing the development artifacts directly from 
 Version 3.x
 ---
 
-None yet.
+Moved to [Repository Manager](repository_manager.html)
 
 ---
 
