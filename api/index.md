@@ -111,6 +111,10 @@ Platform
 * [repository](repository.html) 🔸⚠
 * [workspaces](workspaces.html) 🔸⚠
 
+Repository
+---
+
+* [repository/manager](repository_manager.html) 🔹
 
 Security
 ---
