@@ -7,50 +7,50 @@ Node.js in Dirigible? Are you kidding?
 
 ### Why do I need Node.js, when I already have Enterprise JavaScript?
 
-Well, it was a few years ago when we defined what the Enterprise JavaScript is. We described it as a set of stable API facades in the JavaScript language, which can be used by the business application developers to reliably code against them. For simplicity, we chose the synchronous model with blocking API, handled in a multi-threaded environment to lower the entry barrier for our target group of developers. More details can be found in [Why Enterprise JavaScript?](http://www.dirigible.io/blogs/2016/08/01/blogs_why_enterprise_js.html) and also in [Understanding Dirigible](http://www.dirigible.io/blogs/2016/02/26/blogs_understanding_dirigible.html) blog posts.
+Well, it was a few years ago when we defined what Enterprise JavaScript is. We described it as a set of stable API facades in the JavaScript language, which can be used by business application developers to reliably code against these API facades. For simplicity, we chose the synchronous model with blocking API, handled in a multi-threaded environment to lower the entry barrier for our target group of developers. More details can be found in the [Why Enterprise JavaScript?](http://www.dirigible.io/blogs/2016/08/01/blogs_why_enterprise_js.html) and [Understanding Dirigible](http://www.dirigible.io/blogs/2016/02/26/blogs_understanding_dirigible.html) blog posts.
 
-Having these reasons in mind, we set a border line between how we understand the usage of the JavaScript language and how Node.js guys have implemented it. We are targeting different scenarios, that is why we have never striven for a compatibility with it. This is still true, for the main scenarios we target.
+Having these reasons in mind, we set a border line between how we understand the usage of the JavaScript language and how the Node.js guys have implemented it. We are targeting different scenarios, that is why we have never striven to be compatible with it. This is still true for the main scenarios that we target.
 
-What about the "Function as a Service" scenarios? No doubt, there are cases and type of functionality, which are simple (e.g. single action), short-living (fast execution), rarely triggered, state-less, context-less, and atomic enough (no external dependencies), that can be run as "functions" only. This can significantly reduce the required computation power for the execution in scale i.e. to reduce the cost.
+What about the "Function as a Service" scenarios? No doubt, there are cases and types of functionalities, which are simple (e.g. single action), short-living (quickly executable), rarely triggered, stateless, contextless, and atomic enough (without external dependencies), that can be run as "functions" only. This can reduce the required computation power for the execution in scale. Hence, this can significantly reduce the cost.
 
-The current Java based runtime of Dirigible is not quite suitable for such cases. It has longer bootstrap time, as well as bigger memory footprint for the initialization in comparison to more lightweight frameworks like Node.js and Go. Hence, the natural path forward is to introduce Node.js and Go support to be able to off-load the main state-full business application instances by moving the state-less modules out as "functions". This can be beneficial in a well managed, highly distributed environment such as Kubernetes clusters, otherwise we recommend the standard built-in message-driven approach as well as BPM capabilities of Dirigible.
+The current Java-based runtime of Dirigible is not quite suitable for such cases. It has a longer bootstrap time, as well as a bigger memory footprint for the initialization in comparison with more lightweight frameworks like Node.js and Go. Hence, the natural path forward is to introduce Node.js and Go support to be able to offload the main stateful business application instances by moving the stateless modules out as "functions". This can be beneficial in a well-managed, highly distributed environment such as Kubernetes clusters. Otherwise, we recommend the standard built-in message-driven approach as well as the BPM capabilities of Dirigible.
 
 ### Command Engine
 
-Recently, we introduced a feature, which allow the developer to write a module in any native language supported by the underlying operation system and execute it as a regular service. We pipe the input and output streams and provide the result of the execution as a response to the HTTP call. The main purpose of this functionality is the developer to be able to implement complementary extensions for its business applications by using arbitrary integration channels not supported by the core Dirigible runtime out-of-the-box. The simplest example is just to run a shell script.
+Recently, we introduced a feature that allows the developer to write modules in any native language, which is supported by the underlying operation system. Then such modules can be executed as regular Dirigible services. We pipe the input and output streams and provide the result of the execution as a response to the HTTP call. The main purpose of this functionality is to allow developers to implement complementary extensions for their business applications via arbitrary integration channels not supported by the Dirigible core runtime out of the box. The simplest example is just to run a shell script.
 
 There are three noteworthy features of the Command Engine:
-1. You can have different command line arguments per target OS e.g. linux, mac, windows
-2. You can define a set of environment variables to be set before the execution and those which have to be cleared, if any
-3. The target directory of the execution is set as the root directory of the Registry space of the Dirigible's Repository (in case of File-System Repository)
+1. You can use different command line arguments depending on the target OS e.g. **linux**, **mac**, **windows**
+2. You can set environment variables before the execution and also define the ones to be cleared
+3. The target directory of the execution is set as the root directory of the Registry space of the Dirigible Repository (in case of File-System Repository)
 
 ### How to execute my Node.js code?
 
 #### Prerequisites
 
-Let assume that you already have Node.js installed on the machine or container, where the Dirigible instance is running. To test that go to the Terminal perspective and write:
+Let's assume that you already have Node.js installed on your machine or container where the Dirigible instance is running. To test that, open the Terminal perspective and type:
 
 > node -v
 
-In case the command is unknown, select the proper way to install Node.js depending on your operating system - [package-manager](https://nodejs.org/en/download/package-manager/)
+If the command is unknown, install Node.js depending on your operating system - [package-manager](https://nodejs.org/en/download/package-manager/)
 
 ---
 
 #### Hello World Example
 
-1. Go to Workspace perspective
+1. Navigate to the Workspace perspective
 2. Create a new project called **hello_node**.
 3. Create a new file named **hello.js**.
-4. Open the file in the editor and write the following line:
+4. Open the file in the editor and type the following line:
 
 > console.log('Hello from Node!');
 
-5. Save the file (auto publish on save is set by default).
+5. Save the file (auto-publish on save is set by default).
 
-> Note: If you have noticed the "Hello from Node!" message in the Console view, it is still executed by the built-in JavaScript engine - be patient.
+> Note: If you have noticed the "Hello from Node!" message in the Console view, it is still executed by the built-in JavaScript engine - stay calm.
 
 6. Create a new file named **run.command**
-7. Open the file in the editor and write the following lines:
+7. Open the file in the editor and insert the following lines:
 
 ```javascript
 {
@@ -73,7 +73,7 @@ In case the command is unknown, select the proper way to install Node.js dependi
 }
 ```
 
-8. Save the file, select it in the Workspace view and look into the Preview window to see the result of the execution.
+8. Save the file, select it in the Workspace view, and check the result of the execution in the Preview window.
 
 ![Node Command](/img/posts/20181124/node_command.png){: .img-responsive }
 
@@ -83,8 +83,8 @@ In case the command is unknown, select the proper way to install Node.js dependi
 
 The simplest scenario with a single script file works well, what about multiple files with cross references?
 
-1. Create a new project names **complex_node**
-2. Create a file, which will play a role of a library module - **node_lib.js**
+1. Create a new project called **complex_node**
+2. Create a file that will play the role of the library module **node_lib.js**
 3. Enter the following lines:
 
 ```javascript
@@ -93,7 +93,7 @@ exports.sum = function(a, b) {
 }
 ```
 
-4. Create a new file, which will play a role of the service module - **node_service.js**
+4. Create a new file that will play the role of the service module **node_service.js**
 5. Enter the following lines:
 
 ```javascript
@@ -125,7 +125,7 @@ console.log("The Sum is: " + sum);
 }
 ```
 
-7. Select the the file in the Workspace Explorer and see the result of the execution in the Preview window:
+7. Select the file in the Workspace Explorer and see the result of the execution in the Preview window:
 
 > The Sum is: 5
 
@@ -135,7 +135,7 @@ console.log("The Sum is: " + sum);
 
 #### Node.js is cool, but it is still JavaScript. What about Go?
 
-Well, let try a simple **Go** program following the same approach. If you do not have Go installed on your machine or container just follow these [instructions](https://golang.org/doc/install)
+Well, let's try a simple **Go** program following the same approach. If you do not have Go installed on your machine or container, just follow these [instructions](https://golang.org/doc/install).
 
 1. Create a project called **hello_go**
 2. Create a file with name **hello.go** with the following content:
@@ -171,7 +171,7 @@ func main() {
 }
 ```
 
-4. Now, after publish and selecting the run.command file in the Workspace Explorer you should see the following result in the Preview window:
+4. After you publish and select the **run.command** file in the Workspace Explorer, you should see the following result in the Preview window:
 
 > hello world
 
@@ -181,7 +181,7 @@ func main() {
 
 #### That was nice! Can I run Java maybe?
 
-Let assume that by some reason you would like to write a "function" module in Java programming language (e.g. with the newest GraalVM). In this case we will need a preliminary step, which have to compile the Java class before the execution.
+Let's assume that for some reason you would like to write a "function" module in the Java programming language (e.g. with the newest GraalVM). In this case we will need a preliminary step to compile the Java class before the execution.
 
 1. Create a project named **hello_java**
 2. Create a file named **Hello.java** with the following content:
@@ -198,7 +198,7 @@ public class Hello {
 }
 ```
 
-3. Create a shell command script **run.sh**, which will first compile and then execute the class:
+3. Create a shell command script **run.sh** to first compile and then execute the class:
 
 ```
 javac ./hello_java/Hello.java
@@ -236,17 +236,17 @@ java hello_java.Hello
 
 #### What's next?
 
-We have to admit that the introduction of the Command engine is just the first step in the direction of the native multi-language support in Dirigible.
+We have to admit that the introduction of the new Command engine is just the first step in the direction of the native multi-language support in Dirigible.
 
-There is still lots of work in adaptation of Language Server Protocol extensions for the different languages. Fortunately, there are already very good examples available on how to do this at the backend like Eclipse standalone IDE and in the editors - Monaco and Orion. But still it is not a trivial task.
+There is still a lot to be done to adapt the Language Server Protocol extensions for the different languages. Fortunately, there are already very good examples available on how to do this at the backend like Eclipse standalone IDE, and in the editors - Monaco and Orion. But still, this is not a trivial task and it will take some time to implement in Dirigible.
 
-Another idea is to have a pool of running native servers, e.g Express nodes, to push the code and to use them as external executors. In this case we can pipe not the standard in/out streams, but the network Socket streams. This approach can open many more scenarios as well.
+Another idea is to have a pool of running native servers, e.g Express nodes, to push the code to and to use them as external executors. In this case, we can pipe the network Socket streams instead of the standard in/out streams. This approach can lay the foundation for many more scenarios as well.
 
-Integration with the actual "Function as a Service" offerings by the Cloud platforms is also something that is ahead of time. For instance, a tooling for building Docker images based on these native modules and publish them to a target Registry in the Cloud platform, would be very useful feature of the Dirigible's Web IDE.
+Integration with the actual "Function as a Service" offerings by the Cloud platforms is also something that is yet to come. For instance, a tool for building Docker images based on these native modules and Cloud platform Registry integration would be a very useful feature of the Dirigible Web IDE.
 
 #### Summary?
 
-Well, for those who read blog posts too fast, above was explained how to write native modules in **Node.js**, **Go** and **Java** and use them as integrated services in Dirigible environment.
+Well, for those of you who have read the blog post too fast, it explains how to write native modules in **Node.js**, **Go**, and **Java** and use them as integrated services in Dirigible environment.
 
 ### Enjoy!
 
