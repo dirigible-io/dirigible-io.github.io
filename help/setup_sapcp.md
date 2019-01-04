@@ -45,3 +45,5 @@ Using the SAP Cloud Platform Cockpit
  4. Click on **Deploy Applications**. Find the All-In-One WAR file for SAP Cloud Platform and deploy it.
  5. Click on the name of your application. Go to **Security** and to the **Roles** section.
  6. Add the *Developer* and *Operator* roles to your user account to get full access to all features. To do that, select the role, choose **Assign**, and type your User ID.
+ 7. Create a user in your associated database i.e. HANA DB, then go to Data Source Bindings and create the default connection.
+ 8. (re)-start the application to activate these changes.
