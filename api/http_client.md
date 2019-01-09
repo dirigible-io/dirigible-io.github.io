@@ -99,6 +99,7 @@ Property     | Description | Type
 **files**     | The body of the HTTP Request as files (for POST) | *array of strings*
 **params**   | The body of the HTTP Request as form parameters | *array of HttpParam*
 **binary**     | Whether the body of the HTTP Request is binary | *boolean*
+**characterEncodingEnabled** | The character encoding enabled parameter. Default is true | *boolean*
 **characterEncoding**   | The character encoding parameter. Default is UTF-8 | *string*
 **contentType**   | The content type parameter. Default is *plain/text* | *string*
 **headers**   | The Response headers | *array of HttpHeader*
