@@ -12,7 +12,88 @@ Threads utility is used to implement multi-threading algorithms - creating and s
 Version 3.x
 ---
 
-None yet.
+- Module: **core/v3/threads**
+- Alias: **core/threads**
+- Definition: [https://github.com/eclipse/dirigible/issues/389](https://github.com/eclipse/dirigible/issues/389)
+- Source: [/core/v3/threads.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/threads.js)
+- Facade: none
+- Status: **beta**
+
+
+### Basic Usage
+
+```javascript
+var database = require('db/v3/database');
+var response = require('http/v3/response');
+
+var connection = database.getConnection();
+try {
+    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
+    var resultSet = statement.executeQuery();
+    while (resultSet.next()) {
+        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
+    }
+    resultSet.close();
+    statement.close();
+} catch(e) {
+    console.trace(e);
+    response.println(e.message);
+} finally {
+    connection.close();
+}
+
+response.flush();
+response.close();
+```
+
+
+### Definition
+
+### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**create(runnable, name)**   | Creates a new thread by a callback function and a name | *Thread*
+**sleep(millis)**    | Suspends the execution of the current thread | -
+**current()**  | Returns the current thread | *Thread*
+**sync(f)**  | Synchronize a function of an object | synchronized function
+
+
+### Objects
+
+---
+
+#### Thread
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**start()**   | Starts the thread | -
+**interrupt()**   | Interrupts the execution of a thread | -
+**join()**   | Waits this thread to die | -
+**getId()**  | Returns the ID of the thread | *long*
+**getName()**  | Returns the Name of the thread | *string*
+**isAlive()**  | Returns true if the thread is still alive | *boolean*
+
+
+#### Object
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**wait(millis)**   | Waits a given period of time until continuing the execution of the current thread or until another thread call notify of this object | -
+**notify()**   | Wakes up a single thread waiting for this object | -
+**notifyAll()**   | Wakes up all the threads waiting for this object | -
+
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ❌  | ❌
 
 ---
 
@@ -25,8 +106,7 @@ Version 2.x
 - Source: [/core/threads.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/core/threads.js)
 - Status: **beta**
 
-Basic Usage
----
+### Basic Usage
 
 ```javascript
 /* globals $ */
@@ -52,8 +132,7 @@ response.flush();
 response.close();
 ```
 
-Definition
----
+### Definition
 
 ### Functions
 
