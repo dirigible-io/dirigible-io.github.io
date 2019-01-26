@@ -33,10 +33,10 @@ navigation:
   - name: core/globals 🔸🔹
     icon: fa fa-caret-right
     url: globals.html
-  - name: java 🔹
+  - name: core/java 🔹
     icon: fa fa-caret-right
     url: java.html
-  - name: core/threads 🔸
+  - name: core/threads 🔸🔹
     icon: fa fa-caret-right
     url: threads.html
   - name: db/database 🔸🔹
@@ -75,10 +75,10 @@ navigation:
   - name: log/logging 🔸
     icon: fa fa-caret-right
     url: log_logging.html
-  - name: net/soap 🔸
+  - name: net/soap 🔸🔹
     icon: fa fa-caret-right
     url: soap.html
-  - name: net/websocket 🔸
+  - name: net/websocket 🔸🔹
     icon: fa fa-caret-right
     url: websocket.html
   - name: http/client 🔸🔹
@@ -171,10 +171,11 @@ navigation:
   - name: utils/xss 🔸⚠
     icon: fa fa-caret-right
     url: utils_xss.html
-  - name: #
-    icon: fa fa-caret-right
-    url: index.html
   - name: workspace/manager 🔹
     icon: fa fa-caret-right
     url: workspace_manager.html
+  - name: #
+    icon: fa fa-caret-right
+    url: index.html
+
     
