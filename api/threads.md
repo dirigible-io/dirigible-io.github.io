@@ -23,24 +23,21 @@ Version 3.x
 ### Basic Usage
 
 ```javascript
-var database = require('db/v3/database');
+var threads = require('core/v3/threads');
 var response = require('http/v3/response');
 
-var connection = database.getConnection();
-try {
-    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
-    var resultSet = statement.executeQuery();
-    while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
-    }
-    resultSet.close();
-    statement.close();
-} catch(e) {
-    console.trace(e);
-    response.println(e.message);
-} finally {
-    connection.close();
-}
+response.setContentType("text/plain; charset=UTF-8");
+
+// Define a JavaScript function
+function runnable() {
+	response.println("Hello World from a Thread!");
+};
+
+// Pass a JavaScript function
+var worker = threads.create(runnable, "I am a thread");
+response.println(worker.getName());
+worker.start();
+worker.join(); // to be able to print to the response
 
 response.flush();
 response.close();
