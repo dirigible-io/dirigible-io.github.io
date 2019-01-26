@@ -40,7 +40,7 @@ Core
 * [core/extensions](extensions.html) 🔸🔹
 * [core/globals](globals.html) 🔸🔹
 * [core/java](java.html) 🔹
-* [threads](threads.html) 🔸⚠
+* [core/threads](threads.html) 🔸🔹
 
 
 Database
@@ -91,8 +91,8 @@ Log
 Net
 ---
 
-* [soap](soap.html) 🔸⚠
-* [websocket](websocket.html) 🔸⚠
+* [net/soap](soap.html) 🔸🔹
+* [net/websocket](websocket.html) 🔸🔹
 
 
 Messaging
