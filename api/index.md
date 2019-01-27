@@ -65,7 +65,7 @@ HTTP
 ---
 
 * [http/client](http_client.html) 🔸🔹
-* [http/clientAsync](http_client_async.html) 🔸🔹
+* [http/clientAsync](http_client_async.html) 🔹
 * [http/request](http_request.html) 🔸🔹
 * [http/response](http_response.html) 🔸🔹
 * [http/session](http_session.html) 🔸🔹
