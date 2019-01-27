@@ -84,6 +84,9 @@ navigation:
   - name: http/client 🔸🔹
     icon: fa fa-caret-right
     url: http_client.html
+  - name: http/clientAsync 🔹
+    icon: fa fa-caret-right
+    url: http_client_async.html
   - name: http/request 🔸🔹
     icon: fa fa-caret-right
     url: http_request.html
