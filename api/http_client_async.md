@@ -41,8 +41,8 @@ var northWindEntities = JSON.parse(northWindResponse.text);
 for (var i = 0; i < northWindEntities.value.length; i ++) {
 	clientAsync.getAsync(api + northWindEntities.value[i].url, {
 		success: function(response) {
-			var data = JSON.parse(response.data);
-			console.error(data["@odata.context"] + " : " + data.value.length);
+			var entity = JSON.parse(response.text);
+			console.error(entity["@odata.context"] + " : " + entity.value.length);
 		}
 	});
 }
