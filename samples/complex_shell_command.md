@@ -15,8 +15,6 @@ group: complex
 2. Then create a file named **my_command.sh**
 3. Replace the code with the following content:
 
-#### Log Levels
-
 ```
 
 uname -an
