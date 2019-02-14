@@ -39,10 +39,10 @@ Using the Console Client
 Using the SAP Cloud Platform Cockpit
 ---
 
- 1. Download the latest All-In-One WAR file for SAP Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/)
+ 1. Download the latest "SAP All" WAR file for SAP Cloud Platform from [http://download.eclipse.org/dirigible/](http://download.eclipse.org/dirigible/)
  2. Go to https://account.hanatrial.ondemand.com/cockpit and sign in to your account.
  3. Go to **Applications** and then to **Java Applications**.
- 4. Click on **Deploy Applications**. Find the All-In-One WAR file for SAP Cloud Platform and deploy it.
+ 4. Click on **Deploy Applications**. Find the "SAP All" WAR file for SAP Cloud Platform and deploy it.
  5. Click on the name of your application. Go to **Security** and to the **Roles** section.
  6. Add the *Developer* and *Operator* roles to your user account to get full access to all features. To do that, select the role, choose **Assign**, and type your User ID.
  7. Create a user in your associated database i.e. HANA DB, then go to Data Source Bindings and create the default connection.
