@@ -1,11 +1,11 @@
 ---
-title: Eclipse Dirigible
+title: Eclipse Dirigible - Getting Started
 author: yordan.pavlov
 ---
 
 This article was republished from [Eclipse Newsletter](https://www.eclipse.org/community/eclipse_newsletter/2018/february/dirigible.php), February 2018
 
-# Eclipse Dirigible
+# Eclipse Dirigible - Getting Started
 
 ## Overview
 
