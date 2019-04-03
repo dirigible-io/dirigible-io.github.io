@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **io/streams**
 - Definition: [https://github.com/eclipse/dirigible/issues/51](https://github.com/eclipse/dirigible/issues/51)
 - Source: [/io/v3/streams.js](https://github.com/dirigiblelabs/api-v3-io/blob/master/io/v3/streams.js)
-- Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-cms/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
+- Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
 - Status: **alpha**
 
 
