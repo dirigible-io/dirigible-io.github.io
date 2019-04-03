@@ -12,7 +12,7 @@ Config object is used to store and manage properties in the Configuration Store.
 Version 3.x
 ---
 
-None yet.
+[core/configurations](http://www.dirigible.io/api/configurations.html).
 
 ---
 
