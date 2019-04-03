@@ -16,7 +16,7 @@ Version 3.x
 - Alias: **http/upload**
 - Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
 - Source: [/http/v3/upload.js](https://github.com/dirigiblelabs/api-v3-http/blob/master/http/v3/upload.js)
-- Facade: [HttpUploadFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facades/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java)
+- Facade: [HttpUploadFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java)
 - Status: **alpha**
 
 
@@ -93,7 +93,7 @@ Function     | Description | Returns
 **getName()**   | The HttpFileItem's name | *string*
 **getSize()**   | The HttpFileItem's size | *long*
 **getBytes()**   | Return the HttpFileItem's content as byte array | *array of byte*
-**getBytes()**   | Return the HttpFileItem's content as string | *string*
+**getText()**   | Return the HttpFileItem's content as string | *string*
 **getInputStream()**   | Return the input stream of the HttpFileItem's content | *streams.InputStream*
 **isFormField()**   | Whether the HttpFileItem represents a form field | *boolean*
 **getFieldName()**   | The HttpFileItem's field name | *string*
