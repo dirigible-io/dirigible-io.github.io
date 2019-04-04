@@ -25,7 +25,7 @@ Version 3.x
 
 ```javascript
 var consumer = require('messaging/v3/consumer');
-consumer.queue("queue1").receive(1000);
+var message = consumer.queue("queue1").receive(1000);
 ```
 
 ### Definition
@@ -48,14 +48,14 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**receive(timeout)**   | Receives a message from this Message Queue if any or null with the given timeout | *string*
+**receive(timeout)**   | Receives a message from this Message Queue if any or null with the given timeout in milliseconds | *string*
 
 
 #### Topic
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**receive(timeout)**   | Receives a message from this Message Topic if any or null with the given timeout | *string*
+**receive(timeout)**   | Receives a message from this Message Topic if any or null with the given timeout in milliseconds | *string*
 
 
 
