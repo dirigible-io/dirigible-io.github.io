@@ -19,7 +19,7 @@ group: complex
 
 ```javascript
 
-console.log("Hello from the My Job!");
+console.log("Hello from My Job!");
 
 ```
 
@@ -39,7 +39,7 @@ console.log("Hello from the My Job!");
 6. Publish the project
 8. After 10s in the *Console* view you should see the following lines:
 
-	[2018-05-14T12:05:00.061Z] [INFO] Hello from the My Job!
+	[2018-05-14T12:05:00.061Z] [INFO] Hello from My Job!
 
 > Note: the log messages in the Console view are in a reverse order - the newest are on top
 
