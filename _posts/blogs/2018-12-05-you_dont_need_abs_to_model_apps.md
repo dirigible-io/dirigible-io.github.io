@@ -31,7 +31,7 @@ Eclipse Dirigible has an integrated BPM engine based on Flowable. This engine le
 
 ![BPM-PoD](/img/posts/20181205/bpm-pod.png){: .img-responsive }
 
-This is what the flow of a Print on Demand business process looks like at the background in the Eclipse Dirigible Web IDE. Meanwhile, here is an example for a customly build view that lets users purchase their books on demand:
+This is what the flow of a Print on Demand business process looks like at the background in the Eclipse Dirigible Web IDE. Meanwhile, here is an example for a custom-built view that lets users purchase their books on demand:
 
 ![BPM-PoD-UI](/img/posts/20181205/bpm-pod-ui.png){: .img-responsive }
 
