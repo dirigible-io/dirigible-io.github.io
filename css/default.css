@@ -279,7 +279,7 @@ p.copyright {
 }
 
 .navbar-nav>li>.dropdown-menu {
-    background: #212121 !important;
+    background: rgba(45,45,45,0.98) !important;
 }
 
 .lead {
