@@ -59,7 +59,7 @@ footer .btn-primary {
 }
 
 footer a {
-	color: #83a1bd;
+	color: #bcbfc2;
 }
 
 footer h4 {
@@ -67,7 +67,7 @@ footer h4 {
 }
 
 footer li {
-	color: #93B1CE 
+	color: #c3c5c8 
 }
 
 .social-media {
@@ -230,7 +230,7 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 }
 
 footer {
-	background-color: #284157;
+	background-color: rgba(45,45,45,0.98);
 	padding: 50px 0;
 }
 
