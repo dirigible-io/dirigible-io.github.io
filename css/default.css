@@ -33,10 +33,11 @@ a:hover {
 }
 
 .grid-home {
-    background-image: url("../img/SAP_d-kom_demojam_2017.jpg"); 
+    background-image: url("../img/dirigible-logo-horizontal.svg"); 
     background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+    background-position: center;
+    background-size: cover;
+    background-size: 70%;
     color: #454545;
 }
 
@@ -73,12 +74,14 @@ footer li {
     background: #284157;
     padding-top: 20px;
     margin-bottom: -20px;
+    background-color: #fafafa;
 }
 
 .intro-header {
 	padding-top: 20px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 20px;
 	text-align: center;
+	background-color: #fafafa;
 }
 
 .intro-message {
