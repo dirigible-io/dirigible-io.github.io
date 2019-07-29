@@ -269,8 +269,8 @@ p.copyright {
 
 .navbar-default {
     font-size: 1.2em;
-    background: #203446;
-    border-color: #203446;
+    background: rgba(45,45,45,0.98);
+    border-color: rgba(45,45,45,0.98);
     color: white;
 }
 
