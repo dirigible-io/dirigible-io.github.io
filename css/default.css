@@ -116,9 +116,9 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 }
 
 .intro-messager {
-	position: relative;
+    position: relative;
     padding-top: 0.5em !important;
-    margin-bottom: -4.5em !important;
+    margin-bottom: -2.6em !important;
     margin-left: -1.7em;
 }
 
