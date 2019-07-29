@@ -1,13 +1,3 @@
-/* 
-
-#93B1CE 
-#284157
-#203446
-#3a536c
-#428bca
-#62abea
-
-*/
 
 body, html {
 	height: 100%;
@@ -286,6 +276,10 @@ p.copyright {
     color: #eee !important;
     background: #212121 !important;
     border-color: #212121 !important;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    background: #212121 !important;
 }
 
 .lead {
