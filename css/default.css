@@ -7,7 +7,7 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
     font-family: Arial;
 	font-weight: 700;
-	color: #284157
+	color: #313131
 }
 
 p {
@@ -43,9 +43,9 @@ a:hover {
 }
 
 footer .btn-primary {
-	border: 1px solid #284157;
+	border: 1px solid #313131;
 	background-color: #ccc;
-	color: #284157;
+	color: #313131;
 }
 
 footer a {
@@ -61,7 +61,7 @@ footer li {
 }
 
 .social-media {
-    background: #284157;
+    background: #313131;
     padding-top: 20px;
     margin-bottom: -20px;
     background-color: #fafafa;
@@ -237,7 +237,7 @@ p.copyright {
 	padding: 20px;
 	margin: 0;
 	font-size: 18em;
-    color: #284157;
+    color: #313131;
     text-align: center;
 	vertical-align:text-middle;
 }
@@ -336,7 +336,7 @@ p.copyright {
 
 .breadcrumb {
 	border-radius: 0px !important;
-	background: #284157;
+	background: #313131;
 	color: #eee !important;
 }
 
