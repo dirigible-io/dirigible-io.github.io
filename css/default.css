@@ -1,4 +1,3 @@
-
 body, html {
 	height: 100%;
 	width: 100%;
@@ -341,16 +340,16 @@ p.copyright {
 
 .breadcrumb {
 	border-radius: 0px !important;
-	background: #414141;
-	color: #eee !important;
+	background: #fafafa;
+	color: #313131 !important;
 }
 
 .breadcrumb li {
-	color: #ccc !important;
+	color: #313131 !important;
 }
 
 .breadcrumb a {
-	color: #eee !important;
+	color: #515151 !important;
 }
 
 blockquote {
