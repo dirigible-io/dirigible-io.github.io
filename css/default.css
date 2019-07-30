@@ -83,6 +83,7 @@ footer li {
 	position: relative;
 	padding-top: 5%;
 	padding-bottom: 2%;
+	height: 38em;
 }
 
 .intro-message > h1 {
@@ -131,6 +132,7 @@ src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
 @media (max-width: 767px) {
 	.intro-message {
 		padding-bottom: 15%;
+		height: 18em;
 	}
 
 	.intro-message > h1 {
