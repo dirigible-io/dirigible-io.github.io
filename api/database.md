@@ -57,6 +57,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **getDatabaseTypes()**   | Returns the list of the available databases in this instance | *list of string*
 **getDataSources(databaseType)**    | Returns the list of the available data-sources in this instance for the given *databaseType*. In case the *databaseType* is not present, the data-sources of the default database type are listed  | *list of string*
+**createDataSource(name, driver, url, username, password, properties)**   | Creates a named dynamic datasource based on the provided parameters | *-*
 **getMetadata(databaseType, datasourceName)**   | Returns the metadata of the selected *databaseType* and *datasourceName*. In case the *datasourceName* parameter is omitted, then the default data-source for the selected database is taken. In case the *databaseType* is omitted, then the default data-source of the default database type is taken | *metadata object*
 **getConnection(databaseType, datasourceName)**   | Establishes a connection to the selected data-source. Both parameters are optional | *Connection* 
 
