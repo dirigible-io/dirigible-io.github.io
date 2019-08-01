@@ -29,7 +29,7 @@ try {
     var statement = connection.prepareStatement("select current_date from dual");
     var resultSet = statement.executeQuery();
     while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString(1));
+        response.println("[date]: " + resultSet.getString(1));
     }
     resultSet.close();
     statement.close();
