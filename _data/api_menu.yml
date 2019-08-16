@@ -20,28 +20,28 @@ navigation:
     url: config.html
   - name: core/configurations 3️⃣4️⃣
     icon: fa fa-caret-right
-    url: configurations.html
+    url: core_configurations.html
   - name: core/context 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
-    url: context.html
+    url: core_context.html
   - name: core/destinations 4️⃣
     icon: fa fa-caret-right
-    url: destinations.html
+    url: core_destinations.html
   - name: core/env 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
-    url: env.html
+    url: core_env.html
   - name: core/extensions 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
-    url: extensions.html
+    url: core_extensions.html
   - name: core/globals 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
-    url: globals.html
+    url: core_globals.html
   - name: core/java 3️⃣⚠
     icon: fa fa-caret-right
-    url: java.html
+    url: core_java.html
   - name: core/threads 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
-    url: threads.html
+    url: core_threads.html
   - name: db/database 2️⃣3️⃣4️⃣
     icon: fa fa-caret-right
     url: database.html
