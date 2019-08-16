@@ -9,146 +9,147 @@ Eclipse Dirigible<sup>&trade;</sup> API
 
 Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status.
 
-> 🔸v2, 🔹v3, ⚠ deprecated
+> ⚠ - deprecated
 
 
 Built-in
 ---
 
-* [console](console.html) 🔸🔹
+* [console](console.html) 2️⃣3️⃣4️⃣
 
 Business Process Management
 ---
 
-* [process](bpm_process.html) 🔹
+* [process](bpm_process.html) 3️⃣4️⃣
 
 
 Content Management
 ---
 
-* [cmis](cmis.html) 🔸🔹
+* [cmis](cmis.html) 2️⃣3️⃣4️⃣
 
 
 Core
 ---
 
-* [assert](assert.html) 🔸⚠
-* [config](config.html) 🔸⚠
-* [core/configurations](configurations.html) 🔹
-* [core/context](context.html) 🔸🔹
-* [core/env](env.html) 🔸🔹
-* [core/extensions](extensions.html) 🔸🔹
-* [core/globals](globals.html) 🔸🔹
-* [core/java](java.html) 🔹
-* [core/threads](threads.html) 🔸🔹
+* [assert](assert.html) 2️⃣⚠
+* [config](config.html) 2️⃣⚠
+* [core/configurations](configurations.html) 3️⃣4️⃣
+* [core/context](context.html) 2️⃣3️⃣4️⃣
+* [core/destinations](core_destinations.html) 4️⃣
+* [core/env](env.html) 2️⃣3️⃣4️⃣
+* [core/extensions](extensions.html) 2️⃣3️⃣4️⃣
+* [core/globals](globals.html) 2️⃣3️⃣4️⃣
+* [core/java](java.html) 3️⃣⚠
+* [core/threads](threads.html) 2️⃣3️⃣4️⃣
 
 
 Database
 ---
 
-* [db/database](database.html) 🔸🔹
-* [db/dao](database_dao.html) 🔹
-* [db/query](database_query.html) 🔹
-* [db/sequence](database_sequence.html) 🔹
-* [db/sql](database_sql.html) 🔹
-* [db/update](database_update.html) 🔹
+* [db/database](database.html) 2️⃣3️⃣4️⃣
+* [db/dao](database_dao.html) 3️⃣4️⃣
+* [db/query](database_query.html) 3️⃣4️⃣
+* [db/sequence](database_sequence.html) 3️⃣4️⃣
+* [db/sql](database_sql.html) 3️⃣4️⃣
+* [db/update](database_update.html) 3️⃣4️⃣
 
 
 Indexing
 ---
 
-* [indexing/searcher](indexing_searcher.html) 🔹
-* [indexing/writer](indexing_writer.html) 🔹
+* [indexing/searcher](indexing_searcher.html) 3️⃣4️⃣
+* [indexing/writer](indexing_writer.html) 3️⃣4️⃣
 
 
 HTTP
 ---
 
-* [http/client](http_client.html) 🔸🔹
-* [http/clientAsync](http_client_async.html) 🔹
-* [http/request](http_request.html) 🔸🔹
-* [http/response](http_response.html) 🔸🔹
-* [http/session](http_session.html) 🔸🔹
-* [http/upload](http_upload.html) 🔸🔹
-* [http/user](http_user.html) 🔸⚠
-* [http/rs](http_rs.html) 🔹
-* [http/rs-data](http_rs-data.html) 🔹
+* [http/client](http_client.html) 2️⃣3️⃣4️⃣
+* [http/clientAsync](http_client_async.html) 3️⃣4️⃣
+* [http/request](http_request.html) 2️⃣3️⃣4️⃣
+* [http/response](http_response.html) 2️⃣3️⃣4️⃣
+* [http/session](http_session.html) 2️⃣3️⃣4️⃣
+* [http/upload](http_upload.html) 2️⃣3️⃣4️⃣
+* [http/user](http_user.html) 2️⃣⚠
+* [http/rs](http_rs.html) 3️⃣4️⃣
+* [http/rs-data](http_rs-data.html) 3️⃣4️⃣
 
 
 IO
 ---
 
-* [io/files](io_files.html) 🔸🔹
-* [io/streams](io_streams.html) 🔸🔹
-* [io/zip](io_zip.html) 🔸🔹
+* [io/files](io_files.html) 2️⃣3️⃣4️⃣
+* [io/streams](io_streams.html) 2️⃣3️⃣4️⃣
+* [io/zip](io_zip.html) 2️⃣3️⃣4️⃣
 
 
 Log
 ---
 
-* [log/logging](log_logging.html) 🔹
+* [log/logging](log_logging.html) 3️⃣4️⃣
 
 
 Net
 ---
 
-* [net/soap](soap.html) 🔸🔹
-* [net/websocket](websocket.html) 🔸🔹
+* [net/soap](soap.html) 2️⃣3️⃣4️⃣
+* [net/websocket](websocket.html) 2️⃣3️⃣4️⃣
 
 
 Messaging
 ---
 
-* [messaging/producer](messaging_producer.html) 🔹
-* [messaging/consumer](messaging_consumer.html) 🔹
+* [messaging/producer](messaging_producer.html) 3️⃣4️⃣
+* [messaging/consumer](messaging_consumer.html) 3️⃣4️⃣
 
 
 Platform
 ---
 
-* [exec](exec.html) 🔸⚠
-* [generator](generator.html) 🔸⚠
-* [lifecycle](lifecycle.html) 🔸⚠
-* [repository](repository.html) 🔸⚠
-* [workspaces](workspaces.html) 🔸⚠
+* [exec](exec.html) 2️⃣⚠
+* [generator](generator.html) 2️⃣⚠
+* [lifecycle](lifecycle.html) 2️⃣⚠
+* [repository](repository.html) 2️⃣⚠
+* [workspaces](workspaces.html) 2️⃣⚠
 
 Repository
 ---
 
-* [repository/manager](repository_manager.html) 🔹
+* [repository/manager](repository_manager.html) 3️⃣4️⃣
 
 Security
 ---
 
-* [security/user](security_user.html) 🔹
+* [security/user](security_user.html) 3️⃣4️⃣
 
 
 Services
 ---
 
-* [indexing](indexing.html) 🔸⚠
-* [mail](mail.html) 🔸
-* [messaging](messaging.html) 🔸⚠
-* [passwords](passwords.html) 🔸
+* [indexing](indexing.html) 2️⃣⚠
+* [mail](mail.html) 2️⃣
+* [messaging](messaging.html) 2️⃣⚠
+* [passwords](passwords.html) 2️⃣
 
 
 Utils
 ---
 
-* [utils/base64](utils_base64.html) 🔸🔹
-* [utils/digest](utils_digest.html) 🔸🔹
-* [utils/error](utils_error.html) 🔸⚠
-* [utils/escape](utils_error.html) 🔸🔹
-* [utils/hex](utils_hex.html) 🔸🔹
-* [utils/url](utils_url.html) 🔹
-* [utils/uuid](utils_uuid.html) 🔸🔹
-* [utils/xml](utils_xml.html) 🔸🔹
-* [utils/xss](utils_xss.html) 🔸⚠
+* [utils/base64](utils_base64.html) 2️⃣3️⃣4️⃣
+* [utils/digest](utils_digest.html) 2️⃣3️⃣4️⃣
+* [utils/error](utils_error.html) 2️⃣⚠
+* [utils/escape](utils_error.html) 2️⃣3️⃣4️⃣
+* [utils/hex](utils_hex.html) 2️⃣3️⃣4️⃣
+* [utils/url](utils_url.html) 3️⃣4️⃣
+* [utils/uuid](utils_uuid.html) 2️⃣3️⃣4️⃣
+* [utils/xml](utils_xml.html) 2️⃣3️⃣4️⃣
+* [utils/xss](utils_xss.html) 2️⃣⚠
 
 Workspace
 ---
 
-* [workspace/manager](workspace_manager.html) 🔹
+* [workspace/manager](workspace_manager.html) 3️⃣
 
 ---
 
