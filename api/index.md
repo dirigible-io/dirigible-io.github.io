@@ -32,16 +32,16 @@ Content Management
 Core
 ---
 
-* [assert](assert.html) 2️⃣⚠
-* [config](config.html) 2️⃣⚠
-* [core/configurations](configurations.html) 3️⃣4️⃣
-* [core/context](context.html) 2️⃣3️⃣4️⃣
+* [assert](core_assert.html) 2️⃣⚠
+* [config](core_config.html) 2️⃣⚠
+* [core/configurations](core_configurations.html) 3️⃣4️⃣
+* [core/context](core_context.html) 2️⃣3️⃣4️⃣
 * [core/destinations](core_destinations.html) 4️⃣
-* [core/env](env.html) 2️⃣3️⃣4️⃣
-* [core/extensions](extensions.html) 2️⃣3️⃣4️⃣
-* [core/globals](globals.html) 2️⃣3️⃣4️⃣
-* [core/java](java.html) 3️⃣⚠
-* [core/threads](threads.html) 2️⃣3️⃣4️⃣
+* [core/env](core_env.html) 2️⃣3️⃣4️⃣
+* [core/extensions](core_extensions.html) 2️⃣3️⃣4️⃣
+* [core/globals](core_globals.html) 2️⃣3️⃣4️⃣
+* [core/java](core_java.html) 3️⃣⚠
+* [core/threads](core_threads.html) 2️⃣3️⃣4️⃣
 
 
 Database
