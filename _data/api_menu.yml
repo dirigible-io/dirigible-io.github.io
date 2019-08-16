@@ -14,10 +14,10 @@ navigation:
     url: cmis.html
   - name: core/assert 2️⃣⚠
     icon: fa fa-caret-right
-    url: assert.html
+    url: core_assert.html
   - name: core/config 2️⃣⚠
     icon: fa fa-caret-right
-    url: config.html
+    url: core_config.html
   - name: core/configurations 3️⃣4️⃣
     icon: fa fa-caret-right
     url: core_configurations.html
