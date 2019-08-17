@@ -215,7 +215,14 @@ Parameter     | Description | Default*
 
 **DIRIGIBLE_THEME_DEFAULT**   | The name of the default name | default is **Default**
 
+### Destinations
+---
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_DESTINATIONS_PROVIDER**   | The name of the Destinations Service provider used in this instance | *local* or *managed*
+**DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER**   | The location of the Destinations internal repository | default is *target*
+**DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | *false*
 
 
 The source is [here](https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/README.md)
