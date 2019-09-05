@@ -19,13 +19,13 @@ group: simple
 
 ```javascript
 
-var query = require('db/v3/query');
-var response = require('http/v3/response');
+var query = require("db/v4/query");
+var response = require("http/v4/response");
 
 var sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-var resultset = query.execute(sql, ['ide-view']);
+var resultset = query.execute(sql, ["ide-view"]);
 
-response.println('<pre>' + JSON.stringify(resultset, null, 2) + '</pre>');
+response.println("<pre>" + JSON.stringify(resultset, null, 2) + "</pre>");
 
 response.flush();
 response.close();
