@@ -16,8 +16,8 @@ group: simple
 
 ```javascript
 
-var digest = require('utils/v3/digest');
-var response = require('http/v3/response');
+var digest = require("utils/v4/digest");
+var response = require("http/v4/response");
 
 var input = [61, 62, 63];
 var result = digest.sha512(input);
