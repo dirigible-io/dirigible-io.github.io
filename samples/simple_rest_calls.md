@@ -19,10 +19,10 @@ group: simple
 
 ```javascript
 
-var httpClient = require('http/v3/client');
-var response = require('http/v3/response');
+var httpClient = require("http/v4/client");
+var response = require("http/v4/response");
 
-var httpResponse = httpClient.get('http://services.odata.org/V4/Northwind/Northwind.svc/');
+var httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
 
 response.println(httpResponse.statusMessage);
 response.println(httpResponse.text);
@@ -39,16 +39,16 @@ response.close();
 
 ```javascript
 
-var httpClient = require('http/v3/client');
-var response = require('http/v3/response');
+var httpClient = require("http/v4/client");
+var response = require("http/v4/response");
 	
 var bodyContent = JSON.stringify({
-		'firstName': 'John',
-		'lastName': 'Doe',
-		'age': 24
+		firstName: "John",
+		lastName: "Doe",
+		age: 24
 	});
 	
-var httpResponse = httpClient.post('http://httpbin.org/post', {
+var httpResponse = httpClient.post("http://httpbin.org/post", {
 	    text: bodyContent
 	});
 	
@@ -67,16 +67,16 @@ response.close();
 
 ```javascript
 
-var httpClient = require('http/v3/client');
-var response = require('http/v3/response');
+var httpClient = require("http/v4/client");
+var response = require("http/v4/response");
 	
 var bodyContent = JSON.stringify({
-		'firstName': 'John',
-		'lastName': 'Doe',
-		'age': 24
+		firstName: "John",
+		lastName: "Doe",
+		age: 24
 	});
 	
-var httpResponse = httpClient.put('http://httpbin.org/post', {
+var httpResponse = httpClient.put("http://httpbin.org/put", {
 	    text: bodyContent
 	});
 	
@@ -93,10 +93,10 @@ response.close();
 
 ```javascript
 
-var httpClient = require('http/v3/client');
-var response = require('http/v3/response');
+var httpClient = require("http/v4/client");
+var response = require("http/v4/response");
 	
-var httpResponse = httpClient.delete('http://httpbin.org/delete');
+var httpResponse = httpClient.delete("http://httpbin.org/delete");
 	
 response.println(httpResponse.statusMessage);
 response.println(httpResponse.text);
