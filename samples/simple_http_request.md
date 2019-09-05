@@ -19,8 +19,8 @@ group: simple
 
 ```javascript
 
-var request = require('http/v3/request');
-var response = require('http/v3/response');
+var request = require("http/v4/request");
+var response = require("http/v4/response");
 
 var method = request.getMethod();
 
