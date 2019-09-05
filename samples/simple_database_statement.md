@@ -19,8 +19,8 @@ group: simple
 
 ```javascript
 
-var database = require('db/v3/database');
-var response = require('http/v3/response');
+var database = require("db/v4/database");
+var response = require("http/v4/response");
 
 var connection = database.getConnection();
 try {
