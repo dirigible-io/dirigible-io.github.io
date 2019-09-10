@@ -44,11 +44,11 @@ Release of *Type B*
 
 #### Operational
 
-* Available packages for download - https://download.eclipse.org/dirigible/drops/R-3.5-201909101520/index.html
-* Docker images at Docker Hub under DirigibleLabs organization:	https://hub.docker.com/u/dirigiblelabs/
-* Maven Central artifacts by org.eclipse.dirigible namespace: https://mvnrepository.com/artifact/org.eclipse.dirigible
-* The full list of bug-fixes and enhancements can be found here: https://github.com/eclipse/dirigible/milestone/27
-* The source code is available at GitHub repository here: https://github.com/eclipse/dirigible/tree/3.5.0
-* The instant trial is updated accordingly with the released version here: http://trial.dirigible.io
+* Available packages for download - [https://download.eclipse.org/dirigible/drops/R-3.5-201909101520/index.html](https://download.eclipse.org/dirigible/drops/R-3.5-201909101520/index.html)
+* Docker images at Docker Hub under DirigibleLabs organization:	[https://hub.docker.com/u/dirigiblelabs/](https://hub.docker.com/u/dirigiblelabs/)
+* Maven Central artifacts by org.eclipse.dirigible namespace: [https://mvnrepository.com/artifact/org.eclipse.dirigible](https://mvnrepository.com/artifact/org.eclipse.dirigible)
+* The full list of bug-fixes and enhancements can be found here: [https://github.com/eclipse/dirigible/milestone/27](https://github.com/eclipse/dirigible/milestone/27)
+* The source code is available at GitHub repository here: [https://github.com/eclipse/dirigible/tree/3.5.0](https://github.com/eclipse/dirigible/tree/3.5.0)
+* The instant trial is updated accordingly with the released version here: [http://trial.dirigible.io](http://trial.dirigible.io)
 
 #### Enjoy!
