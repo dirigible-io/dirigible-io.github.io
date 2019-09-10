@@ -1,4 +1,4 @@
-name: Dirigible
+name: Eclipse Dirigible
 markdown: kramdown
 kramdown:
   input: GFM
