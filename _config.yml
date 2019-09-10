@@ -12,6 +12,7 @@ baseurl:
 url: http://dirigible.io
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 exclude:
   - CNAME
