@@ -3,181 +3,181 @@ navbar: Samples
 icon: fa-gift
 link: ../samples/index.html
 navigation: 
-  - name: console 2️⃣3️⃣4️⃣
+  - name: console <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: console.html
-  - name: bpm/process 2️⃣3️⃣4️⃣
+  - name: bpm/process <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: bpm_process.html
-  - name: cms/cmis 2️⃣3️⃣4️⃣
+  - name: cms/cmis <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: cmis.html
-  - name: core/assert 2️⃣⚠
+  - name: core/assert <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: core_assert.html
-  - name: core/config 2️⃣⚠
+  - name: core/config <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: core_config.html
-  - name: core/configurations 3️⃣4️⃣
+  - name: core/configurations <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_configurations.html
-  - name: core/context 2️⃣3️⃣4️⃣
+  - name: core/context <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_context.html
-  - name: core/destinations 4️⃣
+  - name: core/destinations <sup>4</sup>
     icon: fa fa-caret-right
     url: core_destinations.html
-  - name: core/env 2️⃣3️⃣4️⃣
+  - name: core/env <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_env.html
-  - name: core/extensions 2️⃣3️⃣4️⃣
+  - name: core/extensions <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_extensions.html
-  - name: core/globals 2️⃣3️⃣4️⃣
+  - name: core/globals <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_globals.html
-  - name: core/java 3️⃣⚠
+  - name: core/java <sup>3</sup>⚠
     icon: fa fa-caret-right
     url: core_java.html
-  - name: core/threads 2️⃣3️⃣4️⃣
+  - name: core/threads <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_threads.html
-  - name: db/database 2️⃣3️⃣4️⃣
+  - name: db/database <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database.html
-  - name: db/dao 3️⃣4️⃣
+  - name: db/dao <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_dao.html
-  - name: db/query 3️⃣4️⃣
+  - name: db/query <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_query.html
-  - name: db/sequence 3️⃣4️⃣
+  - name: db/sequence <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_sequence.html
-  - name: db/sql 3️⃣4️⃣
+  - name: db/sql <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_sql.html
-  - name: db/update 3️⃣4️⃣
+  - name: db/update <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_update.html
-  - name: indexing/searcher 3️⃣4️⃣
+  - name: indexing/searcher <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: indexing_searcher.html
-  - name: indexing/writer 3️⃣4️⃣
+  - name: indexing/writer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: indexing_writer.html
-  - name: io/files 2️⃣3️⃣4️⃣
+  - name: io/files <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: io_files.html
-  - name: io/streams 2️⃣3️⃣4️⃣
+  - name: io/streams <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: io_streams.html
-  - name: io/zip 2️⃣3️⃣4️⃣
+  - name: io/zip <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: io_zip.html
-  - name: log/logging 3️⃣4️⃣
+  - name: log/logging <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: log_logging.html
-  - name: net/soap 2️⃣3️⃣4️⃣
+  - name: net/soap <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: soap.html
-  - name: net/websocket 2️⃣3️⃣4️⃣
+  - name: net/websocket <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: websocket.html
-  - name: http/client 2️⃣3️⃣4️⃣
+  - name: http/client <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_client.html
-  - name: http/clientAsync 3️⃣4️⃣
+  - name: http/clientAsync <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_client_async.html
-  - name: http/request 2️⃣3️⃣4️⃣
+  - name: http/request <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_request.html
-  - name: http/response 2️⃣3️⃣4️⃣
+  - name: http/response <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_response.html
-  - name: http/rs 3️⃣4️⃣
+  - name: http/rs <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_rs.html
-  - name: http/rs-data 3️⃣4️⃣
+  - name: http/rs-data <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_rs-data.html	
-  - name: http/session 2️⃣3️⃣4️⃣
+  - name: http/session <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_session.html
-  - name: http/upload 2️⃣3️⃣4️⃣
+  - name: http/upload <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_upload.html
-  - name: net/http/user 2️⃣⚠
+  - name: net/http/user <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: http_user.html
-  - name: messaging/producer 3️⃣4️⃣
+  - name: messaging/producer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: messaging_producer.html
-  - name: messaging/consumer 3️⃣4️⃣
+  - name: messaging/consumer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: messaging_consumer.html
-  - name: platform/exec 2️⃣
+  - name: platform/exec <sup>2</sup>
     icon: fa fa-caret-right
     url: exec.html
-  - name: platform/generator 2️⃣⚠
+  - name: platform/generator <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: generator.html
-  - name: platform/lifecycle 2️⃣⚠
+  - name: platform/lifecycle <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: lifecycle.html
-  - name: platform/repository 2️⃣⚠
+  - name: platform/repository <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: repository.html
-  - name: platform/workspaces 2️⃣⚠
+  - name: platform/workspaces <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: workspaces.html
-  - name: repository/manager 3️⃣4️⃣
+  - name: repository/manager <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: repository_manager.html
-  - name: security/user 3️⃣4️⃣
+  - name: security/user <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: security_user.html
-  - name: service/indexing 2️⃣⚠
+  - name: service/indexing <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: indexing.html
-  - name: service/mail 2️⃣
+  - name: service/mail <sup>2</sup>
     icon: fa fa-caret-right
     url: mail.html
-  - name: service/messaging 2️⃣⚠
+  - name: service/messaging <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: messaging.html
-  - name: service/passwords 2️⃣
+  - name: service/passwords <sup>2</sup>
     icon: fa fa-caret-right
     url: passwords.html
-  - name: utils/base64 2️⃣3️⃣4️⃣
+  - name: utils/base64 <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_base64.html
-  - name: utils/digest 2️⃣3️⃣4️⃣
+  - name: utils/digest <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_digest.html
-  - name: utils/error 2️⃣
+  - name: utils/error <sup>2</sup>
     icon: fa fa-caret-right
     url: utils_error.html
-  - name: utils/escape 3️⃣4️⃣
+  - name: utils/escape <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_escape.html
-  - name: utils/hex 2️⃣3️⃣4️⃣
+  - name: utils/hex <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_hex.html
-  - name: utils/url 3️⃣4️⃣
+  - name: utils/url <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_url.html
-  - name: utils/uuid 2️⃣3️⃣4️⃣
+  - name: utils/uuid <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_uuid.html
-  - name: utils/xml 2️⃣3️⃣4️⃣
+  - name: utils/xml <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_xml.html
-  - name: utils/xss 2️⃣⚠
+  - name: utils/xss <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: utils_xss.html
-  - name: workspace/manager 3️⃣4️⃣
+  - name: workspace/manager <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: workspace_manager.html
   - name: #
