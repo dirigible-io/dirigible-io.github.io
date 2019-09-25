@@ -9,11 +9,11 @@ For example, we work on Eclipse Dirigible – an open-source cloud development p
 
 ![Fiori-UI-Theme](/img/posts/20190925/dirigible_fiori_che7.png){: .img-responsive }
 
-## What is so cool about that?
+### What is so cool about that?
 
 Developers can run Eclipse Dirigible on whatever platform Eclipse Che 7 is deployed. The most notable example is the OpenShift platform offered by Red Hat. That way, the Eclipse Dirigible portfolio of services and features for business application development becomes available to the entire Che community.
 
-## What does Eclipse Dirigible have to offer?
+### What does Eclipse Dirigible have to offer?
 
 Now, let us take a look at what this portfolio currently consists of.
 Eclipse Dirigible puts an emphasis on [low-code/no-code tools](https://www.dirigible.io/blogs/2018/12/05/you_dont_need_abs_to_model_apps.html) for developing business applications. As of version 3.4, Eclipse Dirigible provides the following tools:
@@ -52,7 +52,7 @@ Eclipse Dirigible puts an emphasis on [low-code/no-code tools](https://www.dirig
 
   For productive use cases, we recommend that you use Kubernetes, Keycloak, and PostgreSQL.
 
-## Why use JavaScript as a business application language?
+### Why use JavaScript as a business application language?
 
 At Dirigible, we have decided to focus on JavaScript, because it has a small learning curve, and it is a well-known programming language that has proven itself in the context of web development throughout the years.
 
@@ -68,7 +68,7 @@ For business application development, which is our case, JavaScript is just a to
 
 * [BPM Process](https://www.dirigible.io/api/bpm_process.html)
 
-## Are there any alternatives to Eclipse Dirigible?
+### Are there any alternatives to Eclipse Dirigible?
 
 There are alternatives to Eclipse Dirigible and these are platforms such as Mendix and Force.com by Salesforce. However, you have to purchase the corresponding licenses to start using them.
 
@@ -76,7 +76,7 @@ In the open-source world though, there are no alternatives to this day. There ar
 
 However, none of these platforms provide what Eclipse Dirigible has to offer in terms of low-code/no-code tools for developing business applications. At least for now.
 
-## Conclusions
+### Conclusions
 
 Thanks to the great collaboration with the Eclipse Che team, Eclipse Dirigible is on the right way of achieving its ultimate goal, which is to provide developers of business applications with the fastest turnaround time in the Cloud and a unique user experience at the same time.
 
