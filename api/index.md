@@ -13,136 +13,136 @@ Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent informat
 Built-in
 ---
 
-* [console](console.html) 2️⃣3️⃣4️⃣
+* [console](console.html) <sup>2</sup><sup>3</sup><sup>4</sup>
 
 Business Process Management
 ---
 
-* [process](bpm_process.html) 3️⃣4️⃣
+* [process](bpm_process.html) <sup>3</sup><sup>4</sup>
 
 
 Content Management
 ---
 
-* [cmis](cmis.html) 2️⃣3️⃣4️⃣
+* [cmis](cmis.html) <sup>2</sup><sup>3</sup><sup>4</sup>
 
 
 Core
 ---
 
-* [assert](core_assert.html) 2️⃣⚠
-* [config](core_config.html) 2️⃣⚠
-* [core/configurations](core_configurations.html) 3️⃣4️⃣
-* [core/context](core_context.html) 2️⃣3️⃣4️⃣
-* [core/destinations](core_destinations.html) 4️⃣
-* [core/env](core_env.html) 2️⃣3️⃣4️⃣
-* [core/extensions](core_extensions.html) 2️⃣3️⃣4️⃣
-* [core/globals](core_globals.html) 2️⃣3️⃣4️⃣
-* [core/java](core_java.html) 3️⃣⚠
-* [core/threads](core_threads.html) 2️⃣3️⃣4️⃣
+* [assert](core_assert.html) <sup>2</sup>⚠
+* [config](core_config.html) <sup>2</sup>⚠
+* [core/configurations](core_configurations.html) <sup>3</sup><sup>4</sup>
+* [core/context](core_context.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [core/destinations](core_destinations.html) <sup>4</sup>
+* [core/env](core_env.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [core/extensions](core_extensions.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [core/globals](core_globals.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [core/java](core_java.html) <sup>3</sup>⚠
+* [core/threads](core_threads.html) <sup>2</sup><sup>3</sup><sup>4</sup>
 
 
 Database
 ---
 
-* [db/database](database.html) 2️⃣3️⃣4️⃣
-* [db/dao](database_dao.html) 3️⃣4️⃣
-* [db/query](database_query.html) 3️⃣4️⃣
-* [db/sequence](database_sequence.html) 3️⃣4️⃣
-* [db/sql](database_sql.html) 3️⃣4️⃣
-* [db/update](database_update.html) 3️⃣4️⃣
+* [db/database](database.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [db/dao](database_dao.html) <sup>3</sup><sup>4</sup>
+* [db/query](database_query.html) <sup>3</sup><sup>4</sup>
+* [db/sequence](database_sequence.html) <sup>3</sup><sup>4</sup>
+* [db/sql](database_sql.html) <sup>3</sup><sup>4</sup>
+* [db/update](database_update.html) <sup>3</sup><sup>4</sup>
 
 
 Indexing
 ---
 
-* [indexing/searcher](indexing_searcher.html) 3️⃣4️⃣
-* [indexing/writer](indexing_writer.html) 3️⃣4️⃣
+* [indexing/searcher](indexing_searcher.html) <sup>3</sup><sup>4</sup>
+* [indexing/writer](indexing_writer.html) <sup>3</sup><sup>4</sup>
 
 
 HTTP
 ---
 
-* [http/client](http_client.html) 2️⃣3️⃣4️⃣
-* [http/clientAsync](http_client_async.html) 3️⃣4️⃣
-* [http/request](http_request.html) 2️⃣3️⃣4️⃣
-* [http/response](http_response.html) 2️⃣3️⃣4️⃣
-* [http/session](http_session.html) 2️⃣3️⃣4️⃣
-* [http/upload](http_upload.html) 2️⃣3️⃣4️⃣
-* [http/user](http_user.html) 2️⃣⚠
-* [http/rs](http_rs.html) 3️⃣4️⃣
-* [http/rs-data](http_rs-data.html) 3️⃣4️⃣
+* [http/client](http_client.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [http/clientAsync](http_client_async.html) <sup>3</sup><sup>4</sup>
+* [http/request](http_request.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [http/response](http_response.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [http/session](http_session.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [http/upload](http_upload.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [http/user](http_user.html) <sup>2</sup>⚠
+* [http/rs](http_rs.html) <sup>3</sup><sup>4</sup>
+* [http/rs-data](http_rs-data.html) <sup>3</sup><sup>4</sup>
 
 
 IO
 ---
 
-* [io/files](io_files.html) 2️⃣3️⃣4️⃣
-* [io/streams](io_streams.html) 2️⃣3️⃣4️⃣
-* [io/zip](io_zip.html) 2️⃣3️⃣4️⃣
+* [io/files](io_files.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [io/streams](io_streams.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [io/zip](io_zip.html) <sup>2</sup><sup>3</sup><sup>4</sup>
 
 
 Log
 ---
 
-* [log/logging](log_logging.html) 3️⃣4️⃣
+* [log/logging](log_logging.html) <sup>3</sup><sup>4</sup>
 
 
 Net
 ---
 
-* [net/soap](soap.html) 2️⃣3️⃣4️⃣
-* [net/websocket](websocket.html) 2️⃣3️⃣4️⃣
+* [net/soap](soap.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [net/websocket](websocket.html) <sup>2</sup><sup>3</sup><sup>4</sup>
 
 
 Messaging
 ---
 
-* [messaging/producer](messaging_producer.html) 3️⃣4️⃣
-* [messaging/consumer](messaging_consumer.html) 3️⃣4️⃣
+* [messaging/producer](messaging_producer.html) <sup>3</sup><sup>4</sup>
+* [messaging/consumer](messaging_consumer.html) <sup>3</sup><sup>4</sup>
 
 
 Platform
 ---
 
-* [exec](exec.html) 2️⃣⚠
-* [generator](generator.html) 2️⃣⚠
-* [lifecycle](lifecycle.html) 2️⃣⚠
-* [repository](repository.html) 2️⃣⚠
-* [workspaces](workspaces.html) 2️⃣⚠
+* [exec](exec.html) <sup>2</sup>⚠
+* [generator](generator.html) <sup>2</sup>⚠
+* [lifecycle](lifecycle.html) <sup>2</sup>⚠
+* [repository](repository.html) <sup>2</sup>⚠
+* [workspaces](workspaces.html) <sup>2</sup>⚠
 
 Repository
 ---
 
-* [repository/manager](repository_manager.html) 3️⃣4️⃣
+* [repository/manager](repository_manager.html) <sup>3</sup><sup>4</sup>
 
 Security
 ---
 
-* [security/user](security_user.html) 3️⃣4️⃣
+* [security/user](security_user.html) <sup>3</sup><sup>4</sup>
 
 
 Services
 ---
 
-* [indexing](indexing.html) 2️⃣⚠
-* [mail](mail.html) 2️⃣
-* [messaging](messaging.html) 2️⃣⚠
-* [passwords](passwords.html) 2️⃣
+* [indexing](indexing.html) <sup>2</sup>⚠
+* [mail](mail.html) <sup>2</sup>
+* [messaging](messaging.html) <sup>2</sup>⚠
+* [passwords](passwords.html) <sup>2</sup>
 
 
 Utils
 ---
 
-* [utils/base64](utils_base64.html) 2️⃣3️⃣4️⃣
-* [utils/digest](utils_digest.html) 2️⃣3️⃣4️⃣
-* [utils/error](utils_error.html) 2️⃣⚠
-* [utils/escape](utils_error.html) 2️⃣3️⃣4️⃣
-* [utils/hex](utils_hex.html) 2️⃣3️⃣4️⃣
-* [utils/url](utils_url.html) 3️⃣4️⃣
-* [utils/uuid](utils_uuid.html) 2️⃣3️⃣4️⃣
-* [utils/xml](utils_xml.html) 2️⃣3️⃣4️⃣
-* [utils/xss](utils_xss.html) 2️⃣⚠
+* [utils/base64](utils_base64.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/digest](utils_digest.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/error](utils_error.html) <sup>2</sup>⚠
+* [utils/escape](utils_error.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/hex](utils_hex.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/url](utils_url.html) <sup>3</sup><sup>4</sup>
+* [utils/uuid](utils_uuid.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/xml](utils_xml.html) <sup>2</sup><sup>3</sup><sup>4</sup>
+* [utils/xss](utils_xss.html) <sup>2</sup>⚠
 
 Workspace
 ---
