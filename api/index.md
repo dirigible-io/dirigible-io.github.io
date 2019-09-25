@@ -9,8 +9,6 @@ Eclipse Dirigible<sup>&trade;</sup> API
 
 Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status.
 
-> ⚠ - deprecated
-
 
 Built-in
 ---
@@ -149,7 +147,7 @@ Utils
 Workspace
 ---
 
-* [workspace/manager](workspace_manager.html) 3️⃣
+* [workspace/manager](workspace_manager.html) <sup>3</sup>
 
 ---
 
