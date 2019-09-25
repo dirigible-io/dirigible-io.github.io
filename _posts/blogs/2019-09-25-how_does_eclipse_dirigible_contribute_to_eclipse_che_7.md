@@ -16,7 +16,7 @@ Developers can run Eclipse Dirigible on whatever platform Eclipse Che 7 is deplo
 ### What does Eclipse Dirigible have to offer?
 
 Now, let us take a look at what this portfolio currently consists of.
-Eclipse Dirigible puts an emphasis on [low-code/no-code tools](https://www.dirigible.io/blogs/2018/12/05/you_dont_need_abs_to_model_apps.html "low-code/no-code tools") for developing business applications. As of version 3.4, Eclipse Dirigible provides the following tools:
+Eclipse Dirigible puts an emphasis on [low-code/no-code tools](https://www.dirigible.io/blogs/2018/12/05/you_dont_need_abs_to_model_apps.html) for developing business applications. As of version 3.4, Eclipse Dirigible provides the following tools:
 
 * [In-system development with server-side JavaScript](https://www.youtube.com/watch?v=NZGbQOwAlYE)
   
