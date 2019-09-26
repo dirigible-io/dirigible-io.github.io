@@ -83,3 +83,7 @@ Thanks to the great collaboration with the Eclipse Che team, Eclipse Dirigible i
 So why don’t you [give it a try](https://www.dirigible.io)?
 
 If there is something that you don't like, or you think it can be improved, don't hesitate to share your [feedback](https://github.com/eclipse/dirigible/issues). The Eclipse Dirigible team will definitely appreciate it. That is one of the best things about the open-source community that we are all part of!
+
+### Resources
+
+[How to Run Eclipse Dirigible on Eclipse Che 7](https://www.youtube.com/watch?v=AA3M-vuY3pY)
