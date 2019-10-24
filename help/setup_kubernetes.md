@@ -23,35 +23,24 @@ Steps
 1. Create an YAML deployment configuration *dirigible.yml*
 
 ```yaml
-
 ---
 apiVersion: v1
-kind: Service
+kind: Namespace
 metadata:
   name: dirigible
-  labels:
-    app: dirigible
-spec:
-  ports:
-  - port: 8080
-    name: dirigible
-  clusterIP: None
-  selector:
-    app: dirigible
 ---
-apiVersion: apps/v1beta1
-kind: StatefulSet
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: dirigible
+  namespace: dirigible
 spec:
-  serviceName: "dirigible"
   replicas: 1
   template:
     metadata:
       labels:
         app: dirigible
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
         - name: dirigible
           image: dirigiblelabs/dirigible-tomcat:latest
@@ -59,7 +48,7 @@ spec:
             - containerPort: 8080
               name: dirigible
           volumeMounts:
-            - name: root
+            - name: dirigible-data
               mountPath: /usr/local/tomcat/dirigible
           env:
             - name: DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER
@@ -74,25 +63,36 @@ spec:
               value: "true"
             - name: DIRIGIBLE_LOG_FOLDER
               value: /usr/local/tomcat/logs
-      serviceAccountName: dirigible
-  volumeClaimTemplates:
-    - metadata:
-        name: root
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        resources:
-          requests:
-            storage: 1Gi
+            - name: DIRIGIBLE_THEME_DEFAULT
+              value: "fiori"
+      volumes:
+        - name: dirigible-data
+          persistentVolumeClaim:
+            claimName: "dirigible-data"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dirigible
+  namespace: dirigible
+  labels:
+    app: dirigible
+spec:
+  ports:
+  - port: 8080
+    name: dirigible
+  clusterIP: None
+  selector:
+    app: dirigible
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  annotations:
-    kubernetes.io/tls-acme: "true"
   name: dirigible
+  namespace: dirigible
 spec:
   rules:
-    - host: dirigible.apps.eu-central-1.<your-host>
+    - host: dirigible.<your-host>
       http:
         paths:
           - path: /
@@ -100,51 +100,18 @@ spec:
               serviceName: dirigible
               servicePort: 8080
 ---
-
 apiVersion: v1
-kind: ServiceAccount
+kind: PersistentVolumeClaim
 metadata:
-  name: dirigible
-  labels:
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
----
-apiVersion: rbac.authorization.k8s.io/v1alpha1
-kind: ClusterRole
-metadata:
-  name: dirigible
-  labels:
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
-rules:
-  - apiGroups:
-    - '*'
-    attributeRestrictions: null
-    resources:
-    - '*'
-    verbs:
-    - '*'
-  - attributeRestrictions: null
-    nonResourceURLs:
-    - '*'
-    verbs:
-    - '*'
----
-apiVersion: rbac.authorization.k8s.io/v1alpha1
-kind: ClusterRoleBinding
-metadata:
-  name: dirigible
-  labels:
-    kubernetes.io/cluster-service: "true"
-    addonmanager.kubernetes.io/mode: Reconcile
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: dirigible
-subjects:
-  - kind: ServiceAccount
-    name: dirigible
-
+  name: dirigible-data
+  namespace: dirigible
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
 ```
 
 2. Deploy on the Kubernetes Cluster with:
