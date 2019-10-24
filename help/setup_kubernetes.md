@@ -92,7 +92,7 @@ metadata:
   namespace: dirigible
 spec:
   rules:
-    - host: dirigible.<your-host>
+    - host: dirigible.<kubernetes-ingress-host>
       http:
         paths:
           - path: /
@@ -113,13 +113,14 @@ spec:
     requests:
       storage: 1Gi
 ```
+2. Replace <kubernetes-ingress-host> in dirigible.yml with your Ingress Host
 
-2. Deploy on the Kubernetes Cluster with:
+3. Deploy on the Kubernetes Cluster with:
 
 > kubectl apply -f dirigible.yml
 
-3. Open a web browser and go to:
+4. Open a web browser and go to:
 
-> http://dirigible.[Kubernetes Platform Host]/
+> http://dirigible.[kubernetes-ingress-host]/
 
-4. Login with user *dirigible* and password *dirigible*, which are set by default in the Docker image used above.
+5. Login with user *dirigible* and password *dirigible*, which are set by default in the Docker image used above.
