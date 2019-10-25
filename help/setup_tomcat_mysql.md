@@ -121,4 +121,4 @@ Run Tomcat server via *strtup.sh*.
 
 Go to the following location: 
 
-> http://localhost:8080/
+> [http://localhost:8080/](http://localhost:8080/)
