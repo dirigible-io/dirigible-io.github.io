@@ -28,7 +28,7 @@ Steps
 
 3. Start the container with mounted volume.
 
-      > ```docker run --name dirigible --rm -p 8888:8080 -v <your-local-directory<your-local-directory>>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest```
+      > ```docker run --name dirigible --rm -p 8888:8080 -v <your-local-directory>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest```
 
 4. Open a web browser and go to:
 
