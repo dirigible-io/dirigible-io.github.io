@@ -19,16 +19,16 @@ Steps
       
 1. Pull the already built container from *Docker Hub*.
 
-      > docker pull dirigiblelabs/dirigible-tomcat:latest
+      > ```docker pull dirigiblelabs/dirigible-tomcat:latest```
 
 
 2. Start the container.
 
-      > docker run --name dirigible --rm -p 8888:8080 dirigiblelabs/dirigible-tomcat:latest
+      > ```docker run --name dirigible --rm -p 8888:8080 dirigiblelabs/dirigible-tomcat:latest```
 
 3. Start the container with mounted volume.
 
-      > docker run --name dirigible --rm -p 8888:8080 -v <your-local-directory<your-local-directory>>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest
+      > ```docker run --name dirigible --rm -p 8888:8080 -v <your-local-directory<your-local-directory>>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest```
 
 4. Open a web browser and go to:
 
@@ -38,7 +38,7 @@ Steps
 
 5. Stop the container.
 
-      > docker stop dirigible
+      > ```docker stop dirigible```
 
 Contribution
 ---
