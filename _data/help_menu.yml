@@ -1,7 +1,7 @@
 name: Help
 navbar: Help
 icon: fa-gift
-link: ../help/index.html
+link: ../help/
 navigation: 
   - name: Project
     icon: fa-lightbulb-o
@@ -23,13 +23,13 @@ navigation:
     url: devops.html
   - name: API
     icon: fa-sitemap
-    url: ../api/index.html
+    url: ../api/
   - name: Services
     icon: fa-cog
     url: services.html
   - name: Samples
     icon: fa-gift
-    url: ../samples/index.html
+    url: ../samples/
   - name: FAQ
     icon: fa-question
     url: faq.html
