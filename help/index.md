@@ -41,8 +41,9 @@ Setup
   * [Tomcat with MySQL](setup_tomcat_mysql.html)
   * [Tomcat with Sybase](setup_tomcat_sybase.html)
   * [Tomcat with HANA](setup_tomcat_hana.html)
-* [Cloud Foundry](setup_cloudfoundry.html)
 * [Docker](setup_docker.html)
+* [Setup on Kubernetes](setup_kubernetes.html)
+* [Cloud Foundry](setup_cloudfoundry.html)
 * [SAP Cloud Platform](setup_sapcp.html)
 * [Environment Variables](setup_environment_variables.html)
 
