@@ -23,7 +23,6 @@ Steps
 1. Create an YAML deployment configuration *dirigible.yml*
 
   ```yaml
-  ---
   apiVersion: v1
   kind: Namespace
   metadata:
