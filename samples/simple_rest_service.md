@@ -19,7 +19,7 @@ group: simple
 
 ```javascript
 
-var rs = require('http/v3/rs');
+var rs = require("http/v4/rs");
 
 // serve GET HTTP requests sent to resource path ""
 rs.service()
@@ -28,6 +28,7 @@ rs.service()
          response.println("Hello World!");
        })
   .execute();
+
 
 ```
 
