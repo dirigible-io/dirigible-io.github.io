@@ -40,3 +40,5 @@ defaults:
     values:
       layout: app
       category: apps
+
+theme: jekyll-theme-minimal
