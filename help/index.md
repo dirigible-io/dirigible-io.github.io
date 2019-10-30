@@ -15,7 +15,7 @@ General Overview
 
 * [Project](project.html)
 * [Architecture](architecture.html)
-* [API](../api/index.html)
+* [API](../api/)
 * [License](license.html)
 * [Credits](credits.html)
 
@@ -95,7 +95,7 @@ Development & Operations
 Samples
 ---
 
-* [Simple Samples](../samples/index.html)
+* [Simple Samples](../samples/)
 
 FAQ
 ---
