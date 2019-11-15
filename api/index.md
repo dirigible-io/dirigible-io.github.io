@@ -147,7 +147,7 @@ Utils
 Workspace
 ---
 
-* [workspace/manager](workspace_manager.html) <sup>3</sup>
+* [workspace/manager](workspace_manager.html) <sup>3</sup>,<sup>4</sup>
 
 ---
 
