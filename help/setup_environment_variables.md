@@ -168,6 +168,11 @@ Parameter     | Description | Default*
 **DIRIGIBLE_CMS_MANAGED_CONFIGURATION_DESTINATION**   | The name of the destination where the name and the key for the repository are stored | e.g. CMIS_DESTINATION
 **DIRIGIBLE_CONNECTIVITY_CONFIGURATION_JNDI_NAME**   | The JNDI name of the connectivity configuration serivce | default is *java:comp/env/connectivity/Configuration* in case of SAP package
 
+#### CMS Database
+
+**DIRIGIBLE_CMS_DATABASE_DATASOURCE_TYPE**   | Type of the database for CMS repository | local, managed, custom, dynamic
+**DIRIGIBLE_CMS_DATABASE_DATASOURCE_NAME**   | The datasource name | default is *DefaultDB*
+
 
 ### BPM
 
