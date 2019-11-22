@@ -19,6 +19,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Database Query](simple_database_query.html) - using the simplified Query Database API
 
 * [HTTP Request](simple_http_request.html) - basic usage of the HTTP Request API
+* [Mail Client](simple_mail_client.html) - how to send mails using the Mail Client API
 * [REST Calls](simple_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
 * [REST Call with Binary Response](simple_rest_binary.md) - how to retrieve the binary content from the response
 * [REST Service](simple_rest_service.html) - getting started with the REST framework
