@@ -45,7 +45,7 @@ var response = require("http/v4/response");
 var mail = require("mail/v4/client");
 
 var mailConfig = {
-	"mail.username": "<your-user-name>",
+	"mail.user": "<your-user>",
 	"mail.password": "<your-password>",
 	"mail.transport.protocol": "smtps",
 	"mail.smtps.host": "smtp.gmail.com",
@@ -97,7 +97,7 @@ Property     | Description | Type
 
 Property     | Description | Type
 ------------ | ----------- | --------
-**mail.username**   | The mailbox username | *string*
+**mail.user**   | The mailbox user | *string*
 **mail.password**   | The mailbox password | *string*
 **mail.transport.protocol**   | (optional) The mail transport protocol, default is *smtps* | *string*
 **mail.smtps.host**   | The mail SMPTPS host | *string*
