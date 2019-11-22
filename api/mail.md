@@ -119,6 +119,12 @@ Property     | Description | Type
 **cc**   | The *cc* recipient(s) | *string* or *Array of strings*
 **bcc**   | The *bcc* recipient(s) | *string* or *Array of strings*
 
+Compatibility
+---
+
+Rhino | Nashorn | V8
+----- | ------- | --------
+ ✅  | ✅  | ❌
 ---
 
 Version 3.x
