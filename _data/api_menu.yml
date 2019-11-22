@@ -111,6 +111,9 @@ navigation:
   - name: net/http/user <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: http_user.html
+  - name: mail/client <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mail_client.html
   - name: messaging/producer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: messaging_producer.html
@@ -141,7 +144,7 @@ navigation:
   - name: service/indexing <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: indexing.html
-  - name: service/mail <sup>2</sup>
+  - name: service/mail <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: mail.html
   - name: service/messaging <sup>2</sup>⚠
