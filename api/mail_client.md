@@ -70,6 +70,7 @@ mailClient.send(from, recipients, subject, content, subType);
 response.println("Mail sent");
 
 ```
+
 Definition
 ---
 
