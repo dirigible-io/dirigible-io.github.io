@@ -14,7 +14,6 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 * [Console Log Levels](simple_console.html) - show how to use the built-in **console** object to print information in the standard output
 * [Print Environment Variables](simple_print_env.html) - prints environment variables
-
 * [Database Statement](simple_database_statement.html) - getting started with the low level Database API
 * [Database Query](simple_database_query.html) - using the simplified Query Database API
 * [HTTP Request](simple_http_request.html) - basic usage of the HTTP Request API
