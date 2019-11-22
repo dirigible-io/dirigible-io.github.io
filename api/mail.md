@@ -9,6 +9,12 @@ icon: fa-ellipsis-h
 
 Mail object is used to send e-mails through the mail service.
 
+Version 4.x
+---
+
+Moved to [Mail Client](mail_client.html)
+
+
 Version 3.x
 ---
 
