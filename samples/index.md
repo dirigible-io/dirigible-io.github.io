@@ -17,7 +17,6 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 * [Database Statement](simple_database_statement.html) - getting started with the low level Database API
 * [Database Query](simple_database_query.html) - using the simplified Query Database API
-
 * [HTTP Request](simple_http_request.html) - basic usage of the HTTP Request API
 * [Mail Client](simple_mail_client.html) - how to send mails using the Mail Client API
 * [REST Calls](simple_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
