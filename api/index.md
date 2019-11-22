@@ -94,6 +94,11 @@ Net
 * [net/soap](soap.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [net/websocket](websocket.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 
+Mail
+---
+
+* [mail/client](mail_client.html) <sup>4</sup>
+
 
 Messaging
 ---
@@ -126,7 +131,7 @@ Services
 ---
 
 * [indexing](indexing.html) <sup>2</sup>⚠
-* [mail](mail.html) <sup>2</sup>
+* [mail](mail.html) <sup>2</sup>⚠
 * [messaging](messaging.html) <sup>2</sup>⚠
 * [passwords](passwords.html) <sup>2</sup>
 
