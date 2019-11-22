@@ -69,7 +69,7 @@ mailClient.send(from, recipients, subject, content, subType);
 response.println("Mail sent");
 
 ```
-> Note: This sample leverages Gmail SMTPS, to make this sample work, access from third party applications ([Less secure apps](https://support.google.com/accounts/answer/6010255?hl=en)) should be enabled  
+> Note: This sample leverages Gmail SMTPS, to make this sample work, access from third party applications ([Less secure apps](https://support.google.com/accounts/answer/6010255?hl=en)) should be enabled, also [Troubleshoot Problems](https://support.google.com/mail/answer/78754) could help
 
 ---
 
