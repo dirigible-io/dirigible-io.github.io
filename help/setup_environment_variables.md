@@ -192,6 +192,21 @@ Parameter     | Description | Default*
 **DIRIGIBLE_FLOWABLE_DATABASE_SCHEMA_UPDATE**   | Whether to materialize the database layout or not | default is: *true*
 **DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE**   | Whether to use the DefaultDB datasource or built-in H2 | *true* (DefaultDB) or *false* (H2) default is *true*
 
+### Mail
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_MAIL_USERNAME**   | Mailbox username | *-*
+**DIRIGIBLE_MAIL_PASSWORD**   | Mailbox password | *-*
+**DIRIGIBLE_MAIL_TRANSPORT_PROTOCOL**   | Mail transport protocol | default is *smtps*
+**DIRIGIBLE_MAIL_SMTPS_HOST**   | Mailbox SMTPS host | *-*
+**DIRIGIBLE_MAIL_SMTPS_PORT**   | Mailbox SMTPS port | *-*
+**DIRIGIBLE_MAIL_SMTPS_AUTH**   | Enable/disable mailbox SMTPS authentication | *-*
+**DIRIGIBLE_MAIL_SMTP_HOST**   | Mailbox SMTP host | *-*
+**DIRIGIBLE_MAIL_SMTP_PORT**   | Mailbox SMTP port | *-*
+**DIRIGIBLE_MAIL_SMTP_AUTH**   | Enable/disable mailbox SMTP authentication | *-*
+
+
 ### Messaging
 
 Parameter     | Description | Default*
