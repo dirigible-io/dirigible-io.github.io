@@ -77,6 +77,7 @@ HTTP
 IO
 ---
 
+* [io/bytes](io_bytes.html) <sup>4</sup>
 * [io/files](io_files.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [io/streams](io_streams.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [io/zip](io_zip.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
