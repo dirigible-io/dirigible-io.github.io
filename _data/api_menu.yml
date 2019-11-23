@@ -66,6 +66,9 @@ navigation:
   - name: indexing/writer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: indexing_writer.html
+  - name: io/bytes <sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_bytes.html
   - name: io/files <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: io_files.html
