@@ -14,12 +14,13 @@ p {
 }
 
 a {
-    color: #313131;
-    text-decoration: underline;
+    color: #2b7bb9;
+    text-decoration: none;
+    outline: 0;
 }
 
 a:hover {
-    color: #616161;
+    color: #3b94d9;
 }
 
 .grid-home {
