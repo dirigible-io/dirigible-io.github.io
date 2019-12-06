@@ -147,7 +147,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance | internal or managed or remote - default is *internal*
+**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance | internal, managed or database - default is *internal*
 **DIRIGIBLE_CMS_ROLES_ENABLED** | Whether the RBAC over the CMS content to be enabled | default is *false*
 
 #### CMS - Internal
