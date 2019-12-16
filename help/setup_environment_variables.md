@@ -91,6 +91,8 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The *WAIT_COUNT* data source parameter | *5*
 **DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance | default is *''*
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance | default is *'DefaultDB'*
+**DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive | default is *false*
+
 
 #### Database - Custom
 
