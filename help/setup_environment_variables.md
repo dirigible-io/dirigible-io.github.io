@@ -132,11 +132,9 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_SCHEDULER_DATABASE_DRIVER**   | The name of the database driver used by Quartz if not the default one | default is *''*
-**DIRIGIBLE_SCHEDULER_DATABASE_URL**   | The name of the database URL used by Quartz if not the default one | default is *''*
-**DIRIGIBLE_SCHEDULER_DATABASE_USER**   | The name of the database user name used by Quartz if not the default one | default is *''*
-**DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD**   | The name of the database password used by Quartz if not the default one | default is *''*
-**DIRIGIBLE_SCHEDULER_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz if not the default one | default is *''*
+**DIRIGIBLE_SCHEDULER_MEMORY_STORE**   | Whether Quartz to use in-memory job store | default is null
+**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz if not the default one | default is null
+**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz if not the default one | default is null
 
 
 ### Runtime Core
