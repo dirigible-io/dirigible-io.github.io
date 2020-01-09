@@ -41,7 +41,7 @@ Along with the low level HTTP request, response and session handling, Dirigible 
 
 ### Web Content
 
-The client-side application code transported via the container web channel. Mode information can be found [here](concepts_web_content.html)
+The client-side application code transported via the container web channel. More information can be found [here](concepts_web_content.html).
 
 ### Mobile Apps
 
