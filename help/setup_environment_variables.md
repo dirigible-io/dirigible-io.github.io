@@ -136,6 +136,19 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz if not the default one | default is null
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz if not the default one | default is null
 
+### Job
+
+| Parameter | Description | Default* |
+|-----------|-------------|----------|
+| **DIRIGIBLE_JOB_EXPRESSION_BPM**  | BPM synchronizer job config | 0/30 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_DATA_STRUCTURES**  | Data structures job synchronizer config | 0/20 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_EXTENSIONS**  | Extension synchronizer job config | 0/10 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_JOBS**  | Jobs synchronizer job config | 0/15 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_MESSAGING**  | Messaging synchronizer job config | 0/10 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_MIGRATIONS**  | Migration synchronizer job config | 0/50 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_ODATA**  | OData synchronizer job config | 0/25 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_PUBLISHER**  | Publisher synchronizer job config | 0/5 * * * * ? |
+| **DIRIGIBLE_JOB_EXPRESSION_SECURITY**  | Security synchronizer job config | 0/10 * * * * ? |
 
 ### Runtime Core
 
