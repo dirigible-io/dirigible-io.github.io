@@ -7,36 +7,37 @@ icon: fa-cog
 {{ page.title }}
 ===
 
-Version 3.x
+Version 4.x
 ---
 
-- Module: **core/v3/configurations**
+- Module: **core/v4/configurations**
 - Alias: **core/configurations**
 - Definition: N/A
-- Source: [/core/v3/configurations.js](https://github.com/dirigiblelabs/api-v3-core/blob/master/core/v3/configurations.js)
+- Source: [/core/v4/configurations.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/configurations.js)
 - Facade: [ConfigurationFacade](https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/src/main/java/org/eclipse/dirigible/commons/config/Configuration.java)
 - Status: **alpha**
 
 ### Basic Usage
 
 ```javascript
-var rs = require('http/v3/rs');
-var configurations = require('core/v3/configurations');
+var rs = require("http/v4/rs");
+var configurations = require("core/v4/configurations");
 
 rs.service()
-  .resource("")
-    .get(function(ctx, request, response) {
-      let credentials = {
-        'envVar1': configurations.get('ENV_VAR_1'),
-        'envVar2': configurations.get('ENV_VAR_2')
-      };
-      response.println(JSON.stringify(credentials));
-    }).put(function(ctx, request, response) {
-      let credentials = request.getJSON();
-      configurations.set('ENV_VAR_1', credentials.envVar1);
-      configurations.set('ENV_VAR_2', credentials.envVar2);
-    })
-  .execute();
+    .resource("")
+        .get(function(ctx, request, response) {
+            let credentials = {
+                "envVar1": configurations.get("ENV_VAR_1"),
+                "envVar2": configurations.get("ENV_VAR_2")
+            };
+            response.println(JSON.stringify(credentials));
+        })
+        .put(function(ctx, request, response) {
+            let credentials = request.getJSON();
+            configurations.set("ENV_VAR_1", credentials.envVar1);
+            configurations.set("ENV_VAR_2", credentials.envVar2);
+        })
+.execute();
 
 ```
 
