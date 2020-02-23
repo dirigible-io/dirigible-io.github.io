@@ -58,8 +58,6 @@ Rhino | Nashorn | V8
 
 ---
 
----
-
 Version 3.x
 ---
 
