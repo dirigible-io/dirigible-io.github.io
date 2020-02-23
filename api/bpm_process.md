@@ -13,10 +13,10 @@ BPM Process object is used to access and manage the BPM process within the under
 Version 3.x
 ---
 
-- Module: **bpm/v3/process**
+- Module: **bpm/v4/process**
 - Alias: **bpm/process**
 - Definition: [https://github.com/eclipse/dirigible/issues/227](https://github.com/eclipse/dirigible/issues/227)
-- Source: [/bpm/v3/process.js](https://github.com/dirigiblelabs/api-v3-bpm/blob/master/bpm/v3/process.js)
+- Source: [/bpm/v4/process.js](https://github.com/dirigiblelabs/api-bpm/blob/master/bpm/v4/process.js)
 - Facade: [BpmFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-bpm/src/main/java/org/eclipse/dirigible/api/v3/bpm/BpmFacade.java)
 - Status: **alpha**
 
@@ -26,8 +26,10 @@ Version 3.x
 The service which starts the process:
 
 ```javascript
-var process = require('bpm/v3/process');
-process.start('hello', {"variable1": "value1"});
+var process = require("bpm/v4/process");
+process.start("hello", {
+    "variable1": "value1"
+});
 ```
 
 The process definition:
@@ -83,14 +85,14 @@ The delegate 'hello.js':
 console.info("Hello from the Javascript Engine!");
 
 // manipulating process variables throughout the execution context
-var process = require('bpm/v3/process');
+var process = require("bpm/v4/process");
 var execution = process.getExecutionContext();
-process.setVariable(execution.getId(), 'variable2', 'value2');
+process.setVariable(execution.getId(), "variable2", "value2");
 try {
-	console.info("variable1: " + process.getVariable(execution.getId(), 'variable1'));
-	console.info("variable2: " + process.getVariable(execution.getId(), 'variable2'));
+    console.info("variable1: " + process.getVariable(execution.getId(), "variable1"));
+    console.info("variable2: " + process.getVariable(execution.getId(), "variable2"));
 } catch(e) {
-	console.error(e.message);
+    console.error(e.message);
 }
 ```
 
