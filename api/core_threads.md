@@ -9,7 +9,7 @@ icon: fa-check
 
 Threads utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.
 
-Version 3.x
+Version 4.x
 ---
 
 - Module: **core/v4/threads**
