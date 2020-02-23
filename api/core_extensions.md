@@ -71,12 +71,12 @@ Version 3.x
 ### Basic Usage
 
 ```javascript
-var extensions = require('core/v3/extensions');
-var response = require('http/v3/response');
+var extensions = require("core/v3/extensions");
+var response = require("http/v3/response");
 
 var mainmenu = [];
-var menuExtensions = extensions.getExtensions('ide-menu');
-for (var i=0; i<menuExtensions.length; i++) {
+var menuExtensions = extensions.getExtensions("ide-menu");
+for (var i = 0; i < menuExtensions.length; i++) {
     var module = menuExtensions[i];
     menuExtension = require(module);
     var menu = menuExtension.getMenu();
