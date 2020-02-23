@@ -22,12 +22,12 @@ Version 4.x
 ### Basic Usage
 
 ```javascript
-var destinations = require('core/v4/destinations');
+var destinations = require("core/v4/destinations");
 
 var destination = {};
-destination.name1 = 'value1';
-destinations.set('destination1', destination);
-var result = destinations.get('destination1');
+destination.name1 = "value1";
+destinations.set("destination1", destination);
+var result = destinations.get("destination1");
 
 result.name1 === 'value1';
 ```
