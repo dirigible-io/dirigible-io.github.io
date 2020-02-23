@@ -10,13 +10,13 @@ icon: fa-check
 CMIS object is used for access of the underlying Content Management System (CMS) with [CMIS API](http://docs.oasis-open.org/cmis/CMIS/v1.1/CMIS-v1.1.html).
 
 
-Version 3.x
+Version 4.x
 ---
 
-- Module: **cms/v3/cmis**
+- Module: **cms/v4/cmis**
 - Alias: **cms/cmis**
 - Definition: [https://github.com/eclipse/dirigible/issues/178](https://github.com/eclipse/dirigible/issues/178)
-- Source: [/cms/v3/cmis.js](https://github.com/dirigiblelabs/api-v3-cms/blob/master/cms/v3/cmis.js)
+- Source: [/cms/v4/cmis.js](https://github.com/dirigiblelabs/api-cms/blob/master/cms/v4/cmis.js)
 - Facade: [CmisFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-cms/src/main/java/org/eclipse/dirigible/api/v3/cms/CmisFacade.java)
 - Status: **alpha**
 
@@ -24,9 +24,9 @@ Version 3.x
 ### Basic Usage
 
 ```javascript
-var cmis = require('cms/v3/cmis');
-var response = require('http/response');
-var streams = require('io/streams');
+var cmis = require("cms/v4/cmis");
+var response = require("http/v4/response");
+var streams = require("io/v4/streams");
 
 var cmisSession = cmis.getSession();
 
@@ -35,10 +35,9 @@ var rootFolder = cmisSession.getRootFolder();
 var children = rootFolder.getChildren();
 response.println("Listing the children of the root folder:");
 for (var i in children) {
-	response.println("Object ID: " + children[i].getId());
-	response.println("Object Name: " + children[i].getName());
+    response.println("Object ID: " + children[i].getId());
+    response.println("Object Name: " + children[i].getName());
 }
-
 
 var textFileName = "test.txt";
 response.println("Creating a simple text file, " + textFileName);
@@ -59,10 +58,9 @@ properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
 properties[cmis.NAME] = filename;
 var newDocument;
 try {
-	newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
+    newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
 } catch(e) {
-	response.println("Error: " + e);
-	
+    response.println("Error: " + e);	
 }
 var documentId = newDocument.getId();
 response.println("Document ID: " + documentId);
@@ -70,9 +68,9 @@ response.println("Document ID: " + documentId);
 children = rootFolder.getChildren();
 response.println("Listing the children of the root folder again:");
 for (var i in children) {
-	response.println("Object ID: " + children[i].getId());
-	response.println("Object Name: " + children[i].getName());
-	response.println("Object Type: " + children[i].getType());
+    response.println("Object ID: " + children[i].getId());
+    response.println("Object Name: " + children[i].getName());
+    response.println("Object Type: " + children[i].getType());
 }
 
 // Get the contents of the file
