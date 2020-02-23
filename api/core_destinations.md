@@ -29,7 +29,7 @@ destination.name1 = "value1";
 destinations.set("destination1", destination);
 var result = destinations.get("destination1");
 
-result.name1 === 'value1';
+result.name1 === "value1";
 ```
 
 
