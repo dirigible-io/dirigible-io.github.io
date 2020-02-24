@@ -16,8 +16,6 @@ Moved to different package [security](security_user.html)
 
 ---
 
----
-
 Version 2.x
 ---
 
@@ -61,3 +59,5 @@ Function     | Description | Returns
 Rhino | Nashorn | V8
 ----- | ------- | --------
  ✅  | ✅  | ❌
+ 
+ ---
