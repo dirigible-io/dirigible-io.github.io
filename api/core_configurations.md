@@ -27,8 +27,8 @@ rs.service()
     .resource("")
         .get(function(ctx, request, response) {
             let credentials = {
-                "envVar1": configurations.get("ENV_VAR_1"),
-                "envVar2": configurations.get("ENV_VAR_2")
+                envVar1: configurations.get("ENV_VAR_1"),
+                envVar2: configurations.get("ENV_VAR_2")
             };
             response.println(JSON.stringify(credentials));
         })
@@ -88,8 +88,8 @@ rs.service()
     .resource("")
         .get(function(ctx, request, response) {
             let credentials = {
-                "envVar1": configurations.get("ENV_VAR_1"),
-                "envVar2": configurations.get("ENV_VAR_2")
+                envVar1: configurations.get("ENV_VAR_1"),
+                envVar2: configurations.get("ENV_VAR_2")
             };
             response.println(JSON.stringify(credentials));
         })
