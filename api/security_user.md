@@ -27,7 +27,7 @@ var user = require("security/v4/user");
 var response = require("http/v4/response");
 
 response.println("[UserName]: " + user.getName());
-response.println("[Is in Role]: " + user.isInRole("some_role"));
+response.println("[Is in Role]: " + user.isInRole("Developer"));
 response.flush();
 response.close();
 ```
@@ -73,7 +73,7 @@ var user = require("security/v3/user");
 var response = require("http/v3/response");
 
 response.println("[UserName]: " + user.getName());
-response.println("[Is in Role]: " + user.isInRole("some_role"));
+response.println("[Is in Role]: " + user.isInRole("Developer"));
 response.flush();
 response.close();
 ```
