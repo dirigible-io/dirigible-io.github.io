@@ -58,8 +58,8 @@ try {
 	
     //Create a new customer entity
     var customerId = customers.insert({
-        "orgName": "ACME",
-	"employeesNumber": 1000
+        orgName: "ACME",
+	employeesNumber: 1000
     });
 		
     //List all customer entities
@@ -168,8 +168,8 @@ try {
 	
     //Create a new customer entity
     var customerId = customers.insert({
-        "orgName": "ACME",
-	"employeesNumber": 1000
+        orgName: "ACME",
+	employeesNumber: 1000
     });
 		
     //List all customer entities
