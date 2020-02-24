@@ -47,3 +47,5 @@ Function     | Description | Returns
 Rhino | Nashorn | V8
 ----- | ------- | --------
  ✅  | ❌  | ❌
+
+---
