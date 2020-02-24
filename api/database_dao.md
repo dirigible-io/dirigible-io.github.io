@@ -23,7 +23,7 @@ Version 4.x
 ### Basic Usage
 
 ```javascript
-var dao = require("db/v3/dao");
+var dao = require("db/v4/dao");
 
 //create a DAO from configuration
 var customers = dao.create({
