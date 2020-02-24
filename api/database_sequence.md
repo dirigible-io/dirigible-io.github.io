@@ -26,11 +26,9 @@ Version 4.x
 var sequence = require("db/v4/sequence");
 var response = require("http/v4/response");
 
-
 var value = sequence.nextval("MYSEQUENCE");
 
 response.println(value);
-
 response.flush();
 response.close();
 ```
@@ -78,11 +76,9 @@ Version 3.x
 var sequence = require("db/v3/sequence");
 var response = require("http/v3/response");
 
-
 var value = sequence.nextval("MYSEQUENCE");
 
 response.println(value);
-
 response.flush();
 response.close();
 ```
