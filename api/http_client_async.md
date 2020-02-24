@@ -30,8 +30,8 @@ var clientAsync = httpClientAsync.getInstnace();
 var api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
 var northWindResponse = httpClient.get(api, {
     params: [{
-        "name": "$format",
-	"value": "json"
+        name: "$format",
+	value: "json"
     }]
 });
 
@@ -189,8 +189,8 @@ var clientAsync = httpClientAsync.getInstnace();
 var api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
 var northWindResponse = httpClient.get(api, {
     params: [{
-        "name": "$format",
-	"value": "json"
+        name: "$format",
+	value: "json"
     }]
 });
 
