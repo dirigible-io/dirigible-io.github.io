@@ -23,7 +23,7 @@ Version 4.x
 ### Basic Usage
 
 ```javascript
-var rs = require("http/v3/rs");
+var rs = require("http/v4/rs");
 
 rs.service()
     .resource("")
