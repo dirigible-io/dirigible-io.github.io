@@ -28,7 +28,7 @@ The service which starts the process:
 ```javascript
 var process = require("bpm/v4/process");
 process.start("hello", {
-    "variable1": "value1"
+    variable1: "value1"
 });
 ```
 
@@ -183,7 +183,7 @@ The service which starts the process:
 ```javascript
 var process = require("bpm/v3/process");
 process.start("hello", {
-    "variable1": "value1"
+    variable1: "value1"
 });
 ```
 
