@@ -9,7 +9,7 @@ icon: fa-ellipsis-h
 
 The Indexing Writer is an object which can store a text content with additional parameters for later high-performant free-text search. This version is backed by the [Apache Lucene](http://lucene.apache.org/).
 
-Version 3.x
+Version 4.x
 ---
 
 - Module: **indexing/v4/writer**
