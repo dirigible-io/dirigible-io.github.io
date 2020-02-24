@@ -12,7 +12,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
 Version 4.x
 ---
 
-- Module: **log/v3/logging**
+- Module: **log/v4/logging**
 - Alias: **log/logging**
 - Definition: [https://github.com/eclipse/dirigible/issues/121](https://github.com/eclipse/dirigible/issues/121)
 - Source: [/log/v4/logging.js](https://github.com/dirigiblelabs/api-log/blob/master/log/v4/logging.js)
