@@ -66,8 +66,8 @@ Function     | Description | Returns
 **generate(template, parameters)**   | Returns the result of the generation | *string*
 **generateFromFile(location, parameters)**   | Returns the result of the generation | *string*
 **getDefaultEngine()**   | Returns the default template engine | *TemplateEngine*
-**getMustacheEngine()**   | Returns the Mustache template engine | *TemplateEngine*
-**getVelocityEngine()**   | Returns the Velocity template engine | *TemplateEngine*
+**getMustacheEngine()**   | Returns the [Mustache](https://mustache.github.io/) template engine | *TemplateEngine*
+**getVelocityEngine()**   | Returns the [Velocity](https://velocity.apache.org/) template engine | *TemplateEngine*
 
 #### TemplateEngine
 
