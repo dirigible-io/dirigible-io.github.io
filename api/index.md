@@ -40,6 +40,7 @@ Core
 * [core/globals](core_globals.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [core/java](core_java.html) <sup>3</sup>⚠
 * [core/threads](core_threads.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
+* [core/template-engine](core_template-engine.html) <sup>4</sup>
 
 
 Database
