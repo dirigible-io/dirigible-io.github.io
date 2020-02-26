@@ -9,6 +9,23 @@ icon: fa-check
 
 Generator object is used to produce project artifacts based on existing templates programmatically.
 
+Version 4.x
+---
+
+Moved to [Template Engine](core_template-engine.html)
+
+---
+
+Version 3.x
+---
+
+N/A
+
+---
+
+Version 2.x
+---
+
 - Module: **platform/generator**
 - Definition: [/core_api/issues/41](https://github.com/dirigiblelabs/core_api/issues/41)
 - Source: [/platform/generator.js](https://github.com/dirigiblelabs/core_api/blob/master/core_api/ScriptingServices/platform/generator.js)
