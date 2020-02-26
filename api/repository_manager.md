@@ -73,6 +73,7 @@ Function     | Description | Returns
 **copyTo(path)** | Copy the Resource to a new location | *-*
 **exists()** | Returns _true_ if the Resource exists | *boolean*
 **isEmpty()** | Returns _true_ if the Resource is empty | *boolean*
+**getText()** | Returns the content of the Resource as text | *string*
 **getContent()** | Returns the content of the Resource | *byte array*
 **setContent(content)** | Sets the Resource content | *-*
 **isBinary()** | Returns _true_ if the Resource content is binary | *boolean*
