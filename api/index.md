@@ -122,6 +122,7 @@ Repository
 ---
 
 * [repository/manager](repository_manager.html) <sup>3,</sup><sup>4</sup>
+* [repository/content](repository_content.html) <sup>4</sup>
 
 Security
 ---
