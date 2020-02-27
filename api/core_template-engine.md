@@ -76,8 +76,8 @@ Function     | Description | Returns
 Function     | Description | Returns
 ------------ | ----------- | --------
 **generate(template, parameters)**   | Returns the result of the generation | *string*
-**setSm(sm)**   | (mustache only) Sets the expression start symbol, default is ``{{{`` | *-*
-**setEm(Em)**   | (mustache only) Sets the expression end symbol, default is ``}}}`` | *-*
+**setSm(sm)**   | (mustache only) Sets the expression start symbol, default is *\{{* | *-*
+**setEm(Em)**   | (mustache only) Sets the expression end symbol, default is *\}}* | *-*
 
 
 ### Compatibility
