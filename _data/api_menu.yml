@@ -144,6 +144,9 @@ navigation:
   - name: repository/manager <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: repository_manager.html
+  - name: repository/content <sup>4</sup>
+    icon: fa fa-caret-right
+    url: repository_content.html
   - name: security/user <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: security_user.html
