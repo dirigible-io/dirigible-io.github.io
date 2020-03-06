@@ -16,7 +16,8 @@ Setup
   * [Setup on Tomcat with HANA](setup_tomcat_hana.html)
 * [Setup as a Docker Image](setup_docker.html)
 * [Setup on Kubernetes](setup_kubernetes.html)
-* [Setup on Cloud Foundry](setup_cloudfoundry.html)
-* [Setup on SAP Cloud Platform](setup_sapcp.html)
+* Setup on SAP Cloud Platform
+  * [Setup in the Neo Environment](setup_sapcp.html)
+  * [Setup in the Cloud Foundry Environment](setup_cloudfoundry.html)
 * [Environment Variables](setup_environment_variables.html)
 
