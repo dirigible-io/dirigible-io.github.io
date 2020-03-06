@@ -7,7 +7,7 @@ group: help-setup
 
 Setup in {{ page.title }}
 ===
-Deploy in the Neo environment of [SAP Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
+Deploy Eclipse Dirigible in the Neo environment of [SAP Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
 
 Prerequisites
 ---
