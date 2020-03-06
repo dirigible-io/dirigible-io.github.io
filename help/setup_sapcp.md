@@ -1,13 +1,13 @@
 ---
 layout: help
-title: SAP Cloud Platform
+title: the Neo Environment
 icon: none
 group: help-setup
 ---
 
-Setup on {{ page.title }}
+Setup in {{ page.title }}
 ===
-Deploy on the [SAP Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
+Deploy in the Neo environment of [SAP Cloud Platform](https://account.hana.ondemand.com/) with the [Cloud SDK](https://tools.hana.ondemand.com/#cloud).
 
 Prerequisites
 ---
@@ -20,7 +20,7 @@ You need to set up:
 
 Steps
 ---
-There are two ways to set up Eclipse Dirigible on SAP Cloud Platform. You can either use console client commands or the SAP Cloud Platform Cockpit.
+There are two ways to set up Eclipse Dirigible in the Neo environment of SAP Cloud Platform. You can either use console client commands or the SAP Cloud Platform Cockpit.
 
 Using the Console Client
 ---
