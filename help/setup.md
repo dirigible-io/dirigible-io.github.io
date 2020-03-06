@@ -8,7 +8,8 @@ Setup
 ===
 
 * [Local](setup_desktop.html)
-* [Setup on Tomcat](setup_tomcat.html)
+* Setup on Tomcat
+  * [Setup on Tomcat (Basics)](setup_tomcat.html)
   * [Setup on Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
   * [Setup on Tomcat with MySQL](setup_tomcat_mysql.html)
   * [Setup on Tomcat with Sybase ASE](setup_tomcat_sybase.html)
