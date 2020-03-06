@@ -1,15 +1,15 @@
 ---
 layout: help
-title: Cloud Foundry
+title: the Cloud Foundry Environment
 icon: none
 group: help-setup
 ---
 
-Setup on {{ page.title }}
+Setup in {{ page.title }}
 ===
 
 
-You can deploy Tomcat based WAR files, for example *dirigible.war*, produced during the build on any Cloud Platform supporting Cloud Foundry.
+You can deploy Tomcat-based WAR files, for example *dirigible.war*, produced during the build on any Cloud Platform supporting Cloud Foundry.
 
 Prerequisites
 ---
