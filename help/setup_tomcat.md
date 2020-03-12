@@ -17,7 +17,7 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 Steps
 ---
 
-1. Download ROOT.war for Tomcat from [http://download.dirigible.io](http://download.dirigible.io).
+1. Download ROOT.war for Tomcat from [https://download.eclipse.org/dirigible](https://download.eclipse.org/dirigible).
 
 2. Configure the Users store under $CATALINA_HOME/conf/tomcat-users.xml:
 
