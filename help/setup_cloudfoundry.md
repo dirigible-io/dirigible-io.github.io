@@ -26,12 +26,12 @@ Steps
 
 > cf login -a [CloudFoundry Platform Host]
 
-2. Deploy on the SAP Cloud Platform Cloud Foundry environment with:
+2. Clone the "deployment-sap-cloud-foundry" repository
 
-> cf push dirigible --docker-image dirigiblelabs/dirigible-sap-cf -m 2G -k 2G
+> git clone https://github.com/dirigiblelabs/deployment-sap-cloud-foundry
 
-3. Open a web browser and go to:
-
-> https://dirigible.[CloudFoundry Platform Host]/
+3. Follow the [README.md](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry) steps
 
 4. Login with user which has assigned the Developer and Operator roles
+
+For more detailed setup follow these [steps](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry)
