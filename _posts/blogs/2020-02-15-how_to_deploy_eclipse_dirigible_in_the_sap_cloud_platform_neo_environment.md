@@ -1,5 +1,5 @@
 ---
-title: Sending E-Mails with the Eclipse Dirigible Mail API
+title: How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment
 author: yordan.pavlov
 ---
 
