@@ -92,6 +92,15 @@ Development & Operations
 * [Engines](engines.html)
 * [Services](services.html)
 
+Extensions
+---
+
+* Web IDE
+  * [How does it work?](concepts_extensions.html)
+  * Available Extension Points and Events:
+    * [Perspective](extension_perspective.html)
+    * [View](extension_view.html)
+
 Samples
 ---
 
