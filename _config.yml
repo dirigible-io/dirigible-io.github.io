@@ -5,13 +5,12 @@ kramdown:
   syntax_highlighter: rouge
   enable_coderay: true
   coderay:
-    coderay_line_numbers: true
+    coderay_line_numbers: false
     coderay_css: class
 highlighter: rouge
 baseurl:
 url: http://dirigible.io
 plugins:
-  - jekyll-sitemap
   - jekyll-feed
 
 exclude:
@@ -41,4 +40,4 @@ defaults:
       layout: app
       category: apps
 
-theme: jekyll-theme-cayman
+theme: minima

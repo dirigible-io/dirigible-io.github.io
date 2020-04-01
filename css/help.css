@@ -10,6 +10,8 @@ For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap
 
 /* Global Styles */
 
+@import "theme.css";
+
 body {
   margin-top: 51px;
 }
