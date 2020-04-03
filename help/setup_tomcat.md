@@ -9,10 +9,18 @@ Setup on {{ page.title }}
 ===
 
 
+Prerequisites
+---
 
 The Tomcat specific WAR files can be deployed on a [Tomcat](http://tomcat.apache.org/) web container. In this case the built-in Derby database is used.
 
 More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
+
+#### macOS
+
+> brew install ttyd
+
+More info about **ttyd** can be found at: https://github.com/tsl0922/ttyd
 
 Steps
 ---
