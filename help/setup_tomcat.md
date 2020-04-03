@@ -20,7 +20,7 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 > brew install ttyd
 
-More info about **ttyd** can be found at: https://github.com/tsl0922/ttyd
+More info about **ttyd** can be found at: [ttyd](https://github.com/tsl0922/ttyd)
 
 Steps
 ---
