@@ -7,7 +7,6 @@ icon: fa-wrench
 Setup
 ===
 
-* [Local](setup_desktop.html)
 * Setup on Tomcat
   * [Setup on Tomcat (Basics)](setup_tomcat.html)
   * [Setup on Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
