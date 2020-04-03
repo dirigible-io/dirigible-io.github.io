@@ -35,7 +35,6 @@ Concepts
 Setup
 ---
 
-* [Local](setup_desktop.html)
 * [Tomcat](setup_tomcat.html)
   * [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
   * [Tomcat with MySQL](setup_tomcat_mysql.html)
