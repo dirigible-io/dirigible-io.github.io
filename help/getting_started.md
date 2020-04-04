@@ -36,15 +36,15 @@ In case of the standard setup on Apache Tomcat on your local machine you can poi
 
 * Once you have a running Dirigible instance you can start with your project. Choose the `File -> New -> Project` menu.
 
-![New Project](images/getting-started/new-project-hello.png)
+![New Project](images/getting_started/new-project-hello.png)
 
 * Enter the name of the project and click `Create Project`.
 
-![Create Project](images/getting-started/create-project-hello.png)
+![Create Project](images/getting_started/create-project-hello.png)
 
 * Use right-click on the project icon in the Workspace Explorer to open the popup menu. Select `New -> Javascript Service`
 
-![Create Javascript Service](images/getting-started/create-javascript.png)
+![Create Javascript Service](images/getting_started/create-javascript.png)
 
 * Once you enter the name of the service you can open it in the editor with double click on the file icon.
 * It already contains the *hello world* service implementation.
@@ -59,11 +59,11 @@ response.close();
 
 * Now just publish the project by clicking on the `Publish` menu of the project.
 
-![Publish Project](images/getting-started/publish-project.png)
+![Publish Project](images/getting_started/publish-project.png)
 
 * You can check in the `Preview` the result of the execution of our fancy server-side Javascript service, just by selecting the file icon in the Workspace Explorer.
 
-![Preview Project](images/getting-started/preview-project.png)
+![Preview Project](images/getting_started/preview-project.png)
 
 ### Update the hello-world.js service
 
