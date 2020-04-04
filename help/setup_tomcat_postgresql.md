@@ -9,7 +9,7 @@ Setup on {{ page.title }}
 ===
 
 
-Tomcat
+Prerequisites
 ---
 
 Download and unpack Apache Tomcat 8.0.x from [here](http://tomcat.apache.org/download-80.cgi).
