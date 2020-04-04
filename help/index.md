@@ -14,6 +14,7 @@ General Overview
 ---
 
 * [Project](project.html)
+* [Getting Started](getting_started.html)
 * [Architecture](architecture.html)
 * [API](../api/)
 * [License](license.html)

@@ -5,7 +5,7 @@ icon: none
 group: help-features
 ---
 
-Features
+{{ page.title }}
 ===
 
 ### Data Structures

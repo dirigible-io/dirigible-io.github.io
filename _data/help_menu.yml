@@ -6,6 +6,9 @@ navigation:
   - name: Project
     icon: fa-lightbulb-o
     url: project.html
+  - name: Getting Started
+    icon: fa-play-circle
+    url: getting_started.html
   - name: Architecture
     icon: fa-building-o
     url: architecture.html
