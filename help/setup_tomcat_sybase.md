@@ -14,6 +14,18 @@ Tomcat
 
 Download and unpack Apache Tomcat 8.0.x from [here](http://tomcat.apache.org/download-80.cgi).
 
+More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
+
+#### macOS
+
+> brew install ttyd
+
+#### Linux
+
+> Linux support is built-in
+
+More info about **ttyd** can be found at: [ttyd](https://github.com/tsl0922/ttyd)
+
 Sybase ASE
 ---
 
