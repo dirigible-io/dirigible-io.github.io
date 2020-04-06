@@ -12,7 +12,7 @@ Setup on {{ page.title }}
 Prerequisites
 ---
 
-The Tomcat specific WAR files can be deployed on a [Tomcat](http://tomcat.apache.org/) web container. In this case the built-in Derby database is used.
+The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat.apache.org/) web container. In this case the built-in H2 database is used.
 
 More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
 
