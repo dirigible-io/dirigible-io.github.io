@@ -58,6 +58,10 @@ We would like to say a big *THANK YOU* to all the open source projects that we u
 * [AngularJS](https://angularjs.org/)
 * [GoldenLayout](https://golden-layout.com/)
 * [Flowable](https://www.flowable.org/)
+* [Monaco](https://microsoft.github.io/monaco-editor/)
+* [Xtermjs](https://xtermjs.org/)
+* [ttyd](https://github.com/tsl0922/ttyd)
+* [acorn](https://github.com/acornjs/acorn)
 
 
 
