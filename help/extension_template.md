@@ -32,21 +32,21 @@ To contribute a new Template to the Web IDE you need to create one model (`\*.ex
 ```javascript
     exports.getTemplate = function() {
 	    var template = {
-			"name":"My Template",
-      "description":"My cool template",
-      "extension":"myfile"
-			"sources": [
-		    {
-			    "location": "/my-project/my-source.template", 
-			    "action": "generate",
-			    "rename": "{{fileName}}.",
-          "engine": "velocity",
-          "start" : "[[",
-			    "end" : "]]"
+               "name":"My Template",
+               "description":"My cool template",
+               "extension":"myfile"
+               "sources": [
+                   {
+                       "location": "/my-project/my-source.template", 
+                       "action": "generate",
+                       "rename": "{{fileName}}.",
+                       "engine": "velocity",
+                       "start" : "[[",
+                       "end" : "]]"
 		    }],
-		    "parameters": []
-	      };
-	    return template;
+                "parameters": []
+             };
+             return template;
     }
 ```
 
