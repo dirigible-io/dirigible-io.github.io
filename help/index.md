@@ -97,10 +97,11 @@ Extensions
 
 * Web IDE
   * [How does it work?](concepts_extensions.html)
-  * Available Extension Points and Events:
-    * [Perspective](extension_perspective.html)
-    * [View](extension_view.html)
-    * [Editor](extension_editor.html)
+  * Extension Points:
+    * [ide-perspective](extension_perspective.html)
+    * [ide-view](extension_view.html)
+    * [ide-editor](extension_editor.html)
+  * Events
 
 Samples
 ---
