@@ -24,15 +24,15 @@ Steps
 
 2. Start the container.
 
-      > ```docker run --name dirigible --rm -p 8888:8080 dirigiblelabs/dirigible-tomcat:latest```
+      > ```docker run --name dirigible --rm -p 8080:8080 -p 8081:8081 dirigiblelabs/dirigible-tomcat:latest```
 
 3. Start the container with mounted volume.
 
-      > ```docker run --name dirigible --rm -p 8888:8080 -v <your-local-directory>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest```
+      > ```docker run --name dirigible --rm -p 8080:8080 -p 8081:8081 -v <your-local-directory>:/usr/local/tomcat/target dirigiblelabs/dirigible-tomcat:latest```
 
 4. Open a web browser and go to:
 
-      > [http://localhost:8888/](http://localhost:8888/)
+      > [http://localhost:8080/](http://localhost:8080/)
 
       The default user name and password are **_dirigible/dirigible_**.
 
