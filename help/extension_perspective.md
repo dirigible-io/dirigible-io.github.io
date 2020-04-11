@@ -124,7 +124,6 @@ In case you would like to align with the overall styling of the Web IDE as well 
               send("repository.run", metadata, false);
           }
       }]);
-
       window.addEventListener('beforeunload', function (e) {
           e.preventDefault();
           e.returnValue = '';
