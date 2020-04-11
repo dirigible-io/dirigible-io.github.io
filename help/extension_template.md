@@ -85,20 +85,17 @@ Implementation
 ```html
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta charset="utf-8" />
-		
-		<title>${fileName}</title>
-		
-	</head>
-	
-	<body ng-app="my-view" ng-controller="MyController as controller" class="view">
-	    <form class="input-group" name="myForm">
-		  	<span class="input-group-btn">
-				<button class="btn btn-default" type="button" ng-click="myClick()"><i class="fa fa-bolt"></i></button>
-			</span>
-	    </form>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>${fileName}</title>
+  </head>
+  <body ng-app="my-view" ng-controller="MyController as controller" class="view">
+    <form class="input-group" name="myForm">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="myClick()"><i class="fa fa-bolt"></i></button>
+      </span>
+    </form>
+  </body>
 </html>
 ```
 For а real world example you can look at [Bookstore Template](https://github.com/dirigiblelabs/template-bookstore)
