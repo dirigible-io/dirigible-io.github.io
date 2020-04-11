@@ -30,6 +30,9 @@ navigation:
   - name: Services
     icon: fa-cog
     url: services.html
+  - name: Extensions
+    icon: fa-puzzle-piece
+    url: extensions.html
   - name: Samples
     icon: fa-gift
     url: ../samples/
