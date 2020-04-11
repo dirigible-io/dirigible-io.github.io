@@ -34,7 +34,7 @@ To contribute a new Template to the Web IDE you need to create one model (`\*.ex
 	    var template = {
                "name":"My Template",
                "description":"My cool template",
-               "extension":"myfile"
+               "extension":"myfile",
                "sources": [
                    {
                        "location": "/my-project/my-source.template", 
@@ -57,8 +57,9 @@ To contribute a new Template to the Web IDE you need to create one model (`\*.ex
   * `location` the relative path to the template
   * `action` the type of the processing which will be used for this templates
   * `rename` if renaming of the target artefact will be needed
-  * `engine` the template engine which will be used for this template - **velocity** or **mustache**
+  * `engine` the template engine which will be used for this template -  **mustache** (default), **velocity** and **javascript**
   * `start` and `end` tags if the default `{{` and '}}' are not applicable
+  * `handler` the javascript transformation service, in case of `javascript` engine
 * `parameters` the list of parameters if any which will be passed to the generator
 
 
