@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/27](https://github.com/eclipse/dirigible/issues/27)
 - Source: [/utils/v4/uuid.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/uuid.js)
 - Facade: [UuidFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/UuidFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

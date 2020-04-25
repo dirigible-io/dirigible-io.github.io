@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/91](https://github.com/eclipse/dirigible/issues/91)
 - Source: [/messaging/v4/producer.js](https://github.com/dirigiblelabs/api-messaging/blob/master/messaging/v4/producer.js)
 - Facade: [MessagingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -15,7 +15,7 @@ Version 4.x
 - Definition: N/A
 - Source: [/core/v4/configurations.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/configurations.js)
 - Facade: [ConfigurationFacade](https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/src/main/java/org/eclipse/dirigible/commons/config/Configuration.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/121](https://github.com/eclipse/dirigible/issues/121)
 - Source: [/log/v4/logging.js](https://github.com/dirigiblelabs/api-log/blob/master/log/v4/logging.js)
 - Facade: [LogFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-log/src/main/java/org/eclipse/dirigible/api/v3/log/LogFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

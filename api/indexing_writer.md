@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/110](https://github.com/eclipse/dirigible/issues/110)
 - Source: [/indexing/v4/writer.js](https://github.com/dirigiblelabs/api-indexing/blob/master/indexing/v4/writer.js)
 - Facade: [IndexingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

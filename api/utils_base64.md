@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/22](https://github.com/eclipse/dirigible/issues/22)
 - Source: [/utils/v4/base64.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/base64.js)
 - Facade: [Base64Facade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Base64Facade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/12](https://github.com/eclipse/dirigible/issues/12)
 - Source: [/http/v4/request.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/request.js)
 - Facade: [HttpRequestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

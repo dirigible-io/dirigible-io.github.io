@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/19](https://github.com/eclipse/dirigible/issues/19)
 - Source: [/io/v4/files.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/files.js)
 - Facade: [FilesFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

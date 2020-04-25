@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/17](https://github.com/eclipse/dirigible/issues/17)
 - Source: [/security/v4/user.js](https://github.com/dirigiblelabs/api-security/blob/master/security/v4/user.js)
 - Facade: [UserFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/508](https://github.com/eclipse/dirigible/issues/508)
 - Source: [/repository/v4/content.js](https://github.com/dirigiblelabs/api-repository/blob/master/repository/v4/content.js)
 - Facade: [ContentFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-repository/src/main/java/org/eclipse/dirigible/api/v3/repository/ContentFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -19,7 +19,7 @@ Version 4.x
 - Definition: n/a
 - Source: [/io/v4/bytes.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/bytes.js)
 - Facade: n/a
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

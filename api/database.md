@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/21](https://github.com/eclipse/dirigible/issues/21)
 - Source: [/db/v4/database.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/database.js)
 - Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

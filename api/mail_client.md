@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/108](https://github.com/eclipse/dirigible/issues/108)
 - Source: [/mail/v4/client.js](https://github.com/dirigiblelabs/api-mail/blob/master/mail/v4/client.js)
 - Facade: [MailFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mail/src/main/java/org/eclipse/dirigible/api/v3/mail/MailFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 Basic Usage
 ---

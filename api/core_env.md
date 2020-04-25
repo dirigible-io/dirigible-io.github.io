@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/29](https://github.com/eclipse/dirigible/issues/29)
 - Source: [/core/v4/env.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/env.js)
 - Facade: [EnvFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/EnvFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

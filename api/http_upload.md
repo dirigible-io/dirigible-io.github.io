@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
 - Source: [/http/v4/upload.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/upload.js)
 - Facade: [HttpUploadFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 

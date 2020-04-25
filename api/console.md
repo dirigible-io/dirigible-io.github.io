@@ -16,7 +16,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/46](https://github.com/eclipse/dirigible/issues/46)
 - Source: [/core/v4/console.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js)
 - Facade: [ConsoleFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

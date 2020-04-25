@@ -9,7 +9,7 @@ icon: fa-check
 
 Workspace Manager object gives access to the user's workspaces. It can be used for creating artifacts such as services and web pages programmatically.
 
-Version 3.x
+Version 4.x
 ---
 
 - Module: **workspace/v3/manager**
@@ -17,7 +17,7 @@ Version 3.x
 - Definition: [https://github.com/eclipse/dirigible/issues/230](https://github.com/eclipse/dirigible/issues/230)
 - Source: [/workspace/v3/manager.js](https://github.com/dirigiblelabs/api-v3-workspace/blob/master/workspace/v3/manager.js)
 - Facade: [BpmFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-workspace/src/main/java/org/eclipse/dirigible/api/v3/workspace/WorkspaceFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

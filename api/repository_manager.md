@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/377](https://github.com/eclipse/dirigible/issues/377)
 - Source: [/repository/v4/manager.js](https://github.com/dirigiblelabs/api-repository/blob/master/repository/v4/manager.js)
 - Facade: [RepositoryFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-repository/src/main/java/org/eclipse/dirigible/api/v3/repository/RepositoryFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/51](https://github.com/eclipse/dirigible/issues/51)
 - Source: [/io/v4/streams.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/streams.js)
 - Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

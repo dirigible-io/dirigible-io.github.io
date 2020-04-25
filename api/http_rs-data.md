@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/85](https://github.com/eclipse/dirigible/issues/85)
 - Source: [/http/v4/rs-data.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/rs-data.js)
 - Facade: none
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

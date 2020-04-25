@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/389](https://github.com/eclipse/dirigible/issues/389)
 - Source: [/core/v4/threads.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/threads.js)
 - Facade: none
-- Status: **beta**
+- Status: **stable**
 
 
 ### Basic Usage

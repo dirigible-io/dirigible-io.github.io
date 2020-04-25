@@ -15,7 +15,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/20](https://github.com/eclipse/dirigible/issues/20)
 - Source: [/io/v4/zip.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/zip.js)
 - Facade: [ZipFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

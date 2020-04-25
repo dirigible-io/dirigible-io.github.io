@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/388](https://github.com/eclipse/dirigible/issues/388)
 - Source: [/http/v4/clientAsync.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/clientAsync.js)
 - Facade: [HttpClientAsync](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-javascript-rhino/src/main/java/org/eclipse/dirigible/engine/js/rhino/api/v3/http/HttpClientAsync.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

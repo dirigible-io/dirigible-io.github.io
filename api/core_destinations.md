@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/445](https://github.com/eclipse/dirigible/issues/445)
 - Source: [/core/v4/destinations.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/destinations.js)
 - Facade: [DestinationsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/DestinationsFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 ### Basic Usage
 

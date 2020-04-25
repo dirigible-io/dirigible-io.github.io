@@ -18,7 +18,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/227](https://github.com/eclipse/dirigible/issues/227)
 - Source: [/bpm/v4/process.js](https://github.com/dirigiblelabs/api-bpm/blob/master/bpm/v4/process.js)
 - Facade: [BpmFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-bpm/src/main/java/org/eclipse/dirigible/api/v3/bpm/BpmFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

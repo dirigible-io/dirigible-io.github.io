@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/25](https://github.com/eclipse/dirigible/issues/25)
 - Source: [/utils/v4/url.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/url.js)
 - Facade: [UrlFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/UrlFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

@@ -18,7 +18,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/178](https://github.com/eclipse/dirigible/issues/178)
 - Source: [/cms/v4/cmis.js](https://github.com/dirigiblelabs/api-cms/blob/master/cms/v4/cmis.js)
 - Facade: [CmisFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-cms/src/main/java/org/eclipse/dirigible/api/v3/cms/CmisFacade.java)
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage

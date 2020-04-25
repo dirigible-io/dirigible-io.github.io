@@ -17,7 +17,7 @@ Version 4.x
 - Definition: [https://github.com/eclipse/dirigible/issues/84](https://github.com/eclipse/dirigible/issues/84)
 - Source: [/db/v4/dao.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/dao.js)
 - Facade: none
-- Status: **alpha**
+- Status: **stable**
 
 
 ### Basic Usage
