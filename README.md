@@ -39,4 +39,4 @@ There is also a list of samples that you can experiment with and reuse in order 
 
 ## License:
 
-Eclipse Dirigible is under the [Eclipse Public License - v 1.0] (https://www.eclipse.org/legal/epl-v10.html).
+Eclipse Dirigible is under the [Eclipse Public License - v 2.0] (https://www.eclipse.org/legal/epl-v20.html).

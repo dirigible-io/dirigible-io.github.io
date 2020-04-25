@@ -70,7 +70,7 @@ Parameter  | Value
 GUID       | core_api
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/core_api](https://github.com/dirigiblelabs/core_api)
-License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
+License    | [Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-v20.html)
 Version    | v0.2-beta
 Download   | [v0.2-beta.zip](https://github.com/dirigiblelabs/core_api/archive/v0.2-beta.zip)
 

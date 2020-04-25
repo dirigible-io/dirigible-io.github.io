@@ -50,7 +50,7 @@ Parameter     | Value
 ------------ | -----------
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/master_currency_data](https://github.com/dirigiblelabs/master_currency_data)
-License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
+License    | [Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-v20.html)
 Version    | -
 Download   | -
 

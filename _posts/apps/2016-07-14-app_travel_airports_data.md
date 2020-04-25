@@ -58,7 +58,7 @@ Parameter  | Value
 GUID       | travel_airports_data
 Author     | [DirigibleLabs](https://github.com/dirigiblelabs)
 Repository | [dirigiblelabs/travel_airports_data](https://github.com/dirigiblelabs/travel_airports_data)
-License    | [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
+License    | [Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-v20.html)
 Version    | -
 Download   | -
 

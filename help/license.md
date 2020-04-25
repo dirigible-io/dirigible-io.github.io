@@ -7,11 +7,11 @@ icon: fa-question-circle
 {{ page.title }}
 ===
 
-The Dirigible project source code base is provided under the [Eclipse Public License - v 1.0](https://www.eclipse.org/legal/epl-v10.html)
+The Dirigible project source code base is provided under the [Eclipse Public License - v 2.0](https://www.eclipse.org/legal/epl-v20.html)
 
 ----------
 
-### Eclipse Public License - v 1.0 ###
+### Eclipse Public License - v 2.0 ###
 
 THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS ECLIPSE PUBLIC LICENSE ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THE PROGRAM CONSTITUTES RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT.
 
