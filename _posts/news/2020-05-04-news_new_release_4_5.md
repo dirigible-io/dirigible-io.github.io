@@ -11,7 +11,7 @@ Release is of *Type A*
 #### Features
 
 * Link external directory as a project in the workspace
-* Git re-architecture
+* Git re-architecture (beta)
   * Git View with local and remote branches
   * Mounting the the cloned folder as project
   * Staging View introduced
@@ -27,8 +27,8 @@ Release is of *Type A*
   * Cross-file references for code-completion
 * Adding a proxy service
 * Templates per file extension filtering
-* GraalVM Engine introduced and set as default
-* Chrome Dev Tools replaced the Debug View
+* GraalVM Engine introduced and set as default (beta)
+* Chrome Dev Tools replaced the Debug View (beta)
 
 
 #### Fixes
