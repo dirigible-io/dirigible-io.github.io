@@ -21,6 +21,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [REST Calls](simple_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
 * [REST Call with Binary Response](simple_rest_binary.md) - how to retrieve the binary content from the response
 * [REST Service](simple_rest_service.html) - getting started with the REST framework
+* [Repository Manager](simple_repository_manager.html) - working with the Repository Manager API
 
 
 #### Complex Samples
