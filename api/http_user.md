@@ -7,6 +7,8 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 HTTP User gives the information about the currently logged in user, if any.
 
 Version 3.x ⚠
