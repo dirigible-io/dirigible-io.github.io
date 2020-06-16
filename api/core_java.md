@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Java module is used for the interconnection between the Javascript engines and the underlying JVM. 
 
 
