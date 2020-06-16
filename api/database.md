@@ -62,19 +62,11 @@ Function     | Description | Returns
 **getConnection(databaseType, datasourceName)**   | Establishes a connection to the selected data-source. Both parameters are optional | *Connection* 
 
 
-
-
-
-
-
 ### Objects
 
 ---
 
-
-
 #### Connection
-
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -145,9 +137,9 @@ Function     | Description | Returns
 Compatibility
 ---
 
-Rhino | Nashorn | V8
------ | ------- | --------
- ✅  | ❌  | ❌
+Rhino | Nashorn | V8 | Graal |
+----- | ------- | ---| ------|
+ ✅   | ❌      | ❌  |  ✅   |
 
 
 ---
