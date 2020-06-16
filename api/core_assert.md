@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Assert object is used to check given conditions or objects
 
 Version 3.x
