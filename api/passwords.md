@@ -7,6 +7,8 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Passwords object is used for a secure store of a confidential data
 
 Version 3.x
