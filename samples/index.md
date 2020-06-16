@@ -12,16 +12,27 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Simple Samples
 
+* [Decode a String from Base64](simple_base64_decode.html) - how to decode a string from Base64 encoded input
+* [Encode a String to Base64](simple_base64_encode.html) - how to encode a string with Base64
 * [Console Log Levels](simple_console.html) - show how to use the built-in **console** object to print information in the standard output
-* [Print Environment Variables](simple_print_env.html) - prints environment variables
+* [Database Dynamic Datasource](simple_database_dynamic.html) - how to use dynamic datasources
 * [Database Statement](simple_database_statement.html) - getting started with the low level Database API
 * [Database Query](simple_database_query.html) - using the simplified Query Database API
+* [Encrypt a Text with SHA512](simple_digest.html) - how to use SHA512 to encrypt an input byte array
+* [Decode a String from Hexadecimal Format](simple_hex_decode.html) - decoding string from HEX
+* [Encode a String to Hexadecimal Format](simple_hex_encode.html) - encoding a string to HEX
 * [HTTP Request](simple_http_request.html) - basic usage of the HTTP Request API
+* [Convert a String from JSON to XML](simple_json2xml.html) - JSON to XML transformation
+* [Convert a String from XML to JSON](simple_xml2json.html) - XML to JSON
 * [Mail Client](simple_mail_client.html) - how to send mails using the Mail Client API
-* [REST Calls](simple_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
-* [REST Call with Binary Response](simple_rest_binary.md) - how to retrieve the binary content from the response
-* [REST Service](simple_rest_service.html) - getting started with the REST framework
+* [Print Environment Variables](simple_print_env.html) - prints environment variables
 * [Repository Manager](simple_repository_manager.html) - working with the Repository Manager API
+* [REST Call with Binary Response](simple_rest_binary.md) - how to retrieve the binary content from the response
+* [REST Calls](simple_rest_calls.html) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
+* [REST Service](simple_rest_service.html) - getting started with the REST framework
+* [Decoding of a URL](simple_url_decode.html) - decoding of an encoded URL
+* [Encoding of a URL](simple_url_encode.html) - encoding an URL
+* [Generate a Random UUID](simple_uuid_random_generation.html) - generate a random UUID
 
 
 #### Complex Samples
