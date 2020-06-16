@@ -4,6 +4,22 @@ title: Exec
 icon: fa-check
 ---
 
+
+> ⚠ Deprecated
+
+Version 4.x
+---
+
+[core/engines](http://www.dirigible.io/api/core_engines.html)
+
+Version 3.x
+---
+
+[core/engines](http://www.dirigible.io/api/core_engines.html)
+
+Version 2.x
+---
+
 {{ page.title }}
 ===
 
