@@ -93,8 +93,8 @@ Log
 Net
 ---
 
-* [net/soap](soap.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
-* [net/websocket](websocket.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
+* [net/soap](net_soap.html) <sup>2,</sup><sup>4</sup>
+* [net/websocket](websocket.html) <sup>2,</sup>
 
 Mail
 ---
