@@ -72,6 +72,9 @@ navigation:
   - name: io/zip <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: io_zip.html
+  - name: io/ftp <sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_ftp.html
   - name: http/client <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_client.html
