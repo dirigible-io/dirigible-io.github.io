@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Error object is used to create a JavaScript Error object with additional execution stack trace information.
 
 - Module: **utils/error**
