@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: Repository Manager
+title: FTP Client
 icon: fa-caret-right
 group: simple
 ---
