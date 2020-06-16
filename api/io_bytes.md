@@ -44,8 +44,8 @@ Function     | Description | Returns
 **toJavaBytes(bytes)**   | Convert the native JavaScript byte array to Java one, to be used internally by the API layer | *array of Java bytes*
 **toJavaScriptBytes(bytes)**   | Convert the Java byte array to a native JavaScript one, to be used internally by the API layer | *array of JavaScript bytes*
 
-Rhino | Nashorn | V8
------ | ------- | --------
- ✅  | ❌  | ❌
+Rhino | Nashorn | V8 | Graal |
+----- | ------- | ---| ------|
+ ✅   | ❌      | ❌  |  ✅   |
 
 ---
