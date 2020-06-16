@@ -51,9 +51,9 @@ Function     | Description | Returns
 ### Compatibility
 ---
 
-Rhino | Nashorn | V8 | Graal
------ | ------- | ---| ---
- ✅  | ❌  | ❌  |    | ✅
+Rhino | Nashorn | V8 | Graal |
+----- | ------- | ---| ------|
+ ✅   | ❌      | ❌  |  ✅   |
 
 ---
 
