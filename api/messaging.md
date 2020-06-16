@@ -7,6 +7,8 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Version 3.x ⚠
 ---
 
