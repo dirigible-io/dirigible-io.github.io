@@ -7,6 +7,8 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Repository module is used for accessing the development artifacts directly from the underlying Repository Component.
 
 Version 3.x
