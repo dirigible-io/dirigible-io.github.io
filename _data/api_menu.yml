@@ -84,12 +84,6 @@ navigation:
   - name: log/logging <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: log_logging.html
-  - name: net/soap <sup>2,</sup><sup>3,</sup><sup>4</sup>
-    icon: fa fa-caret-right
-    url: soap.html
-  - name: net/websocket <sup>2,</sup><sup>3,</sup><sup>4</sup>
-    icon: fa fa-caret-right
-    url: websocket.html
   - name: http/client <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: http_client.html
@@ -129,6 +123,12 @@ navigation:
   - name: platform/exec <sup>2</sup>
     icon: fa fa-caret-right
     url: exec.html
+  - name: net/soap <sup>2,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: soap.html
+  - name: net/websocket <sup>2,</sup>
+    icon: fa fa-caret-right
+    url: websocket.html
   - name: platform/generator <sup>2</sup>⚠
     icon: fa fa-caret-right
     url: generator.html
