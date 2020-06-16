@@ -7,6 +7,8 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Mail object is used to send e-mails through the mail service.
 
 Version 4.x
