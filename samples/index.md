@@ -34,6 +34,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Encoding of a URL](simple_url_encode.html) - encoding an URL
 * [Generate a Random UUID](simple_uuid_random_generation.html) - generate a random UUID
 * [SOAP Client](simple_soap_client.html) - building a client for calling a SOAP service
+* [SOAP Server](simple_soap_server.html) - building a server side SOAP service
 
 
 #### Complex Samples
