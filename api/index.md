@@ -85,18 +85,10 @@ Log
 
 * [log/logging](log_logging.html) <sup>3,</sup><sup>4</sup>
 
-
-Net
----
-
-* [net/soap](net_soap.html) <sup>2,</sup><sup>4</sup>
-* [net/websocket](websocket.html) <sup>2,</sup>
-
 Mail
 ---
 
 * [mail/client](mail_client.html) <sup>4</sup>
-
 
 Messaging
 ---
@@ -105,11 +97,19 @@ Messaging
 * [messaging/consumer](messaging_consumer.html) <sup>3,</sup><sup>4</sup>
 
 
+Net
+---
+
+* [net/soap](net_soap.html) <sup>2,</sup><sup>4</sup>
+* [net/websocket](websocket.html) <sup>2,</sup>
+
+
 Repository
 ---
 
 * [repository/manager](repository_manager.html) <sup>3,</sup><sup>4</sup>
 * [repository/content](repository_content.html) <sup>4</sup>
+
 
 Security
 ---
@@ -122,7 +122,6 @@ Utils
 
 * [utils/base64](utils_base64.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [utils/digest](utils_digest.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
-* [utils/error](utils_error.html) <sup>2</sup>⚠
 * [utils/escape](utils_error.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [utils/hex](utils_hex.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [utils/url](utils_url.html) <sup>3,</sup><sup>4</sup>
@@ -153,6 +152,7 @@ Deprecated
 * [mail](mail.html) <sup>2</sup>⚠
 * [messaging](messaging.html) <sup>2</sup>⚠
 * [passwords](passwords.html) <sup>2</sup>
+* [utils/error](utils_error.html) <sup>2</sup>⚠
 * [utils/xss](utils_xss.html) <sup>2</sup>⚠
 
 Samples
