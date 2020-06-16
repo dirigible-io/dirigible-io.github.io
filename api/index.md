@@ -30,15 +30,12 @@ Content Management
 Core
 ---
 
-* [assert](core_assert.html) <sup>2</sup>⚠
-* [config](core_config.html) <sup>2</sup>⚠
 * [core/configurations](core_configurations.html) <sup>3,</sup><sup>4</sup>
 * [core/context](core_context.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [core/destinations](core_destinations.html) <sup>4</sup>
 * [core/env](core_env.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [core/extensions](core_extensions.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [core/globals](core_globals.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
-* [core/java](core_java.html) <sup>3</sup>⚠
 * [core/threads](core_threads.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [core/template-engine](core_template-engine.html) <sup>4</sup>
 
@@ -70,7 +67,6 @@ HTTP
 * [http/response](http_response.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [http/session](http_session.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [http/upload](http_upload.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
-* [http/user](http_user.html) <sup>2</sup>⚠
 * [http/rs](http_rs.html) <sup>3,</sup><sup>4</sup>
 * [http/rs-data](http_rs-data.html) <sup>3,</sup><sup>4</sup>
 
@@ -109,15 +105,6 @@ Messaging
 * [messaging/consumer](messaging_consumer.html) <sup>3,</sup><sup>4</sup>
 
 
-Platform
----
-
-* [exec](exec.html) <sup>2</sup>⚠
-* [generator](generator.html) <sup>2</sup>⚠
-* [lifecycle](lifecycle.html) <sup>2</sup>⚠
-* [repository](repository.html) <sup>2</sup>⚠
-* [workspaces](workspaces.html) <sup>2</sup>⚠
-
 Repository
 ---
 
@@ -128,15 +115,6 @@ Security
 ---
 
 * [security/user](security_user.html) <sup>3,</sup><sup>4</sup>
-
-
-Services
----
-
-* [indexing](indexing.html) <sup>2</sup>⚠
-* [mail](mail.html) <sup>2</sup>⚠
-* [messaging](messaging.html) <sup>2</sup>⚠
-* [passwords](passwords.html) <sup>2</sup>
 
 
 Utils
@@ -150,7 +128,7 @@ Utils
 * [utils/url](utils_url.html) <sup>3,</sup><sup>4</sup>
 * [utils/uuid](utils_uuid.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
 * [utils/xml](utils_xml.html) <sup>2,</sup><sup>3,</sup><sup>4</sup>
-* [utils/xss](utils_xss.html) <sup>2</sup>⚠
+
 
 Workspace
 ---
@@ -158,6 +136,24 @@ Workspace
 * [workspace/manager](workspace_manager.html) <sup>3</sup>,<sup>4</sup>
 
 ---
+
+Deprecated
+---
+
+* [assert](core_assert.html) <sup>2</sup>⚠
+* [config](core_config.html) <sup>2</sup>⚠
+* [core/java](core_java.html) <sup>3</sup>⚠
+* [http/user](http_user.html) <sup>2</sup>⚠
+* [exec](exec.html) <sup>2</sup>⚠
+* [generator](generator.html) <sup>2</sup>⚠
+* [lifecycle](lifecycle.html) <sup>2</sup>⚠
+* [repository](repository.html) <sup>2</sup>⚠
+* [workspaces](workspaces.html) <sup>2</sup>⚠
+* [indexing](indexing.html) <sup>2</sup>⚠
+* [mail](mail.html) <sup>2</sup>⚠
+* [messaging](messaging.html) <sup>2</sup>⚠
+* [passwords](passwords.html) <sup>2</sup>
+* [utils/xss](utils_xss.html) <sup>2</sup>⚠
 
 Samples
 ---
