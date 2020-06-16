@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Generator object is used to produce project artifacts based on existing templates programmatically.
 
 Version 4.x
