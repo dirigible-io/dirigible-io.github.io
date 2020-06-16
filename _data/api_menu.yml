@@ -21,6 +21,9 @@ navigation:
   - name: core/destinations <sup>4</sup>
     icon: fa fa-caret-right
     url: core_destinations.html
+  - name: core/engines <sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_engines.html
   - name: core/env <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_env.html
