@@ -35,6 +35,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Generate a Random UUID](simple_uuid_random_generation.html) - generate a random UUID
 * [SOAP Client](simple_soap_client.html) - building a client for calling a SOAP service
 * [SOAP Server](simple_soap_server.html) - building a server side SOAP service
+* [FTP Client](simple_ftp_client.html) - getting started with the FTP Client
 
 
 #### Complex Samples
