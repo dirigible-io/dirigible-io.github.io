@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Workspaces object gives access to the user's workspace. It can be used for creating artifacts such as services and web pages programmatically.
 
 Version 3.x  ⚠
