@@ -35,8 +35,8 @@ var user = user.getName();
 var workspaceName = "workspace";
 var projectName = "project";
 
-var myWorkspace = workspace.createWorkspace("workspace");
-var myProject = myWorkspace.createProject("project");
+var myWorkspace = workspace.createWorkspace(workspaceName);
+var myProject = myWorkspace.createProject(projectName);
 var myFile = myProject.createFile("file.js");
 myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
 
