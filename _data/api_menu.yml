@@ -120,6 +120,9 @@ navigation:
   - name: net/websocket <sup>2,</sup>
     icon: fa fa-caret-right
     url: websocket.html
+  - name: platform/lifecycle <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_lifecycle.html
   - name: repository/manager <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: repository_manager.html
