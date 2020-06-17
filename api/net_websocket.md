@@ -9,6 +9,88 @@ icon: fa-ellipsis-h
 
 Websocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.
 
+Version 4.x
+---
+
+- Module: **net/v4/websockets**
+- Alias: **net/websockets**
+- Definition: [https://github.com/eclipse/dirigible/issues/391](https://github.com/eclipse/dirigible/issues/391)
+- Source: [/net/v4/websockets.js](https://github.com/dirigiblelabs/api-net/blob/master/net/v4/websockets.js)
+- Facade: [WebsocketsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-net/src/main/java/org/eclipse/dirigible/api/v4/websockets/WebsocketsFacade.java)
+- Status: **stable**
+
+
+### Basic Usage
+
+```javascript
+var database = require("db/v4/database");
+var response = require("http/v4/response");
+
+var connection = database.getConnection();
+try {
+    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
+    var resultSet = statement.executeQuery();
+    while (resultSet.next()) {
+        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
+    }
+    resultSet.close();
+    statement.close();
+} catch(e) {
+    console.trace(e);
+    response.println(e.message);
+} finally {
+    connection.close();
+}
+
+response.flush();
+response.close();
+```
+
+
+### Definition
+
+#### Functions
+
+---
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**createWebsocket(uri, handler, engine)**   | Creates a WebsocketClient by URI, handler and engine type | *WebsocketClient*
+**getClients()**    | Returns the list of the created WebsocketClients | *list of WebsocketClient metadata*
+**getClient(id)**   | Returns the client by its id, if exists or null otherwise | *WebsocketClient*
+**getClientByHandler(handler)**   | Returns the client by its handler, if exists or null otherwise | *WebsocketClient*
+**getMessage()**   | Returns the message in context of OnMessage handler | *string*
+**getError()**   | Returns the error in context of OnError handler | *string*
+**getMethod()**   | Returns the method type in context of the handler | *onopen, onmessage, onerror, onclose*
+**isOnOpen()**   | Returns true in context of OnOpen handler | *boolean*
+**isOnMessage()**   | Returns true in context of OnMessage handler | *boolean*
+**isOnError()**   | Returns true in context of OnError handler | *boolean*
+**isOnClose()**   | Returns true in context of OnClose handler | *boolean*
+
+
+
+### Objects
+
+---
+
+#### WebsocketClient
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**send()**   | Sends a message via the Websocket connection | -
+**close()**   | Closes the Websocket connection | -
+
+
+Compatibility
+---
+
+Rhino | Nashorn | V8 | Graal |
+----- | ------- | ---| ------|
+ ✅   | ❌      | ❌  |  ✅   |
+ 
+---
+
+
 Version 3.x
 ---
 
