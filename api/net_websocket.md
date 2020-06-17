@@ -23,29 +23,54 @@ Version 4.x
 ### Basic Usage
 
 ```javascript
-var database = require("db/v4/database");
-var response = require("http/v4/response");
+var websockets = require("net/v4/websockets");
+var uri = "ws://echo.websocket.org:80/";
+var handler = "my-project/ws-handler"
 
-var connection = database.getConnection();
-try {
-    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
-    var resultSet = statement.executeQuery();
-    while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
-    }
-    resultSet.close();
-    statement.close();
-} catch(e) {
-    console.trace(e);
-    response.println(e.message);
-} finally {
-    connection.close();
+function initialize() {
+    console.log("Connect to: " + uri);
+    var websocket = websockets.createWebsocket(uri, handler);
+    websocket.send("hello");
 }
 
-response.flush();
-response.close();
+initialize();
+
+websockets.getClientByHandler(handler).close();
 ```
 
+The handler:
+
+```javascript
+var websockets = require("net/v4/websockets");
+var websocket;
+
+function onOpen() {
+  console.log("Connection openned.");
+}
+
+function onMessage() {
+  var message = websockets.getMessage();
+  console.log("Message received: " + message);
+}
+function onError() {
+  var error = websockets.getError();
+  console.error("Error: " + error);
+}
+
+function onClose() {
+  console.warn("Connection closed.");
+}
+
+if (websockets.isOnOpen()) {
+  onOpen();
+} else if (websockets.isOnMessage()) {
+  onMessage();
+} else if (websockets.isOnError()) {
+  onError();
+} else if (websockets.isOnClose()) {
+  onClose();
+}
+```
 
 ### Definition
 
