@@ -1,6 +1,6 @@
 ---
 layout: api
-title: Bytes
+title: Lifecycle
 icon: fa-ellipsis-h
 ---
 
