@@ -16,9 +16,9 @@ Version 4.x
 
 - Module: **platform/v4/lifecycle**
 - Alias: **platform/lifecycle**
-- Definition: n/a
+- Definition: https://github.com/eclipse/dirigible/issues/233
 - Source: [/platform/v4/lifecycle.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/lifecycle.js)
-- Facade: n/a
+- Facade: [LifecycleFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/LifecycleFacade.java)
 - Status: **stable**
 
 
