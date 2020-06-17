@@ -36,6 +36,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [SOAP Client](simple_soap_client.html) - building a client for calling a SOAP service
 * [SOAP Server](simple_soap_server.html) - building a server side SOAP service
 * [FTP Client](simple_ftp_client.html) - getting started with the FTP Client
+* [Platform Lifecycle](simple_platform_lifecycle.html) - getting started with the Platform Lifecycle API
 
 
 #### Complex Samples
