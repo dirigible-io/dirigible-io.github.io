@@ -105,6 +105,10 @@ Net
 * [net/soap](net_soap.html) <sup>2,</sup><sup>4</sup>
 * [net/websocket](websocket.html) <sup>2,</sup>
 
+Platform
+---
+
+* [platform/lifecycle](platform_lifecycle.html) <sup>4</sup>
 
 Repository
 ---
