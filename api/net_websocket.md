@@ -102,7 +102,7 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**send()**   | Sends a message via the Websocket connection | -
+**send(message)**   | Sends a text message via the Websocket connection | -
 **close()**   | Closes the Websocket connection | -
 
 
