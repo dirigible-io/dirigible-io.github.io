@@ -119,7 +119,7 @@ navigation:
     url: soap.html
   - name: net/websocket <sup>2,</sup>
     icon: fa fa-caret-right
-    url: websocket.html
+    url: net_websocket.html
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
