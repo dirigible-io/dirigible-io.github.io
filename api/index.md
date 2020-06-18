@@ -106,6 +106,7 @@ Platform
 ---
 
 * [platform/engines](platform_engines.html) <sup>4</sup>
+* [platform/registry](platform_registry.html) <sup>4</sup>
 * [platform/lifecycle](platform_lifecycle.html) <sup>4</sup>
 
 
