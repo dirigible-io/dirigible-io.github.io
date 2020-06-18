@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Workspace Manager object gives access to the user's workspaces. It can be used for creating artifacts such as services and web pages programmatically.
 
 Version 4.x
