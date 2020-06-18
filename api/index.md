@@ -109,7 +109,7 @@ Platform
 * [platform/registry](platform_registry.html) <sup>4</sup>
 * [platform/repository](platform_repository.html) <sup>4</sup>
 * [platform/lifecycle](platform_lifecycle.html) <sup>4</sup>
-
+* [platform/workspace](platform_workspace.html) <sup>4</sup>
 
 Security
 ---
