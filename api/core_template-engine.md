@@ -7,7 +7,7 @@ icon: fa-check
 {{ page.title }}
 ===
 
-> ⚠ Deprecated
+> ⚠ Deprecated, migrated to [platform/template-engines](platform_template-engines.html)
 
 The object is used for processing of templates
 
