@@ -123,6 +123,9 @@ navigation:
   - name: platform/repository <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_repository.html
+  - name: platform/template-engines <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_template-engines.html
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
