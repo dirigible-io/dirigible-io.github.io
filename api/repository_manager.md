@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Repository Manager object gives access to the repository. It can be used for creating artifacts such as services and web pages programmatically.
 
 Version 4.x
