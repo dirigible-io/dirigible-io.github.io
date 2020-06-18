@@ -147,9 +147,6 @@ navigation:
   - name: utils/xml <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: utils_xml.html
-  - name: workspace/manager <sup>3,</sup><sup>4</sup>
-    icon: fa fa-caret-right
-    url: workspace_manager.html
   - name: #
     icon: fa fa-caret-right
     url: index.html
