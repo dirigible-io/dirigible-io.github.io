@@ -150,6 +150,7 @@ Deprecated
 * [mail](mail.html) <sup>2</sup>⚠
 * [messaging](messaging.html) <sup>2</sup>⚠
 * [passwords](passwords.html) <sup>2</sup>⚠
+* [template-engine](core_template-engine.html) <sup>4</sup>⚠
 * [utils/error](utils_error.html) <sup>2</sup>⚠
 * [utils/xss](utils_xss.html) <sup>2</sup>⚠
 
