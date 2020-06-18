@@ -120,6 +120,9 @@ navigation:
   - name: platform/registry <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_registry.html
+  - name: platform/repository <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_repository.html
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
