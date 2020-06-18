@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 The object is used for processing of templates
 
 Version 4.x
