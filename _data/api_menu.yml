@@ -126,6 +126,9 @@ navigation:
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
+  - name: platform/workspace <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_workspace.html
   - name: security/user <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: security_user.html
