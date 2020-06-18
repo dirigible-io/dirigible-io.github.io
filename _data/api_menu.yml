@@ -117,6 +117,9 @@ navigation:
   - name: platform/engines <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_engines.html
+  - name: platform/registry <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_registry.html
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
