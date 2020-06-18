@@ -7,7 +7,7 @@ icon: fa-check
 {{ page.title }}
 ===
 
-> ⚠ Deprecated
+> ⚠ Deprecated, migrated to [platform/registry](platform_registry.html)
 
 Repository Content object gives access to the content in the repository and also the pre-delivered content
 
