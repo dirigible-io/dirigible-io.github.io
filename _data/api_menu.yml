@@ -36,9 +36,6 @@ navigation:
   - name: core/threads <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_threads.html
-  - name: core/template-engine <sup>4</sup>
-    icon: fa fa-caret-right
-    url: core_template-engine.html
   - name: db/database <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database.html
