@@ -21,9 +21,6 @@ navigation:
   - name: core/destinations <sup>4</sup>
     icon: fa fa-caret-right
     url: core_destinations.html
-  - name: core/engines <sup>4</sup>
-    icon: fa fa-caret-right
-    url: core_engines.html
   - name: core/env <sup>2,</sup><sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: core_env.html
@@ -117,6 +114,9 @@ navigation:
   - name: net/websocket <sup>2,</sup>
     icon: fa fa-caret-right
     url: net_websocket.html
+  - name: platform/engines <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_engines.html
   - name: platform/lifecycle <sup>4</sup>
     icon: fa fa-caret-right
     url: platform_lifecycle.html
