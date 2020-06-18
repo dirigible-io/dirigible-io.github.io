@@ -7,7 +7,7 @@ icon: fa-check
 {{ page.title }}
 ===
 
-> ⚠ Deprecated
+> ⚠ Deprecated, migrated to [platform/workspace](platform_workspace.html)
 
 Workspace Manager object gives access to the user's workspaces. It can be used for creating artifacts such as services and web pages programmatically.
 
