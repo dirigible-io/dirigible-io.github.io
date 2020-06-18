@@ -145,7 +145,7 @@ Deprecated
 * [repository/manager](repository_manager.html) <sup>3,</sup><sup>4</sup>⚠
 * [repository/content](repository_content.html) <sup>4</sup>⚠
 * [workspaces](workspaces.html) <sup>2</sup>⚠
-* [workspace/manager](workspace_manager.html) <sup>3</sup>,<sup>4</sup>⚠
+* [workspace/manager](workspace_manager.html) <sup>3,</sup><sup>4</sup>⚠
 * [indexing](indexing.html) <sup>2</sup>⚠
 * [mail](mail.html) <sup>2</sup>⚠
 * [messaging](messaging.html) <sup>2</sup>⚠
