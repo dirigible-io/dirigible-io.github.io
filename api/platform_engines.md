@@ -15,7 +15,7 @@ Version 4.x
 - Module: **platform/v4/engines**
 - Alias: **platform/engines**
 - Definition: [https://github.com/eclipse/dirigible/issues/234](https://github.com/eclipse/dirigible/issues/234)
-- Source: [/platform/v4/engines.js](https://github.com/dirigiblelabs/api-platform/blob/master/core/v4/platform.js)
+- Source: [/platform/v4/engines.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/engines.js)
 - Facade: [ScriptEngineExecutorsManager](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-api/src/main/java/org/eclipse/dirigible/engine/api/script/ScriptEngineExecutorsManager.java)
 - Status: **stable**
 
