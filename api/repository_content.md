@@ -7,6 +7,8 @@ icon: fa-check
 {{ page.title }}
 ===
 
+> ⚠ Deprecated
+
 Repository Content object gives access to the content in the repository and also the pre-delivered content
 
 Version 4.x
