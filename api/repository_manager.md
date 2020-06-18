@@ -7,7 +7,7 @@ icon: fa-check
 {{ page.title }}
 ===
 
-> ⚠ Deprecated
+> ⚠ Deprecated, migrated to [platform/repository](platform_repository.html)
 
 Repository Manager object gives access to the repository. It can be used for creating artifacts such as services and web pages programmatically.
 
