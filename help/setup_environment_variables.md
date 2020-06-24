@@ -183,6 +183,8 @@ Parameter     | Description | Default*
 
 #### CMS Database
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
 **DIRIGIBLE_CMS_DATABASE_DATASOURCE_TYPE**   | Type of the database for CMS repository | local, managed, custom, dynamic
 **DIRIGIBLE_CMS_DATABASE_DATASOURCE_NAME**   | The datasource name | default is *DefaultDB*
 
@@ -232,13 +234,18 @@ Parameter     | Description | Default*
 
 #### JavaScript
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
 **DIRIGIBLE_JAVASCRIPT_ENGINE_TYPE_DEFAULT**   | The type of the JavaScript engine provider used in this instance | rhino or nashorn or v8 - default is *rhino*
+**DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | default is *8081* and *0.0.0.0:8081* in Docker environment
 
 ### Operations
 ---
 
 #### Logs
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
 **DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT**   | The folder where the log files are stored in | default is **../logs**
 
 ### Look & Feel
@@ -246,6 +253,8 @@ Parameter     | Description | Default*
 
 #### Theme
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
 **DIRIGIBLE_THEME_DEFAULT**   | The name of the default name | default is **Default**
 
 ### Destinations
