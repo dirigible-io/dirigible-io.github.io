@@ -22,6 +22,8 @@ Version 4.x
 
 ### Basic Usage
 
+#### Client
+
 ```javascript
 var websockets = require("net/v4/websockets");
 var uri = "ws://echo.websocket.org:80/";
@@ -41,35 +43,40 @@ websockets.getClientByHandler(handler).close();
 The handler:
 
 ```javascript
-var websockets = require("net/v4/websockets");
-var websocket;
-
-function onOpen() {
+exports.onOpen = function()  {
   console.log("Connection openned.");
 }
 
-function onMessage() {
-  var message = websockets.getMessage();
+exports.onMessage = function(message) {
   console.log("Message received: " + message);
 }
-function onError() {
-  var error = websockets.getError();
+
+exports.onError = function(error) {
   console.error("Error: " + error);
 }
 
-function onClose() {
+exports.onClose = function() {
   console.warn("Connection closed.");
 }
+```
 
-if (websockets.isOnOpen()) {
-  onOpen();
-} else if (websockets.isOnMessage()) {
-  onMessage();
-} else if (websockets.isOnError()) {
-  onError();
-} else if (websockets.isOnClose()) {
-  onClose();
+#### Server
+
+> For example: `my-endpoint.websocket` is using the same **handler** from above
+
+```
+{
+  "handler": "my-project/ws-handler",
+  "endpoint":"my-endpoint",
+  "description":"My Websocket"
 }
+```
+
+then you can call from a browser:
+
+```
+var ws = new WebSocket("ws://localhost:8080/websockets/v4/service/my-endpoint");
+ws.send('hello');
 ```
 
 ### Definition
