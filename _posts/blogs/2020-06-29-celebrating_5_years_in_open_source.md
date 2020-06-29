@@ -36,4 +36,4 @@ Git support in Dirigible was available, since the very beginning. You could clon
 
 With the latest release we set the future direction of the Dirigible project from a technology perspective. Now, as we fixed the problematic dependencies by betting on new and emerging projects as well as reverted some of the questionable architectural decisions from the past the future of Dirigible looks quite bright.
 
-> One more good news came along with this release - completed graduation review ayeeeee!
+> One more good news came along with this release - completed graduation review! We are mature - ayeeeee!
