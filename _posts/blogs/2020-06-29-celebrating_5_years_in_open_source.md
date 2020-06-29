@@ -3,7 +3,7 @@ title: Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer 
 author: nedelcho.delchev
 ---
 
-### Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
+Eclipse Dirigible just turned five years in open source. Five years in Eclipse Foundation within the Eclipse Cloud Development group. Five years of innovations with many friends around the globe, lots of realised dreams, first-class happiness.
 
 #### [GraalVM](https://www.graalvm.org/)'s [GraalJS](https://github.com/graalvm/graaljs)
 
