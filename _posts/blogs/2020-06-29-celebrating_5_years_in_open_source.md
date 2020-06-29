@@ -34,6 +34,12 @@ Git support in Dirigible was available, since the very beginning. You could clon
 
 #### Conclusion
 
-With the latest release we set the future direction of the Dirigible project from a technology perspective. Now, as we fixed the problematic dependencies by betting on new and emerging projects as well as reverted some of the questionable architectural decisions from the past the future of Dirigible looks quite bright.
+With the latest release we set the future direction of the Dirigible project from a technology perspective. We fixed the problematic dependencies by betting on new and emerging projects as well as reverted some of the questionable architectural decisions from the past the future of Dirigible looks quite bright.
 
-> One more good news came along with this release - completed graduation review! We are mature - ayeeeee!
+What's next? Now, we can safely focus on what Eclipse Dirigible always was supposed to give to developers - high-productivity application development platform. Many improvements to of the MDA tools are planned already related to the built-in extensibility of the entities, distributed models, security validations and role-based access management in generation templates. The unified inbox for process events as well as better integration of user tasks are examples of what we see in the BPM related tools for the future versions.
+
+#### Enjoy!
+
+> One more good news came along with this release - completed graduation review!
+
+We are mature - ayeeeee!
