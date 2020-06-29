@@ -44,4 +44,4 @@ Do you want to join forces with us in this endeavor?
 
 > One more good news came along with this release - completed graduation review!
 
-**We are mature - ayeeeee!** 💃 🕺 🧑‍🎓👨‍🎓🧑‍🎤👨‍🎤👩‍🎤🤵👰👨‍🦳🧑‍🦳   OMG!  🤦‍♂️
+**We are mature - ayeeeee!** 💃 🕺 🧑‍🎓👨‍🎓🧑‍🎤👨‍🎤👩‍🎤🤵👰👨‍🦳🧑‍🦳👩‍🚀🧑‍🚒🧑‍🌾   **OMG!**  🤦‍♂️
