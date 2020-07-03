@@ -98,7 +98,7 @@ It contains a database table definition, a RESTful service and a web page for ma
 
 ```javascript
 
-var daoApi = require('db/v3/dao');
+var daoApi = require('db/v4/dao');
 var dao = daoApi.create({
 	'table': 'BABYLON_BOOKS',
 	'properties': [
@@ -170,9 +170,9 @@ exports.delete = function(id) {
 
 ```javascript
 
-var rs = require('http/v3/rs');
+var rs = require('http/v4/rs');
 var dao = require('babylon_project/dao/Books');
-var response = require('http/v3/response');
+var response = require('http/v4/response');
 
 // HTTP 200
 var sendResponseOk = function(entity) {
@@ -235,7 +235,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			var entity = request.getJSON();
 			entity.id = dao.create(entity);
-			response.setHeader('Content-Location', '/services/v3/js/babylon_project/service/Books.js/' + entity.id);
+			response.setHeader('Content-Location', '/services/v4/js/babylon_project/service/Books.js/' + entity.id);
 			sendResponseCreated(entity);
 		})
 	.resource('{id}')
@@ -276,9 +276,9 @@ rs.service()
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<link type="text/css" rel="stylesheet" href="/services/v3/core/theme/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="/services/v3/web/resources/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link type="image/png" rel="shortcut icon" href="/services/v3/web/resources/images/favicon.png" />
+	<link type="text/css" rel="stylesheet" href="/services/v4/core/theme/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="/services/v4/web/resources/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link type="image/png" rel="shortcut icon" href="/services/v4/web/resources/images/favicon.png" />
 </head>
 
 <body ng-controller="PageController">
@@ -367,10 +367,10 @@ rs.service()
 	</div>
 
 
-	<script type="text/javascript" src="/services/v3/web/resources/jquery/2.0.3/jquery.min.js"></script>
-	<script type="text/javascript" src="/services/v3/web/resources/bootstrap/3.3.7/bootstrap.min.js" async></script>
-	<script type="text/javascript" src="/services/v3/web/resources/angular/1.4.7/angular.min.js"></script>
-	<script type="text/javascript" src="/services/v3/web/resources/angular/1.4.7/angular-resource.min.js"></script>
+	<script type="text/javascript" src="/services/v4/web/resources/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="/services/v4/web/resources/bootstrap/3.3.7/bootstrap.min.js" async></script>
+	<script type="text/javascript" src="/services/v4/web/resources/angular/1.4.7/angular.min.js"></script>
+	<script type="text/javascript" src="/services/v4/web/resources/angular/1.4.7/angular-resource.min.js"></script>
 
 	<script type="text/javascript" src="controller.js"></script>
 
@@ -387,7 +387,7 @@ rs.service()
 angular.module('page', []);
 angular.module('page').controller('PageController', function ($scope, $http) {
 
-	var api = '/services/v3/js/babylon_project/service/Books.js';
+	var api = '/services/v4/js/babylon_project/service/Books.js';
 
 
 
