@@ -36,7 +36,7 @@ Release is of *Type A*
 
 * 54K+ Users
 * 77K+ Sessions
-* 183 Countries
+* 184 Countries
 * 394 Repositories in DirigibleLabs
 
 #### Operational
