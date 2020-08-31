@@ -28,13 +28,16 @@ Steps
   metadata:
     name: dirigible
   ---
-  apiVersion: extensions/v1beta1
+  apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: dirigible
     namespace: dirigible
   spec:
     replicas: 1
+    selector:
+      matchLabels:
+        app: dirigible
     template:
       metadata:
         labels:
