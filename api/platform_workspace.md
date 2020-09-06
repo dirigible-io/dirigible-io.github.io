@@ -140,8 +140,11 @@ Function     | Description | Returns
 **exists()** | Check whether this File object does exist programmatically | *boolean*
 **getContentType()** | Returns the Content Type of the File programmatically | *string*
 **isBinary()** | Returns the Binary flag of the File programmatically | *boolean*
-**getContent()** | Returns the *Content* of the File programmatically | *string*
-**setContent(input)** | Sets the *Content* of the File programmatically by the given string *input* | *-*
+**getContent()** | Returns the *Content* of the File programmatically | *bytes*
+**setContent(input)** | Sets the *Content* of the File programmatically by the given bytes *input* | *-*
+**getText()** | Returns the *Content* of the File programmatically | *string*
+**setText(input)** | Sets the *Content* of the File programmatically by the given string *input* | *-*
+
 
 
 
