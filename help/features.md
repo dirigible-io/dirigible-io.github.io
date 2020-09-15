@@ -80,4 +80,4 @@ group: help-features
 * Separate lists of endpoints and viewers per type of services - JavaScript, Web, Wiki, etc.
 * Separate browse user interface for Web and Wiki content
 
-> Note: Features set listed above contains only the major part of what is available currently. For better insight what can be done with Dirigible we recommend to [try it out](http://dirigible.eclipse.org).
+> Note: Features set listed above contains only the major part of what is available currently. For better insight what can be done with Dirigible we recommend to [try it out](http://trial.dirigible.io).
