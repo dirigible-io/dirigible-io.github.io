@@ -52,6 +52,7 @@ Function     | Description | Returns
 **getCollection(path)**   | Get Collection by path | *Collection*
 **createCollection(path)**   | Creates Collection programmatically | *Collection*
 **deleteCollection(path)**   | Delete Collection by path | *-*
+**find(path, pattern)**   | Find resources under certain path (e.g. /) by pattern (e.g. *.js) | *array of strings*
 
 
 #### Objects
