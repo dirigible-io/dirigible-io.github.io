@@ -16,6 +16,11 @@ Download and unpack Apache Tomcat 8.0.x from [here](http://tomcat.apache.org/dow
 
 More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
 
+#### Java
+> JDK 11+
+
+OpenJDK versions can be found [here](https://openjdk.java.net/projects/jdk/)
+
 #### macOS
 
 > brew install ttyd
