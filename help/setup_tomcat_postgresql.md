@@ -26,6 +26,11 @@ More information about how to deploy on Tomcat can be found [here](http://tomcat
 
 More info about **ttyd** can be found at: [ttyd](https://github.com/tsl0922/ttyd)
 
+#### Java
+> JDK 11+
+
+OpenJDK versions can be found [here](https://openjdk.java.net/projects/jdk/)
+
 PostgreSQL
 ---
 
