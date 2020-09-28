@@ -49,6 +49,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [RBAC for CMS](complex_rbac_for_cms.html) - how to enable the Role Based Access Management for the Content Management System
 * [Master Repository](complex_master_repository.html) - how to run an application from a Zip file
 * [Shell Command](complex_shell_command.html) - how to execute and arbitrary shell command
+* [File Upload](complex_file_upload.html) - how to upload a file from HTML frontend and process the content at the backend
 
 
 
