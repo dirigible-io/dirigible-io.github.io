@@ -36,6 +36,7 @@ group: help-features
 * Support of scheduled Jobs as triggers for backend services invokation (**\*.job**)
 * Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
 * Support of Shell Commands execution (**\*.command**)
+* Support for OData 2.0 (**\*.odata**)
 	
 ### Mobile Applications
 
@@ -65,6 +66,7 @@ group: help-features
 * Modeling of database schema (**\*.dsm** and **\*.schema**) files
 * Modeling of entity data model (**\*.edm** and **\*.model**) files
 * Modeling of BPMN process (**\*.bpmn**) files
+* Form Designer
 
 ### Security
 
