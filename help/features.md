@@ -37,6 +37,7 @@ group: help-features
 * Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
 * Support of Shell Commands execution (**\*.command**)
 * Support of OData 2.0 (**\*.odata**)
+* Support of Websockets (**\*.websocket**)
 	
 ### Mobile Applications
 
@@ -66,7 +67,7 @@ group: help-features
 * Modeling of database schema (**\*.dsm** and **\*.schema**) files
 * Modeling of entity data model (**\*.edm** and **\*.model**) files
 * Modeling of BPMN process (**\*.bpmn**) files
-* Modeling of form (**\*.form**) files with Form Designer
+* Modeling of form layout (**\*.form**) files with Form Designer
 
 ### Security
 
