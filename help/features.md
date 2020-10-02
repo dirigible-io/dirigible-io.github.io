@@ -36,7 +36,7 @@ group: help-features
 * Support of scheduled Jobs as triggers for backend services invokation (**\*.job**)
 * Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
 * Support of Shell Commands execution (**\*.command**)
-* Support for OData 2.0 (**\*.odata**)
+* Support of OData 2.0 (**\*.odata**)
 	
 ### Mobile Applications
 
