@@ -66,7 +66,7 @@ group: help-features
 * Modeling of database schema (**\*.dsm** and **\*.schema**) files
 * Modeling of entity data model (**\*.edm** and **\*.model**) files
 * Modeling of BPMN process (**\*.bpmn**) files
-* Form Designer
+* Modeling of form (**\*.form**) files with Form Designer
 
 ### Security
 
