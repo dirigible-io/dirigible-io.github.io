@@ -236,7 +236,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_JAVASCRIPT_ENGINE_TYPE_DEFAULT**   | The type of the JavaScript engine provider used in this instance | rhino or nashorn or v8 - default is *rhino*
+**DIRIGIBLE_JAVASCRIPT_ENGINE_TYPE_DEFAULT**   | The type of the JavaScript engine provider used in this instance | graalvm, rhino, nashorn or v8 - default is *graalvm* since 5.0
 **DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | default is *8081* and *0.0.0.0:8081* in Docker environment
 
 ### Operations
