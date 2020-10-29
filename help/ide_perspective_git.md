@@ -18,5 +18,4 @@ The Git perspective is comprised of Git and Console views and Workspace menu. It
 
 ### Videos
 
-<a href="https://www.youtube.com/embed/8CN3fSwV5YE" target="_blank"><img src="https://i9.ytimg.com/vi_webp/8CN3fSwV5YE/mqdefault.webp?time=1603984800000&sqp=CKC76_wF&rs=AOn4CLC2x_muPeJIkCNNfpb0_X6Bg-CxHQ" 
-alt="Eclipse Dirigible - Share Projects with GitHub" width="320" height="180" border="10" /></a>
+[![Eclipse Dirigible - Share Projects with GitHub](https://i9.ytimg.com/vi_webp/8CN3fSwV5YE/mqdefault.webp?time=1603984800000&sqp=CKC76_wF&rs=AOn4CLC2x_muPeJIkCNNfpb0_X6Bg-CxHQ)](https://youtu.be/8CN3fSwV5YE)
