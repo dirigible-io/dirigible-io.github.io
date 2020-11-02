@@ -45,6 +45,7 @@ producer.close("{}");
 Function     | Description | Returns
 ------------ | ----------- | --------
 **topic(destination, configuration)**   | Returns an object representing a Kafka Topic | *Topic*
+**close(configuration)**   | Closes the Producer | *-*
 
 > Configuration object key-value pairs can be taken from [https://kafka.apache.org/documentation/#producerconfigs](https://kafka.apache.org/documentation/#producerconfigs)
 
