@@ -15,7 +15,7 @@ group: complex
 2. Then create a JavaScript service named **my_listener_handler.js**
 3. Replace the service code with the following content:
 
-#### Log Levels
+#### Handler
 
 ```javascript
 
