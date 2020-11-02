@@ -7,7 +7,7 @@ icon: fa-ellipsis-h
 {{ page.title }}
 ===
 
-The Kafka Consumer is listeningon a Topic destination to a [Kafka](http://kafka.apache.org/) messaging server.
+The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka.apache.org/) messaging server.
 
 Version 4.x
 ---
