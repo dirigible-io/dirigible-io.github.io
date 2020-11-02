@@ -94,6 +94,8 @@ Messaging
 
 * [messaging/producer](messaging_producer.html) <sup>3,</sup><sup>4</sup>
 * [messaging/consumer](messaging_consumer.html) <sup>3,</sup><sup>4</sup>
+* [kafka/producer](kafka_producer.html) <sup>4</sup>
+* [kafka/consumer](kafka_consumer.html) <sup>4</sup>
 
 
 Net
