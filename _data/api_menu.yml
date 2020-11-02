@@ -99,6 +99,12 @@ navigation:
   - name: log/logging <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: log_logging.html
+  - name: kafka/producer <sup>4</sup>
+    icon: fa fa-caret-right
+    url: kafka_producer.html
+  - name: kafka/consumer <sup>4</sup>
+    icon: fa fa-caret-right
+    url: kafka_consumer.html
   - name: mail/client <sup>4</sup>
     icon: fa fa-caret-right
     url: mail_client.html
