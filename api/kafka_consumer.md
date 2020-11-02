@@ -57,6 +57,8 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **topic(destination, configuration)**   | Returns an object representing a Kafka Topic | *Topic*
 
+> Configuration object key-value pairs can be taken from [https://kafka.apache.org/documentation/#consumerconfigs](https://kafka.apache.org/documentation/#consumerconfigs)
+
 
 ### Objects
 
