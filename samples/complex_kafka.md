@@ -8,6 +8,10 @@ group: complex
 {{ page.title }}
 ===
 
+### Prerequisites
+
+1. Run a local Kafka server following the steps (1 and 2) from here: [https://kafka.apache.org/quickstart](https://kafka.apache.org/quickstart)
+
 ### Steps
 
 
