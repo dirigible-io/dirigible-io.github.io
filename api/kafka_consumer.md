@@ -69,6 +69,7 @@ Function     | Description | Returns
 Function     | Description | Returns
 ------------ | ----------- | --------
 **startListening(handler, timeout)**   | Receives a message from this Kafka Topic if any with the given handler and timeout in milliseconds | *-*
+**stopListening()**   | Stops listening for new messages | *-*
 
 
 
