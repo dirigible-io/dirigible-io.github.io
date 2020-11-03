@@ -68,6 +68,7 @@ Function     | Description | Returns
 **getDefaultEngine()**   | Returns the default template engine | *TemplateEngine*
 **getMustacheEngine()**   | Returns the [Mustache](https://mustache.github.io/) template engine | *TemplateEngine*
 **getVelocityEngine()**   | Returns the [Velocity](https://velocity.apache.org/) template engine | *TemplateEngine*
+**getJavascriptEngine()**   | Returns the Javascript template engine | *TemplateEngine*
 
 #### TemplateEngine
 
@@ -77,7 +78,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **generate(template, parameters)**   | Returns the result of the generation | *string*
 **setSm(sm)**   | (mustache only) Sets the expression start symbol, default is *\{{* | *-*
-**setEm(Em)**   | (mustache only) Sets the expression end symbol, default is *\}}* | *-*
+**setEm(em)**   | (mustache only) Sets the expression end symbol, default is *\}}* | *-*
 
 
 ### Compatibility
