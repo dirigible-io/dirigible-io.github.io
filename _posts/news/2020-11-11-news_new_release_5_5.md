@@ -13,7 +13,7 @@ Release is of *Type A*
 * Kafka Consumer API
 * Kafka Producer API
 * OAuth - Use HTTP session storage as cache for JWT
-* Add support for OAuth "client secret" flow authentication - SAP Cloud Foundry
+* Add support for OAuth "client secret" flow authentication - Cloud Foundry
 * Add support for OAuth "client secret" flow authentication - Kyma
 
 
