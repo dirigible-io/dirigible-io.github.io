@@ -18,7 +18,7 @@ group: help-features
 	
 ### Scripting Services
 
-* Support of **JavaScript** language by using Mozilla Rhino, Nashorn or V8 as runtime execution engine (**\*.js**)
+* Support of **JavaScript** language by using GraalJS as runtime execution engine (**\*.js**)
 * Support of **CommonJS** based modularization of JavaScript services (**\*.js**)
 * Support of strictly defined [Enterprise API](../api/) for JavaScript to be used by the business application developers
 
