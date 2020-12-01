@@ -133,8 +133,24 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_SCHEDULER_MEMORY_STORE**   | Whether Quartz to use in-memory job store | default is null
-**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz if not the default one | default is null
-**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz if not the default one | default is null
+**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz, if not the default one | default is null
+**DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz, if not the default one | default is null
+**DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE**   | The name of the JDBC delegate used by Quartz, if not the default one | (default: org.quartz.impl.jdbcjobstore.StdJDBCDelegate)
+
+* org.quartz.impl.jdbcjobstore.StdJDBCDelegate (for fully JDBC-compliant drivers)
+* org.quartz.impl.jdbcjobstore.MSSQLDelegate (for Microsoft SQL Server, and Sybase)
+* org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+* org.quartz.impl.jdbcjobstore.WebLogicDelegate (for WebLogic drivers)
+* org.quartz.impl.jdbcjobstore.oracle.OracleDelegate
+* org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)
+* org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)
+* org.quartz.impl.jdbcjobstore.CloudscapeDelegate
+* org.quartz.impl.jdbcjobstore.DB2v6Delegate
+* org.quartz.impl.jdbcjobstore.DB2v7Delegate
+* org.quartz.impl.jdbcjobstore.DB2v8Delegate
+* org.quartz.impl.jdbcjobstore.HSQLDBDelegate
+* org.quartz.impl.jdbcjobstore.PointbaseDelegate
+* org.quartz.impl.jdbcjobstore.SybaseDelegate
 
 ### Job Expression
 
