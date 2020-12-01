@@ -46,11 +46,47 @@ Steps
 	<user username="dirigible" password="dirigible" roles="Developer,Operator,Everyone"/>
 </tomcat-users>
 ```
-       
-3. Start the Tomcat server
 
-4. Open a web browser and go to:
+3. Copy the Dirigible's ROOT.war to $TOMCAT/webapps folder.
+       
+4. Start the Tomcat server
+
+5. Open a web browser and go to:
 
 	> [http://localhost:8080/](http://localhost:8080/)
 
-5. Login with user dirigible and password dirigible.
+6. Login with user dirigible and password dirigible.
+
+---
+
+#### Manager App
+
+In case you want to use Apache Tomcat's [Manager App](https://tomcat.apache.org/tomcat-8.5-doc/manager-howto.html) 
+to deploy the ROOT.war file, you have to increase the file size limit for upload (e.g. to 200MB):
+
+`conf\server.xml`
+
+```xml
+<Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           maxPostSize="209715200" />
+```
+
+`webapps\manager\WEB-INF\web.xml`
+
+```xml
+<web-app>
+  ...
+  <servlet>
+    ...
+    <multipart-config>
+      <file-size-threshold>0</file-size-threshold>
+      <max-file-size>209715200</max-file-size>
+      <max-request-size>209715200</max-request-size>
+    </multipart-config>
+    ...
+  </servlet>
+  ...
+</web-app>
+```
