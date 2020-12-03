@@ -47,6 +47,7 @@ Database
 * [db/sequence](database_sequence.html) <sup>3,</sup><sup>4</sup>
 * [db/sql](database_sql.html) <sup>3,</sup><sup>4</sup>
 * [db/update](database_update.html) <sup>3,</sup><sup>4</sup>
+* [mongodb/client](mongodb_client.html) <sup>4</sup>
 
 
 Indexing
