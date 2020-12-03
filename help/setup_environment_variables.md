@@ -128,6 +128,12 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_PERSISTENCE_CREATE_TABLE_ON_USE**   | Whether the table to be created automatically on use if it does not exist | default is *true*
 
+#### MongoDB
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_MONGODB_CLIENT_URI**   | The location used by MongoDB server | default is: *mongodb://localhost:27017*
+
 ### Scheduler
 
 Parameter     | Description | Default*
