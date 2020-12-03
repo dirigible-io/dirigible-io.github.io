@@ -35,7 +35,7 @@ var collection = mongoClient.getDB("db").getCollection("people");
 var person = mongodb.createBasicDBObject()
     .append("_id", "jo")
     .append("name", "Jo Bloggs");
-mongoClient.getDB("db").getCollection("people").insert(person);
+collection.insert(person);
 
 var query = mongodb.createBasicDBObject().append("_id", "jo");
 var cursor = collection.find(query);
