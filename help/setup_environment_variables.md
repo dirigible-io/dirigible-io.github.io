@@ -244,6 +244,17 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE**   | Whether to use the DefaultDB datasource or built-in KahaDB | *true* (DefaultDB) or *false* (KahaDB) default is *true*
 
+### Kafka
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_KAFKA_BOOTSTRAP_SERVER**   | The Kafka server location | *localhost:9092*
+**DIRIGIBLE_KAFKA_ACKS**   | The number of brokers that must receive the record before considering the write as successful | *all*
+**DIRIGIBLE_KAFKA_KEY_SERIALIZER**   | The Key serializer | *org.apache.kafka.common.serialization.StringSerializer*
+**DIRIGIBLE_KAFKA_VALUE_SERIALIZER**   | The Value serializer | *org.apache.kafka.common.serialization.StringSerializer*
+**DIRIGIBLE_KAFKA_AUTOCOMMIT_ENABLED**   | Whether Auto Commit is enabled | *true*
+**DIRIGIBLE_KAFKA_AUTOCOMMIT_INTERVAL**   | Auto Commit interval in ms | *1000*
+
 
 ### Engines
 ---
