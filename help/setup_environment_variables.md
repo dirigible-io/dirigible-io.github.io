@@ -133,6 +133,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_MONGODB_CLIENT_URI**   | The location used by MongoDB server | default is: *mongodb://localhost:27017*
+**DIRIGIBLE_MONGODB_DATABASE_DEFAULT**   | The default database name | default is: *db*
 
 ### Scheduler
 
