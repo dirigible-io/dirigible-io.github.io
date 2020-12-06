@@ -114,15 +114,15 @@ navigation:
   - name: messaging/consumer <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: messaging_consumer.html
-  - name: net/soap <sup>2,</sup><sup>4</sup>
-    icon: fa fa-caret-right
-    url: soap.html
   - name: mongodb/client <sup>4</sup>
     icon: fa fa-caret-right
     url: mongodb_client.html
   - name: mongodb/dao <sup>4</sup>
     icon: fa fa-caret-right
     url: mongodb_dao.html
+  - name: net/soap <sup>2,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: net_soap.html
   - name: net/websocket <sup>2,</sup>
     icon: fa fa-caret-right
     url: net_websocket.html
