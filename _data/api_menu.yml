@@ -51,6 +51,12 @@ navigation:
   - name: db/update <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: database_update.html
+  - name: mongodb/client <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mongodb_client.html
+  - name: mongodb/dao <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mongodb_dao.html
   - name: indexing/searcher <sup>3,</sup><sup>4</sup>
     icon: fa fa-caret-right
     url: indexing_searcher.html
