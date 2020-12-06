@@ -35,6 +35,8 @@ var collection = mongoClient.getDB("db").getCollection("people");
 var person = mongodb.createBasicDBObject()
     .append("_id", "jo")
     .append("name", "Jo Bloggs");
+// or directly create an Object:
+// var person = {"_id": "jo", "name": "Jo Bloggs"};
 collection.insert(person);
 
 var query = mongodb.createBasicDBObject().append("_id", "jo");
@@ -94,6 +96,8 @@ Function     | Description | Returns
 **save(dbObject)**   | Saves a DBObject to a Collection depends on whether *_id* of the object is provided or not | *-*
 **update(query, update, upsert, multi)**   | Updates the matching objects by *query* parameter with *update* value and optional *upsert* and *multi* flags | *-*
 **updateMulti(query, update)**   | Updates the matching objects by *query* parameter with *update* value | *-*
+**getNextId()**   | Calculate the next id for this collection in case of integer sequence is used | *integer*
+**generateUUID()**   | Generate UUID to be used as id | *string*
 
 #### DBCursor
 
