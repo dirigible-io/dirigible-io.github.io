@@ -10,14 +10,14 @@ group: help-features
 
 ### Preamble
 
-This guide provides the information of how to setup an Eclipse Dirigible instance, how to use it to build your very first "hello-world.js" service and the references section pointing to the documentation with more detailed technical details for the different aspects of the platform and its components and capabilities.
+This guide explains how to setup an Eclipse Dirigible instance and how to use it to build your very first "hello-world.js" service. The references section below points to the documentation with more technical details for the different aspects of the platform and its components and capabilities.
 
 ### Setup
 
 ##### Get the binary
 
 * In case you want to use a prebuild package, you can get the one built for your environment from the [downloads](https://download.eclipse.org/dirigible) section.
-* To build Eclipse Dirigible from sources by yourself, just follow the instructions at the [README](https://github.com/eclipse/dirigible/blob/master/README.md#build).
+* To build Eclipse Dirigible from sources by yourself, just follow the instructions in the [README](https://github.com/eclipse/dirigible/blob/master/README.md#build).
 
 ##### Choose the environment
 
@@ -34,7 +34,7 @@ In case of the standard setup on Apache Tomcat on your local machine you can poi
 
 ### Write the hello-world.js service
 
-1. Once you have a running Dirigible instance you can start with your project. Choose the `File -> New -> Project` menu.
+1. Once you have a running Eclipse Dirigible instance you can start with your project. Choose the `File -> New -> Project` menu.
 
     ![New Project](images/getting_started/new-project-hello.png)
 
@@ -67,7 +67,7 @@ In case of the standard setup on Apache Tomcat on your local machine you can poi
 
 ### Update the hello-world.js service
 
-1 Go to line 3 in the editor and change:
+1. Go to line 3 in the editor and change:
 
     > Hello World!
 
@@ -85,6 +85,6 @@ More about this *dynamic* behavior you can find at the concepts section: [Dynami
 
 * So far we saw how easy is to create and modify a RESTful service. More samples can be found [here](../samples/index.html). 
 * If you would like to know more about how to write more complex services, you can go to the [API](../api/index.html) section. 
-* If you are curious what you can do with Dirigible apart of writing server-side Javascript services, you can have a look at the [features](features.html) section.
+* If you are curious what you can do with Eclipse Dirigible apart of writing server-side Javascript services, you can have a look at the [features](features.html) section.
 * In case you are interested of modeling and generation features in the Low Code/No Code, you can read about [entity data models](concepts_entity_service.html) and [generation capabilities](concepts_generation.html).
 
