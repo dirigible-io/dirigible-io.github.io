@@ -1,6 +1,6 @@
 ---
-layout: help
 title: Project
+layout: help
 icon: fa-lightbulb-o
 ---
 
@@ -11,7 +11,7 @@ Eclipse Dirigible is an open source project that provides Integrated Development
 
 The applications created with Eclipse Dirigible comply with the [Dynamic Applications](concepts_dynamic_applications.html) concept and structure.
 
-The main project goal is to provide all required capabilities needed to develop and run an end-to-end vertical applications in the cloud for the shortest time ever. 
+The main project goal is to provide all required capabilities needed to develop and run end-to-end vertical applications in the cloud in the shortest time ever. 
 
 The environment itself runs directly in a browser, therefore does not require additional downloads and installations. It packs all the needed components, which makes it a self-contained and well-integrated software stack that can be deployed on any Java based Web server, such as Tomcat, Jetty, JBoss, etc.
 
