@@ -33,7 +33,7 @@ In case of the standard setup on Apache Tomcat on your local machine, you can po
 > http://localhost:8080
 
 ### Write the hello-world.js service
-Once you have a running Eclipse Dirigible instance you can start with your project:
+Once you have a running Eclipse Dirigible instance, you can start with your project:
 
 1. Choose `File -> New -> Project`.
 
@@ -43,26 +43,20 @@ Once you have a running Eclipse Dirigible instance you can start with your proje
 
     ![Create Project](images/getting_started/create-project-hello.png)
 
-3. Right-click on the project icon in the Workspace Explorer and choose `New -> Javascript Service`.
+3. Right-click on the project icon in the `Workspace` view and choose `New -> Javascript Service`.
 
     ![Create Javascript Service](images/getting_started/create-javascript.png)
 
 4. Enter a name for the service.
-5. Double-click on the file icon to open the file in the editor. The file already contains the *hello world* service implementation.
+5. Double-click on the file icon to open the file in the editor on the right. The file already contains the *hello world* service implementation.
 
-    ```javascript
-    var response = require("http/v4/response");
-
-    response.println("Hello World!");
-    response.flush();
-    response.close();
-    ```
+    ![Service Impletentation](images/getting_started/service-implementation.png)
 
 6. Right-click on the project icon and choose `Publish`.
 
     ![Publish Project](images/getting_started/publish-project.png)
 
-7. With the file icon selected in the Workspace Explorer, check the result of the execution of our fancy server-side Javascript service in the `Preview` tab.
+7. With the file icon selected in the `Workspace` view, check the result of the execution of our fancy server-side Javascript service in the `Preview` view.
 
     ![Preview Project](images/getting_started/preview-project.png)
 
@@ -78,12 +72,12 @@ Once you have a running Eclipse Dirigible instance you can start with your proje
 
 2. Save the file (Ctrl+S for Windows, Command+S for Mac). 
     
-The output changes immediately in the `Preview` tab. This is due to the default configuration of *auto-publish* on *save*. You can find more about this *dynamic* behavior in the concepts section: [Dynamic Applications](concepts_dynamic_applications.html)
+The output in the `Preview` view changes immediately. This is due to the default configuration of *auto-publish* on *save*. You can find more about this *dynamic* behavior in the concepts section: [Dynamic Applications](concepts_dynamic_applications.html)
 
 ### References
 
-* So far we saw how easy is to create and modify a RESTful service. More samples can be found [here](../samples/index.html). 
-* If you would like to know more about how to write more complex services, you can go to the [API](../api/index.html) section. 
-* If you are curious what you can do with Eclipse Dirigible apart of writing server-side Javascript services, you can have a look at the [features](features.html) section.
+* So far we saw how easy it is to create and modify a RESTful service. You can find more samples [here](../samples/index.html). 
+* If you would like to know more about how to write complex services, you can go to the [API](../api/index.html) section. 
+* If you are curious what you can do with Eclipse Dirigible apart from writing server-side Javascript services, you can have a look at the [features](features.html) section.
 * In case you are interested of modeling and generation features in the Low Code/No Code, you can read about [entity data models](concepts_entity_service.html) and [generation capabilities](concepts_generation.html).
 
