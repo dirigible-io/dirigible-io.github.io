@@ -1,8 +1,9 @@
 ---
-title: 2020 What a year for Eclipse Dirigible!
+title: 2020 - What a year for Eclipse Dirigible!
 author: nedelcho.delchev
 ---
 
+It has been an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption.
 
 ### 2020 in numbers:
 
