@@ -91,6 +91,11 @@ Development & Operations
 * [Artifacts](artifacts.html)
 * [Engines](engines.html)
 * [Services](services.html)
+* **Editors**
+* [Entity Data Modeler](extension_template.html)
+* **Database Schema Modeler** 
+* **BPMN Modeler**
+* **Form Designer** 
 
 Extensions
 ---
