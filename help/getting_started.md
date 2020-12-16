@@ -24,30 +24,31 @@ This guide explains how to setup an Eclipse Dirigible instance and how to use it
 * You can choose one of the [options](setup.html) available to get an Eclipse Dirigible instance depending on your target environment.
 * A shared trial instance is also available and can be accessed from here: [http://trial.dirigible.io](http://trial.dirigible.io).
 
-There are many [configuration options](setup_environment_variables.html), so you can connect to different databases, use different platforms, choose a specific set of plugins and many more.
+There are many [configuration options](setup_environment_variables.html), so you can connect to different databases, use different platforms, choose a specific set of plugins, and many more.
 
 ##### Access the instance
 
-In case of the standard setup on Apache Tomcat on your local machine you can point your browser to the location:
+In case of the standard setup on Apache Tomcat on your local machine, you can point your browser to the location:
 
 > http://localhost:8080
 
 ### Write the hello-world.js service
+Once you have a running Eclipse Dirigible instance you can start with your project:
 
-1. Once you have a running Eclipse Dirigible instance you can start with your project. Choose the `File -> New -> Project` menu.
+1. Choose `File -> New -> Project`.
 
     ![New Project](images/getting_started/new-project-hello.png)
 
-2. Enter the name of the project and click `Create Project`.
+2. Enter a name and create the project. 
 
     ![Create Project](images/getting_started/create-project-hello.png)
 
-3. Use right-click on the project icon in the Workspace Explorer to open the popup menu. Select `New -> Javascript Service`
+3. Right-click on the project icon in the Workspace Explorer and choose `New -> Javascript Service`.
 
     ![Create Javascript Service](images/getting_started/create-javascript.png)
 
-4. Once you enter the name of the service you can open it in the editor with double click on the file icon.
-5. It already contains the *hello world* service implementation.
+4. Enter a name for the service.
+5. Double-click on the file icon to open the file in the editor. The file already contains the *hello world* service implementation.
 
     ```javascript
     var response = require("http/v4/response");
@@ -57,11 +58,11 @@ In case of the standard setup on Apache Tomcat on your local machine you can poi
     response.close();
     ```
 
-6. Now just publish the project by clicking on the `Publish` menu of the project.
+6. Right-click on the project icon and choose `Publish`.
 
     ![Publish Project](images/getting_started/publish-project.png)
 
-7. You can check in the `Preview` the result of the execution of our fancy server-side Javascript service, just by selecting the file icon in the Workspace Explorer.
+7. With the file icon selected in the Workspace Explorer, check the result of the execution of our fancy server-side Javascript service in the `Preview` tab.
 
     ![Preview Project](images/getting_started/preview-project.png)
 
@@ -75,11 +76,9 @@ In case of the standard setup on Apache Tomcat on your local machine you can poi
 
     > Hello Dirigible!
 
-2. The click Ctrl+S (Command+S for Mac) to save the file content.
+2. Save the file (Ctrl+S for Windows, Command+S for Mac). 
     
-3. You can see that in the `Preview` view the output has changed immediately. This is due to the default configuration of *auto-publish* on *save*.
-
-More about this *dynamic* behavior you can find at the concepts section: [Dynamic Applications](concepts_dynamic_applications.html)
+The output changes immediately in the `Preview` tab. This is due to the default configuration of *auto-publish* on *save*. You can find more about this *dynamic* behavior in the concepts section: [Dynamic Applications](concepts_dynamic_applications.html)
 
 ### References
 
