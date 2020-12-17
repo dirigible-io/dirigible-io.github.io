@@ -3,7 +3,7 @@ title: 2020 - What a year for Eclipse Dirigible!
 author: nedelcho.delchev
 ---
 
-It has been an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption.
+It has been a challenging, but in the same time an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption.
 
 ### 2020 in numbers:
 
@@ -48,3 +48,8 @@ It has been an incredible year for Eclipse Dirigible in terms of progress, contr
 ### Derivative work
 
 * [Project "XSK"](https://github.com/SAP/xsk) - compatible environment for [SAP HANA Extended Application Services](https://help.sap.com/viewer/52715f71adba4aaeb480d946c742d1f6/2.0.03/en-US/a6c0749255d84a81a154a7fc87dd33ce.html) (XS) based applications
+
+Stay safe and healthy!
+
+See you all in 2021! 🥳
+
