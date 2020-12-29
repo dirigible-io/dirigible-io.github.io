@@ -7,8 +7,8 @@ icon: fa-question-circle
 Eclipse Dirigible<sup>&trade;</sup> Help
 ===
 
-Eclipse Dirigible<sup>&trade;</sup> Help Portal gives access to product documentation and also related information.
-Browse Dirigible Help Portal to get up-to-date information about the features, life-cycle aspects, tips-and-tricks and many more...
+Eclipse Dirigible<sup>&trade;</sup> help portal gives you access to product documentation and also related information.
+Browse the help portal to get up-to-date information about the features, life-cycle aspects, tips-and-tricks and many more...
 
 General Overview
 ---
