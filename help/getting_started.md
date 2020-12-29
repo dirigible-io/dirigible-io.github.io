@@ -10,7 +10,7 @@ group: help-features
 
 ### Preamble
 
-This guide explains how to setup an Eclipse Dirigible instance and how to use it to build your very first "hello-world.js" service. The references section below points to the documentation with more technical details for the different aspects of the platform and its components and capabilities.
+This guide explains how to setup an Eclipse Dirigible instance and how to use it to build your very first *hello-world.js* service. The references section below points to the documentation with more technical details for the different aspects of the platform and its components and capabilities.
 
 ### Setup
 
@@ -32,7 +32,7 @@ In case of the standard setup on Apache Tomcat on your local machine, you can po
 
 > http://localhost:8080
 
-### Write the hello-world.js service
+### Write the *hello-world.js* service
 Once you have a running Eclipse Dirigible instance, you can start with your project:
 
 1. Choose `File -> New -> Project`.
@@ -60,7 +60,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
     ![Preview Project](images/getting_started/preview-project.png)
 
-### Update the hello-world.js service
+### Update the *hello-world.js* service
 
 1. Go to line 3 in the editor and change:
 
