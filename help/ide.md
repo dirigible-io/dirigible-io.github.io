@@ -9,9 +9,9 @@ icon: fa-code
 
 ### Web IDE
 
-The environment runs directly in a browser and, therefore, does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, DevOps productivity tools, and a new cloud IDE for in-system application development.
+The Web-based integrated development environment (Web IDE) runs directly in a browser and, therefore, does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, DevOps productivity tools, and a new cloud IDE for in-system application development.
 
-The IDE is a composition of perspectives, each consisting of the necessary tools to accomplish certain goal. Three areas are with fixed positions:
+The Web IDE is a composition of perspectives, each consisting of the necessary tools to accomplish a certain goal. Three of the UI elements retain their positions in all perpectives:
 
 * top-area toolbar for the menus, theme selection, and user control
 * sidebar on the left with shortcuts to the perspectives
@@ -19,9 +19,9 @@ The IDE is a composition of perspectives, each consisting of the necessary tools
 
 ![Workbench Perspective](images/ide_workbench_perspective.png){: .img-responsive }
 
-The tools that constitute the perspectives are laid out in predefined regions of the work plot, but their position can be changed using drag and drop. The perspectives are simply predefined configurations, hence different tools may be opened, moved, or closed on the work plot of a perspective for the users’ convenience. The tools can also be maximized, minimized, or even popped out in a separate window.
+The tools that constitute the perspectives are laid out in predefined regions of the work plot, but you can change their position using drag and drop. The perspectives are simply predefined configurations, hence you can open, move, or close different tools on the work plot of a perspective for your convenience. You can also be maximize, minimize, or even pop out any of the tools in a separate window.
  
-The tools are the minimal atomic parts in the IDE. They are referred to as views or editors, and each type is handled differently.
+The tools are the smallest atomic parts in the IDE. They are referred to as views or editors, and each type is handled differently.
 
 ### Perspectives
 
@@ -84,13 +84,13 @@ There are some more sophisticated visual editors:
 
 The cloud IDE layout API delegates the layout management to the GoldenLayout framework. Layouts is a convenience bag of functions that significantly simplifies the work with layouts. It takes care of views registry setup, the work plot regions configuration, layout initialization, serialization, control on the layout manager, open view and open editor functions, global notifications, and others.
 
-The Toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name and sign-out control. It uses the corresponding UI microservices available in the ideUiCore module as Menu, User and Theme.
+The top-area toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name, and sign-out control. It uses the corresponding UI microservices available in the ideUiCore module as `Menu`, `User`, and `Theme`.
 
-By convention, all UI components are built with Bootstrap 3.x CSS and the themes in the cloud IDE are actually custom Bootstrap CSS. A UI microservice enables dynamic change of the CSS upon change of the theme automatically. It is available as Angular Factory Theme.
+By convention, all UI components are built with Bootstrap 3.x CSS and the themes in the cloud IDE are actually custom Bootstrap CSS. A UI microservice enables dynamic change of the CSS upon change of the theme automatically. It is available as Angular factory theme.
 
-The Angular Service User provides the details for the user that are rendered by the Menu directive, such as the user name.
+The Angular service `User` provides the details for the user that are rendered by the `Menu` directive, such as the user name.
 
-The sidebar is Angular directive that takes care of rendering a standard sidebar in the framework template. It works with the perspectives.js service to populate the registered perspectives as shortcuts.
+The sidebar is Angular directive that takes care of rendering a standard sidebar in the framework template. It works with the *perspectives.js* service to populate the registered perspectives as shortcuts.
 
-The status bar is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the status-bar-topic attribute, or by default to status-message messages.
+The status bar is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the *status-bar-topic* attribute, or by default to *status-message* messages.
  
