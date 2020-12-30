@@ -17,7 +17,7 @@ First comes the concept of a [repository](concepts_repository.html). It is the p
 
 ### Workspace
 
-Next is the concept of a [workspace](concepts_workspace.html), which is very similar to the well known *workspace* from desktop IDEs (e.g., Eclipse). The workspace can hold one or more projects. One user can have multiple workspaces, but can work in only one at a given moment of time.
+Next is the concept of a [workspace](concepts_workspace.html) that is very similar to the well known *workspace* from desktop IDEs (e.g., Eclipse). The workspace can hold one or more projects. One user can have multiple workspaces, but can work in only one at a given moment of time.
 
 ### Registry
 
