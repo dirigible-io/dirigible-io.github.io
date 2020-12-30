@@ -11,9 +11,9 @@ We introduced the term *dynamic applications* as one that narrows the scope of t
 Eclipse Dirigible.
 The overall process of building dynamic applications lies on well-known and proved principles:
 
-*	[*In-system development*](http://en.wikipedia.org/wiki/In-system_programming) - known from microcontrollers to business software systems. A major benefit is working on a live system where all changes made by a developer take effect immediately, hence the impact and side effects can be realized in the early stages of the development process.
+*	[*In-system development*](http://en.wikipedia.org/wiki/In-system_programming) - known from microcontrollers to business software systems. A major benefit is working on a live system where all changes you make take effect immediately, hence the impact and side effects can be realized in the early stages of the development process.
 *	*Content-centric* - known from [networking](http://en.wikipedia.org/wiki/Named_data_networking) to [development processes](http://en.wikipedia.org/wiki/Domain-driven_design) in the context of dynamic applications it comprises. All the artifacts are text-based models or executable scripts stored in a generic repository (along with the related binaries, such as images). This makes the life-cycle management of the application itself and the transport between the landscapes (Dev/Test/Prod) straight forward. 
-In result, the developer is enabled to set up the whole system only by pulling the content from a remote source code repository such as *git*.
+In result, you can set up the whole system only by pulling the content from a remote source code repository such as *git*.
 *	[*Scripting languages*](http://en.wikipedia.org/wiki/Scripting_language) - programming languages written for a special runtime environment that can interpret (rather than compile) the execution of tasks. Dynamic languages existing nowadays, as well as the existing smooth integration in the Web servers, make the rise of the in-system development in the cloud possible.
 *	*Shortest turn-around time* - the driving principle for our tooling because instant access and instant value are some of the most important requirements for the developers.
 
