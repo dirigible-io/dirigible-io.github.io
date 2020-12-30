@@ -7,7 +7,7 @@ icon: fa-question-circle
 {{ page.title }}
 ===
 
-We introduced the term *dynamic applications* as one that narrows the scope of the target applications, which can be created using 
+We introduced the term *dynamic applications* as one that narrows the scope of the target applications that can be created using 
 Eclipse Dirigible.
 The overall process of building dynamic applications lies on well-known and proved principles:
 
@@ -17,7 +17,7 @@ In result, the developer is enabled to set up the whole system only by pulling t
 *	[*Scripting languages*](http://en.wikipedia.org/wiki/Scripting_language) - programming languages written for a special runtime environment that can interpret (rather than compile) the execution of tasks. Dynamic languages existing nowadays, as well as the existing smooth integration in the Web servers, make the rise of the in-system development in the cloud possible.
 *	*Shortest turn-around time* - the driving principle for our tooling because instant access and instant value are some of the most important requirements for the developers.
 
-In general, components of a dynamic application consists can be separated into the following categories:
+In general, components of a dynamic application can be separated into the following categories:
 
 *	*Data structures* - The artifacts representing the domain model of the application. In our case, we have chosen the well-accepted JSON format for describing a normalized entity model. There is no intermediate adaptation layer, hence all entities represent directly the database artifacts - tables and views.
 *	*Entity services* - Once we have the domain model entities, next step is to expose them as Web services. Following the modern Web patterns, we provide the scripting capabilities so you can create your RESTful services in JavaScript, Ruby, and Groovy.
