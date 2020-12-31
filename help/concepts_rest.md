@@ -71,9 +71,13 @@ Additionally, the controller API features (since 3.1.5) also shortcut factory me
 
 > execute()
 
-The mechanism for serving requests is implemented in the **HttpController**'s **execute** method. It will try to match the request to the service API configuration and upon success it will trigger the callback functions execution flow that will ultimately process the request and response. Or it will send a Bad Request error to the client otherwise. The request and response objects are implicitly those that were used to request the script where the execute method invocation occurred. But they can be exchanged for others as shown in the [Advanced](#advanced) section. 
+The mechanism for serving requests is implemented in the *execute* method of the *HttpController*. It tries to match the request to the service API configuration. 
+* If the mechanism matches the request successfully, it triggers the execution flow of the callback functions. The execution flow processes the request and response. 
+* If the mechanism doesn't match the request successfully, it sends a *Bad Request* error to the client. 
 
-The **execute** method is defined in the service instance (class **HttpController**) obtained with **rs.service()** and can be triggered with e.g. **rs.service().execute()**. The fluent configuration API also provides numerous references to the method so you can invoke it on any stage. For example,
+The request and response objects are implicitly those that were used to request the script where the execute method invocation occurred. But they can be exchanged for others as shown in the [Advanced](#advanced) section. 
+
+The *execute* method is defined in the service instance (class *HttpController*) obtained with *rs.service()*. The *execute* method can be triggered with *rs.service().execute()*. The fluent configuration API also provides numerous references to the method so you can invoke it on any stage. For example,
 
 ```javascript
 rs.service().get("").execute()  
@@ -83,7 +87,7 @@ rs.service().resource("").get().produces(["text/json"]).execute()
 
 are all valid ways to serve requests.
 
-What you need to consider is that **execute** must be the final method invocation. Even if you retain a reference to a configuration object and change it after that, it will be irrelevant since the **response** will be flushed and closed by then.
+What you need to consider is that *execute* must be the final method invocation. Even if you retain a reference to a configuration object and change it after that, it will be irrelevant since the response will be flushed and closed by then.
 
 ## Configuring services
 
