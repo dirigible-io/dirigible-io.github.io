@@ -8,7 +8,7 @@ group: help-concepts
 {{ page.title }}
 ===
 
-Template based generation of artifacts helps for developer productivity in the initial phase of building the application. There are several application components that have similar behavior and often very similar implementation. 
+Template-based generation of artifacts helps for developer productivity in the initial phase of building the application. There are several application components that have similar behavior and often very similar implementation. 
 
 A prominent example is [entity service](concepts_entity_service.html). It has several predefined methods based on [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) concepts and [HTTP](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) - GET, POST, PUT, DELETE on an entity level as well as a list of all entities. Additionally, the most notable storage for the entity data is the RDBMS provided by the platform.
 
