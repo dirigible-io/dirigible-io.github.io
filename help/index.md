@@ -40,15 +40,17 @@ Concepts
 Setup
 ---
 
-* [Tomcat](setup_tomcat.html)
-  * [Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
-  * [Tomcat with MySQL](setup_tomcat_mysql.html)
-  * [Tomcat with Sybase](setup_tomcat_sybase.html)
-  * [Tomcat with HANA](setup_tomcat_hana.html)
-* [Docker](setup_docker.html)
+* Setup on Tomcat
+  * [Setup on Tomcat (Basics)](setup_tomcat.html)
+  * [Setup on Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
+  * [Setup on Tomcat with MySQL](setup_tomcat_mysql.html)
+  * [Setup on Tomcat with Sybase ASE](setup_tomcat_sybase.html)
+  * [Setup on Tomcat with HANA](setup_tomcat_hana.html)
+* [Setup as a Docker Image](setup_docker.html)
 * [Setup on Kubernetes](setup_kubernetes.html)
-* [Cloud Foundry](setup_cloudfoundry.html)
-* [SAP Cloud Platform](setup_sapcp.html)
+* Setup on SAP Cloud Platform
+  * [Setup in the Neo Environment](setup_sapcp.html)
+  * [Setup in the Cloud Foundry Environment](setup_cloudfoundry.html)
 * [Environment Variables](setup_environment_variables.html)
 
 Features
