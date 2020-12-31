@@ -7,9 +7,9 @@ icon: fa-files
 {{ page.title }}
 ===
 
-The http-rs module is designed to define and run a broad range of HTTP REST Services.
+The *http-rs* module is designed to define and run a broad range of HTTP REST services.
 
-#### A very simple example (hello-api.js):
+#### A very simple example (*hello-api.js*):
 
 ```javascript
 var rs = require('http/rs');
@@ -23,17 +23,23 @@ rs.service()
   .execute();
 ```
 
-Sending **GET /services/js/v3/test/hello-api.js** to the server, hosting the piece of code above in **test/hello-api.js** will return response body **"Hello there!"**.  
+Sending a *GET* request 
+
+> GET /services/js/v3/test/hello-api.js
+
+to the server and hosting the *hello-api.js* piece of code above in *test/hello-api.js* will return response body 
+
+> `Hello there!`  
 
 ## Overview
 
-Consider the simple sample above. Let's have a closer look at the methods chained in this fluent API.  
+Consider the simple example above. Let's have a closer look at the methods chained in this fluent API.  
 
 First, we requested a new REST service instance from the framework:  
 
 > rs.service()  
 
-Next, we configured the instance to serve HTTP GET requests sent to root path "", using the supplied function:  
+Next, we configured the instance to serve HTTP GET requests sent to root path  ```("")``` using the supplied function:  
 
 ```javascript
   .resource("")
@@ -42,25 +48,24 @@ Next, we configured the instance to serve HTTP GET requests sent to root path ""
     })
 ```
 
-> Technically, configuration is not required to execute a service, but obviously it will do nothing, if you don't instruct it what to do. 
+Technically, configuration is not required to execute a service, but obviously it will do nothing, if you don't instruct it what to do. 
 
 Finally, we run the service and it processes the HTTP request:  
 
 > .execute();
 
-Now, this is a fairly simplistic example aiming to give you a hint of how you can bring up a REST API to life with **http-rs** and there is a whole lot more that we shall explore in the next sections.
+Now, this is a fairly simplistic example aiming to give you a hint of how you can bring up a REST API to life with *http-rs*. There is a whole lot more that we shall explore in the next sections.
 
 ## Creating new REST services  
 
 > rs.service()  
 
-Creating new service instances is a simple as invoking **rs.service()**. That returns a configurable and/or executable instance of the **HttpController** class. The controller API allows to 
-- start configuring rest service (method **resource**) 
-- serve requests (method **execute**) 
- 
-and a couple of more advanced activities, which will be reviewed in the [Advanced](#advanced) section below.  
+Creating new service instances is as simple as invoking *rs.service()*. That returns a configurable and/or executable instance of the *HttpController* class. The controller API allows to:
+- start configuring rest service (method *resource*) 
+- serve requests (method *execute*) 
+- perform a couple of more advanced activities, which will be reviewed in the [Advanced](#advanced) section below 
 
-Additionally, the controller API features (since 3.1.5) also shortcut factory methods that are useful for simplistic configurations (such as the one in our initial example) such as **get(sPath, fServe, arrConsume, arrProduces)**. Read below for more examples how to use.
+Additionally, the controller API features (since 3.1.5) also shortcut factory methods that are useful for simplistic configurations (like the one in our initial example) such as *get(sPath, fServe, arrConsume, arrProduces)*. Read below for more examples how to use the methods.
 
 ## Serving requests
 
