@@ -8,9 +8,9 @@ group: help-concepts
 {{ page.title }}
 ===
 
-In general, the Entity Service is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it,the database store is connected as a data transfer layer.
+In general, the *entity service* is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it, the database store is connected as a data transfer layer.
 
- The **domain object management** is the service pattern that is used most often when following the RESTful paradigm on business software components. In Eclipse Dirigible, the standard functionality of Web services is enhanced but without breaking the REST principles. This is useful for generic utilities and used interface generation.
+The *domain object management* is the service pattern that is used most often when following the RESTful paradigm on business software components. In Eclipse Dirigible, the standard functionality of Web services is enhanced but without breaking the REST principles. This is useful for generic utilities and user interface generation.
 
 Standard functionality:
 
@@ -48,26 +48,26 @@ Example metadata for an entity:
 	}
 ```
 
-All these features of entity services are implied during the generation process. The template uses as input a database table and an entity service name, which are entered in the corresponding [wizard](../samples/entity_service.html).
-Just select the **\*.entity** artifact in the *Workspace Explorer*. From the context menu *Generate*, select *User Interface for Entity Service*.
+All these features of *entity services* are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the corresponding [wizard](../samples/entity_service.html).
+Just select the **\*.entity** artifact in the `Workspace` view. Choose `Generate -> User Interface for Entity Service`.
 
 Limitations for the table to be entity-service compliant:
 
-*	There should be only one column as a primary key, which will be used for its *identity*.
-*	There should be only one set of database column types, which are supported by default for generation (simple types only as clob and blob are not supported).
+*	There should be only one column as a primary key that will be used for its *identity*.
+*	There should be only one set of database column types that are supported by default for generation (simple types only as clob and blob are not supported).
 
 Generic query methods are not generated because:
-* It will cover only very simple cases with reasonable performance
+* It will cover only very simple cases with reasonable performance.
 * For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.
 
-Entity services are generated in JavaScript, hence they can be accessed right after the generation and publishing on:
+Entity services are generated in JavaScript, hence they can be accessed right after generation and publishing on:
 
 
-> [protocol]://[host]:[port]/[dirigible application context]/services/js/[project]/[entity service path]
+> `[[protocol]://[host]:[port]/[dirigible application context]/services/js/[project]/[entity service path]`
 
 e.g.
 
 > https ://example.com/dirigible/services/js/bookstore/books.js
 
-or just select them in the *Workspace Explorer* and see the result in the **Preview**.
+Or just select them in the `Workspace` view and check the result in the `Preview` view.
 
