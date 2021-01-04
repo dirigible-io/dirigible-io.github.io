@@ -33,7 +33,7 @@ to the server and hosting the *hello-api.js* piece of code above in *test/hello-
 
 ## Overview
 
-Consider the simple example above. Let's have a closer look at the methods chained in this fluent API.  
+Consider the simple example above. Let's have a closer look at the methods chained in this REST (rs-fluent) API.  
 
 First, we requested a new REST service instance from the framework:  
 
@@ -61,7 +61,7 @@ Now, this is a fairly simplistic example aiming to give you a hint of how you ca
 > rs.service()  
 
 Creating new service instances is as simple as invoking *rs.service()*. That returns a configurable and/or executable instance of the *HttpController* class. The controller API allows to:
-- start configuring rest service (method *resource*) 
+- start configuring REST service (method *resource*) 
 - serve requests (method *execute*) 
 - perform a couple of more advanced activities, which will be reviewed in the [Advanced](#advanced) section below 
 
@@ -75,9 +75,9 @@ The mechanism for serving requests is implemented in the *execute* method of the
 * If the mechanism matches the request successfully, it triggers the execution flow of the callback functions. The execution flow processes the request and response. 
 * If the mechanism doesn't match the request successfully, it sends a *Bad Request* error to the client. 
 
-The request and response objects are implicitly those that were used to request the script where the execute method invocation occurred. But they can be exchanged for others as shown in the [Advanced](#advanced) section. 
+The request and response objects are implicitly those that were used to request the script where the *execute* method invocation occurred. But they can be exchanged for others as shown in the [Advanced](#advanced) section. 
 
-The *execute* method is defined in the service instance (class *HttpController*) obtained with *rs.service()*. The *execute* method can be triggered with *rs.service().execute()*. The fluent configuration API also provides numerous references to the method so you can invoke it on any stage. For example,
+The *execute* method is defined in the service instance (class *HttpController*) obtained with *rs.service()*. The *execute* method can be triggered with *rs.service().execute()*. The rs-fluent configuration API also provides numerous references to the method so you can invoke it on any stage. For example,
 
 ```javascript
 rs.service().get("").execute()  
@@ -92,12 +92,12 @@ What you need to consider is that *execute* must be the final method invocation.
 ## Configuring services
 
 There are three options as far as configuration is concerned. 
-- You can start from scratch and build the configuration using the rs fluent API, or
-- you can use configuration objects that are essentially the same thing that the fluent API produces. And finally, 
-- the third option is to start with configuration object and then enhance or override the configuration using the fluent API. 
+- You can start from scratch and build the configuration using the rs-fluent API.
+- You can use configuration objects. They are holding the configuration that the rs-fluent API produces.
+- You can start with a configuration object and then enhance or override the configuration using the rs-fluent API. 
 
 > **Configuration objects**  
-A configuration object is a JS object with canonical structure that rs can interpret. We will discuss its schema later on in this guide. For now, let's just consider that it's the same thing that the fluent API will actually produce behind the scenes so it's a completely valid alternative and complement to the fluent API configuration approach.
+A configuration object is a JS object with canonical structure that the *http-rs* can interpret. We will discuss its schema later on in this guide. For now, let's just consider that it's the same thing that the rs-fluent API will actually produce behind the scenes so it's a completely valid alternative and complement to the rs-fluent API configuration approach.
 Refer to the [Advanced](#advanced) section for more details on using configuration objects. 
 
 ### Defining service resources (a.k.a. *paths* or *resource paths*)
@@ -107,7 +107,7 @@ Refer to the [Advanced](#advanced) section for more details on using configurati
 Resources are the top-level configuration objects that represent an [HTTP (server) resource](https://en.wikipedia.org/wiki/Web_resource), for which we will be defining a protocol. Each resource is identified by a URL on the server. You can have multiple resources per service configuration, provided that their URLs do not overlap.
 
 > **Resource vs Path vs Resource Path**  
-As per the REST terms, a *resource* is an abstraction or server-side resource that can be a file, a dynamically generated content or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has address and can be accessed with a standard HTTP method. It is often referred to as '*path*' or '*resource path*' due to its singular most notable identifying characteristic. But to be precise, path is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints and is identifiable by its path property.
+As per the REST terms, a *resource* is an abstraction or a server-side resource that can be a file, a dynamically generated content, or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has an address and can be accessed with a standard HTTP method. It is often referred to as *path* or *resource path* due to its singular most notable identifying characteristic. But to be precise, *path* is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints, and is identifiable by its *path* property.
 
 #### Resource paths and path templates
 
