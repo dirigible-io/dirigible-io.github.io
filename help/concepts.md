@@ -31,9 +31,9 @@ To boost the development productivity at the very initial phase, we introduced t
 
 The new Web 2.0 paradigm and the leveraged [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style changed the way services should behave and be described. Although there is push for bilateral contracts only and free description of the services, we decided to introduce a more sophisticated kind of services for special purposes - [entity services](concepts_entity_service.html).
 
-### Modelling
+### Modeling
 
-This is the visual definition of database schema models, entity data models, and BPMN processes. In Eclipse Dirigible, modelling is enabled by several [editors and modelers](editorsandmodelers.html). 
+This is the visual definition of database schema models, entity data models, and BPMN processes. In Eclipse Dirigible, modeling is enabled by several [editors and modelers](editorsandmodelers.html). 
 
 ### REST framework
 
