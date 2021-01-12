@@ -31,7 +31,7 @@ Concepts
   * [Publishing](concepts_publishing.html)
   * [Generation](concepts_generation.html)
   * [Entity Service](concepts_entity_service.html)
-  * [Modelling](editorsandmodelers.hmtl)
+  * [Modeling](editorsandmodelers.html)
   * [REST Framework](concepts_rest.html)
   * [Web Content](concepts_web_content.html)
   * [Mobile Apps](https://tabris.com/)
