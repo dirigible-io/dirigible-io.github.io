@@ -107,17 +107,23 @@ Refer to the [Advanced](#advanced) section for more details on using configurati
 Resources are the top-level configuration objects that represent an [HTTP (server) resource](https://en.wikipedia.org/wiki/Web_resource), for which we will be defining a protocol. Each resource is identified by a URL on the server. You can have multiple resources per service configuration, provided that their URLs do not overlap.
 
 > **Resource vs Path vs Resource Path**  
-As per the REST terms, a *resource* is an abstraction or a server-side resource that can be a file, a dynamically generated content, or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has an address and can be accessed with a standard HTTP method. It is often referred to as *path* or *resource path* due to its singular most notable identifying characteristic. But to be precise, *path* is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints, and is identifiable by its *path* property.
+As per the REST terms, a resource is an abstraction or a server-side resource that can be a file, a dynamically generated content, or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has an address and can be accessed with a standard HTTP method. It is often referred to as *path* or *resource path* due to its singular most notable identifying characteristic. But to be precise, *path* is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints, and is identifiable by its *path* property.
 
 #### Resource paths and path templates
 
-The **sPath** string parameter of the resource method will serve as the resource URL and it is obviously mandatory. The path is relative to the path of the service script that runs the service. No path, i.e. request directly to the script, is an empty string.
+The *sPath* string parameter of the *resource* method will serve as the resource URL and it is obviously mandatory. The path is relative to the path of the service script that runs the service. No path, i.e. request directly to the script, is an empty string.
 The path can also be a URL template, i.e. parameterized.  
 For example consider the path template:  
 
 > {id}/assets/{assetType}/{name}  
 
-This will resolve request paths such as **/services/js/test.js/1/assets/longterm/building** to service path: **1/assets/longterm/building**.  
+This will resolve request paths such as 
+
+> /services/js/test.js/1/assets/longterm/building 
+
+to service path 
+
+> 1/assets/longterm/building  
 
 If a request is matched to such path, the service mechanism will provide the resolved parameters as an object map to the function that handles the request. Using the sample path above the path parameters object will look like this:
 
