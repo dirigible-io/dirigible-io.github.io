@@ -14,39 +14,39 @@ group: help-features
 * Creation of view model (JSON formatted **\*.view** descriptor) and actual creation of the corresponding database view during publishing.
 * Creation of delimiter separated values (**\*.append**, **\*.update**, **\*.delete**, **\*.replace**) data files and populating the corresponding database table during publishing.
 * Automatic altering of existing tables from the models on compatible changes (new columns added).
-* Modelling of the database schema (**\*.dsm** and **\*.schema**) files and creation of the tables, views and constraints during publishing.
+* [Modelling](https://www.dirigible.io/help/ide_modeler_database_schema.html) of the database schema (**\*.dsm** and **\*.schema**) files and creation of the tables, views and constraints during publishing.
 	
 ### Scripting Services
 
-* Support of **JavaScript** language by using GraalJS as runtime execution engine (**\*.js**)
+* Support of **JavaScript** language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (**\*.js**)
 * Support of **CommonJS** based modularization of JavaScript services (**\*.js**)
 * Support of strictly defined [Enterprise API](../api/) for JavaScript to be used by the business application developers
 
-### WebContent
+### Web Content
 
-* Support of client-side Web related artifacts, such as HTML, CSS, JS, pictures, etc.
+* Support of client-side [Web](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-web) related artifacts, such as HTML, CSS, JS, pictures, etc.
 	
-### WikiContent
+### Wiki Content
 
-* Support of Markdown format for wiki pages
+* Support of Markdown format for [Wiki](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki) pages.
 	
 ### Integration Services
 	
 * Support of Listeners for messages from the built-in message bus (**\*.listener**)
-* Support of scheduled Jobs as triggers for backend services invokation (**\*.job**)
-* Support of Business Processes defined in BPMN 2.0 and executed by the underlying process engine (**\*.bpmn**)
+* Support of scheduled Jobs as triggers for backend services invocation (**\*.job**)
+* Support of Business Processes defined in BPMN 2.0 and executed by the underlying [BPM](https://github.com/eclipse/dirigible/tree/master/modules/bpm/bpm-flowable) process engine (**\*.bpmn**).
 * Support of Shell Commands execution (**\*.command**)
-* Support of OData 2.0 (**\*.odata**)
+* Support of [OData 2.0](https://olingo.apache.org/) (**\*.odata**)
 * Support of Websockets (**\*.websocket**)
 	
 ### Mobile Applications
 
-* Support of a native Mobile Applications development via Tabris.js
+* Support of native Mobile Application development via [Tabris.js](https://tabris.com/).
 	
 ### Extension Definitions
 
-* Creation of extension points (JSON formatted descriptor - **\*.extensionpoint**)
-* Creation of extensions by a given extension point (JSON formatted descriptor - **\*.extension**)
+* Creation of [extension points](https://www.dirigible.io/help/concepts_extensions.html) (JSON formatted descriptor - **\*.extensionpoint**)
+* Creation of [extensions](https://www.dirigible.io/help/concepts_extensions.html) by a given extension point (JSON formatted descriptor - **\*.extension**)
 	
 ### Tooling
 
