@@ -33,7 +33,9 @@ More info about **ttyd** can be found at: [ttyd](https://github.com/tsl0922/ttyd
 
 #### Windows
 
-You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. In this case, we recommend that you perform the setup using Docker. See [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
+You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. In this case, we recommend that you perform the setup using Docker.
+
+See [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
 Steps
 ---
