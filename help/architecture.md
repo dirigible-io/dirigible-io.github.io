@@ -19,10 +19,13 @@ At design time, the programmers and designers use the Web-based integrated devel
 
 The runtime components provide the cloud application after you create it. The underlying technology platform is a Java-Web-Profile-compliant application server (such as Tomcat). On top are the Eclipse Dirigible containers for service execution. Depending on the scripting language and purpose, they can be: 
 * GraalVM JS 
-* Mylyn 
+* Mylyn
+* Lucene
+* Quartz 
+* ActiveMQ
 * Flowable
-* ActiveMQ 
-* etc. 
+* Mustache 
+* Chemistry 
 
 The runtime can be scaled independently from the design time and can be deployed without the design time at all (for productive landscapes).
 
