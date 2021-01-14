@@ -33,7 +33,7 @@ to the server and hosting the *hello-api.js* piece of code above in *test/hello-
 
 ## Overview
 
-Consider the simple example above. Let's have a closer look at the methods chained in this REST (rs-fluent) API.  
+Let’s have a closer look at the methods shown in the example above.
 
 First, we requested a new REST service instance from the framework:  
 
