@@ -48,7 +48,7 @@ Example metadata for an entity:
 	}
 ```
 
-All these features of *entity services* are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the corresponding [wizard](../samples/entity_service.html).
+All these features of *entity services* are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the [Entity Data Modeler](ide_modeler_entity_data.html).
 Just select the **\*.entity** artifact in the `Workspace` view. Choose `Generate -> User Interface for Entity Service`.
 
 Limitations for the table to be entity-service compliant:
