@@ -66,8 +66,8 @@ group: help-features
 
 * Modeling of database schema (**\*.dsm** and **\*.schema**) files with [Database Schema Modeler](https://www.dirigible.io/help/ide_modeler_database_schema.html)
 * Modeling of entity data model (**\*.edm** and **\*.model**) files with [Entity Data Modeler](https://www.dirigible.io/help/ide_modeler_entity_data.html)
-* Modeling of BPMN process (**\*.bpmn**) files with [BPMN modeler](https://www.dirigible.io/help/ide_modeler_bpmn.html)
-* Modeling of form layout (**\*.form**) files with Form Designer
+* Modeling of BPMN process (**\*.bpmn**) files with [BPMN Modeler](https://www.dirigible.io/help/ide_modeler_bpmn.html)
+* Modeling of Web form layout (**\*.form**) files with [Form Designer](https://www.dirigible.io/help/ide_form_designer.html)
 
 ### Security
 
