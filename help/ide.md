@@ -77,7 +77,7 @@ There are some more sophisticated visual editors:
 * [BPMN Modeler](ide_modeler_bpmn.html)
 * [Database Schema Modeler](ide_modeler_database_schema.html)
 * [Entity Data Modeler](ide_modeler_entity_data.html)
-* Form Designer
+* [Form Designer](ide_form_designer.html)
 
 
 ### Layouts
