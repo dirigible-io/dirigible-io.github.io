@@ -14,11 +14,11 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material
       - run: |
-          cd docs/api/
+          cd api/
           mkdocs build
-          mv site ../../api
+          mv site ../api
           cd ../../
-          rm -rf docs
+          rm -rf api
           rm -rf old
       - uses: dsayling/commit-branch-check-action@v0.1.0
         with:
