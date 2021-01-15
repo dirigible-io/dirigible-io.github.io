@@ -18,3 +18,4 @@ jobs:
           mkdocs build
           ls
           pwd
+          git status
