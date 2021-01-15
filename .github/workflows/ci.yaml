@@ -19,3 +19,7 @@ jobs:
           ls
           pwd
           git status
+      - uses: dsayling/commit-branch-check-action@v0.1.0
+        with:
+          dest-branch: gh-pages
+          github-token: ${{ secrets.GH_TOKEN }}
