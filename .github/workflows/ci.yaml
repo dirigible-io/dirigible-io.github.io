@@ -17,11 +17,11 @@ jobs:
           cd docs/api/
           mkdocs build
           mv site ../../api
-      - run: |
+          cd ../../
           cd docs/help/
           mkdocs build
           mv site ../../help
-      - run: |
+          cd ../../
           rm -rf docs
           rm -rf old
       - uses: dsayling/commit-branch-check-action@v0.1.0
