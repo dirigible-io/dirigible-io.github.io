@@ -15,4 +15,4 @@ jobs:
       - run: docker version
       - run: docker pull squidfunk/mkdocs-material
       - run: echo $HOME
-      - run: docker run --rm -it -v /home/runner/dirigible-io.github.io/docs/api:/docs squidfunk/mkdocs-material build
+      - run: docker run --rm -it -v /home/runner/work/dirigible-io.github.io/dirigible-io.github.io/docs/api:/docs squidfunk/mkdocs-material build
