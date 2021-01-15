@@ -37,6 +37,23 @@ There is also a list of samples that you can experiment with and reuse in order 
 6. See your changes come to life!
 ```
 
+## Setup
+
+1. Pull the [MkDocs for Material Docker](https://squidfunk.github.io/mkdocs-material/) image:
+    ```
+    docker pull squidfunk/mkdocs-material
+    ```
+1. Run the API page locally:
+    ```
+    docker run --rm -it -p 8000:8000 -v ${PWD}/docs/api:/docs squidfunk/mkdocs-material
+    ```
+    > Go to: http://localhost:8000
+1. Run the Help page locally:
+    ```
+    docker run --rm -it -p 8000:8000 -v ${PWD}/docs/help:/docs squidfunk/mkdocs-material
+    ```
+    > Go to: http://localhost:8000
+
 ## License:
 
 Eclipse Dirigible is under the [Eclipse Public License - v 2.0] (https://www.eclipse.org/legal/epl-v20.html).

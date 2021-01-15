@@ -1,0 +1,13 @@
+site_name: Eclipse Dirigible API
+theme:
+  name: mkdocs
+  palette:
+    scheme: default
+markdown_extensions:
+    - pymdownx.snippets
+    - pymdownx.highlight:
+        linenums: false
+    - pymdownx.keys
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed
