@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker/setup-qemu-action@v1.0.1
       - run: ls
+      - run: pwd
       - run: docker version
       - run: docker pull squidfunk/mkdocs-material
       - run: echo $HOME
