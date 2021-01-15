@@ -16,9 +16,9 @@ jobs:
       - run: |
           cd docs/api/
           mkdocs build
-          ls
-          pwd
-          git status
+          mv site ../../api
+          rm -rf docs
+          rm -rf old
       - uses: dsayling/commit-branch-check-action@v0.1.0
         with:
           dest-branch: gh-pages
