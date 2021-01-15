@@ -58,7 +58,7 @@ docker run --rm -it -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material b
 
 mv docs-pages/api/site docs/api
 mv docs-pages/help/site docs/help
-mv docs-pages/help/site docs/samples
+mv docs-pages/samples/site docs/samples
 ```
 
 ## License:

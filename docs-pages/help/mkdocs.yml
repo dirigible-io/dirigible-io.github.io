@@ -3,6 +3,8 @@ theme:
   name: mkdocs
   palette:
     scheme: default
+  features:
+    - navigation.tabs
 markdown_extensions:
     - pymdownx.snippets
     - pymdownx.highlight:
