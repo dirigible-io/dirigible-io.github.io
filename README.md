@@ -41,15 +41,24 @@ There is also a list of samples that you can experiment with and reuse in order 
 
 ```
 docker pull squidfunk/mkdocs-material
+```
 
-docker run --rm -it -p 8000:8000 -v $PWD/docs/api:/docs squidfunk/mkdocs-material
-docker run --rm -it -p 8000:8000 -v $PWD/docs/help:/docs squidfunk/mkdocs-material
+Run on localhost:
+```
+docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/api:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/help:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material
+```
 
-docker run --rm -it -v $PWD/docs/api:/docs squidfunk/mkdocs-material build
-mv docs/api/site site/api
+Build
+```
+docker run --rm -it -v $PWD/docs-pages/api:/docs squidfunk/mkdocs-material build
+docker run --rm -it -v $PWD/docs-pages/help:/docs squidfunk/mkdocs-material build
+docker run --rm -it -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material build
 
-docker run --rm -it -v $PWD/docs/help:/docs squidfunk/mkdocs-material build
-mv docs/help/site site/help
+mv docs-pages/api/site docs/api
+mv docs-pages/help/site docs/help
+mv docs-pages/help/site docs/samples
 ```
 
 ## License:
