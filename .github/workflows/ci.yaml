@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+      - uses: docker/build-push-action@v2.2.2
+      - run: docker pull squidfunk/mkdocs-material
+      - run: echo $HOME
+      - run: docker run --rm -it -v $HOME/dirigible-io.github.io/docs/api:/docs squidfunk/mkdocs-material build
