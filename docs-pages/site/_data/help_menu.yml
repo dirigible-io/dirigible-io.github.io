@@ -1,0 +1,47 @@
+name: Help
+navbar: Help
+icon: fa-gift
+link: ../help/
+navigation: 
+  - name: Project
+    icon: fa-lightbulb-o
+    url: project.html
+  - name: Getting Started
+    icon: fa-play-circle
+    url: getting_started.html
+  - name: Architecture
+    icon: fa-building-o
+    url: architecture.html
+  - name: Concepts
+    icon: fa-book
+    url: concepts.html
+  - name: Setup
+    icon: fa-wrench
+    url: setup.html
+  - name: Features
+    icon: fa-list
+    url: features.html
+  - name: DevOps
+    icon: fa-code
+    url: devops.html
+  - name: API
+    icon: fa-sitemap
+    url: ../api/
+  - name: Services
+    icon: fa-cog
+    url: services.html
+  - name: Extensions
+    icon: fa-puzzle-piece
+    url: extensions.html
+  - name: Samples
+    icon: fa-gift
+    url: ../samples/
+  - name: FAQ
+    icon: fa-question
+    url: faq.html
+  - name: License
+    icon: fa-balance-scale
+    url: license.html
+  - name: Credits
+    icon: fa-film
+    url: credits.html

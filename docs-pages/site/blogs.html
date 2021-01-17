@@ -1,0 +1,20 @@
+---
+layout: blue
+---
+
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">Blogs</li>
+</ol>
+
+
+<div class="container">
+	<h1>Blog Posts</h1>
+	<div class="post">
+		<div>
+		{% for post in site.tags.blogs %}
+			{% include post-brief.html %}
+		{% endfor %}
+		</div>
+	</div>
+</div>

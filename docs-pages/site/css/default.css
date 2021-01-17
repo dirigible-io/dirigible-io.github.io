@@ -1,0 +1,376 @@
+@import "theme.css";
+
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial;
+	font-weight: 700;
+	color: #313131
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a {
+    color: #2b7bb9;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    color: #3b94d9;
+}
+
+.grid-home {
+    background-image: url("../img/dirigible-logo-horizontal.svg"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size: 70%;
+    color: #454545;
+}
+
+.grid {
+    background-color: #93B1CE;
+    color: #454545;
+}
+
+.btn-primary {
+    color: #f7fafd;
+    background-color: #313131;
+    border: 1px solid #313131;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    color: #fff;
+    background-color: #414141;
+    border-color: #515151;
+}
+
+footer .btn-primary {
+	border: 1px solid #313131;
+	background-color: #ccc;
+	color: #313131;
+}
+
+footer a {
+	color: #bcbfc2;
+}
+
+footer h4 {
+	color: #eeeeee;
+}
+
+footer li {
+	color: #c3c5c8;
+}
+
+.social-media {
+    background: #313131;
+    padding-top: 20px;
+    margin-bottom: -20px;
+    background-color: #fafafa;
+}
+
+.intro-header {
+	padding-top: 20px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 20px;
+	text-align: center;
+	background-color: #fafafa;
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 5%;
+	padding-bottom: 2%;
+	height: 42em;
+}
+
+.intro-message > h1 {
+	margin-bottom: -5%;
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 8em;
+}
+
+.intro-message > h2 {
+	font-family: serif;
+	font-weight: lighter;
+	font-size: 1.8em;
+}
+
+.intro-message > h3 {
+	font-size: 3em;
+	margin-top: 8.5em;
+}
+
+@font-face {
+font-family: �Montserrat�;
+src: url(�webfont.eot�); 
+src: url(�webfont.eot?#iefix�) format(�embedded-opentype�),
+    url(�webfont.svg#svgFontName�) format(�svg�),
+    url(�webfont.woff�) format(�woff�),
+    url(�webfont.ttf�)  format(�truetype�);
+}
+
+.intro-divider {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.intro-messager {
+    position: relative;
+    padding-top: 0.5em !important;
+    margin-bottom: -2.6em !important;
+    margin-left: -1.7em;
+}
+
+
+@media (max-width: 767px) {
+	.intro-message {
+		padding-bottom: 15%;
+		height: 18em;
+	}
+
+	.intro-message > h1 {
+		font-size: 3em;
+	}
+	
+	.intro-message > h2 {
+		font-family: serif;
+		font-weight: lighter;
+		font-size: 1em;
+	}
+
+	.intro-message > h3 {
+		font-size: 1.2em;
+		margin-top: 2.5em;
+	}
+
+	ul.intro-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.intro-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}
+
+	.intro-divider {
+		width: 0%;
+	}
+}
+
+.network-name {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 2px;
+}
+
+.content-section-a {
+	background-color: #fafafa;
+	padding: 50px 0;
+}
+
+.content-section-b {
+	border-top: 1px solid #fafafa;
+	border-bottom: 1px solid #fafafa;
+	padding: 50px 0;
+}
+
+.section-heading {
+	margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+	border-top: 3px solid #e7e7e7;
+	width: 200px;
+	float: left;
+}
+
+.banner {
+	padding: 50px 0;
+	color: #f8f8f8;
+}
+
+.banner h2 {
+	margin: 0;
+	font-size: 3em;
+	color: #454545;
+}
+
+.banner ul {
+	margin-bottom: 0;
+}
+
+.banner-social-buttons {
+	float: right;
+	margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+	ul.banner-social-buttons {
+		float: left;
+		margin-top: 15px;
+	}	
+}
+
+@media (max-width: 767px) {
+	.banner h2 {
+		margin: 0;
+		font-size: 3em;
+	}
+
+	ul.banner-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.banner-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}	
+}
+
+footer {
+	background-color: rgba(45,45,45,0.98);
+	padding: 50px 0;
+}
+
+p.copyright {
+	margin: 15px 0 0;
+}
+
+.light {
+    font-weight: 400;
+    color: white;
+}
+
+.pictogram {
+	padding: 20px;
+	margin: 0;
+	font-size: 18em;
+    color: #313131;
+    text-align: center;
+	vertical-align:text-middle;
+}
+
+.logo {
+    border-radius: 10%;
+    width: 300px;
+}
+
+.logo_small {
+    border-radius: 10%;
+    width: 100px;
+}
+
+
+.logo-small {
+    width: 45px; height: 30px;    padding-top: 60px;
+}
+
+.navbar-default {
+    font-size: 1.2em;
+    background: rgba(45,45,45,0.98);
+    border-color: rgba(45,45,45,0.98);
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: #bbb !important;
+}
+
+.navbar-default .navbar-nav li a {
+    color: #eee !important;
+}
+
+.navbar-default .navbar-nav li a:hover {
+    color: #eee !important;
+    background: #212121 !important;
+    border-color: #212121 !important;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    background: rgba(45,45,45,0.98) !important;
+}
+
+.lead {
+	font-size: 1.2em;
+	font-weight: 400;
+}
+
+.heading-lead {
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.container-heading {
+    width: 100%;
+    height: 200px;
+}
+
+.btn-register {
+    margin:5px;
+    padding: 5px !important;
+    background-color: #428bca;
+	border-color: #428bca;
+}
+
+.post{
+	font-size: 1.2em;
+    font-weight: 400;
+	margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.post-item {
+	margin: 0px;
+}
+
+.post-position{
+	margin: 0px;
+	margin-bottom: 30px;
+}
+
+.post-info{
+	font-size: 12px;
+    color: #999;
+	margin-bottom: 25px;
+	bottom: .60em;
+}
+
+#carousel-home-generic {
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: #3a536c;
+}
+
+.breadcrumb {
+	border-radius: 0px !important;
+	background: #fafafa;
+	color: #313131 !important;
+	padding: 15px 15px;
+	margin-top: 10px;
+}
+
+.breadcrumb li {
+	color: #313131 !important;
+}
+
+.breadcrumb a {
+	color: #515151 !important;
+}
+
+blockquote {
+	color: #6a737d;
+	font-family: serif;
+}
+

@@ -1,0 +1,14 @@
+name: Samples
+navbar: Help
+icon: fa-question-circle
+link: ../help/index.html
+navigation: 
+  - name: Simple Samples
+    icon: fa fa-info
+    group: simple
+  - name: Complex Samples
+    icon: fa fa-info
+    group: complex
+  - name: Tutorials
+    icon: fa fa-info
+    group: tutorial

@@ -1,0 +1,175 @@
+name: API
+navbar: Samples
+icon: fa-gift
+link: ../samples/index.html
+navigation: 
+  - name: console <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: console.html
+  - name: bpm/process <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: bpm_process.html
+  - name: cms/cmis <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: cmis.html
+  - name: core/configurations <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_configurations.html
+  - name: core/context <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_context.html
+  - name: core/destinations <sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_destinations.html
+  - name: core/env <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_env.html
+  - name: core/extensions <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_extensions.html
+  - name: core/globals <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_globals.html
+  - name: core/threads <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: core_threads.html
+  - name: db/database <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database.html
+  - name: db/dao <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database_dao.html
+  - name: db/query <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database_query.html
+  - name: db/sequence <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database_sequence.html
+  - name: db/sql <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database_sql.html
+  - name: db/update <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: database_update.html
+  - name: indexing/searcher <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: indexing_searcher.html
+  - name: indexing/writer <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: indexing_writer.html
+  - name: io/bytes <sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_bytes.html
+  - name: io/files <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_files.html
+  - name: io/streams <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_streams.html
+  - name: io/zip <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_zip.html
+  - name: io/ftp <sup>4</sup>
+    icon: fa fa-caret-right
+    url: io_ftp.html
+  - name: http/client <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_client.html
+  - name: http/clientAsync <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_client_async.html
+  - name: http/request <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_request.html
+  - name: http/response <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_response.html
+  - name: http/rs <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_rs.html
+  - name: http/rs-data <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_rs-data.html	
+  - name: http/session <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_session.html
+  - name: http/upload <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: http_upload.html
+  - name: log/logging <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: log_logging.html
+  - name: kafka/producer <sup>4</sup>
+    icon: fa fa-caret-right
+    url: kafka_producer.html
+  - name: kafka/consumer <sup>4</sup>
+    icon: fa fa-caret-right
+    url: kafka_consumer.html
+  - name: mail/client <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mail_client.html
+  - name: messaging/producer <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: messaging_producer.html
+  - name: messaging/consumer <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: messaging_consumer.html
+  - name: mongodb/client <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mongodb_client.html
+  - name: mongodb/dao <sup>4</sup>
+    icon: fa fa-caret-right
+    url: mongodb_dao.html
+  - name: net/soap <sup>2,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: net_soap.html
+  - name: net/websocket <sup>2,</sup>
+    icon: fa fa-caret-right
+    url: net_websocket.html
+  - name: platform/engines <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_engines.html
+  - name: platform/registry <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_registry.html
+  - name: platform/repository <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_repository.html
+  - name: platform/template-engines <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_template-engines.html
+  - name: platform/lifecycle <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_lifecycle.html
+  - name: platform/workspace <sup>4</sup>
+    icon: fa fa-caret-right
+    url: platform_workspace.html
+  - name: security/user <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: security_user.html
+  - name: utils/base64 <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_base64.html
+  - name: utils/digest <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_digest.html
+  - name: utils/escape <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_escape.html
+  - name: utils/hex <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_hex.html
+  - name: utils/url <sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_url.html
+  - name: utils/uuid <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_uuid.html
+  - name: utils/xml <sup>2,</sup><sup>3,</sup><sup>4</sup>
+    icon: fa fa-caret-right
+    url: utils_xml.html
+  - name: #
+    icon: fa fa-caret-right
+    url: index.html
+
+    

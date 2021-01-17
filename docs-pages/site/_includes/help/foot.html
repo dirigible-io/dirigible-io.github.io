@@ -1,0 +1,39 @@
+<a class="btn btn-primary pull-right" href="{{ site.github.repository_url }}/tree/master/{{ page.path }}">Edit</a>
+</div>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49027147-1', 'dirigible.io');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  $(document).ready(function(){
+    $('.dropdown.keep-open').click(function(e){
+      if (!$(this).hasClass('open')) {
+        $('.dropdown.keep-open').not(this).removeClass('open');
+      }
+      // click on menu item don't hide the menu while loading.
+      if ($(this).children('a').get(0) === e.target) {
+        $(this).toggleClass('open');
+      }
+    });
+  });
+</script>
+<div id="footer" class="panel-footer hidden-xs"><p class="copyright text-muted small">Copyright &copy; 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.</p></div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.3.1/purl.js"></script>
+<script>
+    var nonav = $.url().param("nonav");
+    if (nonav) {
+        $("#navigation").remove();
+        $("#footer").remove();
+    }
+</script>
+</body>
+</html>
