@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<ol class="breadcrumb">
+  <li><a href="{{ site.url }}">Home</a></li>
+  <li class="active">News</li>
+</ol>
+
+
+<div class="container">
+	<h1>News and Updates</h1>
+	<div class="post">
+		<div>
+			{% for post in site.tags.news %}
+				{% if post.categories contains 'news' %}
+					<div>
+					<p class="post-position">
+						<div class="img-responsive col-sm-1"><h1><i class="fa fa-newspaper-o fa-fw"></i></h1></div>
+						<div class="col-sm-11">
+							<h4>
+								<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+							</h4>
+							<sub class="post-info">{{ post.date | date: "%B %-d, %Y"}}</sub><br>
+							{{ post.excerpt }}
+							<a href="{{ site.url }}{{ post.url }}">Read More</a>
+						</div>
+					</p>
+				</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>	
+</div>
+	

@@ -1,0 +1,3623 @@
+
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Eclipse Dirigible API of the core RESTful services provided by the application development platform itself",
+    "version" : "3.0",
+    "title" : "Eclipse Dirigible - RESTful Services API",
+    "contact" : {
+      "name" : "dirigible-dev@eclipse.org"
+    },
+    "license" : {
+      "name" : "Eclipse Public License - v 2.0",
+      "url" : "https://www.eclipse.org/legal/epl-v20.html"
+    }
+  },
+  "basePath" : "/services/v3",
+  "tags" : [ {
+    "name" : "JavaScript Engine - Nashorn"
+  }, {
+    "name" : "JavaScript Engine - Rhino"
+  }, {
+    "name" : "JavaScript Engine"
+  }, {
+    "name" : "JavaScript Engine - V8"
+  }, {
+    "name" : "Core - Web Engine Public"
+  }, {
+    "name" : "Core - Web Engine"
+  }, {
+    "name" : "Core - Wiki Engine"
+  }, {
+    "name" : "Anonymous"
+  }, {
+    "name" : "IDE - Databases"
+  }, {
+    "name" : "Core - Extensions"
+  }, {
+    "name" : "IDE - Git"
+  }, {
+    "name" : "IDE - BPM"
+  }, {
+    "name" : "IDE - Generation"
+  }, {
+    "name" : "IDE - Publish"
+  }, {
+    "name" : "IDE - Workspace Manager"
+  }, {
+    "name" : "IDE - Workspace"
+  }, {
+    "name" : "IDE - Workspace Search"
+  }, {
+    "name" : "Core - Registry"
+  }, {
+    "name" : "Core - Repository"
+  }, {
+    "name" : "Core - Theme"
+  }, {
+    "name" : "IDE - Transport - Project"
+  } ],
+  "paths" : {
+    "/nashorn/{path}" : {
+      "get" : {
+        "tags" : [ "JavaScript Engine - Nashorn" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeService",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "head" : {
+        "tags" : [ "JavaScript Engine - Nashorn" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceHead",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "JavaScript Engine - Nashorn" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePost",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "JavaScript Engine - Nashorn" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePut",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "JavaScript Engine - Nashorn" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceDelete",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/rhino/{path}" : {
+      "get" : {
+        "tags" : [ "JavaScript Engine - Rhino" ],
+        "summary" : "Execute Server Side JavaScript Rhino Resource",
+        "description" : "",
+        "operationId" : "executeService",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "head" : {
+        "tags" : [ "JavaScript Engine - Rhino" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceHead",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "JavaScript Engine - Rhino" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePost",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "JavaScript Engine - Rhino" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePut",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "JavaScript Engine - Rhino" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceDelete",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/js/{path}" : {
+      "get" : {
+        "tags" : [ "JavaScript Engine" ],
+        "summary" : "Execute Server Side JavaScript Resource",
+        "description" : "",
+        "operationId" : "executeService",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "head" : {
+        "tags" : [ "JavaScript Engine" ],
+        "summary" : "Execute Server Side JavaScript Resource",
+        "description" : "",
+        "operationId" : "executeServiceHead",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "JavaScript Engine" ],
+        "summary" : "Execute Server Side JavaScript Resource",
+        "description" : "",
+        "operationId" : "executeServicePost",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "JavaScript Engine" ],
+        "summary" : "Execute Server Side JavaScript Resource",
+        "description" : "",
+        "operationId" : "executeServicePut",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "JavaScript Engine" ],
+        "summary" : "Execute Server Side JavaScript Resource",
+        "description" : "",
+        "operationId" : "executeServiceDelete",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/v8/{path}" : {
+      "get" : {
+        "tags" : [ "JavaScript Engine - V8" ],
+        "summary" : "Execute Server Side JavaScript V8 Resource",
+        "description" : "",
+        "operationId" : "executeService",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "head" : {
+        "tags" : [ "JavaScript Engine - V8" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceHead",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "JavaScript Engine - V8" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePost",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "JavaScript Engine - V8" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServicePut",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "JavaScript Engine - V8" ],
+        "summary" : "Execute Server Side JavaScript Nashorn Resource",
+        "description" : "",
+        "operationId" : "executeServiceDelete",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/public/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Web Engine Public" ],
+        "summary" : "Get Resource Content",
+        "description" : "",
+        "operationId" : "getResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Path of the Resource",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Get the content fo the resource",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "format" : "byte"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No such resource"
+          }
+        }
+      }
+    },
+    "/web/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Web Engine" ],
+        "summary" : "Get Resource Content",
+        "description" : "",
+        "operationId" : "getResource_1",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Path of the Resource",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Get the content fo the resource",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "format" : "byte"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No such resource"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/wiki/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Wiki Engine" ],
+        "summary" : "Get Resource Content",
+        "description" : "",
+        "operationId" : "getWikiPage",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Path of the Resource",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Get the content fo the resource",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "format" : "byte"
+              }
+            }
+          },
+          "404" : {
+            "description" : "No such resource"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/anonymous" : {
+      "post" : {
+        "tags" : [ "Anonymous" ],
+        "operationId" : "setIdentifier",
+        "parameters" : [ {
+          "name" : "identifier",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/ide/databases" : {
+      "get" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "List all the databases types",
+        "description" : "",
+        "operationId" : "listDatabaseTypes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "List of Databases Types",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/databases/{type}" : {
+      "get" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "Returns all the available data sources for the given database {type}",
+        "description" : "",
+        "operationId" : "listDataSources",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Database Type",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of Data Sources",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Data Sources for the requested database {type} does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/databases/{type}/{name}" : {
+      "get" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "Returns the metadata of the given data source with {name} and {type}",
+        "description" : "",
+        "operationId" : "listArtifacts",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Database Type",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "description" : "DataSource Name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Database Metadata",
+            "schema" : {
+              "$ref" : "#/definitions/DatabaseMetadata"
+            }
+          },
+          "404" : {
+            "description" : "Database Metadata for the requested database {type} does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/databases/{type}/{name}/update" : {
+      "post" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "Executes an update operation on the datasource {name} and {type} and returns the result in a tabular format",
+        "description" : "",
+        "operationId" : "executeUpdate",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Database Type",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "description" : "DataSource Name",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Datasource updated successfully",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Datasource with {name} for the requested database {type} does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/databases/{type}/{name}/query" : {
+      "post" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "Executes a query operation on the datasource {name} and {type} and returns the result in a tabular format",
+        "description" : "",
+        "operationId" : "executeQuery",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Database Type",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "description" : "DataSource Name",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Datasource updated successfully",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Datasource with {name} for the requested database {type} does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/databases/{type}/{name}/execute" : {
+      "post" : {
+        "tags" : [ "IDE - Databases" ],
+        "summary" : "Executes a query or update operation on the datasource {name} and {type} and returns the result in a tabular format",
+        "description" : "",
+        "operationId" : "execute",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "description" : "Database Type",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "description" : "DataSource Name",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Datasource updated successfully",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Datasource with {name} for the requested database {type} does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/extensions" : {
+      "get" : {
+        "tags" : [ "Core - Extensions" ],
+        "summary" : "List all the Extension Points with their Extensions",
+        "description" : "",
+        "operationId" : "listExtensionPoints",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "List of Extension Points",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ExtensionPoint"
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/extensions/{name}" : {
+      "get" : {
+        "tags" : [ "Core - Extensions" ],
+        "summary" : "Returns the Extension Point with their Extensions requested by its name",
+        "description" : "",
+        "operationId" : "getExtensionPoint",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Name of the ExtensionPoint",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The Extension Point",
+            "schema" : {
+              "$ref" : "#/definitions/ExtensionPoint"
+            }
+          },
+          "404" : {
+            "description" : "Extension Point with the requested name does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/{project}/push" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Push Git Project into Git Repository",
+        "description" : "",
+        "operationId" : "pushProject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitPushModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Project Pushed"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/reset" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Hard Reset Git Projects in the Workspace",
+        "description" : "",
+        "operationId" : "resetProjects",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitResetModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Projects Reset"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/{project}/reset" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Hard Reset Git Project in the Workspace",
+        "description" : "",
+        "operationId" : "resetProject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitResetModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Project Reset"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/{project}/share" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Share Git Project into Git Repository",
+        "description" : "",
+        "operationId" : "shareProject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitShareModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Project Shared"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/uppdate-dependencies" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Update Git Projects Dependencies",
+        "description" : "",
+        "operationId" : "updateProjectsDependencies",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitUpdateDependenciesModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Projects Dependencies Updated"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/{project}/uppdate-dependencies" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Update Git Project Dependencies",
+        "description" : "",
+        "operationId" : "updateProjectDependencies",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitUpdateDependenciesModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Project Dependencies Updated"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/clone" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Clone Git Repository",
+        "description" : "",
+        "operationId" : "cloneRepository",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitCloneModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Repository Cloned"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/pull" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Pull Git Projects into the Workspace",
+        "description" : "",
+        "operationId" : "pullProjects",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitPullModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Projects Pulled"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/{project}/pull" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Pull Git Project into the Workspace",
+        "description" : "",
+        "operationId" : "pullProject",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitPullModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Project Pulled"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/git/{workspace}/push" : {
+      "post" : {
+        "tags" : [ "IDE - Git" ],
+        "summary" : "Push Git Projects into Git Repository",
+        "description" : "",
+        "operationId" : "pushProjects",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GitPushModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Git Projects Pushed"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/bpm/models/{workspace}/{project}/{path}" : {
+      "get" : {
+        "tags" : [ "IDE - BPM" ],
+        "summary" : "Returns the model source in JSON",
+        "description" : "",
+        "operationId" : "getModel",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Model Source",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Model with the requested workspace: [{workspace}], project: [{project}] and path: [{path}] does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "IDE - BPM" ],
+        "summary" : "Returns the URI of the stored model source",
+        "description" : "",
+        "operationId" : "saveModel",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Project",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "name" : "json_xml",
+          "in" : "formData",
+          "description" : "Model Payload",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Model Source",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Model with the requested workspace: [{workspace}], project: [{project}] and path: [{path}] does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/bpm/stencil-sets" : {
+      "get" : {
+        "tags" : [ "IDE - BPM" ],
+        "summary" : "Returns the stensil sets",
+        "description" : "",
+        "operationId" : "getStencilSet",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Stencil Sets",
+            "schema" : {
+              "type" : "string"
+            }
+          },
+          "404" : {
+            "description" : "Stencil Sets definition does not exist"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/generate/model/{workspace}/{project}/{path}" : {
+      "post" : {
+        "tags" : [ "IDE - Generation" ],
+        "operationId" : "generateModel",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GenerationTemplateModelParameters"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/generate/file/{workspace}/{project}/{path}" : {
+      "post" : {
+        "tags" : [ "IDE - Generation" ],
+        "operationId" : "generateFile",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/GenerationTemplateParameters"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/publisher/request/{workspace}/{path}" : {
+      "post" : {
+        "tags" : [ "IDE - Publish" ],
+        "summary" : "Publish Workspace Resources",
+        "description" : "",
+        "operationId" : "requestPublishing",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "description" : "Resource Path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Execution Result"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/publisher/log" : {
+      "get" : {
+        "tags" : [ "IDE - Publish" ],
+        "operationId" : "listLog",
+        "parameters" : [ ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "IDE - Publish" ],
+        "operationId" : "clearLog",
+        "parameters" : [ ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/publisher/request/{id}" : {
+      "get" : {
+        "tags" : [ "IDE - Publish" ],
+        "operationId" : "getRequest",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspace/{workspace}/move" : {
+      "post" : {
+        "tags" : [ "IDE - Workspace Manager" ],
+        "operationId" : "move",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/WorkspaceSourceTargetPair"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspace/{workspace}/copy" : {
+      "post" : {
+        "tags" : [ "IDE - Workspace Manager" ],
+        "operationId" : "copy",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/WorkspaceSourceTargetPair"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspace/{workspace}/rename" : {
+      "post" : {
+        "tags" : [ "IDE - Workspace Manager" ],
+        "operationId" : "rename",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/WorkspaceSourceTargetPair"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspaces/{workspace}/{project}" : {
+      "get" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "getProject",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "createProject",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "deleteProject",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspaces/{workspace}/{project}/{path}" : {
+      "get" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "getFile",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "createFile",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "updateFile",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "deleteFile",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspaces/{workspace}" : {
+      "get" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "getWorkspace",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "createWorkspace",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "deleteWorkspace",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspaces" : {
+      "get" : {
+        "tags" : [ "IDE - Workspace" ],
+        "operationId" : "listWorkspaces",
+        "parameters" : [ ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/ide/workspace-search/{workspace}" : {
+      "post" : {
+        "tags" : [ "IDE - Workspace Search" ],
+        "operationId" : "search",
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/registry/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Registry" ],
+        "operationId" : "getResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/repository/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Repository" ],
+        "operationId" : "getResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Core - Repository" ],
+        "operationId" : "createResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Core - Repository" ],
+        "operationId" : "updateResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Core - Repository" ],
+        "operationId" : "deleteResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "Not Found"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/theme" : {
+      "get" : {
+        "tags" : [ "Core - Theme" ],
+        "operationId" : "getTheme",
+        "parameters" : [ ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/core/theme/{path}" : {
+      "get" : {
+        "tags" : [ "Core - Theme" ],
+        "operationId" : "getStyle",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "type" : "string",
+          "pattern" : ".*"
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/transport/project/{workspace}" : {
+      "post" : {
+        "tags" : [ "IDE - Transport - Project" ],
+        "summary" : "Import Project from Zip",
+        "description" : "",
+        "operationId" : "importProject",
+        "consumes" : [ "multipart/form-data" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "The Zip file(s) containing the Project artifacts",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "format" : "byte"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Project Imported"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/transport/project/{workspace}/{project}" : {
+      "get" : {
+        "tags" : [ "IDE - Transport - Project" ],
+        "summary" : "Export Project as Zip",
+        "description" : "",
+        "operationId" : "exportProject",
+        "produces" : [ "application/octet-stream" ],
+        "parameters" : [ {
+          "name" : "workspace",
+          "in" : "path",
+          "description" : "Name of the Workspace",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "project",
+          "in" : "path",
+          "description" : "Name of the Project",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Project Exported"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    },
+    "/transport/snapshot" : {
+      "get" : {
+        "tags" : [ "IDE - Transport - Project" ],
+        "summary" : "Export Snapshot as Zip",
+        "description" : "",
+        "operationId" : "exportSnapshot",
+        "produces" : [ "application/octet-stream" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Snapshot Exported"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "IDE - Transport - Project" ],
+        "summary" : "Import Snapshot from Zip",
+        "description" : "",
+        "operationId" : "importSnapshot",
+        "consumes" : [ "multipart/form-data" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "The Zip file(s) containing the Snapshot contents",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "format" : "byte"
+              }
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Snapshot Imported"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        },
+        "security" : [ {
+          "basicAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "ColumnMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nullable" : {
+          "type" : "boolean"
+        },
+        "key" : {
+          "type" : "boolean"
+        },
+        "kind" : {
+          "type" : "string"
+        }
+      }
+    },
+    "DatabaseMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "allProceduresAreCallable" : {
+          "type" : "boolean"
+        },
+        "allTablesAreSelectable" : {
+          "type" : "boolean"
+        },
+        "getURL" : {
+          "type" : "string"
+        },
+        "getUserName" : {
+          "type" : "string"
+        },
+        "nullsAreSortedHigh" : {
+          "type" : "boolean"
+        },
+        "nullsAreSortedLow" : {
+          "type" : "boolean"
+        },
+        "nullsAreSortedAtStart" : {
+          "type" : "boolean"
+        },
+        "nullsAreSortedAtEnd" : {
+          "type" : "boolean"
+        },
+        "databaseProductName" : {
+          "type" : "string"
+        },
+        "databaseProductVersion" : {
+          "type" : "string"
+        },
+        "driverName" : {
+          "type" : "string"
+        },
+        "driverVersion" : {
+          "type" : "string"
+        },
+        "driverMajorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "driverMinorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "usesLocalFiles" : {
+          "type" : "boolean"
+        },
+        "usesLocalFilePerTable" : {
+          "type" : "boolean"
+        },
+        "supportsMixedCaseIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesUpperCaseIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesLowerCaseIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesMixedCaseIdentifiers" : {
+          "type" : "boolean"
+        },
+        "supportsMixedCaseQuotedIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesUpperCaseQuotedIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesLowerCaseQuotedIdentifiers" : {
+          "type" : "boolean"
+        },
+        "storesMixedCaseQuotedIdentifiers" : {
+          "type" : "boolean"
+        },
+        "identifierQuoteString" : {
+          "type" : "string"
+        },
+        "sqlKeywords" : {
+          "type" : "string"
+        },
+        "numericFunctions" : {
+          "type" : "string"
+        },
+        "stringFunctions" : {
+          "type" : "string"
+        },
+        "systemFunctions" : {
+          "type" : "string"
+        },
+        "timeDateFunctions" : {
+          "type" : "string"
+        },
+        "searchStringEscape" : {
+          "type" : "string"
+        },
+        "extraNameCharacters" : {
+          "type" : "string"
+        },
+        "supportsAlterTableWithAddColumn" : {
+          "type" : "boolean"
+        },
+        "supportsAlterTableWithDropColumn" : {
+          "type" : "boolean"
+        },
+        "supportsColumnAliasing" : {
+          "type" : "boolean"
+        },
+        "nullPlusNonNullIsNull" : {
+          "type" : "boolean"
+        },
+        "supportsConvert" : {
+          "type" : "boolean"
+        },
+        "supportsTableCorrelationNames" : {
+          "type" : "boolean"
+        },
+        "supportsDifferentTableCorrelationNames" : {
+          "type" : "boolean"
+        },
+        "supportsExpressionsInOrderBy" : {
+          "type" : "boolean"
+        },
+        "supportsOrderByUnrelated" : {
+          "type" : "boolean"
+        },
+        "supportsGroupBy" : {
+          "type" : "boolean"
+        },
+        "supportsGroupByUnrelated" : {
+          "type" : "boolean"
+        },
+        "supportsGroupByBeyondSelect" : {
+          "type" : "boolean"
+        },
+        "supportsLikeEscapeClause" : {
+          "type" : "boolean"
+        },
+        "supportsMultipleResultSets" : {
+          "type" : "boolean"
+        },
+        "supportsMultipleTransactions" : {
+          "type" : "boolean"
+        },
+        "supportsNonNullableColumns" : {
+          "type" : "boolean"
+        },
+        "supportsMinimumSQLGrammar" : {
+          "type" : "boolean"
+        },
+        "supportsCoreSQLGrammar" : {
+          "type" : "boolean"
+        },
+        "supportsExtendedSQLGrammar" : {
+          "type" : "boolean"
+        },
+        "supportsANSI92EntryLevelSQL" : {
+          "type" : "boolean"
+        },
+        "supportsANSI92IntermediateSQL" : {
+          "type" : "boolean"
+        },
+        "supportsANSI92FullSQL" : {
+          "type" : "boolean"
+        },
+        "supportsIntegrityEnhancementFacility" : {
+          "type" : "boolean"
+        },
+        "supportsOuterJoins" : {
+          "type" : "boolean"
+        },
+        "supportsFullOuterJoins" : {
+          "type" : "boolean"
+        },
+        "supportsLimitedOuterJoins" : {
+          "type" : "boolean"
+        },
+        "schemaTerm" : {
+          "type" : "string"
+        },
+        "procedureTerm" : {
+          "type" : "string"
+        },
+        "catalogTerm" : {
+          "type" : "string"
+        },
+        "getCatalogSeparator" : {
+          "type" : "string"
+        },
+        "supportsSchemasInDataManipulation" : {
+          "type" : "boolean"
+        },
+        "supportsSchemasInProcedureCalls" : {
+          "type" : "boolean"
+        },
+        "supportsSchemasInTableDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsSchemasInIndexDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsSchemasInPrivilegeDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsCatalogsInDataManipulation" : {
+          "type" : "boolean"
+        },
+        "supportsCatalogsInProcedureCalls" : {
+          "type" : "boolean"
+        },
+        "supportsCatalogsInTableDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsCatalogsInIndexDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsCatalogsInPrivilegeDefinitions" : {
+          "type" : "boolean"
+        },
+        "supportsPositionedDelete" : {
+          "type" : "boolean"
+        },
+        "supportsPositionedUpdate" : {
+          "type" : "boolean"
+        },
+        "supportsSelectForUpdate" : {
+          "type" : "boolean"
+        },
+        "supportsStoredProcedures" : {
+          "type" : "boolean"
+        },
+        "supportsSubqueriesInComparisons" : {
+          "type" : "boolean"
+        },
+        "supportsSubqueriesInExists" : {
+          "type" : "boolean"
+        },
+        "supportsSubqueriesInIns" : {
+          "type" : "boolean"
+        },
+        "supportsSubqueriesInQuantifieds" : {
+          "type" : "boolean"
+        },
+        "supportsCorrelatedSubqueries" : {
+          "type" : "boolean"
+        },
+        "supportsUnion" : {
+          "type" : "boolean"
+        },
+        "supportsUnionAll" : {
+          "type" : "boolean"
+        },
+        "supportsOpenCursorsAcrossCommit" : {
+          "type" : "boolean"
+        },
+        "supportsOpenCursorsAcrossRollback" : {
+          "type" : "boolean"
+        },
+        "supportsOpenStatementsAcrossCommit" : {
+          "type" : "boolean"
+        },
+        "supportsOpenStatementsAcrossRollback" : {
+          "type" : "boolean"
+        },
+        "maxBinaryLiteralLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxCharLiteralLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnsInGroupBy" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnsInIndex" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnsInOrderBy" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnsInSelect" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxColumnsInTable" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxConnections" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxCursorNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxIndexLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxSchemaNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxProcedureNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxCatalogNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxRowSize" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxRowSizeIncludeBlobs" : {
+          "type" : "boolean"
+        },
+        "maxStatementLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxStatements" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxTableNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxTablesInSelect" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "maxUserNameLength" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "defaultTransactionIsolation" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "supportsTransactions" : {
+          "type" : "boolean"
+        },
+        "supportsDataDefinitionAndDataManipulationTransactions" : {
+          "type" : "boolean"
+        },
+        "supportsDataManipulationTransactionsOnly" : {
+          "type" : "boolean"
+        },
+        "dataDefinitionCausesTransactionCommit" : {
+          "type" : "boolean"
+        },
+        "dataDefinitionIgnoredInTransactions" : {
+          "type" : "boolean"
+        },
+        "supportsBatchUpdates" : {
+          "type" : "boolean"
+        },
+        "supportsSavepoints" : {
+          "type" : "boolean"
+        },
+        "supportsNamedParameters" : {
+          "type" : "boolean"
+        },
+        "supportsMultipleOpenResults" : {
+          "type" : "boolean"
+        },
+        "supportsGetGeneratedKeys" : {
+          "type" : "boolean"
+        },
+        "getResultSetHoldability" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "getDatabaseMajorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "getDatabaseMinorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "getJDBCMajorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "getJDBCMinorVersion" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "getSQLStateType" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "locatorsUpdateCopy" : {
+          "type" : "boolean"
+        },
+        "supportsStatementPooling" : {
+          "type" : "boolean"
+        },
+        "supportsStoredFunctionsUsingCallSyntax" : {
+          "type" : "boolean"
+        },
+        "autoCommitFailureClosesAllResultSets" : {
+          "type" : "boolean"
+        },
+        "generatedKeyAlwaysReturned" : {
+          "type" : "boolean"
+        },
+        "getMaxLogicalLobSize" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "supportsRefCursors" : {
+          "type" : "boolean"
+        },
+        "schemas" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SchemaMetadata"
+          }
+        },
+        "kind" : {
+          "type" : "string"
+        },
+        "catalogAtStart" : {
+          "type" : "boolean"
+        },
+        "readOnly" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "IndexMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "column" : {
+          "type" : "string"
+        },
+        "nonUnique" : {
+          "type" : "boolean"
+        },
+        "qualifier" : {
+          "type" : "string"
+        },
+        "ordinalPosition" : {
+          "type" : "string"
+        },
+        "sortOrder" : {
+          "type" : "string"
+        },
+        "cardinality" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "pages" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "filterCondition" : {
+          "type" : "string"
+        },
+        "kind" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SchemaMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "kind" : {
+          "type" : "string"
+        },
+        "tables" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TableMetadata"
+          }
+        }
+      }
+    },
+    "TableMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "remarks" : {
+          "type" : "string"
+        },
+        "columns" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ColumnMetadata"
+          }
+        },
+        "indices" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IndexMetadata"
+          }
+        },
+        "kind" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ExtensionDefinition" : {
+      "type" : "object",
+      "properties" : {
+        "location" : {
+          "type" : "string"
+        },
+        "extensionPoint" : {
+          "type" : "string"
+        },
+        "module" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "ExtensionPoint" : {
+      "type" : "object",
+      "properties" : {
+        "extensionPoint" : {
+          "$ref" : "#/definitions/ExtensionPointDefinition"
+        },
+        "extensions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ExtensionDefinition"
+          }
+        }
+      }
+    },
+    "ExtensionPointDefinition" : {
+      "type" : "object",
+      "properties" : {
+        "location" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "createdBy" : {
+          "type" : "string"
+        },
+        "createdAt" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      }
+    },
+    "GitPushModel" : {
+      "type" : "object",
+      "required" : [ "commitMessage", "password", "projects", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "projects" : {
+          "type" : "array",
+          "example" : "[core_api]",
+          "description" : "List of projects, on which a Git Operation will be performed",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "commitMessage" : {
+          "type" : "string",
+          "example" : "Updates README.md",
+          "description" : "The Commit Message"
+        }
+      }
+    },
+    "GitResetModel" : {
+      "type" : "object",
+      "required" : [ "password", "projects", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "projects" : {
+          "type" : "array",
+          "example" : "[core_api]",
+          "description" : "List of projects, on which a Git Operation will be performed",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "GitShareModel" : {
+      "type" : "object",
+      "required" : [ "branch", "commitMessage", "password", "repository", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "repository" : {
+          "type" : "string",
+          "example" : "https://github.com/dirigiblelabs/sample_git_test.git",
+          "description" : "The Git Repository URL"
+        },
+        "branch" : {
+          "type" : "string",
+          "example" : "master",
+          "description" : "The Git Branch"
+        },
+        "commitMessage" : {
+          "type" : "string",
+          "example" : "Initial Commit",
+          "description" : "The Commit Message"
+        }
+      }
+    },
+    "GitUpdateDependenciesModel" : {
+      "type" : "object",
+      "required" : [ "password", "projects", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "projects" : {
+          "type" : "array",
+          "example" : "[core_api]",
+          "description" : "List of projects, on which a Git Operation will be performed",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "publish" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "Whether to publish the project(s) after update of dependencies"
+        }
+      }
+    },
+    "GitCloneModel" : {
+      "type" : "object",
+      "required" : [ "branch", "password", "repository", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "repository" : {
+          "type" : "string",
+          "example" : "https://github.com/dirigiblelabs/sample_git_test.git",
+          "description" : "The Git Repository URL"
+        },
+        "branch" : {
+          "type" : "string",
+          "example" : "master",
+          "description" : "The Git Branch"
+        },
+        "publish" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "Whether to publish the project(s) after clone"
+        }
+      }
+    },
+    "GitPullModel" : {
+      "type" : "object",
+      "required" : [ "password", "projects", "username" ],
+      "properties" : {
+        "username" : {
+          "type" : "string",
+          "example" : "dirigible",
+          "description" : "The User Name"
+        },
+        "password" : {
+          "type" : "string",
+          "example" : "ZGlyaWdpYmxl",
+          "description" : "Base64 Encoded Password"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "dirigible@gmail.com",
+          "description" : "The E-mail Address"
+        },
+        "projects" : {
+          "type" : "array",
+          "example" : "[core_api]",
+          "description" : "List of projects, on which a Git Operation will be performed",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "publish" : {
+          "type" : "boolean",
+          "example" : true,
+          "description" : "Whether to publish the project(s) after update of dependencies"
+        }
+      }
+    },
+    "GenerationTemplateModelParameters" : {
+      "type" : "object",
+      "properties" : {
+        "template" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "object"
+          }
+        },
+        "model" : {
+          "type" : "string"
+        }
+      }
+    },
+    "GenerationTemplateParameters" : {
+      "type" : "object",
+      "properties" : {
+        "template" : {
+          "type" : "string"
+        },
+        "parameters" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "type" : "object"
+          }
+        }
+      }
+    },
+    "WorkspaceSourceTargetPair" : {
+      "type" : "object",
+      "properties" : {
+        "source" : {
+          "type" : "string"
+        },
+        "target" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
