@@ -56,8 +56,7 @@ docker run --rm -it -v $PWD/docs-pages/api:/docs squidfunk/mkdocs-material build
 docker run --rm -it -v $PWD/docs-pages/help:/docs squidfunk/mkdocs-material build
 docker run --rm -it -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material build
 
-rm -rf docs
-mkdir docs
+rm -rf docs/*
 
 mv docs-pages/api/site docs/api
 mv docs-pages/help/site docs/help

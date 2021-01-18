@@ -2,7 +2,7 @@
   <div>
     {% assign author = site.data.authors[post.author] %}
     <p class="post-position">
-      <img class="img-responsive col-sm-1" src="{{ author.avatar }}" role="presentation" style="border-radius: 50%;">
+      <img class="img-responsive col-sm-1" src="{{ site.url }}{{ author.avatar }}" role="presentation" style="border-radius: 50%;">
       <div class="col-sm-11">
         <h4>
           <a href="{{ post.url }}">{{ post.title }}</a>

@@ -1,9 +1,0 @@
-site_name: My Docs
-markdown_extensions:
-    - pymdownx.snippets
-    - pymdownx.highlight:
-        linenums: false
-    - pymdownx.keys
-    - pymdownx.inlinehilite
-    - pymdownx.superfences
-    

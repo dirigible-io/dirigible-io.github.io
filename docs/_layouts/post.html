@@ -1,8 +1,8 @@
 {% include head_blue.html %}
 
 	<ol class="breadcrumb">
-	  <li><a href="/">Home</a></li>
-	  <li><a href="/blogs.html">Blogs</a></li>
+	  <li><a href="{{ site.url }}">Home</a></li>
+	  <li><a href="{{ site.url }}/blogs.html">Blogs</a></li>
 	  <li class="active">{{ page.title }}</li>
 	</ol>
 	<div class="container">
@@ -11,7 +11,7 @@
 			<header>
 				<h1>{{ page.title }}</h1>
 				{% if author %}
-				<img class="img-responsive" src="{{ author.avatar }}" role="presentation" style="border-radius: 50%;">
+				<img class="img-responsive" src="{{ site.url }}{{ author.avatar }}" role="presentation" style="border-radius: 50%;">
 				<br>
 				<sub class="post-info">{{ page.date | date: "%B %-d, %Y"}} by {{ author.name }}</sub>
 				{% else %}
