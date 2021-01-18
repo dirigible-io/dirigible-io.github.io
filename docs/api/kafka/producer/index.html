@@ -1390,22 +1390,25 @@
                 
                 <h1 id="kafka-producer">Kafka Producer</h1>
 <p>The Kafka Producer is sending message records to a Topic destination to a <a href="http://kafka.apache.org/">Kafka</a> messaging server.</p>
-<p>=== "Overview"
-- Module: <code>kafka/producer</code>
-- Alias: <code>kafka/producer</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/640">https://github.com/eclipse/dirigible/issues/640</a>
-- Source: <a href="https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/producer.js">/kafka/producer.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java">KafkaFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>kafka/producer</code></li>
+<li>Alias: <code>kafka/producer</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/640">https://github.com/eclipse/dirigible/issues/640</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/producer.js">/kafka/producer.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java">KafkaFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Send record to a given topic <em>(implicitly create producer if needed)</em>:</p>
-<pre><code class="language-javascript">var producer = require(&quot;kafka/producer&quot;);
-producer.topic(&quot;topic1&quot;, &quot;{}&quot;).send(&quot;key1&quot;, &quot;value1&quot;);
-</code></pre>
-<p>Close the producer:</p>
-<pre><code class="language-javascript">var producer = require(&quot;kafka/producer&quot;);
-producer.close(&quot;{}&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span> <span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;value1&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Close the producer:
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="s2">&quot;{}&quot;</span><span class="p">);</span>
+</code></pre></div></p>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

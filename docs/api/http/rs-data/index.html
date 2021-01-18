@@ -1390,41 +1390,44 @@
                 
                 <h1 id="rs-data">RS-Data</h1>
 <p>HTTP RESTful Data Services framework.</p>
-<p>=== "Overview"
-- Module: <code>http/v4/rs-data</code>
-- Alias: <code>http/rs-data</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/85">https://github.com/eclipse/dirigible/issues/85</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/rs-data.js">/http/v4/rs-data.js</a>
-- Facade: none
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>http/v4/rs-data</code></li>
+<li>Alias: <code>http/rs-data</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/85">https://github.com/eclipse/dirigible/issues/85</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/rs-data.js">/http/v4/rs-data.js</a></li>
+<li>Facade: none</li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var rsdata = require(&quot;http/v4/rs-data&quot;); 
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">rsdata</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/rs-data&quot;</span><span class="p">);</span> 
 
-rsdata
-    .service()
-        .dao({
-            table: &quot;CUSTOMERS&quot;,
-            properties: [{
-                name: &quot;id&quot;,
-                column: &quot;ID&quot;,
-                type: &quot;BIGINT&quot;,
-                id: true
-            }, {
-                name: &quot;orgName&quot;,
-                column: &quot;ORG_NAME&quot;,
-                type: &quot;VARCHAR&quot;,
-                size: 255,
-                required: true
-            }, {
-                name: &quot;orgDescription&quot;,
-                column: &quot;ORG_DESCR&quot;,
-                type: &quot;VARCHAR&quot;,
-                size: 255,
-                required: false
-            }]
-        })
-.execute();
-</code></pre>
+<span class="nx">rsdata</span>
+    <span class="p">.</span><span class="nx">service</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">dao</span><span class="p">({</span>
+            <span class="nx">table</span><span class="o">:</span> <span class="s2">&quot;CUSTOMERS&quot;</span><span class="p">,</span>
+            <span class="nx">properties</span><span class="o">:</span> <span class="p">[{</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                <span class="nx">column</span><span class="o">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;BIGINT&quot;</span><span class="p">,</span>
+                <span class="nx">id</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">},</span> <span class="p">{</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;orgName&quot;</span><span class="p">,</span>
+                <span class="nx">column</span><span class="o">:</span> <span class="s2">&quot;ORG_NAME&quot;</span><span class="p">,</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span>
+                <span class="nx">size</span><span class="o">:</span> <span class="mf">255</span><span class="p">,</span>
+                <span class="nx">required</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">},</span> <span class="p">{</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;orgDescription&quot;</span><span class="p">,</span>
+                <span class="nx">column</span><span class="o">:</span> <span class="s2">&quot;ORG_DESCR&quot;</span><span class="p">,</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span>
+                <span class="nx">size</span><span class="o">:</span> <span class="mf">255</span><span class="p">,</span>
+                <span class="nx">required</span><span class="o">:</span> <span class="kc">false</span>
+            <span class="p">}]</span>
+        <span class="p">})</span>
+<span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

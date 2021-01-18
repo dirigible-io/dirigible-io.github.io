@@ -1404,33 +1404,36 @@
                 
                 <h1 id="thread">Thread</h1>
 <p>Threads utility is used to implement multi-threading algorithms - creating and starting own threads, synchronize functions, wait and notify of lock objects.</p>
-<p>=== "Overview"
-- Module: <code>core/v4/threads</code>
-- Alias: <code>core/threads</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/389">https://github.com/eclipse/dirigible/issues/389</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/threads.js">/core/v4/threads.js</a>
-- Facade: none
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>core/v4/threads</code></li>
+<li>Alias: <code>core/threads</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/389">https://github.com/eclipse/dirigible/issues/389</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/threads.js">/core/v4/threads.js</a></li>
+<li>Facade: none</li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var threads = require(&quot;core/v4/threads&quot;);
-var response = require(&quot;http/v4/response&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">threads</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/threads&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-response.setContentType(&quot;text/plain; charset=UTF-8&quot;);
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">);</span>
 
-// Define a JavaScript function
-function runnable() {
-    response.println(&quot;Hello World from a Thread!&quot;);
-};
+<span class="c1">// Define a JavaScript function</span>
+<span class="kd">function</span> <span class="nx">runnable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello World from a Thread!&quot;</span><span class="p">);</span>
+<span class="p">};</span>
 
-// Pass a JavaScript function
-var worker = threads.create(runnable, &quot;I am a thread&quot;);
-response.println(worker.getName());
-worker.start();
-worker.join(); // to be able to print to the response
+<span class="c1">// Pass a JavaScript function</span>
+<span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="nx">threads</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">runnable</span><span class="p">,</span> <span class="s2">&quot;I am a thread&quot;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">worker</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span> <span class="c1">// to be able to print to the response</span>
 
-response.flush();
-response.close();
-</code></pre>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

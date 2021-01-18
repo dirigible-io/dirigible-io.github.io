@@ -1404,23 +1404,26 @@
                 
                 <h1 id="request">Request</h1>
 <p>HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.</p>
-<p>=== "Overview"
-- Module: <code>http/v4/request</code>
-- Alias: <code>http/request</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/12">https://github.com/eclipse/dirigible/issues/12</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/request.js">/http/v4/request.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java">HttpRequestFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>http/v4/request</code></li>
+<li>Alias: <code>http/request</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/12">https://github.com/eclipse/dirigible/issues/12</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/request.js">/http/v4/request.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java">HttpRequestFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var request = require(&quot;http/v4/request&quot;);
-var response = require(&quot;http/v4/response&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-var method = request.getMethod();
+<span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">();</span>
 
-response.println(&quot;[Method]: &quot; + method);
-response.flush();
-response.close();
-</code></pre>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Method]: &quot;</span> <span class="o">+</span> <span class="nx">method</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

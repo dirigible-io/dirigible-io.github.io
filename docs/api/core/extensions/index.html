@@ -1349,28 +1349,30 @@
                 
                 
                 <h1 id="extensions">Extensions</h1>
-<p>=== "Overview"
-- Module: <code>core/v4/extensions</code>
-- Alias: <code>core/extensions</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/18">https://github.com/eclipse/dirigible/issues/18</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/extensions.js">/core/v4/extensions.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ExtensionsServiceFacade.java">ExtensionsFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>core/v4/extensions</code></li>
+<li>Alias: <code>core/extensions</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/18">https://github.com/eclipse/dirigible/issues/18</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/extensions.js">/core/v4/extensions.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ExtensionsServiceFacade.java">ExtensionsFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var extensions = require(&quot;core/v4/extensions&quot;);
-var response = require(&quot;http/v4/response&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">extensions</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/extensions&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-var mainmenu = [];
-var menuExtensions = extensions.getExtensions(&quot;ide-menu&quot;);
-for (var i = 0; i &lt; menuExtensions.length; i++) {
-    var module = menuExtensions[i];
-    menuExtension = require(module);
-    var menu = menuExtension.getMenu();
-    mainmenu.push(menu);
-}
-response.println(JSON.stringify(mainmenu));
-
-</code></pre>
+<span class="kd">var</span> <span class="nx">mainmenu</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">menuExtensions</span> <span class="o">=</span> <span class="nx">extensions</span><span class="p">.</span><span class="nx">getExtensions</span><span class="p">(</span><span class="s2">&quot;ide-menu&quot;</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">menuExtensions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">module</span> <span class="o">=</span> <span class="nx">menuExtensions</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nx">menuExtension</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="nx">module</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">menu</span> <span class="o">=</span> <span class="nx">menuExtension</span><span class="p">.</span><span class="nx">getMenu</span><span class="p">();</span>
+    <span class="nx">mainmenu</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">menu</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">mainmenu</span><span class="p">));</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
