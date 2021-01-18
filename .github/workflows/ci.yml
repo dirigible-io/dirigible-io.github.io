@@ -26,9 +26,9 @@ jobs:
     # uses: github-actions-x/commit@3638e497fc2bda72d701660f4619cd0efaf0bcf3
       uses: github-actions-x/commit@v2.6
       with:
-        github-token: ${{settings.GH_TOKEN}}
+        github-token: ${{secrets.GH_TOKEN}}
         push-branch: gh-pages
-        email: ${{settings.GH_MAIL}}
+        email: ${{secrets.GH_MAIL}}
 
 #     # Override branch to push to
 #     push-branch: # optional
