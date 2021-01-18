@@ -13,7 +13,25 @@ jobs:
     - name: Build the site with squidfunk/mkdocs-material container
       run: |
         docker pull squidfunk/mkdocs-material
-        docker run -v ${{ github.workspace }}/docs-pages/api:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
+        mv docs-api/site api
+        mv docs-help/site help
+        mv docs-samples/site samples
+        rm -rf docs-api
+        rm -rf docs-help
+        rm -rf docs-samples
+        pwd
+        ls
+        cd api
+        ls
+        cd ../help
+        ls
+        cd ../samples
+        ls
+        cd ..
+        ls
         
 #docker run 
 # -v ${{ github.workspace }}:/srv/jekyll
