@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches: 
+      - master
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site with squidfunk/mkdocs-material container
+      run: |
+        docker pull squidfunk/mkdocs-material
+        docker run -v ${{ github.workspace }}/docs-pages/api:/docs squidfunk/mkdocs-material build
+        
+#docker run 
+# -v ${{ github.workspace }}:/srv/jekyll
+# -v ${{ github.workspace }}/_site:/srv/jekyll/_site
+# jekyll/builder:latest 
+# /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
