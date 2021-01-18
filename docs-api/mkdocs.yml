@@ -15,6 +15,7 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.superfences
     - pymdownx.tabbed
+    - meta
 
 repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
@@ -23,8 +24,6 @@ edit_uri: ../../ThuF/dirigible-io.github.io/edit/master/docs-api/docs
 ########################
 # Needed only for disqus
 site_url: https://thuf.github.io/dirigible-io.github.io/api/
-markdown_extensions:
-  - meta
 extra:
   disqus: dirigible
 ########################
