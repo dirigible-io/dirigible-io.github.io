@@ -1,0 +1,172 @@
+---
+layout: default-home
+---
+
+    <div class="container">
+        <div class="row">
+	        <div class="col-lg-4 heading-lead page-scroll">
+				<br>
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa-question-circle fa-fw"></i>
+                What is Dirigible?</h2>
+	            <p>Eclipse Dirigible<sup>&trade;</sup> is a Cloud Development Platform that provides development tools and a runtime environment. It supports the full development lifecycle of on-demand applications by leveraging an in-system programming model and rapid application development techniques.</p>
+	            <a class="btn btn-default" href="{{ site.url }}/project.html">Overview</a>
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<br>
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa fa-search fa-fw"></i>
+                What can I do?</h2>
+	            <p>Eclipse Dirigible provides capabilities for end-to-end development process from database modeling and management, through RESTful services authoring using various dynamic languages, to pattern-based user interface generation, role-based security, external services integration, testing, debugging, operations, and monitoring.</p>
+	            <a class="btn btn-default" href="{{ site.url }}/features.html">Features</a>
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<br>
+                <div class="clearfix"></div>
+	        	<h2><i class="fa fa-github fa-fw"></i>
+                Is it free?</h2>
+	            <p>YES<br/>All the Eclipse Dirigible project's source code and sample applications are licensed under
+	            <a href='https://www.eclipse.org/legal/epl-v20.html' target='_blank'>Eclipse Public License - v 2.0</a>
+	            and maintained at <a href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>.</p>
+	            <a class="btn btn-default" href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="col-lg-4 heading-lead page-scroll">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa-graduation-cap fa-fw"></i>
+                For Education</h2>
+	            <p>You can develop student projects, test different technologies and scenarios, learn popular programming languages.</p>
+	            <!-- <a class="btn btn-default" href="help/develop_web_ide.html">WebIDE</a> -->
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	            <h2><i class="fa fa-file-text-o fa-fw"></i>
+                For Developers</h2>
+	            <p>Eclipse Dirigible provides everything you need for your development project:</p>
+	            <ul>
+	            	<li>Application server</li>
+	            	<li>Content repository</li>
+	            	<li>Web IDE</li>
+	            	<li>Variety of features</li>
+	            </ul>
+	            <a class="btn btn-default" href="{{ site.url }}/for_developers.html">Developers Space</a>
+	        </div>
+	        <div class="col-lg-4 heading-lead">
+				<hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+	        <h2><i class="fa fa-line-chart fa-fw"></i>
+                For Business</h2>
+	            <p>You can easily develop, document, and monitor your business applications, taking full advantage of the diverse selection of features and services offered by Eclipse Dirigible.</p>
+	            <!-- <a class="btn btn-default" href="help/architecture.html" target="_blank">Architecture</a> -->
+	        </div>
+	    </div>
+    </div>
+    <br/>
+    <div class="content-section-a" id="news">
+        <div class="container">
+            <div class="row" align="center">
+            	<h2>Video Tutorials</h2>
+            	<br>
+            	<!-- <video width="800" height="600" controls>
+				  <source src="/img/hello-world.mp4" type="video/mp4">
+				</video> -->
+				<img width="750" alt="Hello World" src="{{ site.url }}/img/hello-world-480px.gif">
+				
+            	<!-- 
+	            <iframe width="400" height="225" src="https://www.youtube.com/embed/Q1SxBr155zk" frameborder="0" allowfullscreen></iframe>
+				<iframe width="400" height="225" src="https://www.youtube.com/embed/GwzxjBAhy_4" frameborder="0" allowfullscreen></iframe>
+				<br>
+				<iframe width="400" height="225" src="https://www.youtube.com/embed/C6hSoYUT2oM" frameborder="0" allowfullscreen></iframe>
+				<iframe width="400" height="225" src="https://www.youtube.com/embed/D6XEs5Zlav4" frameborder="0" allowfullscreen></iframe>
+				 -->
+				<br><br>
+				<a href="https://www.youtube.com/channel/UCYnsiVQ0M9iQLqP5DXCLMBA/videos">More Videos</a>
+			</div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <div class="content-section-b" id="blogs">
+        <div class="container">
+            <div class="row">
+	            <div class="col-sm-8">
+	                <h2>Blog it out!</h2>
+	                <div>
+						{% for post in site.tags.blogs limit:10 %}
+						 {% include blog-brief.html %}
+						{% endfor %}
+
+					</div>
+					<br>
+					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
+	            </div>
+	            <div class="col-sm-4">
+	                <h2>News and Updates</h2>
+	                <div>
+						{% for post in site.tags.news limit:6 %}
+							{% if post.categories contains 'news' %}
+									<p class="post-item">
+										{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+									</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<br>
+					<a class="btn btn-default" href="{{ site.url }}/news.html" target="_blank">All News ...</a>
+	            </div>
+	            <div class="col-sm-4">
+	                <h2>Releases</h2>
+	                <div>
+						{% for post in site.tags.release limit:6 %}
+							{% if post.categories contains 'release' %}
+								<p class="post-item">
+									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+								</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<br>
+					<a class="btn btn-default" href="{{ site.url }}/releases.html" target="_blank">All Releases ...</a> <a class="btn btn-primary" href="http://download.dirigible.io" target="_blank">Downloads</a>
+	            </div>
+	            <div class="col-sm-4">
+	            	<h2>Tweets</h2>
+	            	<div style="overflow: hidden; max-height: 500px">
+		            	<div id="tweets" style="overflow-y: scroll; height: 1500px">
+		            	</div>
+	            	</div>
+	            	<script>
+	            		if (document.cookie.indexOf('cookieControl') > -1) {
+	            			var script = document.createElement('script');
+	            		    script.src = "//platform.twitter.com/widgets.js";
+	            		    script.type = 'text/javascript';
+	            		    script['async']="true";
+	            		    script.charset="utf-8";
+	            		    document.getElementById("tweets").appendChild(script);
+	            		    script.onload = function () {
+	            		    	twttr.widgets.createTimeline(
+	            		    			  {
+	            		    			    sourceType: "profile",
+	            		    			    screenName: "dirigible_io",
+	            		    			    tweetLimit: 3
+	            		    			  },
+	            		    			  document.getElementById("tweets")
+	            		    			);
+	            		    };
+	            		} else {
+	            			var p = document.createElement('p');
+	            			p.innerHTML="Please, accept the Cookies & Privacy Policy below to be able to load the Twitter widget.";
+	            			document.getElementById("tweets").appendChild(p);
+	            		}
+	            	</script>
+	            	
+	            	
+	            	<!--
+		            <a class="twitter-timeline" href="https://twitter.com/dirigible_io" data-tweet-limit="3" data-dnt="true">Tweets by dirigible_io</a>
+		            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		             -->
+          		</div>
+	        </div>
+        </div>
+    </div>

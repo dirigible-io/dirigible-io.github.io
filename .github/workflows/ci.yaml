@@ -22,7 +22,7 @@ jobs:
         docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
 
         # Copy build output
-        mkdir docs/
+        rm -r docs/*
         mkdir docs/api/
         mkdir docs/help/
         mkdir docs/samples/
@@ -57,20 +57,10 @@ jobs:
         cp releases.html docs/releases.html
 
     - name: Git Commit and Push
-      uses: EndBug/add-and-commit@v7
-      with:
-        add: docs
-        branch: gh-pages
-        pull_strategy: '--rebase'
-        author_name: ThuF
-        author_email: ${{secrets.GH_MAIL}}
-        
-#      uses: github-actions-x/commit@v2.6
-#      with:
-#        name: ThuF
-#        email: ${{secrets.GH_MAIL}}
-#        github-token: ${{secrets.GH_TOKEN}}
-#        push-branch: gh-pages
-#        files: docs
-#        rebase: true
-#        force-add: true
+      run: |
+        git config user.name ${{secrets.GH_USER_NAME}}
+        git config user.email ${{secrets.GH_USER_EMAIL}}
+        git add docs
+        git commit -m "Site content updated"
+        git push origin master
+
