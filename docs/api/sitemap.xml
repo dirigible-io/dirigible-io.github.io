@@ -1,226 +1,226 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/bpm-process/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/cmis/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/console/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/logging/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/mail/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/user/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/configurations/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/context/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/destinations/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/env/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/extensions/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/globals/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/core/threads/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/dao/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/query/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/sequence/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/sql/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/database/update/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/client-async/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/client/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/request/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/response/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/rs-data/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/rs/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/session/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/http/upload/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/indexing/searcher/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/indexing/writer/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/io/bytes/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/io/files/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/io/ftp/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/io/streams/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/io/zip/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/kafka/consumer/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/kafka/producer/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/messaging/consumer/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/messaging/producer/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/mongodb/client/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/mongodb/dao/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/net/soap/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/net/websocket/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/engines/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/lifecycle/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/registry/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/repository/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/template-engines/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/platform/workspace/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/base64/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/digest/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/escape/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/hex/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/url/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/uuid/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/utils/xml/</loc>
      <lastmod>2021-01-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
