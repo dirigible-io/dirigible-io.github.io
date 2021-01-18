@@ -9,7 +9,7 @@ kramdown:
     coderay_css: class
 highlighter: rouge
 baseurl:
-url: http://dirigible.io
+url: https://thuf.github.io/dirigible-io.github.io/
 plugins:
   - jekyll-feed
 
