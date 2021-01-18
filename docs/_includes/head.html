@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="dirigible.io">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ site.url }}/img/favicon.png" />
 
     <title>Eclipse Dirigible | Cloud Development Platform</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Google Web Font -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
     <!-- Add custom CSS here -->
-    <link href="css/dirigible.css" rel="stylesheet">
+    <link href="{{ site.url }}/css/dirigible.css" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse" aria-label="Toggle menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{{ site.url }}/">
                     Eclipse Dirigible<sup>&trade;</sup>
                 </a>
             </div>
@@ -40,13 +40,13 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="/">Home</a>
+                        <a href="{{ site.url }}/">Home</a>
                     </li>
                     <li class="page-scroll">
-                        <a itemprop="url" href="/project.html">Project</a>
+                        <a itemprop="url" href="{{ site.url }}/project.html">Project</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/features.html">Features</a>
+                        <a href="{{ site.url }}/features.html">Features</a>
                     </li>
                     <!-- <li class="page-scroll">
                         <a href="/documentation.html">Documentation</a>
@@ -64,8 +64,8 @@
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent">Community <b class="caret"></b></a>
 			          	<ul class="dropdown-menu" style="background-color: #203446">
 			                <li><a href="https://www.youtube.com/channel/UCYnsiVQ0M9iQLqP5DXCLMBA/videos" target="_blank" >Videos</a></li>
-			                <li><a href="/news.html" target="_blank">Newsletter</a></li>
-			                <li><a href="/blogs.html" target="_blank">Blogs</a></li>
+			                <li><a href="{{ site.url }}/news.html" target="_blank">Newsletter</a></li>
+			                <li><a href="{{ site.url }}/blogs.html" target="_blank">Blogs</a></li>
 			                <li><a href="https://www.eclipse.org/forums/index.php?t=thread&frm_id=311" target="_blank">Forum</a></li>
 			                <li><a href="https://wiki.eclipse.org/Dirigible" target="_blank">Wiki</a></li>
 			                <li><a href="https://github.com/eclipse/dirigible/issues" target="_blank">Issues</a></li>
@@ -82,10 +82,10 @@
 			          <li class="dropdown" style="background-color: transparent">
 			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent">Documentation <b class="caret"></b></a>
 			          	<ul class="dropdown-menu" style="background-color: #203446">
-			                <li><a href="help/" target="_blank" >Help</a></li>
-				                <li><a href="api/" target="_blank" >API</a></li>
-				                <li><a href="samples/" target="_blank" >Samples</a></li>
-				                <li><a href="blogs.html" target="_blank" >Tutorials</a></li>
+			                <li><a href="{{ site.url }}/help/" target="_blank" >Help</a></li>
+				                <li><a href="{{ site.url }}/api/" target="_blank" >API</a></li>
+				                <li><a href="{{ site.url }}/samples/" target="_blank" >Samples</a></li>
+				                <li><a href="{{ site.url }}/blogs.html" target="_blank" >Tutorials</a></li>
 			              </ul>
 			          </li>
 			        </ul>
@@ -106,7 +106,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1  itemprop="name"><img itemprop="image" src="img/dirigible.svg" class="logo" alt="Dirigible's Logo">dirigible</h1>
+                        <h1  itemprop="name"><img itemprop="image" src="{{ site.url }}/img/dirigible.svg" class="logo" alt="Dirigible's Logo">dirigible</h1>
                         <h3>Enjoy Programming Like Never Before</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">

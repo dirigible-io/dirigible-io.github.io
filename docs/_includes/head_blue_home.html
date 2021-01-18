@@ -9,19 +9,19 @@
     
     <meta name="twitter:dnt" content="on">
     
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ site.url }}/img/favicon.png" />
 
     <title>Eclipse Dirigible | Cloud Development Platform</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.url }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Google Web Font -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
     <!-- Add custom CSS here -->
-    <link href="css/default.css" rel="stylesheet">
+    <link href="{{ site.url }}/css/default.css" rel="stylesheet">
 
 </head>
 
@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="{{ site.url }}/">
                     Eclipse Dirigible <sup>&trade;</sup>
                 </a>
             </div>
@@ -43,13 +43,13 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a href="/">Home</a>
+                        <a href="{{ site.url }}/">Home</a>
                     </li>
                     <li class="page-scroll">
-                        <a itemprop="url" href="/project.html">Overview</a>
+                        <a itemprop="url" href="{{ site.url }}/project.html">Overview</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/features.html">Features</a>
+                        <a href="{{ site.url }}/features.html">Features</a>
                     </li>
 
 					<li class="page-scroll">
@@ -58,8 +58,8 @@
 				          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent">Community <b class="caret"></b></a>
 				          	<ul class="dropdown-menu">
 				                <li><a href="https://www.youtube.com/channel/UCYnsiVQ0M9iQLqP5DXCLMBA/videos" target="_blank" >Videos</a></li>
-				                <li><a href="/news.html" target="_blank">Newsletter</a></li>
-				                <li><a href="/blogs.html" target="_blank">Blogs</a></li>
+				                <li><a href="{{ site.url }}/news.html" target="_blank">Newsletter</a></li>
+				                <li><a href="{{ site.url }}/blogs.html" target="_blank">Blogs</a></li>
 				                <li><a href="https://www.eclipse.org/forums/index.php?t=thread&frm_id=311" target="_blank">Forum</a></li>
 				                <li><a href="https://wiki.eclipse.org/Dirigible" target="_blank">Wiki</a></li>
 				                <li><a href="https://github.com/eclipse/dirigible/issues" target="_blank">Issues</a></li>
@@ -79,10 +79,10 @@
 				          <li class="dropdown" style="background-color: transparent">
 				          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color: transparent">Documentation <b class="caret"></b></a>
 				          	<ul class="dropdown-menu">
-				                <li><a href="help/" target="_blank" >Help</a></li>
-				                <li><a href="api/" target="_blank" >API</a></li>
-				                <li><a href="samples/" target="_blank" >Samples</a></li>
-				                <li><a href="blogs.html" target="_blank" >Tutorials</a></li>
+				                <li><a href="{{ site.url }}/help/" target="_blank" >Help</a></li>
+				                <li><a href="{{ site.url }}/api/" target="_blank" >API</a></li>
+				                <li><a href="{{ site.url }}/samples/" target="_blank" >Samples</a></li>
+				                <li><a href="{{ site.url }}/blogs.html" target="_blank" >Tutorials</a></li>
 				              </ul>
 				          </li>
 				        </ul>
@@ -123,7 +123,7 @@
                        
                     </div>
                     <ul class="list-inline intro-social-buttons">
-                        <li><a href="help/getting_started.html" class="btn btn-default btn-lg"><i class="fa fa-laptop fa-fw"></i> <span class="network-name">Getting Started</span></a>
+                        <li><a href="{{ site.url }}/help/getting_started.html" class="btn btn-default btn-lg"><i class="fa fa-laptop fa-fw"></i> <span class="network-name">Getting Started</span></a>
                         </li>
                         <li><a href="http://trial.dirigible.io" class="btn btn-primary btn-lg" target="_blank" onclick="ga('send', 'event', 'buttons', 'click', 'try-it-out')"><i class="fa fa-paper-plane fa-fw"></i> <span class="network-name">Try it out</span></a>
                         </li>
