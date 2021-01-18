@@ -2,7 +2,7 @@ site_name: Eclipse Dirigible API
 theme:
   name: mkdocs
   palette:
-    scheme: default
+    scheme: slate
 markdown_extensions:
     - pymdownx.snippets
     - pymdownx.highlight:
@@ -11,3 +11,18 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.superfences
     - pymdownx.tabbed
+repo_url: https://github.com/eclipse/dirigible
+copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dirigible_io
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/dirigible.io
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/groups/8413366
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/dirigibleio
+    - icon: fontawesome/brands/slack
+      link: https://eclipse-dirigible.slack.com/
+
