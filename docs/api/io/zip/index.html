@@ -1411,60 +1411,57 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/io/zip.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/io/zip.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="zip">Zip</h1>
 <p>Zip modules provides functionality for creating zip archive from files.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>io/v4/zip</code></li>
-<li>Alias: <code>io/zip</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/20">https://github.com/eclipse/dirigible/issues/20</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/zip.js">/io/v4/zip.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java">ZipFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>io/v4/zip</code>
+- Alias: <code>io/zip</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/20">https://github.com/eclipse/dirigible/issues/20</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/zip.js">/io/v4/zip.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java">ZipFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">zip</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/zip&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var zip = require(&quot;io/v4/zip&quot;);
+var files = require(&quot;io/v4/files&quot;);
 
-<span class="kd">var</span> <span class="nx">inputStream</span> <span class="o">=</span> <span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">inputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span> <span class="p">{</span>
-    <span class="k">try</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">zipInputStream</span> <span class="o">=</span> <span class="nx">zip</span><span class="p">.</span><span class="nx">createZipInputStream</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">);</span>
-        <span class="kd">var</span> <span class="nx">zipEntry</span> <span class="o">=</span> <span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span>
-            <span class="nx">zipEntry</span> <span class="o">=</span> <span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-        <span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No such file&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">zip</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/zip&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span>
+var inputStream = files.createInputStream(&quot;test.zip&quot;);
+if (inputStream.isValid()) {
+    try {
+        var zipInputStream = zip.createZipInputStream(inputStream);
+        var zipEntry = zipInputStream.getNextEntry();
+        while (zipEntry.isValid()) {
+            console.error(zipEntry.getName());
+            console.log(zipInputStream.read());
+            zipEntry = zipInputStream.getNextEntry();
+        }
+    } finally {
+        zipInputStream.close();
+    }
+} else {
+    console.log('No such file');
+}
+</code></pre>
+<pre><code class="language-javascript">var zip = require(&quot;io/v4/zip&quot;);
+var files = require(&quot;io/v4/files&quot;);
 
-<span class="kd">var</span> <span class="nx">outputStream</span> <span class="o">=</span> <span class="nx">files</span><span class="p">.</span><span class="nx">createOutputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span> <span class="p">{</span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">zipOutputStream</span> <span class="o">=</span> <span class="nx">zip</span><span class="p">.</span><span class="nx">createZipOutputStream</span><span class="p">(</span><span class="nx">outputStream</span><span class="p">);</span>
-            <span class="kd">var</span> <span class="nx">zipEntry</span> <span class="o">=</span> <span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test1.txt&quot;</span><span class="p">);</span>
-            <span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="s2">&quot;some text&quot;</span><span class="p">);</span>
-            <span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test2.bin&quot;</span><span class="p">);</span>
-            <span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">write</span><span class="p">([</span><span class="mf">60</span><span class="p">,</span> <span class="mf">61</span><span class="p">,</span> <span class="mf">62</span><span class="p">,</span> <span class="mf">63</span><span class="p">]);</span>
-        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-            <span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+var outputStream = files.createOutputStream(&quot;test.zip&quot;);
+if (outputStream.isValid()) {
+        try {
+            var zipOutputStream = zip.createZipOutputStream(outputStream);
+            var zipEntry = zipOutputStream.createZipEntry(&quot;test1.txt&quot;);
+            zipOutputStream.writeText(&quot;some text&quot;);
+            zipOutputStream.createZipEntry(&quot;test2.bin&quot;);
+            zipOutputStream.write([60, 61, 62, 63]);
+        } finally {
+            zipOutputStream.close();
+        }
+}
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1738,7 +1735,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

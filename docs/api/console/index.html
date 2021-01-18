@@ -1341,30 +1341,27 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/console.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/console.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="console">Console</h1>
 <p>Console object is used to write messages to the default logging output. It has several log levels <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>TRACE</code>. </p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>built-in</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/46">https://github.com/eclipse/dirigible/issues/46</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js">/core/v4/console.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java">ConsoleFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>built-in</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/46">https://github.com/eclipse/dirigible/issues/46</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js">/core/v4/console.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java">ConsoleFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Info message: %s&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;Warning message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Debug message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Log message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="s2">&quot;Trace.&quot;</span><span class="p">);</span>
-</code></pre></div>
+<pre><code class="language-javascript">console.info(&quot;Info message: %s&quot;, &quot;Hello World!&quot;);
+console.error(&quot;Error message.&quot;);
+console.warn(&quot;Warning message.&quot;);
+console.debug(&quot;Debug message.&quot;);
+console.log(&quot;Log message.&quot;);
+console.trace(&quot;Trace.&quot;);
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1420,6 +1417,12 @@
               
                 
 
+  
+
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="https://thuf.github.io/dirigible-io.github.io/api/console/",this.page.identifier="console/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//dirigible.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
@@ -1540,7 +1543,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -1383,55 +1383,52 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/platform/template-engines.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/platform/template-engines.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="template-engines">Template Engines</h1>
 <p>The object is used for processing of templates</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>platform/v4/template-engines</code></li>
-<li>Alias: <code>platform/template-engines</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/507">https://github.com/eclipse/dirigible/issues/507</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/template-engines.js">/platform/v4/template-engines.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/TemplateEngineFacade.java">TemplateEngineFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>platform/v4/template-engines</code>
+- Alias: <code>platform/template-engines</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/507">https://github.com/eclipse/dirigible/issues/507</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/template-engines.js">/platform/v4/template-engines.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/TemplateEngineFacade.java">TemplateEngineFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">templateEngines</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/v4/template-engines&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var response = require(&quot;http/v4/response&quot;);
+var templateEngines = require(&quot;platform/v4/template-engines&quot;);
 
-<span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> 
-    <span class="s2">&quot;Dear ${name},\n\n&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;You have the following bills:\n&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;#foreach($next in $bills)&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;- ${next.name}: ${next.currencySymbol}${next.value}\n&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;#end&quot;</span><span class="p">;</span>
+var template = 
+    &quot;Dear ${name},\n\n&quot;
+    + &quot;You have the following bills:\n&quot;
+    + &quot;#foreach($next in $bills)&quot;
+    + &quot;- ${next.name}: ${next.currencySymbol}${next.value}\n&quot;
+    + &quot;#end&quot;;
 
-<span class="kd">var</span> <span class="nx">parameters</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
-    <span class="nx">bills</span><span class="o">:</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Electricity&quot;</span><span class="p">,</span>
-        <span class="nx">currencySymbol</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="mf">150</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Cable &amp; Internet&quot;</span><span class="p">,</span>
-        <span class="nx">currencySymbol</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="mf">80</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Phone&quot;</span><span class="p">,</span>
-        <span class="nx">currencySymbol</span><span class="o">:</span> <span class="s2">&quot;$&quot;</span><span class="p">,</span>
-        <span class="nx">value</span><span class="o">:</span> <span class="mf">35</span>
-    <span class="p">}]</span>
-<span class="p">};</span>
+var parameters = {
+    name: &quot;John Doe&quot;,
+    bills: [{
+        name: &quot;Electricity&quot;,
+        currencySymbol: &quot;$&quot;,
+        value: 150
+    }, {
+        name: &quot;Cable &amp; Internet&quot;,
+        currencySymbol: &quot;$&quot;,
+        value: 80
+    }, {
+        name: &quot;Phone&quot;,
+        currencySymbol: &quot;$&quot;,
+        value: 35
+    }]
+};
 
-<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">templateEngines</span><span class="p">.</span><span class="nx">generate</span><span class="p">(</span><span class="nx">template</span><span class="p">,</span> <span class="nx">parameters</span><span class="p">);</span>
+var result = templateEngines.generate(template, parameters);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
-</code></pre></div>
+response.println(result);
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1631,7 +1628,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

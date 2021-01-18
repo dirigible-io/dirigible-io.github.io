@@ -1423,41 +1423,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/kafka/consumer.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/kafka/consumer.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="kafka-consumer">Kafka Consumer</h1>
 <p>The Kafka Consumer is listening on a Topic destination to a <a href="http://kafka.apache.org/">Kafka</a> messaging server.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>kafka/consumer</code></li>
-<li>Alias: <code>kafka/consumer</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/641">https://github.com/eclipse/dirigible/issues/641</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/consumer.js">/kafka/consumer.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java">KafkaFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>kafka/consumer</code>
+- Alias: <code>kafka/consumer</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/641">https://github.com/eclipse/dirigible/issues/641</a>
+- Source: <a href="https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/consumer.js">/kafka/consumer.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java">KafkaFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
 <h5 id="start-listening-on-a-topic">Start listening on a topic</h5>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span>
-<span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span> <span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">startListening</span><span class="p">(</span><span class="s2">&quot;&lt;kafka-project&gt;/&lt;kafka-handler&gt;&quot;</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
-</code></pre></div>
-<p>File: <code>&lt;kafka-project&gt;/&lt;kafka-handler.js&gt;</code>
-<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">onMessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello from My Kafka Listener! Message: &quot;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
-<span class="p">};</span>
+<pre><code class="language-javascript">var consumer = require(&quot;kafka/consumer&quot;);
+consumer.topic(&quot;topic1&quot;, &quot;{}&quot;).startListening(&quot;&lt;kafka-project&gt;/&lt;kafka-handler&gt;&quot;, 1000);
+</code></pre>
+<p>File: <code>&lt;kafka-project&gt;/&lt;kafka-handler.js&gt;</code></p>
+<pre><code class="language-javascript">exports.onMessage = function(message) {
+    console.log(&quot;Hello from My Kafka Listener! Message: &quot; + message);
+};
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">onError</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error from My Kafka Listener! Error: &quot;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div></p>
+exports.onError = function(error) {
+    console.error(&quot;Error from My Kafka Listener! Error: &quot; + error);
+};
+</code></pre>
 <h5 id="stop-listening-on-a-topic">Stop listening on a topic</h5>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span>
-<span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span> <span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">stopListening</span><span class="p">();</span>
-</code></pre></div>
+<pre><code class="language-javascript">var consumer = require(&quot;kafka/consumer&quot;);
+consumer.topic(&quot;topic1&quot;, &quot;{}&quot;).stopListening();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1630,7 +1627,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

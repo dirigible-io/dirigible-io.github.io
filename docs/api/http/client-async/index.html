@@ -1467,48 +1467,45 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/http/client-async.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/http/client-async.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="client-async">Client Async</h1>
 <p>Client Async is used by scripting services to call asynchronously external services via HTTP.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>http/v4/clientAsync</code></li>
-<li>Alias: <code>http/clientAsync</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/388">https://github.com/eclipse/dirigible/issues/388</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/clientAsync.js">/http/v4/clientAsync.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-javascript-rhino/src/main/java/org/eclipse/dirigible/engine/js/rhino/api/v3/http/HttpClientAsync.java">HttpClientAsync</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>http/v4/clientAsync</code>
+- Alias: <code>http/clientAsync</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/388">https://github.com/eclipse/dirigible/issues/388</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/clientAsync.js">/http/v4/clientAsync.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-javascript-rhino/src/main/java/org/eclipse/dirigible/engine/js/rhino/api/v3/http/HttpClientAsync.java">HttpClientAsync</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">httpClientAsync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/clientAsync&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">clientAsync</span> <span class="o">=</span> <span class="nx">httpClientAsync</span><span class="p">.</span><span class="nx">getInstnace</span><span class="p">();</span>
+<pre><code class="language-javascript">var httpClient = require(&quot;http/v4/client&quot;);
+var httpClientAsync = require(&quot;http/v4/clientAsync&quot;);
+var clientAsync = httpClientAsync.getInstnace();
 
-<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="s1">&#39;https://services.odata.org/V4/Northwind/Northwind.svc/&#39;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">northWindResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">params</span><span class="o">:</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;$format&quot;</span><span class="p">,</span>
-    <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;json&quot;</span>
-    <span class="p">}]</span>
-<span class="p">});</span>
+var api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
+var northWindResponse = httpClient.get(api, {
+    params: [{
+        name: &quot;$format&quot;,
+    value: &quot;json&quot;
+    }]
+});
 
-<span class="kd">var</span> <span class="nx">northWindEntities</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">northWindResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+var northWindEntities = JSON.parse(northWindResponse.text);
 
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">northWindEntities</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">clientAsync</span><span class="p">.</span><span class="nx">getAsync</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="nx">northWindEntities</span><span class="p">.</span><span class="nx">value</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">entity</span><span class="p">[</span><span class="s2">&quot;@odata.context&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; : &quot;</span> <span class="o">+</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">});</span>
-<span class="p">}</span>
-<span class="nx">clientAsync</span><span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
-</code></pre></div>
+for (var i = 0; i &lt; northWindEntities.value.length; i ++) {
+    clientAsync.getAsync(api + northWindEntities.value[i].url, {
+        success: function(response) {
+        var entity = JSON.parse(response.text);
+        console.error(entity[&quot;@odata.context&quot;] + &quot; : &quot; + entity.value.length);
+    }
+    });
+}
+clientAsync.execute();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1975,7 +1972,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

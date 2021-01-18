@@ -1343,52 +1343,49 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/utils/xml.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/utils/xml.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="xml">XML</h1>
 <p>XML object is used to transfrom from JSON to XML and vice versa.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>utils/v4/xml</code></li>
-<li>Alias: <code>utils/xml</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/28">https://github.com/eclipse/dirigible/issues/28</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/xml.js">/utils/v4/xml.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Xml2JsonFacade.java">Xml2JsonFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>utils/v4/xml</code>
+- Alias: <code>utils/xml</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/28">https://github.com/eclipse/dirigible/issues/28</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/xml.js">/utils/v4/xml.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Xml2JsonFacade.java">Xml2JsonFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/xml&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var xml = require(&quot;utils/v4/xml&quot;);
+var response = require(&quot;http/v4/response&quot;);
 
-<span class="kd">var</span> <span class="nx">jsonInput</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-    <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-    <span class="nx">bio</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span><span class="p">,</span>
-        <span class="nx">sex</span><span class="o">:</span> <span class="s2">&quot;male&quot;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+var jsonInput = {
+    firstName: &quot;John&quot;,
+    lastName: &quot;Doe&quot;,
+    bio: {
+        age: 24,
+        sex: &quot;male&quot;
+    }
+};
 
-<span class="kd">var</span> <span class="nx">xmlInput</span> <span class="o">=</span> 
-<span class="s2">&quot;&lt;person&gt;&quot;</span> <span class="o">+</span>
-    <span class="s2">&quot;&lt;firstName&gt;John&lt;/firstName&gt;&quot;</span> <span class="o">+</span>
-    <span class="s2">&quot;&lt;lastName&gt;Doe&lt;/lastName&gt;&quot;</span> <span class="o">+</span> 
-    <span class="s2">&quot;&lt;bio&gt;&quot;</span> <span class="o">+</span> 
-        <span class="s2">&quot;&lt;age&gt;24&lt;/age&gt;&quot;</span> <span class="o">+</span>
-        <span class="s2">&quot;&lt;sex&gt;male&lt;/sex&gt;&quot;</span> <span class="o">+</span>
-    <span class="s2">&quot;&lt;/bio&gt;&quot;</span> <span class="o">+</span>
-<span class="s2">&quot;&lt;/person&gt;&quot;</span><span class="p">;</span>
+var xmlInput = 
+&quot;&lt;person&gt;&quot; +
+    &quot;&lt;firstName&gt;John&lt;/firstName&gt;&quot; +
+    &quot;&lt;lastName&gt;Doe&lt;/lastName&gt;&quot; + 
+    &quot;&lt;bio&gt;&quot; + 
+        &quot;&lt;age&gt;24&lt;/age&gt;&quot; +
+        &quot;&lt;sex&gt;male&lt;/sex&gt;&quot; +
+    &quot;&lt;/bio&gt;&quot; +
+&quot;&lt;/person&gt;&quot;;
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">xml</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">jsonInput</span><span class="p">)));</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">xml</span><span class="p">.</span><span class="nx">toJson</span><span class="p">(</span><span class="nx">xmlInput</span><span class="p">));</span>
+response.println(xml.fromJson(JSON.stringify(jsonInput)));
+response.println(xml.toJson(xmlInput));
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</code></pre></div>
+response.flush();
+response.close();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1525,7 +1522,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -1343,34 +1343,31 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/http/session.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/http/session.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="session">Session</h1>
 <p>HTTP Session object provided to the scripting services implementation to hold session attributes for multiple client requests.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>http/v4/session</code></li>
-<li>Alias: <code>http/session</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/14">https://github.com/eclipse/dirigible/issues/14</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/session.js">/http/v4/session.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java">HttpSessionFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>http/v4/session</code>
+- Alias: <code>http/session</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/14">https://github.com/eclipse/dirigible/issues/14</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/session.js">/http/v4/session.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java">HttpSessionFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">session</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/session&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var session = require(&quot;http/v4/session&quot;);
+var response = require(&quot;http/v4/response&quot;);
 
-<span class="nx">session</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">,</span> <span class="s2">&quot;value1&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">attr</span> <span class="o">=</span> <span class="nx">session</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">);</span>
+session.setAttribute(&quot;attr1&quot;, &quot;value1&quot;);
+var attr = session.getAttribute(&quot;attr1&quot;);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Attribute]: &quot;</span> <span class="o">+</span> <span class="nx">attr</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</code></pre></div>
+response.println(&quot;[Attribute]: &quot; + attr);
+response.flush();
+response.close();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1571,7 +1568,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

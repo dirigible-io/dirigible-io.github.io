@@ -1425,47 +1425,44 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/io/streams.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/io/streams.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="streams">Streams</h1>
 <p>Streams module provides classes and utilities for working with streams.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>io/v4/streams</code></li>
-<li>Alias: <code>io/streams</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/51">https://github.com/eclipse/dirigible/issues/51</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/streams.js">/io/v4/streams.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java">StreamsFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>io/v4/streams</code>
+- Alias: <code>io/streams</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/51">https://github.com/eclipse/dirigible/issues/51</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/streams.js">/io/v4/streams.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java">StreamsFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">streams</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/streams&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var streams = require(&quot;io/v4/streams&quot;);
+var response = require(&quot;http/v4/response&quot;);
 
-<span class="kd">var</span> <span class="nx">outputStream</span> <span class="o">=</span> <span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span>
+var outputStream = streams.createByteArrayOutputStream();
 
-<span class="nx">streams</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="nx">outputStream</span><span class="p">,</span> <span class="s2">&quot;Some text content&quot;</span><span class="p">);</span>
+streams.writeText(outputStream, &quot;Some text content&quot;);
 
-<span class="kd">var</span> <span class="nx">bytes</span> <span class="o">=</span> <span class="nx">outputStream</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Content as Bytes]: &quot;</span> <span class="o">+</span> <span class="nx">bytes</span><span class="p">);</span>
+var bytes = outputStream.getBytes();
+response.println(&quot;[Stream Content as Bytes]: &quot; + bytes);
 
-<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Content as Text]: &quot;</span> <span class="o">+</span> <span class="nx">text</span><span class="p">);</span>
+var text = String.fromCharCode.apply(String, bytes);
+response.println(&quot;[Stream Content as Text]: &quot; + text);
 
-<span class="kd">var</span> <span class="nx">inputStream</span> <span class="o">=</span> <span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayInputStream</span><span class="p">(</span><span class="nx">bytes</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">outputStreamCopy</span> <span class="o">=</span> <span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span>
-<span class="nx">streams</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">,</span> <span class="nx">outputStreamCopy</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">copiedBytes</span> <span class="o">=</span> <span class="nx">outputStreamCopy</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">copiedText</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span> <span class="nx">copiedBytes</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Copied Content as Text]: &quot;</span> <span class="o">+</span> <span class="nx">copiedText</span><span class="p">);</span>
+var inputStream = streams.createByteArrayInputStream(bytes);
+var outputStreamCopy = streams.createByteArrayOutputStream();
+streams.copy(inputStream, outputStreamCopy);
+var copiedBytes = outputStreamCopy.getBytes();
+var copiedText = String.fromCharCode.apply(String, copiedBytes);
+response.println(&quot;[Stream Copied Content as Text]: &quot; + copiedText);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</code></pre></div>
+response.flush();
+response.close();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1716,7 +1713,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

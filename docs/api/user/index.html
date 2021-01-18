@@ -1341,32 +1341,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/user.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/user.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="user">User</h1>
 <p>User gives the information about the currently logged in user, if any.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>security/v4/user</code></li>
-<li>Alias: <code>security/user</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/17">https://github.com/eclipse/dirigible/issues/17</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-security/blob/master/security/v4/user.js">/security/v4/user.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java">UserFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>security/v4/user</code>
+- Alias: <code>security/user</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/17">https://github.com/eclipse/dirigible/issues/17</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-security/blob/master/security/v4/user.js">/security/v4/user.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java">UserFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;security/v4/user&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var user = require(&quot;security/v4/user&quot;);
+var response = require(&quot;http/v4/response&quot;);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[UserName]: &quot;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Is in Role]: &quot;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">isInRole</span><span class="p">(</span><span class="s2">&quot;Developer&quot;</span><span class="p">));</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</code></pre></div>
+response.println(&quot;[UserName]: &quot; + user.getName());
+response.println(&quot;[Is in Role]: &quot; + user.isInRole(&quot;Developer&quot;));
+response.flush();
+response.close();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1517,7 +1514,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

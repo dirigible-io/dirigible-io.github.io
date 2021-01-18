@@ -1435,66 +1435,64 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/mail.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/mail.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="mail">Mail</h1>
 <p>Mail object is used to send e-mails through the mail service.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>mail/v4/client</code></li>
-<li>Alias: <code>mail/client</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/108">https://github.com/eclipse/dirigible/issues/108</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-mail/blob/master/mail/v4/client.js">/mail/v4/client.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mail/src/main/java/org/eclipse/dirigible/api/v3/mail/MailFacade.java">MailFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>mail/v4/client</code>
+- Alias: <code>mail/client</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/108">https://github.com/eclipse/dirigible/issues/108</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-mail/blob/master/mail/v4/client.js">/mail/v4/client.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mail/src/main/java/org/eclipse/dirigible/api/v3/mail/MailFacade.java">MailFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">mail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/v4/client&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var response = require(&quot;http/v4/response&quot;);
+var mail = require(&quot;mail/v4/client&quot;);
 
-<span class="kd">var</span> <span class="nx">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">to</span> <span class="o">=</span> <span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="s2">&quot;Subject&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Content&lt;h1&gt;&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">subType</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">;</span>
+var from = &quot;dirigible@eclipse.org&quot;;
+var to = &quot;example@gmail.com&quot;;
+var subject = &quot;Subject&quot;;
+var content = &quot;&lt;h1&gt;Content&lt;h1&gt;&quot;;
+var subType = &quot;html&quot;;
 
-<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
+mail.send(from, to, subject, content, subType);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span>
-</code></pre></div>
+response.println(&quot;Mail sent&quot;);
+</code></pre>
 <h4 id="advance-usage">Advance Usage</h4>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">mail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/v4/client&quot;</span><span class="p">);</span>
+<pre><code class="language-javascript">var response = require(&quot;http/v4/response&quot;);
+var mail = require(&quot;mail/v4/client&quot;);
 
-<span class="kd">var</span> <span class="nx">mailConfig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;mail.user&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-user&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.password&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-password&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.transport.protocol&quot;</span><span class="o">:</span> <span class="s2">&quot;smtps&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.host&quot;</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.port&quot;</span><span class="o">:</span> <span class="s2">&quot;465&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.auth&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span>
-<span class="p">};</span>
+var mailConfig = {
+    &quot;mail.user&quot;: &quot;&lt;your-user&gt;&quot;,
+    &quot;mail.password&quot;: &quot;&lt;your-password&gt;&quot;,
+    &quot;mail.transport.protocol&quot;: &quot;smtps&quot;,
+    &quot;mail.smtps.host&quot;: &quot;smtp.gmail.com&quot;,
+    &quot;mail.smtps.port&quot;: &quot;465&quot;,
+    &quot;mail.smtps.auth&quot;: &quot;true&quot;
+};
 
-<span class="kd">var</span> <span class="nx">mailClient</span> <span class="o">=</span> <span class="nx">mail</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span>
+var mailClient = mail.getClient(mailConfig);
 
-<span class="kd">var</span> <span class="nx">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">recipients</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">to</span><span class="o">:</span> <span class="s2">&quot;example@gmail.com&quot;</span><span class="p">,</span>
-    <span class="nx">cc</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;example1@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;example2@sap.com&quot;</span><span class="p">],</span>
-    <span class="nx">bcc</span><span class="o">:</span> <span class="s2">&quot;example3@sap.com&quot;</span>
-<span class="p">};</span>
-<span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="s2">&quot;Subject&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">subType</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">;</span>
+var from = &quot;dirigible@gmail.com&quot;;
+var recipients = {
+    to: &quot;example@gmail.com&quot;,
+    cc: [&quot;example1@gmail.com&quot;, &quot;example2@sap.com&quot;],
+    bcc: &quot;example3@sap.com&quot;
+};
+var subject = &quot;Subject&quot;;
+var content = &quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;;
+var subType = &quot;html&quot;;
 
-<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">recipients</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
+mailClient.send(from, recipients, subject, content, subType);
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span>
-</code></pre></div>
+response.println(&quot;Mail sent&quot;);
+
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1752,7 +1750,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -1397,53 +1397,50 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/mkdocs.yml/http/upload.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/http/upload.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
                 <h1 id="upload">Upload</h1>
 <p>HTTP Upload is used to consume files posted as multipart request.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>http/v4/upload</code></li>
-<li>Alias: <code>http/upload</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/16">https://github.com/eclipse/dirigible/issues/16</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/upload.js">/http/v4/upload.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java">HttpUploadFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
+<p>=== "Overview"
+- Module: <code>http/v4/upload</code>
+- Alias: <code>http/upload</code>
+- Definition: <a href="https://github.com/eclipse/dirigible/issues/16">https://github.com/eclipse/dirigible/issues/16</a>
+- Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/upload.js">/http/v4/upload.js</a>
+- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java">HttpUploadFacade</a>
+- Status: <code>stable</code></p>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="cm">/* eslint-env node, dirigible */</span>
+<pre><code class="language-javascript">/* eslint-env node, dirigible */
 
-<span class="kd">var</span> <span class="nx">upload</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/upload&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+var upload = require(&quot;http/v4/upload&quot;);
+var request = require(&quot;http/v4/request&quot;);
+var response = require(&quot;http/v4/response&quot;);
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s2">&quot;POST&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">fileItems</span> <span class="o">=</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span>
-        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">fileItem</span> <span class="o">=</span> <span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">isFormField</span><span class="p">())</span> <span class="p">{</span>
-                <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Name: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
-                <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Bytes (as text): &quot;</span> <span class="o">+</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">()));</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Name: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">());</span>
-                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Text: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s2">&quot;GET&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+if (request.getMethod() === &quot;POST&quot;) {
+    if (upload.isMultipartContent()) {
+        var fileItems = upload.parseRequest();
+        for (i = 0; i &lt; fileItems.size(); i++) {
+            var fileItem = fileItems.get(i);
+            if (!fileItem.isFormField()) {
+                response.println(&quot;File Name: &quot; + fileItem.getName());
+                response.println(&quot;File Bytes (as text): &quot; + String.fromCharCode.apply(null, fileItem.getBytes()));
+            } else {
+                 response.println(&quot;Field Name: &quot; + fileItem.getFieldName());
+                 response.println(&quot;Field Text: &quot; + fileItem.getText());
+            }
+        }
+    } else {
+        response.println(&quot;The request's content must be 'multipart'&quot;);
+    }
+} else if (request.getMethod() === &quot;GET&quot;) {
+    response.println(&quot;Use POST request.&quot;);
+}
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-</code></pre></div>
+response.flush();
+response.close();
+</code></pre>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -1670,7 +1667,7 @@
       <script>
         app = initialize({
           base: "../..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
