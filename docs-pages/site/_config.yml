@@ -23,7 +23,7 @@ defaults:
       path: _posts/blogs
       type: posts
     values:
-      layout: post
+      layout: blog
       category: blogs
       tag: blogs
   -
@@ -31,13 +31,12 @@ defaults:
       path: _posts/news
       type: posts
     values:
-      layout: post
+      layout: news
   -
     scope:
-      path: _posts/apps
+      path: _posts/releases
       type: posts
     values:
-      layout: app
-      category: apps
+      layout: release
 
 theme: minima
