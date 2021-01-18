@@ -30,16 +30,16 @@ jobs:
 
         # Copy static content
         cp -a _data docs/_data
-        cp -a _data docs/_includes
-        cp -a _data docs/_layouts
-        cp -a _data docs/_posts
-        cp -a _data docs/_sass
-        cp -a _data docs/css
-        cp -a _data docs/fonts
-        cp -a _data docs/gdpr
-        cp -a _data docs/img
-        cp -a _data docs/js
-        cp -a _data docs/services
+        cp -a _includes docs/_includes
+        cp -a _layouts docs/_layouts
+        cp -a _posts docs/_posts
+        cp -a _sass docs/_sass
+        cp -a css docs/css
+        cp -a fonts docs/fonts
+        cp -a gdpr docs/gdpr
+        cp -a img docs/img
+        cp -a js docs/js
+        cp -a services docs/services
         cp CNAME docs/CNAME
         cp Gemfile docs/Gemfile
         cp Gemfile.lock docs/Gemfile.lock
