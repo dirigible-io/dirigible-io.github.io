@@ -45,23 +45,9 @@ docker pull squidfunk/mkdocs-material
 
 Run on localhost:
 ```
-docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/api:/docs squidfunk/mkdocs-material
-docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/help:/docs squidfunk/mkdocs-material
-docker run --rm -it -p 8000:8000 -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material
-```
-
-Build
-```
-docker run --rm -it -v $PWD/docs-pages/api:/docs squidfunk/mkdocs-material build
-docker run --rm -it -v $PWD/docs-pages/help:/docs squidfunk/mkdocs-material build
-docker run --rm -it -v $PWD/docs-pages/samples:/docs squidfunk/mkdocs-material build
-
-rm -rf docs/*
-
-mv docs-pages/api/site docs/api
-mv docs-pages/help/site docs/help
-mv docs-pages/samples/site docs/samples
-cp -a docs-pages/site/. docs/
+docker run --rm -it -p 8000:8000 -v $PWD/docs-api:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-material
 ```
 
 ## License:

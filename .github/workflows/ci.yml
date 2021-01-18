@@ -16,12 +16,12 @@ jobs:
         docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
-        mv docs-api/site api
-        mv docs-help/site help
-        mv docs-samples/site samples
-        rm -rf docs-api
-        rm -rf docs-help
-        rm -rf docs-samples
+        mv ${{ github.workspace }}/docs-api/site ${{ github.workspace }}/api
+        mv ${{ github.workspace }}/docs-help/site ${{ github.workspace }}/help
+        mv ${{ github.workspace }}/docs-samples/site ${{ github.workspace }}/samples
+        rm -rf ${{ github.workspace }}/docs-api
+        rm -rf ${{ github.workspace }}/docs-help
+        rm -rf ${{ github.workspace }}/docs-samples
         pwd
         ls
         cd api
