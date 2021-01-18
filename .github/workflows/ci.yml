@@ -30,10 +30,12 @@ jobs:
       uses: github-actions-x/commit@v2.6
       with:
         name: ThuF
+        email: ${{secrets.GH_MAIL}}
         github-token: ${{secrets.GH_TOKEN}}
         push-branch: gh-pages
-        email: ${{secrets.GH_MAIL}}
         files: .
+        rebase: true
+        force-add: true
 
 #     # Override branch to push to
 #     push-branch: # optional
