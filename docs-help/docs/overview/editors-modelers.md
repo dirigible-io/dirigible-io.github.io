@@ -1,15 +1,13 @@
 ---
-layout: help
 title: Editors & Modelers
-icon: fa-code
 ---
 
-{{ page.title }}
+Editors & Modelers
 ===
 
 
 ### Editors List
-- [Monaco](https://microsoft.github.io/monaco-editor/) - the editor that powers [VS Code](https://github.com/Microsoft/vscode)
+- [Monaco](https://microsoft.github.io/monaco-editor/) - the editor that powers [VS Code](https://github.com/Microsoft/vscode).
 
 ### Modelers List
 - [Entity Data Modeler](ide_modeler_entity_data.html) - design a domain model.

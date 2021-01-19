@@ -1,13 +1,8 @@
 ---
-layout: help
 title: FAQ
-icon: fa-question-circle
 ---
 
-{{ page.title }}
----
-
-*If you have a question that is not covered here, but it should be, please let us know.* 
+*If you have a question that is not covered here, but it should be, please let us [know](https://github.com/eclipse/dirigible/issues).* 
 
 
 ### **Concepts**

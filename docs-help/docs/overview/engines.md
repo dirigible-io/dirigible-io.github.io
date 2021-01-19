@@ -1,10 +1,8 @@
 ---
-layout: help
 title: Engines
-icon: fa-code
 ---
 
-{{ page.title }}
+Engines
 ===
 
 ### Engines List

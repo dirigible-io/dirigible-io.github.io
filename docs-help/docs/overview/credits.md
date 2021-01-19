@@ -7,7 +7,7 @@ icon: fa-question-circle
 Credits and Special Thanks
 ===
 
-We would like to say a big *THANK YOU* to all the open source projects that we use as components of our platform:
+We would like to say a big _**THANK YOU!**_ to all the open source projects that we use as components of our platform:
 
 * [Rhino](https://developer.mozilla.org/en-US/docs/Rhino_documentation)
 * [Eclipse Equinox](http://www.eclipse.org/equinox/)

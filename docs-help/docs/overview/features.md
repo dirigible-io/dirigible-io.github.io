@@ -1,12 +1,15 @@
 ---
 layout: help
-title: Overview
+title: Features
 icon: none
 group: help-features
 ---
 
-{{ page.title }}
+Features
 ===
+
+> _**Note:** The feature set listed bellow contains only the major part of what is currently available. For more insights on what can be done with Eclipse Dirigible, we recommend to [try it out](http://trial.dirigible.io)._
+
 
 ### Data Structures
 
@@ -20,7 +23,7 @@ group: help-features
 
 * Support of *JavaScript* language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (**\*.js**).
 * Support of *CommonJS* based modularization of *JavaScript* services (**\*.js**).
-* Support of strictly defined enterprise [ API](../api/) for JavaScript to be used by the business application developers.
+* Support of strictly defined enterprise [ API](../../../api/) for JavaScript to be used by the business application developers.
 
 ### Web Content
 
@@ -82,5 +85,3 @@ group: help-features
 * User interface for browsing and searching within the published content
 * Separate lists of endpoints and viewers per type of services - JavaScript, Web, wiki, etc.
 * Separate browse user interface for Web and wiki content
-
-> Note: The feature set listed above contains only the major part of what is currently available. For more insights on what can be done with Eclipse Dirigible, we recommend to [try it out](http://trial.dirigible.io).
