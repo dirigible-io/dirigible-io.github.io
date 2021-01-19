@@ -1348,20 +1348,23 @@
                 
                 <h1 id="console">Console</h1>
 <p>Console object is used to write messages to the default logging output. It has several log levels <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>TRACE</code>. </p>
-<p>=== "Overview"
-- Module: <code>built-in</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/46">https://github.com/eclipse/dirigible/issues/46</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js">/core/v4/console.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java">ConsoleFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>built-in</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/46">https://github.com/eclipse/dirigible/issues/46</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js">/core/v4/console.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java">ConsoleFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">console.info(&quot;Info message: %s&quot;, &quot;Hello World!&quot;);
-console.error(&quot;Error message.&quot;);
-console.warn(&quot;Warning message.&quot;);
-console.debug(&quot;Debug message.&quot;);
-console.log(&quot;Log message.&quot;);
-console.trace(&quot;Trace.&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Info message: %s&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error message.&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;Warning message.&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Debug message.&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Log message.&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="s2">&quot;Trace.&quot;</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

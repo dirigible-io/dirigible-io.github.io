@@ -1418,36 +1418,39 @@
                 
                 <h1 id="database">Database</h1>
 <p>Standard access to the registered relational data sources.</p>
-<p>=== "Overview"
-- Module: <code>db/v4/database</code>
-- Alias: <code>db/database</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/21">https://github.com/eclipse/dirigible/issues/21</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-db/blob/master/db/v4/database.js">/db/v4/database.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java">DatabaseFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>db/v4/database</code></li>
+<li>Alias: <code>db/database</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/21">https://github.com/eclipse/dirigible/issues/21</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-db/blob/master/db/v4/database.js">/db/v4/database.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java">DatabaseFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var database = require(&quot;db/v4/database&quot;);
-var response = require(&quot;http/v4/response&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">database</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/database&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-var connection = database.getConnection();
-try {
-    var statement = connection.prepareStatement(&quot;select * from DIRIGIBLE_EXTENSIONS&quot;);
-    var resultSet = statement.executeQuery();
-    while (resultSet.next()) {
-        response.println(&quot;[path]: &quot; + resultSet.getString(&quot;EXTENSION_LOCATION&quot;));
-    }
-    resultSet.close();
-    statement.close();
-} catch(e) {
-    console.trace(e);
-    response.println(e.message);
-} finally {
-    connection.close();
-}
+<span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">statement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareStatement</span><span class="p">(</span><span class="s2">&quot;select * from DIRIGIBLE_EXTENSIONS&quot;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[path]: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;EXTENSION_LOCATION&quot;</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="nx">statement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span>
 
-response.flush();
-response.close();
-</code></pre>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

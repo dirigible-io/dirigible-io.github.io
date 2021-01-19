@@ -1446,36 +1446,39 @@
                 
                 <h1 id="mongodb-client-api">MongoDB Client API</h1>
 <p>The MongoDB Client is giving an access to a <a href="https://www.mongodb.com/">MongoDB</a> noSQL server.</p>
-<p>=== "Overview"
-- Module: <code>mongodb/client</code>
-- Alias: <code>mongodb/client</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/668">https://github.com/eclipse/dirigible/issues/668</a>
-- Source: <a href="https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/client.js">/mongodb/client.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java">MongoDBFacade</a>
-- Status: <code>alpha</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>mongodb/client</code></li>
+<li>Alias: <code>mongodb/client</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/668">https://github.com/eclipse/dirigible/issues/668</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/client.js">/mongodb/client.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java">MongoDBFacade</a></li>
+<li>Status: <code>alpha</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var response = require(&quot;http/v4/response&quot;);
-var mongodb = require(&quot;mongodb/client&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">mongodb</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongodb/client&quot;</span><span class="p">);</span>
 
-var mongoClient = mongodb.getClient();
+<span class="kd">var</span> <span class="nx">mongoClient</span> <span class="o">=</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">getClient</span><span class="p">();</span>
 
-var collection = mongoClient.getDB(&quot;db&quot;).getCollection(&quot;people&quot;);
+<span class="kd">var</span> <span class="nx">collection</span> <span class="o">=</span> <span class="nx">mongoClient</span><span class="p">.</span><span class="nx">getDB</span><span class="p">(</span><span class="s2">&quot;db&quot;</span><span class="p">).</span><span class="nx">getCollection</span><span class="p">(</span><span class="s2">&quot;people&quot;</span><span class="p">);</span>
 
-var person = mongodb.createBasicDBObject()
-    .append(&quot;_id&quot;, &quot;jo&quot;)
-    .append(&quot;name&quot;, &quot;Jo Bloggs&quot;);
-// or directly create an Object:
-// var person = {&quot;_id&quot;: &quot;jo&quot;, &quot;name&quot;: &quot;Jo Bloggs&quot;};
-collection.insert(person);
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">createBasicDBObject</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;jo&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Jo Bloggs&quot;</span><span class="p">);</span>
+<span class="c1">// or directly create an Object:</span>
+<span class="c1">// var person = {&quot;_id&quot;: &quot;jo&quot;, &quot;name&quot;: &quot;Jo Bloggs&quot;};</span>
+<span class="nx">collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
 
-var query = mongodb.createBasicDBObject().append(&quot;_id&quot;, &quot;jo&quot;);
-var cursor = collection.find(query);
-var result = cursor.one();
+<span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">mongodb</span><span class="p">.</span><span class="nx">createBasicDBObject</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;_id&quot;</span><span class="p">,</span> <span class="s2">&quot;jo&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">query</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">one</span><span class="p">();</span>
 
-response.println(&quot;Result: &quot; + result._id);
-response.flush();
-response.close();
-</code></pre>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Result: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">_id</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

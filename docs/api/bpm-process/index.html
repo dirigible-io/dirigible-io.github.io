@@ -1402,78 +1402,81 @@
                 
                 <h1 id="bpm-process">BPM Process</h1>
 <p>BPM Process object is used to access and manage the BPM process within the underlying engine.</p>
-<p>=== "Overview"
-- Module: <code>bpm/v4/process</code>
-- Alias: <code>bpm/process</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/227">https://github.com/eclipse/dirigible/issues/227</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-bpm/blob/master/bpm/v4/process.js">/bpm/v4/process.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-bpm/src/main/java/org/eclipse/dirigible/api/v3/bpm/BpmFacade.java">BpmFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>bpm/v4/process</code></li>
+<li>Alias: <code>bpm/process</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/227">https://github.com/eclipse/dirigible/issues/227</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-bpm/blob/master/bpm/v4/process.js">/bpm/v4/process.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-bpm/src/main/java/org/eclipse/dirigible/api/v3/bpm/BpmFacade.java">BpmFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>The service which starts the process:</p>
-<pre><code class="language-javascript">var process = require(&quot;bpm/v4/process&quot;);
-process.start(&quot;hello&quot;, {
-    variable1: &quot;value1&quot;
-});
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">process</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/v4/process&quot;</span><span class="p">);</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">variable1</span><span class="o">:</span> <span class="s2">&quot;value1&quot;</span>
+<span class="p">});</span>
+</code></pre></div>
 <p>The process definition:</p>
-<pre><code class="language-xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
-&lt;definitions xmlns=&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:flowable=&quot;http://flowable.org/bpmn&quot; xmlns:bpmndi=&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot; xmlns:omgdc=&quot;http://www.omg.org/spec/DD/20100524/DC&quot; xmlns:omgdi=&quot;http://www.omg.org/spec/DD/20100524/DI&quot; typeLanguage=&quot;http://www.w3.org/2001/XMLSchema&quot; expressionLanguage=&quot;http://www.w3.org/1999/XPath&quot; targetNamespace=&quot;http://www.flowable.org/processdef&quot;&gt;
-  &lt;process id=&quot;hello&quot; name=&quot;hello&quot; isExecutable=&quot;true&quot;&gt;
-    &lt;startEvent id=&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;/&gt;
-    &lt;serviceTask id=&quot;sayHello&quot; name=&quot;SayHello&quot; flowable:class=&quot;org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate&quot;&gt;
-      &lt;extensionElements&gt;
-        &lt;flowable:field name=&quot;handler&quot;&gt;
-          &lt;flowable:string&gt;&lt;![CDATA[bpmFlows/hello.js]]&gt;&lt;/flowable:string&gt;
-        &lt;/flowable:field&gt;
-      &lt;/extensionElements&gt;
-    &lt;/serviceTask&gt;
-    &lt;sequenceFlow id=&quot;sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot; sourceRef=&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot; targetRef=&quot;sayHello&quot;/&gt;
-    &lt;endEvent id=&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;/&gt;
-    &lt;sequenceFlow id=&quot;sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot; sourceRef=&quot;sayHello&quot; targetRef=&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;/&gt;
-  &lt;/process&gt;
-  &lt;bpmndi:BPMNDiagram id=&quot;BPMNDiagram_hello&quot;&gt;
-    &lt;bpmndi:BPMNPlane bpmnElement=&quot;hello&quot; id=&quot;BPMNPlane_hello&quot;&gt;
-      &lt;bpmndi:BPMNShape bpmnElement=&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot; id=&quot;BPMNShape_sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;&gt;
-        &lt;omgdc:Bounds height=&quot;30.0&quot; width=&quot;30.0&quot; x=&quot;103.0&quot; y=&quot;78.0&quot;/&gt;
-      &lt;/bpmndi:BPMNShape&gt;
-      &lt;bpmndi:BPMNShape bpmnElement=&quot;sayHello&quot; id=&quot;BPMNShape_sayHello&quot;&gt;
-        &lt;omgdc:Bounds height=&quot;80.0&quot; width=&quot;100.0&quot; x=&quot;300.0&quot; y=&quot;105.0&quot;/&gt;
-      &lt;/bpmndi:BPMNShape&gt;
-      &lt;bpmndi:BPMNShape bpmnElement=&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot; id=&quot;BPMNShape_sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;&gt;
-        &lt;omgdc:Bounds height=&quot;28.0&quot; width=&quot;28.0&quot; x=&quot;562.0&quot; y=&quot;78.0&quot;/&gt;
-      &lt;/bpmndi:BPMNShape&gt;
-      &lt;bpmndi:BPMNEdge bpmnElement=&quot;sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot; id=&quot;BPMNEdge_sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot;&gt;
-        &lt;omgdi:waypoint x=&quot;133.0&quot; y=&quot;93.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;201.0&quot; y=&quot;93.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;201.0&quot; y=&quot;145.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;300.0&quot; y=&quot;145.0&quot;/&gt;
-      &lt;/bpmndi:BPMNEdge&gt;
-      &lt;bpmndi:BPMNEdge bpmnElement=&quot;sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot; id=&quot;BPMNEdge_sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot;&gt;
-        &lt;omgdi:waypoint x=&quot;400.0&quot; y=&quot;145.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;466.0&quot; y=&quot;145.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;466.0&quot; y=&quot;92.0&quot;/&gt;
-        &lt;omgdi:waypoint x=&quot;562.0&quot; y=&quot;92.0&quot;/&gt;
-      &lt;/bpmndi:BPMNEdge&gt;
-    &lt;/bpmndi:BPMNPlane&gt;
-  &lt;/bpmndi:BPMNDiagram&gt;
-&lt;/definitions&gt;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
+<span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">xmlns:flowable=</span><span class="s">&quot;http://flowable.org/bpmn&quot;</span> <span class="na">xmlns:bpmndi=</span><span class="s">&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot;</span> <span class="na">xmlns:omgdc=</span><span class="s">&quot;http://www.omg.org/spec/DD/20100524/DC&quot;</span> <span class="na">xmlns:omgdi=</span><span class="s">&quot;http://www.omg.org/spec/DD/20100524/DI&quot;</span> <span class="na">typeLanguage=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">expressionLanguage=</span><span class="s">&quot;http://www.w3.org/1999/XPath&quot;</span> <span class="na">targetNamespace=</span><span class="s">&quot;http://www.flowable.org/processdef&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&quot;hello&quot;</span> <span class="na">name=</span><span class="s">&quot;hello&quot;</span> <span class="na">isExecutable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;startEvent</span> <span class="na">id=</span><span class="s">&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;serviceTask</span> <span class="na">id=</span><span class="s">&quot;sayHello&quot;</span> <span class="na">name=</span><span class="s">&quot;SayHello&quot;</span> <span class="na">flowable:class=</span><span class="s">&quot;org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;extensionElements&gt;</span>
+        <span class="nt">&lt;flowable:field</span> <span class="na">name=</span><span class="s">&quot;handler&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;flowable:string&gt;</span><span class="cp">&lt;![CDATA[bpmFlows/hello.js]]&gt;</span><span class="nt">&lt;/flowable:string&gt;</span>
+        <span class="nt">&lt;/flowable:field&gt;</span>
+      <span class="nt">&lt;/extensionElements&gt;</span>
+    <span class="nt">&lt;/serviceTask&gt;</span>
+    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&quot;sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot;</span> <span class="na">sourceRef=</span><span class="s">&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;</span> <span class="na">targetRef=</span><span class="s">&quot;sayHello&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;endEvent</span> <span class="na">id=</span><span class="s">&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;sequenceFlow</span> <span class="na">id=</span><span class="s">&quot;sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot;</span> <span class="na">sourceRef=</span><span class="s">&quot;sayHello&quot;</span> <span class="na">targetRef=</span><span class="s">&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/process&gt;</span>
+  <span class="nt">&lt;bpmndi:BPMNDiagram</span> <span class="na">id=</span><span class="s">&quot;BPMNDiagram_hello&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;bpmndi:BPMNPlane</span> <span class="na">bpmnElement=</span><span class="s">&quot;hello&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNPlane_hello&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&quot;sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNShape_sid-3334E861-7999-4B89-B8B0-11724BA17A3E&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;omgdc:Bounds</span> <span class="na">height=</span><span class="s">&quot;30.0&quot;</span> <span class="na">width=</span><span class="s">&quot;30.0&quot;</span> <span class="na">x=</span><span class="s">&quot;103.0&quot;</span> <span class="na">y=</span><span class="s">&quot;78.0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&quot;sayHello&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNShape_sayHello&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;omgdc:Bounds</span> <span class="na">height=</span><span class="s">&quot;80.0&quot;</span> <span class="na">width=</span><span class="s">&quot;100.0&quot;</span> <span class="na">x=</span><span class="s">&quot;300.0&quot;</span> <span class="na">y=</span><span class="s">&quot;105.0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+      <span class="nt">&lt;bpmndi:BPMNShape</span> <span class="na">bpmnElement=</span><span class="s">&quot;sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNShape_sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;omgdc:Bounds</span> <span class="na">height=</span><span class="s">&quot;28.0&quot;</span> <span class="na">width=</span><span class="s">&quot;28.0&quot;</span> <span class="na">x=</span><span class="s">&quot;562.0&quot;</span> <span class="na">y=</span><span class="s">&quot;78.0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/bpmndi:BPMNShape&gt;</span>
+      <span class="nt">&lt;bpmndi:BPMNEdge</span> <span class="na">bpmnElement=</span><span class="s">&quot;sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNEdge_sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;133.0&quot;</span> <span class="na">y=</span><span class="s">&quot;93.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;201.0&quot;</span> <span class="na">y=</span><span class="s">&quot;93.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;201.0&quot;</span> <span class="na">y=</span><span class="s">&quot;145.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;300.0&quot;</span> <span class="na">y=</span><span class="s">&quot;145.0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/bpmndi:BPMNEdge&gt;</span>
+      <span class="nt">&lt;bpmndi:BPMNEdge</span> <span class="na">bpmnElement=</span><span class="s">&quot;sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot;</span> <span class="na">id=</span><span class="s">&quot;BPMNEdge_sid-645847E8-C959-48BD-816B-2E9CC4A2F08A&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;400.0&quot;</span> <span class="na">y=</span><span class="s">&quot;145.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;466.0&quot;</span> <span class="na">y=</span><span class="s">&quot;145.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;466.0&quot;</span> <span class="na">y=</span><span class="s">&quot;92.0&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;omgdi:waypoint</span> <span class="na">x=</span><span class="s">&quot;562.0&quot;</span> <span class="na">y=</span><span class="s">&quot;92.0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/bpmndi:BPMNEdge&gt;</span>
+    <span class="nt">&lt;/bpmndi:BPMNPlane&gt;</span>
+  <span class="nt">&lt;/bpmndi:BPMNDiagram&gt;</span>
+<span class="nt">&lt;/definitions&gt;</span>
+</code></pre></div>
 <p>The delegate 'hello.js':</p>
-<pre><code class="language-javascript">// Hello from the Enterprise Javascript delegate
-console.info(&quot;Hello from the Javascript Engine!&quot;);
+<div class="highlight"><pre><span></span><code><span class="c1">// Hello from the Enterprise Javascript delegate</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Hello from the Javascript Engine!&quot;</span><span class="p">);</span>
 
-// manipulating process variables throughout the execution context
-var process = require(&quot;bpm/v4/process&quot;);
-var execution = process.getExecutionContext();
-process.setVariable(execution.getId(), &quot;variable2&quot;, &quot;value2&quot;);
-try {
-    console.info(&quot;variable1: &quot; + process.getVariable(execution.getId(), &quot;variable1&quot;));
-    console.info(&quot;variable2: &quot; + process.getVariable(execution.getId(), &quot;variable2&quot;));
-} catch(e) {
-    console.error(e.message);
-}
-</code></pre>
+<span class="c1">// manipulating process variables throughout the execution context</span>
+<span class="kd">var</span> <span class="nx">process</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/v4/process&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">execution</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">getExecutionContext</span><span class="p">();</span>
+<span class="nx">process</span><span class="p">.</span><span class="nx">setVariable</span><span class="p">(</span><span class="nx">execution</span><span class="p">.</span><span class="nx">getId</span><span class="p">(),</span> <span class="s2">&quot;variable2&quot;</span><span class="p">,</span> <span class="s2">&quot;value2&quot;</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;variable1: &quot;</span> <span class="o">+</span> <span class="nx">process</span><span class="p">.</span><span class="nx">getVariable</span><span class="p">(</span><span class="nx">execution</span><span class="p">.</span><span class="nx">getId</span><span class="p">(),</span> <span class="s2">&quot;variable1&quot;</span><span class="p">));</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;variable2: &quot;</span> <span class="o">+</span> <span class="nx">process</span><span class="p">.</span><span class="nx">getVariable</span><span class="p">(</span><span class="nx">execution</span><span class="p">.</span><span class="nx">getId</span><span class="p">(),</span> <span class="s2">&quot;variable2&quot;</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="delegate-parameters">Delegate parameters:</h3>
 <ul>
 <li>Type: ServiceType</li>

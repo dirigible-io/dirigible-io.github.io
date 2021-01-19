@@ -1348,22 +1348,25 @@
                 
                 <h1 id="user">User</h1>
 <p>User gives the information about the currently logged in user, if any.</p>
-<p>=== "Overview"
-- Module: <code>security/v4/user</code>
-- Alias: <code>security/user</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/17">https://github.com/eclipse/dirigible/issues/17</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-security/blob/master/security/v4/user.js">/security/v4/user.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java">UserFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>security/v4/user</code></li>
+<li>Alias: <code>security/user</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/17">https://github.com/eclipse/dirigible/issues/17</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-security/blob/master/security/v4/user.js">/security/v4/user.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-security/src/main/java/org/eclipse/dirigible/api/v3/security/UserFacade.java">UserFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var user = require(&quot;security/v4/user&quot;);
-var response = require(&quot;http/v4/response&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;security/v4/user&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-response.println(&quot;[UserName]: &quot; + user.getName());
-response.println(&quot;[Is in Role]: &quot; + user.isInRole(&quot;Developer&quot;));
-response.flush();
-response.close();
-</code></pre>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[UserName]: &quot;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Is in Role]: &quot;</span> <span class="o">+</span> <span class="nx">user</span><span class="p">.</span><span class="nx">isInRole</span><span class="p">(</span><span class="s2">&quot;Developer&quot;</span><span class="p">));</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

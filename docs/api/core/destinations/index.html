@@ -1350,23 +1350,26 @@
                 
                 <h1 id="destinations">Destinations</h1>
 <p>Destinations object is used to access properties usually stored and managed by external service. </p>
-<p>=== "Overview"
-- Module: <code>core/v4/destinations</code>
-- Alias: <code>core/destinations</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/445">https://github.com/eclipse/dirigible/issues/445</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/destinations.js">/core/v4/destinations.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/DestinationsFacade.java">DestinationsFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>core/v4/destinations</code></li>
+<li>Alias: <code>core/destinations</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/445">https://github.com/eclipse/dirigible/issues/445</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/destinations.js">/core/v4/destinations.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/DestinationsFacade.java">DestinationsFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var destinations = require(&quot;core/v4/destinations&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">destinations</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/destinations&quot;</span><span class="p">);</span>
 
-var destination = {};
-destination.name1 = &quot;value1&quot;;
-destinations.set(&quot;destination1&quot;, destination);
-var result = destinations.get(&quot;destination1&quot;);
+<span class="kd">var</span> <span class="nx">destination</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">destination</span><span class="p">.</span><span class="nx">name1</span> <span class="o">=</span> <span class="s2">&quot;value1&quot;</span><span class="p">;</span>
+<span class="nx">destinations</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;destination1&quot;</span><span class="p">,</span> <span class="nx">destination</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">destinations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;destination1&quot;</span><span class="p">);</span>
 
-result.name1 === &quot;value1&quot;;
-</code></pre>
+<span class="nx">result</span><span class="p">.</span><span class="nx">name1</span> <span class="o">===</span> <span class="s2">&quot;value1&quot;</span><span class="p">;</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

@@ -1350,21 +1350,24 @@
                 
                 <h1 id="files">Files</h1>
 <p>Files module provides an access to the underlying File System, where the Dirigible server is deployed on.</p>
-<p>=== "Overview"
-- Module: <code>io/v4/files</code>
-- Alias: <code>io/files</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/19">https://github.com/eclipse/dirigible/issues/19</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/files.js">/io/v4/files.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java">FilesFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>io/v4/files</code></li>
+<li>Alias: <code>io/files</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/19">https://github.com/eclipse/dirigible/issues/19</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/files.js">/io/v4/files.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java">FilesFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var files = require(&quot;io/v4/files&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span>
 
-var tempFile = files.createTempFile(&quot;dirigible&quot;, &quot;.txt&quot;);
-console.log(&quot;Temp file: &quot; + tempFile);
-files.writeText(tempFile, &quot;Eclipse Dirigible&quot;);
-files.deleteFile(tempFile);
-</code></pre>
+<span class="kd">var</span> <span class="nx">tempFile</span> <span class="o">=</span> <span class="nx">files</span><span class="p">.</span><span class="nx">createTempFile</span><span class="p">(</span><span class="s2">&quot;dirigible&quot;</span><span class="p">,</span> <span class="s2">&quot;.txt&quot;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Temp file: &quot;</span> <span class="o">+</span> <span class="nx">tempFile</span><span class="p">);</span>
+<span class="nx">files</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">,</span> <span class="s2">&quot;Eclipse Dirigible&quot;</span><span class="p">);</span>
+<span class="nx">files</span><span class="p">.</span><span class="nx">deleteFile</span><span class="p">(</span><span class="nx">tempFile</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

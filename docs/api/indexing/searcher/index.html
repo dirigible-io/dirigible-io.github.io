@@ -1350,23 +1350,26 @@
                 
                 <h1 id="indexing-searcher">Indexing Searcher</h1>
 <p>The Indexing Searcher is the object used for free-text or exact periods searches over the added documents with the <a href="indexing_writer.html">Indexing Writer</a>. This version is backed by the <a href="http://lucene.apache.org/">Apache Lucene</a>.</p>
-<p>=== "Overview"
-- Module: <code>indexing/v4/searcher</code>
-- Alias: <code>indexing/searcher</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/110">https://github.com/eclipse/dirigible/issues/110</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-indexing/blob/master/indexing/v4/searcher.js">/indexing/v4/searcher.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java">IndexingFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>indexing/v4/searcher</code></li>
+<li>Alias: <code>indexing/searcher</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/110">https://github.com/eclipse/dirigible/issues/110</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-indexing/blob/master/indexing/v4/searcher.js">/indexing/v4/searcher.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java">IndexingFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<pre><code class="language-javascript">var writer = require(&quot;indexing/v4/writer&quot;);
-var searcher = require(&quot;indexing/v4/searcher&quot;);
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">writer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/writer&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">searcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/searcher&quot;</span><span class="p">);</span>
 
-writer.add(&quot;index2&quot;, &quot;file1&quot;, &quot;apache lucene&quot;, new Date(123));
-writer.add(&quot;index2&quot;, &quot;file2&quot;, &quot;lucene - the search engine&quot;, new Date(234), {&quot;name2&quot;:&quot;value2&quot;});
-writer.add(&quot;index2&quot;, &quot;file3&quot;, &quot;search engine&quot;, new Date(345), {&quot;name2&quot;:&quot;value2&quot;});
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file1&quot;</span><span class="p">,</span> <span class="s2">&quot;apache lucene&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">123</span><span class="p">));</span>
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file2&quot;</span><span class="p">,</span> <span class="s2">&quot;lucene - the search engine&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">234</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span>
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file3&quot;</span><span class="p">,</span> <span class="s2">&quot;search engine&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">345</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span>
 
-var found = searcher.between(&quot;index2&quot;, new Date(124), new Date(344));
-</code></pre>
+<span class="kd">var</span> <span class="nx">found</span> <span class="o">=</span> <span class="nx">searcher</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">124</span><span class="p">),</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">344</span><span class="p">));</span>
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

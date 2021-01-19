@@ -1430,60 +1430,63 @@
                 
                 <h1 id="websocket">WebSocket</h1>
 <p>WebSocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.</p>
-<p>=== "Overview"
-- Module: <code>net/v4/websockets</code>
-- Alias: <code>net/websockets</code>
-- Definition: <a href="https://github.com/eclipse/dirigible/issues/391">https://github.com/eclipse/dirigible/issues/391</a>
-- Source: <a href="https://github.com/dirigiblelabs/api-net/blob/master/net/v4/websockets.js">/net/v4/websockets.js</a>
-- Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-net/src/main/java/org/eclipse/dirigible/api/v4/websockets/WebsocketsFacade.java">WebsocketsFacade</a>
-- Status: <code>stable</code></p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
+</div>
+<ul>
+<li>Module: <code>net/v4/websockets</code></li>
+<li>Alias: <code>net/websockets</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/391">https://github.com/eclipse/dirigible/issues/391</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/api-net/blob/master/net/v4/websockets.js">/net/v4/websockets.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-net/src/main/java/org/eclipse/dirigible/api/v4/websockets/WebsocketsFacade.java">WebsocketsFacade</a></li>
+<li>Status: <code>stable</code></li>
+</ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <h4 id="client">Client</h4>
-<pre><code class="language-javascript">var websockets = require(&quot;net/v4/websockets&quot;);
-var uri = &quot;ws://echo.websocket.org:80/&quot;;
-var handler = &quot;my-project/ws-handler&quot;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">websockets</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/v4/websockets&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">uri</span> <span class="o">=</span> <span class="s2">&quot;ws://echo.websocket.org:80/&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="s2">&quot;my-project/ws-handler&quot;</span>
 
-function initialize() {
-    console.log(&quot;Connect to: &quot; + uri);
-    var websocket = websockets.createWebsocket(uri, handler);
-    websocket.send(&quot;hello&quot;);
-}
+<span class="kd">function</span> <span class="nx">initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connect to: &quot;</span> <span class="o">+</span> <span class="nx">uri</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">websocket</span> <span class="o">=</span> <span class="nx">websockets</span><span class="p">.</span><span class="nx">createWebsocket</span><span class="p">(</span><span class="nx">uri</span><span class="p">,</span> <span class="nx">handler</span><span class="p">);</span>
+    <span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-initialize();
+<span class="nx">initialize</span><span class="p">();</span>
 
-websockets.getClientByHandler(handler).close();
-</code></pre>
+<span class="nx">websockets</span><span class="p">.</span><span class="nx">getClientByHandler</span><span class="p">(</span><span class="nx">handler</span><span class="p">).</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
 <p>The handler:</p>
-<pre><code class="language-javascript">exports.onOpen = function()  {
-  console.log(&quot;Connection openned.&quot;);
-}
+<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">onOpen</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span>  <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connection openned.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-exports.onMessage = function(message) {
-  console.log(&quot;Message received: &quot; + message);
-}
+<span class="nx">exports</span><span class="p">.</span><span class="nx">onMessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message received: &quot;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
 
-exports.onError = function(error) {
-  console.error(&quot;Error: &quot; + error);
-}
+<span class="nx">exports</span><span class="p">.</span><span class="nx">onError</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error: &quot;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
+<span class="p">}</span>
 
-exports.onClose = function() {
-  console.warn(&quot;Connection closed.&quot;);
-}
-</code></pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">onClose</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;Connection closed.&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h4 id="server">Server</h4>
 <blockquote>
 <p>For example: <code>my-endpoint.websocket</code> is using the same <strong>handler</strong> from above</p>
 </blockquote>
-<pre><code>{
+<div class="highlight"><pre><span></span><code>{
   &quot;handler&quot;: &quot;my-project/ws-handler&quot;,
   &quot;endpoint&quot;:&quot;my-endpoint&quot;,
   &quot;description&quot;:&quot;My Websocket&quot;
 }
-</code></pre>
+</code></pre></div>
 <p>then you can call from a browser:</p>
-<pre><code>var ws = new WebSocket(&quot;ws://localhost:8080/websockets/v4/service/my-endpoint&quot;);
-ws.send('hello');
-</code></pre>
+<div class="highlight"><pre><span></span><code>var ws = new WebSocket(&quot;ws://localhost:8080/websockets/v4/service/my-endpoint&quot;);
+ws.send(&#39;hello&#39;);
+</code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
