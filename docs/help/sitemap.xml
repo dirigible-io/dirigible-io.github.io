@@ -24,7 +24,7 @@
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts/</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -69,6 +69,26 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_workspace/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/extensions/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/extensions/extension_editor/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/extensions/extension_perspective/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/extensions/extension_template/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/extensions/extension_view/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -228,6 +248,10 @@
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/</loc>
+     <lastmod>2021-01-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/architecture/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
@@ -236,7 +260,7 @@
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/editorsandmodelers/</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/editors-modelers/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -256,31 +280,7 @@
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/project/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/services/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_editor/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_perspective/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_template/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_view/</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extensions/</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/runtime-services/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
