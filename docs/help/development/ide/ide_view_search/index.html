@@ -79,7 +79,7 @@
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://thuf.github.io/dirigible-io.github.io/api/" title="Eclipse Dirigible Help" class="md-header-nav__button md-logo" aria-label="Eclipse Dirigible Help">
       
-  <img src="../../../../img/logo/dirigible.svg" alt="logo">
+  <img src="../../../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -153,6 +153,77 @@
       
       
         
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Help
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../devops/" class="md-tabs__link md-tabs__link--active">
+        Development
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../overview/architecture/" class="md-tabs__link">
+        Overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../setup/_environment-variables/" class="md-tabs__link">
+        Setup
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
@@ -166,12 +237,14 @@
 
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://thuf.github.io/dirigible-io.github.io/api/" title="Eclipse Dirigible Help" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Help">
       
-  <img src="../../../../img/logo/dirigible.svg" alt="logo">
+  <img src="../../../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     Eclipse Dirigible Help
@@ -1315,86 +1388,10 @@
   
   
   
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5" >
-      
-      <label class="md-nav__link" for="nav-4-5">
-        Tomcat
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Tomcat" data-md-level="2">
-        <label class="md-nav__title" for="nav-4-5">
-          <span class="md-nav__icon md-icon"></span>
-          Tomcat
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-          
-            
-  
-  
-  
     <li class="md-nav__item">
       <a href="../../../setup/tomcat/" class="md-nav__link">
         Tomcat
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../setup/tomcat/tomcat-hana/" class="md-nav__link">
-        Tomcat with HANA
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../setup/tomcat/tomcat-mysql/" class="md-nav__link">
-        Tomcat with MySQL
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../setup/tomcat/tomcat-postgresql/" class="md-nav__link">
-        Tomcat with PostgreSQL
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../setup/tomcat/tomcat-sybase/" class="md-nav__link">
-        Tomcat with Sybase ASE
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1569,7 +1566,7 @@ The user can switch between multiple workspaces through the Workspace menu.</p>
       <script>
         app = initialize({
           base: "../../..",
-          features: ['navigation.instant'],
+          features: ['navigation.instant', 'navigation.tabs'],
           search: Object.assign({
             worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
