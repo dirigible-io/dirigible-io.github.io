@@ -1,10 +1,14 @@
 site_name: Eclipse Dirigible Help
 theme:
+  favicon: ../img/favicon.png
+  logo: ../img/logo/dirigible.svg
   name: mkdocs
+  features:
+    - navigation.instant
   palette:
     scheme: default
-  features:
-    - navigation.tabs
+    primary: blue
+
 markdown_extensions:
     - pymdownx.snippets
     - pymdownx.highlight:
@@ -13,3 +17,30 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.superfences
     - pymdownx.tabbed
+    - meta
+
+repo_url: https://github.com/eclipse/dirigible
+repo_name: eclipse/dirigible
+edit_uri: ../../ThuF/dirigible-io.github.io/edit/master/docs-api/docs
+
+########################
+# Needed only for disqus
+site_url: https://thuf.github.io/dirigible-io.github.io/api/
+extra:
+  disqus: dirigible
+########################
+
+copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dirigible_io
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/dirigible.io
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/groups/8413366
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/dirigibleio
+    - icon: fontawesome/brands/slack
+      link: https://eclipse-dirigible.slack.com/
+
