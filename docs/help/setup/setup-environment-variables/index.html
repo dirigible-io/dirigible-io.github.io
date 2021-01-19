@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/">
+        <link rel="canonical" href="https://thuf.github.io/dirigible-io.github.io/api/setup/setup-environment-variables/">
       
       <link rel="shortcut icon" href="../../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
-        <title>Tomcat - Eclipse Dirigible Help</title>
+        <title>Environment Variables - Eclipse Dirigible Help</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setup-in-tomcat" class="md-skip">
+        <a href="#environment-variables" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Tomcat
+              Environment Variables
             
           </span>
         </div>
@@ -213,7 +213,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../_environment-variables/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Setup
       </a>
     </li>
@@ -229,6 +229,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -1330,8 +1332,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../_environment-variables/" class="md-nav__link">
-        Environment Variables
+      <a href="../" class="md-nav__link">
+        Tomcat
       </a>
     </li>
   
@@ -1387,12 +1389,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Tomcat
+          Environment Variables
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Tomcat
+        Environment Variables
       </a>
       
         
@@ -1409,23 +1411,289 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#configuration-parameters" class="md-nav__link">
+    Configuration Parameters
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    Steps
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="Configuration Parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manager-app" class="md-nav__link">
-    Manager App
+  <a href="#anonymous-access" class="md-nav__link">
+    Anonymous Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    Branding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    Repository
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-repository" class="md-nav__link">
+    Database Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-repository" class="md-nav__link">
+    Local Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-repository" class="md-nav__link">
+    Master Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-search" class="md-nav__link">
+    Repository Search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+    <nav class="md-nav" aria-label="Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-custom" class="md-nav__link">
+    Database - Custom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-derby" class="md-nav__link">
+    Database Derby
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-h2" class="md-nav__link">
+    Database H2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    Persistence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    MongoDB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduler" class="md-nav__link">
+    Scheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression" class="md-nav__link">
+    Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-core" class="md-nav__link">
+    Runtime Core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms" class="md-nav__link">
+    CMS
+  </a>
+  
+    <nav class="md-nav" aria-label="CMS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cms-internal" class="md-nav__link">
+    CMS - Internal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms-managed" class="md-nav__link">
+    CMS - Managed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms-database" class="md-nav__link">
+    CMS Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bpm" class="md-nav__link">
+    BPM
+  </a>
+  
+    <nav class="md-nav" aria-label="BPM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bpm-flowable" class="md-nav__link">
+    BPM - Flowable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mail" class="md-nav__link">
+    Mail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging" class="md-nav__link">
+    Messaging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines" class="md-nav__link">
+    Engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#look-feel" class="md-nav__link">
+    Look &amp; Feel
+  </a>
+  
+    <nav class="md-nav" aria-label="Look &amp; Feel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theme" class="md-nav__link">
+    Theme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destinations" class="md-nav__link">
+    Destinations
   </a>
   
 </li>
@@ -1457,7 +1725,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1474,23 +1744,289 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#configuration-parameters" class="md-nav__link">
+    Configuration Parameters
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    Steps
-  </a>
-  
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="Configuration Parameters">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manager-app" class="md-nav__link">
-    Manager App
+  <a href="#anonymous-access" class="md-nav__link">
+    Anonymous Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    Branding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    Registry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    Repository
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-repository" class="md-nav__link">
+    Database Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-repository" class="md-nav__link">
+    Local Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-repository" class="md-nav__link">
+    Master Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-search" class="md-nav__link">
+    Repository Search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+    <nav class="md-nav" aria-label="Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-custom" class="md-nav__link">
+    Database - Custom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-derby" class="md-nav__link">
+    Database Derby
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-h2" class="md-nav__link">
+    Database H2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    Persistence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    MongoDB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduler" class="md-nav__link">
+    Scheduler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression" class="md-nav__link">
+    Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-core" class="md-nav__link">
+    Runtime Core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms" class="md-nav__link">
+    CMS
+  </a>
+  
+    <nav class="md-nav" aria-label="CMS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cms-internal" class="md-nav__link">
+    CMS - Internal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms-managed" class="md-nav__link">
+    CMS - Managed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cms-database" class="md-nav__link">
+    CMS Database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bpm" class="md-nav__link">
+    BPM
+  </a>
+  
+    <nav class="md-nav" aria-label="BPM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bpm-flowable" class="md-nav__link">
+    BPM - Flowable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mail" class="md-nav__link">
+    Mail
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#messaging" class="md-nav__link">
+    Messaging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines" class="md-nav__link">
+    Engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#javascript" class="md-nav__link">
+    JavaScript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#look-feel" class="md-nav__link">
+    Look &amp; Feel
+  </a>
+  
+    <nav class="md-nav" aria-label="Look &amp; Feel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#theme" class="md-nav__link">
+    Theme
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destinations" class="md-nav__link">
+    Destinations
   </a>
   
 </li>
@@ -1512,420 +2048,904 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/setup/tomcat.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/ThuF/dirigible-io.github.io/edit/master/docs-api/docs/setup/setup-environment-variables.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="setup-in-tomcat">Setup in Tomcat</h1>
-<p>The Tomcat specific WAR files can be deployed on a <a href="http://tomcat.apache.org/">Apache Tomcat</a> web container. In this case the built-in H2 database is used.</p>
-<blockquote>
-<p><em>More information about how to deploy on Tomcat can be found <a href="http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html">here</a>.</em></p>
-</blockquote>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li><strong><em>JDK 11 or later</em></strong> - <em>OpenJDK versions can be found <a href="https://openjdk.java.net/projects/jdk/">here</a>.</em></li>
-</ul>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">macOS</label><div class="tabbed-content">
-<blockquote>
-<p>brew install ttyd</p>
-</blockquote>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Linux</label><div class="tabbed-content">
-<blockquote>
-<p>Linux support is built-in</p>
-</blockquote>
-<p>More info about <strong>ttyd</strong> can be found at: <a href="https://github.com/tsl0922/ttyd">ttyd</a></p>
-</div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Windows</label><div class="tabbed-content">
-<p>You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. In this case, we recommend that you perform the setup using Docker.</p>
-<p>See <a href="https://www.dirigible.io/help/setup_docker.html">Setup as a Docker Image</a>.</p>
-</div>
-</div>
-<h2 id="steps">Steps</h2>
-<ol>
-<li>
-<p>Download <code>ROOT.war</code> for Tomcat from: <a href="http://download.dirigible.io">download.dirigible.io</a></p>
-</li>
-<li>
-<p>Configure the Users store under <code>$CATALINA_HOME/conf/tomcat-users.xml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;tomcat-users&gt;</span>
-    <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;Developer&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;Operator&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;role</span> <span class="na">rolename=</span><span class="s">&quot;Everyone&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;user</span> <span class="na">username=</span><span class="s">&quot;dirigible&quot;</span> <span class="na">password=</span><span class="s">&quot;dirigible&quot;</span> <span class="na">roles=</span><span class="s">&quot;Developer,Operator,Everyone&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/tomcat-users&gt;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Copy the Dirigible's <code>ROOT.war</code> to <code>$TOMCAT/webapps</code> folder.</p>
-</li>
-<li>
-<p>Configure the target Database setup, if needed:</p>
-<div class="tabbed-set" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Local (H2)</label><div class="tabbed-content">
-<p>No additional setup is needed.</p>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">PostgreSQL</label><div class="tabbed-content">
-<ol>
-<li>
-<p>Install <code>postgresql</code> on Linux (Debian-based) with:</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get update
-
-sudo apt-get install postgresql postgresql-contrib
-</code></pre></div>
-</li>
-<li>
-<p>Create the <code>default</code> database for Eclipse Dirigible:</p>
-<div class="highlight"><pre><span></span><code>sudo -i -u postgres
-
-createdb dirigible_database
-</code></pre></div>
-</li>
-<li>
-<p>Create <code>System User</code> for the Eclipse Dirigible database:</p>
-<div class="highlight"><pre><span></span><code>psql dirigible_database
-
-create user dirigible_system with password &#39;dirigible1234&#39;;
-
-grant all on database dirigible_database to dirigible_system;
-</code></pre></div>
-</li>
-<li>
-<p>Datasource configuration:</p>
-<ul>
-<li>Download the <code>postgresql</code> JDBC driver version 4.1 from <a href="http://jdbc.postgresql.org/download.html">here</a>.<ul>
-<li>Copy the <code>postgresql-*.jar</code> file to the <code>&lt;TOMCAT_HOME&gt;/lib</code> directory.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>Set the environment variables:</p>
-<div class="highlight"><pre><span></span><code>export DIRIGIBLE_DATABASE_PROVIDER=custom
-export DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES=POSTGRES
-export DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT=POSTGRES
-export POSTGRES_DRIVER=org.postgresql.Driver
-export POSTGRES_URL=jdbc:postgresql://localhost:5432/dirigible_database
-export POSTGRES_USERNAME=dirigible_system
-export POSTGRES_PASSWORD=dirigible1234
-export DIRIGIBLE_SCHEDULER_DATABASE_DRIVER=org.postgresql.Driver
-export DIRIGIBLE_SCHEDULER_DATABASE_URL=jdbc:postgresql://localhost:5432/dirigible_database
-export DIRIGIBLE_SCHEDULER_DATABASE_USER=dirigible_system
-export DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD=dirigible1234
-export DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE=org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
-export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=true
-export DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE=true
-export DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE=true
-</code></pre></div>
-</li>
-</ol>
-</div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">MySQL</label><div class="tabbed-content">
-<ol>
-<li>
-<p>Install <code>mysql</code> on Linux (Debian-based) with:</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get update
-
-sudo apt-get install mysql-server
-
-sudo mysql\_install\_db
-
-sudo /usr/bin/mysql\_secure\_installation
-</code></pre></div>
-</li>
-<li>
-<p>Create the default database for Dirigible:</p>
-<div class="highlight"><pre><span></span><code>sudo -i -u postgres
-
-createdb dirigible_database
-</code></pre></div>
-</li>
-<li>
-<p>Create <code>System User</code> for the Eclipse Dirigible database:</p>
-<div class="highlight"><pre><span></span><code>mysql -u root -p
-
-CREATE DATABASE dirigible_database;
-
-CREATE USER &#39;dirigible_system&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;dirigible1234&#39;;
-
-GRANT ALL PRIVILEGES ON dirigible_database.* TO &#39;dirigible_system&#39;@&#39;localhost&#39; WITH GRANT OPTION;
-</code></pre></div>
-</li>
-<li>
-<p>Datasource configuration:</p>
-</li>
-<li>Download the <code>mysql</code> JDBC driver version 5.1 from <a href="http://dev.mysql.com/downloads/connector/j/">here</a>.</li>
-<li>Copy the <code>mysql-*.jar</code> file to the <code>&lt;TOMCAT_HOME&gt;/lib</code> directory.</li>
-<li>
-<p>Open the file <code>&lt;TOMCAT_HOME&gt;/conf/context.xml</code> and add the following within the context:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Resource</span> 
-    <span class="na">name=</span><span class="s">&quot;jdbc/DefaultDB&quot;</span>
-    <span class="na">auth=</span><span class="s">&quot;Container&quot;</span>
-    <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span>
-    <span class="na">maxActive=</span><span class="s">&quot;100&quot;</span>
-    <span class="na">maxIdle=</span><span class="s">&quot;30&quot;</span>
-    <span class="na">maxWait=</span><span class="s">&quot;10000&quot;</span>
-    <span class="na">username=</span><span class="s">&quot;dirigible_system&quot;</span>
-    <span class="na">password=</span><span class="s">&quot;dirigible1234&quot;</span>
-    <span class="na">driverClassName=</span><span class="s">&quot;com.mysql.jdbc.Driver&quot;</span>
-    <span class="na">url=</span><span class="s">&quot;jdbc:mysql://localhost:3306/dirigible_database?useUnicode=true&amp;amp;characterEncoding=UTF-8&quot;</span>
-<span class="nt">/&gt;</span>
-</code></pre></div>
-<p><code>web.xml</code> - make sure the initial parameter <code>jndiDefaultDataSource</code> is uncommented:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;init-param&gt;</span>
-<span class="hll">    <span class="nt">&lt;param-name&gt;</span>jndiDefaultDataSource<span class="nt">&lt;/param-name&gt;</span>
-</span><span class="hll">    <span class="nt">&lt;param-value&gt;</span>java:comp/env/jdbc/DefaultDB<span class="nt">&lt;/param-value&gt;</span>
-</span><span class="nt">&lt;/init-param&gt;</span>
-</code></pre></div>
-<p>Also, the initial parameter <code>jdbcAutoCommit</code> must be set to false (by default).</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;init-param&gt;</span>
-<span class="hll">    <span class="nt">&lt;param-name&gt;</span>jdbcAutoCommit<span class="nt">&lt;/param-name&gt;</span>
-</span><span class="hll">    <span class="nt">&lt;param-value&gt;</span>false<span class="nt">&lt;/param-value&gt;</span>
-</span><span class="nt">&lt;/init-param&gt;</span>
-</code></pre></div>
-<p>The type of the datasource is <code>jndi</code> instead of <code>local</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;init-param&gt;</span>
-<span class="hll">    <span class="nt">&lt;param-name&gt;</span>defaultDataSourceType<span class="nt">&lt;/param-name&gt;</span>
-</span><span class="hll">    <span class="nt">&lt;param-value&gt;</span>jndi<span class="nt">&lt;/param-value&gt;</span>
-</span><span class="nt">&lt;/init-param&gt;</span>
-</code></pre></div>
-<p>Lastly, the resource reference for the datasource has to be uncommented.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;resource-ref&gt;</span>
-<span class="hll">    <span class="nt">&lt;res-ref-name&gt;</span>jdbc/DefaultDB<span class="nt">&lt;/res-ref-name&gt;</span>
-</span><span class="hll">    <span class="nt">&lt;res-type&gt;</span>javax.sql.DataSource<span class="nt">&lt;/res-type&gt;</span>
-</span><span class="hll">    <span class="nt">&lt;res-auth&gt;</span>Container<span class="nt">&lt;/res-auth&gt;</span>
-</span><span class="nt">&lt;/resource-ref&gt;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">HANA</label><div class="tabbed-content">
-<ol>
-<li>Install <a href="https://www.sap.com/developer/topics/sap-hana-express.html">HANA Express</a>.</li>
-<li>Set the environment variables:
-    <div class="highlight"><pre><span></span><code>export DIRIGIBLE_DATABASE_PROVIDER=custom
-export DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES=HANA
-export DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT=HANA
-export HANA_DRIVER=com.sap.db.jdbc.Driver
-export HANA_URL=jdbc:sap://&lt;host&gt;:&lt;port&gt;
-export HANA_USERNAME=&lt;user&gt;
-export HANA_PASSWORD=&lt;password&gt;
-export DIRIGIBLE_SCHEDULER_DATABASE_DRIVER=com.sap.db.jdbc.Driver
-export DIRIGIBLE_SCHEDULER_DATABASE_URL=jdbc:sap://&lt;host&gt;:&lt;port&gt;
-export DIRIGIBLE_SCHEDULER_DATABASE_USER=&lt;user&gt;
-export DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD=&lt;password&gt;
-export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=false
-export DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE=false
-</code></pre></div></li>
-</ol>
-<blockquote>
-<p><em><strong>Note:</strong> Remember to replace the <code>&lt;host&gt;</code>, <code>&lt;port&gt;</code>, <code>&lt;user&gt;</code>, <code>&lt;password&gt;</code> placeholders.</em></p>
-</blockquote>
-</div>
-<input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><label for="__tabbed_2_5">Sybase ASE</label><div class="tabbed-content">
-<ol>
-<li>
-<p>How to setup a test environment on Amazon:</p>
-</li>
-<li>
-<p>Select Image Size: <code>t2.medium</code></p>
-</li>
-<li>
-<p>Security Group: <code>TCP Custom, 5000</code></p>
-</li>
-<li>
-<p>Download Sybase ASE Express from <a href="https://www.sap.com/cmp/syb/crm-xu15-int-asexprdm/index.html">here</a>.</p>
-</li>
-<li>
-<p>Transfer:</p>
-<div class="highlight"><pre><span></span><code>scp -i dirigible-aws.pem ASE_Suite.linuxamd64.tgz ec2-user@&lt;ip-address&gt;:~
-scp -i dirigible-aws.pem apache-tomcat-XXX.zip ec2-user@&lt;ip-address&gt;:~
-scp -i dirigible-aws.pem ROOT.war ec2-user@&lt;ip-address&gt;:~
-scp -i dirigible-aws.pem jdk-8u144-linux-x64.tar.gz ec2-user@&lt;ip-address&gt;:~
-</code></pre></div>
-</li>
-<li>
-<p>Prepare OS:</p>
-<div class="highlight"><pre><span></span><code>sudo mkdir -p /opt/sybase
-sudo mkdir -p /var/sybase
-sudo groupadd sybase
-sudo useradd -g sybase -d /opt/sybase sybase
-sudo passwd sybase
-sudo chown sybase:sybase /opt/sybase
-sudo chown sybase:sybase /var/sybase
-</code></pre></div>
-</li>
-<li>
-<p>Login:</p>
-<div class="highlight"><pre><span></span><code>ssh ec2-user@&lt;ip-address&gt; -i dirigible-aws.pem
-</code></pre></div>
-</li>
-<li>
-<p>Setup:</p>
-<div class="highlight"><pre><span></span><code>su - sybase
-mkdir install
-cd install
-cp /home/ec2-user/ASE_Suite.linuxamd64.tgz .
-tar -xvf ASE_Suite.linuxamd64.tgz
-./setup.bin -i console
-</code></pre></div>
-</li>
-<li>
-<p>Parameters:</p>
-<div class="highlight"><pre><span></span><code>Choose Install Folder -&gt; use: /opt/sybase
-Choose Install Set -&gt; 1- Typical
-Software License Type Selection -&gt; 2- Install Express Edition of SAP Adaptive Server Enterprise
-End-user License Agreement -&gt; 1) All regions
-Configure New Servers -&gt; [X] 1 -  Configure new SAP ASE
-Configure Servers with Different User Account -&gt; 2- No
-SAP ASE Name                                  ASE160
-System Administrator&#39;s Password               ******
-Enable SAP ASE for SAP ASE Cockpit monitoring false
-Technical user                                tech_user
-Technical user password                       ********
-Host Name                                     ip-&lt;internal-ip-address&gt;.eu-central-1.comp
-Port Number                                   5000
-Application Type                              Mixed (OLTP/DSS)
-Create sample databases                       false
-Page Size                                     4k
-Error Log                                     /opt/sybase/ASE-16_0/install/ASE1
-Default Language                              &lt;use default&gt;
-Default Character Set                         &lt;use default&gt;
-Default Sort Order                            &lt;use default&gt;
-Master Device                                 /opt/sybase/data/master.dat
-Master Device Size (MB)                       500
-Master Database Size (MB)                     250
-System Procedure Device                       /opt/sybase/data/sysprocs.dat
-System Procedure Device Size (MB)             500
-System Procedure Database Size (MB)           500
-System Device                                 /opt/sybase/data/sybsysdb.dat
-System Device Size (MB)                       100
-System Database Size (MB)                     100
-Tempdb Device                                 /opt/sybase/data/tempdbdev.dat
-Tempdb Device Size (MB)                       1000
-Tempdb Database Size (MB)                     1000
-Enable PCI                                    false
-Optimize SAP ASE Configuration                false
-</code></pre></div>
-</li>
-<li>
-<p>Show Servers:</p>
-<div class="highlight"><pre><span></span><code>/opt/sybase/ASE-16_0/install/showserver
-</code></pre></div>
-</li>
-<li>
-<p>Prepare Test Environment:</p>
-<div class="highlight"><pre><span></span><code>cd /opt/sybase/install
-cp /home/ec2-user/apache-tomcat-XXX.zip .
-cp /home/ec2-user/jdk-8u144-linux-x64.tar.gz .
-unzip apache-tomcat-XXX.zip
-tar -xvf jdk-8u144-linux-x64.tar.gz
-export JAVA_HOME=/opt/sybase/install/jdk1.8.0_144
-</code></pre></div>
-</li>
-<li>
-<p>Add the provided JDBC driver to the lib folder:</p>
-<div class="highlight"><pre><span></span><code>cp /opt/sybase/shared/lib/jconn4.jar /home/ec2-user/apache-tomcat-XXX/lib
-</code></pre></div>
-</li>
-<li>
-<p>Useful actions in case of issues:</p>
-<ul>
-<li>
-<p>Start Server:</p>
-<div class="highlight"><pre><span></span><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/sybase/OCS-16_0/lib3p64
-export LANG=C
-cd /opt/sybase/ASE-16_0/bin
-./startserver -f /opt/sybase/ASE-16_0/install/RUN_ASE160
-</code></pre></div>
-</li>
-<li>
-<p>Stop Server:</p>
-<div class="highlight"><pre><span></span><code>cd /opt/sybase/OCS-16_0/bin
-export LANG=C
-./isql -Usa -SASE160
-shutdown with nowait
-go
-</code></pre></div>
-</li>
-<li>
-<p>Kill Hanging Requests:</p>
-<div class="highlight"><pre><span></span><code>cd /opt/sybase/OCS-16_0/bin
-export LANG=C
-./isql -Usa -SASE160
-sp_who
-go
-kill spid
-</code></pre></div>
-</li>
-<li>
-<p>Uninstall:</p>
-<div class="highlight"><pre><span></span><code>cd /opt/sybase/sybuninstall/ASESuite
-./uninstall -i console
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p>Set the environment variables</p>
-<div class="highlight"><pre><span></span><code>export DIRIGIBLE_DATABASE_PROVIDER=custom
-export DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES=SYBASE
-export DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT=SYBASE
-export SYBASE_DRIVER=com.sybase.jdbc4.jdbc.SybDriver
-export SYBASE_URL=jdbc:sybase:Tds:&lt;host&gt;:&lt;port&gt;?ServiceName=&lt;database&gt;
-export SYBASE_USERNAME=&lt;user&gt;
-export SYBASE_PASSWORD=&lt;password&gt;
-export SYBASE_CONNECTION_PROPERTIES=&quot;DYNAMIC_PREPARE=true;SSL_TRUST_ALL_CERTS=true;JCONNECT_VERSION=0;ENABLE_SSL=true;&quot;
-export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=false
-export DIRIGIBLE_SCHEDULER_DATABASE_DRIVER=com.sybase.jdbc4.jdbc.SybDriver
-export DIRIGIBLE_SCHEDULER_DATABASE_URL=&quot;jdbc:sybase:Tds:&lt;host&gt;:&lt;port&gt;?ServiceName=&lt;database&gt;&amp;DYNAMIC_PREPARE=true&amp;JCONNECT_VERSION=0&amp;ENABLE_SSL=true&amp;SSL_TRUST_ALL_CERTS=true&quot;
-export DIRIGIBLE_SCHEDULER_DATABASE_USER=&lt;user&gt;
-export DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD=&lt;password&gt;
-export DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE=org.quartz.impl.jdbcjobstore.SybaseDelegate
-</code></pre></div>
-</li>
-</ol>
-<blockquote>
-<p><em><strong>Note:</strong> Remember to replace the <code>&lt;host&gt;</code>, <code>&lt;port&gt;</code>, <code>&lt;user&gt;</code>, <code>&lt;password&gt;</code> placeholders.</em></p>
-</blockquote>
-</div>
-</div>
-</li>
-<li>
-<p>Start the Tomcat server.</p>
-</li>
-<li>
-<p>Open a web browser and go to: <a href="http://localhost:8080/">http://localhost:8080/</a></p>
-</li>
-<li>
-<p>Login with user <code>dirigible</code> and password <code>dirigible</code>.</p>
-</li>
-</ol>
+                <h1 id="environment-variables">Environment Variables</h1>
+<h2 id="configuration-parameters">Configuration Parameters</h2>
+<h3 id="anonymous-access">Anonymous Access</h3>
 <hr />
-<h4 id="manager-app">Manager App</h4>
-<p>In case you want to use Apache Tomcat's <a href="https://tomcat.apache.org/tomcat-8.5-doc/manager-howto.html">Manager App</a> 
-to deploy the ROOT.war file, you have to increase the file size limit for upload (e.g. to 200MB):</p>
-<p><code>conf\server.xml</code></p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;Connector</span> <span class="na">port=</span><span class="s">&quot;8080&quot;</span> <span class="na">protocol=</span><span class="s">&quot;HTTP/1.1&quot;</span>
-           <span class="na">connectionTimeout=</span><span class="s">&quot;20000&quot;</span>
-           <span class="na">redirectPort=</span><span class="s">&quot;8443&quot;</span>
-<span class="hll">           <span class="na">maxPostSize=</span><span class="s">&quot;209715200&quot;</span> <span class="nt">/&gt;</span>
-</span></code></pre></div>
-<p><code>webapps\manager\WEB-INF\web.xml</code></p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;web-app&gt;</span>
-  ...
-  <span class="nt">&lt;servlet&gt;</span>
-    ...
-    <span class="nt">&lt;multipart-config&gt;</span>
-      <span class="nt">&lt;file-size-threshold&gt;</span>0<span class="nt">&lt;/file-size-threshold&gt;</span>
-<span class="hll">      <span class="nt">&lt;max-file-size&gt;</span>209715200<span class="nt">&lt;/max-file-size&gt;</span>
-</span><span class="hll">      <span class="nt">&lt;max-request-size&gt;</span>209715200<span class="nt">&lt;/max-request-size&gt;</span>
-</span>    <span class="nt">&lt;/multipart-config&gt;</span>
-    ...
-  <span class="nt">&lt;/servlet&gt;</span>
-  ...
-<span class="nt">&lt;/web-app&gt;</span>
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME</strong></td>
+<td>The name of the property, that will be used to retrieve the anonymous user name</td>
+<td><em>e.g. MY_USER_VARIABLE</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="branding">Branding</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_BRANDING_NAME</strong></td>
+<td>The brand name</td>
+<td>default is <em>'Eclipse Dirigible'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BRANDING_BRAND</strong></td>
+<td>The branding name</td>
+<td>default is <em>'Eclipse Dirigible'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BRANDING_ICON</strong></td>
+<td>The branding icon</td>
+<td>default is <em>'../../../../services/v3/web/resources/images/favicon.png'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT</strong></td>
+<td>The branding welcome page</td>
+<td>default is <em>'../../../../services/v3/web/ide/welcome.html'</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="git">Git</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_GIT_ROOT_FOLDER</strong></td>
+<td>The external folder that will be used for synchronizing git projects</td>
+<td><em>-</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="registry">Registry</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REGISTRY_SYNCH_ROOT_FOLDER</strong></td>
+<td>The external folder that will be used for synchronizing the public registry</td>
+<td><em>-</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="repository">Repository</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_PROVIDER</strong></td>
+<td>The name of the repository provider used in this instance</td>
+<td><em>local</em> or <em>database</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database-repository">Database Repository</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_DATABASE_DATASOURCE_NAME</strong></td>
+<td>The name of the data source, which will be used to store the repository artifacts</td>
+<td>default is <em>DefaultDB</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="local-repository">Local Repository</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER</strong></td>
+<td>The location of the root folder where the repository artifacts will be stored</td>
+<td>default is <em>'.'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_LOCAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
+<td>Whether the location of the root folder is absolute or context dependent</td>
+<td><em>true</em> or <em>false</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="master-repository">Master Repository</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_MASTER_REPOSITORY_PROVIDER</strong></td>
+<td>The name of the master repository provider used in this instance</td>
+<td><em>filesystem</em> or <em>zip</em> or <em>jar</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MASTER_REPOSITORY_ROOT_FOLDER</strong></td>
+<td>The location of the root folder where the master repository artifacts will be loaded from</td>
+<td>default is <strong>'.'</strong></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MASTER_REPOSITORY_ZIP_LOCATION</strong></td>
+<td>The location of the zip file where the master repository artifacts will be loaded from</td>
+<td>e.g. '/User/data/my-repo.zip'</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MASTER_REPOSITORY_JAR_PATH</strong></td>
+<td>The JAR path location of the zip file where the master repository artifacts will be loaded from</td>
+<td>e.g. '/org/dirigible/example/my-repo.zip'</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: The JAR path is absolute inside the class path</p>
+</blockquote>
+<h4 id="repository-search">Repository Search</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_SEARCH_ROOT_FOLDER</strong></td>
+<td>The location of the root folder to be used by the indexing engine</td>
+<td>default is <em>'.'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_SEARCH_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
+<td>Whether the location of the root folder is absolute or context dependent</td>
+<td><em>true</em> or <em>false</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_SEARCH_INDEX_LOCATION</strong></td>
+<td>The sub-folder under the root folder where the index files will be stored</td>
+<td>e.g. 'dirigible/repository/index'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="database">Database</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_PROVIDER</strong></td>
+<td>The name of the database provider which will be used in this instance</td>
+<td><em>local</em> or <em>managed</em> or <em>custom</em> - default is <em>local</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DEFAULT_SET_AUTO_COMMIT</strong></td>
+<td>The <em>AUTO_COMMIT</em> data source parameter</td>
+<td><em>true</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DEFAULT_MAX_CONNECTIONS_COUNT</strong></td>
+<td>The <em>MAX_CONNECTIONS_COUNT</em> data source parameter</td>
+<td><em>8</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DEFAULT_WAIT_TIMEOUT</strong></td>
+<td>The <em>WAIT_TIMEOUT</em> data source parameter</td>
+<td><em>500</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT</strong></td>
+<td>The <em>WAIT_COUNT</em> data source parameter</td>
+<td><em>5</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES</strong></td>
+<td>The list of the custom data sources names used in this instance</td>
+<td>default is <em>''</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT</strong></td>
+<td>The name of the primary data source used in this instance</td>
+<td>default is <em>'DefaultDB'</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE</strong></td>
+<td>The names of the tables, views and columns to be considered as case sensitive</td>
+<td>default is <em>false</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database-custom">Database - Custom</h4>
+<blockquote>
+<p>Note: Replace <em>CUSTOME_NAME</em> with the actual name set by <em>DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES</em> e.g. POSTGRES_DRIVER</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CUSTOM_NAME_DRIVER</strong></td>
+<td>The <em>Driver</em> name of the custom datasource</td>
+<td><em>e.g. org.postgresql.Driver</em></td>
+</tr>
+<tr>
+<td><strong>CUSTOM_NAME_URL</strong></td>
+<td>The <em>URL</em> of the custom datasource</td>
+<td><em>e.g. jdbc:postgresql://localhost:5432/<database-name></em></td>
+</tr>
+<tr>
+<td><strong>CUSTOM_NAME_USERNAME</strong></td>
+<td>The <em>User Name</em> of the custom datasource</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>CUSTOM_NAME_PASSWORD</strong></td>
+<td>The <em>Password</em> of the custom datasource</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>CUSTOM_NAME_CONNECTION_PROPERTIES</strong></td>
+<td>The additional connection properties if any</td>
+<td><em>-</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database-derby">Database Derby</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_DERBY_ROOT_FOLDER_DEFAULT</strong></td>
+<td>The location used by Derby database</td>
+<td>default is <em>./target/dirigible/derby</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database-h2">Database H2</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_H2_ROOT_FOLDER_DEFAULT</strong></td>
+<td>The location used by H2 database</td>
+<td>default is: <em>./target/dirigible/h2</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_H2_DRIVER</strong></td>
+<td>The Driver used by H2 database</td>
+<td>default is: <em>org.h2.Driver</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_H2_URL</strong></td>
+<td>The URL used by H2 database</td>
+<td>default is <em>jdbc:h2:./target/dirigible/h2</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_H2_USERNAME</strong></td>
+<td>The Username used by H2 database</td>
+<td>default is <em>sa</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATABASE_H2_PASSWORD</strong></td>
+<td>The Password used by H2 database</td>
+<td>default is <em>empty</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="persistence">Persistence</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_PERSISTENCE_CREATE_TABLE_ON_USE</strong></td>
+<td>Whether the table to be created automatically on use if it does not exist</td>
+<td>default is <em>true</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="mongodb">MongoDB</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_MONGODB_CLIENT_URI</strong></td>
+<td>The location used by MongoDB server</td>
+<td>default is: <em>mongodb://localhost:27017</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MONGODB_DATABASE_DEFAULT</strong></td>
+<td>The default database name</td>
+<td>default is: <em>db</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="scheduler">Scheduler</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_MEMORY_STORE</strong></td>
+<td>Whether Quartz to use in-memory job store</td>
+<td>default is null</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE</strong></td>
+<td>The type of the custom data-source used by Quartz, if not the default one</td>
+<td>default is null</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME</strong></td>
+<td>The name of the custom data-source used by Quartz, if not the default one</td>
+<td>default is null</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE</strong></td>
+<td>The name of the JDBC delegate used by Quartz, if not the default one</td>
+<td>(default: org.quartz.impl.jdbcjobstore.StdJDBCDelegate)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>org.quartz.impl.jdbcjobstore.StdJDBCDelegate (for fully JDBC-compliant drivers)</li>
+<li>org.quartz.impl.jdbcjobstore.MSSQLDelegate (for Microsoft SQL Server, and Sybase)</li>
+<li>org.quartz.impl.jdbcjobstore.PostgreSQLDelegate</li>
+<li>org.quartz.impl.jdbcjobstore.WebLogicDelegate (for WebLogic drivers)</li>
+<li>org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</li>
+<li>org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)</li>
+<li>org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)</li>
+<li>org.quartz.impl.jdbcjobstore.CloudscapeDelegate</li>
+<li>org.quartz.impl.jdbcjobstore.DB2v6Delegate</li>
+<li>org.quartz.impl.jdbcjobstore.DB2v7Delegate</li>
+<li>org.quartz.impl.jdbcjobstore.DB2v8Delegate</li>
+<li>org.quartz.impl.jdbcjobstore.HSQLDBDelegate</li>
+<li>org.quartz.impl.jdbcjobstore.PointbaseDelegate</li>
+<li>org.quartz.impl.jdbcjobstore.SybaseDelegate</li>
+</ul>
+<h3 id="job-expression">Job Expression</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_BPM</strong></td>
+<td>BPM synchronizer job config</td>
+<td>0/30 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_DATA_STRUCTURES</strong></td>
+<td>Data structures job synchronizer config</td>
+<td>0/20 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_EXTENSIONS</strong></td>
+<td>Extension synchronizer job config</td>
+<td>0/10 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_JOBS</strong></td>
+<td>Jobs synchronizer job config</td>
+<td>0/15 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_MESSAGING</strong></td>
+<td>Messaging synchronizer job config</td>
+<td>0/10 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_MIGRATIONS</strong></td>
+<td>Migration synchronizer job config</td>
+<td>0/50 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_ODATA</strong></td>
+<td>OData synchronizer job config</td>
+<td>0/25 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_PUBLISHER</strong></td>
+<td>Publisher synchronizer job config</td>
+<td>0/5 * <em> * </em> ?</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_JOB_EXPRESSION_SECURITY</strong></td>
+<td>Security synchronizer job config</td>
+<td>0/10 * <em> * </em> ?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runtime-core">Runtime Core</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_HOME_URL</strong></td>
+<td>The home URL where the user to be redirected on access</td>
+<td>default is <em>/services/v3/web/ide/index.html</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cms">CMS</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_CMS_PROVIDER</strong></td>
+<td>The type of the CMS provider used in this instance</td>
+<td>internal, managed or database - default is <em>internal</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_ROLES_ENABLED</strong></td>
+<td>Whether the RBAC over the CMS content to be enabled</td>
+<td>default is <em>false</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cms-internal">CMS - Internal</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER</strong></td>
+<td>The location of the CMS internal repository</td>
+<td>default is <em>target</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
+<td>Whether the root folder parameter is absolute or not</td>
+<td><em>false</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cms-managed">CMS - Managed</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_CMS_MANAGED_CONFIGURATION_JNDI_NAME</strong></td>
+<td>The JNDI name of the managed CMS repository</td>
+<td>default is <em>java:comp/env/EcmService</em> in case of SAP package</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_MANAGED_CONFIGURATION_AUTH_METHOD</strong></td>
+<td>The authentication method</td>
+<td>key or destination - default is <em>key</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_MANAGED_CONFIGURATION_NAME</strong></td>
+<td>The name of the repository</td>
+<td>e.g. cmis:dirigible</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_MANAGED_CONFIGURATION_KEY</strong></td>
+<td>The key of the repository</td>
+<td>e.g. cmis:dirigible:key</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_MANAGED_CONFIGURATION_DESTINATION</strong></td>
+<td>The name of the destination where the name and the key for the repository are stored</td>
+<td>e.g. CMIS_DESTINATION</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CONNECTIVITY_CONFIGURATION_JNDI_NAME</strong></td>
+<td>The JNDI name of the connectivity configuration serivce</td>
+<td>default is <em>java:comp/env/connectivity/Configuration</em> in case of SAP package</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cms-database">CMS Database</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_CMS_DATABASE_DATASOURCE_TYPE</strong></td>
+<td>Type of the database for CMS repository</td>
+<td>local, managed, custom, dynamic</td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_DATABASE_DATASOURCE_NAME</strong></td>
+<td>The datasource name</td>
+<td>default is <em>DefaultDB</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bpm">BPM</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_BPM_PROVIDER</strong></td>
+<td>The provider of the BPM engine</td>
+<td>internal, managed, remote; default is <em>internal</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="bpm-flowable">BPM - Flowable</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_DRIVER</strong></td>
+<td>The driver of the Flowable engine</td>
+<td><em>e.g. org.postgresql.Driver</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_URL</strong></td>
+<td>The URL of the Flowable engine</td>
+<td><em>e.g. jdbc:postgresql://localhost:5432/<database-name></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_USER</strong></td>
+<td>The user of the Flowable engine</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_PASSWORD</strong></td>
+<td>The driver of the Flowable engine</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_DATASOURCE_NAME</strong></td>
+<td>The datasource name of the Flowable engine, if any configured</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_DATABASE_SCHEMA_UPDATE</strong></td>
+<td>Whether to materialize the database layout or not</td>
+<td>default is: <em>true</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE</strong></td>
+<td>Whether to use the DefaultDB datasource or built-in H2</td>
+<td><em>true</em> (DefaultDB) or <em>false</em> (H2) default is <em>true</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mail">Mail</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_USERNAME</strong></td>
+<td>Mailbox username</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_PASSWORD</strong></td>
+<td>Mailbox password</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_TRANSPORT_PROTOCOL</strong></td>
+<td>Mail transport protocol</td>
+<td>default is <em>smtps</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTPS_HOST</strong></td>
+<td>Mailbox SMTPS host</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTPS_PORT</strong></td>
+<td>Mailbox SMTPS port</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTPS_AUTH</strong></td>
+<td>Enable/disable mailbox SMTPS authentication</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTP_HOST</strong></td>
+<td>Mailbox SMTP host</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTP_PORT</strong></td>
+<td>Mailbox SMTP port</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MAIL_SMTP_AUTH</strong></td>
+<td>Enable/disable mailbox SMTP authentication</td>
+<td><em>-</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="messaging">Messaging</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE</strong></td>
+<td>Whether to use the DefaultDB datasource or built-in KahaDB</td>
+<td><em>true</em> (DefaultDB) or <em>false</em> (KahaDB) default is <em>true</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="kafka">Kafka</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_BOOTSTRAP_SERVER</strong></td>
+<td>The Kafka server location</td>
+<td><em>localhost:9092</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_ACKS</strong></td>
+<td>The number of brokers that must receive the record before considering the write as successful</td>
+<td><em>all</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_KEY_SERIALIZER</strong></td>
+<td>The Key serializer</td>
+<td><em>org.apache.kafka.common.serialization.StringSerializer</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_VALUE_SERIALIZER</strong></td>
+<td>The Value serializer</td>
+<td><em>org.apache.kafka.common.serialization.StringSerializer</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_AUTOCOMMIT_ENABLED</strong></td>
+<td>Whether Auto Commit is enabled</td>
+<td><em>true</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KAFKA_AUTOCOMMIT_INTERVAL</strong></td>
+<td>Auto Commit interval in ms</td>
+<td><em>1000</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="engines">Engines</h3>
+<hr />
+<h4 id="javascript">JavaScript</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_JAVASCRIPT_ENGINE_TYPE_DEFAULT</strong></td>
+<td>The type of the JavaScript engine provider used in this instance</td>
+<td>graalvm, rhino, nashorn or v8 - default is <em>graalvm</em> since 5.0</td>
+</tr>
+<tr>
+<td><strong>DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT</strong></td>
+<td>The GraalVM debugger port</td>
+<td>default is <em>8081</em> and <em>0.0.0.0:8081</em> in Docker environment</td>
+</tr>
+</tbody>
+</table>
+<h3 id="operations">Operations</h3>
+<hr />
+<h4 id="logs">Logs</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT</strong></td>
+<td>The folder where the log files are stored in</td>
+<td>default is <strong>../logs</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="look-feel">Look &amp; Feel</h3>
+<hr />
+<h4 id="theme">Theme</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_THEME_DEFAULT</strong></td>
+<td>The name of the default name</td>
+<td>default is <strong>Default</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="destinations">Destinations</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_DESTINATIONS_PROVIDER</strong></td>
+<td>The name of the Destinations Service provider used in this instance</td>
+<td><em>local</em> or <em>managed</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER</strong></td>
+<td>The location of the Destinations internal repository</td>
+<td>default is <em>target</em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
+<td>Whether the root folder parameter is absolute or not</td>
+<td><em>false</em></td>
+</tr>
+</tbody>
+</table>
+<p>The source is <a href="https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/README.md">here</a></p>
                 
                   
                 
