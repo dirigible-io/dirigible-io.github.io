@@ -1,326 +1,322 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/devops/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/getting_started/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/artifacts/artifacts/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/artifacts/artifacts_data_files/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/artifacts/artifacts_database_table/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_dynamic_applications/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_entity_service/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_extensions/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_generation/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_mobile_apps/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_publishing/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_registry/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_repository/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_rest/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_web_content/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/concepts/concepts_workspace/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_editor_ace/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_editor_monaco/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_editor_orion/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_form_designer/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_modeler_bpmn/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_modeler_database_schema/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_modeler_entity_data/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_database/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_debugger/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_documents/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_git/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_operations/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_repository/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_terminal/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_perspective_workbench/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_access/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_breakpoints/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_console/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_database/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_datastructures/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_debugger/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_documents/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_extensions/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_git/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_import/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_jobs/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_listeners/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_logs/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_preview/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_registry/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_repository/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_roles/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_search/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_snapshot/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_sql/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_terminal/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_variables/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/development/ide/ide_view_workspace/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/architecture/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/credits/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/editorsandmodelers/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/engines/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/faq/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/features/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/license/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/project/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/services/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_editor/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_perspective/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_template/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extension_view/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/overview/extensions/extensions/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/_environment-variables/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/cloud-foundry/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/docker/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/kubernetes/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/tomcat-hana/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/tomcat-mysql/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/tomcat-postgresql/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>None</loc>
-     <lastmod>2021-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>None</loc>
+     <loc>https://thuf.github.io/dirigible-io.github.io/api/setup/tomcat/tomcat-sybase/</loc>
      <lastmod>2021-01-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
