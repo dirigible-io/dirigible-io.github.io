@@ -19,5 +19,3 @@ Engines
 - [Javascript Rhino](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-rhino) - a Javascript module based on the [Mozilla Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) engine.
 - [Javascript Nashorn](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-nashorn) - a Javascript module based on the built-in Java [Nashorn](http://www.oracle.com/technetwork/articles/java/jf14-nashorn-2126515.html) engine.
 - [Javascript V8](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-v8) - a Javascript module based on the [Chrome V8](https://developers.google.com/v8/) engine.
-
-The source is [here](https://github.com/eclipse/dirigible/wiki/engines-v3-list)

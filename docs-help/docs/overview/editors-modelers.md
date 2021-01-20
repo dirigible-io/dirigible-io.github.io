@@ -10,7 +10,7 @@ Editors & Modelers
 - [Monaco](https://microsoft.github.io/monaco-editor/) - the editor that powers [VS Code](https://github.com/Microsoft/vscode).
 
 ### Modelers List
-- [Entity Data Modeler](ide_modeler_entity_data.html) - design a domain model.
-- [Database Schema Modeler](ide_modeler_database_schema.html) - desing a database schema.
-- [BPMN Modeler](ide_modeler_bpmn.html) - design a business process.
-- [Form Designer](ide_form_designer.html) - design a Web form. 
+- [Entity Data Modeler](../../development/ide/modelers/entity-data) - design a domain model.
+- [Database Schema Modeler](../../development/ide/modelers/database-schema) - desing a database schema.
+- [BPMN Modeler](../../development/ide/modelers/bpmn) - design a business process.
+- [Form Designer](../../development/ide/modelers/form-designer) - design a Web form. 

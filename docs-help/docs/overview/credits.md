@@ -9,6 +9,7 @@ Credits and Special Thanks
 
 We would like to say a big _**THANK YOU!**_ to all the open source projects that we use as components of our platform:
 
+* [GraalJS](https://github.com/oracle/graaljs)
 * [Rhino](https://developer.mozilla.org/en-US/docs/Rhino_documentation)
 * [Eclipse Equinox](http://www.eclipse.org/equinox/)
 * [Eclipse OSGi](http://www.eclipse.org/osgi/)

@@ -13,141 +13,40 @@ Browse the help portal to get up-to-date information about the features, life-cy
 General Overview
 ---
 
-* [Project](project.html)
-* [Getting Started](getting_started.html)
-* [Architecture](architecture.html)
+* [Project](overview)
+* [Getting Started](development/)
+* [Features](overview/features)
+* [Architecture](overview/architecture)
 * [API](../api/)
-* [License](license.html)
-* [Credits](credits.html)
+* [License](overview/license)
+* [Credits](overview/credits)
 
 
 Concepts
 ---
 
-* [Overview](concepts.html)
-  * [Dynamic Applications](concepts_dynamic_applications.html)
-  * [Repository](concepts_repository.html)
-  * [Workspace](concepts_workspace.html)
-  * [Publishing](concepts_publishing.html)
-  * [Generation](concepts_generation.html)
-  * [Entity Service](concepts_entity_service.html)
-  * [Modeling](editorsandmodelers.html)
-  * [REST Framework](concepts_rest.html)
-  * [Web Content](concepts_web_content.html)
-  * [Mobile Apps](https://tabris.com/)
-  * [Extensions](concepts_extensions.html)
+* [Overview](development/concepts)
+  * [Dynamic Applications](development/concepts/dynamic-applications)
+  * [Repository](development/concepts/repository)
+  * [Workspace](development/concepts/workspace)
+  * [Publishing](development/concepts/publishing)
+  * [Generation](development/concepts/generation)
+  * [Entity Service](development/concepts/entity-service)
+  * [Modeling](overview/editors-modelers)
+  * [REST Framework](development/concepts/rest)
+  * [Web Content](development/concepts/web-content)
+  * [Mobile Apps](development/concepts/mobile-apps)
+  * [Extensions](development/concepts/extensions)
 
 Setup
 ---
 
-* Setup on Tomcat
-  * [Setup on Tomcat (Basics)](setup_tomcat.html)
-  * [Setup on Tomcat with PostgreSQL](setup_tomcat_postgresql.html)
-  * [Setup on Tomcat with MySQL](setup_tomcat_mysql.html)
-  * [Setup on Tomcat with Sybase ASE](setup_tomcat_sybase.html)
-  * [Setup on Tomcat with HANA](setup_tomcat_hana.html)
-* [Setup as a Docker Image](setup_docker.html)
-* [Setup on Kubernetes](setup_kubernetes.html)
-* Setup on SAP Cloud Platform
-  * [Setup in the Neo Environment](setup_sapcp.html)
-  * [Setup in the Cloud Foundry Environment](setup_cloudfoundry.html)
-* [Environment Variables](setup_environment_variables.html)
+* [Setup in Tomcat](setup/)
+* [Setup as a Docker Image](setup/docker)
+* [Setup in Kubernetes](setup/kubernetes)
+* [Setup in Cloud Foundry](setup/cloud-foundry)
+* [Environment Variables](setup/setup-environment-variables)
 
-Features
----
-
-* [Overview](features.html)
-
-Development & Operations
----
-
-* [Web IDE](ide.html)
-  * [Workbench](ide_perspective_workbench.html)
-  * [Git](ide_perspective_git.html)
-  * [Database](ide_perspective_database.html)
-  * [Repository](ide_perspective_repository.html) 
-  * [Terminal](ide_perspective_terminal.html)
-  * [Debugger](ide_perspective_debugger.html)
-  * [Documents](ide_perspective_documents.html)
-  * [Operations and Monitoring](ide_perspective_operations.html)
-* **Views**: 
-  * [Snapshot](ide_view_snapshot.html)
-  * [Debugger](ide_view_debugger.html)
-  * [Roles](ide_view_roles.html)
-  * [Jobs](ide_view_jobs.html)
-  * [Documents](ide_view_documents.html)
-  * [Git](ide_view_git.html)
-  * [Preview](ide_view_preview.html)
-  * [Workspace](ide_view_workspace.html)
-  * [SQL](ide_view_sql.html)
-  * [ExtensionPoints](ide_view_extensionpoints.html)
-  * [Terminal](ide_view_terminal.html)
-  * [Variables](ide_view_variables.html)
-  * [Breakpoints](ide_view_breakpoints.html)
-  * [Console](ide_view_console.html)
-  * [Logs](ide_view_logs.html)
-  * [DataStructures](ide_view_datastructures.html)
-  * [Access](ide_view_access.html)
-  * [Listeners](ide_view_listeners.html)
-  * [Database](ide_view_database.html)
-  * [Search](ide_view_search.html)
-  * [Import](ide_view_import.html)
-  * [Registry](ide_view_registry.html)
-  * [Repository](ide_view_repository.html)
-* [Artifacts](artifacts.html)
-* [Engines](engines.html)
-* [Services](services.html)
-* [Editors & Modelers](editorsandmodelers.html)
-
-
-Extensions
----
-
-
-* [How does it work?](concepts_extensions.html)
-* Extension Points:
-  * [ide-perspective](extension_perspective.html)
-  * [ide-view](extension_view.html)
-  * [ide-editor](extension_editor.html)
-  * [ide-template](extension_template.html)
-  * ide-menu
-  * ide-themes
-  * ide-workspace-menu-new-template
-  * api-modules
-  * ide-operations-menu
-  * ide-documents-content-type
-  * ide-documents-menu
-  * ide-git-menu
-  * ide-terminal-menu
-  * ide-discussions-menu
-  * ide-database-menu
-  * ide-repository-menu
-* Events
-  * editor.file.saved
-  * editor.file.dirty
-  * status.message
-  * status.caret
-  * status.error
-  * database.database.selection.changed
-  * database.datasource.selection.changed
-  * database.sql.execute
-  * database.sql.run
-  * git.repository.run
-  * workspace.file.selected
-  * workspace.file.created
-  * workspace.file.open
-  * workspace.file.pull
-  * workspace.file.deleted
-  * workspace.file.renamed
-  * workspace.file.moved
-  * workspace.file.copied
-  * workspace.file.properties
-  * workspace.file.published
-  * workspace.project.exported
-  * repository.resource.selected
-  * repository.resource.created
-  * repository.resource.open
-  * repository.resource.deleted
 
 Samples
 ---
@@ -156,7 +55,7 @@ Samples
 
 FAQ
 ---
-* [FAQ](faq.html)
+* [FAQ](overview/faq)
 
 
 Updates
@@ -173,19 +72,9 @@ References
 
 - Trial Instance
 [http://trial.dirigible.io](http://trial.dirigible.io)
-[http://dirigible.eclipse.org](http://dirigible.eclipse.org)
 
 - Issues
 [https://github.com/eclipse/dirigible/issues](https://github.com/eclipse/dirigible/issues)
 
 - Mailing List
 [https://dev.eclipse.org/mailman/listinfo/dirigible-dev](https://dev.eclipse.org/mailman/listinfo/dirigible-dev)
-
-
-#### Deprecated:
-
-- Forum
-[https://www.eclipse.org/forums/index.php/m/1688357/](https://www.eclipse.org/forums/index.php/m/1688357/)
-
-- Bugzilla
-[https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible](https://bugs.eclipse.org/bugs/describecomponents.cgi?product=Dirigible)

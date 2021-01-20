@@ -7,7 +7,7 @@ Project
 
 Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines.
 
-The applications created with Eclipse Dirigible comply with the [Dynamic Applications](concepts_dynamic_applications.html) concept and structure.
+The applications created with Eclipse Dirigible comply with the [Dynamic Applications](../development/concepts/dynamic-applications) concept and structure.
 
 The main project goal is to provide all required capabilities needed to develop and run end-to-end vertical applications in the cloud in the shortest time ever. 
 
