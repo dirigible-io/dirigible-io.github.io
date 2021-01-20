@@ -11,8 +11,8 @@ These tutorials will guide you through the processes of installation of Kubernet
 
 ### Setup
 
-* [on Windows](tutorial_zeus_on_windows.html)
-* [on MacOS](tutorial_zeus_on_macos.html)
+* [on Windows](../zeus-on-windows)
+* [on MacOS](../zeus-on-macos)
 
 
 ### Start Minikube 

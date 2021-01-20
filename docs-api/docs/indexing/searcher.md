@@ -5,7 +5,7 @@ title: Indexing Searcher
 Indexing Searcher
 ===
 
-The Indexing Searcher is the object used for free-text or exact periods searches over the added documents with the [Indexing Writer](indexing_writer.html). This version is backed by the [Apache Lucene](http://lucene.apache.org/).
+The Indexing Searcher is the object used for free-text or exact periods searches over the added documents with the [Indexing Writer](../writer). This version is backed by the [Apache Lucene](http://lucene.apache.org/).
 
 === "Overview"
 - Module: `indexing/v4/searcher`

@@ -12,4 +12,4 @@ Mobile application support in Eclipse Dirigible is achieved via [Tabris.js](http
 
 Unlike other frameworks, which use webviews or cross-platform intermediate runtimes, Tabris.js executes the JavaScript directly on the device and renders everything using native widgets. Thanks to the framework capabilities, the developers can focus more on the mobile application development and less on the platform specifics (iOS and Android).
 
-![Mobile App](../../../images/mobile_app.png)
+![Mobile App](../../images/mobile_app.png)

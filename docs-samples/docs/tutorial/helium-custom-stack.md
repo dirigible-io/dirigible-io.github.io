@@ -272,7 +272,7 @@ Then under the **application/target** folder we can find the *ROOT.war* file con
 
 ### Deploy
 
-Now we can use one of the deploy options to setup our application [here](../help/setup.html).
+Now we can use one of the deploy options to setup our application [here](../../help/setup).
 
 ### Test
 

@@ -29,7 +29,7 @@ mail.send(from, to, subject, content, subType);
 response.println("Mail sent");
 
 ```
-> Note: This sample leverages the default mail configuration provided through the [environment variables](../help/setup_environment_variables.html)
+> Note: This sample leverages the default mail configuration provided through the [environment variables](../../help/setup/setup-environment-variables)
 
 ---
 
@@ -72,4 +72,4 @@ response.println("Mail sent");
 
 ---
 
-> For more information, see the *[API](../api/)* documentation.
+> For more information, see the *[API](../../api/)* documentation.

@@ -31,4 +31,4 @@ rs.service()
 
 ---
 
-> For more information, see the *[API](../api/)* documentation and the guide [here](../help/concepts_rest.html).
+> For more information, see the *[API](../../api/)* documentation and the guide [here](../../help/development/concepts/rest).

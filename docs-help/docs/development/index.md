@@ -78,7 +78,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 1. Save the file: ++ctrl+s++ for Windows, ++cmd+s++ for macOS
 1. The output in the `Preview` view changes immediately.
 
-    > This is due to the default configuration of `auto-publish` on `save`. You can find more about this `dynamic` behavior in the concepts section: [Dynamic Applications](concepts_dynamic_applications.html)
+    > This is due to the default configuration of `auto-publish` on `save`. You can find more about this `dynamic` behavior in the concepts section: [Dynamic Applications](concepts/dynamic-applications)
 
 ### References
 
@@ -87,5 +87,5 @@ So far we saw how easy it is to create and modify a RESTful service, but Dirigib
 * You can explore the [samples](../../samples/) section for more scenarios.
 * If you would like to build complex services, you can go to the [API](../../api/) section. 
 * If you are curious what you can do with Eclipse Dirigible apart from writing server-side JavaScript services, you can have a look at the [features](../overview/features/) section.
-* In case you are interested in `modeling` and `generation` with the `Low-Code/No-Code` tooling of Eclipse Dirigible, you can read about [entity data models](concepts_entity_service.html) and [generation](concepts_generation.html).
+* In case you are interested in `modeling` and `generation` with the `Low-Code/No-Code` tooling of Eclipse Dirigible, you can read about [entity data models](concepts/entity-service) and [generation](concepts/generation).
 
