@@ -1562,160 +1562,152 @@
                   <h1>FAQ</h1>
                 
                 <p><em>If you have a question that is not covered here, but it should be, please let us <a href="https://github.com/eclipse/dirigible/issues">know</a>.</em> </p>
-<h3 id="concepts"><strong>Concepts</strong></h3>
-<hr />
-<details>
-<summary><b>Why vertical scenarios? And why with horizontal scaling?</b></summary>
-- Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective<br>
-- All or nothing – partial doesn't count <br>
-- Equal runtime instances based on a single content package for simple and reliable management<br>
+<h2 id="concepts">Concepts</h2>
+<details class="info" open="open"><summary>In-System Development</summary><ul>
+<li><code>In-System Development</code> is a programming model used when you work directly on a <code>live system</code>.</li>
+<li><code>Avoid side-effects</code> of a simulated (local) environment by working on a live system.</li>
+<li><code>Access live data</code> via the same channel which will be used in production.</li>
+<li>All the <code>dependencies</code> and <code>integrations</code> are on place as they will be in production.</li>
+<li>Shortest development <code>turn-around time</code>.</li>
+<li>Short <code>life-cycle</code> management process.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why content-centric with centralized repository?</b></summary>
-- All application artifacts are in a single repository<br>
-- Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository.<br>
-- Simple life-cycle management and transport<br>
-- Workspace, Public Registry separation based on the development life-cycle phases<br>
+<details class="info"><summary>Vertical Scenarios &amp; Horizontal Scaling</summary><ul>
+<li>Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective.</li>
+<li>All or nothing – partial doesn't count.</li>
+<li>Equal runtime instances based on a single content package for simple and reliable management.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why In-System Development?</b></summary>
-- In-System Development is a programming model used when you work directly on a live system<br>
-- Avoid the side-effects of a simulated (local) environment by working on a live system<br>
-- Access to the live data via the same channel which will be used in production<br>
-- All the dependencies and integrations are on place as they will be in production<br>
-- Shortest development turn-around time<br>
-- Short life-cycle management process<br>
+<details class="info"><summary>Content-Centric &amp; Centralized Repository</summary><ul>
+<li>All application artifacts are in a single repository.</li>
+<li>Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository..</li>
+<li>Simple life-cycle management and transport.</li>
+<li>Workspace, Public Registry separation based on the development life-cycle phases.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why dynamic languages?</b></summary>
-- Perfect match to Dynamic Applications - built for change<br>
-- Can interpret (rather than compile) the execution of tasks<br>
-- Existing smooth integration within the web servers<br>
-- No restart required<br>
-- Java is used for the core components of the platform, while JavaScript is for the application business logic (the glue code)<br>
+<details class="info"><summary>Dynamic Languages</summary><ul>
+<li>Perfect match to Dynamic Applications - built for change.</li>
+<li>Can interpret (rather than compile) the execution of tasks.</li>
+<li>Existing smooth integration within the web servers.</li>
+<li>No restart required.</li>
+<li>Java is used for the core components of the platform, while JavaScript is for the application business logic (the glue code).</li>
+</ul>
 </details>
-<details>
-<summary><b>Why injected services?</b></summary>
-- Available out-of-the-box for developers – request, response, datasource, http, CMIS storage, BPMN engine, wiki, indexer, user, etc.<br>
-- <a href="../api/index.html" target="_blank">Standardized API</a> for cloud developers<br>
-- Different language's implementations are possible integrated via the extension point<br>
-- Different provider's implementations can be exposed to developers on their cloud<br>
+<details class="info"><summary>Injected Services</summary><ul>
+<li>Available out-of-the-box for developers – <code>request</code>, <code>response</code>, <code>datasource</code>, <code>http</code>, <code>CMIS storage</code>, <code>BPMN engine</code>, <code>wiki</code>, <code>indexer</code>, <code>user</code>, etc.</li>
+<li><a href="../../../api/">Standardized API</a> for cloud developers.</li>
+<li>Different language's implementations are possible integrated via the extension point.</li>
+<li>Different provider's implementations can be exposed to developers on their cloud.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why integration services are part of the core?</b></summary>
-- Cloud applications usually are extensions to a packaged software (on-premise or on-demand)<br>
-- Re-use of 3-thd party services is very often in this context<br>
-- Replication use-case - major scenario for on-premise to on-demand cross-platform applications <br>
-- Scheduled jobs as asynchronous activities usually needed<br>
-- Semantic separation of integration and orchestration services from the other general purpose services<br>
+<details class="info"><summary>Integration Services</summary><p>Why integration services are part of the core?</p>
+<ul>
+<li>Cloud applications usually are extensions to a packaged software (on-premise or on-demand).</li>
+<li>Re-use of 3-thd party services is very often in this context.</li>
+<li>Replication use-case - major scenario for on-premise to on-demand cross-platform applications.</li>
+<li>Scheduled jobs as asynchronous activities usually needed.</li>
+<li>Semantic separation of integration and orchestration services from the other general purpose services.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why is the extensibility important and for whom?</b></summary>
-- Software vendor's code vs customer's specific extension's code<br>
-- Update and Upgrade issues<br>
-- Business agility depends on the process change -ability<br>
-- Bilateral extension-points and extensions descriptors<br>
+<details class="info"><summary>Extensibility</summary><p>Why is the extensibility important and for whom?</p>
+<ul>
+<li>Software vendor's code vs customer's specific extension's code.</li>
+<li>Update and Upgrade issues.</li>
+<li>Business agility depends on the process change -ability.</li>
+<li>Bilateral extension-points and extensions descriptors.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why it looks like Eclipse in a web browser? Why not more webby style?</b></summary>
-- Lower barrier for Eclipse developers<br>
-- Overall experience comfortable for developers proven for years from on-premise tools<br>
-- Using of Resource like API and concepts<br>
-- There are some themes you can choose from the menu for more "webby" look and feel<br>
+<details class="info"><summary>Web IDE</summary><p>Why it looks like Eclipse in a web browser? Why not more webby style?</p>
+<ul>
+<li>Lower barrier for Eclipse developers.</li>
+<li>Overall experience comfortable for developers proven for years from on-premise tools.</li>
+<li>Using of Resource like API and concepts.</li>
+<li>There are some themes you can choose from the menu for more "webby" look and feel.</li>
+</ul>
 </details>
-
-<h3 id="decisions"><strong>Decisions</strong></h3>
-<hr />
-<details>
-<summary><b>Why moved from RAP to Angular, Bootstrap, GoldenLayout web frameworks?</b></summary>
-<a href="http://eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:<br>
-- RAP is a mature framework and depends on a reliable API, but not so attractive for pure web developers (HTML, JavaScript, etc.)<br>
-- RAP is a stable framework with great support, but also it could be said for Angular 1.x and Bootstrap 3.x<br>
-- RAP rely on the standard modularization – OSGi, plugins, but comes with the complexity of Maven, Tycho, OSGi, Orbit, etc. integration<br>
-- In RAP developers can write mostly in pure Java with all the benefits it brings by itself, but for web developers it turns out it is not a benefit, but a drawback<br>
-- In RAP one can have a single sourcing components - reuse of existing functionality written as Eclipse plugins, which has never happen in the reality<br>
-- RAP has possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component, but it is much more complex than pure web coding<br>
+<h2 id="decisions">Decisions</h2>
+<details class="important" open="open"><summary>GraalJS</summary><p>Why <a href="https://www.graalvm.org/reference-manual/js/">GraalJS</a>? What about Rhino, Nashorn and V8?</p>
+<ul>
+<li>Mature engine with the best performance.</li>
+<li>Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules.</li>
+<li>Built-in debugger with simple API.</li>
+<li>Possibility to invoke standard Java objects directly, which is not recommended of course.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why Rhino? What about Nashorn and V8?</b></summary>
-<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a> is JavaScript engine written in Java. We use it as default scripting engine because:<br>
-- Mature and stable framework<br>
-- Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules<br>
-- Built-in debugger with simple API<br>
-- Possibility to invoke standard Java objects directly, which is not recommended of course<br>
-- Nashorn and V8 are also supported in v3 API set and above<br>
+<details class="important"><summary>Angular, Bootstrap &amp; GoldenLayout</summary><p>Why moved from RAP to Angular, Bootstrap, GoldenLayout web frameworks?</p>
+<p><a href="https://www.eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:</p>
+<ul>
+<li>RAP is a mature framework and depends on a reliable API, but not so attractive for pure web developers (HTML, JavaScript, etc.).</li>
+<li>RAP is a stable framework with great support, but also it could be said for Angular 1.x and Bootstrap 3.x<br></li>
+<li>RAP rely on the standard modularization – OSGi, plugins, but comes with the complexity of Maven, Tycho, OSGi, Orbit, etc. integration.</li>
+<li>In RAP developers can write mostly in pure Java with all the benefits it brings by itself, but for web developers it turns out it is not a benefit, but a drawback.</li>
+<li>In RAP one can have a single sourcing components - reuse of existing functionality written as Eclipse plugins, which has never happen in the reality.</li>
+<li>RAP has possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component, but it is much more complex than pure web coding.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why JSON for models?</b></summary>
-<a href="http://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models. For us it is:<br>
-- Simple enough and human readable/writable<br>
-- Support by mature frameworks for parsing/serializing<br>
-- Quite popular and proved in web applications context<br>
+<details class="important"><summary>JSON Models</summary><p>Why JSON for models?</p>
+<ul>
+<li><a href="https://www.json.org/">JSON</a> is very simple data exchange format. We have chosen it for the standard format for all the models.</li>
+<li>Simple enough and human readable/writable.</li>
+<li>Support by mature frameworks for parsing/serializing.</li>
+<li>Quite popular and proved in web applications context.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why flat data models?</b></summary>
-- Proved by many business applications for years<br>
-- Straight forward implementation on relational-database<br>
-- Easy to be understood and used by the developers<br>
-- Tools for it are also simple and easy to use<br>
+<details class="important"><summary>Flat Data Models</summary><p>Why flat data models?</p>
+<ul>
+<li>Proved by many business applications for years.</li>
+<li>Straight forward implementation on relational-database.</li>
+<li>Easy to be understood and used by the developers.</li>
+<li>Tools for it are also simple and easy to use.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why REST instead of server-side generation?</b></summary>
-We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0. For us the strong difference is:<br>
-- Clean separation of the data services from the user interface<br>
-- Independent development of both including easy mocking<br>
-- Possibility of reuse and/or composition of services in different user interfaces<br>
-- Possibility of UI-less integration if needed<br>
-- Better operations and support<br>
+<details class="important"><summary>REST</summary><p>Why REST instead of server-side generation?</p>
+<ul>
+<li>We leverage the use of REST paradigm for the cloud applications created with the toolkit. There are quite enough reasons for these already well described in blogs related to Web 2.0.</li>
+<li>Clean separation of the data services from the user interface.</li>
+<li>Independent development of both including easy mocking.</li>
+<li>Possibility of reuse and/or composition of services in different user interfaces.</li>
+<li>Possibility of UI-less integration if needed.</li>
+<li>Better operations and support.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why Publish?</b></summary>
-- Developers can work safely on multiple workspaces
-- "Publish" transfers the artifacts to the central registry space for public use<br>
+<details class="important"><summary>Publish</summary><p>Why Publish?</p>
+<ul>
+<li>Developers can work safely on multiple workspaces.</li>
+<li>"Publish" transfers the artifacts to the central registry space for public use.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why one-time-generation?</b></summary>
-- It is enough to boost productivity in some cases<br>
-- MDA is also supported via Entity Data Modeler<br>
+<details class="important"><summary>One-Time-Generation</summary><p>Why one-time-generation?</p>
+<ul>
+<li>It is enough to boost productivity in some cases.</li>
+<li>MDA is also supported via Entity Data Modeler.</li>
+</ul>
 </details>
-<details>
-<summary><b>Why not OSGi?</b></summary>
- - OSGi is the only real modularization framework for Java, but comes with much more complexity than needed for our case<br>
- - We moved from OSGi to build only simple Maven dependency management with Java Services and Guice for runtime injections for the backend<br>
+<details class="important"><summary>No OSGi</summary><ul>
+<li>OSGi is the only real modularization framework for Java, but comes with much more complexity than needed for our case.</li>
+<li>We moved from OSGi to build only simple Maven dependency management with Java Services and Guice for runtime injections for the backend.</li>
+</ul>
 </details>
-
-<h3 id="how-to"><strong>How to</strong></h3>
-<hr />
-<details>
-<summary><b>How to integrate my dynamic language?</b></summary>
- - There is an Engine API which can be implemented, as well as a REST service which can execute the code<br>
-Please, contact us if you plan such an integration<br>
+<h2 id="how-to">How to</h2>
+<details class="question" open="open"><summary>How to build my own Dirigible?</summary><p>It is a standard Maven based project, so:</p>
+<div class="highlight"><pre><span></span><code>git clone
+cd dirigible
+mvn clean install
+</code></pre></div>
+<p>should work.</p>
 </details>
-<details>
-<summary><b>How to integrate my Java based framework?</b></summary>
- - It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the WAR or the executable JAR files.<br>
+<details class="question"><summary>How to add my own templates?</summary><p>It is quite easy - create a project with layout similar to ones from <a href="https://github.com/dirigiblelabs?utf8=%E2%9C%93&amp;q=template-v3&amp;type=&amp;language=">DirigibleLabs</a> </p>
 </details>
-<details>
-<summary><b>How to register my injected service?</b></summary>
- Once you make the your core framework available as a Maven module packaged into your WAR file, you can implement your own [Enterprise JavaScript API](../api/index.html) facade.
+<details class="question"><summary>How to integrate my Java framework?</summary><p>It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the WAR or the executable JAR files.</p>
 </details>
-<details>
-<summary><b>How to integrate my non-Java framework?</b></summary>
- It depends on the particular framework. Usually, it is via the "Command" feature. Please, contact us in case of interest.
+<details class="question"><summary>How to register my <em>Enterprise JavaScript API</em>?</summary><p>Once you make the your core framework available as a Maven module packaged into your WAR file, you can implement your own <a href="../../../api/">Enterprise JavaScript API</a> facade.</p>
 </details>
-<details>
-<summary><b>How to add my own templates?</b></summary>
- It is quite easy - create a project with layout similar to ones from <a href="https://github.com/dirigiblelabs?utf8=%E2%9C%93&q=template-v3&type=&language=" target="_blank">DirigibleLabs</a> 
+<details class="question"><summary>How to integrate my non-Java framework?</summary><p>It depends on the particular framework. Usually, it is via the <code>Command</code> feature. Please, contact us in case of interest.</p>
 </details>
-<details>
-<summary><b>How to build my own Dirigible?</b></summary>
- It is a standard Maven based project, so:<br>
-<pre>
-> git clone
-> cd dirigible
-> mvn clean install
-</pre>
-should work.<br>
+<details class="question"><summary>How to integrate my dynamic language?</summary><p>There is an Engine API which can be implemented, as well as a REST service which can execute the code.</p>
+<blockquote>
+<p><img alt="⚠️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/26a0.png" title=":warning:" /> <em>Please, contact us if you plan such an integration.</em></p>
+</blockquote>
 </details>
                 
                   
