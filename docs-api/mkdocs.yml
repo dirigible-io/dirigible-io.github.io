@@ -17,6 +17,8 @@ markdown_extensions:
     - pymdownx.tabbed
     - pymdownx.emoji
     - meta
+    - admonition
+    - pymdownx.details
 
 repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
