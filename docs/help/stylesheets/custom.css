@@ -1,4 +1,56 @@
-:root {
-    --md-primary-fg-color:        rgba(45, 45, 45, 0.98);
-  }
-  
+.md-header {
+  background-color: rgba(45, 45, 45, 0.98);
+}
+
+.md-tabs {
+  background-color: rgba(45, 45, 45, 0.98);
+}
+
+.md-footer-copyright {
+  width: 50%;
+}
+
+.md-typeset a {
+  color: #2b7bb9;
+}
+
+.md-typeset a:focus, .md-typeset a:hover {
+  color: #0091ff;
+}
+
+.md-nav__item .md-nav__link--active {
+  color: #2b7bb9;
+}
+
+.md-nav__link:focus, .md-nav__link:hover {
+  color: #3592d8;
+}
+
+.md-search-result mark {
+  color: #2b7bb9;
+}
+
+.md-search-result__link:focus, .md-search-result__link:hover {
+  background-color: #469bdc22;
+}
+
+.md-search-result__more summary {
+  color: #2b7bb9;
+}
+
+.md-search-result__more summary:focus, .md-search-result__more summary:hover {
+  background-color: #469bdc22;
+}
+
+.md-search-result__more summary:focus, .md-search-result__more summary:hover {
+  color: #3592d8;
+}
+
+.md-typeset .tabbed-set>input:checked+label {
+  color: #2b7bb9;
+  border-color: #2b7bb9;
+}
+
+.md-typeset .tabbed-set>label:hover {
+  color: #3592d8;
+}
