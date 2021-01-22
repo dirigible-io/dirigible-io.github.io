@@ -3,9 +3,9 @@ theme:
   name: mkdocs
   features:
     - navigation.instant
-  palette:
-    scheme: default
-    primary: blue
+
+extra_css:
+  - stylesheets/custom.css
 
 markdown_extensions:
     - pymdownx.snippets
