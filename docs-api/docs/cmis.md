@@ -1,6 +1,5 @@
 ---
 title: CMIS
-disqus: dirigible
 ---
 
 CMIS

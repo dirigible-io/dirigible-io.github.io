@@ -1,6 +1,5 @@
 ---
 title: Console
-disqus: dirigible
 ---
 
 Console

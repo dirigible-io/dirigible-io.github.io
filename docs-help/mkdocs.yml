@@ -27,13 +27,6 @@ repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
 edit_uri: ../../ThuF/dirigible-io.github.io/edit/master/docs-help/docs
 
-########################
-# Needed only for disqus
-site_url: https://thuf.github.io/dirigible-io.github.io/api/
-extra:
-  disqus: dirigible
-########################
-
 copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
 extra:
   social:
