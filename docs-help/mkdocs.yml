@@ -1,4 +1,5 @@
 site_name: Eclipse Dirigible Help
+site_url: https://www.dirigible.io/help/
 theme:
   favicon: ../img/favicon.png
   logo: ../img/logo/dirigible-logo.png
