@@ -6,6 +6,14 @@
   background-color: rgba(45, 45, 45, 0.98);
 }
 
+md-nav__title {
+  background-color: rgba(45, 45, 45, 0.98);
+}
+
+md-nav__source {
+  background-color: rgba(45, 45, 45, 0.98);
+}
+
 .md-footer-copyright {
   width: 50%;
 }
@@ -53,4 +61,7 @@
 
 .md-typeset .tabbed-set>label:hover {
   color: #3592d8;
+}
+md-nav__link md-nav__link--active {
+  color: #2b7bb9;
 }
