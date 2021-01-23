@@ -1,0 +1,137 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: auth
+spec:
+  serviceName: postgres-jdbc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: postgres
+          image: postgres
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: root
+              mountPath: /var/lib/postgresql/data
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            # The name of the PostgreSQL user, that will be used from the Keycloak
+            - name: POSTGRES_USER
+              value: keycloak
+            # The password for the PostgreSQL user, that will be used from the Keycloak
+            - name: POSTGRES_PASSWORD
+              value: keycloak
+      serviceAccountName: service-account
+  volumeClaimTemplates:
+    - metadata:
+        name: root
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-jdbc
+  namespace: auth
+  labels:
+    app: postgres
+spec:
+  ports:
+  - port: 5432
+  type: ClusterIP
+  selector:
+    app: postgres
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: auth
+  labels:
+    app: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      containers:
+      - name: keycloak
+        image: jboss/keycloak
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PROXY_ADDRESS_FORWARDING
+          value: "true"
+        - name: DB_VENDOR
+          value: "postgres"
+        # The PostgreSQL user
+        - name: DB_USER
+          value: "keycloak"
+        # The PostgreSQL user's password
+        - name: DB_PASSWORD
+          value: "keycloak"
+        # The PostgreSQL database address: "<postgres-service-name>"."<namespace>"
+        - name: DB_ADDR
+          value: "postgres-jdbc.auth"
+        # The Keycloak user, which will be used for the Keycloak "Admin Console"
+        - name: KEYCLOAK_USER
+          value: "admin"
+        # The Keycloak user's password
+        - name: KEYCLOAK_PASSWORD
+          value: "admin"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+  namespace: auth
+  labels:
+    app: keycloak
+spec:
+  ports:
+  - port: 8080
+  type: ClusterIP
+  selector:
+    app: keycloak
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: "nginx"
+  name: keycloak
+  namespace: auth
+spec:
+  tls:
+  # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+  - hosts:
+    - keycloak.<your-domain-name>
+    secretName: keycloak-production-letsencrypt
+  rules:
+    # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+    - host: keycloak.<your-domain-name>
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: keycloak
+              servicePort: 8080

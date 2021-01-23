@@ -1,0 +1,66 @@
+name: CI
+on:
+  push:
+    branches: 
+      - master
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip')"
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        token: ${{secrets.GH_TOKEN}}
+    - name: Build the site with squidfunk/mkdocs-material container
+      run: |
+        docker pull squidfunk/mkdocs-material
+
+        # Build
+        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
+
+        # Copy build output
+        rm -r docs/*
+        mkdir docs/api/
+        mkdir docs/help/
+        mkdir docs/samples/
+        cp -a docs-api/site/. docs/api/
+        cp -a docs-help/site/. docs/help/
+        cp -a docs-samples/site/. docs/samples/
+
+        # Copy static content
+        cp -a _data docs/_data
+        cp -a _includes docs/_includes
+        cp -a _layouts docs/_layouts
+        cp -a _posts docs/_posts
+        cp -a _sass docs/_sass
+        cp -a css docs/css
+        cp -a fonts docs/fonts
+        cp -a gdpr docs/gdpr
+        cp -a img docs/img
+        cp -a js docs/js
+        cp -a services docs/services
+        cp CNAME docs/CNAME
+        cp Gemfile docs/Gemfile
+        cp Gemfile.lock docs/Gemfile.lock
+        cp _config.yml docs/_config.yml
+        cp blogs.html docs/blogs.html
+        cp depots.json docs/depots.json
+        cp features.html docs/features.html 
+        cp for_developers.html docs/for_developers.html
+        cp getting_started.html docs/getting_started.html
+        cp index.html docs/index.html
+        cp news.html docs/news.html
+        cp project.html docs/project.html
+        cp releases.html docs/releases.html
+
+    - name: Git Commit and Push
+      run: |
+        git config user.name ${{secrets.GH_USER_NAME}}
+        git config user.email ${{secrets.GH_USER_EMAIL}}
+        git add docs
+        git commit -m "Site content updated - ci skip"
+        git push origin master
+
