@@ -1,5 +1,9 @@
 ---
 title: Template Engines
+redirect_from:
+  - /api/core_template-engine.html
+  - /api/generator.html
+  - /api/platform_template-engines.html
 ---
 
 Template Engines

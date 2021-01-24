@@ -1,5 +1,7 @@
 ---
 title: Database
+redirect_from:
+  - /api/database.html
 ---
 
 Database

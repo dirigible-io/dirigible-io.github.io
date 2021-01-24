@@ -1,5 +1,7 @@
 ---
 title: Logging
+redirect_from:
+  - /api/log_logging.html
 ---
 
 Logging

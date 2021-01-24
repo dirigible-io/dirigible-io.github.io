@@ -1,5 +1,8 @@
 ---
 title: DAO
+redirect_from:
+  - /api/database_dao.html
+  - /api/db_dao.html
 ---
 
 DAO

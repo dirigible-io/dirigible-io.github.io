@@ -1,5 +1,7 @@
 ---
 title: Client
+redirect_from:
+  - /api/http_client.html
 ---
 
 Client

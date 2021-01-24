@@ -1,5 +1,8 @@
 ---
 title: Workspace
+redirect_from:
+  - /api/platform_workspace.html
+  - /api/workspace_manager.html
 ---
 
 Workspace

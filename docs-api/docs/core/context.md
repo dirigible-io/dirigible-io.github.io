@@ -1,5 +1,7 @@
 ---
 title: Context
+redirect_from:
+  - /api/core_context.html
 ---
 
 Context

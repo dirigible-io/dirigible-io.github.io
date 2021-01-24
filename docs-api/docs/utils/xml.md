@@ -1,5 +1,7 @@
 ---
 title: XML
+redirect_from:
+  - /api/utils_xml.html
 ---
 
 XML

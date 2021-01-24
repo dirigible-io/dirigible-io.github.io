@@ -1,5 +1,7 @@
 ---
 title: Indexing Writer
+redirect_from:
+  - /api/indexing_writer.html
 ---
 
 Indexing Writer

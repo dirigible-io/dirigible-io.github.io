@@ -1,5 +1,7 @@
 ---
 title: Destinations
+redirect_from:
+  - /api/core_destinations.html
 ---
 
 Destinations

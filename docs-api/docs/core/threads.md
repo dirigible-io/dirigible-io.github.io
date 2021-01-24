@@ -1,5 +1,8 @@
 ---
 title: Thread
+redirect_from:
+  - /api/core_thread.html
+  - /api/threads.html
 ---
 
 Thread

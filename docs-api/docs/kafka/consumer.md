@@ -1,5 +1,7 @@
 ---
 title: Kafka Consumer
+redirect_from:
+  - /api/kafka_consumer.html
 ---
 
 Kafka Consumer

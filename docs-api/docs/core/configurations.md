@@ -1,5 +1,8 @@
 ---
 title: Configurations
+redirect_from:
+  - /api/core_config.html
+  - /api/core_configurations.html
 ---
 
 Configurations

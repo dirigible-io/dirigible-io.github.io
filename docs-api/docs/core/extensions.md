@@ -1,5 +1,7 @@
 ---
 title: Extensions
+redirect_from:
+  - /api/core_extensions.html
 ---
 
 Extensions

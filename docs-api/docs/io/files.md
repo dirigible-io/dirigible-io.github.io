@@ -1,5 +1,8 @@
 ---
 title: Files
+redirect_from:
+  - /api/files.html
+  - /api/io_files.html
 ---
 
 Files

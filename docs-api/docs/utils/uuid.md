@@ -1,5 +1,7 @@
 ---
 title: UUID
+redirect_from:
+  - /api/utils_uuid.html
 ---
 
 UUID

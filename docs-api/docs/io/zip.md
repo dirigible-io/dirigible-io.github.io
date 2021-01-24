@@ -1,5 +1,7 @@
 ---
 title: Zip
+redirect_from:
+  - /api/io_zip.html
 ---
 
 Zip

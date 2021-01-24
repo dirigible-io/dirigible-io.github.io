@@ -1,5 +1,8 @@
 ---
 title: Streams
+redirect_from:
+  - /api/io_streams.html
+  - /api/streams.html
 ---
 
 Streams

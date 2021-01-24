@@ -1,5 +1,7 @@
 ---
 title: Globals
+redirect_from:
+  - /api/core_globals.html
 ---
 
 Globals

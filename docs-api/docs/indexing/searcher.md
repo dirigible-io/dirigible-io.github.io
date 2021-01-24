@@ -1,5 +1,7 @@
 ---
 title: Indexing Searcher
+redirect_from:
+  - /api/indexing_searcher.html
 ---
 
 Indexing Searcher

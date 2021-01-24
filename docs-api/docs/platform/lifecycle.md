@@ -1,5 +1,8 @@
 ---
 title: Lifecycle
+redirect_from:
+  - /api/platform_lifecycle.html
+  - /api/lifecycle.html
 ---
 
 Lifecycle

@@ -1,5 +1,9 @@
 ---
 title: Repository
+redirect_from:
+  - /api/platform_repository.html
+  - /api/repository.html
+  - /api/repository_manager.html
 ---
 
 Repository

@@ -1,5 +1,7 @@
 ---
 title: SQL
+redirect_from:
+  - /api/database_sql.html
 ---
 
 SQL

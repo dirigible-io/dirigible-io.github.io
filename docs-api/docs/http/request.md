@@ -1,5 +1,7 @@
 ---
 title: Request
+redirect_from:
+  - /api/http_request.html
 ---
 
 Request

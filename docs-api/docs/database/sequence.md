@@ -1,5 +1,7 @@
 ---
 title: Sequence
+redirect_from:
+  - /api/database_sequence.html
 ---
 
 Sequence

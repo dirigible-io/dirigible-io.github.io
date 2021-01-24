@@ -1,5 +1,8 @@
 ---
 title: SOAP
+redirect_from:
+  - /api/net_soap.html
+  - /api/soap.html
 ---
 
 SOAP

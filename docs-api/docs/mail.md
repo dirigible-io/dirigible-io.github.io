@@ -1,5 +1,8 @@
 ---
 title: Mail
+redirect_from:
+  - /api/mail.html
+  - /api/mail_client.html
 ---
 
 Mail
