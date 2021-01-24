@@ -4,8 +4,6 @@ theme:
   favicon: ../img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: mkdocs
-  palette:
-    primary: black
   features:
     - navigation.instant
     - navigation.tabs
