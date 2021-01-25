@@ -1,7 +1,5 @@
 ---
 title: Session
-redirect_from:
-  - /api/http_session.html
 ---
 
 Session

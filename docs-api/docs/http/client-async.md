@@ -1,7 +1,5 @@
 ---
 title: Client Async
-redirect_from:
-  - /api/http_client_async.html
 ---
 
 Client Async

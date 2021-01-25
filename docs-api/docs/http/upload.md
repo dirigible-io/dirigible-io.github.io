@@ -1,7 +1,5 @@
 ---
 title: Upload
-redirect_from:
-  - /api/http_upload.html
 ---
 
 Upload

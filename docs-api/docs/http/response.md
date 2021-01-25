@@ -1,7 +1,5 @@
 ---
 title: Response
-redirect_from:
-  - /api/http_response.html
 ---
 
 Response

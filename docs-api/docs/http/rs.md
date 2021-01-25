@@ -1,7 +1,5 @@
 ---
 title: RS
-redirect_from:
-  - /api/http_rs.html
 ---
 
 RS

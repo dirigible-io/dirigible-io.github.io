@@ -1,7 +1,5 @@
 ---
 title: RS-Data
-redirect_from:
-  - /api/http_rs-data.html
 ---
 
 RS-Data
