@@ -26,9 +26,13 @@ jobs:
         mkdir docs/api/
         mkdir docs/help/
         mkdir docs/samples/
+
         cp -a docs-api/site/. docs/api/
         cp -a docs-api/redirects/. docs/api/
+
         cp -a docs-help/site/. docs/help/
+        cp -a docs-help/redirects/. docs/help/
+
         cp -a docs-samples/site/. docs/samples/
 
         # Copy static content
