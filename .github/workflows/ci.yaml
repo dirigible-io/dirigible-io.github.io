@@ -34,6 +34,7 @@ jobs:
         cp -a docs-help/redirects/. docs/help/
 
         cp -a docs-samples/site/. docs/samples/
+        cp -a docs-samples/redirects/. docs/samples/
 
         # Copy static content
         cp -a _data docs/_data
