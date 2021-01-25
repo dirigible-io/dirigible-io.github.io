@@ -1,7 +1,5 @@
 ---
 title: Update
-redirect_from:
-  - /api/database_update.html
 ---
 
 Update

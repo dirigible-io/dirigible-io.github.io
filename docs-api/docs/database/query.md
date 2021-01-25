@@ -1,7 +1,5 @@
 ---
 title: Query
-redirect_from:
-  - /api/database_query.html
 ---
 
 Query
