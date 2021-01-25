@@ -1,7 +1,5 @@
 ---
 title: Url
-redirect_from:
-  - /api/utils_url.html
 ---
 
 Url

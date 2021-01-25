@@ -1,7 +1,5 @@
 ---
 title: Base64
-redirect_from:
-  - /api/utils_base64.html
 ---
 
 Base64

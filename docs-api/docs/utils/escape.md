@@ -1,8 +1,5 @@
 ---
 title: Escape
-redirect_from:
-  - /api/utils_escape.html
-  - /api/utils_xss.html
 ---
 
 Escape

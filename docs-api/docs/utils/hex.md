@@ -1,7 +1,5 @@
 ---
 title: Hex
-redirect_from:
-  - /api/utils_hex.html
 ---
 
 Hex

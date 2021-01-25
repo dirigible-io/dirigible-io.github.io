@@ -1,7 +1,5 @@
 ---
 title: Digest
-redirect_from:
-  - /api/utils_digest.html
 ---
 
 Digest
