@@ -1,8 +1,5 @@
 ---
 title: WebSocket
-redirect_from:
-  - /api/net_websocket.html
-  - /api/websocket.html
 ---
 
 WebSocket
