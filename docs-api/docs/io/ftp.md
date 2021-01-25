@@ -1,7 +1,5 @@
 ---
 title: FTP Client
-redirect_from:
-  - /api/io_ftp.html
 ---
 
 FTP Client

@@ -1,7 +1,5 @@
 ---
 title: Bytes
-redirect_from:
-  - /api/io_bytes.html
 ---
 
 Bytes
