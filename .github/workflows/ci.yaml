@@ -27,6 +27,7 @@ jobs:
         mkdir docs/help/
         mkdir docs/samples/
         cp -a docs-api/site/. docs/api/
+        cp -a docs-api/redirects/. docs/api/
         cp -a docs-help/site/. docs/help/
         cp -a docs-samples/site/. docs/samples/
 

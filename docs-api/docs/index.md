@@ -1,14 +1,5 @@
 ---
 title: Home
-redirect_from:
-  - /help/api.html
-  - /api/workspaces.html
-  - /api/utils_error.html
-  - /api/passwords.html
-  - /api/messaging.html
-  - /api/indexing.html
-  - /api/core_java.html
-  - /api/core_assert.html
 ---
 
 Eclipse Dirigible<sup>&trade;</sup> API

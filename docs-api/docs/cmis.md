@@ -1,7 +1,5 @@
 ---
 title: CMIS
-redirect_from:
-  - /api/cmis.html
 ---
 
 CMIS

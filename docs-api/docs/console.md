@@ -1,7 +1,5 @@
 ---
 title: Console
-redirect_from:
-  - /api/console.html
 ---
 
 Console

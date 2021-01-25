@@ -1,7 +1,5 @@
 ---
 title: BPM Process
-redirect_from:
-  - /api/bpm_process.html
 ---
 
 BPM Process

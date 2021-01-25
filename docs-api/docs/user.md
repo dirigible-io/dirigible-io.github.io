@@ -1,8 +1,5 @@
 ---
 title: User
-redirect_from:
-  - /api/http_user.html
-  - /api/security_user.html
 ---
 
 User
