@@ -1,7 +1,5 @@
 ---
 title: Kafka Producer
-redirect_from:
-  - /api/kafka_producer.html
 ---
 
 Kafka Producer
