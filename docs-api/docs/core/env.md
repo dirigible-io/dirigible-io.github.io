@@ -1,7 +1,5 @@
 ---
 title: Env
-redirect_from:
-  - /api/core_env.html
 ---
 
 Env
