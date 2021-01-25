@@ -1,9 +1,5 @@
 ---
 title: Engines
-redirect_from:
-  - /api/core_engines.html
-  - /api/exec.html
-  - /api/platform_engines.html
 ---
 
 Engines

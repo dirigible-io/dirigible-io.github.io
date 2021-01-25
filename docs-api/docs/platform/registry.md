@@ -1,8 +1,5 @@
 ---
 title: Registry
-redirect_from:
-  - /api/platform_registry.html
-  - /api/repository_content.html
 ---
 
 Registry
