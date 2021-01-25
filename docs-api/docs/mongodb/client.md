@@ -1,7 +1,5 @@
 ---
 title: MongoDB Client API
-redirect_from:
-  - /api/mongodb_client.html
 ---
 
 MongoDB Client API

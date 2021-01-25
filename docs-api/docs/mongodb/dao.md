@@ -1,7 +1,5 @@
 ---
 title: MongoDB DAO API
-redirect_from:
-  - /api/mongodb_dao.html
 ---
 
 MongoDB DAO API
