@@ -1,7 +1,5 @@
 ---
 title: Message Consumer
-redirect_from:
-  - /api/messaging_consumer.html
 ---
 
 Message Consumer

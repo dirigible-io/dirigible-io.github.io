@@ -1,7 +1,5 @@
 ---
 title: Message Producer
-redirect_from:
-  - /api/messaging_producer.html
 ---
 
 Message Producer
