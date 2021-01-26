@@ -147,8 +147,8 @@ Steps
           type: ClusterIP
           selector:
             app: dirigible
+        ---
         apiVersion: extensions/v1beta1
-        --
         kind: Ingress
         metadata:
           name: dirigible
