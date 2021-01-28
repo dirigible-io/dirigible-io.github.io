@@ -68,7 +68,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_MASTER_REPOSITORY_ZIP_LOCATION**   | The location of the zip file where the master repository artifacts will be loaded from | e.g. '/User/data/my-repo.zip'
 **DIRIGIBLE_MASTER_REPOSITORY_JAR_PATH**   | The JAR path location of the zip file where the master repository artifacts will be loaded from | e.g. '/org/dirigible/example/my-repo.zip'
 
-  > Note: The JAR path is absolute inside the class path
+  > _**Note:** The JAR path is absolute inside the class path_
 
 #### Repository Search
 
@@ -95,7 +95,7 @@ Parameter     | Description | Default*
 
 #### Database - Custom
 
-> Note: Replace *CUSTOME_NAME* with the actual name set by *DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES* e.g. POSTGRES_DRIVER
+> _**Note:** Replace `CUSTOME_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. `POSTGRES_DRIVER`_
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
