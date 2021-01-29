@@ -18,7 +18,9 @@ Artifacts
   - [*.append](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'append' mode to the corresponding database table.
   - [*.delete](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be deleted from the corresponding database table. For deleting all of the records use '*' symbol.
   - [*.update](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'update' mode to the corresponding database table.
-- Security
+ 
+#### Security
+
   - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.access).
   - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - roles definition file. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.roles).
 
