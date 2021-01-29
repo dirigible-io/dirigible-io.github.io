@@ -925,12 +925,18 @@
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/rs&quot;</span><span class="p">);</span>
 
-<span class="c1">// serve GET HTTP requests sent to resource path &quot;&quot;</span>
 <span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span>
+    <span class="c1">// serve GET HTTP requests sent to resource path &quot;&quot;</span>
     <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">){</span>
+      <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
          <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
        <span class="p">})</span>
+    <span class="c1">// serve GET HTTP requests sent to resource path &quot;hello/{name}&quot; e.g &quot;hello/John&quot;</span>
+    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s2">&quot;hello/{name}&quot;</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+          <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">);</span>
+      <span class="p">})</span>
   <span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
 </code></pre></div>
 <hr />
