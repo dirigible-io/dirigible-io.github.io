@@ -283,6 +283,8 @@ Parameter     | Description | Default*
 
 ##### GraalVM
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
 **DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | default is *8081* and *0.0.0.0:8081* in Docker environment
 **DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_HOST_ACCESS** | Whether GraalVM can load classes form custom packages | default is **true**
 **DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_THREAD** | Whether GraalVM can create threads | default is **true**
