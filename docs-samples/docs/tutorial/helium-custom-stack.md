@@ -50,13 +50,13 @@ A sample *pom.xml* should look like this:
 	<parent>
 		<groupId>io.dirigible.helium</groupId>
 		<artifactId>helium-modules</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<name>Helium - Data</name>
 	<artifactId>helium-data</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<scm>
@@ -93,13 +93,13 @@ The parent project of all the modules defines the *profile* **content** with the
 	<parent>
 		<groupId>io.dirigible.helium</groupId>
 		<artifactId>helium-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<name>Helium - Modules</name>
 	<artifactId>helium-modules</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<scm>
@@ -238,10 +238,8 @@ At the JavaScript side you have an API module, which performs the actual call vi
 
 ```javascript
 
-var java = require('core/v3/java');
-
 exports.isInert = function() {
-	var output = java.call('io.dirigible.helium.HeliumFacade', 'isInert', []);
+	var output = io.dirigible.helium.HeliumFacade.isInert();
 	return output;
 };
 
@@ -255,7 +253,7 @@ var helium = require("sample/helium");
 var isInert = helium.isInert();
 console.info(isInert);
 
-var response = require("http/v3/response");
+var response = require("http/v4/response");
 response.println("Is Helium an inert gas? - " + isInert);
 response.flush();
 response.close();
