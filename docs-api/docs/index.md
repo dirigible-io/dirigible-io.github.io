@@ -5,7 +5,7 @@ title: Home
 Eclipse Dirigible<sup>&trade;</sup> API
 ===
 
-Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status. The Guidelines how to develop your own APIs can be found [here](https://github.com/eclipse/dirigible/wiki/api-v4-guidelines).
+Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status. The Guidelines how to develop your own APIs can be found at: [https://github.com/eclipse/dirigible/wiki/api-v4-guidelines](https://github.com/eclipse/dirigible/wiki/api-v4-guidelines).
 
 
 ### Hello World
