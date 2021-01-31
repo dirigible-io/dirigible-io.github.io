@@ -838,6 +838,26 @@
     Dirigible's Module Structure
   </a>
   
+    <nav class="md-nav" aria-label="Dirigible's Module Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parent-project" class="md-nav__link">
+    Parent Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules-project" class="md-nav__link">
+    Modules Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -976,6 +996,26 @@
     Dirigible's Module Structure
   </a>
   
+    <nav class="md-nav" aria-label="Dirigible's Module Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parent-project" class="md-nav__link">
+    Parent Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules-project" class="md-nav__link">
+    Modules Project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1058,46 +1098,69 @@ Such a custom stack contains only the core components of Dirigible plus the cust
 <p>The project structure should look like the example below.</p>
 <h3 id="components">Components</h3>
 <h4 id="dirigibles-module-structure">Dirigible's Module Structure</h4>
-<p>The project representing a Dirigible's project in the Maven-based parent project structure usually contains only a single file - the <strong>pom.xml</strong> itself.
-The main goal is to <em>pull</em> the latest sources from the SCM repository (e.g. GitHub) and to put them under the standard <em>resources</em> folder - <strong>src/main/resources</strong></p>
-<p>A sample <em>pom.xml</em> should look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<h5 id="parent-project">Parent Project</h5>
+<p>The project representing a Dirigible's project in the Maven-based parent project structure usually contains only a single file - the <strong>pom.xml</strong> itself.</p>
+<p>The parent <strong>pom.xml</strong> should look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
     <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.helium<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>helium-modules<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.sonatype.oss<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>oss-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>7<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Helium - Data<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>helium-data<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Helium - Parent<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Helium Parent<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.helium<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>helium-parent<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
 
+    <span class="nt">&lt;inceptionYear&gt;</span>2018<span class="nt">&lt;/inceptionYear&gt;</span>
+
+    <span class="nt">&lt;licenses&gt;</span>
+        <span class="nt">&lt;license&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Eclipse Public License - v 1.0<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;url&gt;</span>https://www.eclipse.org/legal/epl-v10.html<span class="nt">&lt;/url&gt;</span>
+            <span class="nt">&lt;distribution&gt;</span>repo<span class="nt">&lt;/distribution&gt;</span>
+        <span class="nt">&lt;/license&gt;</span>
+    <span class="nt">&lt;/licenses&gt;</span>
+
+    <span class="nt">&lt;url&gt;</span>http://www.dirigible.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;organization&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Eclipse Foundation<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>http://www.eclipse.org<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/organization&gt;</span>
     <span class="nt">&lt;scm&gt;</span>
-        <span class="nt">&lt;url&gt;</span>${content.scm.url}<span class="nt">&lt;/url&gt;</span>
-        <span class="nt">&lt;connection&gt;</span>${content.scm.connection}<span class="nt">&lt;/connection&gt;</span>
-        <span class="nt">&lt;developerConnection&gt;</span>${content.scm.developerConnection}<span class="nt">&lt;/developerConnection&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/eclipse/dirigible<span class="nt">&lt;/url&gt;</span>
     <span class="nt">&lt;/scm&gt;</span>
 
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>core<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>modules<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
     <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;dirigible.version&gt;</span>5.7.0<span class="nt">&lt;/dirigible.version&gt;</span>
+        <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.0.2<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
         <span class="nt">&lt;maven.clean.plugin.version&gt;</span>3.0.0<span class="nt">&lt;/maven.clean.plugin.version&gt;</span>
-
-        <span class="nt">&lt;content.repository.name&gt;</span>sample-v3-helium-data<span class="nt">&lt;/content.repository.name&gt;</span>
-        <span class="nt">&lt;content.project.name&gt;</span>helium-data<span class="nt">&lt;/content.project.name&gt;</span>
-
-        <span class="nt">&lt;content.scm.url&gt;</span>https://github.com/dirigiblelabs/${content.repository.name}<span class="nt">&lt;/content.scm.url&gt;</span>
-        <span class="nt">&lt;content.scm.connection&gt;</span>scm:git:git://github.com/dirigiblelabs/${content.repository.name}.git<span class="nt">&lt;/content.scm.connection&gt;</span>
-        <span class="nt">&lt;content.scm.developerConnection&gt;</span>scm:git:https://github.com/dirigiblelabs/${content.repository.name}<span class="nt">&lt;/content.scm.developerConnection&gt;</span>
+        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>2.3.2<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.scm.plugin.version&gt;</span>1.9<span class="nt">&lt;/maven.scm.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>11<span class="nt">&lt;/maven.compiler.source&gt;</span>
+                <span class="nt">&lt;maven.compiler.target&gt;</span>11<span class="nt">&lt;/maven.compiler.target&gt;</span>
     <span class="nt">&lt;/properties&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-<p><a href="https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml">https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml</a></p>
-<p>The parent project of all the modules defines the <em>profile</em> <strong>content</strong> with the <strong>maven-scm-plugin</strong> Maven plugin. </p>
+<blockquote>
+<p>The Java compiler version is set to 11 (or above) in our case</p>
+<p>The version of Eclipse Dirigible is set to 5.7.0 or above</p>
+</blockquote>
+<h5 id="modules-project">Modules Project</h5>
+<p>The main goal is to <em>pull</em> the latest sources from the SCM repository (e.g. GitHub) and to put them under the standard <em>resources</em> folder - <strong>src/main/resources</strong></p>
+<p>A modules <strong>pom.xml</strong> should look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
 <span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
     <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
@@ -1143,7 +1206,7 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
         <span class="nt">&lt;content.output.directory&gt;</span>${basedir}/src/main/resources/${content.project.name}<span class="nt">&lt;/content.output.directory&gt;</span>
     <span class="nt">&lt;/properties&gt;</span>
 
-    <span class="nt">&lt;profiles&gt;</span>
+        <span class="nt">&lt;profiles&gt;</span>
         <span class="nt">&lt;profile&gt;</span>
             <span class="nt">&lt;id&gt;</span>content<span class="nt">&lt;/id&gt;</span>
             <span class="nt">&lt;activation&gt;</span>
@@ -1211,6 +1274,8 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
     <span class="nt">&lt;/profiles&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
+<p><a href="https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml">https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml</a></p>
+<p>The <strong><em>modules</em></strong> project of all the modules defines the <em>profile</em> <strong>content</strong> with the <strong>maven-scm-plugin</strong> Maven plugin. </p>
 <p>It can be triggered by choosing the <strong>content</strong> profile as:</p>
 <blockquote>
 <p>mvn clean install -Pcontent</p>
@@ -1234,16 +1299,16 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
 
 <span class="p">}</span>
 </code></pre></div>
-<p>In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: <a href="https://github.com/eclipse/dirigible/wiki/api-v3-guidelines">https://github.com/eclipse/dirigible/wiki/api-v3-guidelines</a></p>
+<p>In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: <a href="https://github.com/eclipse/dirigible/wiki/api-v4-guidelines">https://github.com/eclipse/dirigible/wiki/api-v4-guidelines</a></p>
 <p>At the JavaScript side you have an API module, which performs the actual call via the Java bridge:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">isInert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">helium</span><span class="p">.</span><span class="nx">HeliumFacade</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">Packages</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">helium</span><span class="p">.</span><span class="nx">HeliumFacade</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
     <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>In this way you can use de-facto arbitrary Java class and method from your favorite framework as JavaScript function in Dirigible's layer. The sample module shows how to use the API bridge afterwards:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">helium</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sample/helium&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">isInert</span> <span class="o">=</span> <span class="nx">helium</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">isInert</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">helium</span><span class="p">.</span><span class="nx">isInert</span><span class="p">());</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">isInert</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
