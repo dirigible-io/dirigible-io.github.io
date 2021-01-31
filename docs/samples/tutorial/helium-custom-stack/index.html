@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/tutorial/helium-custom-stack/">
       
       <link rel="shortcut icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
     
     
       
@@ -1069,13 +1069,13 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
     <span class="nt">&lt;parent&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>io.dirigible.helium<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>helium-modules<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
     <span class="nt">&lt;name&gt;</span>Helium - Data<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>helium-data<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
 
     <span class="nt">&lt;scm&gt;</span>
@@ -1106,13 +1106,13 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
     <span class="nt">&lt;parent&gt;</span>
         <span class="nt">&lt;groupId&gt;</span>io.dirigible.helium<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>helium-parent<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
     <span class="nt">&lt;name&gt;</span>Helium - Modules<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>helium-modules<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>0.0.1-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
 
     <span class="nt">&lt;scm&gt;</span>
@@ -1236,10 +1236,8 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
 </code></pre></div>
 <p>In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: <a href="https://github.com/eclipse/dirigible/wiki/api-v3-guidelines">https://github.com/eclipse/dirigible/wiki/api-v3-guidelines</a></p>
 <p>At the JavaScript side you have an API module, which performs the actual call via the Java bridge:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">java</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;core/v3/java&#39;</span><span class="p">);</span>
-
-<span class="nx">exports</span><span class="p">.</span><span class="nx">isInert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">java</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;io.dirigible.helium.HeliumFacade&#39;</span><span class="p">,</span> <span class="s1">&#39;isInert&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">isInert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">helium</span><span class="p">.</span><span class="nx">HeliumFacade</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
     <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
@@ -1248,7 +1246,7 @@ The main goal is to <em>pull</em> the latest sources from the SCM repository (e.
 <span class="kd">var</span> <span class="nx">isInert</span> <span class="o">=</span> <span class="nx">helium</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">isInert</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v3/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Is Helium an inert gas? - &quot;</span> <span class="o">+</span> <span class="nx">isInert</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
