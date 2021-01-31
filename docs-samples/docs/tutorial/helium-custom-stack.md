@@ -35,56 +35,78 @@ The project structure should look like the example below.
 
 #### Dirigible's Module Structure
 
-The project representing a Dirigible's project in the Maven-based parent project structure usually contains only a single file - the **pom.xml** itself.
-The main goal is to *pull* the latest sources from the SCM repository (e.g. GitHub) and to put them under the standard *resources* folder - **src/main/resources**
+##### Parent Project
 
-A sample *pom.xml* should look like this:
+The project representing a Dirigible's project in the Maven-based parent project structure usually contains only a single file - the **pom.xml** itself.
+
+The parent **pom.xml** should look like this:
 
 ```xml
-
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>io.dirigible.helium</groupId>
-		<artifactId>helium-modules</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
 	</parent>
 
-	<name>Helium - Data</name>
-	<artifactId>helium-data</artifactId>
+	<name>Helium - Parent</name>
+	<description>Helium Parent</description>
+	<groupId>io.dirigible.helium</groupId>
+	<artifactId>helium-parent</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
+	<inceptionYear>2018</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License - v 1.0</name>
+			<url>https://www.eclipse.org/legal/epl-v10.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<url>http://www.dirigible.io</url>
+	<organization>
+		<name>Eclipse Foundation</name>
+		<url>http://www.eclipse.org</url>
+	</organization>
 	<scm>
-		<url>${content.scm.url}</url>
-		<connection>${content.scm.connection}</connection>
-		<developerConnection>${content.scm.developerConnection}</developerConnection>
+		<url>https://github.com/eclipse/dirigible</url>
 	</scm>
 
+	<modules>
+		<module>core</module>
+		<module>modules</module>
+		<module>application</module>
+	</modules>
+
 	<properties>
+		<dirigible.version>5.7.0</dirigible.version>
+		<maven.resource.plugin.version>3.0.2</maven.resource.plugin.version>
 		<maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
-
-		<content.repository.name>sample-v3-helium-data</content.repository.name>
-		<content.project.name>helium-data</content.project.name>
-
-		<content.scm.url>https://github.com/dirigiblelabs/${content.repository.name}</content.scm.url>
-		<content.scm.connection>scm:git:git://github.com/dirigiblelabs/${content.repository.name}.git</content.scm.connection>
-		<content.scm.developerConnection>scm:git:https://github.com/dirigiblelabs/${content.repository.name}</content.scm.developerConnection>
+		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+		<maven.scm.plugin.version>1.9</maven.scm.plugin.version>
+		<maven.compiler.source>11</maven.compiler.source>
+    	        <maven.compiler.target>11</maven.compiler.target>
 	</properties>
 </project>
-
 ```
 
-[https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml)
+> The Java compiler version is set to 11 (or above) in our case
 
-The parent project of all the modules defines the *profile* **content** with the **maven-scm-plugin** Maven plugin. 
+> The version of Eclipse Dirigible is set to 5.7.0 or above
+
+##### Modules Project
+
+The main goal is to *pull* the latest sources from the SCM repository (e.g. GitHub) and to put them under the standard *resources* folder - **src/main/resources**
+
+A modules **pom.xml** should look like this:
 
 ```xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -130,7 +152,7 @@ The parent project of all the modules defines the *profile* **content** with the
 		<content.output.directory>${basedir}/src/main/resources/${content.project.name}</content.output.directory>
 	</properties>
 
-    <profiles>
+        <profiles>
 		<profile>
 			<id>content</id>
 			<activation>
@@ -197,8 +219,11 @@ The parent project of all the modules defines the *profile* **content** with the
 		</profile>
 	</profiles>
 </project>
-
 ```
+
+[https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml](https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/blob/master/helium/modules/data/pom.xml)
+
+The ***modules*** project of all the modules defines the *profile* **content** with the **maven-scm-plugin** Maven plugin. 
 
 It can be triggered by choosing the **content** profile as:
 
@@ -219,7 +244,6 @@ You can have a look at the sub-project here [https://github.com/dirigiblelabs/sa
 The Java side is a facade class which exposes a given functionality to the above layer:
 
 ```java
-
 package io.dirigible.helium;
 
 public class HeliumFacade {
@@ -229,35 +253,30 @@ public class HeliumFacade {
 	}
 
 }
-
 ```
 
-In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: [https://github.com/eclipse/dirigible/wiki/api-v3-guidelines](https://github.com/eclipse/dirigible/wiki/api-v3-guidelines)
+In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: [https://github.com/eclipse/dirigible/wiki/api-v4-guidelines](https://github.com/eclipse/dirigible/wiki/api-v4-guidelines)
 
 At the JavaScript side you have an API module, which performs the actual call via the Java bridge:
 
 ```javascript
-
 exports.isInert = function() {
-	var output = io.dirigible.helium.HeliumFacade.isInert();
+	var output = Packages.io.dirigible.helium.HeliumFacade.isInert();
 	return output;
 };
-
 ```
 
 In this way you can use de-facto arbitrary Java class and method from your favorite framework as JavaScript function in Dirigible's layer. The sample module shows how to use the API bridge afterwards:
 
 ```javascript
-
 var helium = require("sample/helium");
-var isInert = helium.isInert();
+var isInert = JSON.stringify(helium.isInert());
 console.info(isInert);
 
 var response = require("http/v4/response");
 response.println("Is Helium an inert gas? - " + isInert);
 response.flush();
 response.close();
-
 ```
 
 ### Build and Package
