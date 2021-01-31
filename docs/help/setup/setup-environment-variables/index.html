@@ -1709,6 +1709,19 @@
     JavaScript
   </a>
   
+    <nav class="md-nav" aria-label="JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graalvm" class="md-nav__link">
+    GraalVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2048,6 +2061,19 @@
   <a href="#javascript" class="md-nav__link">
     JavaScript
   </a>
+  
+    <nav class="md-nav" aria-label="JavaScript">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graalvm" class="md-nav__link">
+    GraalVM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2971,13 +2997,16 @@
 <td>The type of the JavaScript engine provider used in this instance</td>
 <td>graalvm, rhino, nashorn or v8 - default is <em>graalvm</em> since 5.0</td>
 </tr>
-<tr>
-<td><strong>DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT</strong></td>
-<td>The GraalVM debugger port</td>
-<td>default is <em>8081</em> and <em>0.0.0.0:8081</em> in Docker environment</td>
-</tr>
 </tbody>
 </table>
+<h5 id="graalvm">GraalVM</h5>
+<p><strong>DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT</strong> | The GraalVM debugger port | default is <em>8081</em> and <em>0.0.0.0:8081</em> in Docker environment
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_HOST_ACCESS</strong> | Whether GraalVM can load classes form custom packages | default is <strong>true</strong>
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_THREAD</strong> | Whether GraalVM can create threads | default is <strong>true</strong>
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_PROCESS</strong> | Whether GraalVM can make IO operations | default is <strong>true</strong>
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_IO</strong> | Whether GraalVM can make IO operations | default is <strong>true</strong>
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_NASHORN</strong> | Whether GraalVM has enabled compatibility mode for Nashorn | default is <strong>true</strong>
+<strong>DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_MOZILLA</strong> | Whether GraalVM has enabled compatibility mode for Mozilla | default is <strong>false</strong></p>
 <h3 id="operations">Operations</h3>
 <hr />
 <h4 id="logs">Logs</h4>
