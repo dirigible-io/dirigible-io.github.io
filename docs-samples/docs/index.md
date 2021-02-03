@@ -25,6 +25,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Convert a String from JSON to XML](convert-json2xml) - JSON to XML transformation
 * [Convert a String from XML to JSON](convert-xml2json) - XML to JSON
 * [Mail Client](mail-client) - how to send mails using the Mail Client API
+* [Print Configuration Variables](print-configurations) - prints configuration variables
 * [Print Environment Variables](print-env) - prints environment variables
 * [Repository Manager](repository-manager) - working with the Repository Manager API
 * [REST Call with Binary Response](http-client-binary.md) - how to retrieve the binary content from the response
