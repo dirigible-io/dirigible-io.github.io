@@ -14,7 +14,7 @@ The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat
 Prerequisites
 ---
 
-- **_JDK 11 or later_** - _OpenJDK versions can be found [here](https://openjdk.java.net/projects/jdk/)._
+- **_JDK 11 or later_** - _OpenJDK versions can be found [here](https://adoptopenjdk.net/)._
 
 === "macOS"
 
