@@ -107,7 +107,7 @@ As per the REST terms, a resource is an abstraction or a server-side resource th
 
 #### Resource paths and path templates
 
-The `sPath` string parameter of the `resource()` method will serve as the resource URL and it is obviously mandatory. The path is relative to the path of the service script that runs the service. No path, i.e. request directly to the script, is an empty string.
+The `sPath` string parameter _(`mandatory`)_ of the `resource()` method will serve as the resource URL. It is relative to the location where the JavaScript service is running _(e.g. `/services/v4/my-application/api/my-service.js`)_. No path _(`""`)_, request directly to the JavaScript service root _(`""`)_ path.
 The path can also be a URL template, i.e. parameterized.  
 For example consider the path template:  
 
