@@ -1,6 +1,6 @@
 # Website of Eclipse Dirigible (dirigible-io.github.io) <img src="http://www.dirigible.io/img/dirigible.svg" align="left" height="60" width="120"> 
 
-Eclipse Dirigible is a Cloud Development Platform providing development tools and runtime environment. The main project goal of the platform is to provide all required capabilities needed to develop and run an end-to-end meaningful vertical scenario in the cloud for the shortest time ever.
+Eclipse Dirigible is a High-Productivity Application Platform providing development tools and runtime environment. The main project goal of the platform is to provide all required capabilities needed to develop and run an end-to-end vertical scenario in the Cloud for the shortest time ever.
 
 Website address: [www.dirigible.io](http://www.dirigible.io).
 
