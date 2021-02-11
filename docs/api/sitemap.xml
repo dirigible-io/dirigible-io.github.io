@@ -1,227 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://www.dirigible.io/api/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/bpm-process/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/cmis/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/console/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/logging/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/mail/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/user/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/configurations/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/context/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/destinations/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/env/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/extensions/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/globals/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/core/threads/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/dao/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/query/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/sequence/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/sql/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/database/update/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/client-async/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/client/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/request/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/response/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/rs-data/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/rs/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/session/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/http/upload/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/indexing/searcher/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/indexing/writer/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/io/bytes/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/io/files/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/io/ftp/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/io/streams/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/io/zip/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/kafka/consumer/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/kafka/producer/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/messaging/consumer/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/messaging/producer/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/mongodb/client/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/mongodb/dao/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/net/soap/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/net/websocket/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/engines/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/lifecycle/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/registry/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/repository/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/template-engines/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/workspace/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/base64/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/digest/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/escape/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/hex/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/url/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/uuid/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/utils/xml/</loc>
-     <lastmod>2021-02-10</lastmod>
+     <lastmod>2021-02-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
