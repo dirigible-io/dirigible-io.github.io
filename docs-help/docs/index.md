@@ -1,80 +1,107 @@
 ---
 layout: help
-title: Help
-icon: fa-question-circle
+
+hide: 
+ - toc
+ - navigation
 ---
 
-Eclipse Dirigible<sup>&trade;</sup> Help
+Welcome! How can we help? 
 ===
+<hr class="solid">
 
-Eclipse Dirigible<sup>&trade;</sup> help portal gives you access to product documentation and also related information.
-Browse the help portal to get up-to-date information about the features, life-cycle aspects, tips-and-tricks and many more...
+<div class="row">
+  <div class="column">
+    <a href="development">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_runner_start_x0uu.svg" alt="Getting Started" style="width:200px;height:200px">
+			<div class="overlay">Build your first service with Eclipse Dirigible.</div>
+			</div>
+		<p><button>Getting Started</button></p>
+		</div>
+	</a>
+  </div>
+  <div class="column">
+    <a href="development/concepts">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_software_engineer_lvl5.svg" alt="Concepts" style="width:200px;height:200px">
+			<div class="overlay">Read essential definitions.</div>
+			</div>
+		<p><button>Concepts</button></p>
+		</div>
+	</a>
+  </div>
+<div class="column">
+    <a href="overview/architecture">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_server_status_5pbv.svg" alt="Architecture" style="width:200px;height:200px">
+			<div class="overlay">Understand the nuts and bolts.</div>
+			</div>
+		<p><button>Architecture</button></p>
+		</div>
+	</a>
+  </div> 
+ <div class="column">
+    <a href="overview/faq">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_Faq_re_31cw.svg" alt="FAQ" style="width:200px;height:200px">
+			<div class="overlay">Find out what, why, and how.</div>
+			</div>
+		<p><button>FAQ</button></p>
+		</div>
+	</a>
+  </div> 
+</div>
 
-General Overview
----
+<div class="row">
+  <div class="column">
+    <a href="overview/features">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_features_overview_jg7a.svg" alt="Features" style="width:200px;height:200px">
+			<div class="overlay">Review major features.</div>
+			</div>
+		<p><button>Features</button></p>
+		</div>
+	</a>
+  </div> 
+  <div class="column">
+    <a href="setup">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_in_progress_ql66.svg" alt="Setup" style="width:200px;height:200px">
+			<div class="overlay">Explore different setup options.</div>
+			</div>
+		<p><button>Setup</button></p>
+		</div>
+	</a>
+  </div> 
+  <div class="column">
+    <a href="https://www.dirigible.io/api/">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_Code_typing_re_p8b9.svg" alt="API" style="width:200px;height:200px">
+			<div class="overlay">Learn more about Enterprise JavaScript API availability, versions, and status.</div>
+			</div>
+		<p><button>API</button></p>
+		</div>
+	</a>
+  </div>
+  <div class="column">
+    <a href="https://www.dirigible.io/samples/">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/undraw_developer_activity_bv83.svg" alt="Samples" style="width:200px;height:200px">
+			<div class="overlay">Try out sample apps.</div>
+			</div>
+		<p><button>Samples</button></p>
+		</div>
+	</a>
+  </div>
+</div>
 
-* [Project](overview)
-* [Getting Started](development/)
-* [Features](overview/features)
-* [Architecture](overview/architecture)
-* [API](../api/)
-* [License](overview/license)
-* [Credits](overview/credits)
-
-
-Concepts
----
-
-* [Overview](development/concepts)
-* [Dynamic Applications](development/concepts/dynamic-applications)
-* [Repository](development/concepts/repository)
-* [Workspace](development/concepts/workspace)
-* [Publishing](development/concepts/publishing)
-* [Generation](development/concepts/generation)
-* [Entity Service](development/concepts/entity-service)
-* [Modeling](overview/editors-modelers)
-* [REST Framework](development/concepts/rest)
-* [Web Content](development/concepts/web-content)
-* [Mobile Apps](development/concepts/mobile-apps)
-* [Extensions](development/concepts/extensions)
-
-Setup
----
-
-* [Setup in Tomcat](setup/)
-* [Setup as a Docker Image](setup/docker)
-* [Setup in Kubernetes](setup/kubernetes)
-* [Setup in Cloud Foundry](setup/cloud-foundry)
-* [Environment Variables](setup/setup-environment-variables)
-
-
-Samples
----
-
-* [Samples](../samples/)
-
-FAQ
----
-* [FAQ](overview/faq)
-
-
-Updates
----
-
-* [News](/news.html)
-* [Blogs](/blogs.html)
-
-References
----
-
-- Project Home
-[https://www.dirigible.io](https://www.dirigible.io)
-
-- Trial Instance
-[http://trial.dirigible.io](http://trial.dirigible.io)
-
-- Issues
-[https://github.com/eclipse/dirigible/issues](https://github.com/eclipse/dirigible/issues)
-
-- Mailing List
-[https://dev.eclipse.org/mailman/listinfo/dirigible-dev](https://dev.eclipse.org/mailman/listinfo/dirigible-dev)
+<hr class="solid">

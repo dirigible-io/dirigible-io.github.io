@@ -1,17 +1,18 @@
-site_name: Eclipse Dirigible Help
+site_name: Eclipse Dirigible Help Portal
 site_url: https://www.dirigible.io/help/
+
 theme:
   favicon: ../img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: mkdocs
   features:
     - navigation.instant
-    - navigation.tabs
-
 extra_css:
   - stylesheets/custom.css
+  - stylesheets/homepage.css
 
 markdown_extensions:
+    - attr_list
     - pymdownx.snippets
     - pymdownx.highlight:
         linenums: false
