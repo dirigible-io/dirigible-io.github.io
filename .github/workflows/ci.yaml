@@ -32,6 +32,7 @@ jobs:
 
         cp -a docs-help/site/. docs/help/
         cp -a docs-help/redirects/. docs/help/
+        cp -a docs-help/overrides/. docs/help/
 
         cp -a docs-samples/site/. docs/samples/
         cp -a docs-samples/redirects/. docs/samples/

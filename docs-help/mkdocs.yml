@@ -5,6 +5,7 @@ theme:
   favicon: ../img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: mkdocs
+  custom_dir: overrides
   features:
     - navigation.instant
 extra_css:
