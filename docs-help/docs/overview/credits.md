@@ -63,6 +63,9 @@ We would like to say a big _**THANK YOU!**_ to all the open source projects that
 * [Xtermjs](https://xtermjs.org/)
 * [ttyd](https://github.com/tsl0922/ttyd)
 * [acorn](https://github.com/acornjs/acorn)
+* [MkDocs](https://www.mkdocs.org/)
+* [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+* [unDraw](https://undraw.co/)
 
 
 
