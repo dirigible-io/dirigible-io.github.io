@@ -23,6 +23,7 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_BRANDING_NAME**   | The brand name | _`Eclipse Dirigible`_
 **DIRIGIBLE_BRANDING_BRAND**   | The branding name | _`Eclipse Dirigible`_
+**DIRIGIBLE_BRANDING_BRAND_URL**   | The branding URL | _`https://www.dirigible.io`_
 **DIRIGIBLE_BRANDING_ICON**   | The branding icon | _`../../../../services/v4/web/resources/images/favicon.png`_
 **DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT**   | The branding welcome page | _`../../../../services/v4/web/ide/welcome.html`_
 
