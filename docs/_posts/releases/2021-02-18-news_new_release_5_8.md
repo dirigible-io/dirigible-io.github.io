@@ -21,7 +21,7 @@ Release is of *Type A*
 #### Fixes
 
 * Launchpad fixes
-* Git clone on a default branch different then 'master'
+* Git clone on a default branch different than 'master' fix
 * Minor fixes
 
 
