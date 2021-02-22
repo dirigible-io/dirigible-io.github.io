@@ -9,7 +9,7 @@ Setup in Tomcat
 
 The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat.apache.org/) web container. In this case the built-in H2 database is used.
 
-> _More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html)._
+> _[Download](https://tomcat.apache.org/download-80.cgi) the Tomcat binary. More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html)._
 
 Prerequisites
 ---
