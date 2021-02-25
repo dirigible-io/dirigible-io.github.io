@@ -105,7 +105,7 @@ Steps
 
     - Click on the **Deploy new resource** button and select the **deployment.yaml** file.
 
-        > Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources.
+        > _Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources._
 
 1. Create XSUAA service instance:
 
