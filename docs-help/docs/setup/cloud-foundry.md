@@ -20,6 +20,22 @@ Steps
     cf login -a <cloud-foundry-api-host>
     ```
 
+1. Deploy Eclipse Dirigible:
+
+    ```
+    cf push dirigible \
+    --docker-image=dirigiblelabs/dirigible-sap-cf:latest \
+    --hostname dirigible-<org-name> \
+    -m 2G -k 2G
+    ```
+    > _**Note:** Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value._
+
+    !!! tip "Eclipse Dirigible versions"
+        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
+
+        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+
 1. Create XSUAA service instance:
 
     - Copy and paste the following content into **xs-security.json**:
@@ -76,22 +92,6 @@ Steps
         ```
 
         > _**Note:** Use the same `<applicationName>` as in the previous step_
-
-1. Deploy Eclipse Dirigible:
-
-    ```
-    cf push dirigible \
-    --docker-image=dirigiblelabs/dirigible-sap-cf:latest \
-    --hostname dirigible-<org-name> \
-    -m 2G -k 2G
-    ```
-    > _**Note:** Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value._
-
-    !!! tip "Eclipse Dirigible versions"
-        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
-
-        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
-        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
 1. Bind the XSUAA service instance to the Eclipse Dirigible deployment:
 
