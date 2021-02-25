@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/setup/cloud-foundry/">
       
       <link rel="shortcut icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.2">
     
     
       
@@ -238,7 +238,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -283,7 +282,6 @@
           Artifacts
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -347,7 +345,6 @@
           Concepts
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -520,7 +517,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -608,7 +604,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -653,7 +648,6 @@
           Modelers
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -729,7 +723,6 @@
           Perspectives
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -853,7 +846,6 @@
           Views
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -1173,7 +1165,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -1314,7 +1305,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -1372,13 +1362,6 @@
         <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tutorial" class="md-nav__link">
-    Tutorial
   </a>
   
 </li>
@@ -1471,13 +1454,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#tutorial" class="md-nav__link">
-    Tutorial
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1509,19 +1485,108 @@
 </code></pre></div>
 </li>
 <li>
-<p>Clone the <code>dirigiblelabs\deployment-sap-cloud-foundry</code> repository:</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/dirigiblelabs/deployment-sap-cloud-foundry
+<p>Create XSUAA service instance:</p>
+<ul>
+<li>Copy and paste the following content into <strong>xs-security.json</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+   <span class="nt">&quot;xsappname&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;applicationName&gt;-xsuaa&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;tenant-mode&quot;</span><span class="p">:</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;scopes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;$XSAPPNAME.Developer&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer scope&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;$XSAPPNAME.Operator&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Operator scope&quot;</span>
+      <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="nt">&quot;role-templates&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Developer related roles&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;scope-references&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;$XSAPPNAME.Developer&quot;</span>
+         <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Operator&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Operator related roles&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;scope-references&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;$XSAPPNAME.Operator&quot;</span>
+         <span class="p">]</span>
+      <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="nt">&quot;role-collections&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;dirigible&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Dirigible Developer&quot;</span><span class="p">,</span>
+         <span class="nt">&quot;role-template-references&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;$XSAPPNAME.Developer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;$XSAPPNAME.Operator&quot;</span>
+         <span class="p">]</span>
+      <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><em><strong>Note:</strong> Replace the <code>&lt;applicationName&gt;</code> placeholder with your application name, e.g. <code>dirigible</code></em></p>
+</blockquote>
+<ul>
+<li>Create a XSUAA service instance:
+<div class="highlight"><pre><span></span><code>cf create-service xsuaa application &lt;applicationName&gt;-xsuaa -c xs-security.json
+</code></pre></div></li>
+</ul>
+<blockquote>
+<p><em><strong>Note:</strong> Use the same <code>&lt;applicationName&gt;</code> as in the previous step</em></p>
+</blockquote>
+</li>
+<li>
+<p>Deploy Eclipse Dirigible:</p>
+<div class="highlight"><pre><span></span><code>cf push dirigible \
+--docker-image=dirigiblelabs/dirigible-sap-cf:latest \
+--hostname dirigible-&lt;org-name&gt; \
+-m 2G -k 2G
+</code></pre></div>
+<blockquote>
+<p><em><strong>Note:</strong> Replace the `<org-name> placeholder with your subaccount's <strong>Subdomain</strong> value.</em></p>
+</blockquote>
+<details class="important" open="open"><summary>Eclipse Dirigible versions</summary><p>Instead of using the <code>latest</code> tag (version), for production and development use cases it is recomended to use stable release version:</p>
+<ul>
+<li>All released versions can be found <a href="https://github.com/eclipse/dirigible/releases/">here</a>.</li>
+<li>All Eclipse Dirigible Docker images and tags (versions) can be found <a href="https://hub.docker.com/u/dirigiblelabs">here</a>.</li>
+</ul>
+</details>
+</li>
+<li>
+<p>Bind the XSUAA service instance to the Eclipse Dirigible deployment:</p>
+<ul>
+<li>Bind the service instance:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cf bind-service dirigible &lt;applicationName&gt;-xsuaa
+</code></pre></div>
+<blockquote>
+<p><em><strong>Note:</strong> Replace the <code>&lt;applicationName&gt;</code> placeholder with the application name, used in the previous steps</em></p>
+</blockquote>
+<ul>
+<li>Restart the <code>dirigible</code> deployment:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cf restart dirigible
 </code></pre></div>
 </li>
 <li>
-<p>Follow the <a href="https://github.com/dirigiblelabs/deployment-sap-cloud-foundry">README.md</a> steps.</p>
+<p>Assign the <code>Developer</code> and <code>Operator</code> roles.</p>
 </li>
 <li>
-<p>Login with user which has assigned the Developer and Operator roles.</p>
+<p>Login.</p>
 </li>
 </ol>
-<h2 id="tutorial">Tutorial</h2>
-<p>Step by step tutorial can be found <a href="https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/">here</a>.</p>
+<details class="info" open="open"><summary>Additional Materials</summary><ul>
+<li>For deployment through <code>manifest.yaml</code> follow this <a href="https://github.com/dirigiblelabs/deployment-sap-cloud-foundry">steps</a>.</li>
+<li>Step by step tutorial can be found <a href="https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/">here</a>.</li>
+</ul>
+</details>
                 
                   
                 
@@ -1676,7 +1741,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.f5903571.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4e3fea51.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3981fc68.min.js"></script>
       
     
   </body>
