@@ -25,55 +25,56 @@ Steps
 
     - Copy and paste the following content into **xs-security.json**:
 
-    ```json
-    {
-       "xsappname": "<applicationName>-xsuaa",
-       "tenant-mode": "shared",
-       "scopes": [
-          {
-             "name": "$XSAPPNAME.Developer",
-             "description": "Developer scope"
-          },
-          {
-             "name": "$XSAPPNAME.Operator",
-             "description": "Operator scope"
-          }
-       ],
-       "role-templates": [
-          {
-             "name": "Developer",
-             "description": "Developer related roles",
-             "scope-references": [
-                "$XSAPPNAME.Developer"
-             ]
-          },
-          {
-             "name": "Operator",
-             "description": "Operator related roles",
-             "scope-references": [
-                "$XSAPPNAME.Operator"
-             ]
-          }
-       ],
-       "role-collections": [
-          {
-             "name": "dirigible",
-             "description": "Dirigible Developer",
-             "role-template-references": [
-                "$XSAPPNAME.Developer",
-                "$XSAPPNAME.Operator"
-             ]
-          }
-       ]
-    }
-    ```
+        ```json
+        {
+           "xsappname": "<applicationName>-xsuaa",
+           "tenant-mode": "shared",
+           "scopes": [
+              {
+                 "name": "$XSAPPNAME.Developer",
+                 "description": "Developer scope"
+              },
+              {
+                 "name": "$XSAPPNAME.Operator",
+                 "description": "Operator scope"
+              }
+           ],
+           "role-templates": [
+              {
+                 "name": "Developer",
+                 "description": "Developer related roles",
+                 "scope-references": [
+                    "$XSAPPNAME.Developer"
+                 ]
+              },
+              {
+                 "name": "Operator",
+                 "description": "Operator related roles",
+                 "scope-references": [
+                    "$XSAPPNAME.Operator"
+                 ]
+              }
+           ],
+           "role-collections": [
+              {
+                 "name": "dirigible",
+                 "description": "Dirigible Developer",
+                 "role-template-references": [
+                    "$XSAPPNAME.Developer",
+                    "$XSAPPNAME.Operator"
+                 ]
+              }
+           ]
+        }
+        ```
 
     > _**Note:** Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`_
 
     - Create a XSUAA service instance:
-    ```
-    cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
-    ```
+
+        ```
+        cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
+        ```
 
     > _**Note:** Use the same `<applicationName>` as in the previous step_
 
@@ -85,7 +86,7 @@ Steps
     --hostname dirigible-<org-name> \
     -m 2G -k 2G
     ```
-    > _**Note:** Replace the `<org-name> placeholder with your subaccount's **Subdomain** value._
+    > _**Note:** Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value._
 
     ???+ important "Eclipse Dirigible versions"
         Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
@@ -97,17 +98,17 @@ Steps
 
     - Bind the service instance:
 
-    ```
-    cf bind-service dirigible <applicationName>-xsuaa
-    ```
+        ```
+        cf bind-service dirigible <applicationName>-xsuaa
+        ```
 
-    > _**Note:** Replace the `<applicationName>` placeholder with the application name, used in the previous steps_
+        > _**Note:** Replace the `<applicationName>` placeholder with the application name, used in the previous steps_
 
     - Restart the `dirigible` deployment:
 
-    ```
-    cf restart dirigible
-    ```
+        ```
+        cf restart dirigible
+        ```
 
 1. Assign the `Developer` and `Operator` roles.
 
