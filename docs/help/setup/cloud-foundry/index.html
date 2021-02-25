@@ -1487,8 +1487,8 @@
 <li>
 <p>Create XSUAA service instance:</p>
 <ul>
-<li>Copy and paste the following content into <strong>xs-security.json</strong>:</li>
-</ul>
+<li>
+<p>Copy and paste the following content into <strong>xs-security.json</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
    <span class="nt">&quot;xsappname&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;applicationName&gt;-xsuaa&quot;</span><span class="p">,</span>
    <span class="nt">&quot;tenant-mode&quot;</span><span class="p">:</span> <span class="s2">&quot;shared&quot;</span><span class="p">,</span>
@@ -1530,13 +1530,17 @@
    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+</li>
+</ul>
 <blockquote>
 <p><em><strong>Note:</strong> Replace the <code>&lt;applicationName&gt;</code> placeholder with your application name, e.g. <code>dirigible</code></em></p>
 </blockquote>
 <ul>
-<li>Create a XSUAA service instance:
+<li>
+<p>Create a XSUAA service instance:</p>
 <div class="highlight"><pre><span></span><code>cf create-service xsuaa application &lt;applicationName&gt;-xsuaa -c xs-security.json
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <blockquote>
 <p><em><strong>Note:</strong> Use the same <code>&lt;applicationName&gt;</code> as in the previous step</em></p>
@@ -1550,7 +1554,7 @@
 -m 2G -k 2G
 </code></pre></div>
 <blockquote>
-<p><em><strong>Note:</strong> Replace the `<org-name> placeholder with your subaccount's <strong>Subdomain</strong> value.</em></p>
+<p><em><strong>Note:</strong> Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <strong>Subdomain</strong> value.</em></p>
 </blockquote>
 <details class="important" open="open"><summary>Eclipse Dirigible versions</summary><p>Instead of using the <code>latest</code> tag (version), for production and development use cases it is recomended to use stable release version:</p>
 <ul>
@@ -1562,18 +1566,20 @@
 <li>
 <p>Bind the XSUAA service instance to the Eclipse Dirigible deployment:</p>
 <ul>
-<li>Bind the service instance:</li>
-</ul>
+<li>
+<p>Bind the service instance:</p>
 <div class="highlight"><pre><span></span><code>cf bind-service dirigible &lt;applicationName&gt;-xsuaa
 </code></pre></div>
 <blockquote>
 <p><em><strong>Note:</strong> Replace the <code>&lt;applicationName&gt;</code> placeholder with the application name, used in the previous steps</em></p>
 </blockquote>
-<ul>
-<li>Restart the <code>dirigible</code> deployment:</li>
-</ul>
+</li>
+<li>
+<p>Restart the <code>dirigible</code> deployment:</p>
 <div class="highlight"><pre><span></span><code>cf restart dirigible
 </code></pre></div>
+</li>
+</ul>
 </li>
 <li>
 <p>Assign the <code>Developer</code> and <code>Operator</code> roles.</p>
