@@ -66,13 +66,13 @@ Steps
             protocol: TCP
             targetPort: 8080
           selector:
-            app: xsk
+            app: dirigible
           type: ClusterIP
         ---
         apiVersion: gateway.kyma-project.io/v1alpha1
         kind: APIRule
         metadata:
-          name: xsk
+          name: dirigible
           namespace: default
         spec:
           gateway: kyma-gateway.kyma-system.svc.cluster.local
