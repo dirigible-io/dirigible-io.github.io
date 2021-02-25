@@ -68,7 +68,7 @@ Steps
         }
         ```
 
-    > _**Note:** Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`_
+        > _**Note:** Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`_
 
     - Create a XSUAA service instance:
 
