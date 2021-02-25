@@ -75,7 +75,7 @@ Steps
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-    > _**Note:** Use the same `<applicationName>` as in the previous step_
+        > _**Note:** Use the same `<applicationName>` as in the previous step_
 
 1. Deploy Eclipse Dirigible:
 
