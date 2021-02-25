@@ -1474,6 +1474,25 @@
 </code></pre></div>
 </li>
 <li>
+<p>Deploy Eclipse Dirigible:</p>
+<div class="highlight"><pre><span></span><code>cf push dirigible \
+--docker-image=dirigiblelabs/dirigible-sap-cf:latest \
+--hostname dirigible-&lt;org-name&gt; \
+-m 2G -k 2G
+</code></pre></div>
+<blockquote>
+<p><em><strong>Note:</strong> Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <strong>Subdomain</strong> value.</em></p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Eclipse Dirigible versions</p>
+<p>Instead of using the <code>latest</code> tag (version), for production and development use cases it is recomended to use stable release version:</p>
+<ul>
+<li>All released versions can be found <a href="https://github.com/eclipse/dirigible/releases/">here</a>.</li>
+<li>All Eclipse Dirigible Docker images and tags (versions) can be found <a href="https://hub.docker.com/u/dirigiblelabs">here</a>.</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Create XSUAA service instance:</p>
 <ul>
 <li>
@@ -1532,25 +1551,6 @@
 </blockquote>
 </li>
 </ul>
-</li>
-<li>
-<p>Deploy Eclipse Dirigible:</p>
-<div class="highlight"><pre><span></span><code>cf push dirigible \
---docker-image=dirigiblelabs/dirigible-sap-cf:latest \
---hostname dirigible-&lt;org-name&gt; \
--m 2G -k 2G
-</code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <strong>Subdomain</strong> value.</em></p>
-</blockquote>
-<div class="admonition tip">
-<p class="admonition-title">Eclipse Dirigible versions</p>
-<p>Instead of using the <code>latest</code> tag (version), for production and development use cases it is recomended to use stable release version:</p>
-<ul>
-<li>All released versions can be found <a href="https://github.com/eclipse/dirigible/releases/">here</a>.</li>
-<li>All Eclipse Dirigible Docker images and tags (versions) can be found <a href="https://hub.docker.com/u/dirigiblelabs">here</a>.</li>
-</ul>
-</div>
 </li>
 <li>
 <p>Bind the XSUAA service instance to the Eclipse Dirigible deployment:</p>
