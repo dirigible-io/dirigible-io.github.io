@@ -5,12 +5,11 @@ title: Cloud Foundry
 Setup in Cloud Foundry
 ===
 
-Deploy Eclipse Dirigible in the Cloud Foundry environment of SAP Cloud Platform with the [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
+Deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment.
 
-Prerequisites
----
-
-- Install [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html)
+!!! info "Prerequisites"
+    - Install [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
+    - Access to SAP Cloud Platform account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
 
 Steps
 ---
@@ -88,7 +87,7 @@ Steps
     ```
     > _**Note:** Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value._
 
-    ???+ important "Eclipse Dirigible versions"
+    !!! tip "Eclipse Dirigible versions"
         Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
 
         - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
@@ -114,6 +113,6 @@ Steps
 
 1. Login.
 
-???+ info "Additional Materials"
+!!! example "Additional Materials"
     - For deployment through `manifest.yaml` follow this [steps](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).
