@@ -14,10 +14,16 @@ Deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment.
 Steps
 ---
 
+1. Set the SAP Cloud Platform Cloud Foundry API host:
+
+    ```
+    cf api <cloud-foundry-api-host>
+    ```
+
 1. Login to the SAP Cloud Platform Cloud Foundry environment with:
 
     ```
-    cf login -a <cloud-foundry-api-host>
+    cf login
     ```
 
 1. Deploy Eclipse Dirigible:
