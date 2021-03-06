@@ -46,6 +46,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | _`local` or `database`_
+**DIRIGIBLE_REPOSITORY_DISABLE_CACHE**   | Disable the usage of the cache, which is enabled by default | _`true` or `false`_
 
 #### Database Repository
 
