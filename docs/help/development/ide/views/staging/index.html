@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/help/development/ide/views/breakpoints/">
+        <link rel="canonical" href="https://www.dirigible.io/help/development/ide/views/staging/">
       
       <link rel="shortcut icon" href="../../../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
     
     
       
-        <title>Breakpoints - Eclipse Dirigible Help Portal</title>
+        <title>Staging - Eclipse Dirigible Help Portal</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#breakpoint-view" class="md-skip">
+        <a href="#staging-view" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Breakpoints
+              Staging
             
           </span>
         </div>
@@ -868,27 +868,6 @@
             
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Breakpoints
-      </a>
-      
-    </li>
-  
-
-          
-            
-  
-  
   
     <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
@@ -965,6 +944,18 @@
     <li class="md-nav__item">
       <a href="../git/" class="md-nav__link">
         Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        History
       </a>
     </li>
   
@@ -1105,11 +1096,20 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../terminal/" class="md-nav__link">
-        Terminal
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Staging
       </a>
+      
     </li>
   
 
@@ -1119,8 +1119,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../variables/" class="md-nav__link">
-        Variables
+      <a href="../terminal/" class="md-nav__link">
+        Terminal
       </a>
     </li>
   
@@ -1424,15 +1424,22 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs/development/ide/views/breakpoints.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs/development/ide/views/staging.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="breakpoint-view">Breakpoint View</h1>
-<p>The Breakpoints view enables you to follow the breakpoints you have created in the course of the debugging process. 
-The first column of the view displays the path to the file in the document repository and the second one - the row where the breakpoint is situated.</p>
-<p><img alt="Breakpoints view" src="../../../../images/ide_view_breakpoints.png" /></p>
+                <h1 id="staging-view">Staging View</h1>
+<p>The <code>Staging</code> view provides a visual alternative of executing Git commands from a terminal. You can manage your locally changed files and prepare them for pushing to your remote repository.</p>
+<p><img alt="Staging view" src="../../../../images/ide_view_staging.png" /></p>
+<ul>
+<li><code>Unstaged Files</code> - all files that you've changed are listed here. However, these changes aren't ready yet to be binded to a commit. For this purpose, you have to stage them. Use the downward arrow to move files from unstaged to staged state.</li>
+<li><code>Staged Files</code> - all files that you've changed and staged are listed here. These are ready to be binded to a commit. Use the upward arrow to move files from staged back to unstaged state.</li>
+<li><code>Commit Message</code> - provide details about the changes included in your commit.</li>
+<li><code>Username</code>, <code>Password</code>, <code>Email</code> - provide your authentication credentials.</li>
+<li><code>Commit &amp; Push</code> - commit your changes and directly push them to your remote repository.</li>
+<li><code>Commit</code> - commit your changes without pushing them. This way, you can organize your changes in several commits and push them together.</li>
+</ul>
                 
                   
                 
@@ -1453,7 +1460,7 @@ The first column of the view displays the path to the file in the document repos
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../access/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../sql/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1462,19 +1469,19 @@ The first column of the view displays the path to the file in the document repos
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Access
+                SQL
               </div>
             </div>
           </a>
         
         
-          <a href="../console/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../terminal/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Console
+                Terminal
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -1587,7 +1594,7 @@ The first column of the view displays the path to the file in the document repos
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf3e710.min.js"></script>
       
     
   </body>

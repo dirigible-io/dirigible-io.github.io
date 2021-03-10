@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/development/ide/views/debugger/">
       
       <link rel="shortcut icon" href="../../../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
     
     
       
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debuggeer-view" class="md-skip">
+        <a href="#debugger-view" class="md-skip">
           Skip to content
         </a>
       
@@ -870,18 +870,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../breakpoints/" class="md-nav__link">
-        Breakpoints
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../console/" class="md-nav__link">
         Console
       </a>
@@ -965,6 +953,18 @@
     <li class="md-nav__item">
       <a href="../git/" class="md-nav__link">
         Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        History
       </a>
     </li>
   
@@ -1107,8 +1107,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../terminal/" class="md-nav__link">
-        Terminal
+      <a href="../staging/" class="md-nav__link">
+        Staging
       </a>
     </li>
   
@@ -1119,8 +1119,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../variables/" class="md-nav__link">
-        Variables
+      <a href="../terminal/" class="md-nav__link">
+        Terminal
       </a>
     </li>
   
@@ -1429,9 +1429,32 @@
                   </a>
                 
                 
-                <h1 id="debuggeer-view">Debuggeer View</h1>
-<p>The Debugger view enables you to navigate the debugging of your code: to start it, pause it, restart it or proceed step by step.  </p>
+                <h1 id="debugger-view">Debugger View</h1>
+<p>The <code>Debugger</code> view enables you to navigate the debugging of your code. You can: </p>
+<ul>
+<li>Start</li>
+<li>Pause</li>
+<li>Restart</li>
+<li>Proceed step by step </li>
+</ul>
 <p><img alt="Debugger view" src="../../../../images/ide_view_debugger.png" /></p>
+<p>This view includes a few panes that are helpful during the debugging process. See below for more details.</p>
+<details class="tip"><summary><code>Scope</code></summary><p>When you're paused on a line of code, the <code>Scope</code> pane shows you what local and global variables are currently defined, along with the value of each variable. It also shows closure variables, when applicable. Double-click a variable value to edit it. When you're not paused on a line of code, the <code>Scope</code> pane is empty.</p>
+<p><img alt="Scope pane of the Debugger view" src="../../../../images/ide_view_debugger_scope.png" /></p>
+</details>
+<details class="tip"><summary><code>Breakpoints</code></summary><p>The <code>Breakpoints</code> pane shows any line-of-code breakpoints you've added to your code. As the name suggests, you can use a line-of-code breakpoint when you've got a specific line of code that you want to pause on. As you can see in the <code>Breakpoints</code> pane, currently there are two breakpoints added: <em>Unnamed</em> at row 5 and <em>Unnamed</em> at row 8.</p>
+<p><img alt="Breakpoint pane of the Debugger view" src="../../../../images/ide_view_debugger_breakpoint.png" /></p>
+</details>
+<details class="tip"><summary><code>Debug Preview</code></summary><p>This pane displays the result of executing the debugged file. The <code>Debug Preview</code> is similar in functionality to the <a href="../preview"><code>Preview</code></a> view.</p>
+<p><img alt="Debug Preview pane of the Debugger view" src="../../../../images/ide_view_debugger_debug_preview.png" /></p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Related content</p>
+<ul>
+<li><a href="../console">Console</a> view</li>
+<li><a href="../../perspectives/debugger">Debugger</a> perspective</li>
+</ul>
+</div>
                 
                   
                 
@@ -1586,7 +1609,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.5cf3e710.min.js"></script>
       
     
   </body>
