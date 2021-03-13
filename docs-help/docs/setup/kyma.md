@@ -39,18 +39,25 @@ Steps
                 app: dirigible
             spec:
               containers:
-              - env:
+              - name: dirigible
+                image: dirigiblelabs/dirigible-sap-kyma:latest
+                imagePullPolicy: Always
+                env:
                 - name: DIRIGIBLE_THEME_DEFAULT
                   value: fiori
                 - name: DIRIGIBLE_HOST
                   value: https://dirigible.<your-kyma-cluster-host>
-                image: dirigiblelabs/dirigible-sap-kyma
-                imagePullPolicy: Always
-                name: dirigible
+                volumeMounts:
+                - name: dirigible-volume
+                  mountPath: /usr/local/tomcat/target/dirigible
                 ports:
                 - containerPort: 8080
                   name: dirigible
                   protocol: TCP
+              volumes:
+              - name: dirigible-volume
+                persistentVolumeClaim:
+                  claimName: dirigible-claim
         ---
         apiVersion: v1
         kind: Service
@@ -68,6 +75,17 @@ Steps
           selector:
             app: dirigible
           type: ClusterIP
+        ---
+        apiVersion: v1
+        kind: PersistentVolumeClaim
+        metadata:
+          name: dirigible-claim
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
         ---
         apiVersion: gateway.kyma-project.io/v1alpha1
         kind: APIRule
