@@ -104,7 +104,6 @@ Steps
         spec:
           accessModes:
             - ReadWriteOnce
-          volumeMode: Filesystem
           resources:
             requests:
               storage: 1Gi
