@@ -1598,10 +1598,10 @@
 <ol>
 <li>
 <p>Add the Eclipse Dirigible Helm repository:</p>
-<p>```
-helm repo add dirigible https://eclipse.github.io/dirigible</p>
-<p>helm repo update
-```</p>
+<div class="highlight"><pre><span></span><code>helm repo add dirigible https://eclipse.github.io/dirigible
+
+helm repo update
+</code></pre></div>
 </li>
 <li>
 <p>Basic:</p>
@@ -1968,7 +1968,9 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </table>
 <h4 id="usage">Usage</h4>
 <p>Specify the parameters you which to customize using the <code>--set</code> argument to the <code>helm install</code> command. For instance,</p>
-<div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible --set ingress.enabled=true --set ingress.host=my-ingress-host.com
+<div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
+--set ingress.enabled=true \
+--set ingress.host=my-ingress-host.com
 </code></pre></div>
 <p>The above command sets the <code>ingress.host</code> to <code>my-ingress-host.com</code>.</p>
 <p>Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,</p>
