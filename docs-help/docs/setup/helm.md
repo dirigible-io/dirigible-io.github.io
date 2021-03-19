@@ -113,7 +113,7 @@ Steps
             - Login to the `PostgreSQL` Pod:
 
             ```
-            kubectl exec -it keycloak-database-<pod-uuid>  /bin/bash
+            kubectl exec -it keycloak-database-<pod-uuid> /bin/bash
             ```
             
             - Connect to the `keycloak` database:
@@ -131,7 +131,7 @@ Steps
             - Restart the `Keycloak` pod to apply the updated configuration:
 
             ```
-            kubectl delete pod keycloak-database-<pod-uuid>
+            kubectl delete pod keycloak-<pod-uuid>
             ```
 
             Now the "Required HTTPS" should be disabled and the `keycloak` instance should be accessible via `http://`
