@@ -105,6 +105,36 @@ Steps
         ```
 
         > _**Note:** In addition **Keycloak** will be deployed and configured._
+        
+        !!! info "Disable HTTPS"
+
+            In some cases you might want to disable the "Required HTTPS" for Keycloak.
+            
+            - Login to the `PostgreSQL` Pod:
+
+            ```
+            kubectl exec -it keycloak-database-<pod-uuid>  /bin/bash
+            ```
+            
+            - Connect to the `keycloak` database:
+
+            ```
+            psql --u keycloak
+            ```
+
+            - Set the `ssl_required` to `NONE`:
+
+            ```
+            update REALM set ssl_required='NONE' where id = 'master';
+            ```
+
+            - Restart the `Keycloak` pod to apply the updated configuration:
+
+            ```
+            kubectl delete pod keycloak-database-<pod-uuid>
+            ```
+
+            Now the "Required HTTPS" should be disabled and the `keycloak` instance should be accessible via `http://`
 
 1. Uninstall:
     ```
