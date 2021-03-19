@@ -1677,6 +1677,31 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 <blockquote>
 <p><em><strong>Note:</strong> In addition <strong>Keycloak</strong> will be deployed and configured.</em></p>
 </blockquote>
+<div class="admonition info">
+<p class="admonition-title">Disable HTTPS</p>
+<p>In some cases you might want to disable the "Required HTTPS" for Keycloak.</p>
+<ul>
+<li>Login to the <code>PostgreSQL</code> Pod:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl exec -it keycloak-database-&lt;pod-uuid&gt;  /bin/bash
+</code></pre></div>
+<ul>
+<li>Connect to the <code>keycloak</code> database:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>psql --u keycloak
+</code></pre></div>
+<ul>
+<li>Set the <code>ssl_required</code> to <code>NONE</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>update REALM set ssl_required=&#39;NONE&#39; where id = &#39;master&#39;;
+</code></pre></div>
+<ul>
+<li>Restart the <code>Keycloak</code> pod to apply the updated configuration:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl delete pod keycloak-database-&lt;pod-uuid&gt;
+</code></pre></div>
+<p>Now the "Required HTTPS" should be disabled and the <code>keycloak</code> instance should be accessible via <code>http://</code></p>
+</div>
 </div>
 </div>
 </li>
