@@ -175,3 +175,16 @@ Steps
 1. Open a web browser and go to: `http://dirigible.<kubernetes-ingress-host>`
 
 1. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
+
+!!! info "Helm"
+    The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
+
+    Example:
+
+    ```
+    helm repo add dirigible https://eclipse.github.io/dirigible
+    helm repo update
+    helm install dirigible dirigible/dirigible
+    ```
+
+    More about the setup with Helm can be found [here](../helm/).
