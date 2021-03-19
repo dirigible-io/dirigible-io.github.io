@@ -70,6 +70,49 @@ Steps
 
         > _**Note:** This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database._
 
+    === "PostgreSQL & Keycloak"
+
+        ```
+        helm install dirigible dirigible/dirigible \
+        --set ingress.enabled=true \
+        --set ingress.host=<ingress-host> \
+        --set database.enabled=true \
+        --set keycloak.enabled=true \
+        --set keycloak.install=true
+        ```
+
+        > _**Note:** In addition **Keycloak** will be deployed and configured._
+        
+        !!! info "Disable HTTPS"
+
+            In some cases you might want to disable the "Required HTTPS" for Keycloak.
+            
+            - Login to the `PostgreSQL` Pod:
+
+            ```
+            kubectl exec -it keycloak-database-<pod-uuid> /bin/bash
+            ```
+            
+            - Connect to the `keycloak` database:
+
+            ```
+            psql --u keycloak
+            ```
+
+            - Set the `ssl_required` to `NONE`:
+
+            ```
+            update REALM set ssl_required='NONE' where id = 'master';
+            ```
+
+            - Restart the `Keycloak` pod to apply the updated configuration:
+
+            ```
+            kubectl delete pod keycloak-<pod-uuid>
+            ```
+
+            Now the "Required HTTPS" should be disabled and the `keycloak` instance should be accessible via `http://`
+
 1. Kyma:
 
     === "Basic"
