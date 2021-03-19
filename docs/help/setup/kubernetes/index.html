@@ -1656,6 +1656,16 @@ kubectl apply -f service.yml
 <p>Login with user <code>dirigible</code> and password <code>dirigible</code>, which are set by default in the Docker image <em>(<a href="https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags">dirigiblelabs/dirigible-tomcat</a>)</em> used above.</p>
 </li>
 </ol>
+<div class="admonition info">
+<p class="admonition-title">Helm</p>
+<p>The <code>helm</code> package manager could be used to install Eclipse Dirigible via Helm <a href="https://artifacthub.io/packages/search?page=1&amp;org=dirigiblelabs">Chart</a>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>helm repo add dirigible https://eclipse.github.io/dirigible
+helm repo update
+helm install dirigible dirigible/dirigible
+</code></pre></div>
+<p>More about the setup with Helm can be found <a href="../helm/">here</a>.</p>
+</div>
                 
                   
                 
