@@ -19,7 +19,7 @@ Steps
 
 1. Add the Eclipse Dirigible Helm repository:
 
-     ```
+    ```
     helm repo add dirigible https://eclipse.github.io/dirigible
 
     helm repo update
@@ -187,7 +187,9 @@ The following table lists all the configurable parameters expose by the Dirigibl
 Specify the parameters you which to customize using the `--set` argument to the `helm install` command. For instance,
 
 ```
-helm install dirigible dirigible/dirigible --set ingress.enabled=true --set ingress.host=my-ingress-host.com
+helm install dirigible dirigible/dirigible \
+--set ingress.enabled=true \
+--set ingress.host=my-ingress-host.com
 ```
 
 The above command sets the `ingress.host` to `my-ingress-host.com`.
