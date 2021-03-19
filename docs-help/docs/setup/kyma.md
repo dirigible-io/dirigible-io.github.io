@@ -188,6 +188,20 @@ Steps
 
 1. Login.
 
+!!! info "Helm"
+    The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
+
+    Example:
+
+    ```
+    helm repo add dirigible https://eclipse.github.io/dirigible
+    helm repo update
+    helm install dirigible dirigible/dirigible
+    ```
+
+    More about the setup with Helm can be found [here](../helm/).
+
+
 !!! example "Additional Materials"
     - For deployment through the `kubectl`, refer to the Kubernetes [setup](../kubernetes/).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/).
