@@ -1332,9 +1332,9 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">repositoryContent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/v4/registry&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">registry</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/v4/registry&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">repositoryContent</span><span class="p">.</span><span class="nx">getText</span><span class="p">(</span><span class="s2">&quot;platform/v4/registry.js&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">registry</span><span class="p">.</span><span class="nx">getText</span><span class="p">(</span><span class="s2">&quot;platform/v4/registry.js&quot;</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
