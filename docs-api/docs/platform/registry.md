@@ -21,9 +21,9 @@ Registry object gives access to the content in the repository and also the pre-d
 ```javascript
 
 var response = require("http/v4/response");
-var repositoryContent = require("platform/v4/registry");
+var registry = require("platform/v4/registry");
 
-var text = repositoryContent.getText("platform/v4/registry.js");
+var text = registry.getText("platform/v4/registry.js");
 
 response.println(text);
 response.flush();
