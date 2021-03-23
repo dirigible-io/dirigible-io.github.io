@@ -71,8 +71,8 @@ Expected result:
 
 ---
 
-1. Create a project `mail-custom-project`.
-2. Create a JavaScript service with the name `mail-custom-service.js`.
+1. Create a project `generate-pdf`.
+2. Create a JavaScript service with the name `pdf-service-advanced.js`.
 3. Enter the following content:
 
 ```javascript
