@@ -40,11 +40,32 @@ Function     | Description | Returns
 **getUsername()**   | Returns the *user_name* JWT property. | *string*
 **getGrantType()**   | Returns the *grant_type* JWT property. | *string*
 **verify(token)**   | Returns true if JWT *token* is valid. | *boolean*
-**getClient(config)**   | Returns *OAuthClient* with the specified *config*. | *OAuthClient*
+**getClient(config)**   | Returns *OAuthClient* with the specified *[config](#oauthconfg)*. | *OAuthClient*
 
 ### Objects
 
 ---
+
+#### OAuthConfg
+
+Property     | Description | Type     | Default
+------------ | ----------- | -------- | --------
+**url**   | The OAuth server *URL*. | *string* | `null`
+**clientId**   | The  *clientId* for the authentication flow. | *string* | `null`
+**clientSecret**   | The  *clientSecret* for the authentication flow. | *string* | `null`
+**grantType**   | (Optional) The  *grantType* of the authentication flow. | *string* | `client_credentials`
+**isAbsoluteUrl**   | (Optional) Whether to add by default `/oauth/token` to the *URL*. | *boolean* | `false`
+
+Sample **OAuthConfg**:
+
+```javascript
+let oauthConfig = {
+    url: "https://my-oauth-server.com",
+    clientId: "my-client-id"
+    clientSecret: "my-client-secret-1234"
+};
+```
+
 
 #### OAuthClient
 
