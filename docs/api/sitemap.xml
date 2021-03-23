@@ -24,10 +24,6 @@
      <lastmod>2021-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://www.dirigible.io/api/user/</loc>
-     <lastmod>2021-03-23</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://www.dirigible.io/api/core/configurations/</loc>
      <lastmod>2021-03-23</lastmod>
      <changefreq>daily</changefreq>
@@ -197,6 +193,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/api/platform/workspace/</loc>
+     <lastmod>2021-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://www.dirigible.io/api/security/user/</loc>
      <lastmod>2021-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
