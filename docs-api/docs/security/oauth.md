@@ -40,4 +40,18 @@ Function     | Description | Returns
 **getUsername()**   | Returns the *user_name* JWT property. | *string*
 **getGrantType()**   | Returns the *grant_type* JWT property. | *string*
 **verify(token)**   | Returns true if JWT *token* is valid. | *boolean*
+**getClient(config)**   | Returns *OAuthClient* with the specified *config*. | *OAuthClient*
 
+### Objects
+
+---
+
+#### OAuthClient
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**setUrl(url)**   | Sets the OAuth server *URL*. | *-*
+**setClientId(clientId)**   | Sets the  *clientId* for the authentication flow. | *-*
+**setClientSecret(clientSecret)**   | Sets the  *clientSecret* for the authentication flow. | *-*
+**setGrantType(grantType)**   | Sets the  *grantType* of the authentication flow. | *-*
+**getToken()**   | Gets the JWT access token. | *object*
