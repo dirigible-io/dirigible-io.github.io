@@ -1204,6 +1204,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauthclient" class="md-nav__link">
+    OAuthClient
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1382,6 +1402,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oauthclient" class="md-nav__link">
+    OAuthClient
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1460,6 +1500,50 @@
 <td><strong>verify(token)</strong></td>
 <td>Returns true if JWT <em>token</em> is valid.</td>
 <td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getClient(config)</strong></td>
+<td>Returns <em>OAuthClient</em> with the specified <em>config</em>.</td>
+<td><em>OAuthClient</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="objects">Objects</h3>
+<hr />
+<h4 id="oauthclient">OAuthClient</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>setUrl(url)</strong></td>
+<td>Sets the OAuth server <em>URL</em>.</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>setClientId(clientId)</strong></td>
+<td>Sets the  <em>clientId</em> for the authentication flow.</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>setClientSecret(clientSecret)</strong></td>
+<td>Sets the  <em>clientSecret</em> for the authentication flow.</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>setGrantType(grantType)</strong></td>
+<td>Sets the  <em>grantType</em> of the authentication flow.</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>getToken()</strong></td>
+<td>Gets the JWT access token.</td>
+<td><em>object</em></td>
 </tr>
 </tbody>
 </table>
