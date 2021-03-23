@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/samples/uuid-random-generation/">
+        <link rel="canonical" href="https://www.dirigible.io/samples/documents-pdf/">
       
       <link rel="icon" href="../../img/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>UUID - Random Generation - Eclipse Dirigible Samples</title>
+        <title>Generate PDF - Eclipse Dirigible Samples</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uuid-random-generation" class="md-skip">
+        <a href="#generate-pdf" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UUID - Random Generation
+              Generate PDF
             
           </span>
         </div>
@@ -351,11 +351,49 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../documents-pdf/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generate PDF
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Generate PDF
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -606,49 +644,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          UUID - Random Generation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../uuid-random-generation/" class="md-nav__link">
         UUID - Random Generation
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    Steps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -938,35 +938,124 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-samples/docs/uuid-random-generation.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-samples/docs/documents-pdf.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="uuid-random-generation">UUID - Random Generation</h1>
+                <h1 id="generate-pdf">Generate PDF</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>utils-uuid</code>.</li>
-<li>Create a JavaScript service with the name <code>uuid-random-generator.js</code>.</li>
+<li>Create a project <code>generate-pdf</code>.</li>
+<li>Create a JavaScript service with the name <code>pdf-service.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">uuid</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/uuid&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pdfDocuments</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">generated</span> <span class="o">=</span> <span class="nx">uuid</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.&quot;</span><span class="p">,</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;First Name&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;firstName&quot;</span><span class="p">,</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Last Name&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;lastName&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;age&quot;</span>
+    <span class="p">}],</span>
+    <span class="nx">rows</span><span class="o">:</span> <span class="p">[{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mf">1001</span><span class="p">,</span>
+        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+        <span class="nx">age</span><span class="o">:</span> <span class="mf">29</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mf">1002</span><span class="p">,</span>
+        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+        <span class="nx">age</span><span class="o">:</span> <span class="mf">26</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mf">1003</span><span class="p">,</span>
+        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Joe&quot;</span><span class="p">,</span>
+        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+        <span class="nx">age</span><span class="o">:</span> <span class="mf">44</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="mf">1004</span><span class="p">,</span>
+        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
+        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+        <span class="nx">age</span><span class="o">:</span> <span class="mf">40</span>
+    <span class="p">}]</span>
+<span class="p">};</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generated</span><span class="p">);</span>
-<span class="nx">uuid</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="nx">generated</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pdf</span> <span class="o">=</span> <span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Randomly Generated UUID: &quot;</span> <span class="o">+</span> <span class="nx">generated</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="s2">&quot;Randomly Generated UUID: &quot;</span> <span class="o">+</span> <span class="nx">generated</span><span class="p">));</span>
-
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pdf</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
+<p>Expected result:
+<img alt="Generated PDF" src="/img/samples/documents/pdf-generator.png" /></p>
+<hr />
+<ol>
+<li>Create a project <code>mail-custom-project</code>.</li>
+<li>Create a JavaScript service with the name <code>mail-custom-service.js</code>.</li>
+<li>Enter the following content:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">pdfDocuments</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;</span><span class="p">,</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Position&quot;</span><span class="p">,</span>
+        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;position&quot;</span>
+    <span class="p">}],</span>
+    <span class="nx">rows</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mf">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+        <span class="nx">position</span><span class="o">:</span> <span class="s2">&quot;Software Developer&quot;</span><span class="p">,</span>
+        <span class="nx">highlight</span><span class="o">:</span> <span class="nx">i</span> <span class="o">%</span> <span class="mf">2</span> <span class="o">==</span> <span class="mf">0</span><span class="p">,</span>
+        <span class="nx">breakAfter</span><span class="o">:</span> <span class="p">((</span><span class="nx">i</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)</span> <span class="o">%</span> <span class="mf">10</span> <span class="o">==</span> <span class="mf">0</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
+    <span class="nx">size</span><span class="o">:</span> <span class="s2">&quot;A3&quot;</span><span class="p">,</span>
+    <span class="nx">alignColumns</span><span class="o">:</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+    <span class="nx">alignRows</span><span class="o">:</span> <span class="s2">&quot;end&quot;</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">pdf</span> <span class="o">=</span> <span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
+
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pdf</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
+<p>Expected result:
+<img alt="Generated PDF" src="/img/samples/documents/pdf-generator-advanced.png" /></p>
 <hr />
 <blockquote>
-<p>For more information, see the <em><a href="../api/">API</a></em> documentation.</p>
+<p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
 </blockquote>
                 
                   
@@ -987,7 +1076,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../url-encode/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../digest/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -996,19 +1085,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              URL - UTF-8 Encoding
+              Encrypt - SHA-512
             </div>
           </div>
         </a>
       
       
-        <a href="../complex/bookstore/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../ftp-client/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Bookstore Application
+              FTP Client
             </div>
           </div>
           <div class="md-footer__button md-icon">
