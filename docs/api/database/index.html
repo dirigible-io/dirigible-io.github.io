@@ -488,8 +488,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#statement" class="md-nav__link">
-    Statement
+  <a href="#preparedstatement" class="md-nav__link">
+    PreparedStatement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callablestatement" class="md-nav__link">
+    CallableStatement
   </a>
   
 </li>
@@ -1432,8 +1439,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#statement" class="md-nav__link">
-    Statement
+  <a href="#preparedstatement" class="md-nav__link">
+    PreparedStatement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callablestatement" class="md-nav__link">
+    CallableStatement
   </a>
   
 </li>
@@ -1555,7 +1569,12 @@
 <tr>
 <td><strong>prepareStatement(sql)</strong></td>
 <td>Creates a prepared statement by the given SQL script</td>
-<td><em>Statement</em></td>
+<td><em>PreparedStatement</em></td>
+</tr>
+<tr>
+<td><strong>prepareCall(sql)</strong></td>
+<td>Creates a callable statement by the given SQL script</td>
+<td><em>CallableStatement</em></td>
 </tr>
 <tr>
 <td><strong>close()</strong></td>
@@ -1634,7 +1653,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="statement">Statement</h4>
+<h4 id="preparedstatement">PreparedStatement</h4>
 <table>
 <thead>
 <tr>
@@ -1648,6 +1667,11 @@
 <td><strong>close()</strong></td>
 <td>Closes the Statement</td>
 <td>-</td>
+</tr>
+<tr>
+<td><strong>execute()</strong></td>
+<td>Executes an SQL query, script, procedure, etc.</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
 <td><strong>executeQuery()</strong></td>
@@ -1672,6 +1696,21 @@
 <tr>
 <td><strong>setDate(index, value)</strong></td>
 <td>Sets a parameter of type date</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setClob(index, value)</strong></td>
+<td>Sets a parameter of type clob</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setBlob(index, value)</strong></td>
+<td>Sets a parameter of type blob</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setBytes(index, value)</strong></td>
+<td>Sets a parameter of type bytes</td>
 <td>-</td>
 </tr>
 <tr>
@@ -1713,6 +1752,178 @@
 <td><strong>setTimestamp(index, value)</strong></td>
 <td>Sets a parameter of type timestamp</td>
 <td>-</td>
+</tr>
+<tr>
+<td><strong>addBatch()</strong></td>
+<td>Adds a set of parameters to this <em>PreparedStatement</em> batch of commands</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>executeBatch()</strong></td>
+<td>Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts.</td>
+<td><em>integer array</em></td>
+</tr>
+<tr>
+<td><strong>getMetaData()</strong></td>
+<td>Retrieves a metadata object that contains information about the columns of the object that will be returned when this PreparedStatement is executed</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>getMoreResults()</strong></td>
+<td>Returns true, if there are more <em>ResultSet</em> objects to be retrieved.</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getParameterMetaData()</strong></td>
+<td>Retrieves the number, types and properties of this <em>PreparedStatement</em> parameters</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>getSQLWarning()</strong></td>
+<td>Retrieves the first warning reported</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>isClosed()</strong></td>
+<td>Returns true, if closed</td>
+<td><em>boolean</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="callablestatement">CallableStatement</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>close()</strong></td>
+<td>Closes the Statement</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>execute()</strong></td>
+<td>Executes an SQL query, script, procedure, etc.</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>executeQuery()</strong></td>
+<td>Executes a query and returns a ResultSet</td>
+<td><em>ResultSet</em></td>
+</tr>
+<tr>
+<td><strong>executeUpdate()</strong></td>
+<td>Executes an update SQL statement</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setNull(index, value)</strong></td>
+<td>Sets a parameter as null</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setBoolean(index, value)</strong></td>
+<td>Sets a parameter of type boolean</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setDate(index, value)</strong></td>
+<td>Sets a parameter of type date</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setClob(index, value)</strong></td>
+<td>Sets a parameter of type clob</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setBlob(index, value)</strong></td>
+<td>Sets a parameter of type blob</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setBytes(index, value)</strong></td>
+<td>Sets a parameter of type bytes</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setDouble(index, value)</strong></td>
+<td>Sets a parameter of type double</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setFloat(index, value)</strong></td>
+<td>Sets a parameter of type float</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setInt(index, value)</strong></td>
+<td>Sets a parameter of type integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setLong(index, value)</strong></td>
+<td>Sets a parameter of type long</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setShort(index, value)</strong></td>
+<td>Sets a parameter of type short</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setString(index, value)</strong></td>
+<td>Sets a parameter of type string</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setTime(index, value)</strong></td>
+<td>Sets a parameter of type time</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>setTimestamp(index, value)</strong></td>
+<td>Sets a parameter of type timestamp</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>addBatch()</strong></td>
+<td>Adds a set of parameters to this <em>PreparedStatement</em> batch of commands</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>executeBatch()</strong></td>
+<td>Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts.</td>
+<td><em>integer array</em></td>
+</tr>
+<tr>
+<td><strong>getMetaData()</strong></td>
+<td>Retrieves a metadata object that contains information about the columns of the object that will be returned when this PreparedStatement is executed</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>getMoreResults()</strong></td>
+<td>Returns true, if there are more <em>ResultSet</em> objects to be retrieved.</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getParameterMetaData()</strong></td>
+<td>Retrieves the number, types and properties of this <em>PreparedStatement</em> parameters</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>getSQLWarning()</strong></td>
+<td>Retrieves the first warning reported</td>
+<td><em>object</em></td>
+</tr>
+<tr>
+<td><strong>isClosed()</strong></td>
+<td>Returns true, if closed</td>
+<td><em>boolean</em></td>
 </tr>
 </tbody>
 </table>
