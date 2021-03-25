@@ -64,7 +64,8 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**prepareStatement(sql)**   | Creates a prepared statement by the given SQL script | *Statement*
+**prepareStatement(sql)**   | Creates a prepared statement by the given SQL script | *PreparedStatement*
+**prepareCall(sql)** | Creates a callable statement by the given SQL script | *CallableStatement*
 **close()**   | Closes the Connection and returns it to the pool | -
 **commit()**   | Commits the current transaction | -
 **getAutoCommit()**   | Returns the value of the auto commit setting | *boolean*
@@ -82,17 +83,20 @@ Function     | Description | Returns
 **setTransactionIsolation(transactionIsolation)**   | Sets the value of the transaction isolation setting | -
 
 
-#### Statement
-
+#### PreparedStatement
 
 Function     | Description | Returns
 ------------ | ----------- | --------
 **close()**   | Closes the Statement | -
+**execute()**   | Executes an SQL query, script, procedure, etc. | *boolean*
 **executeQuery()**   | Executes a query and returns a ResultSet | *ResultSet*
 **executeUpdate()**   | Executes an update SQL statement | -
 **setNull(index, value)**   | Sets a parameter as null | -
 **setBoolean(index, value)**   | Sets a parameter of type boolean | -
 **setDate(index, value)**   | Sets a parameter of type date | -
+**setClob(index, value)**   | Sets a parameter of type clob | -
+**setBlob(index, value)**   | Sets a parameter of type blob | -
+**setBytes(index, value)**   | Sets a parameter of type bytes | -
 **setDouble(index, value)**   | Sets a parameter of type double | -
 **setFloat(index, value)**   | Sets a parameter of type float | -
 **setInt(index, value)**   | Sets a parameter of type integer | -
@@ -101,10 +105,46 @@ Function     | Description | Returns
 **setString(index, value)**   | Sets a parameter of type string | -
 **setTime(index, value)**   | Sets a parameter of type time | -
 **setTimestamp(index, value)**   | Sets a parameter of type timestamp | -
+**addBatch()** | Adds a set of parameters to this *PreparedStatement* batch of commands | -
+**executeBatch()** | Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts. | *integer array*
+**getMetaData()**   | Retrieves a metadata object that contains information about the columns of the object that will be returned when this PreparedStatement is executed | *object*
+**getMoreResults()** | Returns true, if there are more *ResultSet* objects to be retrieved. | *boolean*
+**getParameterMetaData()** | Retrieves the number, types and properties of this *PreparedStatement* parameters | *object*
+**getSQLWarning()** | Retrieves the first warning reported | *object*
+**isClosed()** | Returns true, if closed | *boolean*
 
+
+#### CallableStatement
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**close()**   | Closes the Statement | -
+**execute()**   | Executes an SQL query, script, procedure, etc. | *boolean*
+**executeQuery()**   | Executes a query and returns a ResultSet | *ResultSet*
+**executeUpdate()**   | Executes an update SQL statement | -
+**setNull(index, value)**   | Sets a parameter as null | -
+**setBoolean(index, value)**   | Sets a parameter of type boolean | -
+**setDate(index, value)**   | Sets a parameter of type date | -
+**setClob(index, value)**   | Sets a parameter of type clob | -
+**setBlob(index, value)**   | Sets a parameter of type blob | -
+**setBytes(index, value)**   | Sets a parameter of type bytes | -
+**setDouble(index, value)**   | Sets a parameter of type double | -
+**setFloat(index, value)**   | Sets a parameter of type float | -
+**setInt(index, value)**   | Sets a parameter of type integer | -
+**setLong(index, value)**   | Sets a parameter of type long | -
+**setShort(index, value)**   | Sets a parameter of type short | -
+**setString(index, value)**   | Sets a parameter of type string | -
+**setTime(index, value)**   | Sets a parameter of type time | -
+**setTimestamp(index, value)**   | Sets a parameter of type timestamp | -
+**addBatch()** | Adds a set of parameters to this *PreparedStatement* batch of commands | -
+**executeBatch()** | Submits a batch of commands to the database for execution and if all commands execute successfully, returns an array of update counts. | *integer array*
+**getMetaData()**   | Retrieves a metadata object that contains information about the columns of the object that will be returned when this PreparedStatement is executed | *object*
+**getMoreResults()** | Returns true, if there are more *ResultSet* objects to be retrieved. | *boolean*
+**getParameterMetaData()** | Retrieves the number, types and properties of this *PreparedStatement* parameters | *object*
+**getSQLWarning()** | Retrieves the first warning reported | *object*
+**isClosed()** | Returns true, if closed | *boolean*
 
 #### ResultSet
-
 
 Function     | Description | Returns
 ------------ | ----------- | --------
