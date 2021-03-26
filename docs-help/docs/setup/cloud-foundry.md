@@ -5,8 +5,11 @@ title: Cloud Foundry
 Setup in Cloud Foundry
 ===
 
-Deploy Eclipse Dirigible in SAP BTP, Cloud Foundry environment [[1]](#[1]-SAP-Cloud-Platform-is-called-SAP-Business-Technology-Platform-(SAP-BTP)-as-of-2021.).
+Deploy Eclipse Dirigible in SAP BTP, Cloud Foundry environment.
 
+!!! info "Note"
+    SAP Cloud Platform is called SAP Business Technology Platform (SAP BTP) as of 2021.
+    
 !!! info "Prerequisites"
     - Install [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
     - Access to SAP BTP account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
@@ -122,5 +125,3 @@ Steps
 !!! example "Additional Materials"
     - For deployment through `manifest.yaml` follow this [steps](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).
-
-###### [1] SAP Cloud Platform is called SAP Business Technology Platform (SAP BTP) as of 2021.
