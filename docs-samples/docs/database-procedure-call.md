@@ -21,7 +21,7 @@ var database = require("db/v4/database");
 let connection = null;
 
 try {
-    connection = database.getConnection("dynamic", "hana-cloud");
+    connection = database.getConnection();
     let hasMoreResults = false;
     let sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY => 'Bulgaria', customersByCountry => ?, allCustomers => ?)";
     let callableStatement = connection.prepareCall(sql);
