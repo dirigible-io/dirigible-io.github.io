@@ -37,7 +37,7 @@ Steps
     --hostname dirigible-<org-name> \
     -m 2G -k 2G
     ```
-    > _**Note:** Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value._
+    Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
 
     !!! tip "Eclipse Dirigible versions"
         Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
@@ -92,7 +92,7 @@ Steps
         }
         ```
 
-        > _**Note:** Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`_
+        Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`.
 
     - Create a XSUAA service instance:
 
@@ -100,7 +100,7 @@ Steps
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-        > _**Note:** Use the same `<applicationName>` as in the previous step_
+        Use the same `<applicationName>` as in the previous step.
 
 1. Bind the XSUAA service instance to the Eclipse Dirigible deployment:
 
@@ -110,7 +110,7 @@ Steps
         cf bind-service dirigible <applicationName>-xsuaa
         ```
 
-        > _**Note:** Replace the `<applicationName>` placeholder with the application name, used in the previous steps_
+        Replace the `<applicationName>` placeholder with the application name, used in the previous steps.
 
     - Restart the `dirigible` deployment:
 
