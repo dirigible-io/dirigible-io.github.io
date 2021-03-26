@@ -9,10 +9,32 @@ Database - Procedure Call
 
 ### Steps
 
+1. Switch to the `Database Perspective`
+1. Execute the following SQL script:
+
+    ```sql
+    CREATE TABLE CUSTOMERS (ID INTEGER PRIMARY KEY, NAME VARCHAR(50), COUNTRY VARCHAR(50));
+
+    INSERT INTO CUSTOMERS VALUES (1, 'Google', 'USA');
+    INSERT INTO CUSTOMERS VALUES (2, 'SAP', 'Germany');
+    INSERT INTO CUSTOMERS VALUES (3, 'DigitalLights', 'Bulgaria');
+    INSERT INTO CUSTOMERS VALUES (4, 'Quanterall', 'Bulgaria');
+    INSERT INTO CUSTOMERS VALUES (5, 'SyMetric', 'India');
+    ```
+1. Create `CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS` stored procedure:
+
+    ```sql
+    CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS (in country varchar(50), out customersByCountry CUSTOMERS, out allCustomers CUSTOMERS) 
+    AS
+      BEGIN 
+        customersByCountry = SELECT * FROM CUSTOMERS WHERE COUNTRY = :country;
+        allCustomers = SELECT * FROM CUSTOMERS;
+      END;
+    ```
 
 1. Create a project `database-procedure`.
-2. Then create a JavaScript service named `database-procedure-call.js`.
-3. Within the service code, enter the following content:
+1. Then create a JavaScript service named `database-procedure-call.js`.
+1. Within the service code, enter the following content:
 
 ```javascript
 var response = require("http/v4/response");
