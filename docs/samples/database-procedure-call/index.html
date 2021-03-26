@@ -971,7 +971,7 @@
 <span class="kd">let</span> <span class="nx">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
 <span class="k">try</span> <span class="p">{</span>
-    <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">(</span><span class="s2">&quot;dynamic&quot;</span><span class="p">,</span> <span class="s2">&quot;hana-cloud&quot;</span><span class="p">);</span>
+    <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span>
     <span class="kd">let</span> <span class="nx">hasMoreResults</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY =&gt; &#39;Bulgaria&#39;, customersByCountry =&gt; ?, allCustomers =&gt; ?)&quot;</span><span class="p">;</span>
     <span class="kd">let</span> <span class="nx">callableStatement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareCall</span><span class="p">(</span><span class="nx">sql</span><span class="p">);</span>
