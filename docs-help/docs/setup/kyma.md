@@ -5,16 +5,19 @@ title: Kyma
 Setup in Kyma
 ===
 
-Deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment.
+Deploy Eclipse Dirigible in SAP BTP, Kyma environment.
+
+!!! info "Note"
+    SAP Cloud Platform is called SAP Business Technology Platform (SAP BTP) as of 2021.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - this step is optional.
-    - Access to SAP Cloud Platform account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
+    - Access to SAP BTP account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
 
 Steps
 ---
 
-1. Access the SAP Cloud Platform Kyma environment throught SAP Cloud Platform Cockpit:
+1. Access the SAP BTP, Kyma environment via the SAP BTP cockpit:
 
     > The Trial landscape can be accessed from [here](https://account.hanatrial.ondemand.com)
 
@@ -186,7 +189,7 @@ Steps
 
 1. Assign the `Developer` and `Operator` roles.
 
-1. Login.
+1. Log in.
 
 !!! info "Helm"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
