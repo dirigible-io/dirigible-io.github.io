@@ -17,7 +17,8 @@ They are built on scenarios with different complexity level, from exemplary samp
 * [Console Log Levels](console) - show how to use the built-in **console** object to print information in the standard output
 * [Database Dynamic Datasource](database-dynamic) - how to use dynamic datasources
 * [Database Statement](database-statement) - getting started with the low level Database API
-* [Database Procedure Call](database-procedure-call) - call SQL Procedure through the Database API
+* [Database Procedure Call](database-procedure-call) - call SQL Procedure through the low level Database API
+* [Database Procedure - Create & Execute](database-procedure) - create & execute SQL Procedure through the Database Procedure API
 * [Database Query](database-query) - using the simplified Query Database API
 * [Encrypt a Text with SHA512](digest) - how to use SHA512 to encrypt an input byte array
 * [Decode a String from Hexadecimal Format](hex-decode) - decoding string from HEX
