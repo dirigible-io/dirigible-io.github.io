@@ -148,6 +148,7 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
+**toJson(limited)** | Returns the result set as stringfied JSON, `limited = true` will return only the first 100 records | *string*
 **close()**   | Closes the ResultSet | -
 **getBoolean(identifier)**   | Returns a value of type boolean | *boolean*
 **getDate(identifier)**   | Returns a value of type date | *Date*
