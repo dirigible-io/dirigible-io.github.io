@@ -26,24 +26,24 @@ var customers = dao.create({
     table: "CUSTOMERS",
     properties: [{
         name: "id",
-	column: "ID",
-	type: "BIGINT",
-	id: true
+        column: "ID",
+        type: "BIGINT",
+        id: true
     }, {
         name: "orgName",
-	column: "ORG_NAME",
-	type: "VARCHAR",
-	required: true
+        column: "ORG_NAME",
+        type: "VARCHAR",
+        required: true
     }, {
         name: "employeesNumber",
-	column: "ORG_EMP_NUM",
-	type: "INTEGER",
-	required: true
+        column: "ORG_EMP_NUM",
+        type: "INTEGER",
+        required: true
     }, {
         name: "orgDescription",
-	column: "ORG_DESCR",
-	type: "VARCHAR",
-	required: false
+        column: "ORG_DESCR",
+        type: "VARCHAR",
+        required: false
     }]
 });
 
@@ -55,7 +55,7 @@ try {
     //Create a new customer entity
     var customerId = customers.insert({
         orgName: "ACME",
-	employeesNumber: 1000
+        employeesNumber: 1000
     });
 		
     //List all customer entities
