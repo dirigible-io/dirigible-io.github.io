@@ -40,7 +40,7 @@ Steps
     Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
 
     !!! tip "Eclipse Dirigible versions"
-        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
+        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
 
         - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
         - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
@@ -110,7 +110,7 @@ Steps
         cf bind-service dirigible <applicationName>-xsuaa
         ```
 
-        Replace the `<applicationName>` placeholder with the application name, used in the previous steps.
+        Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
     - Restart the `dirigible` deployment:
 
