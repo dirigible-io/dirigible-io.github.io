@@ -32,4 +32,4 @@ response.println(file);
 
 ---
 
-> For more information, see the *[API](../api/)* documentation.
+> For more information, see the *[API](../../api/)* documentation.

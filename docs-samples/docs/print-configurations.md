@@ -39,4 +39,4 @@ response.print(JSON.stringify(dirigibleKeys));
 
 ---
 
-> For more information, see the *[API](../api/)* documentation.
+> For more information, see the *[API](../../api/)* documentation.
