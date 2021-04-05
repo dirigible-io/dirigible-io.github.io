@@ -10,7 +10,7 @@ The `http-rs` module is designed to define and run a broad range of HTTP REST se
 A very simple example _`hello-api.js`_:
 
 ```javascript
-var rs = require("http/rs");
+var rs = require("http/v4/rs");
 
 // serve GET HTTP requests sent to resource path "" (i.e. directly to hello-api.js)
 rs.service()
