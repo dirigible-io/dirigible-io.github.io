@@ -468,4 +468,4 @@ angular.module('page').controller('PageController', function ($scope, $http) {
 
 ---
 
-For more information, see the *[API](../api/)* documentation.
+For more information, see the *[API](../../../api/)* documentation.

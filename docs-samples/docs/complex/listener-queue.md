@@ -66,4 +66,4 @@ console.log("Hello from My Trigger! Message: " + message);
 
 ---
 
-For more information, see the *[API](../api/)* documentation.
+For more information, see the *[API](../../../api/)* documentation.

@@ -29,7 +29,7 @@ A sample content file with a single project with a single service you can find a
 6. You should have already available project "my_project" in your workspace, with a service "hello.js"
 7. The service is even published already, so you can directly execute it by accessing the location:
 
-	http://localhost:8080/services/v3/js/my_project/hello.js
+	http://localhost:8080/services/v4/js/my_project/hello.js
 	
 > Note: This is the simplest way (from the life-cycle management PoV) to run an Eclipse Dirigible application.
 

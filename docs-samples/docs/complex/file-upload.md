@@ -72,4 +72,4 @@ response.close();
 
 ---
 
-For more information, see the *[API](../api/)* documentation.
+For more information, see the *[API](../../../api/)* documentation.
