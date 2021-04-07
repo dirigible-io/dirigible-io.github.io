@@ -26,12 +26,25 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_BRAND_URL**   | The branding URL | _`https://www.dirigible.io`_
 **DIRIGIBLE_BRANDING_ICON**   | The branding icon | _`../../../../services/v4/web/resources/images/favicon.png`_
 **DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT**   | The branding welcome page | _`../../../../services/v4/web/ide/welcome.html`_
+**DIRIGIBLE_BRANDING_HELP_ITEMS** | The list of the custom help menu items (comma separated)	| _`-`_
+
+#### Branding - Help Items
+
+> _**Note:** Replace `CUSTOM_ITEM` with the actual name set by `DIRIGIBLE_BRANDING_HELP_ITEMS` e.g. `ITEM1`_
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_NAME**   | The name of the custom help item | _`-`_
+**DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_URL**   | The url of the custom help item | _`-`_
+**DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER**   | (Optional) The order of the custom help item | _`0`_
+**DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER**   | (Optional) Whether to set divider after the custom help item | _`false`_
 
 ### Git
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_GIT_ROOT_FOLDER**   | The external folder that will be used for synchronizing git projects | _`-`_
+
 
 ### Registry
 ---
@@ -97,7 +110,7 @@ Parameter     | Description | Default*
 
 #### Database - Custom
 
-> _**Note:** Replace `CUSTOME_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. `POSTGRES_DRIVER`_
+> _**Note:** Replace `CUSTOM_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. `POSTGRES_DRIVER`_
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
