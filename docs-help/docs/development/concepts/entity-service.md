@@ -77,6 +77,7 @@ Limitations for the table to be entity-service compliant:
 *	There should be only one set of database column types that are supported by default for generation (simple types only as clob and blob are not supported).
 
 Generic query methods are not generated because:
+
 * It will cover only very simple cases with reasonable performance.
 * For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.
 
