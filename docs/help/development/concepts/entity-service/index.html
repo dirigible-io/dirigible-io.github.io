@@ -1503,9 +1503,11 @@ Just select the <code>*.entity</code> artifact in the <code>Workspace</code> vie
 <li>There should be only one column as a primary key that will be used for its <em>identity</em>.</li>
 <li>There should be only one set of database column types that are supported by default for generation (simple types only as clob and blob are not supported).</li>
 </ul>
-<p>Generic query methods are not generated because:
-* It will cover only very simple cases with reasonable performance.
-* For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.</p>
+<p>Generic query methods are not generated because:</p>
+<ul>
+<li>It will cover only very simple cases with reasonable performance.</li>
+<li>For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.</li>
+</ul>
 <p>Entity services are generated in <code>JavaScript</code>, hence they can be accessed right after generation and publishing on:</p>
 <p><code>&lt;protocol&gt;://&lt;host&gt;:&lt;port&gt;/services/v4/js/&lt;project&gt;/&lt;entity-service-path&gt;</code></p>
 <p>e.g.</p>
