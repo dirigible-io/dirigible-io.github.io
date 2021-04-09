@@ -12,7 +12,7 @@ Registry object gives access to the content in the repository and also the pre-d
 - Alias: `platform/registry`
 - Definition: [https://github.com/eclipse/dirigible/issues/508](https://github.com/eclipse/dirigible/issues/508)
 - Source: [/platform/v4/registry.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/registry.js)
-- Facade: [ContentFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-repository/src/main/java/org/eclipse/dirigible/api/v3/repository/ContentFacade.java)
+- Facade: [RegistryFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/RegistryFacade.java)
 - Status: `stable`
 
 
