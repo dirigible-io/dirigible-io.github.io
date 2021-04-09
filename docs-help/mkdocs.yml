@@ -23,6 +23,7 @@ markdown_extensions:
     - pymdownx.tabbed
     - pymdownx.emoji
     - meta
+    - footnotes
     - admonition
     - pymdownx.details
 

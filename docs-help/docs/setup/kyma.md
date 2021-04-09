@@ -5,10 +5,9 @@ title: Kyma
 Setup in Kyma
 ===
 
-Deploy Eclipse Dirigible in SAP BTP, Kyma environment.
+Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
-!!! info "Note"
-    SAP Cloud Platform is called SAP Business Technology Platform (SAP BTP) as of 2021.
+[^1]: SAP Cloud Platform is called SAP Business Technology Platform (SAP BTP) as of 2021.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - this step is optional.
