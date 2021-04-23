@@ -31,14 +31,14 @@ There are many [configuration options](../setup/setup-environment-variables/), s
 
 In case of the standard setup on Apache Tomcat on your local machine, you can point your browser to the location:
 
-> [http://localhost:8080](http://localhost:8080)
+ [http://localhost:8080](http://localhost:8080)
 
 ### Hello World Application
 
 #### Create a `hello-world.js` service
 Once you have a running Eclipse Dirigible instance, you can start with your project:
 
-1. Choose `File -> New -> Project`.
+1. Choose **File** **&rarr;** **New** **&rarr;** **Project**.
 
     ![New Project](../images/getting_started/new-project-hello.png)
 
