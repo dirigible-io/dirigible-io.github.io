@@ -4,7 +4,7 @@ site_url: https://www.dirigible.io/help/
 theme:
   favicon: ../img/favicon.png
   logo: ../img/logo/dirigible-logo.png
-  name: material
+  name: mkdocs
   custom_dir: overrides
   features:
     - navigation.instant
