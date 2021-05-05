@@ -1,7 +1,5 @@
 ---
 title: Cheat Sheet
-hide:
-  - toc
 ---
 
 Cheat Sheet
