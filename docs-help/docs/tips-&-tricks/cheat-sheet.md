@@ -1,10 +1,12 @@
-#
 ---
 title: Cheat Sheet
+hide:
+  - toc
 ---
 
 Cheat Sheet
 ===
+
 
 Clean Up Database
 ---
