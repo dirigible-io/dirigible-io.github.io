@@ -1649,8 +1649,6 @@
 </li>
 <li>
 <p>Deploy Eclipse Dirigible:</p>
-</li>
-</ol>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Docker</label><div class="tabbed-content">
 <p><div class="highlight"><pre><span></span><code>cf push dirigible \
 --docker-image=dirigiblelabs/dirigible-sap-cf:latest \
@@ -1669,9 +1667,6 @@ Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <st
 <ul>
 <li>
 <p>Bind the XSUAA service instance to the Eclipse Dirigible deployment:</p>
-<ul>
-<li>
-<p>Bind the service instance:</p>
 <div class="highlight"><pre><span></span><code>cf bind-service dirigible &lt;applicationName&gt;-xsuaa
 </code></pre></div>
 <p>Replace the <code>&lt;applicationName&gt;</code> placeholder with the application name used in the previous steps.</p>
@@ -1680,8 +1675,6 @@ Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <st
 <p>Restart the <code>dirigible</code> deployment:</p>
 <div class="highlight"><pre><span></span><code>cf restart dirigible
 </code></pre></div>
-</li>
-</ul>
 </li>
 </ul>
 </div>
@@ -1717,7 +1710,7 @@ Replace the <code>&lt;org-name&gt;</code> placeholder with your subaccount's <st
 </ul>
 </div>
 </div>
-<ol>
+</li>
 <li>
 <p>Assign the <code>Developer</code> and <code>Operator</code> roles.</p>
 </li>
