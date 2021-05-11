@@ -148,7 +148,15 @@
      <lastmod>2021-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://www.dirigible.io/help/development/ide/views/about/</loc>
+     <lastmod>2021-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://www.dirigible.io/help/development/ide/views/access/</loc>
+     <lastmod>2021-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://www.dirigible.io/help/development/ide/views/configurations/</loc>
      <lastmod>2021-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -200,6 +208,10 @@
      <lastmod>2021-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://www.dirigible.io/help/development/ide/views/plugins/</loc>
+     <lastmod>2021-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://www.dirigible.io/help/development/ide/views/preview/</loc>
      <lastmod>2021-05-11</lastmod>
      <changefreq>daily</changefreq>
@@ -233,6 +245,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://www.dirigible.io/help/development/ide/views/terminal/</loc>
+     <lastmod>2021-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://www.dirigible.io/help/development/ide/views/websockets/</loc>
      <lastmod>2021-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
