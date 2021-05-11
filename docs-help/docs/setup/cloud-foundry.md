@@ -28,22 +28,6 @@ Steps
     cf login
     ```
 
-1. Deploy Eclipse Dirigible:
-
-    ```
-    cf push dirigible \
-    --docker-image=dirigiblelabs/dirigible-sap-cf:latest \
-    --hostname dirigible-<org-name> \
-    -m 2G -k 2G
-    ```
-    Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
-
-    !!! tip "Eclipse Dirigible versions"
-        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
-
-        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
-        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
-
 1. Create XSUAA service instance:
 
     - Copy and paste the following content into **xs-security.json**:
@@ -101,21 +85,68 @@ Steps
 
         Use the same `<applicationName>` as in the previous step.
 
-1. Bind the XSUAA service instance to the Eclipse Dirigible deployment:
+1. Deploy Eclipse Dirigible:
 
-    - Bind the service instance:
 
-        ```
-        cf bind-service dirigible <applicationName>-xsuaa
-        ```
+=== "Docker"
 
-        Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+    ```
+    cf push dirigible \
+    --docker-image=dirigiblelabs/dirigible-sap-cf:latest \
+    --hostname dirigible-<org-name> \
+    -m 2G -k 2G
+    ```
+    Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
 
-    - Restart the `dirigible` deployment:
+    !!! tip "Eclipse Dirigible versions"
+        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
 
-        ```
-        cf restart dirigible
-        ```
+        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+
+    - Bind the XSUAA service instance to the Eclipse Dirigible deployment:
+
+        - Bind the service instance:
+
+            ```
+            cf bind-service dirigible <applicationName>-xsuaa
+            ```
+
+            Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+
+        - Restart the `dirigible` deployment:
+
+            ```
+            cf restart dirigible
+            ```
+
+=== "Buildpack"
+
+    - Download the **sap-cf-all.zip** binaries from the downloads site: http://download.dirigible.io/
+    - Unzip the downloaded archieve to extract the `ROOT.war` file.
+    - Create `manifest.yaml` file in the same directory where the `ROOT.war` is located:
+    ```yaml
+    applications:
+    - name: dirigible
+      host: dirigible-<org-name>
+      memory: 2G
+      buildpack: sap_java_buildpack
+      path: ROOT.war
+      env:
+        JBP_CONFIG_COMPONENTS: "jres: ['com.sap.xs.java.buildpack.jdk.SAPMachineJDK']"
+        JBP_CONFIG_SAP_MACHINE_JRE: 'jre: { version: 11.+ }'
+      services:
+        - <applicationName>-xsuaa
+    ```
+
+    !!! info "Note"
+        - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+        - Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+
+    - Deploy with:
+    ```
+    cf push
+    ```
 
 1. Assign the `Developer` and `Operator` roles.
 
