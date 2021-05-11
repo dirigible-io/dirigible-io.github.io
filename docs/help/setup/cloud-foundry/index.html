@@ -1637,13 +1637,19 @@
    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Note</p>
 <p>Replace the <code>&lt;applicationName&gt;</code> placeholder with your application name, e.g. <code>dirigible</code>.</p>
+</div>
 </li>
 <li>
 <p>Create a XSUAA service instance:</p>
 <div class="highlight"><pre><span></span><code>cf create-service xsuaa application &lt;applicationName&gt;-xsuaa -c xs-security.json
 </code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Note</p>
 <p>Use the same <code>&lt;applicationName&gt;</code> as in the previous step.</p>
+</div>
 </li>
 </ul>
 </li>
@@ -1672,9 +1678,7 @@
 <div class="highlight"><pre><span></span><code>cf bind-service dirigible &lt;applicationName&gt;-xsuaa
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Note<ul>
-<li>Replace the <code>&lt;applicationName&gt;</code> placeholder with the application name used in the previous steps.</li>
-</ul>
+<p class="admonition-title">Note<p>Replace the <code>&lt;applicationName&gt;</code> placeholder with the application name used in the previous steps.</p>
 </p>
 </div>
 </li>
