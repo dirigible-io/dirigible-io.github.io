@@ -23,7 +23,7 @@ In case you are using the shared [trial.dirigible.io](http://trial.dirigible.io)
 * You can choose one of the [setup options](../setup/) available to get an Eclipse Dirigible instance depending on your target environment.
 * A shared trial instance is also available and can be accessed from here:
 
-    > [trial.dirigible.io](http://trial.dirigible.io)
+ [trial.dirigible.io](http://trial.dirigible.io)
 
 There are many [configuration options](../setup/setup-environment-variables/), so you can connect to different databases, use different platforms, choose a specific set of plugins, and many more.
 
@@ -46,20 +46,20 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
     ![Create Project](../images/getting_started/create-project-hello.png)
 
-3. Right-click on the project icon in the `Workspace` view and choose `New -> Javascript Service`.
+3. Right-click on the project icon in the **Workspace** view and choose **New** **&rarr;** **Javascript Service**.
 
     ![Create Javascript Service](../images/getting_started/create-javascript.png)
 
 4. Enter a name for the service.
-5. Double-click on the file icon to open the file in the editor on the right. The file already contains the `hello world` service implementation.
+5. Double-click on the file icon to open the file in the editor on the right. The file already contains the `hello world.js` service implementation.
 
     ![Service Impletentation](../images/getting_started/service-implementation.png)
 
-6. Right-click on the project icon and choose `Publish`.
+6. Right-click on the project icon and choose **Publish**.
 
     ![Publish Project](../images/getting_started/publish-project.png)
 
-7. With the file icon selected in the `Workspace` view, check the result of the execution of our fancy server-side Javascript service in the `Preview` view.
+7. With the file icon selected in the **Workspace** view, check the result of the execution of our fancy server-side Javascript service in the **Preview** view.
 
     ![Preview Project](../images/getting_started/preview-project.png)
 
@@ -76,9 +76,10 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
     ```
 
 1. Save the file: ++ctrl+s++ for Windows, ++cmd+s++ for macOS
-1. The output in the `Preview` view changes immediately.
+1. The output in the **Preview** view changes immediately.
 
-    > This is due to the default configuration of `auto-publish` on `save`. You can find more about this `dynamic` behavior in the concepts section: [Dynamic Applications](concepts/dynamic-applications)
+    !!! info "Note"  
+        This is due to the default configuration of `auto-publish on save`. You can find more about this dynamic behavior in [Dynamic Applications](concepts/dynamic-applications).
 
 ### References
 

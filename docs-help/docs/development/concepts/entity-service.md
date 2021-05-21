@@ -69,7 +69,7 @@ Example `metadata` for an entity:
 ```
 
 All these features of *entity services* are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the [Entity Data Modeler](../../ide/modelers/entity-data).
-Just select the `*.entity` artifact in the `Workspace` view. Choose `Generate -> User Interface for Entity Service`.
+Just select the `*.entity` artifact in the **Workspace** view. Choose **Generate** **&rarr;** **User Interface for Entity Service**.
 
 Limitations for the table to be entity-service compliant:
 
@@ -81,14 +81,14 @@ Generic query methods are not generated because:
 * It will cover only very simple cases with reasonable performance.
 * For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.
 
-Entity services are generated in `JavaScript`, hence they can be accessed right after generation and publishing on:
+Entity services are generated in JavaScript, hence they can be accessed right after generation and publishing on:
 
 
 `<protocol>://<host>:<port>/services/v4/js/<project>/<entity-service-path>`
 
-e.g.
+Here's an example:
 
-> https://example.com/services/v4/js/bookstore/books.js
+`https://example.com/services/v4/js/bookstore/books.js`
 
-Or just select them in the `Workspace` view and check the result in the `Preview` view.
+Or just select them in the **Workspace** view and check the result in the **Preview** view.
 
