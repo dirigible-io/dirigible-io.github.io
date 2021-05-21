@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/development/concepts/entity-service/">
       
       <link rel="icon" href="../../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -1589,7 +1589,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>All these features of <em>entity services</em> are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the <a href="../../ide/modelers/entity-data">Entity Data Modeler</a>.
-Just select the <code>*.entity</code> artifact in the <code>Workspace</code> view. Choose <code>Generate -&gt; User Interface for Entity Service</code>.</p>
+Just select the <code>*.entity</code> artifact in the <strong>Workspace</strong> view. Choose <strong>Generate</strong> <strong>&rarr;</strong> <strong>User Interface for Entity Service</strong>.</p>
 <p>Limitations for the table to be entity-service compliant:</p>
 <ul>
 <li>There should be only one column as a primary key that will be used for its <em>identity</em>.</li>
@@ -1600,13 +1600,11 @@ Just select the <code>*.entity</code> artifact in the <code>Workspace</code> vie
 <li>It will cover only very simple cases with reasonable performance.</li>
 <li>For the complex queries, the introduction of an additional layer results in worse performance in comparison to the SQL script.</li>
 </ul>
-<p>Entity services are generated in <code>JavaScript</code>, hence they can be accessed right after generation and publishing on:</p>
+<p>Entity services are generated in JavaScript, hence they can be accessed right after generation and publishing on:</p>
 <p><code>&lt;protocol&gt;://&lt;host&gt;:&lt;port&gt;/services/v4/js/&lt;project&gt;/&lt;entity-service-path&gt;</code></p>
-<p>e.g.</p>
-<blockquote>
-<p>https://example.com/services/v4/js/bookstore/books.js</p>
-</blockquote>
-<p>Or just select them in the <code>Workspace</code> view and check the result in the <code>Preview</code> view.</p>
+<p>Here's an example:</p>
+<p><code>https://example.com/services/v4/js/bookstore/books.js</code></p>
+<p>Or just select them in the <strong>Workspace</strong> view and check the result in the <strong>Preview</strong> view.</p>
                 
                   
                 
@@ -1757,10 +1755,10 @@ Just select the <code>*.entity</code> artifact in the <code>Workspace</code> vie
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
     
   </body>
