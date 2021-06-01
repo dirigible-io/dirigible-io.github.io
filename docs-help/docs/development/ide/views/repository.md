@@ -11,4 +11,5 @@ The view enables the user to create new collections and resources, to delete exi
 
 ![Repository view](../../../images/ide_view_repository.png)
 
-> :warning: _**Caution:** Editing of the file contents via the Repository perspective is not recommended as it can lead to inconsistencies!_
+!!! caution
+	Editing of the file contents via the Repository perspective is not recommended as it can lead to inconsistencies!

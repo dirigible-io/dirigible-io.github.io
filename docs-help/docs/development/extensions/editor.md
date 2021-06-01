@@ -10,7 +10,7 @@ Descriptors
 
 To contribute a new Editor (text-based or form-based) to the Web IDE you need to create one model _(`*.extension`)_ and one descriptor _(in `*.js`)_ files in your project:
 
-**my-editor.extension**
+#### my-editor.extension
 
 ```json
 {
@@ -24,7 +24,7 @@ To contribute a new Editor (text-based or form-based) to the Web IDE you need to
 - `extensionPoint` is the name of the built-in extension point to which the current plugin will contribute
 
 
-**my-editor.js**
+#### my-editor.js
 
 ```javascript
 exports.getView = function() {
@@ -63,7 +63,7 @@ The project structure in this case should look like this:
 
 ```
 
-> _**Note:** The names of the `extensions` and `services` can be different following the layout of your project_
+The names of the `extensions` and `services` can be different following the layout of your project
    
 ----
 

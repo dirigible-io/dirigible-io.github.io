@@ -31,7 +31,7 @@ Steps
     helm install dirigible dirigible/dirigible
     ```
 
-    > _**Note:** This will install Eclipse Dirigible **Deployment** and **Service** with **ClusterIP** only._
+		This will install Eclipse Dirigible **Deployment** and **Service** with **ClusterIP** only.
 
     ???+ info "Access"
         To access the Dirigible instance execute the command that was printed in the console.
@@ -57,7 +57,7 @@ Steps
         --set ingress.host=<ingress-host>
         ```
 
-        > _**Note:** This will expose the Dirigible instance through **Ingress** host (**http://...**) ._
+		This will expose the Dirigible instance through **Ingress** host (**http://...**) .
 
     === "PostgreSQL"
 
@@ -68,7 +68,7 @@ Steps
         --set database.enabled=true
         ```
 
-        > _**Note:** This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database._
+		This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database._
 
     === "PostgreSQL & Keycloak"
 
@@ -81,7 +81,7 @@ Steps
         --set keycloak.install=true
         ```
 
-        > _**Note:** In addition **Keycloak** will be deployed and configured._
+        In addition **Keycloak** will be deployed and configured._
         
         !!! info "Disable HTTPS"
 
@@ -123,7 +123,7 @@ Steps
         --set kyma.apirule.host=<kyma-host>
         ```
 
-        > _**Note:** This will install additionally an **ApiRule** and **XSUAA** **ServiceInstance** and **ServiceBinding**. The appropriate roles should be assigned to the user._
+        This will install additionally an **ApiRule** and **XSUAA** **ServiceInstance** and **ServiceBinding**. The appropriate roles should be assigned to the user.
 
     === "PostgreSQL"
 
@@ -134,7 +134,7 @@ Steps
         --set database.enabled=true
         ```
 
-        > _**Note:** This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database._
+        This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database.
 
     === "PostgreSQL & Keycloak"
 
@@ -147,8 +147,8 @@ Steps
         --set keycloak.install=true
         ```
 
-        > _**Note:** In addition **Keycloak** will be deployed and configured._
-        
+        In addition **Keycloak** will be deployed and configured.
+       
         !!! info "Disable HTTPS"
 
             In some cases you might want to disable the "Required HTTPS" for Keycloak.
@@ -273,4 +273,5 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 helm install dirigible dirigible/dirigible --values values.yaml
 ```
 
-**Tip**: You can use the default [values.yaml](https://github.com/eclipse/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml).
+!!! tip
+	You can use the default [values.yaml](https://github.com/eclipse/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml).

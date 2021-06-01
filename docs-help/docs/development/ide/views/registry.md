@@ -9,4 +9,5 @@ Technically, the `Registry` is a space within the `Repository` where all the [pu
 
 ![Registry view](../../../images/ide_view_registry.png)
 
-> :warning: _**Caution:** Editing of the file contents via the Registry perspective is not recommended as it can lead to inconsistencies!_
+!!! caution 
+	Editing of the file contents via the Registry perspective is not recommended as it can lead to inconsistencies!

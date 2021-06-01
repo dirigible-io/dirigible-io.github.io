@@ -11,4 +11,5 @@ The user is able to import/export snapshots via the Snapshot view.
 
 ![Repository Perspective](../../../images/ide_perspective_repository.png)
 
-> :warning: _**Caution:** Editing of the file contents via the Repository perspective is not recommended as it can lead to inconsistencies!_
+!!! caution 
+	Editing of the file contents via the Repository perspective is not recommended as it can lead to inconsistencies!

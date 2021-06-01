@@ -30,7 +30,7 @@ Steps
 
 1. Create XSUAA service instance:
 
-    - Copy and paste the following content into **xs-security.json**:
+    - Copy and paste the following content into `xs-security.json`:
 
         ```json
         {
@@ -75,8 +75,7 @@ Steps
         }
         ```
 
-        !!! info "Note"
-            Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`.
+        Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`.
 
     - Create a XSUAA service instance:
 
@@ -84,8 +83,7 @@ Steps
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-        !!! info "Note"
-            Use the same `<applicationName>` as in the previous step.
+        Use the same `<applicationName>` as in the previous step.
 
 1. Deploy Eclipse Dirigible:
 
@@ -110,8 +108,7 @@ Steps
             cf bind-service dirigible <applicationName>-xsuaa
             ```
 
-            !!! info "Note"
-                Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+            Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
         - Restart the `dirigible` deployment:
 

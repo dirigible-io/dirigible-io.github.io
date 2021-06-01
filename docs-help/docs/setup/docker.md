@@ -51,11 +51,14 @@ Steps
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
-    > _**Note:** The default user name and password are `dirigible/dirigible`_
+    !!! note
+		The default user name and password are `dirigible/dirigible`
 
 1. Stop the container:
 
-    ```docker stop dirigible```
+    ```
+	docker stop dirigible
+	```
 
 Contribution
 ---
@@ -76,4 +79,5 @@ Optionally, you can enhance and customize the Dockerfile artifacts from [here](h
 - [trial-all](https://github.com/eclipse/dirigible/tree/master/releng/trial-all)
 
 
-> _**Note:** Most of the packages contains **two** files: **Dockerfile-base** and **Dockerfile**. Usually you would want to extend the **Dockerfile**, except in some special cases._
+!!! note 
+	Most of the packages contains **two** files: **Dockerfile-base** and **Dockerfile**. Usually you would want to extend the **Dockerfile**, except in some special cases.

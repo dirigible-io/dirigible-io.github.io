@@ -7,7 +7,7 @@ REST
 
 The `http-rs` module is designed to define and run a broad range of HTTP REST services.
 
-A very simple example _`hello-api.js`_:
+A very simple example `hello-api.js`:
 
 ```javascript
 var rs = require("http/v4/rs");
@@ -157,7 +157,7 @@ The samples here are all for configuring HTTP GET Method but the usage pattern i
 
 **Shortcuts**
 
-You already noticed that instead of explicitly using **serve** to configure callback for serving the requests we could directly provide the function as argument to the method configuring the HTTP method (e.g. **get**). 
+You already noticed that instead of explicitly using `serve` to configure callback for serving the requests we could directly provide the function as argument to the method configuring the HTTP method (e.g. `get`). 
 
 > rs.resource('').get(function(){})   
 > rs.resource('').get().serve(function(){})

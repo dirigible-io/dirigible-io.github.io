@@ -62,7 +62,7 @@ The project structure in this case should look like this:
 
 ```
 
-> _**Note:** The names of the `extensions` and `services` can be different following the layout of your project._
+The names of the `extensions` and `services` can be different following the layout of your project.
    
 ---
 

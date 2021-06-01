@@ -22,7 +22,7 @@ Steps
 
 1. Deploy Eclipse Dirigible:
 
-    - Copy and paste the following content into **deployment.yaml**:
+    - Copy and paste the following content into `deployment.yaml`:
 
         ```yaml
         apiVersion: apps/v1
@@ -113,7 +113,7 @@ Steps
             name: dirigible
             port: 8080
         ```
-        > _**Note:** Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
+        Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
 
         !!! tip "Eclipse Dirigible versions"
             Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
@@ -123,7 +123,7 @@ Steps
 
     - Navigate to your Kyma dashboard and select the **default** namespace.
 
-    - Click on the **Deploy new resource** button and select the **deployment.yaml** file.
+    - Click on the **Deploy new resource** button and select the `deployment.yaml` file.
 
         > _Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources._
 
@@ -182,7 +182,7 @@ Steps
         }
         ```
 
-        > _**Note:** Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
+        Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
 
     - Bind the servce instance to the `dirigible` application.
 

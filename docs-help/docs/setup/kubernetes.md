@@ -162,7 +162,7 @@ Steps
                       servicePort: 8080
         ```
 
-        > _**Note:** Replace `<kubernetes-ingress-host>` with your Ingress host_
+        Replace `<kubernetes-ingress-host>` with your Ingress host.
 
 1. Deploy to the Kubernetes Cluster with:
 
@@ -172,7 +172,11 @@ Steps
     kubectl apply -f service.yml
     ```
 
-1. Open a web browser and go to: `http://dirigible.<kubernetes-ingress-host>`
+
+1. Open a web browser and go to: **`http://dirigible.<kubernetes-ingress-host>`**
+
+	!!! info "Note"
+		Replace `<kubernetes-ingress-host>` with your Ingress host.
 
 1. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
 
