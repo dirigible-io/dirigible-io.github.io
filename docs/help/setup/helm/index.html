@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/setup/helm/">
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -1700,9 +1700,8 @@ helm repo update
 <p>Basic:</p>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> This will install Eclipse Dirigible <strong>Deployment</strong> and <strong>Service</strong> with <strong>ClusterIP</strong> only.</em></p>
-</blockquote>
+<div class="highlight"><pre><span></span><code>This will install Eclipse Dirigible **Deployment** and **Service** with **ClusterIP** only.
+</code></pre></div>
 <details class="info" open="open"><summary>Access</summary><p>To access the Dirigible instance execute the command that was printed in the console.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=dirigible,app.kubernetes.io/instance=dirigible&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
@@ -1722,9 +1721,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set ingress.enabled=true \
 --set ingress.host=&lt;ingress-host&gt;
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> This will expose the Dirigible instance through <strong>Ingress</strong> host (<strong>http://...</strong>) .</em></p>
-</blockquote>
+<p>This will expose the Dirigible instance through <strong>Ingress</strong> host (<strong>http://...</strong>) .</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">PostgreSQL</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1732,9 +1729,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set ingress.host=&lt;ingress-host&gt; \
 --set database.enabled=true
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database.</em></p>
-</blockquote>
+<p>This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database._</p>
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">PostgreSQL &amp; Keycloak</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1744,9 +1739,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set keycloak.enabled=true \
 --set keycloak.install=true
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> In addition <strong>Keycloak</strong> will be deployed and configured.</em></p>
-</blockquote>
+<p>In addition <strong>Keycloak</strong> will be deployed and configured._</p>
 <div class="admonition info">
 <p class="admonition-title">Disable HTTPS</p>
 <p>In some cases you might want to disable the "Required HTTPS" for Keycloak.</p>
@@ -1782,9 +1775,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set kyma.enabled=true \
 --set kyma.apirule.host=&lt;kyma-host&gt;
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> This will install additionally an <strong>ApiRule</strong> and <strong>XSUAA</strong> <strong>ServiceInstance</strong> and <strong>ServiceBinding</strong>. The appropriate roles should be assigned to the user.</em></p>
-</blockquote>
+<p>This will install additionally an <strong>ApiRule</strong> and <strong>XSUAA</strong> <strong>ServiceInstance</strong> and <strong>ServiceBinding</strong>. The appropriate roles should be assigned to the user.</p>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">PostgreSQL</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1792,9 +1783,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set kyma.apirule.host=&lt;kyma-host&gt; \
 --set database.enabled=true
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database.</em></p>
-</blockquote>
+<p>This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database.</p>
 </div>
 <input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">PostgreSQL &amp; Keycloak</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1804,9 +1793,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set keycloak.enabled=true \
 --set keycloak.install=true
 </code></pre></div>
-<blockquote>
-<p><em><strong>Note:</strong> In addition <strong>Keycloak</strong> will be deployed and configured.</em></p>
-</blockquote>
+<p>In addition <strong>Keycloak</strong> will be deployed and configured.</p>
 <div class="admonition info">
 <p class="admonition-title">Disable HTTPS</p>
 <p>In some cases you might want to disable the "Required HTTPS" for Keycloak.</p>
@@ -2131,7 +2118,10 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 <p>Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,</p>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible --values values.yaml
 </code></pre></div>
-<p><strong>Tip</strong>: You can use the default <a href="https://github.com/eclipse/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml">values.yaml</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the default <a href="https://github.com/eclipse/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml">values.yaml</a>.</p>
+</div>
                 
                   
                 
@@ -2285,7 +2275,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
       
     
   </body>
