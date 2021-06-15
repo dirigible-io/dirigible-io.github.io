@@ -11,8 +11,8 @@
       
         <link rel="canonical" href="https://www.dirigible.io/help/setup/helm/">
       
-      <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -44,10 +44,19 @@
     
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
     
     
   </head>
@@ -82,7 +91,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Eclipse Dirigible Help Portal" class="md-header__button md-logo" aria-label="Eclipse Dirigible Help Portal" data-md-component="logo">
       
-  <img src="../../../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -174,7 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Eclipse Dirigible Help Portal" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Help Portal" data-md-component="logo">
       
-  <img src="../../../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     Eclipse Dirigible Help Portal
@@ -617,6 +626,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../development/ide/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../development/ide/editor-monaco/" class="md-nav__link">
         Monaco Editor
       </a>
@@ -632,14 +653,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_3" type="checkbox" id="__nav_2_6_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_4" type="checkbox" id="__nav_2_6_4" >
       
-      <label class="md-nav__link" for="__nav_2_6_3">
+      <label class="md-nav__link" for="__nav_2_6_4">
         Modelers
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Modelers" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_3">
+        <label class="md-nav__title" for="__nav_2_6_4">
           <span class="md-nav__icon md-icon"></span>
           Modelers
         </label>
@@ -707,14 +728,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_4" type="checkbox" id="__nav_2_6_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_5" type="checkbox" id="__nav_2_6_5" >
       
-      <label class="md-nav__link" for="__nav_2_6_4">
+      <label class="md-nav__link" for="__nav_2_6_5">
         Perspectives
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Perspectives" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_4">
+        <label class="md-nav__title" for="__nav_2_6_5">
           <span class="md-nav__icon md-icon"></span>
           Perspectives
         </label>
@@ -830,14 +851,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_5" type="checkbox" id="__nav_2_6_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_6" type="checkbox" id="__nav_2_6_6" >
       
-      <label class="md-nav__link" for="__nav_2_6_5">
+      <label class="md-nav__link" for="__nav_2_6_6">
         Views
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Views" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_5">
+        <label class="md-nav__title" for="__nav_2_6_6">
           <span class="md-nav__icon md-icon"></span>
           Views
         </label>
@@ -1683,11 +1704,13 @@
                 <h1 id="setup-with-helm">Setup with Helm</h1>
 <p>You can deploy Dirigible via Helm <a href="https://artifacthub.io/packages/search?page=1&amp;org=dirigiblelabs">Chart</a> in a Kubernetes cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
+<hr />
 <ul>
 <li><a href="https://helm.sh/">Helm</a></li>
 <li><a href="https://kubernetes.io/docs/setup/pick-right-solution/">Kubernetes Cluster</a> on IaaS provider of your choice</li>
 </ul>
 <h2 id="steps">Steps</h2>
+<hr />
 <ol>
 <li>
 <p>Add the Eclipse Dirigible Helm repository:</p>
@@ -1700,7 +1723,7 @@ helm repo update
 <p>Basic:</p>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>This will install Eclipse Dirigible **Deployment** and **Service** with **ClusterIP** only.
+<div class="highlight"><pre><span></span><code>This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
 </code></pre></div>
 <details class="info" open="open"><summary>Access</summary><p>To access the Dirigible instance execute the command that was printed in the console.</p>
 <p>Example:</p>
@@ -1721,7 +1744,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set ingress.enabled=true \
 --set ingress.host=&lt;ingress-host&gt;
 </code></pre></div>
-<p>This will expose the Dirigible instance through <strong>Ingress</strong> host (<strong>http://...</strong>) .</p>
+<p>This will expose the Dirigible instance through Ingress host (<strong><code>http://...</code></strong>).</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">PostgreSQL</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1729,7 +1752,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set ingress.host=&lt;ingress-host&gt; \
 --set database.enabled=true
 </code></pre></div>
-<p>This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database._</p>
+<p>This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database._</p>
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">PostgreSQL &amp; Keycloak</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1739,7 +1762,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set keycloak.enabled=true \
 --set keycloak.install=true
 </code></pre></div>
-<p>In addition <strong>Keycloak</strong> will be deployed and configured._</p>
+<p>In addition Keycloak will be deployed and configured._</p>
 <div class="admonition info">
 <p class="admonition-title">Disable HTTPS</p>
 <p>In some cases you might want to disable the "Required HTTPS" for Keycloak.</p>
@@ -1763,7 +1786,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl delete pod keycloak-&lt;pod-uuid&gt;
 </code></pre></div>
-<p>Now the "Required HTTPS" should be disabled and the <code>keycloak</code> instance should be accessible via <code>http://</code></p>
+<p>Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via <strong><code>http://</code></strong></p>
 </div>
 </div>
 </div>
@@ -1775,7 +1798,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set kyma.enabled=true \
 --set kyma.apirule.host=&lt;kyma-host&gt;
 </code></pre></div>
-<p>This will install additionally an <strong>ApiRule</strong> and <strong>XSUAA</strong> <strong>ServiceInstance</strong> and <strong>ServiceBinding</strong>. The appropriate roles should be assigned to the user.</p>
+<p>This will install additionally an ApiRule and XSUAA ServiceInstance and ServiceBinding. The appropriate roles should be assigned to the user.</p>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">PostgreSQL</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1783,7 +1806,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set kyma.apirule.host=&lt;kyma-host&gt; \
 --set database.enabled=true
 </code></pre></div>
-<p>This will install also <strong>PostgreSQL</strong> database with <strong>1Gi</strong> storage and update the Dirigible datasource configuration to consume the database.</p>
+<p>This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database.</p>
 </div>
 <input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">PostgreSQL &amp; Keycloak</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -1793,7 +1816,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set keycloak.enabled=true \
 --set keycloak.install=true
 </code></pre></div>
-<p>In addition <strong>Keycloak</strong> will be deployed and configured.</p>
+<p>In addition Keycloak will be deployed and configured.</p>
 <div class="admonition info">
 <p class="admonition-title">Disable HTTPS</p>
 <p>In some cases you might want to disable the "Required HTTPS" for Keycloak.</p>
@@ -1817,7 +1840,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl delete pod keycloak-&lt;pod-uuid&gt;
 </code></pre></div>
-<p>Now the "Required HTTPS" should be disabled and the <code>keycloak</code> instance should be accessible via <code>http://</code></p>
+<p>Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via <strong><code>http://</code></strong></p>
 </div>
 </div>
 </div>

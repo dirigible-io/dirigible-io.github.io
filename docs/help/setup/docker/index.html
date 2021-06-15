@@ -11,8 +11,8 @@
       
         <link rel="canonical" href="https://www.dirigible.io/help/setup/docker/">
       
-      <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
+      <link rel="icon" href="../../img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -44,10 +44,19 @@
     
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
     
     
   </head>
@@ -82,7 +91,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Eclipse Dirigible Help Portal" class="md-header__button md-logo" aria-label="Eclipse Dirigible Help Portal" data-md-component="logo">
       
-  <img src="../../../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -174,7 +183,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Eclipse Dirigible Help Portal" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Help Portal" data-md-component="logo">
       
-  <img src="../../../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     Eclipse Dirigible Help Portal
@@ -617,6 +626,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../development/ide/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../development/ide/editor-monaco/" class="md-nav__link">
         Monaco Editor
       </a>
@@ -632,14 +653,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_3" type="checkbox" id="__nav_2_6_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_4" type="checkbox" id="__nav_2_6_4" >
       
-      <label class="md-nav__link" for="__nav_2_6_3">
+      <label class="md-nav__link" for="__nav_2_6_4">
         Modelers
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Modelers" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_3">
+        <label class="md-nav__title" for="__nav_2_6_4">
           <span class="md-nav__icon md-icon"></span>
           Modelers
         </label>
@@ -707,14 +728,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_4" type="checkbox" id="__nav_2_6_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_5" type="checkbox" id="__nav_2_6_5" >
       
-      <label class="md-nav__link" for="__nav_2_6_4">
+      <label class="md-nav__link" for="__nav_2_6_5">
         Perspectives
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Perspectives" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_4">
+        <label class="md-nav__title" for="__nav_2_6_5">
           <span class="md-nav__icon md-icon"></span>
           Perspectives
         </label>
@@ -830,14 +851,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_5" type="checkbox" id="__nav_2_6_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_6" type="checkbox" id="__nav_2_6_6" >
       
-      <label class="md-nav__link" for="__nav_2_6_5">
+      <label class="md-nav__link" for="__nav_2_6_6">
         Views
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Views" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_5">
+        <label class="md-nav__title" for="__nav_2_6_6">
           <span class="md-nav__icon md-icon"></span>
           Views
         </label>
@@ -1600,10 +1621,12 @@
                 
                 <h1 id="setup-as-a-docker-image">Setup as a Docker Image</h1>
 <h2 id="prerequisites">Prerequisites</h2>
+<hr />
 <ul>
 <li><a href="https://docs.docker.com/engine/installation/">Install Docker</a></li>
 </ul>
 <h2 id="steps">Steps</h2>
+<hr />
 <ol>
 <li>
 <p>Pull the already built container from <a href="https://hub.docker.com/r/dirigiblelabs/">Docker Hub</a>:</p>
@@ -1638,7 +1661,7 @@ dirigiblelabs/dirigible-all:latest
 <p>Open a web browser and go to: <a href="http://localhost:8080/">http://localhost:8080/</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The default user name and password are <code>dirigible/dirigible</code></p>
+<p>The default user name and password are <strong><code>dirigible/dirigible</code></strong></p>
 </div>
 </li>
 <li>
@@ -1648,6 +1671,7 @@ dirigiblelabs/dirigible-all:latest
 </li>
 </ol>
 <h2 id="contribution">Contribution</h2>
+<hr />
 <p>Optionally, you can enhance and customize the Dockerfile artifacts from <a href="https://github.com/eclipse/dirigible/blob/master/releng/Dockerfile-tomcat">here</a>, or any of the other Docker releases:</p>
 <ul>
 <li><a href="https://github.com/eclipse/dirigible/blob/master/releng/anonymous-all/">anonymous-all</a></li>
@@ -1665,7 +1689,7 @@ dirigiblelabs/dirigible-all:latest
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Most of the packages contains <strong>two</strong> files: <strong>Dockerfile-base</strong> and <strong>Dockerfile</strong>. Usually you would want to extend the <strong>Dockerfile</strong>, except in some special cases.</p>
+<p>Most of the packages contains two files: <code>Dockerfile-base</code> and <code>Dockerfile</code>. Usually you would want to extend the <code>Dockerfile</code>, except in some special cases.</p>
 </div>
                 
                   
