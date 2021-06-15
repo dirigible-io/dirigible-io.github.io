@@ -5,7 +5,7 @@ title: Development & Operations
 Development & Operations
 ===
 
-Providing modern business applications in the Cloud nowadays requires a tight relation between the development and operations activities. Promoting the in-system development of full-stack applications, Eclipse Dirigible needs to cover both phases with the necessary tools and backend frameworks.
+Providing modern business applications in the Cloud nowadays requires a tight relation between the development and operations activities. Dirigible by promoting the in-system development for a full-stack applications needs to cover the both phases with the necessary tools and backend frameworks.
 
 ### Development
 

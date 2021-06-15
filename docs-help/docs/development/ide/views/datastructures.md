@@ -5,7 +5,7 @@ title: Data Structures
 Data Structures View
 ===
 
-The `Data Structures` view lists all data structures defined in the following files:
+The **Data Structures** view lists all data structures defined in the following files:
 
 * `*.table` - the table layout definition in JSON
 * `*.view` - the view layout definition in JSON

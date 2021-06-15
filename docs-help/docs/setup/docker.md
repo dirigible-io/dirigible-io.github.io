@@ -6,12 +6,12 @@ Setup as a Docker Image
 ===
 
 
-Prerequisites
+## Prerequisites
 ---
 
 - [Install Docker](https://docs.docker.com/engine/installation/)
 
-Steps
+## Steps
 ---
       
 1. Pull the already built container from [Docker Hub](https://hub.docker.com/r/dirigiblelabs/):
@@ -52,7 +52,7 @@ Steps
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
     !!! note
-		The default user name and password are `dirigible/dirigible`
+		The default user name and password are **`dirigible/dirigible`**
 
 1. Stop the container:
 
@@ -60,7 +60,7 @@ Steps
 	docker stop dirigible
 	```
 
-Contribution
+## Contribution
 ---
 
 Optionally, you can enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/releng/Dockerfile-tomcat), or any of the other Docker releases:
@@ -80,4 +80,4 @@ Optionally, you can enhance and customize the Dockerfile artifacts from [here](h
 
 
 !!! note 
-	Most of the packages contains **two** files: **Dockerfile-base** and **Dockerfile**. Usually you would want to extend the **Dockerfile**, except in some special cases.
+	Most of the packages contains two files: `Dockerfile-base` and `Dockerfile`. Usually you would want to extend the `Dockerfile`, except in some special cases.

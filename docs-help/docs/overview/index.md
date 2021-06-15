@@ -15,7 +15,7 @@ The environment itself runs directly in a browser, therefore does not require ad
 
 Eclipse Dirigible project came out of an internal [SAP](http://www.sap.com) initiative to address the extension and adaptation use cases related to SOA and Enterprise Services. On one hand, in this project were implied the lessons learned from the standard tools and approaches so far. On the other hand, there were added features aligned with the most recent technologies and architectural patterns related to [Web 2.0](http://en.wikipedia.org/wiki/Web_2.0) and [HTML5](http://en.wikipedia.org/wiki/HTML5). This made it complete enough to be used as the only environment needed for building and running applications in the cloud.
 
-From the beginning, the project follows the principles of **Simplicity**, **Openness**, **Agility**, **Completeness**, and **Perfection**, which provide a sustainable environment where maximum impact is achieved with minimal effort.
+From the beginning, the project follows the principles of Simplicity, Openness, Agility, Completeness, and Perfection, which provide a sustainable environment where maximum impact is achieved with minimal effort.
 
 * [Features](features/) section describes in detail what is included in the project. 
 * [Concepts](../development/concepts/) section gives you an overview about the internal and the chosen patterns. 

@@ -2,15 +2,15 @@
 title: View
 ---
 
-Extension - View
+View
 ===
 
-Descriptors
+## Descriptors
 ---
 
-To contribute a new View to the Web IDE you need to create one model _(`*.extension`)_ and one descriptor _(in `*.js`)_ files in your project:
+To contribute a new View to the Web IDE you need to create one model (`*.extension`) and one descriptor (in `*.js`) files in your project:
 
-**my-view.extension**
+### my-view.extension
 
 ```json
 {
@@ -24,7 +24,7 @@ To contribute a new View to the Web IDE you need to create one model _(`*.extens
 * `extensionPoint` is the name of the built-in extension point to which the current plugin will contribute
 
 
-**my-view.js**
+### my-view.js
 
 ```javascript
 exports.getView = function() {
@@ -62,7 +62,7 @@ The project structure in this case should look like this:
 
 ```
 
-The names of the `extensions` and `services` can be different following the layout of your project.
+The names of the extensions and services can be different following the layout of your project.
    
 ---
 

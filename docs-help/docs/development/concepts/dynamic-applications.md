@@ -5,7 +5,7 @@ title: Dynamic Applications
 Dynamic Applications
 ===
 
-We introduced the term `dynamic applications` as one that narrows the scope of the target applications that can be created using 
+We introduced the term "dynamic applications" as one that narrows the scope of the target applications that can be created using 
 Eclipse Dirigible.
 The overall process of building dynamic applications lies on well-known and proved principles:
 

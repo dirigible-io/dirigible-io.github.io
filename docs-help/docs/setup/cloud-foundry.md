@@ -75,7 +75,7 @@ Steps
         }
         ```
 
-        Replace the `<applicationName>` placeholder with your application name, e.g. `dirigible`.
+        Replace the **`<applicationName>`** placeholder with your application name, e.g. **`dirigible`**.
 
     - Create a XSUAA service instance:
 
@@ -83,7 +83,7 @@ Steps
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-        Use the same `<applicationName>` as in the previous step.
+        Use the same **`<applicationName>`** as in the previous step.
 
 1. Deploy Eclipse Dirigible:
 
@@ -136,15 +136,15 @@ Steps
             ```
 
             !!! info "Note"
-                - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
-                - Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+                - Replace the **`<org-name>`** placeholder with your subaccount's Subdomain value.
+                - Replace the **`<applicationName>`** placeholder with the application name used in the previous steps.
 
         - Deploy with:
             ```
             cf push
             ```
 
-1. Assign the `Developer` and `Operator` roles.
+1. Assign the Developer and Operator roles.
 
 1. Log in.
 

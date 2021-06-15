@@ -5,7 +5,7 @@ title: Workspace
 Workspace
 ===
 
-The `workspace` is the developer's place where you create and manage the application artifacts. The first-level citizens of the `workspace` are the `projects`. Each project can contain multiple folders and files (artifacts).
+The workspace is the developer's place where you create and manage the application artifacts. The first-level citizens of the workspace are the projects. Each project can contain multiple folders and files (artifacts).
 
 A single user can have multiple workspaces that contain different sets of projects.
 

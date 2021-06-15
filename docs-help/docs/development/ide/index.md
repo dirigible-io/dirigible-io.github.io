@@ -5,7 +5,7 @@ title: IDE
 IDE
 ===
 
-### Web IDE
+## Web IDE
 
 The Web-based integrated development environment (Web IDE) runs directly in a browser and, therefore, does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, DevOps productivity tools, and a new Web IDE for in-system application development.
 
@@ -21,7 +21,7 @@ The tools that constitute the perspectives are laid out in predefined regions of
  
 The tools are the smallest atomic parts in the Web IDE. They are referred to as views or editors, and each type is handled differently.
 
-### Perspectives
+## Perspectives
 
 By default, the different views and editors are separated into a few perspectives:
 
@@ -34,7 +34,7 @@ By default, the different views and editors are separated into a few perspective
 * [Documents](perspectives/documents)
 * [Debugger](perspectives/debugger)
 
-### Views
+## Views
 
 Each perspective is comprised of different views. Learn more about them following the list below:
 
@@ -62,13 +62,13 @@ Each perspective is comprised of different views. Learn more about them followin
 * [Registry](views/registry)
 * [Repository](views/repository)
 
-### Editors
+## Editors
 
 
 [Monaco](https://microsoft.github.io/monaco-editor/) is the editor integrated into the Eclipse Dirigible Web IDE.
 
 
-### Modelers
+## Modelers
 
 There are some more sophisticated visual editors:
 
@@ -78,17 +78,17 @@ There are some more sophisticated visual editors:
 * [Form Designer](modelers/form-designer)
 
 
-### Layouts
+## Layouts
 
 The Web IDE layout API delegates the layout management to the GoldenLayout framework. Layouts is a convenience bag of functions that significantly simplifies the work with layouts. It takes care of views registry setup, the work plot regions configuration, layout initialization, serialization, control on the layout manager, open view and open editor functions, global notifications, and others.
 
-The top-area toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name, and sign-out control. It uses the corresponding UI microservices available in the *ideUiCore* module as `Menu`, `User`, and `Theme`.
+The top-area toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name, and sign-out control. It uses the corresponding UI microservices available in the ideUiCore module as Menu, User, and Theme.
 
 By convention, all UI components are built with Bootstrap 3.x CSS and the themes in the Web IDE are actually custom Bootstrap CSS. A UI microservice enables dynamic change of the CSS upon change of the theme automatically. It is available as Angular factory theme.
 
-The Angular service `User` provides the details for the user that are rendered by the `Menu` directive, such as the user name.
+The Angular service User provides the details for the user that are rendered by the Menu directive, such as the user name.
 
-The sidebar is Angular directive that takes care of rendering a standard sidebar in the framework template. It works with the *perspectives.js* service to populate the registered perspectives as shortcuts.
+The sidebar is Angular directive that takes care of rendering a standard sidebar in the framework template. It works with the `perspectives.js` service to populate the registered perspectives as shortcuts.
 
-The status bar is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the *status-bar-topic* attribute, or by default to `status-message` messages.
+The status bar is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the status-bar-topic attribute, or by default to status-message messages.
  

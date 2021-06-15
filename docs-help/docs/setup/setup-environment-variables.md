@@ -30,7 +30,8 @@ Parameter     | Description | Default*
 
 #### Branding - Help Items
 
-> _**Note:** Replace `CUSTOM_ITEM` with the actual name set by `DIRIGIBLE_BRANDING_HELP_ITEMS` e.g. `ITEM1`_
+!!! Note
+	Replace `CUSTOM_ITEM` with the actual name set by `DIRIGIBLE_BRANDING_HELP_ITEMS` e.g. **`ITEM1`**
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
@@ -83,7 +84,8 @@ Parameter     | Description | Default*
 **DIRIGIBLE_MASTER_REPOSITORY_ZIP_LOCATION**   | The location of the zip file where the master repository artifacts will be loaded from _(e.g. `/User/data/my-repo.zip`)_| _`-`_
 **DIRIGIBLE_MASTER_REPOSITORY_JAR_PATH**   | The JAR path location of the zip file where the master repository artifacts will be loaded from _(e.g. `/org/dirigible/example/my-repo.zip`)_| _`-`_
 
-  > _**Note:** The JAR path is absolute inside the class path_
+  !!! Note
+	The JAR path is absolute inside the class path
 
 #### Repository Search
 
@@ -110,7 +112,8 @@ Parameter     | Description | Default*
 
 #### Database - Custom
 
-> _**Note:** Replace `CUSTOM_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. `POSTGRES_DRIVER`_
+!!! Note
+	Replace `CUSTOM_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. **`POSTGRES_DRIVER`**
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------

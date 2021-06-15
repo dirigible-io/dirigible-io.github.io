@@ -8,13 +8,13 @@ Setup with Helm
 
 You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs) in a Kubernetes cluster.
 
-Prerequisites
+## Prerequisites
 ---
 
 - [Helm](https://helm.sh/)
 - [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
 
-Steps
+## Steps
 ---
 
 1. Add the Eclipse Dirigible Helm repository:
@@ -31,7 +31,7 @@ Steps
     helm install dirigible dirigible/dirigible
     ```
 
-		This will install Eclipse Dirigible **Deployment** and **Service** with **ClusterIP** only.
+		This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
 
     ???+ info "Access"
         To access the Dirigible instance execute the command that was printed in the console.
@@ -57,7 +57,7 @@ Steps
         --set ingress.host=<ingress-host>
         ```
 
-		This will expose the Dirigible instance through **Ingress** host (**http://...**) .
+		This will expose the Dirigible instance through Ingress host (**`http://...`**).
 
     === "PostgreSQL"
 
@@ -68,7 +68,7 @@ Steps
         --set database.enabled=true
         ```
 
-		This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database._
+		This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database._
 
     === "PostgreSQL & Keycloak"
 
@@ -81,7 +81,7 @@ Steps
         --set keycloak.install=true
         ```
 
-        In addition **Keycloak** will be deployed and configured._
+        In addition Keycloak will be deployed and configured._
         
         !!! info "Disable HTTPS"
 
@@ -111,7 +111,7 @@ Steps
             kubectl delete pod keycloak-<pod-uuid>
             ```
 
-            Now the "Required HTTPS" should be disabled and the `keycloak` instance should be accessible via `http://`
+            Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
 
 1. Kyma:
 
@@ -123,7 +123,7 @@ Steps
         --set kyma.apirule.host=<kyma-host>
         ```
 
-        This will install additionally an **ApiRule** and **XSUAA** **ServiceInstance** and **ServiceBinding**. The appropriate roles should be assigned to the user.
+        This will install additionally an ApiRule and XSUAA ServiceInstance and ServiceBinding. The appropriate roles should be assigned to the user.
 
     === "PostgreSQL"
 
@@ -134,7 +134,7 @@ Steps
         --set database.enabled=true
         ```
 
-        This will install also **PostgreSQL** database with **1Gi** storage and update the Dirigible datasource configuration to consume the database.
+        This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database.
 
     === "PostgreSQL & Keycloak"
 
@@ -147,7 +147,7 @@ Steps
         --set keycloak.install=true
         ```
 
-        In addition **Keycloak** will be deployed and configured.
+        In addition Keycloak will be deployed and configured.
        
         !!! info "Disable HTTPS"
 
@@ -177,7 +177,7 @@ Steps
             kubectl delete pod keycloak-<pod-uuid>
             ```
 
-            Now the "Required HTTPS" should be disabled and the `keycloak` instance should be accessible via `http://`
+            Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
 
 1. Uninstall:
     ```

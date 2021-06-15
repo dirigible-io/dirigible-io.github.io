@@ -5,7 +5,7 @@ title: Terminal
 Terminal View
 ===
 
-Via the *Terminal* view, you can execute OS commands.  
+Via the **Terminal** view, you can execute OS commands.  
 
 Examples:
 

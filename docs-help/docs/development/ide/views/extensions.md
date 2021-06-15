@@ -5,7 +5,7 @@ title: Extensions
 Extensions View
 ===
 
-The Extensions view lists all defined extensions and extension points through `*.extension` and `*.extensionpoint` descriptor.
+The **Extensions** view lists all defined extensions and extension points through `*.extension` and `*.extensionpoint` descriptor.
 
 ![Extensions view](../../../images/ide_view_extensions.png)
 

@@ -9,12 +9,13 @@ Setup in Tomcat
 
 The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat.apache.org/) web container. In this case the built-in H2 database is used.
 
-> _[Download](https://tomcat.apache.org/download-80.cgi) the Tomcat binary. More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html)._
+!!! Note
+	[Download](https://tomcat.apache.org/download-80.cgi) the Tomcat binary. More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
 
-Prerequisites
+## Prerequisites
 ---
 
-- **_JDK 11 or later_** - _OpenJDK versions can be found [here](https://adoptopenjdk.net/)._
+- JDK 11 or later - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
 
 === "macOS"
 
@@ -22,9 +23,9 @@ Prerequisites
 
 === "Linux"
 
-    > Linux support is built-in
+    Linux support is built-in.
 
-    More info about **ttyd** can be found at: [ttyd](https://github.com/tsl0922/ttyd)
+    More info about ttyd can be found at: [ttyd](https://github.com/tsl0922/ttyd)
 
 === "Windows"
 
@@ -32,7 +33,7 @@ Prerequisites
 
     See [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
-Steps
+## Steps
 ---
 
 1. Download `ROOT.war` for Tomcat from: [download.dirigible.io](http://download.dirigible.io)
@@ -58,7 +59,7 @@ Steps
 
     === "PostgreSQL"
 
-        1. Install `postgresql` on Linux (Debian-based) with:
+        1. Install postgresql on Linux (Debian-based) with:
 
             ```
             sudo apt-get update
@@ -66,7 +67,7 @@ Steps
             sudo apt-get install postgresql postgresql-contrib
             ```
 
-        1. Create the `default` database for Eclipse Dirigible:
+        1. Create a default database for Eclipse Dirigible:
 
             ```
             sudo -i -u postgres
@@ -74,7 +75,7 @@ Steps
             createdb dirigible_database
             ```
 
-        1. Create `System User` for the Eclipse Dirigible database:
+        1. Create a system user for the Eclipse Dirigible database:
 
             ```
             psql dirigible_database
@@ -86,7 +87,7 @@ Steps
 
         1. Datasource configuration:
 
-            - Download the `postgresql` JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
+            - Download the postgresql JDBC driver version 4.1 from [here](http://jdbc.postgresql.org/download.html).
             - Copy the `postgresql-*.jar` file to the `<TOMCAT_HOME>/lib` directory.
 
         1. Set the environment variables:
@@ -111,7 +112,7 @@ Steps
 
     === "MySQL"
 
-        1. Install `mysql` on Linux (Debian-based) with:
+        1. Install mysql on Linux (Debian-based) with:
 
             ```
             sudo apt-get update
@@ -131,7 +132,7 @@ Steps
             createdb dirigible_database
             ```
 
-        1. Create `System User` for the Eclipse Dirigible database:
+        1. Create a system user for the Eclipse Dirigible database:
  
             ```
             mysql -u root -p
@@ -220,14 +221,14 @@ Steps
             export DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE=false
             ```
 
-        > _**Note:** Remember to replace the `<host>`, `<port>`, `<user>`, `<password>` placeholders._
+        Remember to replace the **`<host>`**, **`<port>`**, **`<user>`**, **`<password>`** placeholders.
 
     === "Sybase ASE"
 
         1. How to setup a test environment on Amazon:
 
-         - Select Image Size: `t2.medium`
-         - Security Group: `TCP Custom, 5000`
+         - Select Image Size: **`t2.medium`**
+         - Security Group: **`TCP Custom, 5000`**
 
         1. Download Sybase ASE Express from [here](https://www.sap.com/cmp/syb/crm-xu15-int-asexprdm/index.html).
         1. Transfer:
@@ -388,21 +389,21 @@ Steps
             export DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE=org.quartz.impl.jdbcjobstore.SybaseDelegate
             ```
 
-        > _**Note:** Remember to replace the `<host>`, `<port>`, `<user>`, `<password>` placeholders._
+        Remember to replace the **`<host>`**, **`<port>`**, **`<user>`**, **`<password>`** placeholders._
 
 
 1. Start the Tomcat server.
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
-1. Login with user `dirigible` and password `dirigible`.
+1. Login with user **`dirigible`** and password **`dirigible`**.
 
 ---
 
-#### Manager App
+## Manager App
 
 In case you want to use Apache Tomcat's [Manager App](https://tomcat.apache.org/tomcat-8.5-doc/manager-howto.html) 
-to deploy the ROOT.war file, you have to increase the file size limit for upload (e.g. to 200MB):
+to deploy the `ROOT.war` file, you have to increase the file size limit for upload (e.g. to 200MB):
 
 `conf\server.xml`
 

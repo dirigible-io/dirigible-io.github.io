@@ -13,12 +13,13 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) - this step is optional.
     - Access to SAP BTP account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
 
-Steps
+## Steps
 ---
 
 1. Access the SAP BTP, Kyma environment via the SAP BTP cockpit:
 
-    > The Trial landscape can be accessed from [here](https://account.hanatrial.ondemand.com)
+    !!! Note
+		The Trial landscape can be accessed from [here](https://account.hanatrial.ondemand.com)
 
 1. Deploy Eclipse Dirigible:
 
@@ -113,7 +114,7 @@ Steps
             name: dirigible
             port: 8080
         ```
-        Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
+        Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**)._
 
         !!! tip "Eclipse Dirigible versions"
             Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
@@ -121,16 +122,17 @@ Steps
             - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
             - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
-    - Navigate to your Kyma dashboard and select the **default** namespace.
+    - Navigate to your Kyma dashboard and select the "default" namespace.
 
     - Click on the **Deploy new resource** button and select the `deployment.yaml` file.
 
-        > _Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources._
+    !!! Note
+		Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources.
 
 1. Create XSUAA service instance:
 
-    - From the Kyma dashboard, go to `Service Management -> Catalog`.
-    - Find the `Authorization & Trust Management` service.
+    - From the Kyma dashboard, go to **Service Management** **&rarr;** **Catalog**.
+    - Find the Authorization & Trust Management service.
     - Create new service instance.
     - Provide the following additional parameters.
 
@@ -182,11 +184,11 @@ Steps
         }
         ```
 
-        Replace the `<your-kyma-cluster-host>` placeholder with your Kyma cluster host (e.g. c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com)._
+        Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**).
 
-    - Bind the servce instance to the `dirigible` application.
+    - Bind the servce instance to the dirigible application.
 
-1. Assign the `Developer` and `Operator` roles.
+1. Assign the Developer and Operator roles.
 
 1. Log in.
 
@@ -205,5 +207,5 @@ Steps
 
 
 !!! example "Additional Materials"
-    - For deployment through the `kubectl`, refer to the Kubernetes [setup](../kubernetes/).
+    - For deployment through the kubectl, refer to the Kubernetes [setup](../kubernetes/).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/).

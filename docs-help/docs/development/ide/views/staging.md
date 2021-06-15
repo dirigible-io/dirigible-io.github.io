@@ -5,7 +5,7 @@ title: Staging
 Staging View
 ===
 
-The ```Staging``` view provides a visual alternative of executing Git commands from a terminal. You can manage your locally changed files and prepare them for pushing to your remote repository.
+The **Staging** view provides a visual alternative of executing Git commands from a terminal. You can manage your locally changed files and prepare them for pushing to your remote repository.
 
 ![Staging view](../../../images/ide_view_staging.png)
 

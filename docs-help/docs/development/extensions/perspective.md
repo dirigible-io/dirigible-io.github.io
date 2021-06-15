@@ -2,15 +2,15 @@
 title: Perspective
 ---
 
-Extension - Perspective
+Perspective
 ===
 
-Descriptors
+## Descriptors
 ---
 
-To contribute a new Perspective to the Web IDE you need to create one model _(`*.extension`)_ and one descriptor _(in `*.js`)_ files in your project:
+To contribute a new Perspective to the Web IDE you need to create one model (`*.extension`) and one descriptor (in `*.js`) files in your project:
 
-**my-perspective.extension**
+### my-perspective.extension
 
 ```json
 {
@@ -24,7 +24,7 @@ To contribute a new Perspective to the Web IDE you need to create one model _(`*
 * `extensionPoint` is the name of the built-in extension point to which the current plugin will contribute
 
 
-**my-perspective.js**
+### my-perspective.js
 
 ```javascript
 exports.getPerspective = function() {
@@ -59,11 +59,11 @@ The project structure in this case should look like this:
 
 ```
 
-The names of the `extensions` and `services` can be different following the layout of your project.
+The names of the extensions and services can be different following the layout of your project.
 
 ---
 
-Implementation
+## Implementation
 ---
 
 In general you can embed any valid HTML in the `index.html` file above and will will be rendered in the place where the perspective should be embedded.

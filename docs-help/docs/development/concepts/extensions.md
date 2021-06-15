@@ -8,12 +8,12 @@ group: help-features
 Extension Definitions
 ===
 
-Extensibility is an important requirement for business applications built to follow custom processes in Line of Business(LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.
+Extensibility is an important requirement for business applications built to follow custom processes in Line of Business (LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.
 
 Extension Points
 ---
 
-An `Extension Point` is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple `JSON` formated `*.extensionpoint` file and can be placed anywhere in your project.
+An extension point is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple JSON formated `*.extensionpoint` file and can be placed anywhere in your project.
 
 ```json
 {
@@ -25,7 +25,7 @@ An `Extension Point` is the place in the core module, which is expected to be en
 Extensions
 ---
 
-An `Extension` is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formated `*.extension` file and can be placed anywhere in your project.
+An extension is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formated `*.extension` file and can be placed anywhere in your project.
 
 ```json
 {
@@ -35,7 +35,8 @@ An `Extension` is the plug-in in the custom module, which extends the core funct
 }
 ```
 
-> The `extension` parameter above should point to a valid `JavaScript module`.
+!!! Note
+	The 'extension' parameter above should point to a valid JavaScript module.
 
 
 Calling Extensions
@@ -51,4 +52,4 @@ for (let i = 0; i < extensions.length; i++) {
 }
 ```
 
-In the code above, the extension is a JavaScript module _(`extension1.js`)_ within the same project, and it has exposed an  `enhanceProcess()` function.
+In the code above, the extension is a JavaScript module (`extension1.js`) within the same project, and it has exposed an  `enhanceProcess()` function.

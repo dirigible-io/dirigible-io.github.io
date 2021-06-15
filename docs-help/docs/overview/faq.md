@@ -8,14 +8,13 @@ title: FAQ
 ## Concepts
 
 ???+ info "In-System Development"
-    - `In-System Development` is a programming model used when you work directly on a `live system`.
-    - `Avoid side-effects` of a simulated (local) environment by working on a live system.
-    - `Access live data` via the same channel which will be used in production.
-    - All the `dependencies` and `integrations` are on place as they will be in production.
-    - Shortest development `turn-around time`.
-    - Short `life-cycle` management process.
+    - `In-System Development` is a programming model used when you work directly on a live system.
+    - Avoid side-effects of a simulated (local) environment by working on a live system.
+    - Access live data via the same channel which will be used in production.
+    - All the dependencies and integrations are on place as they will be in production.
+    - Shortest development turn-around time.
+    - Short life-cycle management process.
     
-
 ??? info "Vertical Scenarios & Horizontal Scaling"
     - Covering end-to-end scenarios including all the application layers from architecture perspective as well as all the development process phases from project management perspective.
     - All or nothing – partial doesn't count.
@@ -23,7 +22,7 @@ title: FAQ
 
 ??? info "Content-Centric & Centralized Repository"
     - All application artifacts are in a single repository.
-    - Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository..
+    - Operational repository vs SCM repository. During development process is used IO optimized repository. After the code is ready it is committed to SCM - version, inspection and support optimized repository.
     - Simple life-cycle management and transport.
     - Workspace, Public Registry separation based on the development life-cycle phases.
 
@@ -35,7 +34,7 @@ title: FAQ
     - Java is used for the core components of the platform, while JavaScript is for the application business logic (the glue code).
 
 ??? info "Injected Services"
-    - Available out-of-the-box for developers – `request`, `response`, `datasource`, `http`, `CMIS storage`, `BPMN engine`, `wiki`, `indexer`, `user`, etc.
+    - Available out-of-the-box for developers – request, response, datasource, http, CMIS storage, BPMN engine, wiki, indexer, user, etc.
     - [Standardized API](../../../api/) for cloud developers.
     - Different language's implementations are possible integrated via the extension point.
     - Different provider's implementations can be exposed to developers on their cloud.
@@ -44,7 +43,7 @@ title: FAQ
     Why integration services are part of the core?
 
     - Cloud applications usually are extensions to a packaged software (on-premise or on-demand).
-    - Re-use of 3-thd party services is very often in this context.
+    - Re-use of 3-rd party services is very often in this context.
     - Replication use-case - major scenario for on-premise to on-demand cross-platform applications.
     - Scheduled jobs as asynchronous activities usually needed.
     - Semantic separation of integration and orchestration services from the other general purpose services.
@@ -154,16 +153,17 @@ title: FAQ
 
     It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the WAR or the executable JAR files.
 
-??? question "How to register my _Enterprise JavaScript API_?"
+??? question "How to register my Enterprise JavaScript API?"
 
     Once you make the your core framework available as a Maven module packaged into your WAR file, you can implement your own [Enterprise JavaScript API](../../../api/) facade.
 
 ??? question "How to integrate my non-Java framework?"
 
-    It depends on the particular framework. Usually, it is via the `Command` feature. Please, contact us in case of interest.
+    It depends on the particular framework. Usually, it is via the Command feature. Please, contact us in case of interest.
 
 ??? question "How to integrate my dynamic language?"
 
     There is an Engine API which can be implemented, as well as a REST service which can execute the code.
 
-    > :warning: _Please, contact us if you plan such an integration._
+    !!! warning
+		Please, contact us if you plan such an integration.

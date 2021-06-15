@@ -5,9 +5,9 @@ title: Entity Service
 Entity Service
 ===
 
-In general, the *entity service* is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it, the database store is connected as a data transfer layer.
+In general, the entity service is a fully capable RESTful service as it is defined by [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) architectural style for performance, scalability, simplicity, and so on. It exposes the [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations of a given domain model object. Underneath it, the database store is connected as a data transfer layer.
 
-The *domain object management* is the service pattern that is used most often when following the RESTful paradigm on business software components. In Eclipse Dirigible, the standard functionality of Web services is enhanced but without breaking the REST principles. This is useful for generic utilities and user interface generation.
+The domain object management is the service pattern that is used most often when following the RESTful paradigm on business software components. In Eclipse Dirigible, the standard functionality of Web services is enhanced but without breaking the REST principles. This is useful for generic utilities and user interface generation.
 
 Standard functionality:
 
@@ -68,7 +68,7 @@ Example `metadata` for an entity:
 }
 ```
 
-All these features of *entity services* are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the [Entity Data Modeler](../../ide/modelers/entity-data).
+All these features of entity services are implied during the generation process. As an input, the template uses a database table and an entity service name that are entered in the [Entity Data Modeler](../../ide/modelers/entity-data).
 Just select the `*.entity` artifact in the **Workspace** view. Choose **Generate** **&rarr;** **User Interface for Entity Service**.
 
 Limitations for the table to be entity-service compliant:

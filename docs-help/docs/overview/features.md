@@ -9,7 +9,7 @@ Features
 	The feature set listed bellow contains only the major part of what is currently available. For more insights on what can be done with Eclipse Dirigible, we recommend to [try it out](http://trial.dirigible.io).
 
 
-### Data Structures
+## Data Structures
 
 * Creation of table model (JSON formatted `*.table` descriptor) and actual creation of the corresponding database table during publishing.
 * Creation of view model (JSON formatted `*.view` descriptor) and actual creation of the corresponding database view during publishing.
@@ -17,22 +17,22 @@ Features
 * Automatic altering of existing tables from the models on compatible changes (new columns added).
 * [Modeling](../../development/ide/modelers/database-schema) of the database schema (`*.dsm` and `*.schema`) files and creation of the tables, views, and constraints during publishing.
 	
-### Scripting Services
+## Scripting Services
 
-* Support of *JavaScript* language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
-* Support of *CommonJS* based modularization of `JavaScript` services (`*.js`).
+* Support of JavaScript language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
+* Support of CommonJS based modularization of JavaScript services (`*.js`).
 * Support of strictly defined enterprise [ API](../../../api/) for JavaScript to be used by the business application developers.
 
-### Web Content
+## Web Content
 
 * Support of client-side [Web](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-web) related artifacts, such as HTML, CSS, JS, pictures, etc.
 	
-### Wiki Content
+## Wiki Content
 
 * Support of [Markdown](https://daringfireball.net/projects/markdown/syntax) format for [Wiki](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki) pages.
 	
-### Integration Services
-	
+## Integration Services
+
 * Support of listeners for messages from the built-in message bus (`*.listener`).
 * Support of scheduled jobs as triggers for backend services invocation (`*.job`).
 * Support of business processes defined in BPMN 2.0 and executed by the underlying [BPM](https://github.com/eclipse/dirigible/tree/master/modules/bpm/bpm-flowable) process engine (`*.bpmn`).
@@ -40,16 +40,16 @@ Features
 * Support of [OData 2.0](https://olingo.apache.org/) (`*.odata`).
 * Support of websockets (`*.websocket`).
 	
-### Mobile Applications
+## Mobile Applications
 
 * Support of native mobile application development via [Tabris.js](https://tabris.com/).
 	
-### Extension Definitions
+## Extension Definitions
 
 * Creation of [extension points](../../development/concepts/extensions) (JSON formatted descriptor - `*.extensionpoint`).
 * Creation of [extensions](../../development/concepts/extensions) by a given extension point (JSON formatted descriptor - `*.extension`).
 	
-### Tooling
+## Tooling
 
 * [`Workbench` perspective](../../development/ide/perspectives/workbench) for full support of project management (New, Cut, Copy, Paste, Delete, Refresh, Import, Export, etc.)
 * [`Database` perspective](../../development/ide/perspectives/database) for RDBMS management including SQL Console
@@ -63,20 +63,20 @@ Features
 * [`Debugger` perspective](../../development/ide/perspectives/debugger) for debugging backend JavaScript services
 * [`Terminal` perspective](../../development/ide/perspectives/terminal) with the corresponding main view for execution of shell commands on the target instance's OS
 
-### Modeling
+## Modeling
 
 * Modeling of database schema (`*.dsm` and `*.schema`) files with [Database Schema Modeler](../../development/ide/modelers/database-schema)
 * Modeling of entity data model (`*.edm` and `*.model`) files with [Entity Data Modeler](../../development/ide/modelers/entity-data)
 * Modeling of BPMN process (`*.bpmn`) files with [BPMN Modeler](../../development/ide/modelers/bpmn)
 * Modeling of Web form layout (`*.form`) files with [Form Designer](../../development/ide/modelers/form-designer)
 
-### Security
+## Security
 
 * Role-based access management for Web services as well as the document repository
 * Security constraints model (JSON formatted `*.access`) support
-* Several predefined roles, which can be used out-of-the-box _(`Everyone`, `Administrator`, `Manager`, `PowerUser`, `User`, `ReadWrite`, `ReadOnly`)_
+* Several predefined roles, which can be used out-of-the-box (Everyone, Administrator, Manager, PowerUser, User, ReadWrite, ReadOnly)
 
-### Registry
+## Registry
 	
 * Publishing support - exposing the artifacts from the user's workspace publicly 
 * Auto-publishing support for better usability

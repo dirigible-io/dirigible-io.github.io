@@ -8,13 +8,13 @@ Setup in Kubernetes
 
 You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-tomcat`, in a Kubernetes cluster.
 
-Prerequisites
+## Prerequisites
 ---
 
 - [Kubernetes Command Line Interface](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
 
-Steps
+## Steps
 ---
 
 1. Create deployment configuration file: `deployment.yaml`

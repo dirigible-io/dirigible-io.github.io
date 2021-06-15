@@ -5,7 +5,7 @@ title: REST
 REST
 ===
 
-The `http-rs` module is designed to define and run a broad range of HTTP REST services.
+The http-rs module is designed to define and run a broad range of HTTP REST services.
 
 A very simple example `hello-api.js`:
 
@@ -48,13 +48,13 @@ Finally, we run the service and it processes the HTTP request:
 
 > .execute();
 
-Now, this is a fairly simplistic example aiming to give you a hint of how you can bring up a REST API to life with `http-rs`. There is a whole lot more that we shall explore in the next sections.
+Now, this is a fairly simplistic example aiming to give you a hint of how you can bring up a REST API to life with http-rs. There is a whole lot more that we shall explore in the next sections.
 
 ## Creating REST services  
 
 > rs.service()  
 
-Creating new service instances is as simple as invoking `rs.service()`. That returns a configurable and/or executable instance of the `HttpController` class. The controller API allows to:
+Creating new service instances is as simple as invoking `rs.service()`. That returns a configurable and/or executable instance of the HttpController class. The controller API allows to:
 - start configuring REST service (method `resource()`) 
 - serve requests (method `execute()`) 
 - perform a couple of more advanced activities, which will be reviewed in the [Advanced](#advanced) section below 
@@ -65,14 +65,14 @@ Additionally, the controller API features also shortcut factory methods that are
 
 > execute()
 
-The mechanism for serving requests is implemented in the `execute()` method of the `HttpController`. It tries to match the request to the service API configuration.
+The mechanism for serving requests is implemented in the `execute()` method of the HttpController. It tries to match the request to the service API configuration.
 
 * If the mechanism matches the request successfully, it triggers the execution flow of the callback functions. The execution flow processes the request and response. 
-* If the mechanism doesn't match the request successfully, it sends a `Bad Request` error to the client. 
+* If the mechanism doesn't match the request successfully, it sends a Bad Request error to the client. 
 
 The request and response objects are implicitly those that were used to request the script where the `execute()` method invocation occurred. But they can be exchanged for others as shown in the [Advanced](#advanced) section. 
 
-The `execute()` method is defined in the service instance _(class `HttpController`)_ obtained with `rs.service()`. The `execute()` method can be triggered with `rs.service().execute()`. The `rs` API configuration also provides numerous references to the method so you can invoke it on any stage. For example,
+The `execute()` method is defined in the service instance (class HttpController) obtained with `rs.service()`. The `execute()` method can be triggered with `rs.service().execute()`. The `rs` API configuration also provides numerous references to the method so you can invoke it on any stage. For example,
 
 ```javascript
 rs.service().get("").execute()  
@@ -92,22 +92,22 @@ There are three options as far as configuration is concerned.
 - You can use configuration objects. They are holding the configuration that the `rs` API produces.
 - You can start with a configuration object and then enhance or override the configuration using the `rs` API. 
 
-> _**Configuration objects**  
-A configuration object is a JS object with canonical structure that the *http-rs* can interpret. We will discuss its schema later on in this guide. For now, let's just consider that it's the same thing that the rs-fluent API will actually produce behind the scenes so it's a completely valid alternative and complement to the rs-fluent API configuration approach.
-Refer to the [Advanced](#advanced) section for more details on using configuration objects._
+!!! Info "Configuration objects"
+	A configuration object is a JS object with canonical structure that the *http-rs* can interpret. We will discuss its schema later on in this guide. For now, let's just consider that it's the same thing that the rs-fluent API will actually produce behind the scenes so it's a completely valid alternative and complement to the rs-fluent API configuration approach.
+	Refer to the [Advanced](#advanced) section for more details on using configuration objects.
 
-#### Defining service resources
+### Defining service resources
 
 > resource(sPath, oConfiguration?)
 
 Resources are the top-level configuration objects that represent an [HTTP (server) resource](https://en.wikipedia.org/wiki/Web_resource), for which we will be defining a protocol. Each resource is identified by a URL on the server. You can have multiple resources per service configuration, provided that their URLs do not overlap.
 
-> _**Resource vs Path vs Resource Path**  
-As per the REST terms, a resource is an abstraction or a server-side resource that can be a file, a dynamically generated content, or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has an address and can be accessed with a standard HTTP method. It is often referred to as *path* or *resource path* due to its singular most notable identifying characteristic. But to be precise, *path* is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints, and is identifiable by its *path* property._
+!!! Info "Resource vs Path vs Resource Path"
+	As per the REST terms, a resource is an abstraction or a server-side resource that can be a file, a dynamically generated content, or a procedure (although the last is considered heresy by purists). It's virtually anything hosted on a server that has an address and can be accessed with a standard HTTP method. It is often referred to as "path" or "resource path" due to its singular most notable identifying characteristic. But to be precise, "path" is only a property of the resource. As far as configuration is concerned, the resource defines the configuration scope for which we define method handlers and constraints, and is identifiable by its "path" property.
 
-#### Resource paths and path templates
+### Resource paths and path templates
 
-The `sPath` string parameter _(`mandatory`)_ of the `resource()` method will serve as the resource URL. It is relative to the location where the JavaScript service is running _(e.g. `/services/v4/my-application/api/my-service.js`)_. No path _(`""`)_, request directly to the JavaScript service root _(`""`)_ path.
+The `sPath` string parameter (mandatory) of the `resource()` method will serve as the resource URL. It is relative to the location where the JavaScript service is running (e.g. `/services/v4/my-application/api/my-service.js`). No path (`""`), request directly to the JavaScript service root (`""`) path.
 The path can also be a URL template, i.e. parameterized.  
 For example consider the path template:  
 
@@ -141,8 +141,8 @@ resource["delete"]() and resource.remove()
 resource.method()
 ```
 
-By default, only the HTTP request methods that you have configured for a resource are allowed. The fluent API of `Resource` instances, obtained with the `resource(sPath)` method that we discussed above, exposes the most popular REST API methods (`get`,`post`,`put` and `delete`). They are simply aliases for the generic method `method`.
-Whichever we consider, we will receive a `ResourceMethod` instance from the invocation and its API will allow us to specify processing functions and further specify constraints on the request/response for which they are applicable:
+By default, only the HTTP request methods that you have configured for a resource are allowed. The fluent API of Resource instances, obtained with the `resource(sPath)` method that we discussed above, exposes the most popular REST API methods (`get`,`post`,`put` and `delete`). They are simply aliases for the generic method `method`.
+Whichever we consider, we will receive a ResourceMethod instance from the invocation and its API will allow us to specify processing functions and further specify constraints on the request/response for which they are applicable:
 
 > rs.resource('').get().produces(["application/json"]).serve(function(){})
 
@@ -155,7 +155,7 @@ The samples here are all for configuring HTTP GET Method but the usage pattern i
 
 > rs.resource('').post().consumes(["application/json"]).serve(function(){})
 
-**Shortcuts**
+#### Shortcuts
 
 You already noticed that instead of explicitly using `serve` to configure callback for serving the requests we could directly provide the function as argument to the method configuring the HTTP method (e.g. `get`). 
 
@@ -187,11 +187,12 @@ rs.service()
 .execute();
 ```
 
-These shortcut methods share the same names with those in `Resource` that are used for defining HTTP method handlers: `get`, `post`, `put`, `delete` and its alias `remove`, but differ in signature (first argument is a string for the resource path) and the return type (the `HttpController` instance, instead of `ResourceMethod`).
+These shortcut methods share the same names with those in `Resource` that are used for defining HTTP method handlers: `get`, `post`, `put`, `delete` and its alias `remove`, but differ in signature (first argument is a string for the resource path) and the return type (the HttpController instance, instead of ResourceMethod).
 
 They are useful as a compact mechanism if you intend to build something simple and simplistic, such as a single resource and one or few handler functions for it. You will not be able to go much further with this API so if you consider anything even slightly more sophisticated you should look into the fluent API of `resource` instead: `rs.service().resource("")`.
 
-> Note that the scope of these shortcut methods is the controller, not the resource. That has effect on the method chaining. For clean code, do not confuse despite the similar names and avoid mixing them.
+!!! Note
+	Note that the scope of these shortcut methods is the controller, not the resource. That has effect on the method chaining. For clean code, do not confuse despite the similar names and avoid mixing them.
 
 ### Defining content types that an API consumes and produces
 
@@ -202,7 +203,7 @@ rs.resource("").put().consumes("[application/json]").produces("[application/json
 ```  
 
 Optionally, but also quite likely, we will add some constraints on the data type consumed and produced by the resource method handler that we configure.   
-At request processing runtime, these constraints will be matched for compatibility against the HTTP request headers before delegating to the handler processing function. You can use wildcards (*) in the MIME types arguments both for type and sub-type and it will be considered as *anything* during the execution:  
+At request processing runtime, these constraints will be matched for compatibility against the HTTP request headers before delegating to the handler processing function. You can use wildcards (*) in the MIME types arguments both for type and sub-type and it will be considered as anything during the execution:  
 
 ```javascript
 rs.resource("").post().consumes("[*/json]")  
@@ -349,9 +350,9 @@ rs.service({
 In this way we essentially are exploiting the fluent API to configure a service but we will not start from scratch. Many of the API methods accept as a second argument configuration object and this doesn't prevent you to continue the API design with fluent API to enhance or override it.
 
 ### The sendError method in HttpController
-The `HttpController` class instances that we receive when `rs.service()` is invoked, features a `sendError` method. It implements the logic for formatting errors and returning them back to the client taking into account its type and content type preferences. 
+The HttpController class instances that we receive when `rs.service()` is invoked, features a sendError method. It implements the logic for formatting errors and returning them back to the client taking into account its type and content type preferences. 
 Should you require to change this behavior globally you can redefine the function. If you require different behavior for particular resources or resource method handlers, then using the `catch` callback is the better approach.  
-Sometimes it's useful to reuse the method and send error in your handler functions. The standard request processing mechanism in `HttpController` does not account for *logical* errors. It doesn't know for example that a parameter form a client input is out of valid range. For such cases you would normally implement validation either in `before` event handler or in serve. And if you need tighter control on what is sent back, e.g. the HTTP code you wouldn't simply throw an Error but invoke the sendError function with the right parameters yourself. For these purposes the last argument of each event handler function is conveniently the controller instance.
+Sometimes it's useful to reuse the method and send error in your handler functions. The standard request processing mechanism in HttpController does not account for *logical* errors. It doesn't know for example that a parameter form a client input is out of valid range. For such cases you would normally implement validation either in `before` event handler or in serve. And if you need tighter control on what is sent back, e.g. the HTTP code you wouldn't simply throw an Error but invoke the sendError function with the right parameters yourself. For these purposes the last argument of each event handler function is conveniently the controller instance.
 
 ```javascript
 rs.service().resource("")
@@ -371,7 +372,7 @@ rs.service().resource("")
 
 > mappings.readonly()  
 
-An obvious way of defining readonly APIs is to use only `GET` resource methods definitions. In some cases though APIs can be created from external configuration that also contains other resource method handlers, or we can receive an API instance from another module factory, or we want to support two instances of the same API, one readonly and one with edit capabilities, with minimal code. In such cases, we already have non-GET resource methods that we have to get rid of somehow. Here the `readonly` method steps in and does exactly this - removes all but the GET resource handlers if any. 
+An obvious way of defining readonly APIs is to use only `GET` resource methods definitions. In some cases though APIs can be created from external configuration that also contains other resource method handlers, or we can receive an API instance from another module factory, or we want to support two instances of the same API, one readonly and one with edit capabilities, with minimal code. In such cases, we already have non-GET resource methods that we have to get rid of somehow. Here the readonly method steps in and does exactly this - removes all but the GET resource handlers if any. 
 
 Example:  
 
@@ -388,13 +389,13 @@ rs.service()
 
 If you inspect the configuration after `.readonly()` is invoked (use `resource("").configuration()`) you will notice that the post verb definition is gone. Consecutively, POST requests to this resource will end up in Bad Request (400).
 Note that for this to work, this must be the last configuration action for a resource. Otherwise, you are resetting the resource configuration to readonly, only to define write methods again.
-The `readonly` method is available both for `ResourceMapping` and `Resource` objects returned by either invocations of service `mappings()` method or retained references from configuration API invocations.
+The readonly method is available both for ResourceMapping and Resource objects returned by either invocations of service `mappings()` method or retained references from configuration API invocations.
 
 ### Disabling a ResourceMethod Handler
 
 > api.disable(sPath, sVerb, arrConsumesTypes, arrProducesTypes)
 
-Similar to the use cases explored for the `readonly` method above yo might not be in full control of the definition of the API, but rather *takeover* at some point. Similar to the `readonly` method, this one will remove the handler definition identified by the four parameters - *resource path*, *resource verb*, *consumes constraint array* (not necessarily in same order), *produces constraint array* (not necessarily in same order), but it will do it for any verb, not only 'GET'. In that sense `readonly` is a specialization of this one only for GET verbs.  
+Similar to the use cases explored for the readonly method above yo might not be in full control of the definition of the API, but rather takeover at some point. Similar to the readonly method, this one will remove the handler definition identified by the four parameters - resource path, resource verb, consumes constraint array (not necessarily in same order), produces constraint array (not necessarily in same order), but it will do it for any verb, not only `GET`. In that sense readonly is a specialization of this one only for `GET` verbs.  
 
 Example:
 
@@ -433,7 +434,7 @@ handler.serve = function(){
 The request and response parameters of the execute method are optional. If you don't supply them, the service will take the request/response objects that were used to request the script. Most of the time this is what you want. However, supplying your own request and response arguments can be very handy for testing as you can easily mock and inspect them.
 
 ### Fluency for execute method
-The `execute` method is defined by the service instance (`HttpController`) obtained with `rs.service()` and can be executed with: `rs.service().execute()`. The fluent configuration API also provides references to the method, so you can actually invoke it on any stage. Examples:  
+The `execute` method is defined by the service instance (HttpController) obtained with `rs.service()` and can be executed with: `rs.service().execute()`. The fluent configuration API also provides references to the method, so you can actually invoke it on any stage. Examples:  
 
 ```javascript
 rs.service().resource("").get(function(){}).execute()
@@ -455,11 +456,11 @@ rs
 
 ### Mappings vs Configurations
 The API supplies two methods `mappings()` and `configuration()` that provide configuration in two forms. 
-The mappings method supplies typed API objects such as `Resource` aggregating `ResourceMethod` instances. To get a reference to a service mappings, invoke mappings on the service instance: 
+The mappings method supplies typed API objects such as Resource aggregating ResourceMethod instances. To get a reference to a service mappings, invoke mappings on the service instance: 
 
 > rs.service().mappings()
 
-With a reference to mappings you have their fluent API at disposal. This is useful when extending and enhancing the core rs functionality to build dedicated services. For example the `HttpController` constructor function is designed to accept mappings and if you extend or initialize it internally in another API you will likely need this form of configuration.
+With a reference to mappings you have their fluent API at disposal. This is useful when extending and enhancing the core rs functionality to build dedicated services. For example the HttpController constructor function is designed to accept mappings and if you extend or initialize it internally in another API you will likely need this form of configuration.
 
 An invocation of the configuration method on the other hand provides the underlying JS configuration object. It can be used to supply generic configurations that are used to initialize new types of services as the public fluent API is designed to accept this form of configuration.
 
@@ -562,8 +563,8 @@ Schema:
 - `methodString` is a string for the HTTP resource method. There could be 0 or more such non-overlapping members.  
 - The value of methodString is an array of 0 or more objects, each defining a request method processing that will be executed under unique conditions (constraints) that match the request. 
 - A component in the methodString array, can consist of constraints (consumes, produces) and request processing flow event handlers (before, serve, catch, finally)  
-- `consumes` value is an array of 0 or more strings, each a valid MIME type string formatted as **types/subtype**. Can be undefined.
-- `produces` value is an array of 0 or more strings, each a valid MIME type string formatted as **types/subtype**. Can be undefined.
+- `consumes` value is an array of 0 or more strings, each a valid MIME type string formatted as types/subtype. Can be undefined.
+- `produces` value is an array of 0 or more strings, each a valid MIME type string formatted as types/subtype. Can be undefined.
 - `before`, `serve`, `catch` and `finally` values are functions. Except for the `serve` function, the rest can be `undefined`.
 
 ## Building a CRUD rest service
