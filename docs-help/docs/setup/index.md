@@ -38,6 +38,9 @@ The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat
 
 1. Download `ROOT.war` for Tomcat from: [download.dirigible.io](http://download.dirigible.io)
 
+    !!! Note
+            For local test & development purposes, we recommend the **server-all** distribution.
+
 1. Configure the Users store under `$CATALINA_HOME/conf/tomcat-users.xml`:
 
     ```xml
