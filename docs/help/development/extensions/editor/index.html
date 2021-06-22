@@ -1659,8 +1659,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <ul>
-<li><code>module</code> points to the corresponding view descriptor (see below)</li>
-<li><code>extensionPoint</code> is the name of the built-in extension point to which the current plugin will contribute</li>
+<li><code>module</code> - Points to the corresponding view descriptor (see below).</li>
+<li><code>extensionPoint</code> - The name of the built-in extension point to which the current plugin will contribute.</li>
 </ul>
 <h3 id="my-editorjs">my-editor.js</h3>
 <div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getView</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -1675,11 +1675,11 @@
 <span class="p">};</span>
 </code></pre></div>
 <ul>
-<li><code>name</code> is the exact name of the view, which will be shown in the e.g. menu</li>
-<li><code>factory</code> the type of the factory used during instantiating the view</li>
-<li><code>region</code> the region where the view will be placed initially</li>
-<li><code>link</code> is the location within the same or external project pointing to the entry HTML file which will be rendered as a view</li>
-<li><code>contentTypes</code> the content types array of supported files</li>
+<li><code>name</code> - The exact name of the view, which will be shown in the e.g. menu.</li>
+<li><code>factory</code> - The type of the factory used during instantiating the view.</li>
+<li><code>region</code> - The region where the view will be placed initially.</li>
+<li><code>link</code> - The location within the same or external project pointing to the entry HTML file which will be rendered as a view.</li>
+<li><code>contentTypes</code> - The content types array of supported files.</li>
 </ul>
 <p>The project structure in this case should look like this:</p>
 <div class="highlight"><pre><span></span><code>| my-project
@@ -1696,7 +1696,7 @@
 <hr />
 <h2 id="implementation">Implementation</h2>
 <hr />
-<p><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;editor&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
@@ -1742,7 +1742,7 @@
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-For а real world example you can look at <a href="https://github.com/dirigiblelabs/ide-jobs">Jobs Plugin</a> or <a href="https://github.com/dirigiblelabs/ide-monaco">Monaco Editor</a></p>
+<p>For а real world example you can look at <a href="https://github.com/dirigiblelabs/ide-jobs">Jobs Plugin</a> or <a href="https://github.com/dirigiblelabs/ide-monaco">Monaco Editor</a>.</p>
                 
               
               

@@ -1659,8 +1659,8 @@
 <span class="p">}</span>
 </code></pre></div>
 <ul>
-<li><code>module</code> points to the corresponding template descriptor (see below)</li>
-<li><code>extensionPoint</code> is the name of the built-in extension point to which the current plugin will contribute</li>
+<li><code>module</code> - Points to the corresponding template descriptor (see below).</li>
+<li><code>extensionPoint</code> - The name of the built-in extension point to which the current plugin will contribute.</li>
 </ul>
 <h3 id="my-templatejs">my-template.js</h3>
 <div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getTemplate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -1670,7 +1670,7 @@
     <span class="nx">extension</span><span class="o">:</span> <span class="s2">&quot;myfile&quot;</span><span class="p">,</span>
     <span class="nx">sources</span><span class="o">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nx">location</span><span class="o">:</span> <span class="s2">&quot;/my-project/my-source.template&quot;</span><span class="p">,</span> 
+        <span class="nx">location</span><span class="o">:</span> <span class="s2">&quot;/my-project/my-source.template&quot;</span><span class="p">,</span>
         <span class="nx">action</span><span class="o">:</span> <span class="s2">&quot;generate&quot;</span><span class="p">,</span>
         <span class="nx">rename</span><span class="o">:</span> <span class="s2">&quot;{{fileName}}.&quot;</span><span class="p">,</span>
         <span class="nx">engine</span><span class="o">:</span> <span class="s2">&quot;velocity&quot;</span><span class="p">,</span>
@@ -1684,17 +1684,17 @@
 <span class="p">};</span>
 </code></pre></div>
 <ul>
-<li><code>name</code> is the exact name of the template, which will be shown in drop-down boxes</li>
-<li><code>description</code> text associated with the template</li>
-<li><code>extension</code> optional, if present the template will be shown only if a given file with the specified extension is selected</li>
-<li><code>sources</code> the list of the templates which will be used during the generation phase</li>
-<li><code>location</code> the relative path to the template</li>
-<li><code>action</code> the type of the processing which will be used for this templates</li>
-<li><code>rename</code> if renaming of the target artefact will be needed</li>
-<li><code>engine</code> the template engine which will be used for this template -  "mustache" (default), "velocity" and "javascript"</li>
-<li><code>start</code> and <code>end</code> tags if the default "{{" and "}}" are not applicable</li>
-<li><code>handler</code> the javascript transformation service, in case of <code>javascript</code> engine</li>
-<li><code>parameters</code> the list of parameters if any which will be passed to the generator</li>
+<li><code>name</code> - The exact name of the template, which will be shown in drop-down boxes.</li>
+<li><code>description</code> - Text associated with the template.</li>
+<li><code>extension</code> - Optional, if present the template will be shown only if a given file with the specified extension is selected.</li>
+<li><code>sources</code> - The list of the templates which will be used during the generation phase.</li>
+<li><code>location</code> - The relative path to the template.</li>
+<li><code>action</code> - The type of the processing which will be used for this templates.</li>
+<li><code>rename</code> - If renaming of the target artifact will be needed.</li>
+<li><code>engine</code> - The template engine which will be used for this template - "mustache" (default), "velocity" and "javascript".</li>
+<li><code>start</code> and <code>end</code> - Tags if the default "{{" and "}}" are not applicable.</li>
+<li><code>handler</code> - The javascript transformation service, in case of <code>javascript</code> engine.</li>
+<li><code>parameters</code> - The list of parameters if any which will be passed to the generator.</li>
 </ul>
 <p>The project structure in this case should look like this:</p>
 <div class="highlight"><pre><span></span><code>| my-project
@@ -1711,7 +1711,7 @@
 <hr />
 <h2 id="implementation">Implementation</h2>
 <hr />
-<p><div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
@@ -1726,7 +1726,7 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-For а real world example you can look at <a href="https://github.com/dirigiblelabs/template-bookstore">Bookstore Template</a></p>
+<p>For а real world example you can look at <a href="https://github.com/dirigiblelabs/template-bookstore">Bookstore Template</a></p>
                 
                   
                 

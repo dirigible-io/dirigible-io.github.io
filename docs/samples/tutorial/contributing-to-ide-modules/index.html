@@ -953,7 +953,7 @@
                 
                 
                 <h1 id="contributing-to-ide-modules">Contributing to IDE Modules</h1>
-<p>All IDE modules are located in the <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> GitHub organization.</p>
+<p>All IDE modules are located in the <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> GitHub organization. Sample repositories, used for showing how to create Dirigible modules, start with <code>sample-</code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <ul>
@@ -965,30 +965,36 @@
 <li>
 <p>Commit change to <strong>DirigibleLabs</strong> organization:</p>
 <ul>
-<li>Go to <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> and copy the url link to the IDE project you will add changes.</li>
-<li>Start locally your dirigible (http://localhost:8080/). </li>
-<li>Go to <code>Git</code> perspective and click on  <code>Clone  Project</code> button</li>
+<li>Go to <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> and copy the url to the IDE project you will contribute to.</li>
+<li>Start dirigible locally (http://localhost:8080/). You can find more information on how to do that <a href="https://www.dirigible.io/help/development/">here</a>.</li>
+<li>Go to the <code>Git</code> perspective and click on  <code>Clone  Project</code> button.</li>
 <li>Enter the <code>URL</code> of the IDE project and click <code>Clone</code>.</li>
 <li>The project will appear under the git project list.</li>
-<li>Go to <code>Workspace</code> perspective and make your changes, by using the right click on the project with <code>Publish</code>, apply the changes and test them <code>locally</code>.</li>
+<li>Go to the <code>Workspace</code> perspective and make your changes. To be 100% sure all changes are saved and applied, right click on the project and select <code>Publish</code>. Now you can test the changes locally.</li>
 <li>After the changes are tested you can submit them.</li>
-<li>Open the <code>Git</code> perspective again, click on the project and <code>Stage</code> the changed files, using the down arrow button <code>Add to Index</code>.</li>
+<li>Open the <code>Git</code> perspective, click on the project and select the <code>Stage</code> tab. Select the changed files and use the down arrow button to stage them.</li>
 <li>Enter <code>Commit Message</code>.</li>
 <li>Enter your <code>Username</code>, <code>Email</code>, <code>Password</code> and click <code>Commit and Push</code>.<ul>
-<li>In case of <code>two-factor authentication</code>, for the <code>Password</code> field use your <code>Personal Access Token (PAT)</code>.</li>
+<li>In case your profile has <code>two-factor authentication</code>, for the <code>Password</code> field use your GitHub <code>Personal Access Token (PAT)</code>. See the additional info below.</li>
 </ul>
 </li>
-<li>Go in <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> and check if your changes were committed.</li>
+<li>Go to the IDE project github page and make sure your changes were committed.</li>
 </ul>
 </li>
 <li>
 <p>Commit change to <strong>Eclipse Dirigible</strong> repository:</p>
 <ul>
-<li>Go in your local <a href="https://github.com/eclipse/dirigible">Eclipse Dirigible</a> git repository.</li>
-<li>Execute <code>mvn clean install -P content</code> for the ide module, that contains your changes.</li>
+<li>Fork the <a href="https://github.com/eclipse/dirigible">Eclipse Dirigible</a> git repository into your account.</li>
+<li>Pull the forked project locally.<ul>
+<li>If you have done this before and now have to push new changes, make sure to checkout the <code>master</code> branch, fetch all changes from the original repository in GitHub and pull them locally.</li>
+</ul>
+</li>
+<li>Checkout to a new branch by giving it either a topic name or a name starting with <code>fix-</code> followed by the issue number.</li>
+<li>Execute <code>mvn clean install -Pcontent</code> in the ide module root directory. You can also execute this for the whole project but that will pull the changes from all modules.</li>
 <li>Execute <code>mvn clean install</code> in the same module.</li>
 <li>You should see your changes that you already committed in the DirigibleLabs project.</li>
-<li>Commit and push only the changed files.</li>
+<li>Add, commit and push only the files that you have changed. When committing, never forget to sign off you commit  using the <code>-s</code> argument. You can use the <code>git status</code> command, to see all changed files.</li>
+<li>Create a PR to the master branch.</li>
 </ul>
 </li>
 </ol>
@@ -997,7 +1003,7 @@
 <ul>
 <li><a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Creating a personal access token - GitHub Docs</a>.</li>
 <li>Select all scopes.</li>
-<li>Save your token somewhere because, after you navigate off the page, you will not be able to see the token again.</li>
+<li>Copy and save your token, because after you navigate off the page, you will not be able to see the token again.</li>
 </ul>
 </div>
                 

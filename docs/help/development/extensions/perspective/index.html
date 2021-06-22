@@ -1659,8 +1659,18 @@
 <span class="p">}</span>
 </code></pre></div>
 <ul>
-<li><code>module</code> points to the corresponding perspective descriptor (see below)</li>
-<li><code>extensionPoint</code> is the name of the built-in extension point to which the current plugin will contribute</li>
+<li><code>module</code> - Points to the corresponding perspective descriptor (see below).</li>
+<li>
+<p><code>extensionPoint</code> - Where and how this perspective will be shown. Some of the possible values are:</p>
+<ul>
+<li>ide-perspective</li>
+<li>ide-view</li>
+<li>ide-editor</li>
+<li>ide-database-menu</li>
+<li>ide-documents-content-type</li>
+<li>ide-workspace-menu-new-template</li>
+</ul>
+</li>
 </ul>
 <h3 id="my-perspectivejs">my-perspective.js</h3>
 <div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getPerspective</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -1674,10 +1684,10 @@
 <span class="p">};</span>
 </code></pre></div>
 <ul>
-<li><code>name</code> is the exact name of the perspective, which will be shown in the e.g. menu</li>
-<li><code>link</code> is the location within the same or external project pointing to the entry HTML file which will be rendered as a perspective</li>
-<li><code>order</code> a number used in sorting of the perspectives</li>
-<li><code>image</code> is the name of the image which will be used for this perspective</li>
+<li><code>name</code> - The exact name of the perspective.</li>
+<li><code>link</code> - The location within the same or external project pointing to the entry HTML file which will be rendered as a perspective</li>
+<li><code>order</code> - Used to sort the perspective tabs in the sidebar.</li>
+<li><code>image</code> - The name of the image which will be used for this perspective. This is a Font awesome icon name.</li>
 </ul>
 <p>The project structure in this case should look like this:</p>
 <div class="highlight"><pre><span></span><code>| my-project
@@ -1694,71 +1704,9 @@
 <hr />
 <h2 id="implementation">Implementation</h2>
 <hr />
-<p>In general you can embed any valid HTML in the <code>index.html</code> file above and will will be rendered in the place where the perspective should be embedded.
-In case you would like to align with the overall styling of the Web IDE as well to enable the messaging between your perspective and the Web IDE core, status bar, side bar, etc., you may want to use the template below:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;my-perspective&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;MyPerspectiveController as controller&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">title</span> <span class="na">brandtitle</span> <span class="na">perspective-name</span><span class="o">=</span><span class="s">&quot;My Perspective&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">brandicon</span><span class="p">/&gt;</span>
-    <span class="c">&lt;!-- FontAwesome icon set --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/font-awesome-4.7.0/css/font-awesome.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Twitter Bootstrap with Theme Support --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/js/theme/resources.js/bootstrap.min.css&quot;</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- GoldenLayout with Theme Support --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/goldenlayout/1.5.9/goldenlayout-base.css&quot;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/js/theme/resources.js/goldenlayout-theme.css&quot;</span> <span class="p">/&gt;</span>
-    <span class="c">&lt;!-- Custom IDE Styles --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/js/theme/resources.js/ide.css&quot;</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">menu</span> <span class="na">menu-data-url</span><span class="o">=</span><span class="s">&quot;../../js/my-project/services/menu-my-perspective.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;shell&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sidebar list-group&quot;</span> <span class="na">sidebar</span> <span class="na">active</span><span class="o">=</span><span class="s">&quot;my-perspective&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-perspective&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;plane&quot;</span> <span class="na">views-layout</span> <span class="na">views-layout-model</span><span class="o">=</span><span class="s">&quot;controller.layoutModel&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;statusbar&quot;</span> <span class="na">status-bar</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- jQuery --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/jquery/2.0.3/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Twitter Bootstrap with Theme Support --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/bootstrap/3.3.7/bootstrap.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- AngularJS --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/angular/1.4.7/angular.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/angular/1.4.7/angular-resource.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- GoldenLayout with Theme Support --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/resources/goldenlayout/1.5.9/goldenlayout.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/ide-core/ui/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>   
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/ide-core/ui/ui-layout.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../../../services/v4/web/ide-core/ui/ui-core-ng-modules.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
-      <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;controller&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;ngResource&#39;</span><span class="p">,</span> <span class="s1">&#39;ideUiCore&#39;</span><span class="p">])</span>
-          <span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s2">&quot;messageHubProvider&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">messageHubProvider</span><span class="p">)</span> <span class="p">{</span>
-              <span class="nx">messageHubProvider</span><span class="p">.</span><span class="nx">evtNamePrefix</span> <span class="o">=</span> <span class="s1">&#39;my-perspective&#39;</span><span class="p">;</span>
-          <span class="p">}])</span>   
-          <span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyPerspectiveController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Layouts&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">Layouts</span><span class="p">)</span> <span class="p">{</span>
-              <span class="k">this</span><span class="p">.</span><span class="nx">layoutModel</span> <span class="o">=</span> <span class="p">{</span>
-                  <span class="nx">views</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
-          <span class="p">};</span>
-          <span class="kd">var</span> <span class="nx">messageHub</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FramesMessageHub</span><span class="p">();</span>
-          <span class="kd">var</span> <span class="nx">send</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evtName</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">absolute</span><span class="p">){</span>
-              <span class="nx">messageHub</span><span class="p">.</span><span class="nx">post</span><span class="p">({</span><span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">},</span> <span class="p">(</span><span class="nx">absolute</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;my-perspective.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">evtName</span><span class="p">);</span>
-          <span class="p">};</span>
-          <span class="kd">var</span> <span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-              <span class="nx">send</span><span class="p">(</span><span class="s2">&quot;repository.run&quot;</span><span class="p">,</span> <span class="nx">metadata</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-          <span class="p">}</span>
-      <span class="p">}]);</span>
-      <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;beforeunload&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-          <span class="nx">e</span><span class="p">.</span><span class="nx">returnValue</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-      <span class="p">});</span>
-    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>   
-  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div>
-<p>For а real world example you can look at <a href="https://github.com/dirigiblelabs/ide-database">Database Perspective Project</a></p>
+<p>In general you can embed any valid HTML in the <code>index.html</code> file and it will be rendered in the place where the perspective should be embedded.</p>
+<p>For a full example you can look at <a href="https://github.com/dirigiblelabs/sample-ide-perspective">sample-ide-perspective</a>.</p>
+<p>For а real world example you can look at <a href="https://github.com/dirigiblelabs/ide-database">Database Perspective Project</a>.</p>
                 
                   
                 
