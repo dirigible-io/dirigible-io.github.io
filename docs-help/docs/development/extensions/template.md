@@ -20,8 +20,8 @@ To contribute a new Template to the Web IDE you need to create one model (`*.ext
 }
 ```
 
-* `module` points to the corresponding template descriptor (see below)
-* `extensionPoint` is the name of the built-in extension point to which the current plugin will contribute
+* `module` - Points to the corresponding template descriptor (see below).
+* `extensionPoint` - The name of the built-in extension point to which the current plugin will contribute.
 
 
 ### my-template.js
@@ -34,7 +34,7 @@ exports.getTemplate = function() {
     extension: "myfile",
     sources: [
       {
-        location: "/my-project/my-source.template", 
+        location: "/my-project/my-source.template",
         action: "generate",
         rename: "{{fileName}}.",
         engine: "velocity",
@@ -48,18 +48,17 @@ exports.getTemplate = function() {
 };
 ```
 
-* `name` is the exact name of the template, which will be shown in drop-down boxes
-* `description` text associated with the template
-* `extension` optional, if present the template will be shown only if a given file with the specified extension is selected
-* `sources` the list of the templates which will be used during the generation phase
-  * `location` the relative path to the template
-  * `action` the type of the processing which will be used for this templates
-  * `rename` if renaming of the target artefact will be needed
-  * `engine` the template engine which will be used for this template -  "mustache" (default), "velocity" and "javascript"
-  * `start` and `end` tags if the default "{{" and "}}" are not applicable
-  * `handler` the javascript transformation service, in case of `javascript` engine
-* `parameters` the list of parameters if any which will be passed to the generator
-
+* `name` - The exact name of the template, which will be shown in drop-down boxes.
+* `description` - Text associated with the template.
+* `extension` - Optional, if present the template will be shown only if a given file with the specified extension is selected.
+* `sources` - The list of the templates which will be used during the generation phase.
+  * `location` - The relative path to the template.
+  * `action` - The type of the processing which will be used for this templates.
+  * `rename` - If renaming of the target artifact will be needed.
+  * `engine` - The template engine which will be used for this template - "mustache" (default), "velocity" and "javascript".
+  * `start` and `end` - Tags if the default "{{" and "}}" are not applicable.
+  * `handler` - The javascript transformation service, in case of `javascript` engine.
+* `parameters` - The list of parameters if any which will be passed to the generator.
 
 
 The project structure in this case should look like this:
@@ -78,7 +77,7 @@ The project structure in this case should look like this:
 ```
 
 The names of the extensions and services can be different following the layout of your project
-   
+
 ---
 
 ## Implementation
@@ -100,5 +99,5 @@ The names of the extensions and services can be different following the layout o
   </body>
 </html>
 ```
-For а real world example you can look at [Bookstore Template](https://github.com/dirigiblelabs/template-bookstore)
 
+For а real world example you can look at [Bookstore Template](https://github.com/dirigiblelabs/template-bookstore)

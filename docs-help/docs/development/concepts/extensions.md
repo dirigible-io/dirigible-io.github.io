@@ -13,7 +13,7 @@ Extensibility is an important requirement for business applications built to fol
 Extension Points
 ---
 
-An extension point is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple JSON formated `*.extensionpoint` file and can be placed anywhere in your project.
+An extension point is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple JSON formatted `*.extensionpoint` file and can be placed anywhere in your project.
 
 ```json
 {
@@ -25,7 +25,7 @@ An extension point is the place in the core module, which is expected to be enha
 Extensions
 ---
 
-An extension is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formated `*.extension` file and can be placed anywhere in your project.
+An extension is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formatted `*.extension` file and can be placed anywhere in your project.
 
 ```json
 {
@@ -38,6 +38,7 @@ An extension is the plug-in in the custom module, which extends the core functio
 !!! Note
 	The 'extension' parameter above should point to a valid JavaScript module.
 
+For a full example you can look at [sample-ide-perspective](https://github.com/dirigiblelabs/sample-ide-perspective).
 
 Calling Extensions
 ---
