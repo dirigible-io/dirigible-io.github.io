@@ -118,7 +118,7 @@ Steps
 
     === "Buildpack"
 
-        - Download the `sap-cf-all.zip` binaries from the downloads site: [download.dirigible.io](http://download.dirigible.io/)
+        - Download the `sap-cf-all` binaries from the downloads site: [download.dirigible.io](http://download.dirigible.io/)
         - Unzip the downloaded archieve to extract the `ROOT.war` file.
         - Create `manifest.yaml` file in the same directory where the `ROOT.war` is located:
             ```yaml
