@@ -1,5 +1,5 @@
 site_name: Eclipse Dirigible Help Portal
-site_url: https://www.dirigible.io/
+site_url: https://www.dirigible.io/help/
 
 theme:
   favicon: /img/favicon.png

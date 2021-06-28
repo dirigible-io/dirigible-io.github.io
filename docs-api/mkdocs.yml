@@ -1,5 +1,5 @@
 site_name: Eclipse Dirigible API
-site_url: https://www.dirigible.io/
+site_url: https://www.dirigible.io/api/
 theme:
   favicon: /img/favicon.png
   logo: /img/logo/dirigible-logo.png
