@@ -40,6 +40,19 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER**   | (Optional) The order of the custom help item | _`0`_
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER**   | (Optional) Whether to set divider after the custom help item | _`false`_
 
+### OAuth
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_OAUTH_AUTHORIZE_URL** | The OAuth authorization URL _(e.g. `https://my-oauth-server/oauth/authorize`)_ | _`-`_
+**DIRIGIBLE_OAUTH_TOKEN_URL** | The OAuth token URL _(e.g. `https://my-oauth-server/oauth/token`)_ | _`-`_
+**DIRIGIBLE_OAUTH_CLIENT_ID** | The OAuth `clientid` _(e.g. `sb-xxx-yyy`)_ | _`-`_
+**DIRIGIBLE_OAUTH_CLIENT_SECRET** | The OAuth `clientsecret` _(e.g. `PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...`)_ | _`-`_
+**DIRIGIBLE_OAUTH_VERIFICATION_KEY** | The OAuth `verificationkey` _(e.g. `-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...`)_ | _`-`_
+**DIRIGIBLE_OAUTH_APPLICATION_NAME** | The application name _(e.g. `dirigible-xxx`)_ | _`-`_
+**DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
+**DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
+
 ### Git
 
 Parameter     | Description | Default*
@@ -84,7 +97,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_MASTER_REPOSITORY_ZIP_LOCATION**   | The location of the zip file where the master repository artifacts will be loaded from _(e.g. `/User/data/my-repo.zip`)_| _`-`_
 **DIRIGIBLE_MASTER_REPOSITORY_JAR_PATH**   | The JAR path location of the zip file where the master repository artifacts will be loaded from _(e.g. `/org/dirigible/example/my-repo.zip`)_| _`-`_
 
-  !!! Note
+!!! Note
 	The JAR path is absolute inside the class path
 
 #### Repository Search
@@ -161,20 +174,20 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz, if not the default one | _`-`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE**   | The name of the JDBC delegate used by Quartz, if not the default one | _`org.quartz.impl.jdbcjobstore.StdJDBCDelegate`_
 
-* org.quartz.impl.jdbcjobstore.StdJDBCDelegate (for fully JDBC-compliant drivers)
-* org.quartz.impl.jdbcjobstore.MSSQLDelegate (for Microsoft SQL Server, and Sybase)
-* org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
-* org.quartz.impl.jdbcjobstore.WebLogicDelegate (for WebLogic drivers)
-* org.quartz.impl.jdbcjobstore.oracle.OracleDelegate
-* org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)
-* org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)
-* org.quartz.impl.jdbcjobstore.CloudscapeDelegate
-* org.quartz.impl.jdbcjobstore.DB2v6Delegate
-* org.quartz.impl.jdbcjobstore.DB2v7Delegate
-* org.quartz.impl.jdbcjobstore.DB2v8Delegate
-* org.quartz.impl.jdbcjobstore.HSQLDBDelegate
-* org.quartz.impl.jdbcjobstore.PointbaseDelegate
-* org.quartz.impl.jdbcjobstore.SybaseDelegate
+- `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` (for fully JDBC-compliant drivers)
+- `org.quartz.impl.jdbcjobstore.MSSQLDelegate` (for Microsoft SQL Server, and Sybase)
+- `org.quartz.impl.jdbcjobstore.PostgreSQLDelegate`
+- `org.quartz.impl.jdbcjobstore.WebLogicDelegate` (for WebLogic drivers)
+- `org.quartz.impl.jdbcjobstore.oracle.OracleDelegate`
+- `org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
+- `org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
+- `org.quartz.impl.jdbcjobstore.CloudscapeDelegate`
+- `org.quartz.impl.jdbcjobstore.DB2v6Delegate`
+- `org.quartz.impl.jdbcjobstore.DB2v7Delegate`
+- `org.quartz.impl.jdbcjobstore.DB2v8Delegate`
+- `org.quartz.impl.jdbcjobstore.HSQLDBDelegate`
+- `org.quartz.impl.jdbcjobstore.PointbaseDelegate`
+- `org.quartz.impl.jdbcjobstore.SybaseDelegate`
 
 ### Synchronizer
 
