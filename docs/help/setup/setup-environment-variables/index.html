@@ -1532,6 +1532,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#oauth" class="md-nav__link">
+    OAuth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     Git
   </a>
@@ -1937,6 +1944,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth" class="md-nav__link">
+    OAuth
+  </a>
   
 </li>
         
@@ -2347,6 +2361,58 @@
 </tr>
 </tbody>
 </table>
+<h3 id="oauth">OAuth</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_AUTHORIZE_URL</strong></td>
+<td>The OAuth authorization URL <em>(e.g. <code>https://my-oauth-server/oauth/authorize</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_TOKEN_URL</strong></td>
+<td>The OAuth token URL <em>(e.g. <code>https://my-oauth-server/oauth/token</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_CLIENT_ID</strong></td>
+<td>The OAuth <code>clientid</code> <em>(e.g. <code>sb-xxx-yyy</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_CLIENT_SECRET</strong></td>
+<td>The OAuth <code>clientsecret</code> <em>(e.g. <code>PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY</strong></td>
+<td>The OAuth <code>verificationkey</code> <em>(e.g. <code>-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_APPLICATION_NAME</strong></td>
+<td>The application name <em>(e.g. <code>dirigible-xxx</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_APPLICATION_HOST</strong></td>
+<td>The application host <em>(e.g. <code>https://my-application-host</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_ISSUER</strong></td>
+<td>The OAuth <code>issuer</code> <em>(e.g. <code>http://xxx.localhost:8080/uaa/oauth/token</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+</tbody>
+</table>
 <h3 id="git">Git</h3>
 <table>
 <thead>
@@ -2476,8 +2542,10 @@
 </tr>
 </tbody>
 </table>
-<p>!!! Note
-    The JAR path is absolute inside the class path</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The JAR path is absolute inside the class path</p>
+</div>
 <h4 id="repository-search">Repository Search</h4>
 <table>
 <thead>
@@ -2724,20 +2792,20 @@
 </tbody>
 </table>
 <ul>
-<li>org.quartz.impl.jdbcjobstore.StdJDBCDelegate (for fully JDBC-compliant drivers)</li>
-<li>org.quartz.impl.jdbcjobstore.MSSQLDelegate (for Microsoft SQL Server, and Sybase)</li>
-<li>org.quartz.impl.jdbcjobstore.PostgreSQLDelegate</li>
-<li>org.quartz.impl.jdbcjobstore.WebLogicDelegate (for WebLogic drivers)</li>
-<li>org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</li>
-<li>org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)</li>
-<li>org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate (for Oracle drivers used within Weblogic)</li>
-<li>org.quartz.impl.jdbcjobstore.CloudscapeDelegate</li>
-<li>org.quartz.impl.jdbcjobstore.DB2v6Delegate</li>
-<li>org.quartz.impl.jdbcjobstore.DB2v7Delegate</li>
-<li>org.quartz.impl.jdbcjobstore.DB2v8Delegate</li>
-<li>org.quartz.impl.jdbcjobstore.HSQLDBDelegate</li>
-<li>org.quartz.impl.jdbcjobstore.PointbaseDelegate</li>
-<li>org.quartz.impl.jdbcjobstore.SybaseDelegate</li>
+<li><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code> (for fully JDBC-compliant drivers)</li>
+<li><code>org.quartz.impl.jdbcjobstore.MSSQLDelegate</code> (for Microsoft SQL Server, and Sybase)</li>
+<li><code>org.quartz.impl.jdbcjobstore.PostgreSQLDelegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.WebLogicDelegate</code> (for WebLogic drivers)</li>
+<li><code>org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate</code> (for Oracle drivers used within Weblogic)</li>
+<li><code>org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate</code> (for Oracle drivers used within Weblogic)</li>
+<li><code>org.quartz.impl.jdbcjobstore.CloudscapeDelegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.DB2v6Delegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.DB2v7Delegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.DB2v8Delegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.HSQLDBDelegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.PointbaseDelegate</code></li>
+<li><code>org.quartz.impl.jdbcjobstore.SybaseDelegate</code></li>
 </ul>
 <h3 id="synchronizer">Synchronizer</h3>
 <table>
