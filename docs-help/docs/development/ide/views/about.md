@@ -2,7 +2,7 @@
 title: About
 ---
 
-About
+About View
 ===
 
 The **About** view contains system information about Dirigible's installation. The different properties and sections are:

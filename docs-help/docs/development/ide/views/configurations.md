@@ -2,7 +2,7 @@
 title: Configurations
 ---
 
-Configurations
+Configurations View
 ===
 
 The **Configurations** view contains a list of configuration parameters and environment variables. Each of them begins with "DIRIGIBLE_" and continues with a unique name.

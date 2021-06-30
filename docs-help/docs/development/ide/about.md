@@ -17,4 +17,4 @@ The **About** view contains system information about Dirigible's installation. T
 * `Engines` - the list of engines in the Dirigible.
 * `Synchronizers` - list of synchronizers in the Dirigible. Their status is also shown.
 
-![About View](../../../images/aboutview.png)
+![About View](../../images/aboutview.png)

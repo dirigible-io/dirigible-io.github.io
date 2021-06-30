@@ -1,10 +1,10 @@
 ---
 layout: help
-title: Concepts
+title: Concepts Overview
 icon: fa-book
 ---
 
-Concepts
+Concepts Overview
 ===
 
 ## Dynamic Applications

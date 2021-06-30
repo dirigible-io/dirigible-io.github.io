@@ -1,8 +1,8 @@
 ---
-title: IDE
+title: IDE Overview
 ---
 
-IDE
+IDE Overview
 ===
 
 ## Web IDE

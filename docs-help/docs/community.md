@@ -43,11 +43,11 @@ In this section we have outlined text stylizing options and for what elements th
 	
 	* UI elements
 	
-	![File Names](../../../images/ui-element.png)
+	![File Names](images/ui-element.png)
 	
 	* Navigation paths
 	
-	![File Names](../../../images/navigation-path.png)
+	![File Names](images/navigation-path.png)
 	
 ??? Info "Monospace"
 	How it looks as text: `Monospace Text`
@@ -58,16 +58,16 @@ In this section we have outlined text stylizing options and for what elements th
 	
 	* File names and extensions
 
-	![File Names](../../../images/file-name.png)
-	![File Names](../../../images/file-extension.png)
+	![File Names](images/file-name.png)
+	![File Names](images/file-extension.png)
 	
 	* Terms
 	
-	![File Names](../../../images/terms.png)
+	![File Names](images/terms.png)
 	
 	* File paths
 	
-	![File Names](../../../images/file-path.png)
+	![File Names](images/file-path.png)
 	
 ??? Info "Monospace/Bold"
 	How it looks as text: **`Monospace/Bold Text`**
@@ -78,13 +78,13 @@ In this section we have outlined text stylizing options and for what elements th
 	
 	* User input
 	
-	![User Input](../../../images/user-input.png)
-	![User Input](../../../images/user-input-2.png)
+	![User Input](images/user-input.png)
+	![User Input](images/user-input-2.png)
 
 ??? Info "Headings"
 	How it looks: 
 	
-	![Headings](../../../images/headings.png)
+	![Headings](images/headings.png)
 	
 	* Use Heading 1 for the titles
 	* Heading 2 is for main topics

@@ -1,13 +1,111 @@
 site_name: Eclipse Dirigible Help Portal
 site_url: https://www.dirigible.io/help/
 
+nav:
+    - Welcome: 'index.md'
+    - Overview: 
+      - The Eclipse Dirigible Project: 'overview/index.md'
+      - Editors & Modelers: 'overview/editors-modelers.md'
+      - Architecture: 'overview/architecture.md'
+      - Engines: 'overview/engines.md'
+      - Features: 'overview/features.md'
+      - Runtime Services: 'overview/runtime-services.md'
+      - FAQ: 'overview/faq.md'
+      - License: 'overview/license.md'
+      - Credits: 'overview/credits.md'
+    - Setup: 
+      - Cloud Foundry: 'setup/cloud-foundry.md'
+      - Docker: 'setup/docker.md'
+      - Helm: 'setup/helm.md'
+      - Kubernetes: 'setup/kubernetes.md'
+      - Kyma: 'setup/kyma.md'
+      - Tomcat: 'setup/index.md'
+      - Environment Variables: 'setup/setup-environment-variables.md'
+    - Development: 
+      - Getting Started: 'development/index.md'
+      - Development & Operations: 'development/devops.md'
+      - Artifacts:
+        - Artifacts Overview: 'development/artifacts/index.md'
+        - Data Files: 'development/artifacts/data-files.md'
+        - Database Table: 'development/artifacts/database-table.md'
+      - Concepts:
+        - Concepts Overview: 'development/concepts/index.md'
+        - Dynamic Applications: 'development/concepts/dynamic-applications.md'
+        - Entity Service: 'development/concepts/entity-service.md'
+        - Extension Definitions: 'development/concepts/extensions.md'
+        - Generation: 'development/concepts/generation.md'
+        - Mobile Applications: 'development/concepts/mobile-apps.md'
+        - Publishing: 'development/concepts/publishing.md'
+        - Registry: 'development/concepts/registry.md'
+        - Repository: 'development/concepts/repository.md'
+        - REST: 'development/concepts/rest.md'
+        - Web Content: 'development/concepts/web-content.md'
+        - Workspace: 'development/concepts/workspace.md'
+      - Extensions:
+        - Extensions Overview: 'development/extensions/index.md'
+        - Editor: 'development/extensions/editor.md'
+        - Perspective: 'development/extensions/perspective.md'
+        - Template: 'development/extensions/template.md'
+        - View: 'development/extensions/view.md'
+      - IDE:
+        - IDE Overview: 'development/ide/index.md'
+        - About: 'development/ide/about.md'
+        - Monaco Editor: 'development/ide/editor-monaco.md'
+        - Modelers:
+          - BPMN: 'development/ide/modelers/bpmn.md'
+          - Database Schema: 'development/ide/modelers/database-schema.md'
+          - Entity Data: 'development/ide/modelers/entity-data.md'
+          - Form Designer: 'development/ide/modelers/form-designer.md'
+        - Perspectives:
+          - Database: 'development/ide/perspectives/database.md'
+          - Debugger: 'development/ide/perspectives/debugger.md'
+          - Documents: 'development/ide/perspectives/documents.md'
+          - Git: 'development/ide/perspectives/git.md'
+          - Operations: 'development/ide/perspectives/operations.md'
+          - Repository: 'development/ide/perspectives/repository.md'
+          - Terminal: 'development/ide/perspectives/terminal.md'
+          - Workbench: 'development/ide/perspectives/workbench.md'
+        - Views:
+          - About: 'development/ide/views/about.md'
+          - Access: 'development/ide/views/access.md'
+          - Configurations: 'development/ide/views/configurations.md'
+          - Console: 'development/ide/views/console.md'
+          - Database: 'development/ide/views/database.md'
+          - Data Structures: 'development/ide/views/datastructures.md'
+          - Debugger: 'development/ide/views/debugger.md'
+          - Documents: 'development/ide/views/documents.md'
+          - Extensions: 'development/ide/views/extensions.md'
+          - Git: 'development/ide/views/git.md'
+          - History: 'development/ide/views/history.md'
+          - Import: development/ide/views/import.md
+          - Jobs: 'development/ide/views/jobs.md'
+          - Listeners: 'development/ide/views/listeners.md'
+          - Logs: 'development/ide/views/logs.md'
+          - Plugins: 'development/ide/views/plugins.md'
+          - Previews: 'development/ide/views/preview.md'
+          - Registry: 'development/ide/views/registry.md'
+          - Repository: 'development/ide/views/repository.md'
+          - Roles: 'development/ide/views/roles.md'
+          - Search: 'development/ide/views/search.md'
+          - Snapshot: 'development/ide/views/snapshot.md'
+          - SQL: 'development/ide/views/sql.md'
+          - Staging: 'development/ide/views/staging.md'
+          - Terminal: 'development/ide/views/terminal.md'
+          - Web Sockets: 'development/ide/views/websockets.md'
+          - Workspace: 'development/ide/views/workspace.md'
+    - Tips & Tricks:
+      - Cheat Sheet: 'tips-&-tricks/cheat-sheet.md'
+    - Community: 'community.md'
+        
+
 theme:
   favicon: /img/favicon.png
   logo: /img/logo/dirigible-logo.png
-  name: material
+  name: mkdocs
   custom_dir: overrides
   features:
     - navigation.instant
+    
 extra_css:
   - stylesheets/custom.css
   - stylesheets/homepage.css

@@ -1,10 +1,10 @@
 ---
 layout: help
-title: Artifacts
+title: Artifacts Overview
 icon: fa-code
 ---
 
-Artifacts
+Artifacts Overview
 ===
 
 

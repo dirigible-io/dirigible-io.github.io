@@ -1,8 +1,8 @@
 ---
-title: Project
+title: The Eclipse Dirigible Project
 ---
 
-Project
+The Eclipse Dirigible Project
 ===
 
 Eclipse Dirigible is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines.
