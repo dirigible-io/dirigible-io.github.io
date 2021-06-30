@@ -15,7 +15,7 @@ Workspace object gives access to the user's workspaces. It can be used for creat
 - Alias: `platform/workspace`
 - Definition: [https://github.com/eclipse/dirigible/issues/230](https://github.com/eclipse/dirigible/issues/230)
 - Source: [/platform/v4/workspace.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/workspace.js)
-- Facade: [WorkspaceFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-workspace/src/main/java/org/eclipse/dirigible/api/v3/workspace/WorkspaceFacade.java)
+- Facade: [WorkspaceFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/WorkspaceFacade.java)
 - Status: `stable`
 
 
