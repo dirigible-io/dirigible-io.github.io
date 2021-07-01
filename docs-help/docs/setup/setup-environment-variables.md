@@ -6,6 +6,41 @@ hide:
 
 Environment Variables
 ===
+## Envirement Types
+	
+There are 4 types of variables that are used, and they have differet priorities. The order is the following:
+- RUNTIME variables
+- ENVIRONMENT variables
+- DEPLOYMENT variables
+- MODULE variables
+
+This means that if the there is a ENVIRONMENT variable with name 'DIRIGIBLE_TEST' and RUNTIME variable with the same name, the RUNTIME variable will have high prority and will be applied
+
+
+### RUNTIME VARIABLES 
+- no rebuild is required when variable is set/change
+- if we want to set a RUNTIME variable we can use the Configuration.set() method
+### ENVIRONMENT VARIABLES 
+- no rebuild is required when variable is set/change
+- The environments are taken from:
+	- System.getenv()
+		- Docker environment variable
+		- env-variables.env
+		- K8 environment variable
+		- CF environment variable
+	- System.getProperties(): fetches the current properties that JVM on your System gets from your Operating System.
+### DEPLOYMENT VARIABLES
+- rebuild is required when variable is set/change
+- The environments are taken from:
+	- loadDeploymentConfig("/dirigible.properties")
+### MODULE VARIABLES 
+With this variable can be provide a default behavior, and the default value can be overwritten.
+Module variable can be used If we need to introduce a module specific behavior.
+- rebuild is required when variable is set/change
+- The environments are taken from:
+	- Configuration.loadModuleConfig("/xxxxxxx.properties");
+
+All types of environments can be checked in WEB IDE UI under [Configurations View](https://www.dirigible.io/help/development/ide/views/configurations/)
 
 ## Configuration Parameters
 
