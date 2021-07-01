@@ -495,6 +495,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#envirement-types" class="md-nav__link">
+    Envirement Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Envirement Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-variables" class="md-nav__link">
+    RUNTIME VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables_1" class="md-nav__link">
+    ENVIRONMENT VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-variables" class="md-nav__link">
+    DEPLOYMENT VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-variables" class="md-nav__link">
+    MODULE VARIABLES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration-parameters" class="md-nav__link">
     Configuration Parameters
   </a>
@@ -1913,6 +1954,47 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#envirement-types" class="md-nav__link">
+    Envirement Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Envirement Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-variables" class="md-nav__link">
+    RUNTIME VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables_1" class="md-nav__link">
+    ENVIRONMENT VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-variables" class="md-nav__link">
+    DEPLOYMENT VARIABLES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-variables" class="md-nav__link">
+    MODULE VARIABLES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration-parameters" class="md-nav__link">
     Configuration Parameters
   </a>
@@ -2263,6 +2345,48 @@
                 
                 
                 <h1 id="environment-variables">Environment Variables</h1>
+<h2 id="envirement-types">Envirement Types</h2>
+<p>There are 4 types of variables that are used, and they have differet priorities. The order is the following:
+- RUNTIME variables
+- ENVIRONMENT variables
+- DEPLOYMENT variables
+- MODULE variables</p>
+<p>This means that if the there is a ENVIRONMENT variable with name 'DIRIGIBLE_TEST' and RUNTIME variable with the same name, the RUNTIME variable will have high prority and will be applied</p>
+<h3 id="runtime-variables">RUNTIME VARIABLES</h3>
+<ul>
+<li>no rebuild is required when variable is set/change</li>
+<li>if we want to set a RUNTIME variable we can use the Configuration.set() method</li>
+</ul>
+<h3 id="environment-variables_1">ENVIRONMENT VARIABLES</h3>
+<ul>
+<li>no rebuild is required when variable is set/change</li>
+<li>The environments are taken from:<ul>
+<li>System.getenv()<ul>
+<li>Docker environment variable</li>
+<li>env-variables.env</li>
+<li>K8 environment variable</li>
+<li>CF environment variable</li>
+</ul>
+</li>
+<li>System.getProperties(): fetches the current properties that JVM on your System gets from your Operating System.</li>
+</ul>
+</li>
+</ul>
+<h3 id="deployment-variables">DEPLOYMENT VARIABLES</h3>
+<ul>
+<li>rebuild is required when variable is set/change</li>
+<li>The environments are taken from:<ul>
+<li>loadDeploymentConfig("/dirigible.properties")</li>
+</ul>
+</li>
+</ul>
+<h3 id="module-variables">MODULE VARIABLES</h3>
+<p>With this variable can be provide a default behavior, and the default value can be overwritten.
+Module variable can be used If we need to introduce a module specific behavior.
+- rebuild is required when variable is set/change
+- The environments are taken from:
+    - Configuration.loadModuleConfig("/xxxxxxx.properties");</p>
+<p>All types of environments can be checked in WEB IDE UI under <a href="https://www.dirigible.io/help/development/ide/views/configurations/">Configurations View</a></p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
 <h3 id="anonymous-access">Anonymous Access</h3>
 <hr />
