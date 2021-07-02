@@ -11,26 +11,21 @@ Environment Variables
 
 Based on the layer, they are defined, configuration variables have the following priorities:
 
-1. `Runtime` - highest precedence
-1. `Environment`
-1. `Deployment`
-1. `Module` - lowest precedence
+1. **Runtime** - highest precedence: 
+    - No rebuild or restart of the application is required when configuration is changed.
+    - The [Configuration API](../../../api/core/configurations/) could be used to apply changes in the **Runtime** configuration.
+1. **Environment**:
+    - No rebuild is required when configuration is changed, however the application should be restarted, to apply the environment changes.
+    - Usually the **Environment** configurations are provided during the application deployment, as part of application descriptor _(e.g. [Define environment variable for container in Kubernetes](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) or in [Cloud Foundry App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#-add-variables-to-a-manifest))_.
+1. **Deployment**:
+    - Rebuild and re-deployment is required.
+    - "Default" deployment _(`ROOT.war`)_ configuration variables are taken from `dirigible.properties` properties file _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties))_.
+1. **Module** - lowest precedence:
+    - Rebuild and re-deployment is required.
+    - "Default" module _(e.g. `dirigible-database-custom.jar`, `dirigible-database-h2.jar`)_ configuration variables are taken from `dirigible-xxx.properties` properties files _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties) and [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties))_
 
 !!! Note
 	This means that if the there is an **Environment** variable with name `DIRIGIBLE_TEST` and **Runtime** variable with the same name, the **Runtime** variable will have high prority and will be applied.
-
-- **Runtime**: 
-    - No rebuild or restart of the application is required when configuration is changed.
-    - The [Configuration API](../../../api/core/configurations/) could be used to apply changes in the **Runtime** configuration.
-- **Environment**:
-    - No rebuild is required when configuration is changed, however the application should be restarted, to apply the environment changes.
-    - Usually the **Environment** configurations are provided during the application deployment, as part of application descriptor _(e.g. [Define environment variable for container in Kubernetes](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) or in [Cloud Foundry App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#-add-variables-to-a-manifest))_.
-- **Deployment**:
-    - Rebuild and re-deployment is required.
-    - "Default" deployment _(`ROOT.war`)_ configuration variables are taken from `dirigible.properties` properties file _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties))_.
-- **Module**:
-    - Rebuild and re-deployment is required.
-    - "Default" module _(e.g. `dirigible-database-custom.jar`, `dirigible-database-h2.jar`)_ configuration variables are taken from `dirigible-xxx.properties` properties files _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties) and [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties))_
 
 All applied configuration values could be found under the [Configurations View](https://www.dirigible.io/help/development/ide/views/configurations/).
 
