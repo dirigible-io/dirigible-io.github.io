@@ -35,4 +35,4 @@ response.close();
 ![Configurations Overwrite](../../../images/configurationsoverwrite.png)
 
 
-Yo can check more about how to setup Environment Variables [here](https://www.dirigible.io/help/setup/setup-environment-variables/)
+You can learn more about how to setup Environment Variables [here](https://www.dirigible.io/help/setup/setup-environment-variables/).
