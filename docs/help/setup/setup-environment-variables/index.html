@@ -2280,17 +2280,7 @@
 <h2 id="configuration-types">Configuration Types</h2>
 <p>Based on the layer, they are defined, configuration variables have the following priorities:</p>
 <ol>
-<li><code>Runtime</code> - highest precedence</li>
-<li><code>Environment</code></li>
-<li><code>Deployment</code></li>
-<li><code>Module</code> - lowest precedence</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This means that if the there is an <strong>Environment</strong> variable with name <code>DIRIGIBLE_TEST</code> and <strong>Runtime</strong> variable with the same name, the <strong>Runtime</strong> variable will have high prority and will be applied.</p>
-</div>
-<ul>
-<li><strong>Runtime</strong>: <ul>
+<li><strong>Runtime</strong> - highest precedence: <ul>
 <li>No rebuild or restart of the application is required when configuration is changed.</li>
 <li>The <a href="../../../api/core/configurations/">Configuration API</a> could be used to apply changes in the <strong>Runtime</strong> configuration.</li>
 </ul>
@@ -2305,12 +2295,16 @@
 <li>"Default" deployment <em>(<code>ROOT.war</code>)</em> configuration variables are taken from <code>dirigible.properties</code> properties file <em>(sample could be found <a href="https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties">here</a>)</em>.</li>
 </ul>
 </li>
-<li><strong>Module</strong>:<ul>
+<li><strong>Module</strong> - lowest precedence:<ul>
 <li>Rebuild and re-deployment is required.</li>
 <li>"Default" module <em>(e.g. <code>dirigible-database-custom.jar</code>, <code>dirigible-database-h2.jar</code>)</em> configuration variables are taken from <code>dirigible-xxx.properties</code> properties files <em>(sample could be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties">here</a> and <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties">here</a>)</em></li>
 </ul>
 </li>
-</ul>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This means that if the there is an <strong>Environment</strong> variable with name <code>DIRIGIBLE_TEST</code> and <strong>Runtime</strong> variable with the same name, the <strong>Runtime</strong> variable will have high prority and will be applied.</p>
+</div>
 <p>All applied configuration values could be found under the <a href="https://www.dirigible.io/help/development/ide/views/configurations/">Configurations View</a>.</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
 <h3 id="anonymous-access">Anonymous Access</h3>
