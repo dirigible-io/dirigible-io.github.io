@@ -6,41 +6,32 @@ hide:
 
 Environment Variables
 ===
-## Envirement Types
-	
-There are 4 types of variables that are used, and they have differet priorities. The order is the following:
-- RUNTIME variables
-- ENVIRONMENT variables
-- DEPLOYMENT variables
-- MODULE variables
 
-This means that if the there is a ENVIRONMENT variable with name 'DIRIGIBLE_TEST' and RUNTIME variable with the same name, the RUNTIME variable will have high prority and will be applied
+## Configuration Types
 
+Based on the layer, they are defined, configuration variables have the following priorities:
+1. `Runtime` - highest precedence
+1. `Environment`
+1. `Deployment`
+1. `Module` - lowest precedence
 
-### RUNTIME VARIABLES 
-- no rebuild is required when variable is set/change
-- if we want to set a RUNTIME variable we can use the Configuration.set() method
-### ENVIRONMENT VARIABLES 
-- no rebuild is required when variable is set/change
-- The environments are taken from:
-	- System.getenv()
-		- Docker environment variable
-		- env-variables.env
-		- K8 environment variable
-		- CF environment variable
-	- System.getProperties(): fetches the current properties that JVM on your System gets from your Operating System.
-### DEPLOYMENT VARIABLES
-- rebuild is required when variable is set/change
-- The environments are taken from:
-	- loadDeploymentConfig("/dirigible.properties")
-### MODULE VARIABLES 
-With this variable can be provide a default behavior, and the default value can be overwritten.
-Module variable can be used If we need to introduce a module specific behavior.
-- rebuild is required when variable is set/change
-- The environments are taken from:
-	- Configuration.loadModuleConfig("/xxxxxxx.properties");
+!!! Note
+	This means that if the there is an **Environment** variable with name `DIRIGIBLE_TEST` and **Runtime** variable with the same name, the **Runtime** variable will have high prority and will be applied.
 
-All types of environments can be checked in WEB IDE UI under [Configurations View](https://www.dirigible.io/help/development/ide/views/configurations/)
+- **Runtime**: 
+  - No rebuild or restart of the application is required when configuration is changed.
+  - The [Configuration API](../../../api/core/configurations/) could be used to apply changes in the **Runtime** configuration.
+- **Environment**:
+  - No rebuild is required when configuration is changed, however the application should be restarted, to apply the environment changes.
+  - Usually the **Environment** configurations are provided during the application deployment, as part of application descriptor _(e.g. [Define environment variable for container in Kubernetes](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) or in [Cloud Foundry App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#-add-variables-to-a-manifest))_.
+- **Deployment**:
+  - Rebuild and re-deployment is required.
+  - "Default" deployment _(`ROOT.war`)_ configuration variables are taken from `dirigible.properties` properties file _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties))_.
+- **Module**:
+  - Rebuild and re-deployment is required.
+  - "Default" module _(e.g. `dirigible-database-custom.jar`, `dirigible-database-h2.jar`)_ configuration variables are taken from `dirigible-xxx.properties` properties files _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties) and [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties))_
+
+All applied configuration values could be found under the [Configurations View](https://www.dirigible.io/help/development/ide/views/configurations/).
 
 ## Configuration Parameters
 
@@ -87,6 +78,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_OAUTH_APPLICATION_NAME** | The application name _(e.g. `dirigible-xxx`)_ | _`-`_
 **DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
 **DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
+**DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
 
 ### Git
 
