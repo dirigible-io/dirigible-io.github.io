@@ -14,12 +14,12 @@ nav:
       - License: 'overview/license.md'
       - Credits: 'overview/credits.md'
     - Setup: 
-      - Cloud Foundry: 'setup/cloud-foundry.md'
+      - Tomcat: 'setup/index.md'
       - Docker: 'setup/docker.md'
-      - Helm: 'setup/helm.md'
       - Kubernetes: 'setup/kubernetes.md'
       - Kyma: 'setup/kyma.md'
-      - Tomcat: 'setup/index.md'
+      - Helm: 'setup/helm.md'
+      - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'
     - Development: 
       - Getting Started: 'development/index.md'
