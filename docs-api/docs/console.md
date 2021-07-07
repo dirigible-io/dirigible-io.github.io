@@ -18,12 +18,13 @@ Console object is used to write messages to the default logging output. It has s
 
 
 ```javascript
-console.info("Info message: %s", "Hello World!");
-console.error("Error message.");
-console.warn("Warning message.");
-console.debug("Debug message.");
-console.log("Log message.");
-console.trace("Trace.");
+let text = "Hello World!";
+console.info(`Info message ${text}.`);
+console.error(`Error message ${text}.`);
+console.warn(`Warning message ${text}.`);
+console.debug(`Debug message ${text}.`);
+console.log(`Log message ${text}.`);
+console.trace(`Trace ${text}.`);
 ```
 
 ### Functions
@@ -32,11 +33,9 @@ console.trace("Trace.");
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**info(message, parameters)**   | Logs a message with level INFO with formatting * | -
-**error(message, parameters)**   | Logs a message with level ERROR with formatting * | -
-**warn(message, parameters)**   | Logs a message with level WARN with formatting * | -
-**debug(message, parameters)**   | Logs a message with level DEBUG with formatting * | -
 **log(message)**   | Logs a raw message with level INFO | -
-**trace(message, parameters)**   | Logs a message with level ERROR with the full stack trace | -
-
-> * Formatting support is based on the standard Java [Formatter](https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#detail)
+**info(message)**   | Logs a message with level INFO | -
+**warn(message)**   | Logs a message with level WARN | -
+**error(message)**   | Logs a message with level ERROR | -
+**debug(message)**   | Logs a message with level DEBUG | -
+**trace(message)**   | Logs a message with level ERROR with the full stack trace | -
