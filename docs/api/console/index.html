@@ -1435,12 +1435,13 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Info message: %s&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;Warning message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Debug message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Log message.&quot;</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="s2">&quot;Trace.&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">text</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="sb">`Info message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="sb">`Error message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="sb">`Warning message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="sb">`Debug message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Log message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="sb">`Trace </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
@@ -1454,42 +1455,37 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>info(message, parameters)</strong></td>
-<td>Logs a message with level INFO with formatting *</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>error(message, parameters)</strong></td>
-<td>Logs a message with level ERROR with formatting *</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>warn(message, parameters)</strong></td>
-<td>Logs a message with level WARN with formatting *</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>debug(message, parameters)</strong></td>
-<td>Logs a message with level DEBUG with formatting *</td>
-<td>-</td>
-</tr>
-<tr>
 <td><strong>log(message)</strong></td>
 <td>Logs a raw message with level INFO</td>
 <td>-</td>
 </tr>
 <tr>
-<td><strong>trace(message, parameters)</strong></td>
+<td><strong>info(message)</strong></td>
+<td>Logs a message with level INFO</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>warn(message)</strong></td>
+<td>Logs a message with level WARN</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>error(message)</strong></td>
+<td>Logs a message with level ERROR</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>debug(message)</strong></td>
+<td>Logs a message with level DEBUG</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>trace(message)</strong></td>
 <td>Logs a message with level ERROR with the full stack trace</td>
 <td>-</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<ul>
-<li>Formatting support is based on the standard Java <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#detail">Formatter</a></li>
-</ul>
-</blockquote>
                 
                   
                 
