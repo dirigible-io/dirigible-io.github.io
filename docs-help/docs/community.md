@@ -9,7 +9,7 @@ Welcome to the community page for contributors! Here you will find resources to 
 
 ## Contributor Guide
 
-Dirigible.io is an open source project, which means that you can propose contributions by sending pull requests through [GitHub](https://github.com/eclipse/dirigible).
+Eclipse Dirigible is an open source project, which means that you can propose contributions by sending pull requests through [GitHub](https://github.com/eclipse/dirigible).
 
 Before you get started, here are some prerequisites that you need to complete:
 
