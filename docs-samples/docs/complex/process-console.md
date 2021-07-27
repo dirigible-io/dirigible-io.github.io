@@ -18,7 +18,7 @@ BPMN Process
 
 console.info("Hello from the JavaScript Delegate!");
 
-var process = require('bpm/v3/process');
+var process = require('bpm/v4/process');
 var execution = process.getExecutionContext();
 process.setVariable(execution.getId(), 'variable2', 'value2');
 try {
@@ -44,7 +44,7 @@ try {
 
 ```javascript
 
-var process = require('bpm/v3/process');
+var process = require('bpm/v4/process');
 process.start('myprocess', {"variable1": "value1"});
 
 ```
