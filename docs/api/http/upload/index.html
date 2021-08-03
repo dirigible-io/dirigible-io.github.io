@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/api/http/upload/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
     
     
       
@@ -751,6 +751,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#httpfileitemheaders" class="md-nav__link">
+    HttpFileItemHeaders
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1461,6 +1468,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#httpfileitemheaders" class="md-nav__link">
+    HttpFileItemHeaders
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1508,11 +1522,25 @@
         <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
             <span class="kd">var</span> <span class="nx">fileItem</span> <span class="o">=</span> <span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">isFormField</span><span class="p">())</span> <span class="p">{</span>
+                <span class="c1">// Getting the file name and bytes</span>
                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Name: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Bytes (as text): &quot;</span> <span class="o">+</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">()));</span>
             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Name: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">());</span>
-                 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Text: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
+                <span class="c1">// Getting the headers</span>
+                <span class="kd">var</span> <span class="nx">fileItemHeaders</span> <span class="o">=</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getHeaders</span><span class="p">();</span>
+                <span class="kd">var</span> <span class="nx">fileItemHeaderNames</span> <span class="o">=</span> <span class="nx">fileItemHeaders</span><span class="p">.</span><span class="nx">getHeaderNames</span><span class="p">();</span>
+
+                <span class="kd">var</span> <span class="nx">fieldHeaders</span> <span class="o">=</span> <span class="p">{};</span>
+                <span class="k">for</span> <span class="p">(</span><span class="nx">j</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span> <span class="nx">j</span><span class="o">&lt;</span><span class="nx">fileItemHeaderNames</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                  <span class="kd">var</span> <span class="nx">headerName</span> <span class="o">=</span> <span class="nx">fileItemHeaderNames</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span>
+                  <span class="kd">var</span> <span class="nx">headerValue</span> <span class="o">=</span> <span class="nx">fileItemHeaders</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="nx">headerName</span><span class="p">);</span>
+                  <span class="nx">fieldHeaders</span><span class="p">[</span><span class="nx">headerName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">headerValue</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Headers: &quot;</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">fieldHeaders</span><span class="p">));</span>
+
+                <span class="c1">// Getting the field name and value</span>
+                <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Name: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">());</span>
+                <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Text: &quot;</span> <span class="o">+</span> <span class="nx">fileItem</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -1620,6 +1648,33 @@
 <tr>
 <td><strong>getFieldName()</strong></td>
 <td>The HttpFileItem's field name</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getHeaders()</strong></td>
+<td>The HttpFileItem's headers</td>
+<td><em>array of HttpFileItemHeaders</em></td>
+</tr>
+</tbody>
+</table>
+<h5 id="httpfileitemheaders">HttpFileItemHeaders</h5>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getHeaderNames()</strong></td>
+<td>The HttpFileItemHeader's names</td>
+<td><em>array of strings</em></td>
+</tr>
+<tr>
+<td><strong>getHeader(headerName)</strong></td>
+<td>The HttpFileItemHeader's value for the given header name</td>
 <td><em>string</em></td>
 </tr>
 </tbody>
@@ -1774,10 +1829,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.2b46852b.min.js"></script>
       
     
   </body>
