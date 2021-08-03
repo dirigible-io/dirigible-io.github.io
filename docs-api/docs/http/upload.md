@@ -32,11 +32,25 @@ if (request.getMethod() === "POST") {
         for (i = 0; i < fileItems.size(); i++) {
             var fileItem = fileItems.get(i);
             if (!fileItem.isFormField()) {
+                // Getting the file name and bytes
                 response.println("File Name: " + fileItem.getName());
                 response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
             } else {
-                 response.println("Field Name: " + fileItem.getFieldName());
-                 response.println("Field Text: " + fileItem.getText());
+                // Getting the headers
+                var fileItemHeaders = fileItem.getHeaders();
+                var fileItemHeaderNames = fileItemHeaders.getHeaderNames();
+
+                var fieldHeaders = {};
+                for (j=0; j<fileItemHeaderNames.size(); j++) {
+                  var headerName = fileItemHeaderNames.get(j);
+                  var headerValue = fileItemHeaders.getHeader(headerName);
+                  fieldHeaders[headerName] = headerValue;
+                }
+                response.println("Field Headers: " + JSON.stringify(fieldHeaders));
+                
+                // Getting the field name and value
+                response.println("Field Name: " + fileItem.getFieldName());
+                response.println("Field Text: " + fileItem.getText());
             }
         }
     } else {
@@ -76,7 +90,6 @@ Function     | Description | Returns
 **size()**   | The size of the list of HttpFileItem objects | *HttpFileItem*
 
 
-
 ##### HttpFileItem
 
 
@@ -90,3 +103,13 @@ Function     | Description | Returns
 **getInputStream()**   | Return the input stream of the HttpFileItem's content | *streams.InputStream*
 **isFormField()**   | Whether the HttpFileItem represents a form field | *boolean*
 **getFieldName()**   | The HttpFileItem's field name | *string*
+**getHeaders()**   | The HttpFileItem's headers | *array of HttpFileItemHeaders*
+
+
+##### HttpFileItemHeaders
+
+
+Function     | Description | Returns
+------------ | ----------- | --------
+**getHeaderNames()**   | The HttpFileItemHeader's names | *array of strings*
+**getHeader(headerName)**   | The HttpFileItemHeader's value for the given header name | *string*
