@@ -52,7 +52,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
                   value: https://dirigible.<your-kyma-cluster-host>
                 volumeMounts:
                 - name: dirigible-volume
-                  mountPath: /usr/local/tomcat/target/dirigible
+                  mountPath: /usr/local/tomcat/target/dirigible/repository
                 ports:
                 - containerPort: 8080
                   name: dirigible
