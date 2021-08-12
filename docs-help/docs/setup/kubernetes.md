@@ -91,7 +91,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
                       value: "fiori"
                   volumeMounts:
                     - name: dirigible-data
-                      mountPath: /usr/local/tomcat/dirigible
+                      mountPath: /usr/local/tomcat/dirigible/repository
               volumes:
                 - name: dirigible-data
                   persistentVolumeClaim:
