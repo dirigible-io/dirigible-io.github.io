@@ -29,8 +29,19 @@ The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat
 
 === "Windows"
 
-    You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. In this case, we recommend that you perform the setup using Docker.
-
+    You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. 
+    Some of these limitations are related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
+    Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
+	
+    You may grant your user account access to create symbolic links by editing the policy.
+    1. Go to 'WIN + R' > gpedit.msc > Computer Configuration > Windows Settings > Security Settings 
+       > Local Policies > User Rights Assignment > Create Symbolic links.
+    2. Add your Windows user account to the policy.
+    
+    Notice: Editing this policy may make your machine vulnerable to symbolic link attacks as noted [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.).
+    
+    In this case, we recommend that you perform the setup using Docker. 
+	
     See [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
 ## Steps
