@@ -1659,7 +1659,17 @@
 <p>More info about ttyd can be found at: <a href="https://github.com/tsl0922/ttyd">ttyd</a></p>
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Windows</label><div class="tabbed-content">
-<p>You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. In this case, we recommend that you perform the setup using Docker.</p>
+<p>You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. 
+Some of these limitations are related to the <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links">Create symbolic links policy</a>. 
+Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.</p>
+<p>You may grant your user account access to create symbolic links by editing the policy.
+1. Go to 'WIN + R' &gt; gpedit.msc &gt; Computer Configuration &gt; Windows Settings &gt; Security Settings </p>
+<blockquote>
+<p>Local Policies &gt; User Rights Assignment &gt; Create Symbolic links.
+2. Add your Windows user account to the policy.</p>
+</blockquote>
+<p>Notice: Editing this policy may make your machine vulnerable to symbolic link attacks as noted <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.">here</a>.</p>
+<p>In this case, we recommend that you perform the setup using Docker. </p>
 <p>See <a href="https://www.dirigible.io/help/setup_docker.html">Setup as a Docker Image</a>.</p>
 </div>
 </div>
