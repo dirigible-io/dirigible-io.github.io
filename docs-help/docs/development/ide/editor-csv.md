@@ -5,7 +5,7 @@ title: CSV Editor
 CSV Editor
 ===
 
-The CSV editor in the Eclipse Dirigible IDE is based on the AG Grid library. The CSV editor allows you to create and manage CSV files.
+The CSV editor in the Eclipse Dirigible IDE is based on the AG Grid library. The CSV editor allows you to create, edit, and manage CSV files.
 
 ## Create CSV Files
 1. To create a new CSV file in the IDE, first create a project.
