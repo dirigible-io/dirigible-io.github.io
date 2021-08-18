@@ -42,6 +42,8 @@ While editing a CSV file in the Eclipse Dirigible IDE, you can perform a list of
   - multiple consequent rows with the "Shift + left click" shortcut.
 
   Once you've selected some rows, you can either reorder them using the drag icon ("**⋮⋮⋮⋮**") or delete them with righ-click and **Delete Row(s)**.
+  
+## Manage CSV Files
 
 - Filter a CSV file
 
