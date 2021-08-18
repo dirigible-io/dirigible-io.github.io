@@ -50,6 +50,7 @@ nav:
       - IDE:
         - IDE Overview: 'development/ide/index.md'
         - About: 'development/ide/about.md'
+        - CSV Editor: 'development/ide/editor-csv.md'
         - Monaco Editor: 'development/ide/editor-monaco.md'
         - Modelers:
           - BPMN: 'development/ide/modelers/bpmn.md'
