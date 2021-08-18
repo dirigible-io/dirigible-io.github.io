@@ -7,13 +7,13 @@ CSV Editor
 
 The CSV editor in the Eclipse Dirigible IDE is based on the AG Grid library. The CSV editor allows you to create and manage CSV files.
 
-## Creating CSV Files
+## Create CSV Files
 1. To create a new CSV file in the IDE, first create a project.
 2. Right-click your project and create a file.
 3. Finally, give the newly created file a name followed by the **.csv** extension, and press **Enter**.
 To open the CSV file, double-click it. By default, the CSV file has the headers already enabled. If you want to disable the headers, click the vertical ellipsis icon ("**⋮**") to open the kebab menu, and click **Disable Header**.
 
-## Features
+## Edit CSV Files
 
 While editing a CSV file in the Eclipse Dirigible IDE, you can perform a list of actions:
 
