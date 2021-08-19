@@ -31,7 +31,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
     ???+ info "Access"
         This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
-	To access the Dirigible instance execute the command that was printed in the console.
+        To access the Dirigible instance execute the command that was printed in the console.
 
         Example:
 
