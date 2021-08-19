@@ -165,7 +165,8 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
                       servicePort: 8080
         ```
 
-        Replace `<kubernetes-ingress-host>` with your Ingress host.
+        !!! Note
+	    Replace `<kubernetes-ingress-host>` with your Ingress host.
 
 1. Deploy to the Kubernetes Cluster with:
 
@@ -178,9 +179,9 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 
 1. Open a web browser and go to: **`http://dirigible.<kubernetes-ingress-host>`**
 
-	!!! Note
-		- Replace `<kubernetes-ingress-host>` with your Ingress host.
-		- Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
+    !!! Note
+        - Replace `<kubernetes-ingress-host>` with your Ingress host.
+        - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
 
 !!! example "Helm"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
