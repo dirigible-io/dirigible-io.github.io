@@ -11,8 +11,9 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 ## Prerequisites
 ---
 
-- [Kubernetes Command Line Interface](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
+!!! info "Prerequisites"
+    - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+    - Access to [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice.
 
 ## Steps
 ---
@@ -180,7 +181,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 
 1. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
 
-!!! info "Helm"
+!!! example "Helm"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
 
     Example:
