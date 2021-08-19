@@ -48,11 +48,16 @@ Setup as a Docker Image
         dirigiblelabs/dirigible-all:latest
         ```
 
+    !!! info "Note"
+        - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
+            - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+            - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
-    !!! note
-		The default user name and password are **`dirigible/dirigible`**
+    !!! info "Note"
+        The default user name and password are **`dirigible/dirigible`**
 
 1. Stop the container:
 
