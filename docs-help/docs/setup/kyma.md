@@ -172,10 +172,16 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
            ],
            "role-collections": [
               {
-                 "name": "dirigible",
+                 "name": "Dirigible Developer",
                  "description": "Dirigible Developer",
                  "role-template-references": [ 
-                    "$XSAPPNAME.Developer",
+                    "$XSAPPNAME.Developer"
+                 ]
+              },
+	      {
+                 "name": "Dirigible Operator",
+                 "description": "Dirigible Developer",
+                 "role-template-references": [ 
                     "$XSAPPNAME.Operator"
                  ]
               }
