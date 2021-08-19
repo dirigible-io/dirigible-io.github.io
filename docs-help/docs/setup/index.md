@@ -5,44 +5,38 @@ title: Tomcat
 Setup in Tomcat
 ===
 
+Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web container. In this case the built-in H2 database is used.
 
+!!! info "Prerequisites"
+    - Download the Tomcat [binary](https://tomcat.apache.org/download-80.cgi). More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
+    - JDK 11 or later - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
 
-The Tomcat specific WAR files can be deployed on a [Apache Tomcat](http://tomcat.apache.org/) web container. In this case the built-in H2 database is used.
-
-!!! Note
-	[Download](https://tomcat.apache.org/download-80.cgi) the Tomcat binary. More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
-
-## Prerequisites
----
-
-- JDK 11 or later - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
-
-=== "macOS"
-
-    > brew install ttyd
-
-=== "Linux"
-
-    Linux support is built-in.
-
-    More info about ttyd can be found at: [ttyd](https://github.com/tsl0922/ttyd)
-
-=== "Windows"
-
-    You may experience certain functional limitations if you decide to run the Web IDE locally on Windows using Tomcat. 
-    Some of these limitations are related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
-    Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
+    === "macOS"
+        Install `ttyd`:
 	
-    You may grant your user account access to create symbolic links by editing the policy.
-    1. Go to 'WIN + R' > gpedit.msc > Computer Configuration > Windows Settings > Security Settings 
-       > Local Policies > User Rights Assignment > Create Symbolic links.
-    2. Add your Windows user account to the policy.
-    
-    Notice: Editing this policy may make your machine vulnerable to symbolic link attacks as noted [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.).
-    
-    In this case, we recommend that you perform the setup using Docker. 
+	```
+	brew install ttyd
+	```
+
+    === "Linux"
+
+        Linux support is built-in.
+	More info about ttyd can be found at: [ttyd](https://github.com/tsl0922/ttyd)
+
+    === "Windows"
+
+        You may experience certain functional limitations, if you decide to run the Web IDE locally on Windows using Tomcat. 
+        Some of these limitations are related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
+        Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
 	
-    See [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
+        You may grant your user account access to create symbolic links by editing the policy:
+          
+	  1. Go to `WIN + R > gpedit.msc > Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Create Symbolic links`.
+          2. Add your Windows user account to the policy.
+    
+        _**Note**: Editing this policy may make your machine vulnerable to symbolic link attacks as noted [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.)._
+    
+        In this case, we recommend that you perform the setup using Docker, see [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
 ## Steps
 ---
