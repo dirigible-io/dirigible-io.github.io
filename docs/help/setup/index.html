@@ -1654,26 +1654,20 @@
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Windows</label><div class="tabbed-content">
 <p>You may experience certain functional limitations, if you decide to run the Web IDE locally on Windows using Tomcat:</p>
-</div>
-</div>
 <ul>
 <li>Limitations related to the <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links">Create symbolic links policy</a>. </li>
-<li>
-<p>Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.</p>
+<li>Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.</li>
+</ul>
 <p>You may grant your user account access to create symbolic links by editing the policy:</p>
-</li>
-<li>
-<p>Go to <em>(WIN + R)</em> &gt; <code>gpedit.msc</code></p>
-</li>
-<li>
 <ul>
+<li>Go to <em>(WIN + R)</em> &gt; <code>gpedit.msc</code></li>
+<li>Navigate to: <code>Computer Configuration</code> -&gt; <code>Windows Settings</code> -&gt; <code>Security Settings</code> -&gt; <code>Local Policies</code> -&gt; <code>User Rights Assignment</code> -&gt; <code>Create Symbolic links</code>.</li>
 <li>Add your Windows user account to the policy.</li>
 </ul>
-<p>Navigate to: <code>Computer Configuration</code> -&gt; <code>Windows Settings</code> -&gt; <code>Security Settings</code> -&gt; <code>Local Policies</code> -&gt; <code>User Rights Assignment</code> -&gt; <code>Create Symbolic links</code>.</p>
 <p><em><strong>Note</strong>: Editing this policy may make your machine vulnerable to symbolic link attacks as noted <a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.">here</a>.</em></p>
 <p>Alternative of the <code>Windows</code> setup would be to follow the <a href="https://www.dirigible.io/help/setup_docker.html">Setup as a Docker Image</a>.</p>
-</li>
-</ul>
+</div>
+</div>
 </div>
 <h2 id="steps">Steps</h2>
 <hr />
