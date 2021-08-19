@@ -8,11 +8,9 @@ Setup with Helm
 
 You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs) in a Kubernetes cluster.
 
-## Prerequisites
----
-
-- [Helm](https://helm.sh/)
-- [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
+!!! info "Prerequisites"
+    - [Helm](https://helm.sh/)
+    - [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
 
 ## Steps
 ---
@@ -31,10 +29,9 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
     helm install dirigible dirigible/dirigible
     ```
 
-		This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
-
     ???+ info "Access"
-        To access the Dirigible instance execute the command that was printed in the console.
+        This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
+	To access the Dirigible instance execute the command that was printed in the console.
 
         Example:
 
