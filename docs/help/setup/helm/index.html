@@ -473,13 +473,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -1654,13 +1647,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -1734,12 +1720,13 @@
                 
                 <h1 id="setup-with-helm">Setup with Helm</h1>
 <p>You can deploy Dirigible via Helm <a href="https://artifacthub.io/packages/search?page=1&amp;org=dirigiblelabs">Chart</a> in a Kubernetes cluster.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<hr />
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
 <ul>
 <li><a href="https://helm.sh/">Helm</a></li>
 <li><a href="https://kubernetes.io/docs/setup/pick-right-solution/">Kubernetes Cluster</a> on IaaS provider of your choice</li>
 </ul>
+</div>
 <h2 id="steps">Steps</h2>
 <hr />
 <ol>
@@ -1754,19 +1741,20 @@ helm repo update
 <p>Basic:</p>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
-</code></pre></div>
-<details class="info" open="open"><summary>Access</summary><p>To access the Dirigible instance execute the command that was printed in the console.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=dirigible,app.kubernetes.io/instance=dirigible&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+<details class="info" open="open"><summary>Access</summary><p>This will install Eclipse Dirigible Deployment and Service with ClusterIP only.</p>
+</details>
+<p>To access the Dirigible instance execute the command that was printed in the console.</p>
+<div class="highlight"><pre><span></span><code>Example:
+
+```
+export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=dirigible,app.kubernetes.io/instance=dirigible&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
 echo &quot;Visit http://127.0.0.1:8080 to use your application&quot;
 kubectl --namespace default port-forward $POD_NAME 8080:8080    
+```
+
+- Navigate to: [http://127.0.0.1:8080](http://127.0.0.1:8080)
+- Login with: `dirigible`/`dirigible`
 </code></pre></div>
-<ul>
-<li>Navigate to: <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></li>
-<li>Login with: <code>dirigible</code>/<code>dirigible</code></li>
-</ul>
-</details>
 </li>
 <li>
 <p>Kubernetes:</p>
