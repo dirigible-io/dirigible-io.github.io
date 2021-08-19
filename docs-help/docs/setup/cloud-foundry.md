@@ -81,7 +81,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         }
         ```
 
-        Replace the **`<applicationName>`** placeholder with your application name, e.g. **`dirigible`**.
+        !!! Note
+            Replace the `<applicationName>` placeholder with your application name, e.g. **`dirigible`**.
 
     - Create a XSUAA service instance:
 
@@ -89,7 +90,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-        Use the same **`<applicationName>`** as in the previous step.
+        !!! Note
+            Use the same `<applicationName>` as in the previous step.
 
 1. Deploy Eclipse Dirigible:
 
@@ -103,12 +105,12 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         -m 2G -k 2G
         ```
         !!! Note
-            - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+            Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
 
         !!! tip "Eclipse Dirigible versions"
-            - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
-                - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
-                - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+            Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
+            - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+            - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
         - Bind the XSUAA service instance to the Eclipse Dirigible deployment:
 
@@ -116,6 +118,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
             cf bind-service dirigible <applicationName>-xsuaa
             ```
 
+        !!! Note
             Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
         - Restart the `dirigible` deployment:
