@@ -143,9 +143,9 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
                 - <applicationName>-xsuaa
             ```
 
-            !!! info "Note"
-                - Replace the **`<org-name>`** placeholder with your subaccount's Subdomain value.
-                - Replace the **`<applicationName>`** placeholder with the application name used in the previous steps.
+            !!! Note
+                - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+                - Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
         - Deploy with:
             ```
