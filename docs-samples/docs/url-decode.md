@@ -4,8 +4,7 @@ hide:
   - toc
 ---
 
-URL - UTF-8 Decoding
-===
+# URL - UTF-8 Decoding
 
 ### Steps
 
@@ -14,7 +13,6 @@ URL - UTF-8 Decoding
 3. Enter the following content:
 
 ```javascript
-
 var url = require("utils/v4/url");
 var response = require("http/v4/response");
 
@@ -26,9 +24,8 @@ response.println(JSON.stringify(result));
 
 response.flush();
 response.close();
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

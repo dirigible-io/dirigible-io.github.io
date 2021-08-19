@@ -4,9 +4,7 @@ hide:
   - toc
 ---
 
-Hex - Decode
-===
-
+# Hex - Decode
 
 ### Steps
 
@@ -15,7 +13,6 @@ Hex - Decode
 3. Enter the following content:
 
 ```javascript
-
 var hex = require("utils/v4/hex");
 var response = require("http/v4/response");
 
@@ -27,9 +24,8 @@ response.println(JSON.stringify(result));
 
 response.flush();
 response.close();
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

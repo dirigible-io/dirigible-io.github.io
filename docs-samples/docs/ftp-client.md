@@ -4,18 +4,15 @@ hide:
   - toc
 ---
 
-FTP Client
-===
+# FTP Client
 
 ### Steps
 
-
-1. Create a project `ftp-client-test`.
+1. Create a project `ftp-client`.
 2. Then create a JavaScript service named `ftp-client.js`.
 3. Within the service code, enter the following content:
 
 ```javascript
-
 var response = require("http/v4/response");
 var ftp = require("io/v4/ftp");
 
@@ -32,4 +29,4 @@ response.println(file);
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

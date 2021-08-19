@@ -4,8 +4,7 @@ hide:
   - toc
 ---
 
-Converting XML to JSON
-===
+# Converting XML to JSON
 
 ### Steps
 
@@ -14,7 +13,6 @@ Converting XML to JSON
 3. Enter the following content:
 
 ```javascript
-
 var xml2json = require("utils/v4/xml");
 var response = require("http/v4/response");
 
@@ -27,9 +25,8 @@ response.println(JSON.stringify(json));
 
 response.flush();
 response.close();
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.
