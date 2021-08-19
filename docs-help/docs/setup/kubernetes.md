@@ -166,7 +166,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
         ```
 
         !!! Note
-	    Replace `<kubernetes-ingress-host>` with your Ingress host.
+            Replace `<kubernetes-ingress-host>` with your Ingress host.
 
 1. Deploy to the Kubernetes Cluster with:
 
