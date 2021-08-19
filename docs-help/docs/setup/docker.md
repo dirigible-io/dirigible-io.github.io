@@ -84,5 +84,5 @@ Optionally, you can enhance and customize the Dockerfile artifacts from [here](h
 - [trial-all](https://github.com/eclipse/dirigible/tree/master/releng/trial-all)
 
 
-!!! note 
+!!! info "Note" 
 	Most of the packages contains two files: `Dockerfile-base` and `Dockerfile`. Usually you would want to extend the `Dockerfile`, except in some special cases.
