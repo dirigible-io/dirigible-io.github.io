@@ -9,7 +9,7 @@ Setup as a Docker Image
 Deploy Eclipse Dirigible in Docker.
     
 !!! info "Prerequisites"
-    - [Install Docker](https://docs.docker.com/engine/installation/)
+    Install [Docker](https://docs.docker.com/engine/installation/)
 
 
 ## Steps
@@ -50,9 +50,10 @@ Deploy Eclipse Dirigible in Docker.
         ```
 
     !!! tip "Eclipse Dirigible versions"
-        - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
-            - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
-            - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
+        
+	- All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
@@ -63,27 +64,23 @@ Deploy Eclipse Dirigible in Docker.
 1. Stop the container:
 
     ```
-	docker stop dirigible
-	```
+    docker stop dirigible
+    ```
 
-## Contribution
----
+!!! example "Contribution"
+    Optionally, you can enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/releng/Dockerfile-tomcat), or any of the other Docker releases:
 
-Optionally, you can enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/releng/Dockerfile-tomcat), or any of the other Docker releases:
+    - [anonymous-all](https://github.com/eclipse/dirigible/blob/master/releng/anonymous-all/)
+    - [anonymous-runtime](https://github.com/eclipse/dirigible/tree/master/releng/anonymous-runtime)
+    - [openshift-all](https://github.com/eclipse/dirigible/tree/master/releng/openshift-all)
+    - [sap-cf-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-all)
+    - [sap-cf-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-runtime)
+    - [sap-kyma-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-all)
+    - [sap-kyma-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-runtime)
+    - [server-all](https://github.com/eclipse/dirigible/tree/master/releng/server-all)
+    - [server-runtime](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime)
+    - [server-keycloak-all](https://github.com/eclipse/dirigible/tree/master/releng/server-keycloak-all)
+    - [server-runtime-keycloak](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime-keycloak)
+    - [trial-all](https://github.com/eclipse/dirigible/tree/master/releng/trial-all)
 
-- [anonymous-all](https://github.com/eclipse/dirigible/blob/master/releng/anonymous-all/)
-- [anonymous-runtime](https://github.com/eclipse/dirigible/tree/master/releng/anonymous-runtime)
-- [openshift-all](https://github.com/eclipse/dirigible/tree/master/releng/openshift-all)
-- [sap-cf-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-all)
-- [sap-cf-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-runtime)
-- [sap-kyma-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-all)
-- [sap-kyma-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-runtime)
-- [server-all](https://github.com/eclipse/dirigible/tree/master/releng/server-all)
-- [server-runtime](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime)
-- [server-keycloak-all](https://github.com/eclipse/dirigible/tree/master/releng/server-keycloak-all)
-- [server-runtime-keycloak](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime-keycloak)
-- [trial-all](https://github.com/eclipse/dirigible/tree/master/releng/trial-all)
-
-
-!!! info "Note" 
-	Most of the packages contains two files: `Dockerfile-base` and `Dockerfile`. Usually you would want to extend the `Dockerfile`, except in some special cases.
+    _**Note:** Most of the packages contains two files: `Dockerfile-base` and `Dockerfile`. Usually you would want to extend the `Dockerfile`, except in some special cases._
