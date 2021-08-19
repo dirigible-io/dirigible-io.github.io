@@ -125,13 +125,13 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
     - Click on the **Deploy new resource** button and select the `deployment.yaml` file.
 
-    !!! Note
+    !!! info "Note"
         Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources.
 
 1. Create XSUAA service instance:
 
     - From the Kyma dashboard, go to **Service Management** **&rarr;** **Catalog**.
-    - Find the Authorization & Trust Management service.
+    - Find the `Authorization & Trust Management` service.
     - Create new service instance.
     - Provide the following additional parameters.
 
@@ -186,9 +186,9 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
         !!! Note
             Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**).
 
-    - Bind the servce instance to the dirigible application.
+    - Bind the servce instance to the **`dirigible`** application.
 
-1. Assign the Developer and Operator roles.
+1. Assign the `Developer` and `Operator` roles.
 
 1. Log in.
 
@@ -205,5 +205,4 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
     More about the setup with Helm can be found [here](../helm/).
 
-    - For deployment through the kubectl, refer to the Kubernetes [setup](../kubernetes/).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/).
