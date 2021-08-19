@@ -64,10 +64,16 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
            ],
            "role-collections": [
               {
-                 "name": "dirigible",
+                 "name": "Dirigible Developer",
                  "description": "Dirigible Developer",
                  "role-template-references": [
-                    "$XSAPPNAME.Developer",
+                    "$XSAPPNAME.Developer"
+                 ]
+              },
+              {
+                 "name": "Dirigible Operator",
+                 "description": "Dirigible Operator",
+                 "role-template-references": [
                     "$XSAPPNAME.Operator"
                  ]
               }
@@ -144,7 +150,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
             cf push
             ```
 
-1. Assign the Developer and Operator roles.
+1. Assign the `Developer` and `Operator` roles.
 
 1. Log in.
 
