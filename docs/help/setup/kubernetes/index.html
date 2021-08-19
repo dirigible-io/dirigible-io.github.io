@@ -1640,10 +1640,13 @@
 <p>You can deploy <a href="https://hub.docker.com/r/dirigiblelabs">Dirigible</a> Docker images, for example <code>dirigiblelabs/dirigible-tomcat</code>, in a Kubernetes cluster.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <hr />
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
 <ul>
-<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Kubernetes Command Line Interface</a></li>
-<li><a href="https://kubernetes.io/docs/setup/pick-right-solution/">Kubernetes Cluster</a> on IaaS provider of your choice</li>
+<li>Install <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a>.</li>
+<li>Access to <a href="https://kubernetes.io/docs/setup/pick-right-solution/">Kubernetes Cluster</a> on IaaS provider of your choice.</li>
 </ul>
+</div>
 <h2 id="steps">Steps</h2>
 <hr />
 <ol>
@@ -1805,7 +1808,7 @@ kubectl apply -f service.yml
 <p>Login with user <code>dirigible</code> and password <code>dirigible</code>, which are set by default in the Docker image <em>(<a href="https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags">dirigiblelabs/dirigible-tomcat</a>)</em> used above.</p>
 </li>
 </ol>
-<div class="admonition info">
+<div class="admonition example">
 <p class="admonition-title">Helm</p>
 <p>The <code>helm</code> package manager could be used to install Eclipse Dirigible via Helm <a href="https://artifacthub.io/packages/search?page=1&amp;org=dirigiblelabs">Chart</a>.</p>
 <p>Example:</p>
