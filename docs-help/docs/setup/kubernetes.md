@@ -106,6 +106,12 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
               storage: 1Gi
         ```
 
+    !!! tip "Eclipse Dirigible versions"
+        Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
+        
+        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+
 1. Create service configuration file: `service.yaml`
 
     === "Service"
@@ -172,10 +178,9 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 
 1. Open a web browser and go to: **`http://dirigible.<kubernetes-ingress-host>`**
 
-	!!! info "Note"
-		Replace `<kubernetes-ingress-host>` with your Ingress host.
-
-1. Login with user `dirigible` and password `dirigible`, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
+	!!! Note
+		- Replace `<kubernetes-ingress-host>` with your Ingress host.
+		- Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
 
 !!! example "Helm"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
