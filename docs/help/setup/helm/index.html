@@ -1741,20 +1741,18 @@ helm repo update
 <p>Basic:</p>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible
 </code></pre></div>
-<details class="info" open="open"><summary>Access</summary><p>This will install Eclipse Dirigible Deployment and Service with ClusterIP only.</p>
-</details>
-<p>To access the Dirigible instance execute the command that was printed in the console.</p>
-<div class="highlight"><pre><span></span><code>Example:
-
-```
-export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=dirigible,app.kubernetes.io/instance=dirigible&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+<details class="info" open="open"><summary>Access</summary><p>This will install Eclipse Dirigible Deployment and Service with ClusterIP only.
+To access the Dirigible instance execute the command that was printed in the console.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>export POD_NAME=$(kubectl get pods --namespace default -l &quot;app.kubernetes.io/name=dirigible,app.kubernetes.io/instance=dirigible&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
 echo &quot;Visit http://127.0.0.1:8080 to use your application&quot;
 kubectl --namespace default port-forward $POD_NAME 8080:8080    
-```
-
-- Navigate to: [http://127.0.0.1:8080](http://127.0.0.1:8080)
-- Login with: `dirigible`/`dirigible`
 </code></pre></div>
+<ul>
+<li>Navigate to: <a href="http://127.0.0.1:8080">http://127.0.0.1:8080</a></li>
+<li>Login with: <code>dirigible</code>/<code>dirigible</code></li>
+</ul>
+</details>
 </li>
 <li>
 <p>Kubernetes:</p>
