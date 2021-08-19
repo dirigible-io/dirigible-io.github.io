@@ -24,14 +24,14 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
 
     === "Windows"
         You may experience certain functional limitations, if you decide to run the Web IDE locally on Windows using Tomcat:
-	
-	- Limitations related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
-	- Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
+        
+        - Limitations related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
+        - Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
 	
         You may grant your user account access to create symbolic links by editing the policy:
           
-	- Go to _(WIN + R)_ > `gpedit.msc`
-	- Navigate to: `Computer Configuration` -> `Windows Settings` -> `Security Settings` -> `Local Policies` -> `User Rights Assignment` -> `Create Symbolic links`.
+        - Go to _(WIN + R)_ > `gpedit.msc`
+        - Navigate to: `Computer Configuration` -> `Windows Settings` -> `Security Settings` -> `Local Policies` -> `User Rights Assignment` -> `Create Symbolic links`.
         - Add your Windows user account to the policy.
     
         _**Note**: Editing this policy may make your machine vulnerable to symbolic link attacks as noted [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.)._
