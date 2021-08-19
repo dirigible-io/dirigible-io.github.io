@@ -1014,48 +1014,59 @@
 <span class="kd">var</span> <span class="nx">pdfDocuments</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
-    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.&quot;</span><span class="p">,</span>
-    <span class="nx">columns</span><span class="o">:</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;First Name&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;firstName&quot;</span><span class="p">,</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Last Name&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;lastName&quot;</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;age&quot;</span>
-    <span class="p">}],</span>
-    <span class="nx">rows</span><span class="o">:</span> <span class="p">[{</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mf">1001</span><span class="p">,</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">29</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mf">1002</span><span class="p">,</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">26</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mf">1003</span><span class="p">,</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Joe&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">44</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mf">1004</span><span class="p">,</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">40</span>
-    <span class="p">}]</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
+  <span class="nx">description</span><span class="o">:</span>
+    <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.&quot;</span><span class="p">,</span>
+  <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;First Name&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;firstName&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Last Name&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;lastName&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="nx">rows</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="mf">1001</span><span class="p">,</span>
+      <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+      <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+      <span class="nx">age</span><span class="o">:</span> <span class="mf">29</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="mf">1002</span><span class="p">,</span>
+      <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jane&quot;</span><span class="p">,</span>
+      <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+      <span class="nx">age</span><span class="o">:</span> <span class="mf">26</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="mf">1003</span><span class="p">,</span>
+      <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Joe&quot;</span><span class="p">,</span>
+      <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+      <span class="nx">age</span><span class="o">:</span> <span class="mf">44</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="mf">1004</span><span class="p">,</span>
+      <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;Jill&quot;</span><span class="p">,</span>
+      <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+      <span class="nx">age</span><span class="o">:</span> <span class="mf">40</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">pdf</span> <span class="o">=</span> <span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Disposition&quot;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pdf</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
@@ -1072,41 +1083,44 @@
 <span class="kd">var</span> <span class="nx">pdfDocuments</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
-    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;</span><span class="p">,</span>
-    <span class="nx">columns</span><span class="o">:</span> <span class="p">[{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
-    <span class="p">},</span> <span class="p">{</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Position&quot;</span><span class="p">,</span>
-        <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;position&quot;</span>
-    <span class="p">}],</span>
-    <span class="nx">rows</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span>
+  <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;</span><span class="p">,</span>
+  <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Id&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Position&quot;</span><span class="p">,</span>
+      <span class="nx">key</span><span class="o">:</span> <span class="s2">&quot;position&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">],</span>
+  <span class="nx">rows</span><span class="o">:</span> <span class="p">[],</span>
 <span class="p">};</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mf">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-        <span class="nx">position</span><span class="o">:</span> <span class="s2">&quot;Software Developer&quot;</span><span class="p">,</span>
-        <span class="nx">highlight</span><span class="o">:</span> <span class="nx">i</span> <span class="o">%</span> <span class="mf">2</span> <span class="o">==</span> <span class="mf">0</span><span class="p">,</span>
-        <span class="nx">breakAfter</span><span class="o">:</span> <span class="p">((</span><span class="nx">i</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)</span> <span class="o">%</span> <span class="mf">10</span> <span class="o">==</span> <span class="mf">0</span><span class="p">)</span>
-    <span class="p">})</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+    <span class="nx">position</span><span class="o">:</span> <span class="s2">&quot;Software Developer&quot;</span><span class="p">,</span>
+    <span class="nx">highlight</span><span class="o">:</span> <span class="nx">i</span> <span class="o">%</span> <span class="mf">2</span> <span class="o">==</span> <span class="mf">0</span><span class="p">,</span>
+    <span class="nx">breakAfter</span><span class="o">:</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mf">1</span><span class="p">)</span> <span class="o">%</span> <span class="mf">10</span> <span class="o">==</span> <span class="mf">0</span><span class="p">,</span>
+  <span class="p">});</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span>  <span class="p">{</span>
-    <span class="nx">size</span><span class="o">:</span> <span class="s2">&quot;A3&quot;</span><span class="p">,</span>
-    <span class="nx">alignColumns</span><span class="o">:</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span>
-    <span class="nx">alignRows</span><span class="o">:</span> <span class="s2">&quot;end&quot;</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">size</span><span class="o">:</span> <span class="s2">&quot;A3&quot;</span><span class="p">,</span>
+  <span class="nx">alignColumns</span><span class="o">:</span> <span class="s2">&quot;center&quot;</span><span class="p">,</span>
+  <span class="nx">alignRows</span><span class="o">:</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">pdf</span> <span class="o">=</span> <span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">config</span><span class="p">);</span>
 
-
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Disposition&quot;</span><span class="p">,</span> <span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">pdf</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>

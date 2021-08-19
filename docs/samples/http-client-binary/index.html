@@ -1006,16 +1006,19 @@
                 <h1 id="http-client-binary-response">HTTP Client - Binary Response</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>rest-call-binary-project</code>.</li>
+<li>Create a project <code>rest-call-binary</code>.</li>
 <li>Then create a JavaScript service named <code>get-call-binary.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">client</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/eclipse/dirigible/master/NOTICE.txt&quot;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">binary</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span>
+  <span class="s2">&quot;https://raw.githubusercontent.com/eclipse/dirigible/master/NOTICE.txt&quot;</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">binary</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>

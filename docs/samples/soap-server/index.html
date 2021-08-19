@@ -1006,13 +1006,13 @@
                 <h1 id="soap-server">SOAP - Server</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>soap-project</code>.</li>
+<li>Create a project <code>soap</code>.</li>
 <li>Create a JavaScript service with the name <code>soap-server.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">soap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/v4/soap&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/request&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/xml&quot;</span><span class="p">);</span>
 
 <span class="c1">// Parse SOAP request</span>
@@ -1027,34 +1027,31 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/xml; charset=utf-8&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s2">&quot;soap:Envelope&quot;</span><span class="o">:</span><span class="p">{</span>
-      <span class="s2">&quot;-xmlns:soap&quot;</span><span class="o">:</span><span class="s2">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;-xmlns:xsd&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;-xmlns:xsi&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;soap:Body&quot;</span><span class="o">:</span><span class="p">{</span>
-         <span class="s2">&quot;ResolveIPResponse&quot;</span><span class="o">:</span><span class="p">{</span>
-            <span class="s2">&quot;-xmlns&quot;</span><span class="o">:</span><span class="s2">&quot;http://ws.cdyne.com/&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;ResolveIPResult&quot;</span><span class="o">:</span><span class="p">{</span>
-               <span class="s2">&quot;Country&quot;</span><span class="o">:</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;Organization&quot;</span><span class="o">:</span><span class="p">{</span>
-               <span class="p">},</span>
-               <span class="s2">&quot;Latitude&quot;</span><span class="o">:</span><span class="s2">&quot;51.2993&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;Longitude&quot;</span><span class="o">:</span><span class="s2">&quot;9.490997&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;AreaCode&quot;</span><span class="o">:</span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;TimeZone&quot;</span><span class="o">:</span><span class="p">{</span>
-               <span class="p">},</span>
-               <span class="s2">&quot;HasDaylightSavings&quot;</span><span class="o">:</span><span class="s2">&quot;false&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;Certainty&quot;</span><span class="o">:</span><span class="s2">&quot;90&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;RegionName&quot;</span><span class="o">:</span><span class="p">{</span>
-               <span class="p">},</span>
-               <span class="s2">&quot;CountryCode&quot;</span><span class="o">:</span><span class="s2">&quot;DE&quot;</span>
-            <span class="p">}</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-   <span class="p">}</span>
+  <span class="s2">&quot;soap:Envelope&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;-xmlns:soap&quot;</span><span class="o">:</span> <span class="s2">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-xmlns:xsd&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-xmlns:xsi&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;soap:Body&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">ResolveIPResponse</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;-xmlns&quot;</span><span class="o">:</span> <span class="s2">&quot;http://ws.cdyne.com/&quot;</span><span class="p">,</span>
+        <span class="nx">ResolveIPResult</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">Country</span><span class="o">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
+          <span class="nx">Organization</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">Latitude</span><span class="o">:</span> <span class="s2">&quot;51.2993&quot;</span><span class="p">,</span>
+          <span class="nx">Longitude</span><span class="o">:</span> <span class="s2">&quot;9.490997&quot;</span><span class="p">,</span>
+          <span class="nx">AreaCode</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+          <span class="nx">TimeZone</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">HasDaylightSavings</span><span class="o">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+          <span class="nx">Certainty</span><span class="o">:</span> <span class="s2">&quot;90&quot;</span><span class="p">,</span>
+          <span class="nx">RegionName</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">CountryCode</span><span class="o">:</span> <span class="s2">&quot;DE&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+      <span class="p">},</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
 <span class="p">};</span>
 
-<span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">))</span>
+<span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
 
@@ -1062,13 +1059,13 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 
 <span class="kd">function</span> <span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">());</span>
-            <span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
+  <span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">());</span>
+      <span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />

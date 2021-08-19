@@ -1006,7 +1006,7 @@
                 <h1 id="print-environment-variables">Print Environment Variables</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a new project and name it <code>env-vars-project</code>.</li>
+<li>Create a new project and name it <code>env-vars</code>.</li>
 <li>Select the project folder and open the pop-up menu.</li>
 <li>Choose <em>New</em> -&gt; <em>JavaScript Service</em>.</li>
 <li>Give it a meaningful name (e.g <code>print-env-vars.js</code>).</li>
@@ -1017,10 +1017,10 @@
 
 <span class="kd">var</span> <span class="nx">envVarsList</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">list</span><span class="p">());</span>
 <span class="kd">var</span> <span class="nx">envVarValue</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">envVarName</span> <span class="k">in</span> <span class="nx">envVarsList</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">envVarValue</span> <span class="o">=</span> <span class="nx">envVarsList</span><span class="p">[</span><span class="nx">envVarName</span><span class="p">]</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">envVarName</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="nx">envVarValue</span><span class="p">);</span>
-<span class="p">}</span>   
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">envVarName</span> <span class="k">in</span> <span class="nx">envVarsList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">envVarValue</span> <span class="o">=</span> <span class="nx">envVarsList</span><span class="p">[</span><span class="nx">envVarName</span><span class="p">];</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">envVarName</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="nx">envVarValue</span><span class="p">);</span>
+<span class="p">}</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>

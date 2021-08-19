@@ -1006,25 +1006,25 @@
                 <h1 id="print-configuration-variables">Print Configuration Variables</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a new project and name it <code>config-vars-project</code>.</li>
+<li>Create a new project and name it <code>config-vars</code>.</li>
 <li>Select the project folder and open the pop-up menu.</li>
 <li>Choose <em>New</em> -&gt; <em>JavaScript Service</em>.</li>
 <li>Give it a meaningful name (e.g <code>print-config-vars.js</code>).</li>
 <li>Replace the generated code in <code>print-config-vars.js</code> with the following:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">configurations</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/configurations&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">configurations</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/configurations&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nx">configurations</span><span class="p">.</span><span class="nx">getKeys</span><span class="p">();</span>
 
 <span class="kd">var</span> <span class="nx">dirigibleKeys</span> <span class="o">=</span> <span class="p">{};</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">key</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&quot;DIRIGIBLE&quot;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">configurations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
-        <span class="nx">dirigibleKeys</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">key</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s2">&quot;DIRIGIBLE&quot;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">configurations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+    <span class="nx">dirigibleKeys</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">dirigibleKeys</span><span class="p">));</span>

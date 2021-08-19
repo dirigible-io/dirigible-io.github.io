@@ -1006,12 +1006,12 @@
                 <h1 id="soap-client">SOAP - Client</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>soap_project</code>.</li>
+<li>Create a project <code>soap</code>.</li>
 <li>Create a JavaScript service with the name <code>soap-client.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">soap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/v4/soap&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">);</span>
 
@@ -1032,7 +1032,10 @@
 <span class="nx">requestMessage</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Request: &quot;</span> <span class="o">+</span> <span class="nx">requestMessage</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
 
-<span class="kd">var</span> <span class="nx">responseMessage</span> <span class="o">=</span> <span class="nx">soap</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">requestMessage</span><span class="p">,</span> <span class="s2">&quot;http://ws.cdyne.com/ip2geo/ip2geo.asmx&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">responseMessage</span> <span class="o">=</span> <span class="nx">soap</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span>
+  <span class="nx">requestMessage</span><span class="p">,</span>
+  <span class="s2">&quot;http://ws.cdyne.com/ip2geo/ip2geo.asmx&quot;</span>
+<span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Response: &quot;</span> <span class="o">+</span> <span class="nx">responseMessage</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span>
 
@@ -1046,15 +1049,15 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 
 <span class="kd">function</span> <span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">());</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">);</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">()));</span>
-            <span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
+  <span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">());</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&quot;: &quot;</span><span class="p">);</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">()));</span>
+      <span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div>
 <hr />

@@ -1082,7 +1082,9 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;https://services.odata.org/V4/Northwind/Northwind.svc/&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span>
+  <span class="s2">&quot;https://services.odata.org/V4/Northwind/Northwind.svc/&quot;</span>
+<span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
@@ -1098,14 +1100,14 @@
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span>
-    <span class="p">});</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+  <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span><span class="p">,</span>
+<span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;http://httpbin.org/post&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">text</span><span class="o">:</span> <span class="nx">bodyContent</span>
-    <span class="p">});</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="nx">bodyContent</span><span class="p">,</span>
+<span class="p">});</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
@@ -1117,26 +1119,28 @@
 <li>Within the service code, enter the following content:</li>
 </ol>
 <h4 id="put-call">PUT Call</h4>
-<p><div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-        <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
-        <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
-        <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span>
-    <span class="p">});</span>
+  <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
+  <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span><span class="p">,</span>
+<span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s2">&quot;http://httpbin.org/put&quot;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">text</span><span class="o">:</span> <span class="nx">bodyContent</span>
-    <span class="p">});</span>
+  <span class="nx">text</span><span class="o">:</span> <span class="nx">bodyContent</span><span class="p">,</span>
+<span class="p">});</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
-2. Then create a JavaScript service named <code>delete-call.js</code>.
-3. Within the service code, enter the following content:</p>
+<ol>
+<li>Then create a JavaScript service named <code>delete-call.js</code>.</li>
+<li>Within the service code, enter the following content:</li>
+</ol>
 <h4 id="delete-call">DELETE Call</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>

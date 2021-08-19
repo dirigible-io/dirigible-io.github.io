@@ -1007,9 +1007,9 @@
 <h3 id="steps">Steps</h3>
 <ol>
 <li>Switch to the <code>Database Perspective</code></li>
-<li>
-<p>Execute the following SQL script:</p>
-<p><div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">CUSTOMERS</span> <span class="p">(</span><span class="n">ID</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span> <span class="n">NAME</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">COUNTRY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+<li>Execute the following SQL script:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">CUSTOMERS</span> <span class="p">(</span><span class="n">ID</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span> <span class="n">NAME</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">COUNTRY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">);</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;SAP&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">);</span>
@@ -1017,18 +1017,18 @@
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Quanterall&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;SyMetric&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">);</span>
 </code></pre></div>
-1. Create <code>CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</code> stored procedure:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</span> <span class="p">(</span><span class="k">in</span> <span class="n">country</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="k">out</span> <span class="n">customersByCountry</span> <span class="n">CUSTOMERS</span><span class="p">,</span> <span class="k">out</span> <span class="n">allCustomers</span> <span class="n">CUSTOMERS</span><span class="p">)</span> 
+<ol>
+<li>Create <code>CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</code> stored procedure:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</span> <span class="p">(</span><span class="k">in</span> <span class="n">country</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="k">out</span> <span class="n">customersByCountry</span> <span class="n">CUSTOMERS</span><span class="p">,</span> <span class="k">out</span> <span class="n">allCustomers</span> <span class="n">CUSTOMERS</span><span class="p">)</span>
 <span class="k">AS</span>
-  <span class="k">BEGIN</span> 
+  <span class="k">BEGIN</span>
     <span class="n">customersByCountry</span> <span class="o">=</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CUSTOMERS</span> <span class="k">WHERE</span> <span class="n">COUNTRY</span> <span class="o">=</span> <span class="p">:</span><span class="n">country</span><span class="p">;</span>
     <span class="n">allCustomers</span> <span class="o">=</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CUSTOMERS</span><span class="p">;</span>
   <span class="k">END</span><span class="p">;</span>
 </code></pre></div>
-</li>
-<li>
-<p>Create a project <code>database-procedure</code>.</p>
-</li>
+<ol>
+<li>Create a project <code>database-procedure</code>.</li>
 <li>Then create a JavaScript service named <code>database-procedure-call.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
@@ -1038,29 +1038,35 @@
 <span class="kd">let</span> <span class="nx">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 
 <span class="k">try</span> <span class="p">{</span>
-    <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span>
-    <span class="kd">let</span> <span class="nx">hasMoreResults</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY =&gt; &#39;Bulgaria&#39;, customersByCountry =&gt; ?, allCustomers =&gt; ?)&quot;</span><span class="p">;</span>
-    <span class="kd">let</span> <span class="nx">callableStatement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareCall</span><span class="p">(</span><span class="nx">sql</span><span class="p">);</span>
-    <span class="kd">let</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
+  <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span>
+  <span class="kd">let</span> <span class="nx">hasMoreResults</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span>
+    <span class="s2">&quot;CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY =&gt; &#39;Bulgaria&#39;, customersByCountry =&gt; ?, allCustomers =&gt; ?)&quot;</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">callableStatement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareCall</span><span class="p">(</span><span class="nx">sql</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
 
-    <span class="k">do</span> <span class="p">{</span>
-        <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, Country: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;COUNTRY&quot;</span><span class="p">));</span>
-        <span class="p">}</span>
-        <span class="nx">hasMoreResults</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">getMoreResults</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">hasMoreResults</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-            <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">getResultSet</span><span class="p">();</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;\n---- End of ResultSet ----\n&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">hasMoreResults</span><span class="p">)</span>
-
-    <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="k">do</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span>
+        <span class="s2">&quot;Name: &quot;</span> <span class="o">+</span>
+          <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">)</span> <span class="o">+</span>
+          <span class="s2">&quot;, Country: &quot;</span> <span class="o">+</span>
+          <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;COUNTRY&quot;</span><span class="p">)</span>
+      <span class="p">);</span>
     <span class="p">}</span>
+    <span class="nx">hasMoreResults</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">getMoreResults</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">hasMoreResults</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+      <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">getResultSet</span><span class="p">();</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;\n---- End of ResultSet ----\n&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">hasMoreResults</span><span class="p">);</span>
+
+  <span class="nx">callableStatement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>

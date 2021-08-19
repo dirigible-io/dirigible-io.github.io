@@ -1006,29 +1006,36 @@
                 <h1 id="database-dynamic-datasource">Database - Dynamic Datasource</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>database-project</code>.</li>
+<li>Create a project <code>database</code>.</li>
 <li>Then create a JavaScript service named <code>database-dynamic.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">database</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/database&quot;</span><span class="p">);</span>
 
-<span class="nx">database</span><span class="p">.</span><span class="nx">createDataSource</span><span class="p">(</span><span class="s2">&quot;mydynamic&quot;</span><span class="p">,</span> <span class="s2">&quot;org.h2.Driver&quot;</span><span class="p">,</span> <span class="s2">&quot;jdbc:h2:~/mytest&quot;</span><span class="p">,</span> <span class="s2">&quot;sa&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+<span class="nx">database</span><span class="p">.</span><span class="nx">createDataSource</span><span class="p">(</span>
+  <span class="s2">&quot;mydynamic&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;org.h2.Driver&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;jdbc:h2:~/mytest&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;sa&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="kc">null</span>
+<span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">(</span><span class="s2">&quot;dynamic&quot;</span><span class="p">,</span> <span class="s2">&quot;mydynamic&quot;</span><span class="p">);</span>
 <span class="k">try</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">statement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareStatement</span><span class="p">(</span><span class="s2">&quot;select current_date from dual&quot;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[date]: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="mf">1</span><span class="p">));</span>
-    <span class="p">}</span>
-    <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-    <span class="nx">statement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">statement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareStatement</span><span class="p">(</span><span class="s2">&quot;select current_date from dual&quot;</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[date]: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="mf">1</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="nx">statement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-    <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>

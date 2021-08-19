@@ -1006,7 +1006,7 @@
                 <h1 id="send-email">Send Email</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>mail-project</code>.</li>
+<li>Create a project <code>mail</code>.</li>
 <li>Create a JavaScript service with the name <code>mail-service.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
@@ -1028,7 +1028,7 @@
 </blockquote>
 <hr />
 <ol>
-<li>Create a project <code>mail-custom-project</code>.</li>
+<li>Create a project <code>mail-custom</code>.</li>
 <li>Create a JavaScript service with the name <code>mail-custom-service.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
@@ -1036,21 +1036,21 @@
 <span class="kd">var</span> <span class="nx">mail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/v4/client&quot;</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="nx">mailConfig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;mail.user&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.password&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-password&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.transport.protocol&quot;</span><span class="o">:</span> <span class="s2">&quot;smtps&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.host&quot;</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.port&quot;</span><span class="o">:</span> <span class="s2">&quot;465&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;mail.smtps.auth&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span>
+  <span class="s2">&quot;mail.user&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mail.password&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-password&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mail.transport.protocol&quot;</span><span class="o">:</span> <span class="s2">&quot;smtps&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mail.smtps.host&quot;</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mail.smtps.port&quot;</span><span class="o">:</span> <span class="s2">&quot;465&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;mail.smtps.auth&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">mailClient</span> <span class="o">=</span> <span class="nx">mail</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span>
 
 <span class="kd">var</span> <span class="k">from</span> <span class="o">=</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;@gmail.com&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">recipients</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">to</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;@gmail.com&quot;</span><span class="p">,</span>
-    <span class="nx">cc</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;&lt;your-mailbox-user&gt;@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-mailbox-user-2&gt;@sap.com&quot;</span><span class="p">],</span>
-    <span class="nx">bcc</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;@sap.com&quot;</span>
+  <span class="nx">to</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;@gmail.com&quot;</span><span class="p">,</span>
+  <span class="nx">cc</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;&lt;your-mailbox-user&gt;@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;your-mailbox-user-2&gt;@sap.com&quot;</span><span class="p">],</span>
+  <span class="nx">bcc</span><span class="o">:</span> <span class="s2">&quot;&lt;your-mailbox-user&gt;@sap.com&quot;</span><span class="p">,</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="s2">&quot;Subject&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span>

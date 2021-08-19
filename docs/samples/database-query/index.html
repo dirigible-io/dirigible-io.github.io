@@ -1006,14 +1006,15 @@
                 <h1 id="database-query">Database - Query</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>database-project</code>.</li>
+<li>Create a project <code>database</code>.</li>
 <li>Then create a JavaScript service named <code>database-query.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/query&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">sql</span> <span class="o">=</span>
+  <span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">resultset</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;ide-view&quot;</span><span class="p">]);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/json&quot;</span><span class="p">);</span>

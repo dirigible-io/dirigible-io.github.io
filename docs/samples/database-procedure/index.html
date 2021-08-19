@@ -1007,8 +1007,8 @@
 <h3 id="steps">Steps</h3>
 <ol>
 <li>Switch to the <code>Database Perspective</code></li>
-<li>
-<p>Execute the following SQL script:</p>
+<li>Execute the following SQL script:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">CUSTOMERS</span> <span class="p">(</span><span class="n">ID</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span> <span class="n">NAME</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">COUNTRY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
 
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">);</span>
@@ -1017,17 +1017,16 @@
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Quanterall&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span>
 <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;SyMetric&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">);</span>
 </code></pre></div>
-</li>
-<li>
-<p>Create a project <code>database-procedure</code>.</p>
-</li>
+<ol>
+<li>Create a project <code>database-procedure</code>.</li>
 <li>Then create a JavaScript service named <code>database-procedure-create.js</code>.</li>
-<li>
-<p>Within the service code, enter the following content:</p>
+<li>Within the service code, enter the following content:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">procedure</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot; \</span>
+<span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span>
+  <span class="s2">&quot; \</span>
 <span class="s2">CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS (in country varchar(50), out customersByCountry CUSTOMERS, out allCustomers CUSTOMERS) \</span>
 <span class="s2">AS \</span>
 <span class="s2">  BEGIN \</span>
@@ -1042,24 +1041,21 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
-</li>
-<li>
-<p>Create a JavaScript service named <code>database-procedure-execute.js</code>.</p>
-</li>
-<li>
-<p>Within the service code, enter the following content:</p>
+<ol>
+<li>Create a JavaScript service named <code>database-procedure-execute.js</code>.</li>
+<li>Within the service code, enter the following content:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">procedure</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">&quot;CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY =&gt; ?, customersByCountry =&gt; ?, allCustomers =&gt; ?)&quot;</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sql</span> <span class="o">=</span>
+  <span class="s2">&quot;CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(COUNTRY =&gt; ?, customersByCountry =&gt; ?, allCustomers =&gt; ?)&quot;</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">procedure</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Bulgaria&quot;</span><span class="p">]);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
-</li>
-</ol>
 <hr />
 <blockquote>
 <p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>

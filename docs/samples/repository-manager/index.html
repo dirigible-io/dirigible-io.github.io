@@ -1006,14 +1006,18 @@
                 <h1 id="repository-manager">Repository Manager</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>repository-manager-test</code>.</li>
+<li>Create a project <code>repository-manager</code>.</li>
 <li>Then create a JavaScript service named <code>repository-test.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">repositoryManager</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;repository/v4/manager&quot;</span><span class="p">);</span>
 
-<span class="nx">repositoryManager</span><span class="p">.</span><span class="nx">createResource</span><span class="p">(</span><span class="s2">&quot;/registry/public/test/file.js&quot;</span><span class="p">,</span> <span class="s2">&quot;console.log(&#39;Hello World&#39;);&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">);</span>
+<span class="nx">repositoryManager</span><span class="p">.</span><span class="nx">createResource</span><span class="p">(</span>
+  <span class="s2">&quot;/registry/public/test/file.js&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;console.log(&#39;Hello World&#39;);&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;application/json&quot;</span>
+<span class="p">);</span>
 <span class="kd">var</span> <span class="nx">resource</span> <span class="o">=</span> <span class="nx">repositoryManager</span><span class="p">.</span><span class="nx">getResource</span><span class="p">(</span><span class="s2">&quot;/registry/public/test/file.js&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">resource</span><span class="p">.</span><span class="nx">getText</span><span class="p">();</span>
 
