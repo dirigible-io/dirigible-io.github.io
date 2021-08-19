@@ -6,10 +6,11 @@ Setup as a Docker Image
 ===
 
 
-## Prerequisites
----
+Deploy Eclipse Dirigible in Docker.
+    
+!!! info "Prerequisites"
+    - [Install Docker](https://docs.docker.com/engine/installation/)
 
-- [Install Docker](https://docs.docker.com/engine/installation/)
 
 ## Steps
 ---
@@ -48,7 +49,7 @@ Setup as a Docker Image
         dirigiblelabs/dirigible-all:latest
         ```
 
-    !!! info "Note"
+    !!! tip "Eclipse Dirigible versions"
         - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
             - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
             - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
@@ -56,7 +57,7 @@ Setup as a Docker Image
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
-    !!! info "Note"
+    !!! Note
         The default user name and password are **`dirigible/dirigible`**
 
 1. Stop the container:
