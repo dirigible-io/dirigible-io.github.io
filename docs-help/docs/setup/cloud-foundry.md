@@ -161,5 +161,4 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
 1. Log in.
 
 !!! example "Additional Materials"
-    - For deployment through `manifest.yaml` follow these [steps](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry).
-    - A step-by-step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).
+    Step-by-step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).
