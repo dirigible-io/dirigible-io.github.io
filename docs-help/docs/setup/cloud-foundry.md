@@ -102,8 +102,10 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         --hostname dirigible-<org-name> \
         -m 2G -k 2G
         ```
-        !!! info "Note"
+        !!! Note
             - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+
+        !!! tip "Eclipse Dirigible versions"
             - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
                 - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
                 - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
