@@ -18,9 +18,6 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
 1. Access the SAP BTP, Kyma environment via the SAP BTP cockpit:
 
-    !!! Note
-		The Trial landscape can be accessed from [here](https://account.hanatrial.ondemand.com)
-
 1. Deploy Eclipse Dirigible:
 
     - Copy and paste the following content into `deployment.yaml`:
@@ -114,7 +111,9 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
             name: dirigible
             port: 8080
         ```
-        Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**)._
+	
+        !!! Note
+            Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**)._
 
         !!! tip "Eclipse Dirigible versions"
             Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
@@ -122,12 +121,12 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
             - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
             - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
-    - Navigate to your Kyma dashboard and select the "default" namespace.
+    - Navigate to your Kyma dashboard and select the **`default`** namespace.
 
     - Click on the **Deploy new resource** button and select the `deployment.yaml` file.
 
     !!! Note
-		Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources.
+        Alternatively the `kubectl -f deployment.yaml` could be used to deploy the resources.
 
 1. Create XSUAA service instance:
 
@@ -184,7 +183,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
         }
         ```
 
-        Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**).
+        !!! Note
+            Replace the **`<your-kyma-cluster-host>`** placeholder with your Kyma cluster host (e.g. **`c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com`**).
 
     - Bind the servce instance to the dirigible application.
 
@@ -192,7 +192,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
 1. Log in.
 
-!!! info "Helm"
+!!! example "Additional Materials"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
 
     Example:
@@ -205,7 +205,5 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 
     More about the setup with Helm can be found [here](../helm/).
 
-
-!!! example "Additional Materials"
     - For deployment through the kubectl, refer to the Kubernetes [setup](../kubernetes/).
     - Step by step tutorial can be found [here](https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/).
