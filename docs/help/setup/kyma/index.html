@@ -1750,7 +1750,7 @@
 <p>Click on the <strong>Deploy new resource</strong> button and select the <code>deployment.yaml</code> file.</p>
 </li>
 </ul>
-<div class="admonition note">
+<div class="admonition info">
 <p class="admonition-title">Note</p>
 <p>Alternatively the <code>kubectl -f deployment.yaml</code> could be used to deploy the resources.</p>
 </div>
@@ -1759,7 +1759,7 @@
 <p>Create XSUAA service instance:</p>
 <ul>
 <li>From the Kyma dashboard, go to <strong>Service Management</strong> <strong>&rarr;</strong> <strong>Catalog</strong>.</li>
-<li>Find the Authorization &amp; Trust Management service.</li>
+<li>Find the <code>Authorization &amp; Trust Management</code> service.</li>
 <li>Create new service instance.</li>
 <li>
 <p>Provide the following additional parameters.</p>
@@ -1815,12 +1815,12 @@
 </div>
 </li>
 <li>
-<p>Bind the servce instance to the dirigible application.</p>
+<p>Bind the servce instance to the <strong><code>dirigible</code></strong> application.</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Assign the Developer and Operator roles.</p>
+<p>Assign the <code>Developer</code> and <code>Operator</code> roles.</p>
 </li>
 <li>
 <p>Log in.</p>
@@ -1836,7 +1836,6 @@ helm install dirigible dirigible/dirigible
 </code></pre></div>
 <p>More about the setup with Helm can be found <a href="../helm/">here</a>.</p>
 <ul>
-<li>For deployment through the kubectl, refer to the Kubernetes <a href="../kubernetes/">setup</a>.</li>
 <li>Step by step tutorial can be found <a href="https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/">here</a>.</li>
 </ul>
 </div>
