@@ -4,18 +4,15 @@ hide:
   - toc
 ---
 
-Platform Lifecycle
-===
+# Platform Lifecycle
 
 ### Steps
 
-
-1. Create a project `platform-lifecycle-test`.
+1. Create a project `platform-lifecycle`.
 2. Then create a JavaScript service named `platform-lifecycle.js`.
 3. Within the service code, enter the following content:
 
 ```javascript
-
 var response = require("http/v4/response");
 var user = require("security/v4/user");
 var workspace = require("workspace/v4/manager");
@@ -33,10 +30,9 @@ myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
 
 var publishResult = lifecycle.publish(user, workspaceName, projectName);
 
-response.println("publishResult: " + publishResult)
-
+response.println("publishResult: " + publishResult);
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

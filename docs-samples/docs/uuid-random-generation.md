@@ -4,8 +4,7 @@ hide:
   - toc
 ---
 
-UUID - Random Generation
-===
+# UUID - Random Generation
 
 ### Steps
 
@@ -14,7 +13,6 @@ UUID - Random Generation
 3. Enter the following content:
 
 ```javascript
-
 var uuid = require("utils/v4/uuid");
 var response = require("http/v4/response");
 
@@ -28,9 +26,8 @@ response.println(JSON.stringify("Randomly Generated UUID: " + generated));
 
 response.flush();
 response.close();
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

@@ -4,19 +4,17 @@ hide:
   - toc
 ---
 
-SOAP - Client
-===
+# SOAP - Client
 
 ### Steps
 
-1. Create a project `soap_project`.
+1. Create a project `soap`.
 2. Create a JavaScript service with the name `soap-client.js`.
 3. Enter the following content:
 
 ```javascript
-
 var soap = require("net/v4/soap");
-var response = require('http/v4/response');
+var response = require("http/v4/response");
 
 response.setContentType("text/plain; charset=UTF-8");
 
@@ -37,7 +35,10 @@ mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
 requestMessage.save();
 response.println("Request: " + requestMessage.getText());
 
-var responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
+var responseMessage = soap.call(
+  requestMessage,
+  "http://ws.cdyne.com/ip2geo/ip2geo.asmx"
+);
 
 response.println("Response: " + responseMessage.getText());
 
@@ -51,19 +52,18 @@ response.flush();
 response.close();
 
 function printElements(childElements) {
-	childElements.forEach(function(element) {
-		if (element.isSOAPElement()) {
-			var name = element.getElementName();
-			response.print(name.getLocalName());
-			response.print(": ");
-			response.println(JSON.stringify(element.getValue()));
-			printElements(element.getChildElements());
-		}
-	});
+  childElements.forEach(function (element) {
+    if (element.isSOAPElement()) {
+      var name = element.getElementName();
+      response.print(name.getLocalName());
+      response.print(": ");
+      response.println(JSON.stringify(element.getValue()));
+      printElements(element.getChildElements());
+    }
+  });
 }
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.

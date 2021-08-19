@@ -4,17 +4,15 @@ hide:
   - toc
 ---
 
-Base64 - Encode
-===
+# Base64 - Encode
 
 ### Steps
 
-1. Create a project `utils-project`.
+1. Create a project `utils-base64`.
 2. Create a JavaScript service with the name `base64-encode.js`.
 3. Enter the following content:
 
 ```javascript
-
 var base64 = require("utils/v4/base64");
 var response = require("http/v4/response");
 
@@ -26,9 +24,8 @@ response.println(JSON.stringify("encoded: " + result));
 
 response.flush();
 response.close();
-
 ```
 
 ---
 
-> For more information, see the *[API](../../api/)* documentation.
+> For more information, see the _[API](../../api/)_ documentation.
