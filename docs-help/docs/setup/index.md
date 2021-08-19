@@ -11,32 +11,32 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
     - Download the Tomcat [binary](https://tomcat.apache.org/download-80.cgi). More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
     - JDK 11 or later - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
 
+
     === "macOS"
         Install `ttyd`:
 	
-	```
-	brew install ttyd
-	```
+        ```
+        brew install ttyd
+        ```
 
     === "Linux"
-
-        Linux support is built-in.
-	More info about ttyd can be found at: [ttyd](https://github.com/tsl0922/ttyd)
+        Linux support is built-in. More info about ttyd can be found at: [ttyd](https://github.com/tsl0922/ttyd)
 
     === "Windows"
-
-        You may experience certain functional limitations, if you decide to run the Web IDE locally on Windows using Tomcat. 
-        Some of these limitations are related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
-        Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
+        You may experience certain functional limitations, if you decide to run the Web IDE locally on Windows using Tomcat:
+	
+	- Limitations related to the [Create symbolic links policy](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links). 
+	- Some tests in local builds of Dirigible may fail on Windows due to the same policy restriction.
 	
         You may grant your user account access to create symbolic links by editing the policy:
           
-	  1. Go to `WIN + R > gpedit.msc > Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Create Symbolic links`.
-          2. Add your Windows user account to the policy.
+	- Go to _(WIN + R)_ > `gpedit.msc`
+	- Navigate to: `Computer Configuration` -> `Windows Settings` -> `Security Settings` -> `Local Policies` -> `User Rights Assignment` -> `Create Symbolic links`.
+        - Add your Windows user account to the policy.
     
         _**Note**: Editing this policy may make your machine vulnerable to symbolic link attacks as noted [here](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links#:~:text=Vulnerability,a%20DoS%20attack.)._
     
-        In this case, we recommend that you perform the setup using Docker, see [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
+        Alternative of the `Windows` setup would be to follow the [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
 ## Steps
 ---
@@ -404,7 +404,8 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
 
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
-1. Login with user **`dirigible`** and password **`dirigible`**.
+    !!! Note
+        The default user name and password are **`dirigible/dirigible`**
 
 ---
 
