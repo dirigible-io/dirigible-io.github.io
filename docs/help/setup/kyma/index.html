@@ -1636,17 +1636,13 @@
 <ol>
 <li>
 <p>Access the SAP BTP, Kyma environment via the SAP BTP cockpit:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Trial landscape can be accessed from <a href="https://account.hanatrial.ondemand.com">here</a></p>
-</div>
 </li>
 <li>
 <p>Deploy Eclipse Dirigible:</p>
 <ul>
 <li>
 <p>Copy and paste the following content into <code>deployment.yaml</code>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
@@ -1734,7 +1730,10 @@
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
     <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeholder with your Kyma cluster host (e.g. <strong><code>c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com</code></strong>)._</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeholder with your Kyma cluster host (e.g. <strong><code>c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com</code></strong>)._</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Eclipse Dirigible versions</p>
 <p>Instead of using the <code>latest</code> tag (version), for production and development use cases it is recomended to use stable release version:</p>
@@ -1745,7 +1744,7 @@ Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeho
 </div>
 </li>
 <li>
-<p>Navigate to your Kyma dashboard and select the "default" namespace.</p>
+<p>Navigate to your Kyma dashboard and select the <strong><code>default</code></strong> namespace.</p>
 </li>
 <li>
 <p>Click on the <strong>Deploy new resource</strong> button and select the <code>deployment.yaml</code> file.</p>
@@ -1810,7 +1809,10 @@ Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeho
    <span class="p">]</span>    
 <span class="p">}</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeholder with your Kyma cluster host (e.g. <strong><code>c-xxxxxxx.kyma.xxx.xxx.xxx.ondemand.com</code></strong>).</p>
+</div>
 </li>
 <li>
 <p>Bind the servce instance to the dirigible application.</p>
@@ -1824,8 +1826,8 @@ Replace the <strong><code>&lt;your-kyma-cluster-host&gt;</code></strong> placeho
 <p>Log in.</p>
 </li>
 </ol>
-<div class="admonition info">
-<p class="admonition-title">Helm</p>
+<div class="admonition example">
+<p class="admonition-title">Additional Materials</p>
 <p>The <code>helm</code> package manager could be used to install Eclipse Dirigible via Helm <a href="https://artifacthub.io/packages/search?page=1&amp;org=dirigiblelabs">Chart</a>.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>helm repo add dirigible https://eclipse.github.io/dirigible
@@ -1833,9 +1835,6 @@ helm repo update
 helm install dirigible dirigible/dirigible
 </code></pre></div>
 <p>More about the setup with Helm can be found <a href="../helm/">here</a>.</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Additional Materials</p>
 <ul>
 <li>For deployment through the kubectl, refer to the Kubernetes <a href="../kubernetes/">setup</a>.</li>
 <li>Step by step tutorial can be found <a href="https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/">here</a>.</li>
