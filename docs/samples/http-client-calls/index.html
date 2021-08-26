@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/http-client-calls/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1099,7 +1099,7 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
   <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
   <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
   <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span><span class="p">,</span>
@@ -1122,7 +1122,7 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+<span class="kd">var</span> <span class="nx">bodyContent</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
   <span class="nx">firstName</span><span class="o">:</span> <span class="s2">&quot;John&quot;</span><span class="p">,</span>
   <span class="nx">lastName</span><span class="o">:</span> <span class="s2">&quot;Doe&quot;</span><span class="p">,</span>
   <span class="nx">age</span><span class="o">:</span> <span class="mf">24</span><span class="p">,</span>
@@ -1145,7 +1145,7 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/client&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s2">&quot;http://httpbin.org/delete&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;http://httpbin.org/delete&quot;</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
@@ -1306,10 +1306,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
       
     
   </body>

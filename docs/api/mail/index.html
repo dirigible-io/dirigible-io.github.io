@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/api/mail/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1537,13 +1537,13 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">mail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/v4/client&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="k">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">to</span> <span class="o">=</span> <span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">subject</span> <span class="o">=</span> <span class="s2">&quot;Subject&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Content&lt;h1&gt;&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">subType</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">;</span>
 
-<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
+<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -1562,7 +1562,7 @@
 
 <span class="kd">var</span> <span class="nx">mailClient</span> <span class="o">=</span> <span class="nx">mail</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="k">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="kr">from</span> <span class="o">=</span> <span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">recipients</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">to</span><span class="o">:</span> <span class="s2">&quot;example@gmail.com&quot;</span><span class="p">,</span>
     <span class="nx">cc</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;example1@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;example2@sap.com&quot;</span><span class="p">],</span>
@@ -1572,7 +1572,7 @@
 <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">subType</span> <span class="o">=</span> <span class="s2">&quot;html&quot;</span><span class="p">;</span>
 
-<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="nx">recipients</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
+<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span> <span class="nx">recipients</span><span class="p">,</span> <span class="nx">subject</span><span class="p">,</span> <span class="nx">content</span><span class="p">,</span> <span class="nx">subType</span><span class="p">);</span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -1856,10 +1856,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
       
     
   </body>
