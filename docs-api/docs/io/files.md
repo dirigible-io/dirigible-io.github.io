@@ -33,6 +33,7 @@ files.deleteFile(tempFile);
 
 Function     | Description | Returns
 ------------ | ----------- | --------
+**list(path)**   | List files under this *path* | *array of string*
 **exists(path)**   | Whether a file by this *path* exists | *boolean*
 **isExecutable(path)**   | Whether the file by this *path* is executable | *boolean*
 **isReadable(path)**   | Whether the file by this *path* is readable | *boolean*
