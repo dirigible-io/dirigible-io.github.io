@@ -80,6 +80,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **getNextEntry()**   | Returns the next entry from the archive or null if no more entries found | *ZipEntry*
 **read()**   | Reads from the zip input stream at the current entry point and returns the result as array of bytes | *array of bytes*
+**readNative()**   | Reads from the zip input stream at the current entry point and returns the result as array of Java bytes | *array of Java bytes*
 **readText()**   | Reads from the zip input stream at the current entry point and returns the result as text | *string*
 **close()**   | Closes the zip input stream | -
 
@@ -91,6 +92,7 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **createZipEntry()**   | Returns a new entry for the archive | *ZipEntry*
 **write(bytes)**   | Writes an array of bytes to the zip output stream at the current entry point | -
+**writeNative(bytes)**   | Writes an array of Java bytes to the zip output stream at the current entry point | -
 **writeText(text)**   | Writes a text to the zip output stream at the current entry point | -
 **closeEntry()**   | Closes the current entry (optional) | -
 **close()**   | Finishes, flushes and closes the zip output stream | -
