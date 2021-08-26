@@ -38,6 +38,7 @@ response.close();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **getContent(path)**   | Gets the content of resource by path, as byte array | *array of bytes*
+**getContentNative(path)**   | Gets the content of resource by path, as array of Java bytes | *array of Java bytes*
 **getText(path)**   | Gets the content of resource by path, as text | *string*
 **find(path, pattern)**   | Find resources under certain path (e.g. /) by pattern (e.g. *.js) | *array of strings*
 
