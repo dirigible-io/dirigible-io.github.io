@@ -27,3 +27,4 @@ The constraints created in the **Constraints** view are also visible in the **Ac
 
 	* [Access View](../access)
     * [Documents View](../documents)
+    * [Documents Perspective](../../perspectives/documents)
