@@ -50,6 +50,7 @@ nav:
       - IDE:
         - IDE Overview: 'development/ide/index.md'
         - About: 'development/ide/about.md'
+        - Access Editor: 'development/ide/editor-access.md'
         - CSV Editor: 'development/ide/editor-csv.md'
         - Monaco Editor: 'development/ide/editor-monaco.md'
         - Modelers:
@@ -71,9 +72,11 @@ nav:
           - Access: 'development/ide/views/access.md'
           - Configurations: 'development/ide/views/configurations.md'
           - Console: 'development/ide/views/console.md'
+          - Constraints: 'development/ide/views/constraints.md'
           - Database: 'development/ide/views/database.md'
           - Data Structures: 'development/ide/views/datastructures.md'
           - Debugger: 'development/ide/views/debugger.md'
+          - Discussions: 'development/ide/views/discussions.md'
           - Documents: 'development/ide/views/documents.md'
           - Extensions: 'development/ide/views/extensions.md'
           - Git: 'development/ide/views/git.md'
@@ -102,7 +105,7 @@ nav:
 theme:
   favicon: /img/favicon.png
   logo: /img/logo/dirigible-logo.png
-  name: mkdocs
+  name: material
   custom_dir: overrides
   features:
     - navigation.instant
