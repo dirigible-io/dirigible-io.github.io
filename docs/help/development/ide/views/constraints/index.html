@@ -1618,7 +1618,7 @@
                 
                 
                 <h1 id="constraints-view">Constraints View</h1>
-<p>The <strong>Constraints</strong> view lets you restrict access through the <strong>Documents</strong> view to specific folders or files by creating constraints. </p>
+<p>The <strong>Constraints</strong> view lets you restrict access through the <strong>Documents</strong> view to specific folders or files by creating constraints. This way, users will be able to access certain resources based on their roles.</p>
 <p><img alt="Constraints view" src="../../../../images/constraintsview.png" /></p>
 <p>To create a constraint, you have to specify:</p>
 <ul>
@@ -1626,6 +1626,7 @@
 <li>a method - <code>READ</code>, <code>WRITE</code>, or both (<code>*</code>)</li>
 <li>a role - the role that the user needs to have in order to be able to see or edit the folder/file. For example, <code>Admin</code>.</li>
 </ul>
+<p>As specified in the screenshot below, only users with the role <code>Admin</code> can read <code>Folder C</code> that can be accessed by following the path <code>/Folder A/FolderC</code>.</p>
 <p><img alt="Create constraint" src="../../../../images/createconstraint.png" /></p>
 <p>The constraints created in the <strong>Constraints</strong> view are also visible in the <strong>Access</strong> view.</p>
 <div class="admonition info">
