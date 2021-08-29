@@ -99,6 +99,7 @@ nav:
           - Workspace: 'development/ide/views/workspace.md'
     - Tips & Tricks:
       - Cheat Sheet: 'tips-&-tricks/cheat-sheet.md'
+      - Keyboard Shortcuts: 'tips-&-tricks/keyboard-shortcuts.md'
     - Community: 'community.md'
         
 
