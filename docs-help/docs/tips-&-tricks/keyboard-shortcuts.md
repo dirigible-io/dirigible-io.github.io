@@ -18,7 +18,7 @@ Keyboard shortcuts represent combinations of two or more keyboard buttons that, 
 
 ## Command Pallette
 
-The command pallette gives you access to the most common operations in Eclipse Dirigible along with their keyboard shortcuts. You can access the command pallette by pressing <kbd>F1</kbd> on your keyboard.
 
-    
 ![Command Pallette](../../../images/commandpallette.png)
+
+The command pallette gives you access to the most common operations in Eclipse Dirigible along with their keyboard shortcuts. You can access the command pallette by pressing <kbd>F1</kbd> on your keyboard.
