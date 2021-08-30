@@ -942,6 +942,19 @@
     Create an Access Constraint
   </a>
   
+    <nav class="md-nav" aria-label="Create an Access Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-public-endpoint" class="md-nav__link">
+    Create a Public Endpoint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1667,6 +1680,19 @@
     Create an Access Constraint
   </a>
   
+    <nav class="md-nav" aria-label="Create an Access Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-public-endpoint" class="md-nav__link">
+    Create a Public Endpoint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1687,7 +1713,7 @@
                 
                 
                 <h1 id="access-editor">Access Editor</h1>
-<p>The <strong>Access</strong> editor lets you manage access to your project. The editor works with security constraints files (<code>*.access</code>). You can create multiple access constraints within your project as part of one security constraints file.  </p>
+<p>The <strong>Access</strong> editor lets you manage access to your project through security constraints files (<code>*.access</code>). You can create multiple access constraints within your project as part of one security constraints file.  </p>
 <p><img alt="Access Editor" src="../../../images/accesseditor.png" /></p>
 <h2 id="create-a-security-constraints-file">Create a Security Constraints File</h2>
 <ol>
@@ -1725,6 +1751,30 @@
 <li>
 <p>Choose <strong>Save</strong>.</p>
 <p><img alt="Dialog Create Constraint" src="../../../images/dialog_create_constraint.png" /></p>
+</li>
+</ol>
+<h3 id="create-a-public-endpoint">Create a Public Endpoint</h3>
+<p>You can also use the <strong>Access</strong> editor to make a resource publicly accessible. To do this, fill in the role <code>public</code> in step 6 above. This way, you're effectively creating a new public endpoint for the resource. You can access the public endpoint by replacing <code>web</code> with <code>public</code> in the endpoint's URL.</p>
+<ol>
+<li>
+<p>Fill in the <code>public</code> role in the <strong>Roles</strong> field of the <strong>Create Constraint</strong> dialog and choose <strong>Save</strong>.</p>
+<p><img alt="Add public role" src="../../../images/public_role.png" /></p>
+</li>
+<li>
+<p>Publish your project.</p>
+<p><img alt="Publish public project" src="../../../images/public_role_publish.png" /></p>
+</li>
+<li>
+<p>Copy the endpoint's URL from the <strong>Preview</strong> view.</p>
+<p><img alt="Copy URL" src="../../../images/endpoint_URL.png" /></p>
+</li>
+<li>
+<p>Open a browser and replace <code>web</code> with <code>public</code> in the URL.</p>
+<p><img alt="Public endpoint URL" src="../../../images/public_endpoint_URL.png" /></p>
+</li>
+<li>
+<p>Check if you can access the public endpoint.</p>
+<p><img alt="Public endpoint" src="../../../images/public_endpoint.png" /></p>
 </li>
 </ol>
                 
