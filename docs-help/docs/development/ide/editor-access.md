@@ -6,7 +6,7 @@ Access Editor
 ===
 
 
-The **Access** editor lets you manage access to your project. The editor works with security constraints files (`*.access`). You can create multiple access constraints within your project as part of one security constraints file.  
+The **Access** editor lets you manage access to your project through security constraints files (`*.access`). You can create multiple access constraints within your project as part of one security constraints file.  
 
 ![Access Editor](../../../images/accesseditor.png)
 
@@ -43,3 +43,28 @@ The **Access** editor lets you manage access to your project. The editor works w
 7. Choose **Save**.
 
     ![Dialog Create Constraint](../../../images/dialog_create_constraint.png)
+
+
+### Create a Public Endpoint
+
+You can also use the **Access** editor to make a resource publicly accessible. To do this, fill in the role `public` in step 6 above. This way, you're effectively creating a new public endpoint for the resource. You can access the public endpoint by replacing `web` with `public` in the endpoint's URL.
+
+1. Fill in the `public` role in the **Roles** field of the **Create Constraint** dialog and choose **Save**.
+
+    ![Add public role](../../../images/public_role.png)
+
+2. Publish your project.
+
+    ![Publish public project](../../../images/public_role_publish.png)
+
+3. Copy the endpoint's URL from the **Preview** view.
+
+    ![Copy URL](../../../images/endpoint_URL.png)
+
+4. Open a browser and replace `web` with `public` in the URL.
+
+    ![Public endpoint URL](../../../images/public_endpoint_URL.png)
+
+5. Check if you can access the public endpoint.
+
+    ![Public endpoint](../../../images/public_endpoint.png)
