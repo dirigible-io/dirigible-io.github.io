@@ -96,6 +96,8 @@ response.close();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **getSession()**   | Returns the CMIS connection session to the CMS system | *Session*
+**getAccessDefinitions(path, method)**   | Returns array of CMIS access constraints for the specified path and method | *array of objects*
+
 
 ### Objects
 
