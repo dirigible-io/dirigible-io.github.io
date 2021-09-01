@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/etcd/</loc>
+         <lastmod>2021-09-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/logging/</loc>
          <lastmod>2021-09-01</lastmod>
          <changefreq>daily</changefreq>
