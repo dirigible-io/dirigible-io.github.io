@@ -63,15 +63,15 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
 
 There are three additional customization options:
 
- - [ ] Header
+ - Header
 
    If you select this checkbox, the first line of your CSV file will be treated as a column title or header.
    
- - [ ] Use header names
+ - Use header names
  
    If you select this checkbox, the first line of the specified CSV file will be interpreted when importing the file. This option will work **only if** you have enabled the "Header" checkbox.
    
- - [ ] Distinguish empty from null
+ - Distinguish empty from null
  
    Select this checkbox if you want to make sure that the table-import process interprets correctly all empty values in the CSV file, which is enclosed with the value selected in the **Quote character** dropdown, for example, as an empty space. This ensures that an empty space is imported "as is" into the target table. If the empty space isn't interpreted correctly, it is imported as null.
 
