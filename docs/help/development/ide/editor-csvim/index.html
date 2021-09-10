@@ -931,9 +931,95 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CSVIM Editor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         CSVIM Editor
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-path" class="md-nav__link">
+    File path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delimiter" class="md-nav__link">
+    Delimiter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quote-character" class="md-nav__link">
+    Quote character
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    Keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-header-names" class="md-nav__link">
+    Use header names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distinguish-empty-from-null" class="md-nav__link">
+    Distinguish empty from null
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1624,6 +1710,77 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-path" class="md-nav__link">
+    File path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delimiter" class="md-nav__link">
+    Delimiter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quote-character" class="md-nav__link">
+    Quote character
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    Keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-header-names" class="md-nav__link">
+    Use header names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distinguish-empty-from-null" class="md-nav__link">
+    Distinguish empty from null
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1642,16 +1799,24 @@
                 <h1 id="csvim-editor">CSVIM Editor</h1>
 <p>The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, and edit the properties of CSV files. Such properties are:</p>
 <ul>
-<li>Table</li>
+<li><a href="#table">Table</a></li>
+<li><a href="#schema">Schema</a></li>
+<li><a href="#file-path">File path</a></li>
+<li><a href="#delimiter">Delimiter</a></li>
+<li><a href="#quote-character">Quote character</a></li>
+<li><a href="#keys">Keys</a></li>
+<li><a href="#header">Header</a></li>
+<li><a href="#use-header-names">Use header names</a></li>
+<li><a href="#distinguish-empty-from-null">Distinguish empty from null</a></li>
 </ul>
+<h3 id="table">Table</h3>
+<hr />
 <p>The <strong>Table</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
-<ul>
-<li>Schema</li>
-</ul>
+<h3 id="schema">Schema</h3>
+<hr />
 <p>The <strong>Schema</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
-<ul>
-<li>File path</li>
-</ul>
+<h3 id="file-path">File path</h3>
+<hr />
 <p>The <strong>File path</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), forward slashes ("/"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
 <p>Here’s an example for a correct file path: <em>/workspace/csv/subfolder/bigstats.csv</em>. In this example, the file path consists of:</p>
 <ul>
@@ -1673,35 +1838,29 @@
 </li>
 </ul>
 <p><strong>Note:</strong> If the file path is formatted properly but doesn't exist, you will be able to save the CSVIM file, but you won't be able to open it with the CSV editor. If the file path isn't formatted properly (for example, by having unsupported characters), you won’t be able to save the CSVIM file or open the CSV file.</p>
-<ul>
-<li>Delimiter</li>
-</ul>
+<h3 id="delimiter">Delimiter</h3>
+<hr />
 <p>The currently supported delimiters are comma (","), tab ("/t"), vertical bar ("|"), semicolon (";"), and number sign or hash ("#").</p>
 <p><strong>Note:</strong> If you’re trying to use an unsupported character such as "+", "The delimiter is not supported!" warning message will pop up. Nevertheless, you will be able to open the CSV file and save the CSVIM file.</p>
 <p><img alt="unsupported_characters" src="https://user-images.githubusercontent.com/20664881/132522169-9a57b186-7dc2-4d05-afb8-99e5b108ff0f.png" /></p>
-<ul>
-<li>Quote character</li>
-</ul>
+<h3 id="quote-character">Quote character</h3>
+<hr />
 <p>The currently supported quote characters are apostrophe ("‘"), quotation mark ("“"), and number sign or hash ("#").</p>
 <p><strong>Note:</strong> If you’re trying to use an unsupported character such as "^", "The quote character is not supported!" warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.</p>
-<ul>
-<li>Keys</li>
-</ul>
+<h3 id="keys">Keys</h3>
+<hr />
 <p>Here you can add column names and column values by clicking <strong>Add Column Row</strong> and <strong>Add Value</strong>, respectively.</p>
 <p>The columns and their values in the <strong>Keys</strong> field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
 <p><strong>Note:</strong> All column values and all values within a given column row must be <strong>unique</strong>. Otherwise, you won’t be allowed to save the CSVIM file.</p>
 <p>There are three additional customization options:</p>
-<ul>
-<li>Header</li>
-</ul>
+<h3 id="header">Header</h3>
+<hr />
 <p>If you select this checkbox, the first line of your CSV file will be treated as a column title or header.</p>
-<ul>
-<li>Use header names</li>
-</ul>
+<h3 id="use-header-names">Use header names</h3>
+<hr />
 <p>If you select this checkbox, the first line of the specified CSV file will be interpreted when importing the file. This option will work <strong>only if</strong> you have enabled the "Header" checkbox.</p>
-<ul>
-<li>Distinguish empty from null</li>
-</ul>
+<h3 id="distinguish-empty-from-null">Distinguish empty from null</h3>
+<hr />
 <p>Select this checkbox if you want to make sure that the table-import process interprets correctly all empty values in the CSV file, which is enclosed with the value selected in the <strong>Quote character</strong> dropdown, for example, as an empty space. This ensures that an empty space is imported "as is" into the target table. If the empty space isn't interpreted correctly, it is imported as null.</p>
                 
                   
