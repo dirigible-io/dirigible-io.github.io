@@ -1618,15 +1618,15 @@
 <ul>
 <li>Table</li>
 </ul>
-<p>The <strong>Table</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), dots (.), underscores (_), and dollar signs ($).</p>
+<p>The <strong>Table</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
 <ul>
 <li>Schema</li>
 </ul>
-<p>The <strong>Schema</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), dots (.), underscores (_), and dollar signs ($).</p>
+<p>The <strong>Schema</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
 <ul>
 <li>File path</li>
 </ul>
-<p>The <strong>File path</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), forward slashes (/), dots (.), underscores (_), and dollar signs ($).</p>
+<p>The <strong>File path</strong> input field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), forward slashes ("/"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
 <p>Here’s an example for a correct file path: <em>/workspace/csv/subfolder/bigstats.csv</em>. In this example, the file path consists of:</p>
 <ul>
 <li>
@@ -1646,37 +1646,37 @@
 <p>This is the CSV file.</p>
 </li>
 </ul>
-<p><strong>Note:</strong> If the file path isn’t correct, the input field will turn red, and you won’t be able to open the CSV file with the CSV editor. However, you will be able to save the CSVIM file.</p>
+<p><strong>Note:</strong> If the file path is formatted properly but doesn't exist, the input field will turn red, you will be able to save the CSVIM file, but you won't be able to open it with the CSV editor. If the file path isn't formatted properly (for example, by having unsupported characters), the input field will turn red and you won’t be able to save the CSVIM file or open the CSV file.</p>
 <ul>
 <li>Delimiter</li>
 </ul>
-<p>The currently supported delimiters are comma (,), tab (/t), dot (.), and vertical bar (|).</p>
-<p><strong>Note:</strong> If you’re trying to use an unsupported character such as “+”, a warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.</p>
+<p>The currently supported delimiters are comma (","), tab ("/t"), vertical bar ("|"), semicolon (";"), and number sign or hash ("#").</p>
+<p><strong>Note:</strong> If you’re trying to use an unsupported character such as "+", a warning message will pop up. Nevertheless, you will be able to open the CSV file and save the CSVIM file.</p>
 <p><img alt="unsupported_characters" src="https://user-images.githubusercontent.com/20664881/132522169-9a57b186-7dc2-4d05-afb8-99e5b108ff0f.png" /></p>
 <ul>
 <li>Quote character</li>
 </ul>
-<p>The currently supported quote characters are apostrophe (‘), quotation mark (“), and number sign or hash (#).</p>
-<p><strong>Note:</strong> If you’re trying to use an unsupported character such as “^”, a warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.</p>
+<p>The currently supported quote characters are apostrophe ("‘"), quotation mark ("“"), and number sign or hash ("#").</p>
+<p><strong>Note:</strong> If you’re trying to use an unsupported character such as "^", a warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.</p>
 <ul>
 <li>Keys</li>
 </ul>
 <p>Here you can add column names and column values by clicking <strong>Add Column Row</strong> and <strong>Add Value</strong>, respectively.</p>
-<p>The columns and their values in the <strong>Keys</strong> field can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), dots (.), underscores (_), and dollar signs ($).</p>
-<p><strong>Note:</strong> All column names and column values must be <strong>unique</strong>. Otherwise, you won’t be allowed to save the CSVIM file.</p>
+<p>The columns and their values in the <strong>Keys</strong> field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").</p>
+<p><strong>Note:</strong> All column values and all values within a given column row must be <strong>unique</strong>. Otherwise, you won’t be allowed to save the CSVIM file."</p>
 <p>There are three additional customization options:</p>
 <ul>
 <li>[ ] Header</li>
 </ul>
-<p>If you select this checkbox, your CSV file will have column headers.</p>
+<p>If you select this checkbox, the first line of your CSV file will be treated as a column title or header.</p>
 <ul>
 <li>[ ] Use header names</li>
 </ul>
-<p>If you select this checkbox, your column headers will also have a specific name.</p>
+<p>If you select this checkbox, the first line of the specified CSV file will be interpreted when importing the file. This option will work <strong>only if</strong> you have enabled the "Header" checkbox.</p>
 <ul>
 <li>[ ] Distinguish empty from null</li>
 </ul>
-<p>Selecting this checkbox will allow you to have empty row and columns in your table. If you don’t use this option, you won’t be able to have any empty fields at all.</p>
+<p>Select this checkbox if you want to make sure that the table-import process interprets correctly all empty values in the CSV file, which is enclosed with the value selected in the <strong>Quote character</strong> dropdown, for example, as an empty space. This ensures that an empty space is imported "as is" into the target table. If the empty space isn't interpreted correctly, it is imported as null.</p>
                 
                   
                 
