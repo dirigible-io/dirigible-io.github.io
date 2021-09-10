@@ -37,7 +37,7 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
    
      This is the CSV file.
      
-   **Note:** If the file path is formatted properly but doesn't exist, the input field will turn red, you will be able to save the CSVIM file, but you won't be able to open it with the CSV editor. If the file path isn't formatted properly (for example, by having unsupported characters), the input field will turn red and you won’t be able to save the CSVIM file or open the CSV file.
+   **Note:** If the file path is formatted properly but doesn't exist, you will be able to save the CSVIM file, but you won't be able to open it with the CSV editor. If the file path isn't formatted properly (for example, by having unsupported characters), you won’t be able to save the CSVIM file or open the CSV file.
 
  - Delimiter
 
