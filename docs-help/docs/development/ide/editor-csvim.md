@@ -59,7 +59,7 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
    
    The columns and their values in the **Keys** field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").
 
-   **Note:** All column values and all values within a given column row must be **unique**. Otherwise, you won’t be allowed to save the CSVIM file."
+   **Note:** All column values and all values within a given column row must be **unique**. Otherwise, you won’t be allowed to save the CSVIM file.
 
 There are three additional customization options:
 
