@@ -69,7 +69,7 @@ There are three additional customization options:
    
  - [ ] Use header names
  
-   If you select this checkbox, the first line of the specified CSV file will be interpreted when importing the file. This option will work **only if** you have already enabled the "Header" checkbox.
+   If you select this checkbox, the first line of the specified CSV file will be interpreted when importing the file. This option will work **only if** you have enabled the "Header" checkbox.
    
  - [ ] Distinguish empty from null
  
