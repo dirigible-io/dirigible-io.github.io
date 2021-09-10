@@ -43,7 +43,7 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
 
    The currently supported delimiters are comma (","), tab ("/t"), vertical bar ("|"), semicolon (";"), and number sign or hash ("#").
 
-   **Note:** If you’re trying to use an unsupported character such as "+", a warning message will pop up. Nevertheless, you will be able to open the CSV file and save the CSVIM file.
+   **Note:** If you’re trying to use an unsupported character such as "+", "The delimiter is not supported!" warning message will pop up. Nevertheless, you will be able to open the CSV file and save the CSVIM file.
 
    ![unsupported_characters](https://user-images.githubusercontent.com/20664881/132522169-9a57b186-7dc2-4d05-afb8-99e5b108ff0f.png)
 
@@ -51,7 +51,7 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
 
    The currently supported quote characters are apostrophe ("‘"), quotation mark ("“"), and number sign or hash ("#").
 
-   **Note:** If you’re trying to use an unsupported character such as "^", a warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.
+   **Note:** If you’re trying to use an unsupported character such as "^", "The quote character is not supported!" warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.
 
  - Keys
 
