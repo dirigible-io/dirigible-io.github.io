@@ -31,6 +31,7 @@ edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-samples/doc
 
 copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
 extra:
+  homepage: https://www.dirigible.io
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/dirigible_io
