@@ -7,6 +7,7 @@ theme:
   custom_dir: overrides
   features:
     - navigation.instant
+    - navigation.top
 
 extra_css:
   - stylesheets/custom.css
