@@ -364,6 +364,14 @@ Parameter     | Description | Default*
 **DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_NASHORN** | Whether GraalVM has enabled compatibility mode for Nashorn | _`true`_
 **DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_MOZILLA** | Whether GraalVM has enabled compatibility mode for Mozilla | _`false`_
 
+#### OData
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_ODATA_HANDLER_EXECUTOR_TYPE**   | The type of the JavaScript engine to be used for event handlers in OData | 
+**DIRIGIBLE_ODATA_HANDLER_EXECUTOR_ON_EVENT**   | The location of the wrapper helper to be used for event handlers in OData | 
+
+
 ### Operations
 ---
 
