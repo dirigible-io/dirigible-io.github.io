@@ -3,6 +3,7 @@ site_url: https://www.dirigible.io/help/
 
 nav:
     - Welcome: 'index.md'
+    - Getting Started: 'development/index.md'
     - Overview: 
       - The Eclipse Dirigible Project: 'overview/index.md'
       - Editors & Modelers: 'overview/editors-modelers.md'
@@ -21,8 +22,7 @@ nav:
       - Helm: 'setup/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'
-    - Development: 
-      - Getting Started: 'development/index.md'
+    - Development:
       - Development & Operations: 'development/devops.md'
       - Artifacts:
         - Artifacts Overview: 'development/artifacts/index.md'
