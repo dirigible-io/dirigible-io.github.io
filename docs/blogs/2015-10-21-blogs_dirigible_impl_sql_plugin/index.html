@@ -1,0 +1,1883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="nedelcho.delchev">
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2015-10-21-blogs_dirigible_impl_sql_plugin/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Tutorial - How to implement a plugin for SQL language support - Eclipse Dirigible Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../stylesheets/homepage.css">
+    
+    
+      
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#editor-for-sql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-header__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible Blogs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial - How to implement a plugin for SQL language support
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/eclipse/dirigible/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/eclipse/dirigible/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-12-16-2020_what_a_year_for_eclipse_dirigible/" class="md-nav__link">
+        2020 - What a year for Eclipse Dirigible!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-24-how_to_deploy_eclipse_dirigible_private_docker_image_in_the_sap_cloud_platform_kyma_environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-24-eclipse_dirigible_sap_identity_and_authentication_service_integration_on_the_sap_cloud_platform/" class="md-nav__link">
+        Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-20-how_to_deploy_eclipse_dirigible_private_docker_image_in_the_sap_cloud_platform_cloud_foundry_environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-19-eclipse_dirigible_building_application_docker_image/" class="md-nav__link">
+        Eclipse Dirigible – Building a Docker Image for Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-10-23-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_kyma_environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-06-29-celebrating_5_years_in_open_source/" class="md-nav__link">
+        Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-05-07-what_is_eclipse_dirigible/" class="md-nav__link">
+        What is Eclipse Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-02-15-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_neo_environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-02-15-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_cloud_foundry_environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-02-05-sending_emails_with_the_eclipse_dirigible_mail_api/" class="md-nav__link">
+        Sending E-Mails with the Eclipse Dirigible Mail API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-01-20-managing_documents_with_eclipse_dirigible_in_the_sap_cloud_platform_neo_environment/" class="md-nav__link">
+        Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          2019
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2019" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2019
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2019-09-25-how_does_eclipse_dirigible_contribute_to_eclipse_che_7/" class="md-nav__link">
+        How Does Eclipse Dirigible Contribute to Eclipse Che 7?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          2018
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2018" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2018
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-12-05-you_dont_need_abs_to_model_apps/" class="md-nav__link">
+        You Dont Need Abs to Model Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-11-24-blogs_node_in_dirigible/" class="md-nav__link">
+        Node.js in Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-11-13-blogs_dirigible_landed_in_faculty_of_mathematics_and_informatics/" class="md-nav__link">
+        Dirigible Landed in the Faculty of Mathematics and Informatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-11-12-blogs_dirigible_ide_on_che_workspaces/" class="md-nav__link">
+        Running Dirigible on Che Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-11-09-dirigible_extend_embed_reuse/" class="md-nav__link">
+        Dirigible - Extend, Embed, Reuse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-11-08-blogs_make_low_code_great_again/" class="md-nav__link">
+        Make Low-Code/No-Code Platforms Great Again!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-06-25-kubernetes_keycloak_postgresql_dirigible/" class="md-nav__link">
+        Kubernetes, Keycloak, PostgreSQL & Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-03-02-blogs_3x_ide/" class="md-nav__link">
+        Dirigible Cloud IDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-02-22-blogs_eclipse_dirigible/" class="md-nav__link">
+        Eclipse Dirigible - Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018-02-02-blogs_3x_a_new_era_began/" class="md-nav__link">
+        3.x Series - A new era has begun!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          2017
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2017" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          2017
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017-03-10-blogs_apps_tests-jasmine1/" class="md-nav__link">
+        Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017-03-10-blogs_apps_tests-jasmine/" class="md-nav__link">
+        Testing Server-Side JavaScript with Jasmine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017-03-10-blogs_apps_testfwks/" class="md-nav__link">
+        Integration of Third-Party JavaScript Libraries in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          2016
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2016" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          2016
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-11-03-cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+        Document Service Explorer at SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-09-12-the-java-saurus/" class="md-nav__link">
+        The Java-saurus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-08-18-how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure - Part II?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-08-17-sap-summer-practice/" class="md-nav__link">
+        Summer Practice in SAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-08-09-how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-08-01-blogs_why_enterprise_js/" class="md-nav__link">
+        Why Enterprise JavaScript?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-05-19-blogs_web_sockets_and_osgi_in_servlet_container/" class="md-nav__link">
+        WebSockets and Equinox OSGi in a Servlet Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-02-26-blogs_understanding_dirigible/" class="md-nav__link">
+        Understanding Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-02-05-blogs_develop_from_mobile_for_mobile/" class="md-nav__link">
+        Develop from Mobile for Mobile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-01-21-blogs_repositories/" class="md-nav__link">
+        Developer - Repositories, repositories, repositories...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-01-21-blogs_dirigible_custom_ds_3/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-01-11-blogs_dirigible_custom_ds_2/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016-01-07-blogs_dirigible_custom_ds_1/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          2015
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2015" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          2015
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-12-21-blogs_groovy_is_back/" class="md-nav__link">
+        Developer - Groovy is back
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-12-17-blogs_how_to_install_dirigible_on_sap_hana_cloud_platform/" class="md-nav__link">
+        Tutorial - How to install Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-12-10-blogs_dirigible_remote_debugging/" class="md-nav__link">
+        Developer - Remote debugging Dirigible source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-10-28-blogs_dirigible_orion_editor/" class="md-nav__link">
+        How the Orion editor is integrated in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-10-28-blogs_dirigible_branding/" class="md-nav__link">
+        Tutorial - How to re-brand Dirigible workbench
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial - How to implement a plugin for SQL language support
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Tutorial - How to implement a plugin for SQL language support
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#editor-for-sql" class="md-nav__link">
+    Editor for SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icon-for-sql-files" class="md-nav__link">
+    Icon for *.sql files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publisher-adaptation" class="md-nav__link">
+    Publisher adaptation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engine-for-sql" class="md-nav__link">
+    Engine for SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-the-plugin-as-a-feature" class="md-nav__link">
+    Include the Plugin as a Feature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-the-plugin-for-packaging" class="md-nav__link">
+    Include the Plugin for Packaging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-constrains-in-webxml" class="md-nav__link">
+    Security Constrains in web.xml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flows-and-jobs-integration" class="md-nav__link">
+    Flows and Jobs Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-section-for-sql-services" class="md-nav__link">
+    Registry Section for SQL Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-for-sql-scripting-service" class="md-nav__link">
+    Template for SQL Scripting Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    Congratulations!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015-09-24-blogs_dirigible_tools_for_vertical_scenarios/" class="md-nav__link">
+        Dirigible - Toolkit for Vertical Scenarios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          2014
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2014" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          2014
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-10-22-blogs_dirigible_java_runtime/" class="md-nav__link">
+        Dirigible enables dynamic in-memory Java runtime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-10-15-blogs_dirigible_terminal_services/" class="md-nav__link">
+        Dirigible - Terminal Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-08-19-blogs_dirigible_to_replicate_or_not_to_replicate/" class="md-nav__link">
+        Dirigible - To Replicate or Not To Replicate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-08-04-blogs_dirigible_fast_track_to_hcp/" class="md-nav__link">
+        Dirigible is the fast track to your HCP HANA DB instance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-06-11-blogs_dirigible_extensions_configs/" class="md-nav__link">
+        Dirigible - Extensions vs Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-03-24-blogs_dirigible_on_sap_hana/" class="md-nav__link">
+        Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2014-03-21-blogs_start_of_journey/" class="md-nav__link">
+        Start of Journey
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#editor-for-sql" class="md-nav__link">
+    Editor for SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icon-for-sql-files" class="md-nav__link">
+    Icon for *.sql files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publisher-adaptation" class="md-nav__link">
+    Publisher adaptation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engine-for-sql" class="md-nav__link">
+    Engine for SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-the-plugin-as-a-feature" class="md-nav__link">
+    Include the Plugin as a Feature
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-the-plugin-for-packaging" class="md-nav__link">
+    Include the Plugin for Packaging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-constrains-in-webxml" class="md-nav__link">
+    Security Constrains in web.xml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flows-and-jobs-integration" class="md-nav__link">
+    Flows and Jobs Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry-section-for-sql-services" class="md-nav__link">
+    Registry Section for SQL Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-for-sql-scripting-service" class="md-nav__link">
+    Template for SQL Scripting Service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations" class="md-nav__link">
+    Congratulations!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2015-10-21-blogs_dirigible_impl_sql_plugin.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <p>How to implement a custom plugin for Dirigible, which brings custom execution engine for a custom development language?
+Hmmm ... why at all you would need this?</p>
+<p>In general you do not. You can rely on the standard JavaScript, supported by default as a primary language for services in Dirigible. If you prefer Java you are still in the supported default options. But, what if you want to use your preferred language like Ruby, Groovy, Pyton, Scala and many other JVM and non-JVM modern languages? The good news - it's not so difficult. In this tutorial we will give you the major steps and directions, which can guide you throughout such integrations.</p>
+<p>Let's take something simple e.g. SQL script. The engine, which executes this language is the underlying RDBMS itself, but from Dirigible's point of view the database is abstracted via JDBC interface. So, let's create a new feature - 'SQL Services' support. It will provide the following:</p>
+<ol>
+<li>Editor for SQL script with highlighting of the keywords</li>
+<li>Icon in Workspace and Repository views showing that *.sql files are recognized</li>
+<li>Activator/Publisher, which will take care of the transfer of the SQL artifacts to Sandbox/Registry</li>
+<li>Runtime dispatcher, which will provide the endpoint for access for these services</li>
+<li>Runtime executor, which will take the artifact and will do the processing</li>
+<li>Infrastructure - pom.xml, config.ini, feature.xml</li>
+<li>User interface for endpoints in Registry</li>
+<li>Sample template for SQL Service</li>
+</ol>
+<p><em>If you are Eclipse RCP/RAP and OSGi developer, you can skip this blog and go directly by cloning the sources and looking for the Java and JavaScript plugins as example.</em></p>
+<p>Let's start...</p>
+<hr />
+<h2 id="editor-for-sql">Editor for SQL</h2>
+<p>Luckily we support two web editors in Dirigible - Orion and ACE. The later has good support for SQL Language, hence we can use it directly.
+Be sure that you enable the support of your language in the corresponding editor by adding the file extension to the editor's 'extensions' parameter in the plugin.xml. In this case in plugin <strong>org.eclipse.dirigible.ide.editor.ace</strong>, extension point <strong>org.eclipse.ui.editors</strong>, class <strong>org.eclipse.dirigible.ide.editor.ace.AceEditor</strong>.</p>
+<p><br>
+<img src="/img/posts/ace_sql.png"/>
+<br></p>
+<hr />
+<h2 id="icon-for-sql-files">Icon for *.sql files</h2>
+<p>Add an icon in the <strong>resources</strong> folder of the <strong>org.eclipse.dirigible.ide.repository.ui</strong> plugin, e.g. <strong>icon-sql.png</strong>.
+Add a reference of the icon and the necessary file extension in <strong>org.eclipse.dirigible.ide.repository.ui.viewer.AbstractArtifactLabelProvider</strong> similar like the other cases.</p>
+<p><br>
+<img src="/img/posts/icon_sql.png"/>
+<br></p>
+<hr />
+<h2 id="publisher-adaptation">Publisher adaptation</h2>
+<p>There are a few adaptation that can enable *.sql artifact to be considered as supported scripting services.
+To do that:</p>
+<ol>
+<li>Add the corresponding constant for SQL extension in <strong>ARTIFACT_EXTENSION</strong> in the class <strong>org.eclipse.dirigible.repository.api.ICommonConstants</strong> e.g. <code>public static final String SQL = ".sql";</code></li>
+<li>Add <strong>SQL_CONTAINER_MAPPING</strong> and <strong>SQL_SANDBOX_MAPPING</strong> in class <strong>org.eclipse.dirigible.ide.common.CommonParameters</strong> in similar way like the others.</li>
+<li>Add the corresponding artifact extension and mappings in the static list and maps in class <strong>org.eclipse.dirigible.ide.scripts.publish.ScriptsPublisher</strong> in similar way like the others.</li>
+</ol>
+<hr />
+<p>We are done at the IDE side! Now we go to the Runtime to implement the execution engine.</p>
+<hr />
+<h2 id="engine-for-sql">Engine for SQL</h2>
+<p>Create a new plugin which will contain all the execution engine related artifacts for the SQL support. As a template you can use already available for Java <strong>org.eclipse.dirigible.runtime.java</strong> - e.g. <strong>org.eclipse.dirigible.runtime.sql</strong></p>
+<p>Add corresponding <strong>ENGINE_TYPE</strong> <code>public static final String SQL = "sql";</code> in <strong>org.eclipse.dirigible.repository.api.ICommonConstants</strong></p>
+<p>Do the same for <strong>ENGINE_ALIAS</strong></p>
+<p>Modify/check:</p>
+<ol>
+<li><strong>.project</strong> file</li>
+<li><strong>MANIFEST.MF</strong> file names, dependencies, exported packages</li>
+<li>In <strong>OSGi-INF</strong> folder create a sql-executor.xml with corresponding references</li>
+<li><strong>plugin.xml</strong> fill the corresponding servlets and filters</li>
+<li><strong>pom.xml</strong></li>
+<li>Add the module definition in the parent's pom.xml, e.g. <code>&lt; module&gt;org.eclipse.dirigible.runtime.sql&lt; /module&gt;</code></li>
+</ol>
+<p>In the source folder (<em>src</em>), you should finally have at least:</p>
+<ol>
+<li><strong>org.eclipse.dirigible.runtime.filter.SQLRegistrySecureFilter.java</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="kn">package</span> <span class="nn">org.eclipse.dirigible.runtime.filter</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SQLRegistrySecureFilter</span> <span class="kd">extends</span> <span class="n">AbstractRegistrySecureFilter</span> <span class="p">{</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">SQL_SECURED_MAPPING</span> <span class="o">=</span> <span class="s">&quot;/services/sql-secured&quot;</span><span class="p">;</span> <span class="c1">//$NON-NLS-1$</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getSecuredMapping</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">SQL_SECURED_MAPPING</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>org.eclipse.dirigible.runtime.registry.SQLRegistryServlet.java</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="kn">package</span> <span class="nn">org.eclipse.dirigible.runtime.registry</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SQLRegistryServlet</span> <span class="kd">extends</span> <span class="n">AbstractRegistryServiceServlet</span> <span class="p">{</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7292896045277229573L</span><span class="p">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getServletMapping</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;/sql/&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getFileExtension</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;.sql&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getRequestProcessingFailedMessage</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">Messages</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">&quot;JavascriptRegistryServlet.REQUEST_PROCESSING_FAILED_S&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>org.eclipse.dirigible.runtime.sql.SQLExecutor.java</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="kn">package</span> <span class="nn">org.eclipse.dirigible.runtime.sql</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.sql.Connection</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.sql.PreparedStatement</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.sql.ResultSet</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.sql.ResultSetMetaData</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.util.List</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">java.util.Map</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="nn">org.eclipse.dirigible.repository.api.ICommonConstants</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">org.eclipse.dirigible.repository.api.IRepository</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">org.eclipse.dirigible.repository.logging.Logger</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">org.eclipse.dirigible.runtime.repository.RepositoryFacade</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">org.eclipse.dirigible.runtime.scripting.AbstractScriptExecutor</span><span class="p">;</span>
+
+    <span class="kn">import</span> <span class="nn">com.google.gson.Gson</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">com.google.gson.JsonArray</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">com.google.gson.JsonObject</span><span class="p">;</span>
+    <span class="kn">import</span> <span class="nn">com.google.gson.JsonPrimitive</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SQLExecutor</span> <span class="kd">extends</span> <span class="n">AbstractScriptExecutor</span> <span class="p">{</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">SQL_MODULE_NAME_CANNOT_BE_NULL</span> <span class="o">=</span> <span class="s">&quot;SQL module name cannot be null.&quot;</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">SQLExecutor</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="kd">private</span> <span class="n">IRepository</span> <span class="n">repository</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="n">String</span><span class="o">[]</span> <span class="n">rootPaths</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">defaultVariables</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">classpath</span><span class="p">;</span>
+
+        <span class="kd">public</span> <span class="nf">SQLExecutor</span><span class="p">(</span><span class="n">IRepository</span> <span class="n">repository</span><span class="p">,</span> <span class="n">String</span><span class="p">...</span> <span class="n">rootPaths</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">repository</span> <span class="o">=</span> <span class="n">repository</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">rootPaths</span> <span class="o">=</span> <span class="n">rootPaths</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">defaultVariables</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span><span class="p">();</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">classpath</span> <span class="o">=</span> <span class="n">classpath</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Object</span> <span class="nf">executeServiceModule</span><span class="p">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="p">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="p">,</span> <span class="n">Object</span> <span class="n">input</span><span class="p">,</span> <span class="n">String</span> <span class="n">module</span><span class="p">,</span>
+                <span class="n">Map</span><span class="o">&lt;</span><span class="n">Object</span><span class="p">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">executionContext</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="p">{</span>
+
+            <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+            <span class="k">try</span> <span class="p">{</span>
+                <span class="n">logger</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;entering: executeServiceModule()&quot;</span><span class="p">);</span> <span class="c1">//$NON-NLS-1$</span>
+                <span class="n">logger</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;module=&quot;</span> <span class="o">+</span> <span class="n">module</span><span class="p">);</span> <span class="c1">//$NON-NLS-1$</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">module</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">throw</span> <span class="k">new</span> <span class="n">IOException</span><span class="p">(</span><span class="n">SQL_MODULE_NAME_CANNOT_BE_NULL</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="n">String</span> <span class="n">sqlSource</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="p">(</span><span class="n">retrieveModule</span><span class="p">(</span><span class="n">repository</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">rootPaths</span><span class="p">).</span><span class="na">getContent</span><span class="p">());</span>
+
+                <span class="n">DataSource</span> <span class="n">dataSource</span> <span class="o">=</span> <span class="n">RepositoryFacade</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getDataSource</span><span class="p">();</span>
+                <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="n">connection</span> <span class="o">=</span> <span class="n">dataSource</span><span class="p">.</span><span class="na">getConnection</span><span class="p">();</span>
+                    <span class="n">PreparedStatement</span> <span class="n">pstmt</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="na">prepareStatement</span><span class="p">(</span><span class="n">sqlSource</span><span class="p">);</span>
+                    <span class="n">ResultSet</span> <span class="n">rs</span> <span class="o">=</span> <span class="n">pstmt</span><span class="p">.</span><span class="na">executeQuery</span><span class="p">();</span>
+
+                    <span class="c1">// get column names</span>
+                    <span class="n">ResultSetMetaData</span> <span class="n">rsmd</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="na">getMetaData</span><span class="p">();</span>
+                    <span class="kt">int</span> <span class="n">columnCnt</span> <span class="o">=</span> <span class="n">rsmd</span><span class="p">.</span><span class="na">getColumnCount</span><span class="p">();</span>
+                    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">columnNames</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">columnCnt</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">columnNames</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">rsmd</span><span class="p">.</span><span class="na">getColumnName</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="na">toUpperCase</span><span class="p">());</span>
+                    <span class="p">}</span>
+
+                    <span class="n">JsonArray</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JsonArray</span><span class="p">();</span>
+                    <span class="k">while</span> <span class="p">(</span><span class="n">rs</span><span class="p">.</span><span class="na">next</span><span class="p">())</span> <span class="p">{</span>
+                        <span class="n">JsonObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JsonObject</span><span class="p">();</span>
+                        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">columnCnt</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="n">String</span> <span class="n">key</span> <span class="o">=</span> <span class="n">columnNames</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+                            <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">rs</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                            <span class="n">obj</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="k">new</span> <span class="n">JsonPrimitive</span><span class="p">(</span><span class="n">value</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">value</span> <span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">));</span>
+                        <span class="p">}</span>
+                        <span class="n">array</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+                    <span class="p">}</span>
+
+                    <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="p">().</span><span class="na">toJson</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+
+                    <span class="n">rs</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+                    <span class="n">pstmt</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">connection</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">connection</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">logger</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(),</span> <span class="n">e</span><span class="p">);</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">IOException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+            <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">registerDefaultVariable</span><span class="p">(</span><span class="n">Object</span> <span class="n">scope</span><span class="p">,</span> <span class="n">String</span> <span class="n">name</span><span class="p">,</span> <span class="n">Object</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">defaultVariables</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getModuleType</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">ICommonConstants</span><span class="p">.</span><span class="na">ARTIFACT_TYPE</span><span class="p">.</span><span class="na">SCRIPTING_SERVICES</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><strong>org.eclipse.dirigible.runtime.sql.SQLServlet.java</strong></li>
+<li><strong>org.eclipse.dirigible.runtime.sql.SQLSandboxServlet.java</strong></li>
+<li><strong>org.eclipse.dirigible.runtime.sql.SQLSecuredServlet.java</strong></li>
+<li><strong>org.eclipse.dirigible.runtime.sql.SQLScriptExecutorProvider.java</strong></li>
+</ol>
+<hr />
+<h2 id="include-the-plugin-as-a-feature">Include the Plugin as a Feature</h2>
+<p>There is a feature for the runtime plugins in the project <strong>p2.runtime.feature</strong>
+Add the SQL plugin to the feature.xml accordingly</p>
+<hr />
+<h2 id="include-the-plugin-for-packaging">Include the Plugin for Packaging</h2>
+<p>You have to include just created plugin into the configuration files for Equinox OSGi:</p>
+<ol>
+<li>In the project <strong>releng/dirigible-all-tomcat</strong> &gt; sub-folder <strong>src/main/webapp/WEB-INF/configuration</strong> &gt; file <strong>config.ini</strong></li>
+<li>
+<p>In the project <strong>releng/dirigible-runtime-tomcat</strong> &gt; sub-folder <strong>src/main/webapp/WEB-INF/configuration</strong> &gt; file <strong>config.ini</strong></p>
+<p>be very careful with the white spaces in the beginning of the line</p>
+</li>
+</ol>
+<hr />
+<h2 id="security-constrains-in-webxml">Security Constrains in web.xml</h2>
+<ol>
+<li>In the project <strong>releng/dirigible-all-tomcat</strong> &gt; sub-folder <strong>src/web/</strong> &gt; all files <strong>web.xml</strong> excluding <strong>trial</strong></li>
+<li>In the project <strong>releng/dirigible-runtime-tomcat</strong> &gt; sub-folder <strong>src/web/</strong> &gt; all files <strong>web.xml</strong> excluding <strong>trial</strong></li>
+</ol>
+<hr />
+<h2 id="flows-and-jobs-integration">Flows and Jobs Integration</h2>
+<p>Luckily we have already implemented the extensibility in a way that <strong>SQLScriptExecutorProvider</strong> from above is automatically registered and can be used in Flows.</p>
+<hr />
+<h2 id="registry-section-for-sql-services">Registry Section for SQL Services</h2>
+<p>The plugin containing the registry user interface is <strong>org.eclipse.dirigible.runtime.ui</strong></p>
+<ol>
+<li>Create a file <strong>sql.html</strong> in the sub-folder <strong>resources/ui/templates/scripting/sql</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;content&quot;</span> <span class="na">ng-include</span><span class="o">=</span><span class="s">&quot;&#39;templates/default.html&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<ol>
+<li>Adapt <strong>$routeProvider</strong> in the <strong>app.js</strong> file by adding routing for <strong>sql</strong> pages</li>
+<li>In the same file add a corresponding section in <strong>$scope.homeData</strong></li>
+<li>Add the controller itself in <strong>default.js</strong>
+        defaultControllers.controller('SQLCtrl', function($scope, $resource) {
+            $scope.restService = $resource('../scripting/sql');
+        });</li>
+<li>Do not forget to add some image file also</li>
+<li>Add a manu item in the main menu - <strong>menu.json</strong></li>
+</ol>
+<hr />
+<h2 id="template-for-sql-scripting-service">Template for SQL Scripting Service</h2>
+<p>To complete the SQL support we can add at least one template to be available in the <strong>New-&gt;ScriptinService</strong> wizard.
+To do that, in the plugin <strong>org.eclipse.dirigible.ide.template.ui.js</strong></p>
+<ol>
+<li>Create file <strong>sql-service.sql</strong> under the folder <strong>src/org/eclipse/dirigible/ide/template/ui/js/templates</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DGB_FILES</span>
+</code></pre></div>
+<ol>
+<li>Add the definition in the <strong>plugin.xml</strong> accordingly</li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="nt">&lt;template</span>
+        <span class="na">category=</span><span class="s">&quot;ScriptingServices&quot;</span>
+        <span class="na">image=</span><span class="s">&quot;/icons/sql-service.png&quot;</span>
+        <span class="na">location=</span><span class="s">&quot;/org/eclipse/dirigible/ide/template/ui/js/templates/sql-service.sql&quot;</span>
+        <span class="na">text=</span><span class="s">&quot;SQL Sample Query Service&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/template&gt;</span>
+</code></pre></div>
+<ol>
+<li>Do not forget the icon as well</li>
+<li>Add the default extension file recognition in <strong>org.eclipse.dirigible.ide.template.ui.js.wizard.JavascriptServiceTemplateTargetLocationPage</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>    <span class="p">...</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="s">&quot;/org/eclipse/dirigible/ide/template/ui/js/templates/sql-service.sql&quot;</span> <span class="c1">//$NON-NLS-1$</span>
+            <span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">model</span><span class="p">.</span><span class="na">getTemplate</span><span class="p">().</span><span class="na">getLocation</span><span class="p">()))</span> <span class="p">{</span>
+        <span class="n">jsOrLibExt</span> <span class="o">=</span> <span class="s">&quot;sql&quot;</span><span class="p">;</span> <span class="c1">//$NON-NLS-1$</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+</code></pre></div>
+<p><br>
+<img src="/img/posts/sql_template.png"/>
+<br></p>
+<h1 id="congratulations">Congratulations!</h1>
+<p>If you managed to follow all this - you are a hero!</p>
+<p>The git commit for reference is <a href="https://github.com/eclipse/dirigible/commit/30a85e9c4420ab71176ba1cb0ab5e1047442f0e3">here</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+		<nav class="md-footer__inner md-grid" aria-label="Footer">
+			
+				<a href="../2015-10-28-blogs_dirigible_branding/" class="md-footer__link md-footer__link--prev" rel="prev">
+					<div class="md-footer__button md-icon">
+					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+					</div>
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Previous
+							</span>
+							Tutorial - How to re-brand Dirigible workbench			
+						</div>
+					</div>
+				</a>
+    		
+			
+				<a href="../2015-09-24-blogs_dirigible_tools_for_vertical_scenarios/" class="md-footer__link md-footer__link--next" rel="next">
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Next
+							</span>
+							Dirigible - Toolkit for Vertical Scenarios
+						</div>
+					</div>
+					<div class="md-footer__button md-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+					</div>
+				</a>
+			
+		</nav>
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="/help/community/">Community</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs.html">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg" target="_blank" rel="noopener" title="join.slack.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+      </a>
+    
+  </div>
+
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
