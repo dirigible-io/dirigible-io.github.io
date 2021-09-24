@@ -1,0 +1,114 @@
+site_name: Eclipse Dirigible Blogs
+site_url: https://www.dirigible.io/blogs/
+
+nav:
+    - 2020:
+      - 2020 - What a year for Eclipse Dirigible!: '2020-12-16-2020_what_a_year_for_eclipse_dirigible.md'
+      - How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment: '2020-11-24-how_to_deploy_eclipse_dirigible_private_docker_image_in_the_sap_cloud_platform_kyma_environment.md'
+      - Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform: '2020-11-24-eclipse_dirigible_sap_identity_and_authentication_service_integration_on_the_sap_cloud_platform.md'
+      - How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment: '2020-11-20-how_to_deploy_eclipse_dirigible_private_docker_image_in_the_sap_cloud_platform_cloud_foundry_environment.md'
+      - Eclipse Dirigible – Building a Docker Image for Your Application: '2020-11-19-eclipse_dirigible_building_application_docker_image.md'
+      - How to deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment: '2020-10-23-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_kyma_environment.md'
+      - Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features: '2020-06-29-celebrating_5_years_in_open_source.md'
+      - What is Eclipse Dirigible?: '2020-05-07-what_is_eclipse_dirigible.md'
+      - How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment: '2020-02-15-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_neo_environment.md'
+      - How to deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment: '2020-02-15-how_to_deploy_eclipse_dirigible_in_the_sap_cloud_platform_cloud_foundry_environment.md'
+      - Sending E-Mails with the Eclipse Dirigible Mail API: '2020-02-05-sending_emails_with_the_eclipse_dirigible_mail_api.md'
+      - Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment: '2020-01-20-managing_documents_with_eclipse_dirigible_in_the_sap_cloud_platform_neo_environment.md'
+    - 2019:
+      - How Does Eclipse Dirigible Contribute to Eclipse Che 7?: '2019-09-25-how_does_eclipse_dirigible_contribute_to_eclipse_che_7.md'
+    - 2018:
+      - You Don't Need Abs to Model Apps: '2018-12-05-you_dont_need_abs_to_model_apps.md'
+      - Node.js in Dirigible?: '2018-11-24-blogs_node_in_dirigible.md'
+      - Dirigible Landed in the Faculty of Mathematics and Informatics: '2018-11-13-blogs_dirigible_landed_in_faculty_of_mathematics_and_informatics.md'
+      - Running Dirigible on Che Workspaces: '2018-11-12-blogs_dirigible_ide_on_che_workspaces.md'
+      - Dirigible - Extend, Embed, Reuse: '2018-11-09-dirigible_extend_embed_reuse.md'
+      - Make Low-Code/No-Code Platforms Great Again!: '2018-11-08-blogs_make_low_code_great_again.md'
+      - Kubernetes, Keycloak, PostgreSQL & Dirigible: '2018-06-25-kubernetes_keycloak_postgresql_dirigible.md'
+      - Dirigible Cloud IDE: '2018-03-02-blogs_3x_ide.md'
+      - Eclipse Dirigible - Getting Started: '2018-02-22-blogs_eclipse_dirigible.md'
+      - 3.x Series - A new era has begun!: '2018-02-02-blogs_3x_a_new_era_began.md'
+    - 2017:
+      - Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console: '2017-03-10-blogs_apps_tests-jasmine1.md'
+      - Testing Server-Side JavaScript with Jasmine: '2017-03-10-blogs_apps_tests-jasmine.md'
+      - Integration of Third-Party JavaScript Libraries in Dirigible: '2017-03-10-blogs_apps_testfwks.md'
+    - 2016:
+      - Document Service Explorer at SAP HANA Cloud Platform: '2016-11-03-cmis-explorer-at-sap-hana-cloud-platform.md'
+      - The Java-saurus: '2016-09-12-the-java-saurus.md'
+      - How to Run Dirigible Anywhere - Microsoft Azure - Part II?: '2016-08-18-how-to-run-dirigible-anywhere-microsoft-azure-part-2.md'
+      - Summer Practice in SAP: '2016-08-17-sap-summer-practice.md'
+      - How to Run Dirigible Anywhere - Microsoft Azure?: '2016-08-09-how-to-run-dirigible-anywhere-microsoft-azure.md'
+      - Why Enterprise JavaScript?: '2016-08-01-blogs_why_enterprise_js.md'
+      - WebSockets and Equinox OSGi in a Servlet Container: '2016-05-19-blogs_web_sockets_and_osgi_in_servlet_container.md'
+      - Understanding Dirigible: '2016-02-26-blogs_understanding_dirigible.md'
+      - Develop from Mobile for Mobile: '2016-02-05-blogs_develop_from_mobile_for_mobile.md'
+      - Developer - Repositories, repositories, repositories...: '2016-01-21-blogs_repositories.md'
+      - BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source: '2016-01-21-blogs_dirigible_custom_ds_3.md'
+      - BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources: '2016-01-11-blogs_dirigible_custom_ds_2.md'
+      - BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup: '2016-01-07-blogs_dirigible_custom_ds_1.md'
+    - 2015:
+      - Developer - Groovy is back: '2015-12-21-blogs_groovy_is_back.md'
+      - Tutorial - How to install Dirigible on SAP HANA Cloud Platform: '2015-12-17-blogs_how_to_install_dirigible_on_sap_hana_cloud_platform.md'
+      - Developer - Remote debugging Dirigible source code: '2015-12-10-blogs_dirigible_remote_debugging.md'
+      - How the Orion editor is integrated in Dirigible: '2015-10-28-blogs_dirigible_orion_editor.md'
+      - Tutorial - How to re-brand Dirigible workbench: '2015-10-28-blogs_dirigible_branding.md'
+      - Tutorial - How to implement a plugin for SQL language support: '2015-10-21-blogs_dirigible_impl_sql_plugin.md'
+      - Dirigible - Toolkit for Vertical Scenarios: '2015-09-24-blogs_dirigible_tools_for_vertical_scenarios.md'
+    - 2014:
+      - Dirigible enables dynamic in-memory Java runtime: '2014-10-22-blogs_dirigible_java_runtime.md'
+      - Dirigible - Terminal Services: '2014-10-15-blogs_dirigible_terminal_services.md'
+      - Dirigible - To Replicate or Not To Replicate: '2014-08-19-blogs_dirigible_to_replicate_or_not_to_replicate.md'
+      - Dirigible is the fast track to your HCP HANA DB instance: '2014-08-04-blogs_dirigible_fast_track_to_hcp.md'
+      - Dirigible - Extensions vs Configurations: '2014-06-11-blogs_dirigible_extensions_configs.md'
+      - Dirigible on SAP HANA Cloud Platform: '2014-03-24-blogs_dirigible_on_sap_hana.md'
+      - Start of Journey: '2014-03-21-blogs_start_of_journey.md'
+
+theme:
+  favicon: /img/favicon.png
+  logo: /img/logo/dirigible-logo.png
+  name: mkdocs
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.top
+
+extra_css:
+  - stylesheets/custom.css
+  - stylesheets/homepage.css
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.snippets
+    - pymdownx.highlight:
+        linenums: false
+    - pymdownx.keys
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.emoji
+    - meta
+    - footnotes
+    - admonition
+    - pymdownx.details
+
+repo_url: https://github.com/eclipse/dirigible
+repo_name: eclipse/dirigible
+edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs
+
+copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+extra:
+  homepage: https://www.dirigible.io
+  analytics:
+    provider: google
+    property: UA-49027147-1
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dirigible_io
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/dirigible.io
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/groups/8413366
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/dirigibleio
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg
