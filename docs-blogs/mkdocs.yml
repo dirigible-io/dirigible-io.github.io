@@ -2,6 +2,7 @@ site_name: Eclipse Dirigible Blogs
 site_url: https://www.dirigible.io/blogs/
 
 nav:
+    - 'Blogs': 'index.md'
     - '2020':
       - '2020 - What a year for Eclipse Dirigible!': '2020/12/16/2020-what-a-year-for-eclipse-dirigible.md'
       - 'How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment': '2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md'
