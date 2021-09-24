@@ -24,14 +24,6 @@ exclude:
 defaults:
   -
     scope:
-      path: _posts/blogs
-      type: posts
-    values:
-      layout: blog
-      category: blogs
-      tag: blogs
-  -
-    scope:
       path: _posts/news
       type: posts
     values:
