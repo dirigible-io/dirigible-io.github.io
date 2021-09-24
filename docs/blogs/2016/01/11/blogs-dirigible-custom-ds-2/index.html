@@ -1,0 +1,1980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="georgi.pavlov">
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2016/01/11/blogs-dirigible-custom-ds-2/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources - Eclipse Dirigible Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/homepage.css">
+    
+    
+      
+
+  
+
+
+  
+
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-ii-extending-supported-databases-for-custom-data-sources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-header__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible Blogs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/eclipse/dirigible/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-tabs__link">
+        2020
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-tabs__link">
+        2019
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2018/12/05/you-dont-need-abs-to-model-apps/" class="md-tabs__link">
+        2018
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-tabs__link">
+        2017
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-tabs__link md-tabs__link--active">
+        2016
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-tabs__link">
+        2015
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-tabs__link">
+        2014
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/eclipse/dirigible/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-nav__link">
+        2020 - What a year for Eclipse Dirigible!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform/" class="md-nav__link">
+        Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/20/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/19/eclipse-dirigible-building-application-docker-image/" class="md-nav__link">
+        Eclipse Dirigible – Building a Docker Image for Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/10/23/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/06/29/celebrating-5-years-in-open-source/" class="md-nav__link">
+        Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/05/07/what-is-eclipse-dirigible/" class="md-nav__link">
+        What is Eclipse Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/05/sending-emails-with-the-eclipse-dirigible-mail-api/" class="md-nav__link">
+        Sending E-Mails with the Eclipse Dirigible Mail API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/01/20/managing-documents-with-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          2019
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2019" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2019
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-nav__link">
+        How Does Eclipse Dirigible Contribute to Eclipse Che 7?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          2018
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2018" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2018
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/12/05/you-dont-need-abs-to-model-apps/" class="md-nav__link">
+        You Dont Need Abs to Model Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/24/blogs-node-in-dirigible/" class="md-nav__link">
+        Node.js in Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/13/blogs-dirigible-landed-in-faculty-of-mathematics-and-informatics/" class="md-nav__link">
+        Dirigible Landed in the Faculty of Mathematics and Informatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/12/blogs-dirigible-ide-on-che-workspaces/" class="md-nav__link">
+        Running Dirigible on Che Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/09/dirigible-extend-embed-reuse/" class="md-nav__link">
+        Dirigible - Extend, Embed, Reuse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/08/blogs-make-low-code-great-again/" class="md-nav__link">
+        Make Low-Code/No-Code Platforms Great Again!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/06/25/kubernetes-keycloak-postgresql-dirigible/" class="md-nav__link">
+        Kubernetes, Keycloak, PostgreSQL & Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/03/02/blogs-3x-ide/" class="md-nav__link">
+        Dirigible Cloud IDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/02/22/blogs-eclipse-dirigible/" class="md-nav__link">
+        Eclipse Dirigible - Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/02/02/blogs-3x-a-new-era-began/" class="md-nav__link">
+        3.x Series - A new era has begun!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          2017
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2017" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          2017
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-nav__link">
+        Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine/" class="md-nav__link">
+        Testing Server-Side JavaScript with Jasmine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-testfwks/" class="md-nav__link">
+        Integration of Third-Party JavaScript Libraries in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          2016
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2016" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          2016
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+        Document Service Explorer at SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016-09-12-the-java-saurus.md" class="md-nav__link">
+        The Java-saurus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure - Part II?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08/17/sap-summer-practice/" class="md-nav__link">
+        Summer Practice in SAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08/01/blogs-why-enterprise-js/" class="md-nav__link">
+        Why Enterprise JavaScript?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+        WebSockets and Equinox OSGi in a Servlet Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02/26/blogs-understanding-dirigible/" class="md-nav__link">
+        Understanding Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+        Develop from Mobile for Mobile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21/blogs-repositories/" class="md-nav__link">
+        Developer - Repositories, repositories, repositories...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-ii-extending-supported-databases-for-custom-data-sources" class="md-nav__link">
+    Part II: Extending supported databases for custom data sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hitting-the-wall" class="md-nav__link">
+    Hitting the wall
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-provision-the-drivers" class="md-nav__link">
+    Step 1: Provision the drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-bind-to-jndi" class="md-nav__link">
+    Step 2: Bind to JNDI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-application-reference" class="md-nav__link">
+    Step 3: Configure application reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-register-the-data-source" class="md-nav__link">
+    Step 4: Register the data source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-results" class="md-nav__link">
+    Verify results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-new-dialect-onboard" class="md-nav__link">
+    A new dialect onboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundling" class="md-nav__link">
+    Bundling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dissecting-idialectspecifier" class="md-nav__link">
+    Dissecting IDialectSpecifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-statement-construction-callbacks" class="md-nav__link">
+    SQL statement construction callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultset-iteration-callbacks" class="md-nav__link">
+    ResultSet iteration callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-data-type-model-translation" class="md-nav__link">
+    Common data type model translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-templates" class="md-nav__link">
+    Query templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-metadata" class="md-nav__link">
+    Database Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrapping-up" class="md-nav__link">
+    Wrapping up
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          2015
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2015" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          2015
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-nav__link">
+        Developer - Groovy is back
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/17/blogs-how-to-install-dirigible-on-sap-hana-cloud-platform/" class="md-nav__link">
+        Tutorial - How to install Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/10/blogs-dirigible-remote-debugging/" class="md-nav__link">
+        Developer - Remote debugging Dirigible source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-orion-editor/" class="md-nav__link">
+        How the Orion editor is integrated in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-branding/" class="md-nav__link">
+        Tutorial - How to re-brand Dirigible workbench
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/21/blogs-dirigible-impl-sql-plugin/" class="md-nav__link">
+        Tutorial - How to implement a plugin for SQL language support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/09/24/blogs-dirigible-tools-for-vertical-scenarios/" class="md-nav__link">
+        Dirigible - Toolkit for Vertical Scenarios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          2014
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2014" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          2014
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-nav__link">
+        Dirigible enables dynamic in-memory Java runtime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/15/blogs-dirigible-terminal-services/" class="md-nav__link">
+        Dirigible - Terminal Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate/" class="md-nav__link">
+        Dirigible - To Replicate or Not To Replicate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/04/blogs-dirigible-fast-track-to-hcp/" class="md-nav__link">
+        Dirigible is the fast track to your HCP HANA DB instance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/06/11/blogs-dirigible-extensions-configs/" class="md-nav__link">
+        Dirigible - Extensions vs Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/24/blogs-dirigible-on-sap-hana/" class="md-nav__link">
+        Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/21/blogs-start-of-journey/" class="md-nav__link">
+        Start of Journey
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-ii-extending-supported-databases-for-custom-data-sources" class="md-nav__link">
+    Part II: Extending supported databases for custom data sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hitting-the-wall" class="md-nav__link">
+    Hitting the wall
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-provision-the-drivers" class="md-nav__link">
+    Step 1: Provision the drivers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-bind-to-jndi" class="md-nav__link">
+    Step 2: Bind to JNDI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-configure-application-reference" class="md-nav__link">
+    Step 3: Configure application reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-register-the-data-source" class="md-nav__link">
+    Step 4: Register the data source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-results" class="md-nav__link">
+    Verify results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-new-dialect-onboard" class="md-nav__link">
+    A new dialect onboard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundling" class="md-nav__link">
+    Bundling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dissecting-idialectspecifier" class="md-nav__link">
+    Dissecting IDialectSpecifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-statement-construction-callbacks" class="md-nav__link">
+    SQL statement construction callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultset-iteration-callbacks" class="md-nav__link">
+    ResultSet iteration callbacks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-data-type-model-translation" class="md-nav__link">
+    Common data type model translation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-templates" class="md-nav__link">
+    Query templates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-metadata" class="md-nav__link">
+    Database Metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrapping-up" class="md-nav__link">
+    Wrapping up
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/01/11/blogs-dirigible-custom-ds-2.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources</h1>
+                
+                <p>Dirigible supports multiple database products by means of dialect adapters that can be used to extend the support to new ones</p>
+<p>In the previous <a href="http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html">Part I</a> of our series, dedicated to the new multiple custom data sources feature, we introduced you to the routines required to setup a new custom data source representing one of the database brands that Dirigible supports out-of-the-box, and use it. In this Part II of the series we are going to explore what it takes to onboard a new, not yet supported database and make use of data sources configured for it, as discussed in <a href="http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html">Part I</a>.</p>
+<p>One of the setup steps requires a minimal development and integration effort and in this Part II, we explore in details this particular task that is necessary to accomplish the integration of a new data source kind in Dirigible. It is a one-time job per database product that can then be reused for any concrete instance.</p>
+<h2 id="part-ii-extending-supported-databases-for-custom-data-sources">Part II: Extending supported databases for custom data sources</h2>
+<p>The relational database world enjoy the standard query language SQL for ages. However, database systems are often not entirely compliant with the standard. For example, it happens that they implement subset or extensions of it and ultimately end up with <em>variants</em> of SQL. We call these variants database (SQL) <em>dialects</em>. An optimal and correct use of a database requires to take this into account. This is why Dirigible and alike tools need to ‘know’ dialects to be able to truly support the corresponding database. And since the list of databases and applicable dialects out there is quite big, and it grows, it is reasonable to support some sensible, popular minimum of these and provide a mechanism to extend the support.</p>
+<p>The databases that are currently supported in Dirigible (in version 2.2 M3) are MySQL, PostgreSQL, Derby, SAPDB, SAP HANA DB, Sybase and MongoDB. Dirigible speaks their dialects already and you can create custom data sources configured for running instances of these databases as discussed in <a href="http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html">Part I</a>. Let us now explore what is how to extend this list to support also <a href="http://www.h2database.com/">H2</a> database and be able to create custom data sources for it too.</p>
+<h2 id="hitting-the-wall">Hitting the wall</h2>
+<p>Let us first try to employ the routine from <a href="http://www.dirigible.io/blogs/2016/01/07/blogs_dirigible_custom_ds_1.html">Part I</a> with H2 and see what happens.</p>
+<h2 id="step-1-provision-the-drivers">Step 1: Provision the drivers</h2>
+<p>Supply a copy of the <a href="http://www.h2database.com/html/download.html">database JDBC drivers</a> in Tomcat’s lib directory. H2 JDBC drivers are bundled together with the DB code so this means the database jar needs to be put there.</p>
+<h2 id="step-2-bind-to-jndi">Step 2: Bind to JNDI</h2>
+<p>Edit Tomcat’s conf/context.xml to add a resource:</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">&lt;Resource</span> <span class="na">name=</span><span class="s">&quot;jdbc/H2&quot;</span> <span class="na">auth=</span><span class="s">&quot;Container&quot;</span> <span class="na">type=</span><span class="s">&quot;javax.sql.DataSource&quot;</span>
+                <span class="na">username=</span><span class="s">&quot;sa&quot;</span> <span class="na">password=</span><span class="s">&quot;&quot;</span> <span class="na">driverClassName=</span><span class="s">&quot;org.h2.Driver&quot;</span>
+                <span class="na">url=</span><span class="s">&quot;jdbc:h2:mem: &quot;</span><span class="nt">/&gt;</span>
+</code></pre></div>
+<h2 id="step-3-configure-application-reference">Step 3: Configure application reference</h2>
+<p>Add the following init parameter to the bridge servlet in the web.xml</p>
+<div class="highlight"><pre><span></span><code>    <span class="nt">&lt;init-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>jndiCustomDataSource-h2<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>java:comp/env/jdbc/H2<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+</code></pre></div>
+<h2 id="step-4-register-the-data-source">Step 4: Register the data source</h2>
+<p><br>
+    <img src="/img/posts/20160111-0/2-0.png"/>
+<br></p>
+<h2 id="verify-results">Verify results</h2>
+<p>Let’s go now and check our H2 database in the Database perspective in Dirigible’s IDE. Ooops:</p>
+<p><br>
+    <img src="/img/posts/20160111-0/2-1.png"/>
+<br></p>
+<p>What happened? Yep! Dirigible clearly doesn’t speak H2 dialect. Let’s see what we can do to teach it.</p>
+<h2 id="a-new-dialect-onboard">A new dialect onboard</h2>
+<p>We need to accomplish the following steps in order to achieve our goal:</p>
+<ul>
+<li>Provide a class implementing the <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java">IDialectSpecifier</a> interface</li>
+<li>Include the class in an <a href="https://www.osgi.org/">OSGi</a> bundle</li>
+<li>Declare an OSGi <a href="http://wiki.osgi.org/wiki/Declarative_Services">Service</a> in XML descriptor with the new class and the <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java">IDialectSpecifier</a> interface</li>
+<li>Register the XML descriptor in its container bundle MANIFEST.MF</li>
+</ul>
+<p>Except for the first task that is purely development and requires mostly domain knowledge for Dirigible APIs and H2 database, the rest of the tasks are a standard wiring mechanism and component model in OSGi.</p>
+<p>Let’s focus on each part now.</p>
+<h2 id="implementation">Implementation</h2>
+<p>Technologies such as Dirigible delegate to concrete dialects the handling of database-specific statements and the interface <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java">IDialectSpecifier</a> defines this contract. In addition, the interface also specifies some more generic characteristics of a database product kind, such as if it is a schemaless database or not (Yes, we look at you NoSQL! But more on that in a future blog).</p>
+<p>To make things easier and reduce redundant code to the minimum, Dirigible provides an out-of-the-box, convenience, common implementation for relational databases called <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/RDBGenericDialectSpecifier.java">RDBGenericDialectSpecifier</a>.</p>
+<p>An absolutely minimal implementation of a dialect is the following</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">H2DBSpecifier</span> <span class="kd">extends</span> <span class="n">RDBGenericDialectSpecifier</span> <span class="p">{</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PRODUCT_NAME</span> <span class="o">=</span> <span class="s">&quot;H2&quot;</span><span class="p">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span> <span class="n">productName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre></div>
+<p>It doesn’t do much but is just enough to get us going. We will leave it as it is for now and proceed with some plumbing. Later, we shall come back to the class for a more elaborate insight and implementation.</p>
+<h2 id="bundling">Bundling</h2>
+<p>What we need to achieve on this stage is to declare a new OSGi (declarative) <a href="http://wiki.osgi.org/wiki/Declarative_Services">service</a> so that Dirigible can find and use it. Each out-of-the-box dialect is declared as a service component, with its service interface (<a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java">IDialectSpecifier</a>) physically residing in its own bundle (org.eclipse.dirigible.repository.datasource), and an implementation class in another (org.eclipse.dirigible.repository.datasource.dialects). Detaching the interface and its implementations allows seamless, dynamic discovery of available dialects at runtime without disruption when new dialects are onboarded.</p>
+<p>Let’s get down to it.</p>
+<p>First, we need to declare our service component in a XML descriptor file. Normally, such XMLs reside in an OSGI-INF directory. For example, OSGI-INF/h2-dialect.xml:</p>
+<div class="highlight"><pre><span></span><code>    <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+    <span class="nt">&lt;scr:component</span> <span class="na">xmlns:scr=</span><span class="s">&quot;http://www.osgi.org/xmlns/scr/v1.1.0&quot;</span> <span class="na">immediate=</span><span class="s">&quot;true&quot;</span> <span class="na">name=</span><span class="s">&quot;H2Dialect&quot;</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;service&gt;</span>
+          <span class="nt">&lt;provide</span> <span class="na">interface=</span><span class="s">&quot;org.eclipse.dirigible.repository.datasource.db.dialect.IDialectSpecifier&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;/service&gt;</span>
+       <span class="nt">&lt;implementation</span> <span class="na">class=</span><span class="s">&quot;org.eclipse.dirigible.repository.datasource.db.dialect.H2DBSpecifier&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/scr:component&gt;</span>
+</code></pre></div>
+<p>Here the important variables are the component name and the implementation class. See, the OSGI-INF directory in org.eclipse.dirigible.repository.datasource.dialects for other examples.</p>
+<p>Next, we need to register the new service component in its bundle MANIFETS.MF in a <a href="http://wiki.osgi.org/wiki/Service-Component">Service-Component</a> header. Another option that comes in handy is to use a pattern instead (e.g. Service-Component: OSGi-INF/*.xml). See for example the MANIFEST.MF in the bundle with the out-of-the-box dialects.</p>
+<p>And that’s all folks!</p>
+<p>If you follow this routine, rebuild Dirigible with a bundle that contains your correctly registered dialect and deploy it, you will be able to happily explore the H2 database:</p>
+<p><br>
+    <img src="/img/posts/20160111-0/2-2.png"/>
+<br></p>
+<h2 id="dissecting-idialectspecifier">Dissecting IDialectSpecifier</h2>
+<p>Now, as promised, let’s get back to the main interface for dialects. Its methods can be grouped according to their purpose. We shall review the more important of each one here.</p>
+<h2 id="sql-statement-construction-callbacks">SQL statement construction callbacks</h2>
+<p>There are a number of methods that are invoked during the construction of statements (queries and updates) by the Dirigible database related tools:</p>
+<ul>
+<li><code>String specify(String sql);</code></li>
+<li><code>String createLimitAndOffset(int limit, int offset);</code></li>
+<li><code>String createTopAndStart(int limit, int offset);</code></li>
+<li><code>String getAlterAddOpen();</code></li>
+<li><code>String getAlterAddOpenEach();</code></li>
+<li><code>String getAlterAddClose();</code></li>
+<li><code>String getAlterAddCloseEach();</code></li>
+</ul>
+<p>The <code>specify</code> method is concerned with transforming SQL statements into dialect-specific strings, by replacing a set of predefined variables from the input string with database-specific values. The variables are defined as constants in <code>IDIalectSpecifier</code>:</p>
+<ul>
+<li><code>public static final String DIALECT_TIMESTAMP = "$TIMESTAMP$";</code></li>
+<li><code>public static final String DIALECT_BLOB = "$BLOB$";</code></li>
+<li><code>public static final String DIALECT_CLOB = "$CLOB$";</code></li>
+<li><code>public static final String DIALECT_CURRENT_TIMESTAMP = "$CURRENT_TIMESTAMP$";</code></li>
+<li><code>public static final String DIALECT_KEY_VARCHAR = "$KEY_VARCHAR$";</code></li>
+<li><code>public static final String DIALECT_BIG_VARCHAR = "$BIG_VARCHAR$";</code></li>
+</ul>
+<p>The <code>createLimitAndOffset</code> and <code>createTopAndStart</code> methods are concerned with two alternative SQL syntax constructs that "page" results (return a subset form specified cursor position)</p>
+<p>The set of <code>getAlter*</code> methods are handling the <code>ALTER &lt;table-name&gt; TABLE ADD</code> construct in dialect specific manner. There are actually two pairs of methods, each pair concerned with a variant of handling the column ADD syntax. In each pair there is a method handling the opening part of the construction and there is one for the closing part.</p>
+<h2 id="resultset-iteration-callbacks">ResultSet iteration callbacks</h2>
+<p>The following methods are used by Dirigible while iterating a query ResultSet:</p>
+<ul>
+<li><code>InputStream getBinaryStream(ResultSet resultSet, String columnName) throws SQLException;</code></li>
+</ul>
+<h2 id="common-data-type-model-translation">Common data type model translation</h2>
+<ul>
+<li><code>String getSpecificType(String commonType);</code></li>
+</ul>
+<p>The <code>getSpecificType</code> method is responsible to translate between the common types used in Dirigible and database-specific ones.</p>
+<h2 id="query-templates">Query templates</h2>
+<p>Dirigible tools such as the SQLConsole and the Database browser collaborate with the action <em>Show Content</em> to set a generic query, listing the contents a table and execute it. It is the following method that is invoked to provision that generic query:</p>
+<ul>
+<li><code>String getContentQueryScript(String catalogName, String schemaName, String tableName);</code></li>
+</ul>
+<p>Another one is concerned with provisioning a query that will perform database specific filtering of schemas and show only the applicable for Dirigible:</p>
+<ul>
+<li><code>String getSchemaFilterScript();</code></li>
+</ul>
+<h2 id="database-metadata">Database Metadata</h2>
+<p>There are also methods concerned with the general description of the data base:</p>
+<ul>
+<li><code>boolean isSchemaFilterSupported();</code></li>
+<li><code>boolean isCatalogForSchema();</code></li>
+<li><code>boolean isSchemaless();</code></li>
+<li><code>isDialectForName(productName);</code></li>
+</ul>
+<p>These methods are mostly used to decide on the composition of UI or process.</p>
+<p>For example, <code>isSchemaless</code> is used to determine whether the <em>Open Definition</em> action in the Database Browser context menu for tables is presented to end user or not. Obviously, it doesn’t make a lot of sense for schemaless databases, at least not with the current view that deals with it.</p>
+<p>Similarly <code>isSchemaFilterSupported</code> is used by the Database Browser to invoke upon availability the <code>getSchemaFilter</code> method (discussed in previsous section) and reduce the schemas exhibited in the view to the applicable ones. And <code>isCatalogForSchema</code> instructs the UI how to handle database layouts of database products that have specific, non-standard handling of catalogs and schemas.</p>
+<p>But above all it's worth mentioning here the <code>isDialectForName</code> method. As you probably noted, this was the only one that was part of the minimal implementation of a dialect. What it does essentially is to assess the dialect where it is declared is applicable for the database product name supplied as argument for the <code>productName</code> parameter of the method. The value of the <code>productName</code> parameter is the string supplied by JDBC drivers implementation of <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#getDatabaseProductName()">DatabaseMetaData#getDatabaseProductName</a> API. Dirigible uses this to determine, which of the available service implementations of IDialectSpecifier is applicable for a given database.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>Summing up what we already know about the <code>IDialectSpecifier</code> interface, here is a slightly more elaborated variant of the minimal dialect implementation that we started with:</p>
+<div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">H2DBSpecifier</span> <span class="kd">extends</span> <span class="n">RDBGenericDialectSpecifier</span> <span class="p">{</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PRODUCT_NAME</span> <span class="o">=</span> <span class="s">&quot;H2&quot;</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_TIMESTAMP</span> <span class="o">=</span> <span class="s">&quot;TIMESTAMP&quot;</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_CLOB</span> <span class="o">=</span> <span class="s">&quot;CLOB&quot;</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_BLOB</span> <span class="o">=</span> <span class="s">&quot;BLOB&quot;</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_CURRENT_TIMESTAMP</span> <span class="o">=</span> <span class="s">&quot;CURRENT_TIMESTAMP&quot;</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_BIG_VARCHAR</span> <span class="o">=</span> <span class="s">&quot;VARCHAR(1000)&quot;</span><span class="p">;</span>
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_KEY_VARCHAR</span> <span class="o">=</span> <span class="s">&quot;VARCHAR(4000)&quot;</span><span class="p">;</span>
+
+        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LIMIT_D_D</span> <span class="o">=</span> <span class="s">&quot;LIMIT %d OFFSET %d&quot;</span><span class="p">;</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span> <span class="n">productName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">specify</span><span class="p">(</span><span class="n">String</span> <span class="n">sql</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sql</span><span class="o">==</span><span class="kc">null</span> <span class="o">||</span> <span class="n">sql</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">sql</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">sql</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_TIMESTAMP</span><span class="p">,</span> <span class="n">H2_TIMESTAMP</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CLOB</span><span class="p">,</span> <span class="n">H2_CLOB</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BLOB</span><span class="p">,</span> <span class="n">H2_BLOB</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CURRENT_TIMESTAMP</span><span class="p">,</span> <span class="n">H2_CURRENT_TIMESTAMP</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BIG_VARCHAR</span><span class="p">,</span> <span class="n">H2_BIG_VARCHAR</span><span class="p">)</span>
+                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_KEY_VARCHAR</span><span class="p">,</span> <span class="n">H2_KEY_VARCHAR</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">createLimitAndOffset</span><span class="p">(</span><span class="kt">int</span> <span class="n">limit</span><span class="p">,</span> <span class="kt">int</span> <span class="n">offset</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">LIMIT_D_D</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">limit</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAlterAddOpen</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot; ADD( &quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAlterAddClose</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s">&quot;)&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</code></pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+		<nav class="md-footer__inner md-grid" aria-label="Footer">
+			
+				<a href="../../21/blogs-dirigible-custom-ds-3/" class="md-footer__link md-footer__link--prev" rel="prev">
+					<div class="md-footer__button md-icon">
+					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+					</div>
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Previous
+							</span>
+							BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source			
+						</div>
+					</div>
+				</a>
+    		
+			
+				<a href="../../07/blogs-dirigible-custom-ds-1/" class="md-footer__link md-footer__link--next" rel="next">
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Next
+							</span>
+							BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
+						</div>
+					</div>
+					<div class="md-footer__button md-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+					</div>
+				</a>
+			
+		</nav>
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="/help/community/">Community</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs.html">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg" target="_blank" rel="noopener" title="join.slack.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+      </a>
+    
+  </div>
+
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
