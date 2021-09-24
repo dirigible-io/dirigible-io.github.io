@@ -71,6 +71,7 @@ theme:
   features:
     - navigation.instant
     - navigation.top
+    - navigation.tabs
 
 extra_css:
   - stylesheets/custom.css
