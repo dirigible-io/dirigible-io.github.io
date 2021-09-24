@@ -59,6 +59,7 @@ jobs:
         cp Gemfile docs/Gemfile
         cp Gemfile.lock docs/Gemfile.lock
         cp _config.yml docs/_config.yml
+        cp blogs.html docs/blogs.html
         cp depots.json docs/depots.json
         cp features.html docs/features.html 
         cp for_developers.html docs/for_developers.html
