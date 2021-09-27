@@ -281,8 +281,7 @@
 
     .tx-container-2 {
         padding-top: .0rem;
-        background: conic-gradient(from 225deg at 60% 50%, rgb(255, 255, 255), rgba(0, 0, 0, 0.1
-        ), red, rgb(206, 206, 206, 0.15));
+        background: linear-gradient(0deg, transparent, #facf20, transparent);
     }
 
     .tx-hero {
@@ -303,6 +302,13 @@
     .tx-hero__image{
         width:24rem;
         height:24rem;
+        order:1;
+        padding-right: 2.5rem;
+    }
+
+    .tx-hero__image-small{
+        width:10rem;
+        height:10rem;
         order:1;
         padding-right: 2.5rem;
     }
@@ -498,6 +504,10 @@
         border-color: #515151;
     }
 
+    .post-link {
+        color: #2c7bb9
+    }
+
     #gdpr-cookie-message {
         position: fixed;
         right: 30px;
@@ -569,9 +579,7 @@
         <div class="tx-hero__content">
           <h1>Eclipse Dirigible</h1>
           <p>The low-code platform for end-to-end rapid development of business applications <i> - Enjoy Programming Like Never Before!</i></p>
-          <a href="/help/development/" class="md-button">
-            Get started
-          </a>
+          <a href="/help/development/" title="Get started" class="md-button">Get started</a>
           <a href="https://trial.dirigible.io" title="Try it out" class="md-button md-button--primary">Try it out</a>
         </div>
       </div>
@@ -602,10 +610,10 @@
         <h2>For Developers</h2>
         <p>Eclipse Dirigible provides everything you need for your development project:
             <ul>
-                <li>Application server</li>
-                <li>Content repository</li>
-                <li>Web IDE</li>
-                <li>Variety of features</li>
+                <li><p>Application server</p></li>
+                <li><p>Content repository</p></li>
+                <li><p>Web IDE</p></li>
+                <li><p>Variety of features</p></li>
             </ul>
         </p>
     </div>
@@ -616,6 +624,35 @@
 </div>
 
 <section class="tx-container-2">
+    <div class="md-grid md-typeset">
+        <div class="tx-hero">
+          <div class="tx-hero__image-small">
+            <img src="https://dirigible.io/img/home.png" draggable="false">
+          </div>
+          <div class="tx-hero__content">
+            <h2>In-System Development</h2>
+            <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
+          </div>
+        </div>
+        <div class="tx-hero">
+            <div class="tx-hero__image-small">
+                <img src="https://dirigible.io/img/home.png" draggable="false">
+            </div>
+            <div class="tx-hero__content">
+                <h2>Entity Domain Modeling</h2>
+                <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
+            </div>
+        </div>
+        <div class="tx-hero">
+            <div class="tx-hero__image-small">
+                <img src="https://dirigible.io/img/home.png" draggable="false">
+            </div>
+            <div class="tx-hero__content">
+                <h2>Business Process Modeling</h2>
+                <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
+            </div>
+        </div>
+    </div>
 </section>
     
 <div class="top-hr">
@@ -623,30 +660,30 @@
         <h2>Releases</h2>
         <div>
             <ul>
-                <li>2021-07-04 <a class="post-link" href="/release/2021/07/04/news_new_release_5_12.html">Release 5.12</a></li>
-                <li>2021-05-27 <a class="post-link" href="/release/2021/05/27/news_new_release_5_11.html">Release 5.11</a></li>
-                <li>2021-04-24 <a class="post-link" href="/release/2021/04/24/news_new_release_5_10.html">Release 5.10</a></li>
-                <li>2021-03-26 <a class="post-link" href="/release/2021/03/26/news_new_release_5_9.html">Release 5.9</a></li>
-                <li>2021-02-18 <a class="post-link" href="/release/2021/02/18/news_new_release_5_8.html">Release 5.8</a></li>
+                <li><p>2021-07-04 <a class="post-link" href="/release/2021/07/04/news_new_release_5_12.html">Release 5.12</p></a></li>
+                <li><p>2021-05-27 <a class="post-link" href="/release/2021/05/27/news_new_release_5_11.html">Release 5.11</p></a></li>
+                <li><p>2021-04-24 <a class="post-link" href="/release/2021/04/24/news_new_release_5_10.html">Release 5.10</p></a></li>
+                <li><p>2021-03-26 <a class="post-link" href="/release/2021/03/26/news_new_release_5_9.html">Release 5.9</p></a></li>
+                <li><p>2021-02-18 <a class="post-link" href="/release/2021/02/18/news_new_release_5_8.html">Release 5.8</p></a></li>
             </ul>
         </div>
         <br>
-        <a class="md-button" href="https://www.dirigible.io/releases.html">All Releases ...</a>
+        <a class="md-button" href="https://www.dirigible.io/releases.html"><p>All Releases ...</p></a>
     </div>
 
     <div class="feature-item">
         <h2>News and Updates</h2>
         <div>
             <ul>
-                <li>2018-05-31 <a class="post-link" href="/news/2018/05/31/news_jprime_2018.html">jPrime 2018</a></li>
-                <li>2017-10-04 <a class="post-link" href="/news/2017/10/04/news_javaone_2017.html">JavaOne 2017</a></li>
-                <li>2017-04-07 <a class="post-link" href="/news/2017/04/07/news_uniteddev_2017.html">UnitedDev Conference 2017</a></li>
-                <li>2017-03-20 <a class="post-link" href="/news/2017/03/20/news_eclipseconverge_2017.html">EclipseConverge US 2017</a></li>
-                <li>2017-03-09 <a class="post-link" href="/news/2017/03/09/news_d_kom_sap_2017.html">SAP d-kom Sofia 2017</a></li>
+                <li><p>2018-05-31 <a class="post-link" href="/news/2018/05/31/news_jprime_2018.html">jPrime 2018</p></a></li>
+                <li><p>2017-10-04 <a class="post-link" href="/news/2017/10/04/news_javaone_2017.html">JavaOne 2017</p></a></li>
+                <li><p>2017-04-07 <a class="post-link" href="/news/2017/04/07/news_uniteddev_2017.html">UnitedDev Conference 2017</p></a></li>
+                <li><p>2017-03-20 <a class="post-link" href="/news/2017/03/20/news_eclipseconverge_2017.html">EclipseConverge US 2017</p></a></li>
+                <li><p>2017-03-09 <a class="post-link" href="/news/2017/03/09/news_d_kom_sap_2017.html">SAP d-kom Sofia 2017</p></a></li>
             </ul>
         </div>
         <br>
-        <a class="md-button" href="https://www.dirigible.io/news.html">All News ...</a>
+        <a class="md-button" href="https://www.dirigible.io/news.html"><p>All News ...</p></a>
     </div>
 
     <div class="feature-item">
