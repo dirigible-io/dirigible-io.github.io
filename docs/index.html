@@ -306,11 +306,9 @@
         padding-right: 2.5rem;
     }
 
-    .tx-hero__image-small{
-        width:10rem;
-        height:10rem;
-        order:1;
-        padding-right: 2.5rem;
+    .tx-hero__image-features {
+        width: 32rem;
+        height: 18rem;
     }
 
     .tx-hero .md-button {
@@ -567,6 +565,11 @@
         color: white;
         transition: all 0.3s ease-in;
     }
+
+    .tx-hero__image-shadow {
+        box-shadow: 3px 3px 15px 0px;
+    }
+
 </style>
 
 <!-- Main site Entry button descriptions -->
@@ -626,35 +629,49 @@
 <section class="tx-container-2">
     <div class="md-grid md-typeset">
         <div class="tx-hero">
-          <div class="tx-hero__image-small">
-            <img src="https://dirigible.io/img/home.png" draggable="false">
+          <div class="tx-hero__image tx-hero__image-features">
+            <img src="/img/home-in-system-development.png" class="tx-hero__image-shadow" draggable="false">
           </div>
           <div class="tx-hero__content">
-            <h2>In-System Development</h2>
+            <h1>In-System Development</h1>
             <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
           </div>
         </div>
         <div class="tx-hero">
-            <div class="tx-hero__image-small">
-                <img src="https://dirigible.io/img/home.png" draggable="false">
+            <div class="tx-hero__image tx-hero__image-features">
+                <img src="/img/home-entity-domain-modeling.png" class="tx-hero__image-shadow" draggable="false">
             </div>
             <div class="tx-hero__content">
-                <h2>Entity Domain Modeling</h2>
+                <h1>Entity Domain Modeling</h1>
                 <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
             </div>
         </div>
         <div class="tx-hero">
-            <div class="tx-hero__image-small">
-                <img src="https://dirigible.io/img/home.png" draggable="false">
+            <div class="tx-hero__image tx-hero__image-features">
+                <img src="/img/home-business-process-modeling.png" class="tx-hero__image-shadow" draggable="false">
             </div>
             <div class="tx-hero__content">
-                <h2>Business Process Modeling</h2>
+                <h1>Business Process Modeling</h1>
                 <p>Use server-side JavaScript APIs to create and extend your business logic.</p>
             </div>
         </div>
     </div>
 </section>
-    
+
+
+<article class="md-content__inner md-typeset">
+
+    <div class="highlight"><pre id="__code_3"><span></span><button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_3 > code"></button>
+    <code>
+        <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"http/v4/response"</span><span class="p">);</span>
+
+        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">);</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    </code></pre></div>
+
+</article>
+
 <div class="top-hr">
     <div class="feature-item">
         <h2>Releases</h2>
