@@ -1,0 +1,370 @@
+<!-- Custom HTML site displayed as the Home chapter -->
+
+{% extends "base.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
+
+    .md-main {
+        flex-grow: 0
+    }
+
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .tx-container {
+        padding-top: .0rem;
+        background: conic-gradient(from 225deg at 60% 50%, rgb(255, 255, 255), rgba(0, 0, 0, 0.1
+        ), #fecc04, rgb(206, 206, 206, 0.15));
+    }
+
+    .tx-hero {
+        margin: 32px 2.8rem;
+        justify-content: center;
+    }
+
+    .tx-hero h1 {
+        margin-bottom: 1rem;
+        font-weight: 700
+    }
+
+    .tx-hero__content {
+        padding-bottom: 1rem;
+        margin: 0 auto;
+    }
+
+    .tx-hero__image{
+        width:24rem;
+        height:24rem;
+        order:1;
+        padding-right: 2.5rem;
+    }
+
+    .tx-hero .md-button {
+        margin-top: .5rem;
+        margin-right: .5rem;
+    }
+
+    .feature-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        transform: translateY(10%);
+    }
+
+    .top-hr {
+        margin-top: 42px;
+    }
+
+    .feature-item {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .feature-item h2 {
+        font-weight: 300;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .feature-item p {
+        font-size: 16px;
+        line-height: 1.8em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        margin: 0 0 10px;
+        display: block;
+    }
+
+    @media screen and (max-width:30em) {
+        .tx-hero h1 {
+            font-size: 1.4rem
+        }
+    }
+
+    @media screen and (min-width:60em) {
+        .md-sidebar--secondary {
+            display: none
+        }
+
+        .tx-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tx-hero__content {
+            max-width: 22rem;
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+            margin-left: 1.0rem;
+            margin-right: 4.0rem;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:76.25em) {
+        .md-sidebar--primary {
+            display: none
+        }
+
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-item:hover {
+            border-radius: 3px;
+        }
+    }
+
+    .hr {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .text-center {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15px;
+        font-family: 'Lato', sans-serif;
+        font-size: 23px;
+        font-weight: 300;
+        padding-bottom: 10px;
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer-meta__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.0rem;
+    }
+
+    .md-footer-social {
+        padding-top: 20px;
+    }
+
+    .tx-hero .md-button {
+        background-color: #fff;
+        color: #333;
+        border-color: #ccc;
+    }
+
+    .tx-hero .md-button:hover {
+        background-color: #ebebeb;
+        color: #333;
+        border-color: #adadad;
+    }
+
+    .md-typeset .md-button--primary {
+        background-color: #313131;
+        color: #f7fafd;
+        border-color: #313131;
+    }
+
+    .md-typeset .md-button--primary:hover {
+        background-color: #414141;
+        color: #fff;
+        border-color: #515151;
+    }
+</style>
+
+<!-- Main site Entry button descriptions -->
+<section class="tx-container">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero">
+        <div class="tx-hero__image">
+          <img src="/img/home.png" draggable="false">
+        </div>
+        <div class="tx-hero__content">
+          <h1>Eclipse Dirigible</h1>
+          <p>The low-code platform for end-to-end rapid development of business applications <i> - Enjoy Programming Like Never Before!</i></p>
+          <a href="/help/development/" class="md-button">
+            Get started
+          </a>
+          <a href="https://trial.dirigible.io" title="Try it out" class="md-button md-button--primary">Try it out</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>What is Dirigible?</h2>
+        <p>Eclipse Dirigible™ is a High-Productivity Application Platform that provides development tools and a runtime environment. It supports the full development lifecycle of applications by leveraging an in-system programming model and rapid application development techniques.</p>
+    </div>
+    <div class="feature-item">
+        <h2>What can I do?</h2>
+        <p>Eclipse Dirigible provides capabilities for end-to-end development process from database modeling and management, through RESTful services authoring using various dynamic languages, to pattern-based user interface generation, role-based security, external services integration, testing, debugging, operations, and monitoring.</p>
+    </div>
+    <div class="feature-item">
+        <h2>Is it free?</h2>
+        <p>YES<br>All the Eclipse Dirigible project's source code and sample applications are licensed under <a href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License - v 2.0</a> and maintained at <a href="https://github.com/eclipse/dirigible">GitHub</a>.</p>
+    </div>
+</div>
+
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>For Education</h2>
+        <p>You can develop student projects, test different technologies and scenarios, learn popular programming languages.</p>
+    </div>
+    <div class="feature-item">
+        <h2>For Developers</h2>
+        <p>Eclipse Dirigible provides everything you need for your development project:
+            <ul>
+                <li>Application server</li>
+                <li>Content repository</li>
+                <li>Web IDE</li>
+                <li>Variety of features</li>
+            </ul>
+        </p>
+    </div>
+    <div class="feature-item">
+        <h2>For Business</h2>
+        <p>You can easily develop, document, and monitor your business applications, taking full advantage of the diverse selection of features and services offered by Eclipse Dirigible.</p>
+    </div>
+</div>
+
+<h2>Tweets</h2>
+<div style="overflow: hidden; max-height: 500px">
+    <div id="tweets" style="overflow-y: scroll; height: 1500px">
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/gdpr/jquery.ihavecookies.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('body').ihavecookies({
+        title: 'Accept Cookies & Privacy Policy?',
+        message: 'This website uses cookies to ensure you get the best experience on our website',
+        delay: 2000,
+        expires: 30,
+        link: '//www.eclipse.org/legal/privacy.php',
+        onAccept: function(){
+            location.reload();
+        },
+        uncheckBoxes: true
+    });
+});
+</script>
+<style type="text/css">
+/* Cookie Dialog */
+#gdpr-cookie-message {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    max-width: 375px;
+    background-color: #313131;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.25);
+    margin-left: 30px;
+    font-family: system-ui;
+}
+#gdpr-cookie-message h4 {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+#gdpr-cookie-message p {
+    color: white;
+    font-size: 15px;
+    line-height: 1.5em;
+}
+#gdpr-cookie-message p:last-child {
+    margin-bottom: 0;
+    text-align: right;
+}
+#gdpr-cookie-message a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding-bottom: 2px;
+    border-bottom: 1px dotted rgba(255,255,255,0.75);
+    transition: all 0.3s ease-in;
+}
+#gdpr-cookie-message a:hover {
+    color: white;
+    border-bottom-color: var(--red);
+    transition: all 0.3s ease-in;
+}
+#gdpr-cookie-message button {
+    border: none;
+    background: #357ebd;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    padding: 7px;
+    border-radius: 3px;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+#gdpr-cookie-message button:hover {
+    background: #559edd;
+    color: white;
+    transition: all 0.3s ease-in;
+}
+</style>
+
+<script src="/js/bootstrap.js"></script>
+{% endblock %}
+{% block content %}{% endblock %}
