@@ -21,6 +21,7 @@ jobs:
         docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material build
 
         # Copy build output
         rm -r docs/*
@@ -28,6 +29,7 @@ jobs:
         mkdir docs/help/
         mkdir docs/samples/
         mkdir docs/blogs/
+        mkdir docs/home/
 
         cp -a docs-api/site/. docs/api/
         cp -a docs-api/redirects/. docs/api/
@@ -42,6 +44,10 @@ jobs:
         cp -a docs-blogs/site/. docs/blogs/
         cp -a docs-blogs/redirects/. docs/blogs/
         cp -a docs-blogs/overrides/. docs/blogs/
+
+        cp -a docs-home/site/. docs/
+        cp -a docs-home/redirects/. docs/
+        cp -a docs-home/overrides/. docs/
 
         # Copy static content
         cp -a _data docs/_data
@@ -59,12 +65,11 @@ jobs:
         cp Gemfile docs/Gemfile
         cp Gemfile.lock docs/Gemfile.lock
         cp _config.yml docs/_config.yml
-        cp blogs.html docs/blogs.html
         cp depots.json docs/depots.json
+        cp index.html docs/index-old.html
         cp features.html docs/features.html 
         cp for_developers.html docs/for_developers.html
         cp getting_started.html docs/getting_started.html
-        cp index.html docs/index.html
         cp news.html docs/news.html
         cp project.html docs/project.html
         cp releases.html docs/releases.html

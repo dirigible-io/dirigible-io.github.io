@@ -1,0 +1,72 @@
+site_name: Eclipse Dirigible
+site_url: https://www.dirigible.io
+
+nav:
+    - Home: 'index.md'
+    - Documentation: '/help/'
+    - API: '/api/'
+    - Samples: '/samples/'
+    - Downloads: 'https://downloads.dirigible.io'
+    - Blogs: '/blogs/'
+
+theme:
+  favicon: /img/favicon.png
+  logo: /img/logo/dirigible-logo.png
+  name: mkdocs
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+
+extra_javascript:
+  - stylesheets/extra.js
+
+extra_css:
+  - stylesheets/custom.css
+  - stylesheets/homepage.css
+  - stylesheets/extra.css
+  # - https://www.dirigible.io/css/bootstrap.min.css
+  # - https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+  # - https://fonts.googleapis.com/css?family=Montserrat
+  # - https://www.dirigible.io/css/syntax.css
+  # - https://www.dirigible.io/css/default.css
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.snippets
+    - pymdownx.highlight:
+        linenums: false
+    - pymdownx.keys
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.emoji
+    - meta
+    - footnotes
+    - admonition
+    - pymdownx.details
+
+repo_url: https://github.com/eclipse/dirigible
+repo_name: eclipse/dirigible
+edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-home/docs
+
+copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+extra:
+  homepage: https://www.dirigible.io
+  analytics:
+    provider: google
+    property: UA-49027147-1
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dirigible_io
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/dirigible.io
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/groups/8413366
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/dirigibleio
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg
