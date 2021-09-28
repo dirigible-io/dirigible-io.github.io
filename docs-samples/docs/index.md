@@ -11,34 +11,34 @@ They are built on scenarios with different complexity level, from exemplary samp
 
 #### Simple Samples
 
-- [Decode a String from Base64](base64-decode) - how to decode a string from Base64 encoded input
-- [Encode a String to Base64](base64-encode) - how to encode a string with Base64
-- [Console Log Levels](console) - show how to use the built-in **console** object to print information in the standard output
-- [Database Dynamic Datasource](database-dynamic) - how to use dynamic datasources
-- [Database Statement](database-statement) - getting started with the low level Database API
-- [Database Procedure Call](database-procedure-call) - call SQL Procedure through the low level Database API
-- [Database Procedure - Create & Execute](database-procedure) - create & execute SQL Procedure through the Database Procedure API
-- [Database Query](database-query) - using the simplified Query Database API
-- [Encrypt a Text with SHA512](digest) - how to use SHA512 to encrypt an input byte array
-- [Decode a String from Hexadecimal Format](hex-decode) - decoding string from HEX
-- [Encode a String to Hexadecimal Format](hex-encode) - encoding a string to HEX
-- [HTTP Request](http-request) - basic usage of the HTTP Request API
-- [Convert a String from JSON to XML](convert-json2xml) - JSON to XML transformation
-- [Convert a String from XML to JSON](convert-xml2json) - XML to JSON
-- [Mail Client](mail-client) - how to send mails using the Mail Client API
-- [Print Configuration Variables](print-configurations) - prints configuration variables
-- [Print Environment Variables](print-env) - prints environment variables
-- [Repository Manager](repository-manager) - working with the Repository Manager API
-- [REST Call with Binary Response](http-client-binary.md) - how to retrieve the binary content from the response
-- [REST Calls](rest-calls) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
-- [REST Service](rest-service) - getting started with the REST framework
-- [Decoding of a URL](url-decode) - decoding of an encoded URL
-- [Encoding of a URL](url-encode) - encoding an URL
-- [Generate a Random UUID](uuid-random-generation) - generate a random UUID
-- [SOAP Client](soap-client) - building a client for calling a SOAP service
-- [SOAP Server](soap-server) - building a server side SOAP service
-- [FTP Client](ftp-client) - getting started with the FTP Client
-- [Platform Lifecycle](platform-lifecycle) - getting started with the Platform Lifecycle API
+- [Decode a String from Base64](basic/base64-decode) - how to decode a string from Base64 encoded input
+- [Encode a String to Base64](basic/base64-encode) - how to encode a string with Base64
+- [Console Log Levels](basic/console) - show how to use the built-in **console** object to print information in the standard output
+- [Database Dynamic Datasource](basic/database-dynamic) - how to use dynamic datasources
+- [Database Statement](basic/database-statement) - getting started with the low level Database API
+- [Database Procedure Call](basic/database-procedure-call) - call SQL Procedure through the low level Database API
+- [Database Procedure - Create & Execute](basic/database-procedure) - create & execute SQL Procedure through the Database Procedure API
+- [Database Query](basic/database-query) - using the simplified Query Database API
+- [Encrypt a Text with SHA512](basic/digest) - how to use SHA512 to encrypt an input byte array
+- [Decode a String from Hexadecimal Format](basic/hex-decode) - decoding string from HEX
+- [Encode a String to Hexadecimal Format](basic/hex-encode) - encoding a string to HEX
+- [HTTP Request](basic/http-request) - basic usage of the HTTP Request API
+- [Convert a String from JSON to XML](basic/convert-json2xml) - JSON to XML transformation
+- [Convert a String from XML to JSON](basic/convert-xml2json) - XML to JSON
+- [Mail Client](basic/mail-client) - how to send mails using the Mail Client API
+- [Print Configuration Variables](basic/print-configurations) - prints configuration variables
+- [Print Environment Variables](basic/print-env) - prints environment variables
+- [Repository Manager](basic/repository-manager) - working with the Repository Manager API
+- [REST Call with Binary Response](basic/http-client-binary) - how to retrieve the binary content from the response
+- [REST Calls](basic/rest-calls) - how to execute REST calls (GET, POST, PUT, DELETE) using the HTTP Client API
+- [REST Service](basic/rest-service) - getting started with the REST framework
+- [Decoding of a URL](basic/url-decode) - decoding of an encoded URL
+- [Encoding of a URL](basic/url-encode) - encoding an URL
+- [Generate a Random UUID](basic/uuid-random-generation) - generate a random UUID
+- [SOAP Client](basic/soap-client) - building a client for calling a SOAP service
+- [SOAP Server](basic/soap-server) - building a server side SOAP service
+- [FTP Client](basic/ftp-client) - getting started with the FTP Client
+- [Platform Lifecycle](basic/platform-lifecycle) - getting started with the Platform Lifecycle API
 
 #### Complex Samples
 
