@@ -6,147 +6,147 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/base64-decode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/base64-decode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/base64-encode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/base64-encode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/console/</loc>
+         <loc>https://www.dirigible.io/samples/basic/console/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/converting-json-xml/</loc>
+         <loc>https://www.dirigible.io/samples/basic/converting-json-xml/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/converting-xml-json/</loc>
+         <loc>https://www.dirigible.io/samples/basic/converting-xml-json/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/database-dynamic/</loc>
+         <loc>https://www.dirigible.io/samples/basic/database-dynamic/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/database-procedure-call/</loc>
+         <loc>https://www.dirigible.io/samples/basic/database-procedure-call/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/database-procedure/</loc>
+         <loc>https://www.dirigible.io/samples/basic/database-procedure/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/database-query/</loc>
+         <loc>https://www.dirigible.io/samples/basic/database-query/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/database-statement/</loc>
+         <loc>https://www.dirigible.io/samples/basic/database-statement/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/digest/</loc>
+         <loc>https://www.dirigible.io/samples/basic/digest/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/documents-pdf/</loc>
+         <loc>https://www.dirigible.io/samples/basic/documents-pdf/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/ftp-client/</loc>
+         <loc>https://www.dirigible.io/samples/basic/ftp-client/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/hex-decode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/hex-decode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/hex-encode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/hex-encode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/http-client-binary/</loc>
+         <loc>https://www.dirigible.io/samples/basic/http-client-binary/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/http-client-calls/</loc>
+         <loc>https://www.dirigible.io/samples/basic/http-client-calls/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/http-request/</loc>
+         <loc>https://www.dirigible.io/samples/basic/http-request/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/mail-client/</loc>
+         <loc>https://www.dirigible.io/samples/basic/mail-client/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/platform-lifecycle/</loc>
+         <loc>https://www.dirigible.io/samples/basic/platform-lifecycle/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/print-configurations/</loc>
+         <loc>https://www.dirigible.io/samples/basic/print-configurations/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/print-env/</loc>
+         <loc>https://www.dirigible.io/samples/basic/print-env/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/repository-manager/</loc>
+         <loc>https://www.dirigible.io/samples/basic/repository-manager/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/rest-service/</loc>
+         <loc>https://www.dirigible.io/samples/basic/rest-service/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/soap-client/</loc>
+         <loc>https://www.dirigible.io/samples/basic/soap-client/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/soap-server/</loc>
+         <loc>https://www.dirigible.io/samples/basic/soap-server/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/url-decode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/url-decode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/url-encode/</loc>
+         <loc>https://www.dirigible.io/samples/basic/url-encode/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/uuid-random-generation/</loc>
+         <loc>https://www.dirigible.io/samples/basic/uuid-random-generation/</loc>
          <lastmod>2021-09-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
