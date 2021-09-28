@@ -119,10 +119,6 @@ margin-bottom: 80px;
 }
 
 .md-tabs__item:nth-child(6) {
-  float: right;
-}
-
-.md-tabs__item:nth-child(5) {
   background: orange;
   color: black;
   float: right;

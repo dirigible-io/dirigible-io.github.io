@@ -3,11 +3,11 @@ site_url: https://www.dirigible.io
 
 nav:
     - Home: 'index.md'
+    - Blogs: '/blogs/'
     - Documentation: '/help/'
     - API: '/api/'
     - Samples: '/samples/'
     - Downloads: 'https://downloads.dirigible.io'
-    - Blogs: '/blogs/'
 
 theme:
   favicon: /img/favicon.png

@@ -1,4 +1,4 @@
-site_name: Eclipse Dirigible Help Portal
+site_name: Eclipse Dirigible Documentation
 site_url: https://www.dirigible.io/help/
 
 nav:
@@ -101,8 +101,7 @@ nav:
     - Tips & Tricks:
       - Cheat Sheet: 'tips-&-tricks/cheat-sheet.md'
       - Keyboard Shortcuts: 'tips-&-tricks/keyboard-shortcuts.md'
-    - Community: 'community.md'
-        
+    - Community: 'community.md'  
 
 theme:
   favicon: /img/favicon.png
@@ -112,6 +111,8 @@ theme:
   features:
     - navigation.instant
     - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
     
 extra_css:
   - stylesheets/custom.css
