@@ -28,11 +28,6 @@ extra_css:
   - stylesheets/custom.css
   - stylesheets/homepage.css
   - stylesheets/extra.css
-  # - https://www.dirigible.io/css/bootstrap.min.css
-  # - https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
-  # - https://fonts.googleapis.com/css?family=Montserrat
-  # - https://www.dirigible.io/css/syntax.css
-  # - https://www.dirigible.io/css/default.css
 
 markdown_extensions:
     - attr_list
@@ -69,4 +64,4 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/c/dirigibleio
     - icon: fontawesome/brands/slack
-      link: https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg
+      link: https://slack.dirigible.io
