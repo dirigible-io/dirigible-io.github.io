@@ -44,6 +44,8 @@ markdown_extensions:
     - admonition
     - pymdownx.details
 
+plugins: []
+
 repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
 edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-home/docs
