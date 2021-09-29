@@ -21,7 +21,7 @@ Artifacts Overview
  
 ### Security
 
-  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.access).
+  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access).
   - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - roles definition file. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.roles).
 
 ### Flows
