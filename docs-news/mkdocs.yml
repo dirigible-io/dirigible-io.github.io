@@ -62,7 +62,7 @@ markdown_extensions:
 
 repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
-edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs
+edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-news/docs
 
 copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
 extra:
