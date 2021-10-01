@@ -65,7 +65,6 @@ jobs:
         cp -a _data docs/_data
         cp -a _includes docs/_includes
         cp -a _layouts docs/_layouts
-        cp -a _posts docs/_posts
         cp -a css docs/css
         cp -a fonts docs/fonts
         cp -a gdpr docs/gdpr
