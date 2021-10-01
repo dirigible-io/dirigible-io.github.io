@@ -22,6 +22,7 @@ jobs:
         docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-news:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-releases:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material build
 
         # Copy build output
@@ -31,6 +32,7 @@ jobs:
         mkdir docs/samples/
         mkdir docs/blogs/
         mkdir docs/news/
+        mkdir docs/releases/
         mkdir docs/home/
 
         cp -a docs-api/site/. docs/api/
@@ -50,6 +52,10 @@ jobs:
         cp -a docs-news/site/. docs/news/
         cp -a docs-news/redirects/. docs/news/
         cp -a docs-news/overrides/. docs/news/
+
+        cp -a docs-releases/site/. docs/releases/
+        cp -a docs-releases/redirects/. docs/release/
+        cp -a docs-releases/overrides/. docs/releases/
 
         cp -a docs-home/site/. docs/
         cp -a docs-home/redirects/. docs/
@@ -78,7 +84,6 @@ jobs:
         cp for_developers.html docs/for_developers.html
         cp getting_started.html docs/getting_started.html
         cp project.html docs/project.html
-        cp releases.html docs/releases.html
 
     - name: Git Commit and Push
       run: |
