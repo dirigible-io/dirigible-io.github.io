@@ -47,9 +47,9 @@ jobs:
         cp -a docs-blogs/redirects/. docs/blogs/
         cp -a docs-blogs/overrides/. docs/blogs/
 
-        cp -a docs-news/site/. docs/
-        cp -a docs-news/redirects/. docs/
-        cp -a docs-news/overrides/. docs/
+        cp -a docs-news/site/. docs/news/
+        cp -a docs-news/redirects/. docs/news/
+        cp -a docs-news/overrides/. docs/news/
 
         cp -a docs-home/site/. docs/
         cp -a docs-home/redirects/. docs/
