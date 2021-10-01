@@ -21,6 +21,7 @@ jobs:
         docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-news:/docs squidfunk/mkdocs-material build
         docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material build
 
         # Copy build output
@@ -29,6 +30,7 @@ jobs:
         mkdir docs/help/
         mkdir docs/samples/
         mkdir docs/blogs/
+        mkdir docs/news/
         mkdir docs/home/
 
         cp -a docs-api/site/. docs/api/
@@ -44,6 +46,10 @@ jobs:
         cp -a docs-blogs/site/. docs/blogs/
         cp -a docs-blogs/redirects/. docs/blogs/
         cp -a docs-blogs/overrides/. docs/blogs/
+
+        cp -a docs-news/site/. docs/
+        cp -a docs-news/redirects/. docs/
+        cp -a docs-news/overrides/. docs/
 
         cp -a docs-home/site/. docs/
         cp -a docs-home/redirects/. docs/
@@ -70,7 +76,7 @@ jobs:
         cp features.html docs/features.html 
         cp for_developers.html docs/for_developers.html
         cp getting_started.html docs/getting_started.html
-        cp news.html docs/news.html
+        cp news.html docs/news-old.html
         cp project.html docs/project.html
         cp releases.html docs/releases.html
 
