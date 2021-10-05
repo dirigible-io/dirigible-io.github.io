@@ -53,3 +53,4 @@ docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-mat
 ## License:
 
 Eclipse Dirigible is under the [Eclipse Public License - v 2.0] (https://www.eclipse.org/legal/epl-v20.html).
+
