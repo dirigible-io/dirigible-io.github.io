@@ -2,7 +2,7 @@ site_name: Eclipse Dirigible Releases
 site_url: https://www.dirigible.io/releases/
 
 nav:
-    - 'News': 'index.md'
+    - 'Releases': 'index.md'
     - '2021':
       - 'Release 6.0': '2021/09/29/news-new-release-6-0.md'
       - 'Release 5.12': '2021/07/04/news-new-release-5-12.md'
