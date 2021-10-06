@@ -1997,8 +1997,10 @@
                 <h1 id="database-view">Database View</h1>
 <p>The <strong>Database</strong> view gives you direct access to the default target schema assigned to your account in the Web IDE.
 It enables you to expand the schema item and see the list of all tables and views created either via the data structures models or directly via SQL script in <a href="https://www.dirigible.io/help/development/ide/views/sql/">SQL View</a>.</p>
-<p><strong>NOTE</strong></p>
-<p>All created tables can be discovered in <strong>PUBLIC</strong> schema. Public schema can appears when in upper right corner in dropdown are selected <strong>local storage</strong> and <strong>DefaultDB</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All created tables can be discovered under the <code>PUBLIC</code> schema <em>(for local deployment with <strong>H2</strong> database)</em>. The <code>PUBLIC</code> schema will appear, after the <code>local</code> data source type and the <code>DefaultDB</code> data source are selected in the upper right corner.</p>
+</div>
 <p><img alt="Database view" src="../../../../images/ide_view_database.png" /></p>
                 
                   
