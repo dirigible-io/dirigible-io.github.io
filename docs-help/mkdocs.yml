@@ -90,6 +90,7 @@ nav:
           - Previews: 'development/ide/views/preview.md'
           - Registry: 'development/ide/views/registry.md'
           - Repository: 'development/ide/views/repository.md'
+          - Result: 'development/ide/views/resultview.md'
           - Roles: 'development/ide/views/roles.md'
           - Search: 'development/ide/views/search.md'
           - Snapshot: 'development/ide/views/snapshot.md'
