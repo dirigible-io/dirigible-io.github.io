@@ -1,8 +1,15 @@
 ---
 title: Home
+
+hide: 
+ - toc
+ - navigation
 ---
 
-Eclipse Dirigible<sup>&trade;</sup> Blogs
+
+Welcome! On this page you'll be able to read all Eclipse Dirigible<sup>&trade;</sup> Blogs
 ===
 
-TODO
+![Blogs Image](images/blogs.svg)
+
+
