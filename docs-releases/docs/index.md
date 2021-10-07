@@ -1,8 +1,12 @@
 ---
 title: Home
+
+hide: 
+ - toc
+ - navigation
 ---
 
-Eclipse Dirigible<sup>&trade;</sup> News
+Welcome! On this page you'll be able to read about the recent Eclipse Dirigible<sup>&trade;</sup> Releases
 ===
 
-TODO
+![Releases Image](images/releases.svg)
