@@ -6,7 +6,7 @@ hide:
  - navigation
 ---
 
-News about Eclipse Dirigible<sup>&trade;</sup>
+News About Eclipse Dirigible<sup>&trade;</sup>
 ===
 
 ![News Image](images/news.svg)
