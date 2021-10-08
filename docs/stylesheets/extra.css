@@ -118,7 +118,7 @@ border-left: 4px solid rgba(230, 230, 230);
 margin-bottom: 80px;
 }
 
-.md-tabs__item:nth-child(6) {
+.md-tabs__item:nth-child(8) {
   background: orange;
   color: black;
   float: right;
