@@ -6,7 +6,7 @@ hide:
  - navigation
 ---
 
-Welcome! On this page you'll be able to read all Eclipse Dirigible<sup>&trade;</sup> News
+News about Eclipse Dirigible<sup>&trade;</sup>
 ===
 
 ![News Image](images/news.svg)
