@@ -7,8 +7,10 @@ hide:
 ---
 
 
-Welcome! On this page you'll be able to read all Eclipse Dirigible<sup>&trade;</sup> Blogs
+Welcome to Eclipse Dirigible<sup>&trade;</sup> Blog
 ===
+
+Hi Friends! In this blog we share with you our vision, opinions and expereince on cloud development and Eclipse Dirigible in particular. We hope you will enjoy reading the articles and writing new ones!
 
 ![Blogs Image](images/blogs.svg)
 
