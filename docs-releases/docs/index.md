@@ -6,7 +6,7 @@ hide:
  - navigation
 ---
 
-Welcome! On this page you'll be able to read about the recent Eclipse Dirigible<sup>&trade;</sup> Releases
+Releases of Eclipse Dirigible<sup>&trade;</sup>
 ===
 
 ![Releases Image](images/releases.svg)
