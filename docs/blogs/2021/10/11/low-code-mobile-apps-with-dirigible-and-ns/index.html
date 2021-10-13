@@ -453,34 +453,21 @@
       
         <li class="md-nav__item">
   <a href="#webviews-sometimes-work" class="md-nav__link">
-    Webviews sometimes work
+    WebViews Sometimes Work
   </a>
-  
-    <nav class="md-nav" aria-label="Webviews sometimes work">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#if-you-are-happy-with-how-your-app-looks-in-browsers-but-you-need-to-use-platform-apis-that-are-limited-for-pwas-like-notifications-bluetooth-face-id-more-offline-storage-etc-a-webview-application-with-js-to-native-messages-would-do-the-trick" class="md-nav__link">
-    If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#step-1-generate-a-webview-mobile-app-from-dirigible" class="md-nav__link">
-    Step 1: Generate a webview mobile app from Dirigible
+    Step 1: Generate a WebView Mobile App from Dirigible
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#step-2-call-native-apis-from-the-dirigible-app" class="md-nav__link">
-    Step 2: Call native APIs from the Dirigible app
+    Step 2: Call Native APIs from the Dirigible App
   </a>
   
 </li>
@@ -1507,34 +1494,21 @@
       
         <li class="md-nav__item">
   <a href="#webviews-sometimes-work" class="md-nav__link">
-    Webviews sometimes work
+    WebViews Sometimes Work
   </a>
-  
-    <nav class="md-nav" aria-label="Webviews sometimes work">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#if-you-are-happy-with-how-your-app-looks-in-browsers-but-you-need-to-use-platform-apis-that-are-limited-for-pwas-like-notifications-bluetooth-face-id-more-offline-storage-etc-a-webview-application-with-js-to-native-messages-would-do-the-trick" class="md-nav__link">
-    If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#step-1-generate-a-webview-mobile-app-from-dirigible" class="md-nav__link">
-    Step 1: Generate a webview mobile app from Dirigible
+    Step 1: Generate a WebView Mobile App from Dirigible
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#step-2-call-native-apis-from-the-dirigible-app" class="md-nav__link">
-    Step 2: Call native APIs from the Dirigible app
+    Step 2: Call Native APIs from the Dirigible App
   </a>
   
 </li>
@@ -1557,45 +1531,48 @@
                 
                 
                 <h1 id="low-code-mobile-apps-with-dirigible-and-nativescript">Low-code mobile apps with Dirigible and NativeScript</h1>
-<h2 id="webviews-sometimes-work">Webviews sometimes work</h2>
+<h2 id="webviews-sometimes-work">WebViews Sometimes Work</h2>
 <p>Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs.</p>
 <p>Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about webviews.</p>
-<h4 id="if-you-are-happy-with-how-your-app-looks-in-browsers-but-you-need-to-use-platform-apis-that-are-limited-for-pwas-like-notifications-bluetooth-face-id-more-offline-storage-etc-a-webview-application-with-js-to-native-messages-would-do-the-trick">If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick.</h4>
+<div class="admonition success">
+<p class="admonition-title">WebView</p>
+<p>If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick. </p>
+</div>
 <p>And it's fairly simple to produce - create a single-view application with a webview and implement some callbacks in both JavaScript and native code (<a href="https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503">here</a> is how you can do it in iOS).</p>
 <p><em>If it's simple, why don't you automate it?</em></p>
-<h2 id="step-1-generate-a-webview-mobile-app-from-dirigible">Step 1: Generate a webview mobile app from Dirigible</h2>
+<h2 id="step-1-generate-a-webview-mobile-app-from-dirigible">Step 1: Generate a WebView Mobile App from Dirigible</h2>
 <p>First, let's create a webview app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.</p>
 <p><img alt="" src="/img/posts/20211011/ios-proj-step1.png" /></p>
 <p><img alt="" src="/img/posts/20211011/ios-proj-step2.png" /></p>
 <p>You need to add some boilerplate code to make your WKWebview open a URL.</p>
-<div class="highlight"><pre><span></span><code>import SwiftUI
-import WebKit
+<div class="highlight"><pre><span></span><code><span class="n">import</span><span class="w"> </span><span class="n">SwiftUI</span><span class="w"></span>
+<span class="n">import</span><span class="w"> </span><span class="n">WebKit</span><span class="w"></span>
 
-struct ContentView: View {
-    var body: some View {
-        Webview(url: URL(string: &quot;https://www.dirigible.io/&quot;)!)
-    }
-}
+<span class="k">struct</span> <span class="nc">ContentView</span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="nl">body</span><span class="p">:</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Webview</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">(</span><span class="nl">string</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://www.dirigible.io/&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-struct Webview: UIViewRepresentable {
-    let url: URL
+<span class="k">struct</span> <span class="nc">Webview</span><span class="o">:</span><span class="w"> </span><span class="n">UIViewRepresentable</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="nl">url</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="w"></span>
 
-    func makeUIView(context: UIViewRepresentableContext&lt;Webview&gt;) -&gt; WKWebView {
+<span class="w">    </span><span class="n">func</span><span class="w"> </span><span class="n">makeUIView</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span><span class="w"> </span><span class="n">UIViewRepresentableContext</span><span class="o">&lt;</span><span class="n">Webview</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="bp">WKWebView</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-        let config = WKWebViewConfiguration()
-        let webview = WKWebView(frame: CGRect.zero, configuration: config)
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">WKWebViewConfiguration</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">webview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">WKWebView</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span><span class="w"> </span><span class="n">CGRect</span><span class="p">.</span><span class="n">zero</span><span class="p">,</span><span class="w"> </span><span class="nl">configuration</span><span class="p">:</span><span class="w"> </span><span class="n">config</span><span class="p">)</span><span class="w"></span>
 
-        let request = URLRequest(url: self.url)
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URLRequest</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span><span class="w"> </span><span class="nb">self</span><span class="p">.</span><span class="n">url</span><span class="p">)</span><span class="w"></span>
 
-        webview.load(request)
-        return webview
-    }
+<span class="w">        </span><span class="n">webview</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">request</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">webview</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    func updateUIView(_ webview: WKWebView, context: UIViewRepresentableContext&lt;Webview&gt;) {
-        let request = URLRequest(url: self.url, cachePolicy: .returnCacheDataElseLoad)
-        webview.load(request)
-    }
-}
+<span class="w">    </span><span class="n">func</span><span class="w"> </span><span class="n">updateUIView</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="nl">webview</span><span class="p">:</span><span class="w"> </span><span class="bp">WKWebView</span><span class="p">,</span><span class="w"> </span><span class="nl">context</span><span class="p">:</span><span class="w"> </span><span class="n">UIViewRepresentableContext</span><span class="o">&lt;</span><span class="n">Webview</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">URLRequest</span><span class="p">(</span><span class="nl">url</span><span class="p">:</span><span class="w"> </span><span class="nb">self</span><span class="p">.</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="nl">cachePolicy</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">returnCacheDataElseLoad</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">webview</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">request</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Therefore, this works with the public URL of your deployed app.</p>
 <p><img alt="" src="/img/posts/20211011/dirigible-io-webview.gif" /></p>
@@ -1610,52 +1587,52 @@ struct Webview: UIViewRepresentable {
 </ol>
 <p><strong>Step 1.</strong> We already did that, but let's add a placeholder for the app URL, which we will be updating using a regex.</p>
 <p>For steps <strong>2.</strong> and <strong>3.</strong> I created a <strong>Node.js</strong> script that you can get from <a href="https://github.com/dirigiblelabs/mobile-gen">here</a> and play with it.</p>
-<p>For <strong>Step 4.</strong> I created an endpoint in <a href="https://github.com/eclipse/dirigible/blob/master/modules/services/service-transport/src/main/java/org/eclipse/dirigible/runtime/transport/service/TransportProjectRestService.java">TransportProjectRestService.java</a>:</p>
-<div class="highlight"><pre><span></span><code>@GET
-    @Path(&quot;/project/{workspace}/{project}/ios&quot;)
-    @ApiOperation(&quot;Generate ipa file&quot;)
-    @ApiResponses({ @ApiResponse(code = 200, message = &quot;Project Exported&quot;) })
-    public void exportProjectIos(@Suspended AsyncResponse asyncResponse, @ApiParam(value = &quot;Name of the Workspace&quot;, required = true) @PathParam(&quot;workspace&quot;) String workspace,
-                                 @ApiParam(value = &quot;Name of the Project&quot;, required = true) @PathParam(&quot;project&quot;) String project, @QueryParam(&quot;previewUrl&quot;) String previewUrl) throws RepositoryExportException {
-        String user = UserFacade.getName();
-        if (user == null) {
-            asyncResponse.resume(createErrorResponseForbidden(NO_LOGGED_IN_USER));
-        }
-        String appUrl = previewUrl + project + &quot;/index.html&quot;;
-        ProcessBuilder pb = new ProcessBuilder(&quot;node&quot;, APP_GENERATOR_SCRIPT_PATH, &quot;generate&quot;, appUrl);
-        pb.inheritIO();
-        try {
-            Process p = pb.start();
-            CompletableFuture onProcessExit = p.onExit();
-            onProcessExit.get();
-            onProcessExit.thenAccept(ph -&gt; {
-                ByteArrayOutputStream baos = null;
-                baos = new ByteArrayOutputStream();
-                ZipOutputStream zipOut = new ZipOutputStream(baos);
-                File fileToZip = new File(GENERATED_APP_BUILD_PATH);
+<p>For <strong>Step 4.</strong> I created an endpoint in <a href="https://github.com/eclipse/dirigible/blob/39d60df11fa14605f38d534b5e72af8ccbfb32c0/modules/services/service-transport/src/main/java/org/eclipse/dirigible/runtime/transport/service/TransportProjectRestService.java">TransportProjectRestService.java</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@GET</span>
+    <span class="nd">@Path</span><span class="p">(</span><span class="s">&quot;/project/{workspace}/{project}/ios&quot;</span><span class="p">)</span>
+    <span class="nd">@ApiOperation</span><span class="p">(</span><span class="s">&quot;Generate ipa file&quot;</span><span class="p">)</span>
+    <span class="nd">@ApiResponses</span><span class="p">({</span> <span class="nd">@ApiResponse</span><span class="p">(</span><span class="n">code</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Project Exported&quot;</span><span class="p">)</span> <span class="p">})</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exportProjectIos</span><span class="p">(</span><span class="nd">@Suspended</span> <span class="n">AsyncResponse</span> <span class="n">asyncResponse</span><span class="p">,</span> <span class="nd">@ApiParam</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Name of the Workspace&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;workspace&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">workspace</span><span class="p">,</span>
+                                 <span class="nd">@ApiParam</span><span class="p">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Name of the Project&quot;</span><span class="p">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="nd">@PathParam</span><span class="p">(</span><span class="s">&quot;project&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">project</span><span class="p">,</span> <span class="nd">@QueryParam</span><span class="p">(</span><span class="s">&quot;previewUrl&quot;</span><span class="p">)</span> <span class="n">String</span> <span class="n">previewUrl</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">RepositoryExportException</span> <span class="p">{</span>
+        <span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">UserFacade</span><span class="p">.</span><span class="na">getName</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">asyncResponse</span><span class="p">.</span><span class="na">resume</span><span class="p">(</span><span class="n">createErrorResponseForbidden</span><span class="p">(</span><span class="n">NO_LOGGED_IN_USER</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">String</span> <span class="n">appUrl</span> <span class="o">=</span> <span class="n">previewUrl</span> <span class="o">+</span> <span class="n">project</span> <span class="o">+</span> <span class="s">&quot;/index.html&quot;</span><span class="p">;</span>
+        <span class="n">ProcessBuilder</span> <span class="n">pb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProcessBuilder</span><span class="p">(</span><span class="s">&quot;node&quot;</span><span class="p">,</span> <span class="n">APP_GENERATOR_SCRIPT_PATH</span><span class="p">,</span> <span class="s">&quot;generate&quot;</span><span class="p">,</span> <span class="n">appUrl</span><span class="p">);</span>
+        <span class="n">pb</span><span class="p">.</span><span class="na">inheritIO</span><span class="p">();</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="n">Process</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pb</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+            <span class="n">CompletableFuture</span> <span class="n">onProcessExit</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="na">onExit</span><span class="p">();</span>
+            <span class="n">onProcessExit</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+            <span class="n">onProcessExit</span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">ph</span> <span class="o">-&gt;</span> <span class="p">{</span>
+                <span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+                <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="p">();</span>
+                <span class="n">ZipOutputStream</span> <span class="n">zipOut</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ZipOutputStream</span><span class="p">(</span><span class="n">baos</span><span class="p">);</span>
+                <span class="n">File</span> <span class="n">fileToZip</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="p">(</span><span class="n">GENERATED_APP_BUILD_PATH</span><span class="p">);</span>
 
-                try {
-                    zipFile(fileToZip, fileToZip.getName(), zipOut);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    zipOut.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                asyncResponse.resume(Response.ok().header(&quot;Content-Disposition&quot;,  &quot;attachment; filename=\&quot;&quot; + project + &quot;-&quot; + &quot;build.zip\&quot;&quot;).entity(baos.toByteArray()).build());
-            });
-        } catch(IOException e) {
-            asyncResponse.resume(Response.noContent().build());
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            asyncResponse.resume(Response.noContent().build());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            asyncResponse.resume(Response.noContent().build());
-        }
-    }
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="n">zipFile</span><span class="p">(</span><span class="n">fileToZip</span><span class="p">,</span> <span class="n">fileToZip</span><span class="p">.</span><span class="na">getName</span><span class="p">(),</span> <span class="n">zipOut</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="n">zipOut</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="n">asyncResponse</span><span class="p">.</span><span class="na">resume</span><span class="p">(</span><span class="n">Response</span><span class="p">.</span><span class="na">ok</span><span class="p">().</span><span class="na">header</span><span class="p">(</span><span class="s">&quot;Content-Disposition&quot;</span><span class="p">,</span>  <span class="s">&quot;attachment; filename=\&quot;&quot;</span> <span class="o">+</span> <span class="n">project</span> <span class="o">+</span> <span class="s">&quot;-&quot;</span> <span class="o">+</span> <span class="s">&quot;build.zip\&quot;&quot;</span><span class="p">).</span><span class="na">entity</span><span class="p">(</span><span class="n">baos</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">()).</span><span class="na">build</span><span class="p">());</span>
+            <span class="p">});</span>
+        <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">IOException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">asyncResponse</span><span class="p">.</span><span class="na">resume</span><span class="p">(</span><span class="n">Response</span><span class="p">.</span><span class="na">noContent</span><span class="p">().</span><span class="na">build</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">ExecutionException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="n">asyncResponse</span><span class="p">.</span><span class="na">resume</span><span class="p">(</span><span class="n">Response</span><span class="p">.</span><span class="na">noContent</span><span class="p">().</span><span class="na">build</span><span class="p">());</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="n">asyncResponse</span><span class="p">.</span><span class="na">resume</span><span class="p">(</span><span class="n">Response</span><span class="p">.</span><span class="na">noContent</span><span class="p">().</span><span class="na">build</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></div>
 <p>It does the following:</p>
 <ol>
@@ -1669,27 +1646,33 @@ struct Webview: UIViewRepresentable {
 <p><img alt="" src="/img/posts/20211011/export-ios-button.gif" /></p>
 <p>And when we load the app in the iOS Simulator:</p>
 <p><img alt="" src="/img/posts/20211011/export-webview-no-native.gif" /></p>
-<h2 id="step-2-call-native-apis-from-the-dirigible-app">Step 2: Call native APIs from the Dirigible app</h2>
+<h2 id="step-2-call-native-apis-from-the-dirigible-app">Step 2: Call Native APIs from the Dirigible App</h2>
 <p>At the beginning of this post, I talked about messages between JS and native code but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.</p>
-<p><strong>NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.</strong> </p>
+<div class="admonition info">
+<p class="admonition-title">NativeScript</p>
+<p>NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.</p>
+</div>
 <p>This practically eliminates any need for learning bridge-specific APIs and if you want to do a native call, you can just refer to the corresponding docs. </p>
 <p>For example, this is how we initialize a <em>UIViewController</em> in Objective-C:</p>
-<div class="highlight"><pre><span></span><code>UIViewController* vc = [UIViewController alloc] init];
+<div class="highlight"><pre><span></span><code><span class="bp">UIViewController</span><span class="o">*</span><span class="w"> </span><span class="n">vc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="bp">UIViewController</span><span class="w"> </span><span class="n">alloc</span><span class="p">]</span><span class="w"> </span><span class="n">init</span><span class="p">];</span><span class="w"></span>
 </code></pre></div>
 <p>Using NativeScript it becomes:</p>
-<div class="highlight"><pre><span></span><code>let vc = UIViewController.alloc().init();
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">vc</span> <span class="o">=</span> <span class="nx">UIViewController</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">init</span><span class="p">();</span>
 </code></pre></div>
 <p>Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">worker</a>-like interface. Keep in mind that this interface is still an experimental feature. For example, this is how you can get the model of the device from your Dirigible application:</p>
-<div class="highlight"><pre><span></span><code>let worker = new NSWorker(&quot;postmessage(UIDevice.currentDevice.localizedModel)&quot;);
-onNativeMessage = function(msg) {
-    console.log(&quot;Message from native - &quot; + JSON.stringify(msg));
-    $(&#39;#model&#39;).text(JSON.stringify(msg.data));
-}
+<div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">worker</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">NSWorker</span><span class="p">(</span><span class="s2">&quot;postmessage(UIDevice.currentDevice.localizedModel)&quot;</span><span class="p">);</span>
+<span class="nx">onNativeMessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message from native - &quot;</span> <span class="o">+</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">msg</span><span class="p">));</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#model&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>To make our Xcode project template project support this some <a href="https://github.com/dirigiblelabs/mobile-gen/commit/e045d19a2e8d7d00711e0191731f5fdaf488ea64">changes</a> are necessary - add the NativeScript framework and some other build settings in order to build and link the project properly. </p>
 <p>And this is the final result:</p>
 <p><img alt="" src="/img/posts/20211011/final-demo-ns.gif" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>What we reviewed in this article is a research topic rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.</p>
+</div>
                 
               
               
