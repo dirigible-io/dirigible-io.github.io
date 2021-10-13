@@ -1530,18 +1530,18 @@
                   </a>
                 
                 
-                <h1 id="low-code-mobile-apps-with-dirigible-and-nativescript">Low-code mobile apps with Dirigible and NativeScript</h1>
+                <h1 id="low-code-mobile-apps-with-dirigible-and-nativescript">Low-Code Mobile Apps with Dirigible and NativeScript</h1>
 <h2 id="webviews-sometimes-work">WebViews Sometimes Work</h2>
 <p>Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs.</p>
-<p>Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about webviews.</p>
+<p>Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about WebViews.</p>
 <div class="admonition success">
 <p class="admonition-title">WebView</p>
-<p>If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick. </p>
+<p>If you are happy with how your app looks in browsers, but you need to use platform APIs that are limited for PWAs (like <code>Notifications</code>, <code>Bluetooth</code>, <code>Face ID</code>, <code>Offline Storage</code>, etc.), a WebView application with JS-to-native messages would do the trick. </p>
 </div>
-<p>And it's fairly simple to produce - create a single-view application with a webview and implement some callbacks in both JavaScript and native code (<a href="https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503">here</a> is how you can do it in iOS).</p>
-<p><em>If it's simple, why don't you automate it?</em></p>
+<p>And it's fairly simple to produce - create a single-view application with a WebView and implement some callbacks in both JavaScript and native code (<a href="https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503">here</a> is how you can do it in iOS).</p>
+<p><em><strong>If it's simple, why don't you automate it?</strong></em></p>
 <h2 id="step-1-generate-a-webview-mobile-app-from-dirigible">Step 1: Generate a WebView Mobile App from Dirigible</h2>
-<p>First, let's create a webview app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.</p>
+<p>First, let's create a WebView app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.</p>
 <p><img alt="" src="/img/posts/20211011/ios-proj-step1.png" /></p>
 <p><img alt="" src="/img/posts/20211011/ios-proj-step2.png" /></p>
 <p>You need to add some boilerplate code to make your WKWebview open a URL.</p>
@@ -1580,8 +1580,8 @@
 <p><em>If we change just the WKWebView URL, it should be really simple to automate it.</em></p>
 <p>Let's go through the steps that need to be automated:</p>
 <ol>
-<li>Create a Xcode project template to build the app from. In this project, we update the URL in the webview configuration code to match the public index URL of our app.</li>
-<li>Replace the URL in the webview configuration code with the public index URL of our app.</li>
+<li>Create a Xcode project template to build the app from. In this project, we update the URL in the WebView configuration code to match the public index URL of our app.</li>
+<li>Replace the URL in the WebView configuration code with the public index URL of our app.</li>
 <li>Build and archive the iOS application.</li>
 <li>Send the archived application to a user via the Dirigible UI.</li>
 </ol>
@@ -1642,14 +1642,14 @@
 <li>Sends the .zip in the response.</li>
 </ol>
 <p>Now we need some front-end stuff. I went for the simplest way possible - added a new <strong>Export iOS app</strong> in the project right-button menu (<a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-workspace/src/main/resources/META-INF/dirigible/ide-workspace/workspace.js">workspace.js</a>). </p>
-<p>The result:</p>
+<p><strong>The result:</strong></p>
 <p><img alt="" src="/img/posts/20211011/export-ios-button.gif" /></p>
-<p>And when we load the app in the iOS Simulator:</p>
+<p><strong>And when we load the app in the iOS Simulator:</strong></p>
 <p><img alt="" src="/img/posts/20211011/export-webview-no-native.gif" /></p>
 <h2 id="step-2-call-native-apis-from-the-dirigible-app">Step 2: Call Native APIs from the Dirigible App</h2>
-<p>At the beginning of this post, I talked about messages between JS and native code but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.</p>
+<p>At the beginning of this post, I talked about messages between JS and native code, but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.</p>
 <div class="admonition info">
-<p class="admonition-title">NativeScript</p>
+<p class="admonition-title">NativeScript - Native Calls</p>
 <p>NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.</p>
 </div>
 <p>This practically eliminates any need for learning bridge-specific APIs and if you want to do a native call, you can just refer to the corresponding docs. </p>
@@ -1659,7 +1659,7 @@
 <p>Using NativeScript it becomes:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">vc</span> <span class="o">=</span> <span class="nx">UIViewController</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">init</span><span class="p">();</span>
 </code></pre></div>
-<p>Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">worker</a>-like interface. Keep in mind that this interface is still an experimental feature. For example, this is how you can get the model of the device from your Dirigible application:</p>
+<p>Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">worker</a>-like interface. <em><strong>Keep in mind that this interface is still an experimental feature.</strong></em> For example, this is how you can get the model of the device from your Dirigible application:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span> <span class="nx">worker</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">NSWorker</span><span class="p">(</span><span class="s2">&quot;postmessage(UIDevice.currentDevice.localizedModel)&quot;</span><span class="p">);</span>
 <span class="nx">onNativeMessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Message from native - &quot;</span> <span class="o">+</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">msg</span><span class="p">));</span>
@@ -1667,11 +1667,11 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>To make our Xcode project template project support this some <a href="https://github.com/dirigiblelabs/mobile-gen/commit/e045d19a2e8d7d00711e0191731f5fdaf488ea64">changes</a> are necessary - add the NativeScript framework and some other build settings in order to build and link the project properly. </p>
-<p>And this is the final result:</p>
+<p><strong>And this is the final result:</strong></p>
 <p><img alt="" src="/img/posts/20211011/final-demo-ns.gif" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>What we reviewed in this article is a research topic rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.</p>
+<p>What we reviewed in this article is a <strong>research topic</strong> rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point, but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.</p>
 </div>
                 
               
