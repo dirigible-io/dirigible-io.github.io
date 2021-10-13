@@ -39,6 +39,7 @@ They are built on scenarios with different complexity level, from exemplary samp
 - [SOAP Server](basic/soap-server) - building a server side SOAP service
 - [FTP Client](basic/ftp-client) - getting started with the FTP Client
 - [Platform Lifecycle](basic/platform-lifecycle) - getting started with the Platform Lifecycle API
+- [Liquibase](basic/liquibase-simple) - how to make use of the Liquibase's `*.changelog` descriptors
 
 #### Complex Samples
 
