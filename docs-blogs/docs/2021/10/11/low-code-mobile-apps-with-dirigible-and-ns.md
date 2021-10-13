@@ -1,21 +1,21 @@
-# Low-code mobile apps with Dirigible and NativeScript
+# Low-Code Mobile Apps with Dirigible and NativeScript
 
 ## WebViews Sometimes Work
 
 Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs.
 
-Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about webviews.
+Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about WebViews.
 
 !!! success "WebView"
 
-    If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick. 
-And it's fairly simple to produce - create a single-view application with a webview and implement some callbacks in both JavaScript and native code ([here](https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503) is how you can do it in iOS).
+    If you are happy with how your app looks in browsers, but you need to use platform APIs that are limited for PWAs (like `Notifications`, `Bluetooth`, `Face ID`, `Offline Storage`, etc.), a WebView application with JS-to-native messages would do the trick. 
+And it's fairly simple to produce - create a single-view application with a WebView and implement some callbacks in both JavaScript and native code ([here](https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503) is how you can do it in iOS).
 
-*If it's simple, why don't you automate it?*
+_**If it's simple, why don't you automate it?**_
 
 ## Step 1: Generate a WebView Mobile App from Dirigible
 
-First, let's create a webview app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.
+First, let's create a WebView app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.
 
 ![](/img/posts/20211011/ios-proj-step1.png)
 
@@ -65,8 +65,8 @@ Now you can go ahead and publish your app in the App Store.
 
 Let's go through the steps that need to be automated:
 
-1. Create a Xcode project template to build the app from. In this project, we update the URL in the webview configuration code to match the public index URL of our app.
-2. Replace the URL in the webview configuration code with the public index URL of our app.
+1. Create a Xcode project template to build the app from. In this project, we update the URL in the WebView configuration code to match the public index URL of our app.
+2. Replace the URL in the WebView configuration code with the public index URL of our app.
 3. Build and archive the iOS application.
 4. Send the archived application to a user via the Dirigible UI.
 
@@ -134,19 +134,19 @@ It does the following:
 
 Now we need some front-end stuff. I went for the simplest way possible - added a new **Export iOS app** in the project right-button menu ([workspace.js](https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-workspace/src/main/resources/META-INF/dirigible/ide-workspace/workspace.js)). 
 
-The result:
+**The result:**
 
 ![](/img/posts/20211011/export-ios-button.gif)
 
-And when we load the app in the iOS Simulator:
+**And when we load the app in the iOS Simulator:**
 
 ![](/img/posts/20211011/export-webview-no-native.gif)
 
 ## Step 2: Call Native APIs from the Dirigible App
 
-At the beginning of this post, I talked about messages between JS and native code but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.
+At the beginning of this post, I talked about messages between JS and native code, but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.
 
-!!! info "NativeScript"
+!!! info "NativeScript - Native Calls"
 
     NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.
 
@@ -164,7 +164,7 @@ Using NativeScript it becomes:
 let vc = UIViewController.alloc().init();
 ```
 
-Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides [worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)-like interface. Keep in mind that this interface is still an experimental feature. For example, this is how you can get the model of the device from your Dirigible application:
+Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides [worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)-like interface. _**Keep in mind that this interface is still an experimental feature.**_ For example, this is how you can get the model of the device from your Dirigible application:
 
 ```javascript
 let worker = new NSWorker("postmessage(UIDevice.currentDevice.localizedModel)");
@@ -176,23 +176,11 @@ onNativeMessage = function(msg) {
 
 To make our Xcode project template project support this some [changes](https://github.com/dirigiblelabs/mobile-gen/commit/e045d19a2e8d7d00711e0191731f5fdaf488ea64) are necessary - add the NativeScript framework and some other build settings in order to build and link the project properly. 
 
-And this is the final result:
+**And this is the final result:**
 
 ![](/img/posts/20211011/final-demo-ns.gif)
 
 
 !!! note
 
-    What we reviewed in this article is a research topic rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.
-
-
-
-
-
-
-
-
-
-
-
-
+    What we reviewed in this article is a **research topic** rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point, but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.
