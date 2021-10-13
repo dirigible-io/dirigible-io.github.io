@@ -10,7 +10,7 @@ In the SQL console you can enter and execute SQL scripts, compliant to the under
 
 !!! note
 
-    Script are executed by pressing:
+    Scripts are executed by pressing:
 
     - Windows : ++ctrl+x++
     - Mac: ++command+x++
