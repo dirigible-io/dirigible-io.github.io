@@ -196,8 +196,14 @@ INSERT INTO PERSON VALUES(3,'JEAN','DE GAULLE','FR','jdg66');
 ```
 
 
-Executing SQL scripts by pressing cmd+x(Mac OS), cntrl+x(Windows);
-Table data can de seen by choosing "Show Content" on table. Results are shown in Result View.
+!!! note
+
+    Scripts are executed by pressing:
+
+    - Windows : ++ctrl+x++
+    - Mac: ++command+x++
+
+Table data can de seen by choosing `Show Content` on table. Results are shown in the `Result View`.
 
 
 
