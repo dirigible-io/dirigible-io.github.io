@@ -1,17 +1,20 @@
-#Low-code mobile apps with Dirigible and NativeScript
+# Low-code mobile apps with Dirigible and NativeScript
 
-##Webviews sometimes work
+## WebViews Sometimes Work
 
 Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs.
 
 Sometimes though you have a good reason to ask users to install your app on a device without native UI being necessary. And even more - what if you just reuse your web app code? Of course, I am talking about webviews.
 
-####If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick. 
+!!! success "WebView"
+
+    If you are happy with how your app looks in browsers but you need to use platform APIs that are limited for PWAs (like notifications, Bluetooth, Face ID, more offline storage etc.), a webview application with JS-to-native messages would do the trick. 
 And it's fairly simple to produce - create a single-view application with a webview and implement some callbacks in both JavaScript and native code ([here](https://medium.com/@JillevdWeerd/creating-links-between-wkwebview-and-native-code-8e998889b503) is how you can do it in iOS).
 
 *If it's simple, why don't you automate it?*
 
-##Step 1: Generate a webview mobile app from Dirigible 
+## Step 1: Generate a WebView Mobile App from Dirigible
+
 First, let's create a webview app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.
 
 ![](/img/posts/20211011/ios-proj-step1.png)
@@ -20,7 +23,7 @@ First, let's create a webview app for iOS from scratch. Create a new Xcode proje
 
 You need to add some boilerplate code to make your WKWebview open a URL.
 
-```
+```objective-c
 import SwiftUI
 import WebKit
 
@@ -71,9 +74,9 @@ Let's go through the steps that need to be automated:
 
 For steps **2.** and **3.** I created a **Node.js** script that you can get from [here](https://github.com/dirigiblelabs/mobile-gen) and play with it.
 
-For **Step 4.** I created an endpoint in [TransportProjectRestService.java](https://github.com/eclipse/dirigible/blob/master/modules/services/service-transport/src/main/java/org/eclipse/dirigible/runtime/transport/service/TransportProjectRestService.java):
+For **Step 4.** I created an endpoint in [TransportProjectRestService.java](https://github.com/eclipse/dirigible/blob/39d60df11fa14605f38d534b5e72af8ccbfb32c0/modules/services/service-transport/src/main/java/org/eclipse/dirigible/runtime/transport/service/TransportProjectRestService.java):
 
-```
+```java
 @GET
 	@Path("/project/{workspace}/{project}/ios")
 	@ApiOperation("Generate ipa file")
@@ -139,29 +142,31 @@ And when we load the app in the iOS Simulator:
 
 ![](/img/posts/20211011/export-webview-no-native.gif)
 
-##Step 2: Call native APIs from the Dirigible app
+## Step 2: Call Native APIs from the Dirigible App
 
 At the beginning of this post, I talked about messages between JS and native code but this would require a bunch of code for handling different scenarios. Fortunately, there is a better way.
 
-**NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.** 
+!!! info "NativeScript"
+
+    NativeScript's runtime allows native calls from JavaScript while keeping the exact same class, methods and property names as you are writing native code.
 
 This practically eliminates any need for learning bridge-specific APIs and if you want to do a native call, you can just refer to the corresponding docs. 
 
 For example, this is how we initialize a *UIViewController* in Objective-C:
 
-```
+```objective-c
 UIViewController* vc = [UIViewController alloc] init];
 ```
 
 Using NativeScript it becomes:
 
-```
+```javascript
 let vc = UIViewController.alloc().init();
 ```
 
 Since the NativeScript runtime works in a separate thread, we can't share context between it and our web app. That's why it provides [worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)-like interface. Keep in mind that this interface is still an experimental feature. For example, this is how you can get the model of the device from your Dirigible application:
 
-```
+```javascript
 let worker = new NSWorker("postmessage(UIDevice.currentDevice.localizedModel)");
 onNativeMessage = function(msg) {
     console.log("Message from native - " + JSON.stringify(msg));
@@ -176,7 +181,9 @@ And this is the final result:
 ![](/img/posts/20211011/final-demo-ns.gif)
 
 
-What we reviewed in this article is a research topic rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.
+!!! note
+
+    What we reviewed in this article is a research topic rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.
 
 
 
