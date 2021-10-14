@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blogs': 'index.md'
     - '2021':
+      - "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt": '2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md'
       - 'Low-code mobile apps with Dirigible and NativeScript': '2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md'
     - '2020':
       - '2020 - What a year for Eclipse Dirigible!': '2020/12/16/2020-what-a-year-for-eclipse-dirigible.md'
