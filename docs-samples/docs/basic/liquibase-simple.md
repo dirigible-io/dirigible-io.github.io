@@ -167,7 +167,9 @@ Jump to Workbench perspective. Here you need to create file with **.changelog** 
 
 On saving the file Dirigible automatically detects and executes the .changelog file.
 Switching to DB perspective we can see that in our PUBLIC schema, are created three tables,
-![image](../images/databaseexplorer.png)
+
+![image](../images/databaseexplorer.png){ width=30em }
+
 as described in our changelog file:
 - **Persons**,
 - **State**
