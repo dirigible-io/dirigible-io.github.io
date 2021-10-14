@@ -1606,43 +1606,40 @@
 <p>In this article we assume that you have already running productive <em><strong>Kubernetes Cluster</strong> on <strong>Gardener</strong></em> and configured <em><strong>kubectl</strong></em> for it. If you don't have such, you can create one by using the the open-source <a href="https://github.com/gardener">Gardener</a> project. Also you will need <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS account</a> or <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">AWS Free Tier</a>, you need to install <a href="https://istio.io/latest/docs/setup/install/">Istio</a> and <a href="https://www.dirigible.io/help/setup/kubernetes/">Dirigible</a></p>
 <h2 id="configurations-in-aws-route-53">Configurations in AWS Route 53</h2>
 <ol>
-<li>Create hosted zone.
-When you create hosted zone choose type <code>Public hosted zone</code> see the image below.</li>
-</ol>
+<li>
+<p><strong>Create hosted zone</strong> - when you create hosted zone choose type <code>Public hosted zone</code> see the image below.</p>
 <p><img alt="AWS - Hosted Zone" src="/img/posts/20211014/aws-hostedzone.png" /></p>
+</li>
+</ol>
 <p>After you create your hosted zone you can delegate your subdomain to AWS, if you don't host your parent domain in AWS. You can take the name servers which you can see in the image bellow and add <code>ns</code> records to your domain. But if you host your domain in AWS you don't need to delegate.<br />
 <img alt="AWS - Nameservers" src="/img/posts/20211014/nameservers.png" /></p>
 <ol>
 <li>
-<p>Create new user - which will provide to Gardener dns provider.</p>
-</li>
-<li>
-<p>When you create user select credential type to be <code>Access key - Programmatic access</code> ( you see the image below).</p>
-</li>
-</ol>
+<p><strong>Create new user</strong> - which will provide to Gardener dns provider.</p>
+<ul>
+<li>When you create user select credential type to be <code>Access key - Programmatic access</code> ( you see the image below).</li>
+</ul>
 <p><img alt="AWS - Create User" src="/img/posts/20211014/create-user.png" /></p>
-<ol>
-<li>
-<p>Create group - add user to group, but for this scenario we need to create new group which will be using only for this purpose. That's why, click on <code>Create group</code> and it will open new tab to create the group.
-<img alt="AWS - Create Group" src="/img/posts/20211014/create-group.png" /></p>
 </li>
 <li>
-<p>Create Policy - Before you create the new group click on <code>Create policy</code> it will open new tab to create the policy.
-<img alt="AWS - Create Group Name" src="/img/posts/20211014/create-group-name.png" /></p>
+<p>Create group - add user to group, but for this scenario we need to create new group which will be using only for this purpose. That's why, click on <code>Create group</code> and it will open new tab to create the group.</p>
+<p><img alt="AWS - Create Group" src="/img/posts/20211014/create-group.png" /></p>
 </li>
 <li>
-<p>On the first step click on the JSON see the image below.
-<img alt="AWS - Create Policy - Step 1" src="/img/posts/20211014/create-policy-step1.png" /></p>
-</li>
-<li>
-<p>Leave this tab open and find your <code>Hosted zone ID</code> see the image below
-<img alt="AWS - Take Your Hosted Zone Id" src="/img/posts/20211014/take-your-hosted-zone-id.png" /></p>
-</li>
-<li>
-<p>Add your hosted zone id to the JSON you can use this example json</p>
-</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<p><strong>Create Policy</strong> - before you create the new group click on <code>Create policy</code> it will open new tab to create the policy.</p>
+<p><img alt="AWS - Create Group Name" src="/img/posts/20211014/create-group-name.png" /></p>
+<ul>
+<li>On the first step click on the JSON see the image below:</li>
+</ul>
+<p><img alt="AWS - Create Policy - Step 1" src="/img/posts/20211014/create-policy-step1.png" /></p>
+<ul>
+<li>Leave this tab open and find your <code>Hosted zone ID</code> see the image below:</li>
+</ul>
+<p><img alt="AWS - Take Your Hosted Zone Id" src="/img/posts/20211014/take-your-hosted-zone-id.png" /></p>
+<ul>
+<li>Add your hosted zone id to the JSON you can use this example json</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
     <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1672,52 +1669,53 @@ When you create hosted zone choose type <code>Public hosted zone</code> see the 
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<img alt="AWS - Add Your Hosted Zone Id to Policy" src="/img/posts/20211014/add-your-hostedzone-id-to-policy.png" /></p>
-<blockquote>
-<p><strong>Note:</strong> It's very important to add your correct hosted zone id</p>
-</blockquote>
+<p><img alt="AWS - Add Your Hosted Zone Id to Policy" src="/img/posts/20211014/add-your-hostedzone-id-to-policy.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It's very important to add your correct hosted zone id</p>
+</div>
 <ul>
-<li>
-<p>We don't need tags see image below
-<img alt="AWS - Create Policy - Step 2" src="/img/posts/20211014/policy-step-2.png" /></p>
-</li>
-<li>
-<p>Тype policy name  see image below
-<img alt="AWS - Create Policy - Step 3" src="/img/posts/20211014/policy-step-3.png" /></p>
-</li>
-<li>
-<p>Add new policy to the group see image below
-<img alt="AWS - Add New Policy to the Group" src="/img/posts/20211014/add-new-policy-to-the-group.png" /></p>
-</li>
-<li>
-<p>Add new group to the user.
-<img alt="AWS - Assign New Group to the New User" src="/img/posts/20211014/assign-new-group-to-the-new-user.png" /></p>
-</li>
+<li>We don't need tags, see image below:</li>
 </ul>
-<p>We don't need tags.
-<img alt="AWS - Add User Step - 3" src="/img/posts/20211014/add-user-step-3.png" /></p>
+<p><img alt="AWS - Create Policy - Step 2" src="/img/posts/20211014/policy-step-2.png" /></p>
+<ul>
+<li>Тype policy name, see image below:</li>
+</ul>
+<p><img alt="AWS - Create Policy - Step 3" src="/img/posts/20211014/policy-step-3.png" /></p>
+<ul>
+<li>Add new policy to the group, see image below:</li>
+</ul>
+<p><img alt="AWS - Add New Policy to the Group" src="/img/posts/20211014/add-new-policy-to-the-group.png" /></p>
+</li>
+<li>
+<p><strong>Add new group to the user</strong>.</p>
+<p><img alt="AWS - Assign New Group to the New User" src="/img/posts/20211014/assign-new-group-to-the-new-user.png" /></p>
+<ul>
+<li>We don't need tags:</li>
+</ul>
+<p><img alt="AWS - Add User Step - 3" src="/img/posts/20211014/add-user-step-3.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Before you click on create user check Permissions summary that consist your new group.</p>
 </div>
 <p><img alt="AWS - Add User Step - 4" src="/img/posts/20211014/add-user-step-4.png" /></p>
-<ol>
-<li>Download your access key.</li>
-</ol>
+</li>
+<li>
+<p><strong>Download your access key</strong>.</p>
 <p><img alt="AWS - Download New Access Key Id" src="/img/posts/20211014/download-new-access-key-id.png" /></p>
+</li>
+</ol>
 <h2 id="configure-gardener">Configure Gardener</h2>
 <ol>
 <li>
-<p>We need to provide our AWS Route 53 credentials from previous step.
-<img alt="Gardener - Add New Amazone Route53 Secret" src="/img/posts/20211014/add-new-amazon-route53-secret.png" /></p>
+<p><strong>Provide AWS Route 53 credentials</strong> - we need to provide our AWS Route 53 credentials from the previous step:</p>
+<p><img alt="Gardener - Add New Amazone Route53 Secret" src="/img/posts/20211014/add-new-amazon-route53-secret.png" /></p>
 </li>
 <li>
-<p>Add gardener extensions to the Shoot cluster - configure dns and Let's Encrypt certificate.</p>
-</li>
-<li>
-<p>Open Gardener Shoot yaml file and add dns providers, shoot-dns-service, shoot-cert-service see under how to add.</p>
-</li>
-</ol>
+<p><strong>Add gardener extensions to the Shoot cluster</strong> - configure dns and <code>Let's Encrypt</code> certificate.</p>
+<ul>
+<li>Open <code>Gardener Shoot</code> yaml file and add DNS providers - <code>shoot-dns-service</code>, <code>shoot-cert-service</code>:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>  
   <span class="nt">dns</span><span class="p">:</span>
     <span class="nt">providers</span><span class="p">:</span>
@@ -1738,15 +1736,17 @@ When you create hosted zone choose type <code>Public hosted zone</code> see the 
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;type-name-for-the-issue&gt;</span>
             <span class="nt">server</span><span class="p">:</span> <span class="s">&#39;https://acme-v02.api.letsencrypt.org/directory&#39;</span>
 </code></pre></div>
-<ol>
-<li>Create subdomain for your application.
-We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configured:</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code><span class="nt">dnsProviderReplication</span><span class="p">:</span>
+</li>
+<li>
+<p><strong>Create subdomain for your application</strong> - we can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configured:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">dnsProviderReplication</span><span class="p">:</span>
           <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-- Find Istio ingress gateway external ip:</p>
-<div class="highlight"><pre><span></span><code>kubectl get services istio-ingressgateway -n istio-system --output jsonpath=&#39;{.status.loadBalancer.ingress[0].hostname}&#39;
+<ul>
+<li>Find Istio ingress gateway external ip:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl get services istio-ingressgateway -n istio-system \ 
+--output jsonpath=&#39;{.status.loadBalancer.ingress[0].hostname}&#39;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns.gardener.cloud/v1alpha1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DNSEntry</span>
@@ -1761,12 +1761,13 @@ We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configu
   <span class="nt">targets</span><span class="p">:</span> 
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;type-here-the-result-from-previous-command&gt;</span>
 </code></pre></div>
+</li>
+</ol>
 <h2 id="configure-istio">Configure Istio</h2>
 <p>We need to configure our istio ingress gateway to accept our new sub domain <code>app.demo.dirigible.io</code> and the certificate.</p>
 <ol>
-<li>Apply the dns configuration and certificate.</li>
-<li>In this article we will configure istio ingress gateway to accept wildcard certificate.</li>
-</ol>
+<li>
+<p><strong>Apply the dns configuration and certificate</strong> - in this article we will configure istio ingress gateway to accept wildcard certificate.</p>
 <div class="highlight"><pre><span></span><code>kubectl edit svc istio-ingressgateway -n istio-system
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Please edit the object below. Lines beginning with a &#39;#&#39; will be ignored,</span>
@@ -1783,9 +1784,9 @@ We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configu
     <span class="nt">dns.gardener.cloud/dnsnames</span><span class="p">:</span> <span class="s">&#39;*.demo.dirigible.io&#39;</span>
     <span class="nt">dns.gardener.cloud/ttl</span><span class="p">:</span> <span class="s">&quot;120&quot;</span>
 </code></pre></div>
-<ol>
-<li>Configure <code>Gateway</code> and <code>VirtualService</code> for Dirigible application or any.</li>
-</ol>
+</li>
+<li>
+<p><strong>Gateway configuration</strong> - configure <code>Gateway</code> and <code>VirtualService</code> for Dirigible application or any.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1alpha3</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Gateway</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1831,6 +1832,8 @@ We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configu
         <span class="nt">port</span><span class="p">:</span>
           <span class="nt">number</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>        
 </code></pre></div>
+</li>
+</ol>
                 
                   
                 
