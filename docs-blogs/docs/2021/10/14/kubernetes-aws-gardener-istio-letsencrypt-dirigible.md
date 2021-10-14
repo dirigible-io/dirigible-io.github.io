@@ -11,7 +11,7 @@ author: krasimir.dermendzhiev
 In this article we are going to setup custom domain for **Dirigible** application in **Kubernes** cluster with **Gardener**, **AWS Route 53**, **Istio**, **Let's encrypt**.
 
 The target Kubernetes deployment is shown bellow:
-![Gardener - AWS - Istio - Dirigible](/img/posts/20211014/gardener-aws-istio-dirigible.png)
+![Gardener - AWS - Istio - Dirigible](/img/posts/20211014/overview.png)
 
 !!! note "Kubernetes"
 
