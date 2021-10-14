@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kubernetes-aws-route-53-gardener-istio-lets-encrypt-dirigible" class="md-skip">
+        <a href="#custom-domain-in-kubernetes-with-aws-route-53-gardener-istio-lets-encrypt" class="md-skip">
           Skip to content
         </a>
       
@@ -457,40 +457,6 @@
   <a href="#overview" class="md-nav__link">
     Overview
   </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes" class="md-nav__link">
-    Kubernetes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-route-53" class="md-nav__link">
-    AWS Route 53
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gardener" class="md-nav__link">
-    Gardener
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#istio" class="md-nav__link">
-    Istio
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1561,40 +1527,6 @@
     Overview
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes" class="md-nav__link">
-    Kubernetes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-route-53" class="md-nav__link">
-    AWS Route 53
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gardener" class="md-nav__link">
-    Gardener
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#istio" class="md-nav__link">
-    Istio
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1642,52 +1574,62 @@
                   </a>
                 
                 
-                <h1 id="kubernetes-aws-route-53-gardener-istio-lets-encrypt-dirigible">Kubernetes, AWS Route 53, Gardener, Istio, Let's encrypt  &amp; Dirigible</h1>
+                <h1 id="custom-domain-in-kubernetes-with-aws-route-53-gardener-istio-lets-encrypt">Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio &amp; Let's encrypt</h1>
 <h2 id="overview">Overview</h2>
-<p>In this article we are going to use <strong>Kubernes</strong> cluster on <strong>Gardener</strong>, <strong>AWS Route 53</strong>, <strong>Istio</strong>, <strong>Let's encrypt</strong> and <strong>Dirigible</strong> for setting up a dns. The target Kubernetes deployment is shown bellow:
-<img alt="Screenshot-Description" src="/img/posts/20211014/gardener-aws-istio-dirigible.png" /></p>
-<h3 id="kubernetes"><em>Kubernetes</em></h3>
-<p>is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes <a href="https://kubernetes.io/">here</a>.</p>
-<h3 id="aws-route-53">AWS Route 53</h3>
+<p>In this article we are going to setup custom domain for <strong>Dirigible</strong> application in <strong>Kubernes</strong> cluster with <strong>Gardener</strong>, <strong>AWS Route 53</strong>, <strong>Istio</strong>, <strong>Let's encrypt</strong>.</p>
+<p>The target Kubernetes deployment is shown bellow:
+<img alt="Gardener - AWS - Istio - Dirigible" src="/img/posts/20211014/gardener-aws-istio-dirigible.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Kubernetes</p>
+<p>Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes <a href="https://kubernetes.io/">here</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">AWS Route 53</p>
 <p>Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. <a href="https://aws.amazon.com/route53/">here</a>.</p>
-<h3 id="gardener">Gardener</h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Gardener</p>
 <p>Deliver fully-managed clusters at scale everywhere with your own Kubernetes-as-a-Service. Kubernetes-native system managing the full lifecycle of conformant Kubernetes clusters as a service on Alicloud, AWS, Azure, GCP, OpenStack, EquinixMetal, vSphere, MetalStack, and Kubevirt with minimal TCO.<a href="https://gardener.cloud/">here</a>.</p>
-<h3 id="istio">Istio</h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Istio</p>
 <p>Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. <a href="https://istio.io/">here</a>.</p>
+</div>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In this article we assume that you have already running productive <em><strong>Kubernetes Cluster</strong> on <strong>Gardener</strong></em> and configured <em><strong>kubectl</strong></em> for it. If you don't have such, you can create one by using the the open-source <a href="https://github.com/gardener">Gardener</a> project. Also you will need <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS account</a> or <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">AWS Free Tier</a>, you need to install <a href="https://istio.io/latest/docs/setup/install/">Istio</a> and <a href="https://www.dirigible.io/help/setup/kubernetes/">Dirigible</a></p>
 <h2 id="configurations-in-aws-route-53">Configurations in AWS Route 53</h2>
 <ol>
 <li>Create hosted zone.
-When you create hosted zone choose type "Public hosted zone" see the image below.
-<img alt="Screenshot-Description" src="/img/posts/20211014/aws-hostedzone.png" /></li>
+When you create hosted zone choose type <code>Public hosted zone</code> see the image below.</li>
 </ol>
-<p>After you create your hosted zone you can delegate your subdomain to AWS, if you don't host your parent domain in AWS. You can take the name servers which you can see in the image bellow and add "ns" records to your domain. But if you host your domain in AWS you don't need to delegate.<br />
-<img alt="Screenshot-Description" src="/img/posts/20211014/nameservers.png" /></p>
+<p><img alt="AWS - Hosted Zone" src="/img/posts/20211014/aws-hostedzone.png" /></p>
+<p>After you create your hosted zone you can delegate your subdomain to AWS, if you don't host your parent domain in AWS. You can take the name servers which you can see in the image bellow and add <code>ns</code> records to your domain. But if you host your domain in AWS you don't need to delegate.<br />
+<img alt="AWS - Nameservers" src="/img/posts/20211014/nameservers.png" /></p>
 <ol>
 <li>
 <p>Create new user - which will provide to Gardener dns provider.</p>
 </li>
 <li>
-<p>When you create user select credential type to be "Access key - Programmatic access" ( you see the image below).
-add image "create-user"
-<img alt="Screenshot-Description" src="/img/posts/20211014/create-user.png" /></p>
+<p>When you create user select credential type to be <code>Access key - Programmatic access</code> ( you see the image below).</p>
+</li>
+</ol>
+<p><img alt="AWS - Create User" src="/img/posts/20211014/create-user.png" /></p>
+<ol>
+<li>
+<p>Create group - add user to group, but for this scenario we need to create new group which will be using only for this purpose. That's why, click on <code>Create group</code> and it will open new tab to create the group.
+<img alt="AWS - Create Group" src="/img/posts/20211014/create-group.png" /></p>
 </li>
 <li>
-<p>Create group - add user to group, but for this scenario we need to create new group which will be using only for this purpose. That's why, click on "Create group" and it will open new tab to create the group.
-<img alt="Screenshot-Description" src="/img/posts/20211014/create-group.png" /></p>
-</li>
-<li>
-<p>Create Policy - Before you create the new group click on "Create policy" it will open new tab to create the policy.
-<img alt="Screenshot-Description" src="/img/posts/20211014/create-group-name.png" /></p>
+<p>Create Policy - Before you create the new group click on <code>Create policy</code> it will open new tab to create the policy.
+<img alt="AWS - Create Group Name" src="/img/posts/20211014/create-group-name.png" /></p>
 </li>
 <li>
 <p>On the first step click on the JSON see the image below.
-<img alt="Screenshot-Description" src="/img/posts/20211014/create-policy-step1.png" /></p>
+<img alt="AWS - Create Policy - Step 1" src="/img/posts/20211014/create-policy-step1.png" /></p>
 </li>
 <li>
-<p>Leave this tab open and find your "Hosted zone ID" see the image below
-<img alt="Screenshot-Description" src="/img/posts/20211014/take-your-hosted-zone-id.png" /></p>
+<p>Leave this tab open and find your <code>Hosted zone ID</code> see the image below
+<img alt="AWS - Take Your Hosted Zone Id" src="/img/posts/20211014/take-your-hosted-zone-id.png" /></p>
 </li>
 <li>
 <p>Add your hosted zone id to the JSON you can use this example json</p>
@@ -1723,43 +1665,44 @@ add image "create-user"
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<img alt="Screenshot-Description" src="/img/posts/20211014/add-your-hostedzone-id-to-policy.png" /></p>
+<img alt="AWS - Add Your Hosted Zone Id to Policy" src="/img/posts/20211014/add-your-hostedzone-id-to-policy.png" /></p>
 <blockquote>
 <p><strong>Note:</strong> It's very important to add your correct hosted zone id</p>
 </blockquote>
 <ul>
 <li>
 <p>We don't need tags see image below
-<img alt="Screenshot-Description" src="/img/posts/20211014/policy-step-2.png" /></p>
+<img alt="AWS - Create Policy - Step 2" src="/img/posts/20211014/policy-step-2.png" /></p>
 </li>
 <li>
 <p>Тype policy name  see image below
-<img alt="Screenshot-Description" src="/img/posts/20211014/policy-step-3.png" /></p>
+<img alt="AWS - Create Policy - Step 3" src="/img/posts/20211014/policy-step-3.png" /></p>
 </li>
 <li>
 <p>Add new policy to the group see image below
-<img alt="Screenshot-Description" src="/img/posts/20211014/add-new-policy-to-the-group.png" /></p>
+<img alt="AWS - Add New Policy to the Group" src="/img/posts/20211014/add-new-policy-to-the-group.png" /></p>
 </li>
 <li>
 <p>Add new group to the user.
-<img alt="Screenshot-Description" src="/img/posts/20211014/assign-new-group-to-the-new-user.png" /></p>
+<img alt="AWS - Assign New Group to the New User" src="/img/posts/20211014/assign-new-group-to-the-new-user.png" /></p>
 </li>
 </ul>
 <p>We don't need tags.
-<img alt="Screenshot-Description" src="/img/posts/20211014/add-user-step-3.png" /></p>
-<blockquote>
-<p><strong>Note:</strong>  Before you click on create user check Permissions summary that consist your new group .</p>
-</blockquote>
-<p>add image "add-user-step-4"</p>
+<img alt="AWS - Add User Step - 3" src="/img/posts/20211014/add-user-step-3.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before you click on create user check Permissions summary that consist your new group.</p>
+</div>
+<p><img alt="AWS - Add User Step - 4" src="/img/posts/20211014/add-user-step-4.png" /></p>
 <ol>
-<li>Download your access key.
-add image "download-new-access-key-id"</li>
+<li>Download your access key.</li>
 </ol>
+<p><img alt="AWS - Download New Access Key Id" src="/img/posts/20211014/download-new-access-key-id.png" /></p>
 <h2 id="configure-gardener">Configure Gardener</h2>
 <ol>
 <li>
 <p>We need to provide our AWS Route 53 credentials from previous step.
-<img alt="Screenshot-Description" src="/img/posts/20211014/add-new-amazon-route53-secret.png" /></p>
+<img alt="Gardener - Add New Amazone Route53 Secret" src="/img/posts/20211014/add-new-amazon-route53-secret.png" /></p>
 </li>
 <li>
 <p>Add gardener extensions to the Shoot cluster - configure dns and Let's Encrypt certificate.</p>
@@ -1790,13 +1733,14 @@ add image "download-new-access-key-id"</li>
 </code></pre></div>
 <ol>
 <li>Create subdomain for your application.
-We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configured:
-<div class="highlight"><pre><span></span><code>dnsProviderReplication:
-          enabled: true
-</code></pre></div></li>
-<li>Find Istio ingress gateway external ip
-<code>kubectl get services istio-ingressgateway -n istio-system --output jsonpath='{.status.loadBalancer.ingress[0].hostname}'</code></li>
+We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configured:</li>
 </ol>
+<p><div class="highlight"><pre><span></span><code><span class="nt">dnsProviderReplication</span><span class="p">:</span>
+          <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+- Find Istio ingress gateway external ip:</p>
+<div class="highlight"><pre><span></span><code>kubectl get services istio-ingressgateway -n istio-system --output jsonpath=&#39;{.status.loadBalancer.ingress[0].hostname}&#39;
+</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dns.gardener.cloud/v1alpha1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DNSEntry</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1811,18 +1755,18 @@ We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configu
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt;type-here-the-result-from-previous-command&gt;</span>
 </code></pre></div>
 <h2 id="configure-istio">Configure Istio</h2>
-<p>We need to configure our istio ingress gateway to accept our new sub domain "app.demo.dirigible.io" and the certificate.</p>
+<p>We need to configure our istio ingress gateway to accept our new sub domain <code>app.demo.dirigible.io</code> and the certificate.</p>
 <ol>
 <li>Apply the dns configuration and certificate.</li>
 <li>In this article we will configure istio ingress gateway to accept wildcard certificate.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl edit svc istio-ingressgateway -n istio-system</span>
-
-<span class="l l-Scalar l-Scalar-Plain"># Please edit the object below. Lines beginning with a &#39;#&#39; will be ignored,</span>
-<span class="l l-Scalar l-Scalar-Plain"># and an empty file will abort the edit. If an error occurs while saving this file will be</span>
-<span class="l l-Scalar l-Scalar-Plain"># reopened with the relevant failures.</span>
-<span class="l l-Scalar l-Scalar-Plain">#</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<div class="highlight"><pre><span></span><code>kubectl edit svc istio-ingressgateway -n istio-system
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Please edit the object below. Lines beginning with a &#39;#&#39; will be ignored,</span>
+<span class="c1"># and an empty file will abort the edit. If an error occurs while saving this file will be</span>
+<span class="c1"># reopened with the relevant failures.</span>
+<span class="c1">#</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">annotations</span><span class="p">:</span>
@@ -1833,7 +1777,7 @@ We can use DNSEntry for Gardener, because in Gardener Shoot yaml file we configu
     <span class="nt">dns.gardener.cloud/ttl</span><span class="p">:</span> <span class="s">&quot;120&quot;</span>
 </code></pre></div>
 <ol>
-<li>Configure "Gateway" and "VirtualService" for Dirigible application or any.</li>
+<li>Configure <code>Gateway</code> and <code>VirtualService</code> for Dirigible application or any.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1alpha3</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Gateway</span>
