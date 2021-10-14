@@ -9,7 +9,7 @@ author: krasimir.dermendzhiev
 ## Overview
 
 In this article we are going to use **Kubernes** cluster on **Gardener**, **AWS Route 53**, **Istio**, **Let's encrypt** and **Dirigible** for setting up a dns. The target Kubernetes deployment is shown bellow:
-![Screenshot-Description](/img/posts/20211014/gardener-aws-istio-dirigible.png)
+![Screenshot-Description](/img/posts/20211014/overview.png)
 
 ### _Kubernetes_
 is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
