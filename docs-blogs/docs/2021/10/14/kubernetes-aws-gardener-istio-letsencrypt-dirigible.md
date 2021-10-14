@@ -16,27 +16,27 @@ The target Kubernetes deployment is shown bellow:
 
 === "Kubernetes"
 
-!!! tip "Overview"
+    !!! tip "Overview"
 
-    Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
+        Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
 
 === "AWS Route 53"
 
-!!! tip "Overview"
+    !!! tip "Overview"
 
-    Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. [here](https://aws.amazon.com/route53/).
+        Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. [here](https://aws.amazon.com/route53/).
 
-=== note "Gardener"
+=== "Gardener"
 
-!!! tip "Overview"
+    !!! tip "Overview"
 
-    Deliver fully-managed clusters at scale everywhere with your own Kubernetes-as-a-Service. Kubernetes-native system managing the full lifecycle of conformant Kubernetes clusters as a service on Alicloud, AWS, Azure, GCP, OpenStack, EquinixMetal, vSphere, MetalStack, and Kubevirt with minimal TCO.[here](https://gardener.cloud/).
+        Deliver fully-managed clusters at scale everywhere with your own Kubernetes-as-a-Service. Kubernetes-native system managing the full lifecycle of conformant Kubernetes clusters as a service on Alicloud, AWS, Azure, GCP, OpenStack, EquinixMetal, vSphere, MetalStack, and Kubevirt with minimal TCO.[here](https://gardener.cloud/).
 
 === "Istio"
 
-!!! tip "Overview"
+    !!! tip "Overview"
 
-    Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://istio.io/).
+        Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://istio.io/).
 
 ## Prerequisites
 
