@@ -468,22 +468,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurations-in-aws-route-53" class="md-nav__link">
-    Configurations in AWS Route 53
+  <a href="#aws-route-53-configuration" class="md-nav__link">
+    AWS Route 53 Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-gardener" class="md-nav__link">
-    Configure Gardener
+  <a href="#gardener-configuration" class="md-nav__link">
+    Gardener Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-istio" class="md-nav__link">
-    Configure Istio
+  <a href="#istio-configuration" class="md-nav__link">
+    Istio Configuration
   </a>
   
 </li>
@@ -1537,22 +1537,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurations-in-aws-route-53" class="md-nav__link">
-    Configurations in AWS Route 53
+  <a href="#aws-route-53-configuration" class="md-nav__link">
+    AWS Route 53 Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-gardener" class="md-nav__link">
-    Configure Gardener
+  <a href="#gardener-configuration" class="md-nav__link">
+    Gardener Configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-istio" class="md-nav__link">
-    Configure Istio
+  <a href="#istio-configuration" class="md-nav__link">
+    Istio Configuration
   </a>
   
 </li>
@@ -1606,7 +1606,7 @@
 </div>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>In this article we assume that you have already running productive <em><strong>Kubernetes Cluster</strong> on <strong>Gardener</strong></em> and configured <em><strong>kubectl</strong></em> for it. If you don't have such, you can create one by using the the open-source <a href="https://github.com/gardener">Gardener</a> project. Also you will need <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS account</a> or <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=*all&amp;awsf.Free%20Tier%20Categories=*all">AWS Free Tier</a>, you need to install <a href="https://istio.io/latest/docs/setup/install/">Istio</a> and <a href="https://www.dirigible.io/help/setup/kubernetes/">Dirigible</a></p>
-<h2 id="configurations-in-aws-route-53">Configurations in AWS Route 53</h2>
+<h2 id="aws-route-53-configuration">AWS Route 53 Configuration</h2>
 <ol>
 <li>
 <p><strong>Create hosted zone</strong> - when you create hosted zone choose type <code>Public hosted zone</code> see the image below.</p>
@@ -1707,7 +1707,7 @@
 <p><img alt="AWS - Download New Access Key Id" src="/img/posts/20211014/download-new-access-key-id.png" /></p>
 </li>
 </ol>
-<h2 id="configure-gardener">Configure Gardener</h2>
+<h2 id="gardener-configuration">Gardener Configuration</h2>
 <ol>
 <li>
 <p><strong>Provide AWS Route 53 credentials</strong> - we need to provide our AWS Route 53 credentials from the previous step:</p>
@@ -1765,7 +1765,7 @@
 </code></pre></div>
 </li>
 </ol>
-<h2 id="configure-istio">Configure Istio</h2>
+<h2 id="istio-configuration">Istio Configuration</h2>
 <p>We need to configure our istio ingress gateway to accept our new sub domain <code>app.demo.dirigible.io</code> and the certificate.</p>
 <ol>
 <li>
