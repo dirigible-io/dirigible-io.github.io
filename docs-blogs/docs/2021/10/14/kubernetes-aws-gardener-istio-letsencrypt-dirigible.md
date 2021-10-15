@@ -42,7 +42,7 @@ The target Kubernetes deployment is shown bellow:
 
 In this article we assume that you have already running productive _**Kubernetes Cluster** on **Gardener**_ and configured _**kubectl**_ for it. If you don't have such, you can create one by using the the open-source [Gardener](https://github.com/gardener) project. Also you will need [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) or [AWS Free Tier](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all), you need to install [Istio](https://istio.io/latest/docs/setup/install/) and [Dirigible](https://www.dirigible.io/help/setup/kubernetes/)
 
-## Configurations in AWS Route 53
+## AWS Route 53 Configuration
 
 1. **Create hosted zone** - when you create hosted zone choose type `Public hosted zone` see the image below.
 
@@ -143,7 +143,7 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
 
     ![AWS - Download New Access Key Id](/img/posts/20211014/download-new-access-key-id.png)
 
-## Configure Gardener
+## Gardener Configuration
 
 1. **Provide AWS Route 53 credentials** - we need to provide our AWS Route 53 credentials from the previous step:
 
@@ -204,7 +204,7 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
       - <type-here-the-result-from-previous-command>
     ```
 
-## Configure Istio 
+## Istio Configuration  
 
 We need to configure our istio ingress gateway to accept our new sub domain `app.demo.dirigible.io` and the certificate.
 
