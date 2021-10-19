@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="yordan.pavlov">
+        <meta name="author" content="Yordan Pavlov">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2018/11/09/dirigible-extend-embed-reuse/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dirigible-extend-embed-reuse" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -795,8 +795,6 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Dirigible - Extend, Embed, Reuse
@@ -812,8 +810,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -824,6 +820,54 @@
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-stack" class="md-nav__link">
+    Custom Stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-of-modules" class="md-nav__link">
+    Reuse of Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Reuse of Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-sql-builder" class="md-nav__link">
+    Database - SQL Builder:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-orm" class="md-nav__link">
+    Database - ORM:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-dirigible" class="md-nav__link">
+    Embedded Dirigible
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
   </a>
   
 </li>
@@ -1485,8 +1529,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1497,6 +1539,54 @@
         <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-stack" class="md-nav__link">
+    Custom Stack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-of-modules" class="md-nav__link">
+    Reuse of Modules
+  </a>
+  
+    <nav class="md-nav" aria-label="Reuse of Modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-sql-builder" class="md-nav__link">
+    Database - SQL Builder:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-orm" class="md-nav__link">
+    Database - ORM:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-dirigible" class="md-nav__link">
+    Embedded Dirigible
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
   </a>
   
 </li>
@@ -1512,14 +1602,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/11/09/dirigible-extend-embed-reuse.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <p>The latest major upgrade of Dirigible to 3.x opens the door for scenarios like building custom stacks, standardized application CI, embedded Dirigible and many more ...</p>
-<h1 id="dirigible-extend-embed-reuse">Dirigible - Extend, Embed, Reuse</h1>
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/11/09/dirigible-extend-embed-reuse.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Dirigible - Extend, Embed, Reuse</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/4092083?v=4" alt="@thuf">
+            </p>
+            <p>
+            <span> 
+            <b>Yordan Pavlov</b> · <a href="https://github.com/thuf">@thuf</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> November 9, 2018 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 7 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>The latest major upgrade of Dirigible to 3.x opens the door for scenarios like building custom stacks, standardized application CI, embedded Dirigible and many more ...</p>
 <h2 id="overview">Overview</h2>
 <p>With the latest major upgrade to Eclipse Dirigible 3.x, there are a lot of improvements starting from the project structure and stretching all the way up to the entirely new Web IDE. Some of them are:
 - New Web IDE
@@ -1531,7 +1659,7 @@
 - OSGi Free Modules
 - and many more ...</p>
 <p>In this post, we will emphasize on the improved CI process and the scenarios it unlocks. For example, with the 200+ Maven Artifacts, the customization of Dirigible is more flexible than ever. <em><strong>Custom Dirigible Stack</strong></em> can be built with ease, or only some modules can be <em><strong>added as dependencies</strong></em> in existing projects (e.g. SQL &amp; Persistency modules). Finally, having a <em><strong>hybrid (embedded)</strong></em> deployment is another interesting capability that is worth looking at (e.g. in existing Spring Stack).</p>
-<h1 id="custom-stack">Custom Stack</h1>
+<h2 id="custom-stack">Custom Stack</h2>
 <p><img alt="Custom-Dirigible-Stack" class="img-responsive" src="/img/posts/20181109/Custom-Dirigible-Stack.png" /></p>
 <p>Building a custom Dirigible stack is the second-best option to run in production (if the pre-built releases don't fit the project needs).
 The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">Helium Custom Stack</a> tutorial explores in detail all aspects of building a custom Dirigible stack:
@@ -1539,7 +1667,7 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 2. Building WebJar(s)
 3. Exposing an Enterprise JavaScript API (both Java facade and JavaScript API)
 4. Consuming Dirigible dependencies</p>
-<h1 id="reuse-of-modules">Reuse of Modules</h1>
+<h2 id="reuse-of-modules">Reuse of Modules</h2>
 <p><img alt="Modules-Re-Use" class="img-responsive" src="/img/posts/20181109/Modules-Re-Use.png" /></p>
 <p>With 200+ Maven artifacts, it's obvious that some modules can be reused even in non-Dirigible related projects. For example, the SQL builder and the ORM can be consumed on their own:</p>
 <h3 id="database-sql-builder">Database - SQL Builder:</h3>
@@ -1646,7 +1774,7 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 </code></pre></div>
 </li>
 </ol>
-<h1 id="embedded-dirigible">Embedded Dirigible</h1>
+<h2 id="embedded-dirigible">Embedded Dirigible</h2>
 <p><img alt="Embedded-Dirigible" class="img-responsive" src="/img/posts/20181109/Embedded-Dirigible.png" /></p>
 <p>The last option is the hybrid/embedded deployment, where a legacy application is running in coexistence with part of the Dirigible stack. The setup targets the scenarios where there is a lot of legacy (Java) code, but the <em><strong>low-code/no-code</strong></em> and <em><strong>In-System Development</strong></em> capabilities of Dirigible are desired. </p>
 <div class="highlight"><pre><span></span><code><span class="p">...</span>
@@ -1661,7 +1789,7 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 <span class="p">...</span>
 </code></pre></div>
 <p>For more details about this setup, check out the embedded Dirigible <a href="https://github.com/eclipse/dirigible/tree/master/releng/embedded-all">sample</a>.</p>
-<h1 id="resources">Resources</h1>
+<h2 id="resources">Resources</h2>
 <p>Experiment with the <strong>single-click deployment</strong> of the following demos from <strong>EclipseCon 2018</strong>:</p>
 <ol>
 <li>
@@ -1680,15 +1808,17 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 <p><a href="http://dirigible.eclipse.org/services/v3/web/ide-deploy-manager/index.html?repository=https://github.com/dirigiblelabs/demo-eclipsecon2018-ide.git&amp;uri=/services/v3/web/ide-guestbook/"><img alt="Run on Dirigible" src="https://img.shields.io/badge/Run%20on%20Dirigible-IDE%20Guestbook-blue.svg" /></a> (<a href="https://github.com/dirigiblelabs/demo-eclipsecon2018-ide">GitHub</a>)</p>
 </li>
 </ol>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -1838,7 +1968,7 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="nedelcho.delchev">
+        <meta name="author" content="Nedelcho Delchev">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1616,13 +1616,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <p>How to use WebSockets, coming as a standard feature with the modern Servlet Containers (e.g. Tomcat 7.x) from within the embedded Equinox OSGi environment deployed as a WAR application archive? If you haven't asked yourself such a question so far, just forget it and live in peace...
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>WebSockets and Equinox OSGi in a Servlet Container</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/6852373?v=4" alt="@delchev">
+            </p>
+            <p>
+            <span> 
+            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> May 19, 2016 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 15 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>How to use WebSockets, coming as a standard feature with the modern Servlet Containers (e.g. Tomcat 7.x) from within the embedded Equinox OSGi environment deployed as a WAR application archive? If you haven't asked yourself such a question so far, just forget it and live in peace...
 But in case you have already quite serious reasons to separate the functionality of your huge and complex application to plugins to be manageable and already have chosen the OSGi way with the Eclipse Equinox implementation and in the same time you want your application in the Web, most probably you already know the nasty issues that appear ones you try something aside from the standard "ServletBridge" scenario.</p>
 <h2 id="background">Background</h2>
 <p>OK, if you are not aware about the above use-case, but still want to learn what it is about let's start with some prerequisites:</p>
@@ -1630,11 +1669,11 @@ But in case you have already quite serious reasons to separate the functionality
 <li>What is WebSockets by Matt West: <a href="http://blog.teamtreehouse.com/an-introduction-to-websockets">http://blog.teamtreehouse.com/an-introduction-to-websockets</a></li>
 <li>What is OSGi in Servlet Container series by Angelo Zerr: <a href="https://angelozerr.wordpress.com/2010/08/31/osgi-equinox-in-a-servlet-container-step0/">https://angelozerr.wordpress.com/2010/08/31/osgi-equinox-in-a-servlet-container-step0/</a></li>
 </ul>
-<h1 id="the-problem">The Problem</h1>
+<h2 id="the-problem">The Problem</h2>
 <p>Now, assuming you got the idea how the architecture looks like and you are convinced it worths the effort - what is the problem?
 On one side we have the web application environment, which is as standard as any other web application running on the Tomcat server. You can have there Servelts, WebSockets, etc. You have access to the shared libraries within the Tomcat/lib folder as any other application has.</p>
-<h1 id="the-solution">The Solution</h1>
-<h2 id="classloaders-visibility">ClassLoaders visibility</h2>
+<h2 id="the-solution">The Solution</h2>
+<h3 id="classloaders-visibility">ClassLoaders visibility</h3>
 <p>The first problem is how to make the WebSockets API classes to be visible at runtime by the OSGi environment? This is configured in the <em>launch.ini</em> file as:
 1. OSGi's parent and context class-loaders have to be set to <em>fwk</em>
 2. the transitive packages are listed in the <em>extra</em> property</p>
@@ -1647,7 +1686,7 @@ osgi.contextClassLoaderParent=fwk
 org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,javax.mail,javax.mail.internet,org.eclipse.dirigible.ide.bridge
 </code></pre></div>
 <p>The actual file can be found <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/releng/all.tomcat/src/main/webapp/WEB-INF/launch.ini">here</a></p>
-<h2 id="configure-dependency">Configure Dependency</h2>
+<h3 id="configure-dependency">Configure Dependency</h3>
 <p>During the development you will need to include the WebSockets API in the target platform. This is required to develop your server side logic in a plugin against the WebSockets API. You can refer the already available artifact in the Orbit repository <a href="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/">here</a></p>
 <p>In your *.target file add the following:</p>
 <div class="highlight"><pre><span></span><code>    <span class="nt">&lt;location</span> <span class="na">includeAllPlatforms=</span><span class="s">&quot;false&quot;</span> <span class="na">includeConfigurePhase=</span><span class="s">&quot;true&quot;</span> <span class="na">includeMode=</span><span class="s">&quot;slicer&quot;</span> <span class="na">includeSource=</span><span class="s">&quot;true&quot;</span> <span class="na">type=</span><span class="s">&quot;InstallableUnit&quot;</span><span class="nt">&gt;</span>
@@ -1667,7 +1706,7 @@ org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,
 <blockquote>
 <p>Important - use package import not plugin dependency as soon as at the runtime the classes will be exposed by the application class-loader not by the OSGi parent class-loader itself.</p>
 </blockquote>
-<h2 id="websocket-proxy-outside-osgi">WebSocket Proxy (outside OSGi)</h2>
+<h3 id="websocket-proxy-outside-osgi">WebSocket Proxy (outside OSGi)</h3>
 <p>We made the necessary configurations, now we can start with the implementation of our WebSocket servlet. Let's create a real-time logging servlet, which can send immediately the log messages to all the clients currently connected to it. First of all we need the standard implementation of a WebSocket outside of the OSGi environment. It will accept the connections from the clients and will play a role of a bridge to the OSGi environment. We can use the standard annotations @ServerEndpoint, @onOpen, @onMessage, @onError and @onClose</p>
 <div class="highlight"><pre><span></span><code>    <span class="p">...</span>
 
@@ -1749,7 +1788,7 @@ org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,
 <div class="highlight"><pre><span></span><code>    <span class="n">Object</span> <span class="n">logInternal</span> <span class="o">=</span> <span class="n">DirigibleBridge</span><span class="p">.</span><span class="na">BRIDGES</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;websocket_log_channel_internal&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>The source code of the DirigibleBridge can be found <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/bridge/org.eclipse.dirigible.bridge/src/org/eclipse/dirigible/ide/bridge/DirigibleBridge.java">here</a></p>
-<h2 id="websocket-bridge-inside-osgi">WebSocket Bridge (inside OSGi)</h2>
+<h3 id="websocket-bridge-inside-osgi">WebSocket Bridge (inside OSGi)</h3>
 <p>We have already the WebSocket end-point, which will accept the connections and will redirect the corresponding calls to the internal "bridge" object. Let's have a look at the bridge implementation itself:</p>
 <div class="highlight"><pre><span></span><code>        <span class="p">...</span>
 
@@ -1849,7 +1888,7 @@ org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,
     <span class="p">}</span>
 </code></pre></div>
 <p>source code <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/runtime/org.eclipse.dirigible.runtime.metrics/src/org/eclipse/dirigible/runtime/metrics/MetricsActivator.java">here</a></p>
-<h2 id="websocket-client">WebSocket Client</h2>
+<h3 id="websocket-client">WebSocket Client</h3>
 <p>At this step we are ready with the server side implementation. Let's create a simple user interface in HTML and client-side JavaScript, which will connect to the Log WebSocket Service and will print every single log message to the body of the page:</p>
 <div class="highlight"><pre><span></span><code>    ...
     <span class="p">&lt;</span><span class="nt">body</span> <span class="na">onload</span><span class="o">=</span><span class="s">&quot;connectToLog()&quot;</span><span class="p">&gt;</span>
@@ -1896,15 +1935,17 @@ org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,
 <p>The support of WebSockets in Dirigible's Scripting Services is coming with release 2.4 - today!
 2.0 compliant API is on place and sample will be provided shortly.</p>
 <p>Enjoy!</p>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -2054,7 +2095,7 @@ org.osgi.framework.system.packages.extra=javax.websocket,javax.websocket.server,
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

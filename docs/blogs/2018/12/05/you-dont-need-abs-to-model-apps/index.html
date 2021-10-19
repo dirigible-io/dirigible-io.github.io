@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="dragomir.anachkov">
+        <meta name="author" content="Dragomir Anachkov">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2018/12/05/you-dont-need-abs-to-model-apps/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -739,12 +739,38 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          You Dont Need Abs to Model Apps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         You Dont Need Abs to Model Apps
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1455,8 +1481,21 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1467,13 +1506,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/12/05/you-dont-need-abs-to-model-apps.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <p>Two of the coolest additions in version 3.x of Eclipse Dirigible are without a doubt the Entity Data Modeler (EDM) and the Business Process Modeler (BPM). They take the concept of model-driven architecture to the next level. What the “hack” does that mean, you’d probably say?</p>
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/12/05/you-dont-need-abs-to-model-apps.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>You Dont Need Abs to Model Apps</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/20664881?v=4" alt="@danachkov">
+            </p>
+            <p>
+            <span> 
+            <b>Dragomir Anachkov</b> · <a href="https://github.com/danachkov">@danachkov</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> December 5, 2018 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 5 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>Two of the coolest additions in version 3.x of Eclipse Dirigible are without a doubt the Entity Data Modeler (EDM) and the Business Process Modeler (BPM). They take the concept of model-driven architecture to the next level. What the “hack” does that mean, you’d probably say?</p>
 <p>With the fast pace of technological evolution (Cloud Computing, AI, IoT, etc.), application developers face a common problem – how to develop proof of concepts as quickly as possible, and to receive early feedback from customers. Dirigible provides you with the opportunity to use In-System and Rapid application development techniques such as code generation, EDM, BPM, and Enterprise JavaScript APIs.</p>
 <p>The Entity Data Modeler plays a huge role in model-driven development.</p>
 <p><img alt="Entity-Data-Model" class="img-responsive" src="/img/posts/20181205/entity-data-model.png" /></p>
@@ -1491,7 +1569,7 @@
 <p><img alt="BPM-PoD-UI" class="img-responsive" src="/img/posts/20181205/bpm-pod-ui.png" /></p>
 <p>By the way, this Print on Demand view is integrated in the marketplace thanks to the lightweight extensibility concept built in Dirigible. See <a href="http://www.dirigible.io/blogs/2018/11/09/dirigible_extend_embed_reuse.html">Dirigible - Extend, Embed, Reuse</a>.</p>
 <p>Right now, if there was a book on developing business applications with the Eclipse Dirigible Web IDE, I’d be the first one to purchase it. While I’m waiting though, I’ll keep on exploring the ins and outs of this cool basket of modern tools for developers of business applications. The EDM and the BPM tools are just the beginning, I’m sure of it!</p>
-<h1 id="resources">Resources</h1>
+<h2 id="resources">Resources</h2>
 <p>Experiment with the <strong>single-click deployment</strong> of the following demos from <strong>EclipseCon 2018</strong>:</p>
 <ol>
 <li>
@@ -1504,15 +1582,17 @@
 <p><a href="http://dirigible.eclipse.org/services/v3/web/ide-deploy-manager/index.html?repository=https://github.com/dirigiblelabs/demo-eclipsecon2018-bpm.git&amp;uri=/services/v3/web/bookshop/"><img alt="Run on Dirigible" src="https://img.shields.io/badge/Run%20on%20Dirigible-Bookshop%20Print%20on%20Demand-blue.svg" /></a> (<a href="https://github.com/dirigiblelabs/demo-eclipsecon2018-bpm">GitHub</a>)</p>
 </li>
 </ol>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -1662,7 +1742,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

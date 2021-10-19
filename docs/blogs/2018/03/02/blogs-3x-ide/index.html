@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="georgi.pavlov">
+        <meta name="author" content="Georgi Pavlov">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2018/03/02/blogs-3x-ide/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1754,15 +1754,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/03/02/blogs-3x-ide.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>Dirigible Cloud IDE</h1>
-                
-                <p>Dirigible is a cloud runtime platform that comes with a neat, all-in-one, frustration-free package of devops productivity tools, including a brand new cloud IDE for in-system application development. This blog is a <em>getting-to-know</em> the new cloud IDE. </p>
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/03/02/blogs-3x-ide.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Dirigible Cloud IDE</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/4983982?v=4" alt="@shturec">
+            </p>
+            <p>
+            <span> 
+            <b>Georgi Pavlov</b> · <a href="https://github.com/shturec">@shturec</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> March 2, 2018 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 12 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>Dirigible is a cloud runtime platform that comes with a neat, all-in-one, frustration-free package of devops productivity tools, including a brand new cloud IDE for in-system application development. This blog is a <em>getting-to-know</em> the new cloud IDE. </p>
 <h3 id="meet-and-greet">Meet and greet</h3>
 <p>A picture's worth a thousand words they say...  </p>
 <p><img src="/img/posts/20180306/ide-01.png" width="70%" title="Dirigible Cloud IDE"/></p>
@@ -1887,15 +1924,17 @@
 <p>They leverage the <strong>extensions</strong> concept in Dirigible, so integrating a new menu (for example) is as easy as a Dirigible module “advertising” itself (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/extensions/menu/file.extension">file.extension</a>) to the corresponding Dirigible <strong>extension point</strong> (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/extensions/menu.extensionpoint">menu.extensionpoint</a>). At runtime, the extensions will be invoked dynamically, their results aggregated and ultimately delivered to the front-end by a service responsible to mashup everything into a lean consumable JSON model (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/services/menu.js">menu.js</a>). </p>
 <p>The whole mechanism shares concepts with the Eclipse plugin framework. It detaches the client-side, which would render anything that can satisfy its data format needs, and server-side data composition mechanisms from the data contributors which are resolved and invoked dynamically. Therefore, to extend the system, all you need to do is to focus on providing a compliant data contributor and the system will take care to resolve and request it for its piece of data when required.</p>
 <h2 id="enjoy">Enjoy!</h2>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -2045,7 +2084,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

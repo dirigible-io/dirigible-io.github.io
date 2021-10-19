@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="nedelcho.delchev">
+        <meta name="author" content="Nedelcho Delchev">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2020/06/29/celebrating-5-years-in-open-source/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1590,15 +1590,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2020/06/29/celebrating-5-years-in-open-source.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features</h1>
-                
-                <p>Eclipse Dirigible just turned five years in open source. Five years in Eclipse Foundation within the Eclipse Cloud Development group. Five years of innovations with many friends around the globe, lots of realised dreams, first-class happiness.</p>
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2020/06/29/celebrating-5-years-in-open-source.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/6852373?v=4" alt="@delchev">
+            </p>
+            <p>
+            <span> 
+            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> June 29, 2020 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 5 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>Eclipse Dirigible just turned five years in open source. Five years in Eclipse Foundation within the Eclipse Cloud Development group. Five years of innovations with many friends around the globe, lots of realised dreams, first-class happiness.</p>
 <h4 id="graalvms-graaljs"><a href="https://www.graalvm.org/">GraalVM</a>'s <a href="https://github.com/graalvm/graaljs">GraalJS</a></h4>
 <p>Fast, easy-to-use, easy-to-upgrade from Nashorn or Rhino, ECMA 2020 compliant, deeply integrated with the host JVM, fast interoperability with JVM languages like Scala and Kotlin, embeddable, JVM agnostic, stable, robust... just perfect for our needs. We were quite happy so far by using Mozilla Rhino as the default scripting engine, but its slow adoption of the most recent ECMA specs was definitely an issue. Hence, we were kind of forced to look for another option for the future development of the stack. The biggest surprise was about the time and efforts it took to adapt our API layer to use GraalJS instead of Rhino - literally zero. How many projects or products support straigthforward and compatible migration from one major version to another? The fact that GraalJS is even a totally different project, driven by different people and still provides a smooth migration path from Rhino, deserves admirations.</p>
 <h4 id="chrome-devtools"><a href="https://developers.google.com/web/tools/chrome-devtools">Chrome DevTools</a></h4>
@@ -1621,15 +1658,17 @@
 <p>One more good news came along with this release - completed graduation review!</p>
 </blockquote>
 <p><strong>We are mature - ayeeeee!</strong> 💃 🕺 🧑‍🎓👨‍🎓🧑‍🎤👨‍🎤👩‍🎤🤵👰👨‍🦳🧑‍🦳👩‍🚀🧑‍🚒🧑‍🌾   <strong>OMG!</strong>  🤦‍♂️</p>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -1779,7 +1818,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

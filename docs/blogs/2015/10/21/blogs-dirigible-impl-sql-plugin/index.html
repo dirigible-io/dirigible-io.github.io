@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="nedelcho.delchev">
+        <meta name="author" content="Nedelcho Delchev">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2015/10/21/blogs-dirigible-impl-sql-plugin/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1367,13 +1367,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#congratulations" class="md-nav__link">
-    Congratulations!
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1628,13 +1621,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#congratulations" class="md-nav__link">
-    Congratulations!
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1646,13 +1632,52 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2015/10/21/blogs-dirigible-impl-sql-plugin.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <p>How to implement a custom plugin for Dirigible, which brings custom execution engine for a custom development language?
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2015/10/21/blogs-dirigible-impl-sql-plugin.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Tutorial - How to implement a plugin for SQL language support</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/6852373?v=4" alt="@delchev">
+            </p>
+            <p>
+            <span> 
+            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> October 21, 2015 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 12 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>How to implement a custom plugin for Dirigible, which brings custom execution engine for a custom development language?
 Hmmm ... why at all you would need this?</p>
 <p>In general you do not. You can rely on the standard JavaScript, supported by default as a primary language for services in Dirigible. If you prefer Java you are still in the supported default options. But, what if you want to use your preferred language like Ruby, Groovy, Pyton, Scala and many other JVM and non-JVM modern languages? The good news - it's not so difficult. In this tutorial we will give you the major steps and directions, which can guide you throughout such integrations.</p>
 <p>Let's take something simple e.g. SQL script. The engine, which executes this language is the underlying RDBMS itself, but from Dirigible's point of view the database is abstracted via JDBC interface. So, let's create a new feature - 'SQL Services' support. It will provide the following:</p>
@@ -1670,6 +1695,7 @@ Hmmm ... why at all you would need this?</p>
 <p>Let's start...</p>
 <hr />
 <h2 id="editor-for-sql">Editor for SQL</h2>
+<hr />
 <p>Luckily we support two web editors in Dirigible - Orion and ACE. The later has good support for SQL Language, hence we can use it directly.
 Be sure that you enable the support of your language in the corresponding editor by adding the file extension to the editor's 'extensions' parameter in the plugin.xml. In this case in plugin <strong>org.eclipse.dirigible.ide.editor.ace</strong>, extension point <strong>org.eclipse.ui.editors</strong>, class <strong>org.eclipse.dirigible.ide.editor.ace.AceEditor</strong>.</p>
 <p><br>
@@ -1677,6 +1703,7 @@ Be sure that you enable the support of your language in the corresponding editor
 <br></p>
 <hr />
 <h2 id="icon-for-sql-files">Icon for *.sql files</h2>
+<hr />
 <p>Add an icon in the <strong>resources</strong> folder of the <strong>org.eclipse.dirigible.ide.repository.ui</strong> plugin, e.g. <strong>icon-sql.png</strong>.
 Add a reference of the icon and the necessary file extension in <strong>org.eclipse.dirigible.ide.repository.ui.viewer.AbstractArtifactLabelProvider</strong> similar like the other cases.</p>
 <p><br>
@@ -1684,6 +1711,7 @@ Add a reference of the icon and the necessary file extension in <strong>org.ecli
 <br></p>
 <hr />
 <h2 id="publisher-adaptation">Publisher adaptation</h2>
+<hr />
 <p>There are a few adaptation that can enable *.sql artifact to be considered as supported scripting services.
 To do that:</p>
 <ol>
@@ -1695,6 +1723,7 @@ To do that:</p>
 <p>We are done at the IDE side! Now we go to the Runtime to implement the execution engine.</p>
 <hr />
 <h2 id="engine-for-sql">Engine for SQL</h2>
+<hr />
 <p>Create a new plugin which will contain all the execution engine related artifacts for the SQL support. As a template you can use already available for Java <strong>org.eclipse.dirigible.runtime.java</strong> - e.g. <strong>org.eclipse.dirigible.runtime.sql</strong></p>
 <p>Add corresponding <strong>ENGINE_TYPE</strong> <code>public static final String SQL = "sql";</code> in <strong>org.eclipse.dirigible.repository.api.ICommonConstants</strong></p>
 <p>Do the same for <strong>ENGINE_ALIAS</strong></p>
@@ -1875,10 +1904,12 @@ To do that:</p>
 </ol>
 <hr />
 <h2 id="include-the-plugin-as-a-feature">Include the Plugin as a Feature</h2>
+<hr />
 <p>There is a feature for the runtime plugins in the project <strong>p2.runtime.feature</strong>
 Add the SQL plugin to the feature.xml accordingly</p>
 <hr />
 <h2 id="include-the-plugin-for-packaging">Include the Plugin for Packaging</h2>
+<hr />
 <p>You have to include just created plugin into the configuration files for Equinox OSGi:</p>
 <ol>
 <li>In the project <strong>releng/dirigible-all-tomcat</strong> &gt; sub-folder <strong>src/main/webapp/WEB-INF/configuration</strong> &gt; file <strong>config.ini</strong></li>
@@ -1889,15 +1920,18 @@ Add the SQL plugin to the feature.xml accordingly</p>
 </ol>
 <hr />
 <h2 id="security-constrains-in-webxml">Security Constrains in web.xml</h2>
+<hr />
 <ol>
 <li>In the project <strong>releng/dirigible-all-tomcat</strong> &gt; sub-folder <strong>src/web/</strong> &gt; all files <strong>web.xml</strong> excluding <strong>trial</strong></li>
 <li>In the project <strong>releng/dirigible-runtime-tomcat</strong> &gt; sub-folder <strong>src/web/</strong> &gt; all files <strong>web.xml</strong> excluding <strong>trial</strong></li>
 </ol>
 <hr />
 <h2 id="flows-and-jobs-integration">Flows and Jobs Integration</h2>
+<hr />
 <p>Luckily we have already implemented the extensibility in a way that <strong>SQLScriptExecutorProvider</strong> from above is automatically registered and can be used in Flows.</p>
 <hr />
 <h2 id="registry-section-for-sql-services">Registry Section for SQL Services</h2>
+<hr />
 <p>The plugin containing the registry user interface is <strong>org.eclipse.dirigible.runtime.ui</strong></p>
 <ol>
 <li>Create a file <strong>sql.html</strong> in the sub-folder <strong>resources/ui/templates/scripting/sql</strong></li>
@@ -1916,6 +1950,7 @@ Add the SQL plugin to the feature.xml accordingly</p>
 </ol>
 <hr />
 <h2 id="template-for-sql-scripting-service">Template for SQL Scripting Service</h2>
+<hr />
 <p>To complete the SQL support we can add at least one template to be available in the <strong>New-&gt;ScriptinService</strong> wizard.
 To do that, in the plugin <strong>org.eclipse.dirigible.ide.template.ui.js</strong></p>
 <ol>
@@ -1947,18 +1982,20 @@ To do that, in the plugin <strong>org.eclipse.dirigible.ide.template.ui.js</stro
 <p><br>
 <img src="/img/posts/sql_template.png"/>
 <br></p>
-<h1 id="congratulations">Congratulations!</h1>
+<p>Congratulations!</p>
 <p>If you managed to follow all this - you are a hero!</p>
 <p>The git commit for reference is <a href="https://github.com/eclipse/dirigible/commit/30a85e9c4420ab71176ba1cb0ab5e1047442f0e3">here</a></p>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -2108,7 +2145,7 @@ To do that, in the plugin <strong>org.eclipse.dirigible.ide.template.ui.js</stro
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>

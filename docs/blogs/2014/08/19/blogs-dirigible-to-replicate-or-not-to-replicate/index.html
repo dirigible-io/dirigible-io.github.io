@@ -8,13 +8,13 @@
       
       
       
-        <meta name="author" content="nedelcho.delchev">
+        <meta name="author" content="Nedelcho Delchev">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.5143246d.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1443,29 +1443,68 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-                  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>Dirigible - To Replicate or Not To Replicate</h1>
-                
-                <p>The existential question, which only seems to offer two equal and yet feasible options.</p>
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Dirigible - To Replicate or Not To Replicate</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/u/6852373?v=4" alt="@delchev">
+            </p>
+            <p>
+            <span> 
+            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> August 19, 2014 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 3 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>The existential question, which only seems to offer two equal and yet feasible options.</p>
 <p>The first time we face such a question in a distributed environment (typical in the context of cloud applications) we’ll have a hard time finding the “right” answer …hmm the second time as well? The actual problem is that we cannot give
 a universal solution just by definition, but have to go through case by case each time. Such scenarios could be
 transferring data between two legacy or 3-thd party systems, between a legacy system and our custom extension,
 even between the different extension applications that we could have. There could be different boundary conditions depending mainly on the source and target systems’ capabilities for external communication. Sometimes, additional intermediate component could be required to cope with the integration between the systems. Hence, we need to deeply investigate the pros &amp; cons for the given scenario, personas and components and to take concrete conscious decisions for the architectural patterns, which can be used. We have to consider also aspects like the performance for direct synchronous calls between remote systems, scalability of the source system itself, lack of tailored interfaces for our brand new use-cases, preserving the security model e.g. identity propagation, need of preliminary cache and other non-functional requirements, we often reach to the well-known situation (after taking the red pill) when – “the choice has already been made, and now you have to understand it”.<br></p>
 <p>Full Article Here: <a href="http://scn.sap.com/community/developer-center/cloud-platform/blog/2014/08/19/dirigible--to-replicate-or-not-to-replicate">Dirigible - To Replicate or Not To Replicate</a></p>
-                
-                  
-                
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
               
-              
-                
+        
 
 
-              
+      
             </article>
           </div>
         </div>
@@ -1615,7 +1654,7 @@ even between the different extension applications that we could have. There coul
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f89c2efe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1e84347e.min.js"></script>
       
     
   </body>
