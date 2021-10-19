@@ -1,6 +1,10 @@
 ---
 title:  "Dirigible - Extensions vs Configurations"
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 1 min
+publish_date: June 11, 2014
 ---
 
 If somebody asks you just right now "**What do you require most from your business software in general?**", what will pop up in your mind first?

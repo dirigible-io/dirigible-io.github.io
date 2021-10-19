@@ -1,6 +1,10 @@
 ---
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 10 min
+publish_date: January 7, 2016
 ---
 
 Starting with version Dirigible 2.2 M3, it is possible to register *multiple custom* data sources alongside with the default, system one. This feature allows keeping Dirigible system data completely separate from application data. And now application developers can create applications that span across multiple data sources. Both of these bring much more sense of production-readiness than ever before.

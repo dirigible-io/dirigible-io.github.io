@@ -1,6 +1,10 @@
 ---
 title: Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 5 min
+publish_date: June 29, 2020
 ---
 
 Eclipse Dirigible just turned five years in open source. Five years in Eclipse Foundation within the Eclipse Cloud Development group. Five years of innovations with many friends around the globe, lots of realised dreams, first-class happiness.

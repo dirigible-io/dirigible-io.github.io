@@ -1,6 +1,10 @@
 ---
 title: "Understanding Dirigible"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 10 min
+publish_date: February 26, 2016
 ---
 
 During the past couple of years Dirigible evolved from an RAP based Web IDE for

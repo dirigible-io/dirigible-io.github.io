@@ -1,6 +1,10 @@
 ---
 title: Why Enterprise JavaScript?
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 12 min
+publish_date: August 1, 2016
 ---
 
 

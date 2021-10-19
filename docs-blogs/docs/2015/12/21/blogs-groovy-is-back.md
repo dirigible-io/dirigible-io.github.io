@@ -1,6 +1,10 @@
 ---
 title: "Developer - Groovy is back"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 1 min
+publish_date: December 21, 2015
 ---
 
 Groovy Dev Platform powered by Eclipse Dirigible is back!

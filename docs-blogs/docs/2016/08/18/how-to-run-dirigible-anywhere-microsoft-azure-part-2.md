@@ -1,6 +1,10 @@
 ---
 title: How to Run Dirigible Anywhere - Microsoft Azure - Part II?
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 3 min
+publish_date: August 18, 2016
 ---
 
 

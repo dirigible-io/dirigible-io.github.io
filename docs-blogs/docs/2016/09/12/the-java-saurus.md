@@ -1,6 +1,10 @@
 ---
 title: The Java-saurus
-author: rositsa.mitreva
+author: Rositsa Mitreva
+author_gh_user: rosi-mitreva
+author_avatar: https://avatars.githubusercontent.com/u/20282695?v=4
+read_time: 1 min
+publish_date: September 12, 2016
 ---
 
 Have you met one? Are you one? Do you even know what this is?

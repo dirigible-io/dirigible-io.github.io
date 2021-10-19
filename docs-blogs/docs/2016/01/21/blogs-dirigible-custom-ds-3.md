@@ -1,6 +1,10 @@
 ---
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 12 min
+publish_date: January 21, 2016
 ---
 
 Dirigible welcomes Mongo DB onboard! Starting with version 2.2 Mongo DB is supported out-of-the-box

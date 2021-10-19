@@ -1,10 +1,12 @@
 ---
 title: Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt
-author: krasimir.dermendzhiev
+author: Krasimir Dermendzhiev
+author_gh_user: krasimirdermendzhiev
+author_avatar: https://avatars.githubusercontent.com/u/82384876?v=4
+read_time: 10 min
+publish_date: October 14, 2021
 ---
 
-
-# Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt
 
 ## Overview
 

@@ -1,6 +1,10 @@
 ---
 title: "Tutorial - How to re-brand Dirigible workbench"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 3 min
+publish_date: October 28, 2015
 ---
 
 Being a cloud platform provider or development tools provider company, most probably you would like to have your own logo and a name following your products naming convention instead of Dirigible's ones. It is very easy following the [Eclipse RAP Branding](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.rap.doc%2Fguide%2Farticles%2Fbranding.html&cp=65_4_2) approach.

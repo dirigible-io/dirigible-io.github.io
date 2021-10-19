@@ -1,6 +1,10 @@
 ---
 title: Dirigible Cloud IDE
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 12 min
+publish_date: March 2, 2018
 ---
 
 Dirigible is a cloud runtime platform that comes with a neat, all-in-one, frustration-free package of devops productivity tools, including a brand new cloud IDE for in-system application development. This blog is a *getting-to-know* the new cloud IDE. 

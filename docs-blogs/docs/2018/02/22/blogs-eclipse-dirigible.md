@@ -1,11 +1,13 @@
 ---
 title: Eclipse Dirigible - Getting Started
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 12 min
+publish_date: February 22, 2018
 ---
 
 This article was republished from [Eclipse Newsletter](https://www.eclipse.org/community/eclipse_newsletter/2018/february/dirigible.php), February 2018
-
-# Eclipse Dirigible - Getting Started
 
 ## Overview
 

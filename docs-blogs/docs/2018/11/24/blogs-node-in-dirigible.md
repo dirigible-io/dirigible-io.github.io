@@ -1,6 +1,10 @@
 ---
 title: Node.js in Dirigible?
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 10 min
+publish_date: November 24, 2018
 ---
 
 Node.js in Dirigible? Are you kidding?

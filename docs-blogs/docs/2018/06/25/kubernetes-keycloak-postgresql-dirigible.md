@@ -1,11 +1,13 @@
 ---
 title: Kubernetes, Keycloak, PostgreSQL & Dirigible
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 10 min
+publish_date: June 25, 2018
 ---
 
 This article is dedicated to the "production-ready" setup of Eclipse Dirigible in a Kubernetes cluster.
-
-# Kubernetes, Keycloak, PostgreSQL & Dirigible
 
 ## Overview
 

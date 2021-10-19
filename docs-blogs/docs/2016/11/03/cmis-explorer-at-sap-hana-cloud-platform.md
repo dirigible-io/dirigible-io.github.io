@@ -1,6 +1,10 @@
 ---
 title: Document Service Explorer at SAP HANA Cloud Platform
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 5 min
+publish_date: November 3, 2016
 ---
 
 

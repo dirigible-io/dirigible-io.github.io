@@ -1,6 +1,10 @@
 ---
 title: Dirigible Landed in the Faculty of Mathematics and Informatics
-author: adriana.daskalova
+author: Adriana Daskalova
+author_gh_user: adrianadimitrova89
+author_avatar: https://avatars.githubusercontent.com/u/16451815?v=4
+read_time: 3 min
+publish_date: November 13, 2018
 ---
 
 For third consecutive year, the User Assistance (UA) team of SAP Labs Bulgaria holds a Software Documentation course at the Faculty of Mathematics and Informatics at Sofia University ‘St. Kliment Ohridski’. The number of participating students is growing rapidly and this year it has reached one hundred.

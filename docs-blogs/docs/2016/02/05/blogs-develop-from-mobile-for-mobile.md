@@ -1,6 +1,10 @@
 ---
 title: "Develop from Mobile for Mobile"
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 7 min
+publish_date: February 5, 2016
 ---
 
 or what will be the next big breakthrough in the way native mobile applications are developed.

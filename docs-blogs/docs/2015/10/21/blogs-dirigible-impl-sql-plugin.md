@@ -1,6 +1,10 @@
 ---
 title: "Tutorial - How to implement a plugin for SQL language support"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 12 min
+publish_date: October 21, 2015
 ---
 
 How to implement a custom plugin for Dirigible, which brings custom execution engine for a custom development language?
@@ -26,7 +30,7 @@ Let's start...
 ---
 
 
-Editor for SQL
+## Editor for SQL
 ----
 
 Luckily we support two web editors in Dirigible - Orion and ACE. The later has good support for SQL Language, hence we can use it directly.
@@ -38,7 +42,7 @@ Be sure that you enable the support of your language in the corresponding editor
 
 ---
 
-Icon for *.sql files
+## Icon for *.sql files
 ----
 
 Add an icon in the **resources** folder of the **org.eclipse.dirigible.ide.repository.ui** plugin, e.g. **icon-sql.png**.
@@ -51,7 +55,7 @@ Add a reference of the icon and the necessary file extension in **org.eclipse.di
 
 ---
 
-Publisher adaptation
+## Publisher adaptation
 ----
 
 There are a few adaptation that can enable *.sql artifact to be considered as supported scripting services.
@@ -67,7 +71,7 @@ We are done at the IDE side! Now we go to the Runtime to implement the execution
 
 ---
 
-Engine for SQL
+## Engine for SQL
 ----
 
 Create a new plugin which will contain all the execution engine related artifacts for the SQL support. As a template you can use already available for Java **org.eclipse.dirigible.runtime.java** - e.g. **org.eclipse.dirigible.runtime.sql**
@@ -261,7 +265,7 @@ In the source folder (*src*), you should finally have at least:
 
 ---
 
-Include the Plugin as a Feature
+## Include the Plugin as a Feature
 ----
 
 There is a feature for the runtime plugins in the project **p2.runtime.feature**
@@ -269,7 +273,7 @@ Add the SQL plugin to the feature.xml accordingly
 
 ---
 
-Include the Plugin for Packaging
+## Include the Plugin for Packaging
 ----
 
 You have to include just created plugin into the configuration files for Equinox OSGi:
@@ -281,7 +285,7 @@ You have to include just created plugin into the configuration files for Equinox
 
 ---
 
-Security Constrains in web.xml
+## Security Constrains in web.xml
 ----
 
 1. In the project **releng/dirigible-all-tomcat** > sub-folder **src/web/** > all files **web.xml** excluding **trial**
@@ -289,14 +293,14 @@ Security Constrains in web.xml
 
 ---
 
-Flows and Jobs Integration
+## Flows and Jobs Integration
 ----
 
 Luckily we have already implemented the extensibility in a way that **SQLScriptExecutorProvider** from above is automatically registered and can be used in Flows.
 
 ---
 
-Registry Section for SQL Services
+## Registry Section for SQL Services
 ----
 
 The plugin containing the registry user interface is **org.eclipse.dirigible.runtime.ui**
@@ -320,7 +324,7 @@ The plugin containing the registry user interface is **org.eclipse.dirigible.run
 
 ---
 
-Template for SQL Scripting Service
+## Template for SQL Scripting Service
 ----
 
 To complete the SQL support we can add at least one template to be available in the **New->ScriptinService** wizard.
@@ -366,7 +370,7 @@ To do that, in the plugin **org.eclipse.dirigible.ide.template.ui.js**
 <br>
 
 Congratulations!
-===
+
 
 If you managed to follow all this - you are a hero!
 

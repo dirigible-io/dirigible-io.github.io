@@ -1,11 +1,13 @@
 ---
 title: Dirigible - Extend, Embed, Reuse
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 7 min
+publish_date: November 9, 2018
 ---
 
 The latest major upgrade of Dirigible to 3.x opens the door for scenarios like building custom stacks, standardized application CI, embedded Dirigible and many more ...
-
-# Dirigible - Extend, Embed, Reuse
 
 ## Overview
 
@@ -21,7 +23,7 @@ With the latest major upgrade to Eclipse Dirigible 3.x, there are a lot of impro
 
 In this post, we will emphasize on the improved CI process and the scenarios it unlocks. For example, with the 200+ Maven Artifacts, the customization of Dirigible is more flexible than ever. _**Custom Dirigible Stack**_ can be built with ease, or only some modules can be _**added as dependencies**_ in existing projects (e.g. SQL & Persistency modules). Finally, having a _**hybrid (embedded)**_ deployment is another interesting capability that is worth looking at (e.g. in existing Spring Stack).
 
-# Custom Stack
+## Custom Stack
 
 ![Custom-Dirigible-Stack](/img/posts/20181109/Custom-Dirigible-Stack.png){: .img-responsive }
 
@@ -32,7 +34,7 @@ The [Helium Custom Stack](http://www.dirigible.io/samples/tutorial_helium_custom
 3. Exposing an Enterprise JavaScript API (both Java facade and JavaScript API)
 4. Consuming Dirigible dependencies
 
-# Reuse of Modules
+## Reuse of Modules
 ![Modules-Re-Use](/img/posts/20181109/Modules-Re-Use.png){: .img-responsive }
 
 With 200+ Maven artifacts, it's obvious that some modules can be reused even in non-Dirigible related projects. For example, the SQL builder and the ORM can be consumed on their own:
@@ -147,7 +149,7 @@ Dirigible's ORM is compatible with the _**Java Persistence API**_:
     </dependency>
     ```
 
-# Embedded Dirigible
+## Embedded Dirigible
 
 ![Embedded-Dirigible](/img/posts/20181109/Embedded-Dirigible.png){: .img-responsive }
 
@@ -168,7 +170,7 @@ public void callDirigible() {
 
 For more details about this setup, check out the embedded Dirigible [sample](https://github.com/eclipse/dirigible/tree/master/releng/embedded-all).
 
-# Resources
+## Resources
 
 Experiment with the **single-click deployment** of the following demos from **EclipseCon 2018**:
 

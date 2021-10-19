@@ -1,6 +1,10 @@
 ---
 title: "How the Orion editor is integrated in Dirigible"
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 7 min
+publish_date: October 28, 2015
 ---
 
 Why Orion? How the code-completion is achieved? How the Orion editor is integrated with RAP?

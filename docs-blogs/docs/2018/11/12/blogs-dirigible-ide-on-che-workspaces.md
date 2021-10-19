@@ -1,6 +1,10 @@
 ---
 title: Running Dirigible on Che Workspaces
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 10 min
+publish_date: November 12, 2018
 ---
 
 

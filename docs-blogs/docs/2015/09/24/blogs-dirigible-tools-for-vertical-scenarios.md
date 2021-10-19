@@ -1,6 +1,10 @@
 ---
 title: "Dirigible - Toolkit for Vertical Scenarios"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 5 min
+publish_date: September 24, 2015
 ---
 
 What does vertical scenario mean? Why building applications covering such scenarios need special toolkit and why all these relates to Dirigible?

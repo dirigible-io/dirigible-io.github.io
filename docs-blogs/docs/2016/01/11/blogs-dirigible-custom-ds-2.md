@@ -1,6 +1,10 @@
 ---
 title: "BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 15 min
+publish_date: January 11, 2016
 ---
 
 Dirigible supports multiple database products by means of dialect adapters that can be used to extend the support to new ones

@@ -1,6 +1,10 @@
 ---
 title: How Does Eclipse Dirigible Contribute to Eclipse Che 7?
-author: dragomir.anachkov
+author: Dragomir Anachkov
+author_gh_user: danachkov
+author_avatar: https://avatars.githubusercontent.com/u/20664881?v=4
+read_time: 5 min
+publish_date: September 25, 2019
 ---
 
 Eclipse Che unites a wide range of different frameworks, programming languages, and development tools, and helps developers design and create next-level services on the Cloud. Eclipse Che provides you with a default Web IDE. However, Eclipse Che also allows you to plug in other IDEs, because the default IDE may not be able to cover your use case.

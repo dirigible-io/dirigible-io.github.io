@@ -1,6 +1,10 @@
 ---
 title: "Dirigible enables dynamic in-memory Java runtime"
-author: yordan.pavlov
+author: Yordan Pavlov
+author_gh_user: thuf
+author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
+read_time: 1 min
+publish_date: October 22, 2014
 ---
 
 In attempt to attract the 9 million happy Java developers to the Dirigible community, we have

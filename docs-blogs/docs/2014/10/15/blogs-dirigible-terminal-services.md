@@ -1,6 +1,10 @@
 ---
 title: "Dirigible - Terminal Services"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 1 min
+publish_date: October 15, 2014
 ---
 
 In response of the great interest related to <a class="jive-link-external-small" href="http://en.wikipedia.org/wiki/Shellshock_(software_bug)">Shellshock</a>, Dirigible provided several possibilities to use low level OS commands.

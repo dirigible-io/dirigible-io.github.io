@@ -1,6 +1,10 @@
 ---
 title: You Don't Need Abs to Model Apps
-author: dragomir.anachkov
+author: Dragomir Anachkov
+author_gh_user: danachkov
+author_avatar: https://avatars.githubusercontent.com/u/20664881?v=4
+read_time: 5 min
+publish_date: December 5, 2018
 ---
 
 Two of the coolest additions in version 3.x of Eclipse Dirigible are without a doubt the Entity Data Modeler (EDM) and the Business Process Modeler (BPM). They take the concept of model-driven architecture to the next level. What the “hack” does that mean, you’d probably say?
@@ -39,7 +43,7 @@ By the way, this Print on Demand view is integrated in the marketplace thanks to
 
 Right now, if there was a book on developing business applications with the Eclipse Dirigible Web IDE, I’d be the first one to purchase it. While I’m waiting though, I’ll keep on exploring the ins and outs of this cool basket of modern tools for developers of business applications. The EDM and the BPM tools are just the beginning, I’m sure of it!
 
-# Resources
+## Resources
 
 Experiment with the **single-click deployment** of the following demos from **EclipseCon 2018**:
 

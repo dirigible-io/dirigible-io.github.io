@@ -1,4 +1,11 @@
-# Low-Code Mobile Apps with Dirigible and NativeScript
+---
+title: Low-Code Mobile Apps with Dirigible and NativeScript
+author: Teodor Dermendzhiev
+author_gh_user: tdermendjiev
+author_avatar: https://avatars.githubusercontent.com/u/12174161?v=4
+read_time: 7 min
+publish_date: October 11, 2021
+---
 
 ## WebViews Sometimes Work
 

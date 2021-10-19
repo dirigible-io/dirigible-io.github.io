@@ -1,6 +1,10 @@
 ---
 title: Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment
-author: dragomir.anachkov
+author: Dragomir Anachkov
+author_gh_user: danachkov
+author_avatar: https://avatars.githubusercontent.com/u/20664881?v=4
+read_time: 1 min
+publish_date: January 20, 2020
 ---
 
 This blog presents the Document Explorer – a feature that you can use as part of the Eclipse Dirigible Web IDE. The Explorer allows you to upload, overwrite, download, delete, and search for pictures, spreadsheets, PDF files, and videos, among other artifacts.

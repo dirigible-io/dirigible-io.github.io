@@ -1,6 +1,10 @@
 ---
 title: "Testing Server-Side JavaScript with Jasmine"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 5 min
+publish_date: March 10, 2017
 ---
 
 [Jasmine](https://jasmine.github.io/) is a popular test framework that supports BDD (Behavior-Driven Development) with testing JavaScript code. It does not require DOM. And all that makes it a very good candidate for a test framework of choice for JavaScript Scripting Services in Dirigible. It is made available for you to use as a Dirigible [GitHub project](https://github.com/dirigiblelabs/jasmine).

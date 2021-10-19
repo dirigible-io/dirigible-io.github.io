@@ -1,6 +1,10 @@
 ---
 title: "Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 3 min
+publish_date: March 10, 2017
 ---
 
 In my previous [blog](http://www.dirigible.io/blogs/2017/03/10/blogs_apps_tests-jasmine.html) I introduced [Jasmine](https://jasmine.github.io/) as a testing framework for server-side JavaScript. Here I will explore how to add the server console as another test results output channel. 

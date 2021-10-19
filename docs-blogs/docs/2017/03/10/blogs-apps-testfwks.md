@@ -1,6 +1,10 @@
 ---
 title: "Integration of Third-Party JavaScript Libraries in Dirigible"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 5 min
+publish_date: March 10, 2017
 ---
 
 Integrating new test frameworks in Dirigible presented some challenges that I will explore in this blog. They can serve as a "watch-out list" in the process of integrating any third-party libraries in Dirigible in future.   

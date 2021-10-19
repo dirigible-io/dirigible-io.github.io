@@ -1,6 +1,10 @@
 ---
 title: "Dirigible - To Replicate or Not To Replicate"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 3 min
+publish_date: August 19, 2014
 ---
 
 The existential question, which only seems to offer two equal and yet feasible options.

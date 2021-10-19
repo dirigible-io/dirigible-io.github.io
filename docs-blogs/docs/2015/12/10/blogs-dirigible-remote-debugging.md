@@ -1,6 +1,10 @@
 ---
 title: "Developer - Remote debugging Dirigible source code"
-author: georgi.pavlov
+author: Georgi Pavlov
+author_gh_user: shturec
+author_avatar: https://avatars.githubusercontent.com/u/4983982?v=4
+read_time: 3 min
+publish_date: December 10, 2015
 ---
 
 While a significant part of the Dirigible development can be conveniently supported by in-Eclipse debugging using the generated 'dirigible-local' OSGi Framework launch configuration, there is also a couple of use cases that cannot be implemented using this approach.

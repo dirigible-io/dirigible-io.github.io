@@ -1,6 +1,10 @@
 ---
 title: "Start of Journey"
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 1 min
+publish_date: March 21, 2014
 ---
 
 The initial idea was to make use of the very promising Eclipse RAP technology [https://eclipse.org/rap/](https://eclipse.org/rap/) in our development,

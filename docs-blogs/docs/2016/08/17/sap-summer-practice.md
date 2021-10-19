@@ -1,6 +1,10 @@
 ---
 title: "Summer Practice in SAP"
-author: viktor.marinov
+author: Viktor Marinov
+author_gh_user: ViktorMarinov
+author_avatar: https://avatars.githubusercontent.com/u/12528886?v=4
+read_time: 7 min
+publish_date: August  17, 2016
 ---
 
 My name is Viktor and in the past two weeks, I took part in the Summer Student Practice in SAP Labs Bulgaria, which brought together IT students from different Bulgarian universities: Sofia University “St. Kliment Ohridski”, Technical University – Sofia, University of Plovdiv "Paisii Hilendarski" and others. Within two weeks we, the participants, had the opportunity to expand our knowledge about modern IT topics and learn from professionals how to develop software – both theoretically and practically. Volunteers from SAP shared with us their professional experience in software architecture and design.
@@ -70,7 +74,7 @@ With the help of the buttons “First”, “Previous”, ”Next”, ”Last”
 
 ![Sightseeings - Main page](/img/posts/20160817/sightseeings-2.png){: .img-responsive }
 
-# Summary
+## Summary
 
 I found it really easy to develop using  Eclipse Dirigible. It provides everything I needed – from database modeling and management, through RESTful services, to user interface generation. It was the perfect platform.
 

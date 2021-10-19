@@ -1,6 +1,10 @@
 ---
 title: "Developer - Repositories, repositories, repositories..."
-author: nedelcho.delchev
+author: Nedelcho Delchev
+author_gh_user: delchev
+author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
+read_time: 7 min
+publish_date: January 21, 2016
 ---
 
 What exactly the term Repository means in the context of Dirigible?

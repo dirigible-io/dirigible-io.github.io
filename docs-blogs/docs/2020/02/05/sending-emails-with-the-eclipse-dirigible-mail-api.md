@@ -1,6 +1,10 @@
 ---
 title: Sending E-Mails with the Eclipse Dirigible Mail API
-author: dragomir.anachkov
+author: Dragomir Anachkov
+author_gh_user: danachkov
+author_avatar: https://avatars.githubusercontent.com/u/20664881?v=4
+read_time: 1 min
+publish_date: February 5, 2020
 ---
 
 In this blog, we’ll take a look at one of the newest Eclipse Dirigible features. It allows you to send e-mails from Eclipse Dirigible with the [Mail Client API](https://www.dirigible.io/api/mail_client.html).
