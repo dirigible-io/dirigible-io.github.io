@@ -2,12 +2,16 @@
 layout: samples
 title: Samples
 icon: fa-caret-right
+hide: 
+  - navigation
 ---
 
 # Eclipse Dirigible<sup>&trade;</sup> Samples
 
 This section collects various applications created to demonstrate the main use purposes and strengths of the cloud toolkit.
 They are built on scenarios with different complexity level, from exemplary samples targeting demonstration of single features to complete end-to-end applications.
+
+![Samples](images/samples.svg)
 
 #### Simple Samples
 
