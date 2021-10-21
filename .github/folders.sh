@@ -9,7 +9,7 @@ do
         ;;
         2)
             path=docs-releases/docs/
-            file="beleases.json"
+            file="releases.json"
         ;;
         3)
             path=docs-news/docs/

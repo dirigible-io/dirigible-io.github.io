@@ -90,9 +90,9 @@ jobs:
     - name: Generate json file for last 5 articles       
       run: |
         bash ${{ github.workspace }}/.github/folders.sh
-        cat lastFiveBlogs.json
-        cat lastFiveReleases.json
-        cat lastFiveNews.json
+        cat blogs.json
+        cat releases.json
+        cat news.json
         
     - name: Git Commit and Push
       run: |
