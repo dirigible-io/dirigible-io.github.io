@@ -5,15 +5,15 @@ do
     case $i in
         1)
             path=docs-blogs/docs/
-            file="lastFiveBlogs.json"
+            file="blogs.json"
         ;;
         2)
             path=docs-releases/docs/
-            file="lastFiveReleases.json"
+            file="beleases.json"
         ;;
         3)
             path=docs-news/docs/
-            file="lastFiveNews.json"
+            file="news.json"
         ;;
         *)
             echo null
