@@ -93,6 +93,11 @@ jobs:
         cat blogs.json
         cat releases.json
         cat news.json
+
+        # Copy static content
+        cp blogs.json docs/blogs.json
+        cp releases.json docs/releases.json
+        cp news.json docs/news.json
         
     - name: Git Commit and Push
       run: |
