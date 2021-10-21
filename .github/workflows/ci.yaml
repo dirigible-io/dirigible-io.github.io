@@ -83,13 +83,17 @@ jobs:
         cp for_developers.html docs/for_developers.html
         cp getting_started.html docs/getting_started.html
         cp project.html docs/project.html
-
+    
+    - name: Grant execute permission for folders
+      run: chmod +x ${{ github.workspace }}/.github/folders.sh    
+        
     - name: Generate json file for last 5 articles       
       run: |
-        chmod +x ./.github/folders.sh
-        ./.github/folders.sh
-      shell: bash
-
+        bash ${{ github.workspace }}/.github/folders.sh
+        cat lastFiveBlogs.json
+        cat lastFiveReleases.json
+        cat lastFiveNews.json
+        
     - name: Git Commit and Push
       run: |
         git config user.name ${{secrets.GH_USER_NAME}}

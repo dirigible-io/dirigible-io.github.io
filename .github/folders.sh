@@ -5,15 +5,15 @@ do
     case $i in
         1)
             path=docs-blogs/docs/
-            file=lastFiveBlogs.json
+            file="lastFiveBlogs.json"
         ;;
         2)
             path=docs-releases/docs/
-            file=lastFiveReleases.json
+            file="lastFiveReleases.json"
         ;;
         3)
             path=docs-news/docs/
-            file=lastFiveNews.json
+            file="lastFiveNews.json"
         ;;
         *)
             echo null
@@ -28,6 +28,8 @@ do
 
     # unset index.md
     unset  my_array[5]
+
+    #remove keys
     arr='[]'  
     for x in "${my_array[@]}"; do
     arr=$(jq -nr --arg x "$x" --argjson arr "$arr" '$arr + [$x]')
