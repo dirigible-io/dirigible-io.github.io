@@ -21,20 +21,33 @@ do
     esac
 
     #Get last 5 articles
-    lastEntries=$(cd $path && find . -type f -name "*.md" | sort -n | tail -n 6 | sed 's|^./||')
+    lastEntries=$(cd $path && find . -type f -name "*.md" | 
+        sort -n |
+        tail -n 6 |
+        sed 's|^./||'
+    )
 
-    # define array
+    # declare array
     my_array=($lastEntries)
 
     # unset index.md
     unset  my_array[5]
 
-    #remove keys
+    #generate json
     arr='[]'  
     for x in "${my_array[@]}"; do
-    arr=$(jq -nr --arg x "$x" --argjson arr "$arr" '$arr + [$x]')
+        title=$(sed -n '2p' $path$x)
+        title=$(echo $title | sed 's/title: "/title: /g' | sed 's/"//g') # remove "" from news articles
+        
+        arr=$(jq -nr --arg x "$x" --arg title "$title" --argjson arr "$arr" '$arr + [$x,$title]')
     done
-
+    
+    #json format
+    sed=$(echo $arr | 
+        sed 's/"title: /{"title":"/g'| 
+        sed 's/", "/"}, "/g' |
+        sed 's/" ]/"}]/g' )
+    
     #export the file
-    echo $arr | jq '.' > $file
+    echo $sed | jq '.' > $file
 done
