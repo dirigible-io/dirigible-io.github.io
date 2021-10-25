@@ -1,22 +1,22 @@
 [
-  "2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform.md",
   {
+    "location": "2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform.md",
     "title": "Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform"
   },
-  "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
   {
+    "location": "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
     "title": "How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment"
   },
-  "2020/12/16/2020-what-a-year-for-eclipse-dirigible.md",
   {
+    "location": "2020/12/16/2020-what-a-year-for-eclipse-dirigible.md",
     "title": "2020 - What a year for Eclipse Dirigible!"
   },
-  "2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md",
   {
+    "location": "2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md",
     "title": "Low-Code Mobile Apps with Dirigible and NativeScript"
   },
-  "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
   {
+    "location": "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
     "title": "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt"
   }
 ]
