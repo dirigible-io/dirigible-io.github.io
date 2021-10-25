@@ -380,6 +380,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT**   | The folder where the log files are stored in | _`../logs`_
+**DIRIGIBLE_EXEC_COMMAND_LOGGING_ENABLED** | Whether to log the executed command by the _[exec](/api/core/exec/)_ API | _`false`_
 
 ### Look & Feel
 ---
