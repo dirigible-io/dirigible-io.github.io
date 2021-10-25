@@ -1,7 +1,22 @@
 [
   "2017/03/09/news-d-kom-sap-2017.md",
+  {
+    "title": "SAP d-kom Sofia 2017"
+  },
   "2017/03/20/news-eclipseconverge-2017.md",
+  {
+    "title": "EclipseConverge US 2017"
+  },
   "2017/04/07/news-uniteddev-2017.md",
+  {
+    "title": "UnitedDev Conference 2017"
+  },
   "2017/10/04/news-javaone-2017.md",
-  "2018/05/31/news-jprime-2018.md"
+  {
+    "title": "JavaOne 2017"
+  },
+  "2018/05/31/news-jprime-2018.md",
+  {
+    "title": "jPrime 2018"
+  }
 ]
