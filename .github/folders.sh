@@ -28,25 +28,42 @@ do
     )
 
     # declare array
-    my_array=($lastEntries)
+    articlePaths=($lastEntries)
 
     # unset index.md
-    unset  my_array[5]
+    unset  articlePaths[5]
 
     #generate json
     arr='[]'  
-    for x in "${my_array[@]}"; do
-        title=$(sed -n '2p' $path$x)
-        title=$(echo $title | sed 's/title: "/title: /g' | sed 's/"//g') # remove "" from news articles
+    for articlePath in "${articlePaths[@]}"; do
+        title=$(sed -n '2p' $path$articlePath)
+        title=$(echo $title | sed 's/title: "/title: /g' | sed 's/"//g') # remove "" from news
+        location="location: ${articlePath}"
+        description=$(sed -n '3p' $path$articlePath)
         
-        arr=$(jq -nr --arg x "$x" --arg title "$title" --argjson arr "$arr" '$arr + [$x,$title]')
+        if [[ $description =~ .*description* ]]
+        then
+            arr=$(jq -nr --arg location "$location"  --arg title "$title" --arg description "$description" --argjson arr "$arr" '$arr + [$location,$title,$description]')    
+        else            
+            arr=$(jq -nr --arg location "$location" --arg title "$title"  --argjson arr "$arr" '$arr + [$location,$title]')
+        fi    
     done
     
     #json format
-    sed=$(echo $arr | 
-        sed 's/"title: /{"title":"/g'| 
-        sed 's/", "/"}, "/g' |
-        sed 's/" ]/"}]/g' )
+    [[ $description =~ .*description* ]] && 
+        sed=$(echo $arr | 
+            sed 's/"location: /{"location":"/g'|
+            sed 's/title: /title":"/g' |
+            sed 's/", {/"}, {/g' | 
+            sed 's/" ]/"}]/g' |
+            sed 's/description: /description":"/g'
+        ) || 
+        sed=$(echo $arr | 
+            sed 's/"location: /{"location":"/g'|
+            sed 's/title: /title":"/g' |
+            sed 's/", {/"}, {/g' | 
+            sed 's/" ]/"}]/g' 
+        )
     
     #export the file
     echo $sed | jq '.' > $file
