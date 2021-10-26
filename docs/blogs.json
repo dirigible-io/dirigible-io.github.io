@@ -1,7 +1,8 @@
 [
   {
     "location": "2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform.md",
-    "title": "Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform"
+    "title": "Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform",
+    "description": "Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments."
   },
   {
     "location": "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
