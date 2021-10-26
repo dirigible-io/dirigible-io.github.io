@@ -1,5 +1,6 @@
 ---
 title: Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform
+description: Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments.
 author: Yordan Pavlov
 author_gh_user: thuf
 author_avatar: https://avatars.githubusercontent.com/u/4092083?v=4
