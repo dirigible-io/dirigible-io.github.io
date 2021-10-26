@@ -546,6 +546,7 @@ $(document).ready(function() {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/"));
                             e.location = "/blogs/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
+                        $scope.blogs = $scope.blogs.reverse();
                     });
             }
             loadData();
@@ -559,6 +560,7 @@ $(document).ready(function() {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
                             e.location = "/releases/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
+                        $scope.releases.reverse();
                     });
             }
             loadData();
@@ -572,6 +574,7 @@ $(document).ready(function() {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
                             e.location = "/news/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
+                        $scope.news.reverse();
                     });
             }
             loadData();
