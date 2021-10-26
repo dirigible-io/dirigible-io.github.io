@@ -2060,7 +2060,7 @@
 <ol>
 <li>
 <p>Start the container:</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Run</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Run</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>docker run --name dirigible \
 --rm -p 8080:8080 -p 8081:8081 \
 dirigiblelabs/dirigible-all:latest
@@ -2068,15 +2068,29 @@ dirigiblelabs/dirigible-all:latest
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">with Mounted Volume</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>docker run --name dirigible \
---rm -p 8080:8080 -p 8081:8081 \
 -v &lt;your-local-directory&gt;:/usr/local/tomcat/target \
+--rm -p 8080:8080 -p 8081:8081 \
 dirigiblelabs/dirigible-all:latest
 </code></pre></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">with Java Debugging Options</label><div class="tabbed-content">
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">with Environment Configurations</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>docker run --name dirigible \
---rm -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket \
--p 8000:8000 -p 8080:8080 -p 8081:8081 \
+-e DIRIGIBLE_BRANDING_NAME=&quot;My Web IDE&quot; \
+-e DIRIGIBLE_BRANDING_BRAND=&quot;WebIDE&quot; \
+-e DIRIGIBLE_BRANDING_BRAND_URL=&quot;https://www.eclipse.org&quot; \
+--rm -p 8080:8080 -p 8081:8081 \
+dirigiblelabs/dirigible-all:latest
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The complete list of Dirigible environment variables could be found <a href="/help/setup/setup-environment-variables/">here</a>.</p>
+</div>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">with Java Debugging Options</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>docker run --name dirigible \
+-e JPDA_ADDRESS=0.0.0.0:8000 \
+-e JPDA_TRANSPORT=dt_socket \
+--rm -p 8000:8000 -p 8080:8080 -p 8081:8081 \
 dirigiblelabs/dirigible-all:latest
 </code></pre></div>
 </div>
