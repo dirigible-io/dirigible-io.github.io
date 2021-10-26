@@ -5,7 +5,8 @@
   },
   {
     "location": "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
-    "title": "How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment"
+    "title": "How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment",
+    "description": "Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments."
   },
   {
     "location": "2020/12/16/2020-what-a-year-for-eclipse-dirigible.md",
