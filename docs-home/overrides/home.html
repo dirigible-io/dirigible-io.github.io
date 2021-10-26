@@ -544,7 +544,7 @@ $(document).ready(function() {
                         $scope.blogs = response.data;
                         $scope.blogs.forEach(e => {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/"));
-                            e.location = "/blogs/" + e.substring(0, e.indexOf(".md")) + "/";
+                            e.location = "/blogs/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
                     });
             }
@@ -557,7 +557,7 @@ $(document).ready(function() {
                         $scope.releases = response.data;
                         $scope.releases.forEach(e => {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
+                            e.location = "/releases/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
                     });
             }
@@ -570,7 +570,7 @@ $(document).ready(function() {
                         $scope.news = response.data;
                         $scope.news.forEach(e => {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
+                            e.location = "/news/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
                     });
             }
