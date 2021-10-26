@@ -29,17 +29,32 @@ Deploy Eclipse Dirigible in Docker.
 
         ```
         docker run --name dirigible \
-        --rm -p 8080:8080 -p 8081:8081 \
         -v <your-local-directory>:/usr/local/tomcat/target \
+        --rm -p 8080:8080 -p 8081:8081 \
         dirigiblelabs/dirigible-all:latest
         ```
+
+    === "with Environment Configurations"
+
+        ```
+        docker run --name dirigible \
+        -e DIRIGIBLE_BRANDING_NAME="My Web IDE" \
+        -e DIRIGIBLE_BRANDING_BRAND="WebIDE" \
+        -e DIRIGIBLE_BRANDING_BRAND_URL="https://www.eclipse.org" \
+        --rm -p 8080:8080 -p 8081:8081 \
+        dirigiblelabs/dirigible-all:latest
+        ```
+
+        !!! note
+            The complete list of Dirigible environment variables could be found [here](/help/setup/setup-environment-variables/).
 
     === "with Java Debugging Options"
 
         ```
         docker run --name dirigible \
-        --rm -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket \
-        -p 8000:8000 -p 8080:8080 -p 8081:8081 \
+        -e JPDA_ADDRESS=0.0.0.0:8000 \
+        -e JPDA_TRANSPORT=dt_socket \
+        --rm -p 8000:8000 -p 8080:8080 -p 8081:8081 \
         dirigiblelabs/dirigible-all:latest
         ```
 
