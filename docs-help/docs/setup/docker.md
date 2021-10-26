@@ -41,7 +41,7 @@ Deploy Eclipse Dirigible in Docker.
         -e DIRIGIBLE_BRANDING_NAME="My Web IDE" \
         -e DIRIGIBLE_BRANDING_BRAND="WebIDE" \
         -e DIRIGIBLE_BRANDING_BRAND_URL="https://www.eclipse.org" \
-        -e DIRIGIBLE_THEME_DEFAULT="fiori"
+        -e DIRIGIBLE_THEME_DEFAULT="fiori" \
         --rm -p 8080:8080 -p 8081:8081 \
         dirigiblelabs/dirigible-all:latest
         ```
