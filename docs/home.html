@@ -464,8 +464,8 @@
 </section>
 
 
-<div class="top-hr" ng-controller="BlogsController" ng-repeat="next in blogs">
-    <div class="feature-item">
+<div class="top-hr" ng-controller="BlogsController">
+    <div ng-repeat="next in blogs" class="feature-item">
         <a href="[{ next.location }]">
             <h3>[{ next.date }]</h3>
             <h1 class="blog-post-title">[{ next.title }]</h1>
@@ -475,21 +475,21 @@
 </div>
 
 <div class="top-hr">
-    <div class="feature-item">
+    <div class="feature-item" ng-controller="ReleasesController" >
         <h2>Releases</h2>
         <div>
-            <ul ng-controller="ReleasesController" ng-repeat="next in releases">
-                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
+            <ul>
+                <li ng-repeat="next in releases"><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
             </ul>
         </div>
         <br>
         <a class="md-button" href="/releases/"><p>All Releases ...</p></a>
     </div>
 
-    <div class="feature-item">
+    <div class="feature-item" ng-controller="NewsController">
         <h2>News and Updates</h2>
         <div>
-            <ul ng-controller="NewsController" ng-repeat="next in news">
+            <ul ng-repeat="next in news">
                 <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
             </ul>
         </div>
@@ -550,32 +550,32 @@ $(document).ready(function() {
             }
             loadData();
         })
-        // .controller('ReleasesController', function ($scope, $http) {
-        //     function loadData() {
-        //         $http.get("/releases.json")
-        //             .then(function (response) {
-        //                 $scope.releases = response.data;
-        //                 $scope.releases.forEach(e => {
-        //                     e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-        //                     e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
-        //                 });
-        //             });
-        //     }
-        //     loadData();
-        // })
-        // .controller('NewsController', function ($scope, $http) {
-        //     function loadData() {
-        //         $http.get("/news.json")
-        //             .then(function (response) {
-        //                 $scope.news = response.data;
-        //                 $scope.news.forEach(e => {
-        //                     e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-        //                     e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
-        //                 });
-        //             });
-        //     }
-        //     loadData();
-        // });
+        .controller('ReleasesController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/releases.json")
+                    .then(function (response) {
+                        $scope.releases = response.data;
+                        $scope.releases.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
+                        });
+                    });
+            }
+            loadData();
+        })
+        .controller('NewsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/news.json")
+                    .then(function (response) {
+                        $scope.news = response.data;
+                        $scope.news.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
+                        });
+                    });
+            }
+            loadData();
+        });
 </script>
 
 {% endblock %}
