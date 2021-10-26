@@ -529,6 +529,10 @@ $(document).ready(function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script type="text/javascript">
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['homePage']);
+    });
+
     angular.module('homePage', [], function($interpolateProvider) {
             $interpolateProvider.startSymbol('[{');
             $interpolateProvider.endSymbol('}]');
@@ -546,36 +550,32 @@ $(document).ready(function() {
             }
             loadData();
         })
-        .controller('ReleasesController', function ($scope, $http) {
-            function loadData() {
-                $http.get("/releases.json")
-                    .then(function (response) {
-                        $scope.releases = response.data;
-                        $scope.releases.forEach(e => {
-                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
-                        });
-                    });
-            }
-            loadData();
-        })
-        .controller('NewsController', function ($scope, $http) {
-            function loadData() {
-                $http.get("/news.json")
-                    .then(function (response) {
-                        $scope.news = response.data;
-                        $scope.news.forEach(e => {
-                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
-                        });
-                    });
-            }
-            loadData();
-        });
-
-    angular.element(document).ready(function() {
-        angular.bootstrap(document, ['homePage']);
-    });
+        // .controller('ReleasesController', function ($scope, $http) {
+        //     function loadData() {
+        //         $http.get("/releases.json")
+        //             .then(function (response) {
+        //                 $scope.releases = response.data;
+        //                 $scope.releases.forEach(e => {
+        //                     e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+        //                     e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
+        //                 });
+        //             });
+        //     }
+        //     loadData();
+        // })
+        // .controller('NewsController', function ($scope, $http) {
+        //     function loadData() {
+        //         $http.get("/news.json")
+        //             .then(function (response) {
+        //                 $scope.news = response.data;
+        //                 $scope.news.forEach(e => {
+        //                     e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+        //                     e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
+        //                 });
+        //             });
+        //     }
+        //     loadData();
+        // });
 </script>
 
 {% endblock %}
