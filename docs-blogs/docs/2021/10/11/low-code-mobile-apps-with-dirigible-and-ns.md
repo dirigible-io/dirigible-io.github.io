@@ -1,5 +1,6 @@
 ---
 title: Low-Code Mobile Apps with Dirigible and NativeScript
+description: Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs.
 author: Teodor Dermendzhiev
 author_gh_user: tdermendjiev
 author_avatar: https://avatars.githubusercontent.com/u/12174161?v=4
