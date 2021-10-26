@@ -1,5 +1,6 @@
 ---
 title: 2020 - What a year for Eclipse Dirigible!
+description: It has been a challenging, but in the same time an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption.
 author: Nedelcho Delchev
 author_gh_user: delchev
 author_avatar: https://avatars.githubusercontent.com/u/6852373?v=4
