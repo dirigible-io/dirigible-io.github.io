@@ -17,6 +17,7 @@
   },
   {
     "location": "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
-    "title": "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt"
+    "title": "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt",
+    "description": "In this article we are going to setup custom domain for Dirigible application in Kubernes cluster with Gardener, AWS Route 53, Istio, Let's encrypt."
   }
 ]
