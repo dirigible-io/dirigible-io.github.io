@@ -464,40 +464,12 @@
 </section>
 
 
-<div class="top-hr" ng-controller="BlogsController">
+<div class="top-hr" ng-controller="BlogsController" ng-repeat="next in blogs">
     <div class="feature-item">
-        <a href="/blogs/2020/12/16/2020-what-a-year-for-eclipse-dirigible/">
-            <h3>2020/12/16</h3>
-            <h1 class="blog-post-title">2020 - What a year for Eclipse Dirigible!</h1>
-            <p class="blog-post-content">It has been a challenging, but in the same time an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption.</p>
-        </a>
-    </div>
-    <div class="feature-item">
-        <a href="/blogs/2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment/">
-            <h3>2020/11/24</h3>
-            <h1 class="blog-post-title">How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment</h1>
-            <p class="blog-post-content">Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments. To deploy Eclipse Dirigible on either one of these environments, you need to use a Docker image. In this tutorial, I’m going to show you how to deploy Eclipse Dirigible based Docker image from a private Docker repository ...</p>
-        </a>
-    </div>
-    <div class="feature-item">
-        <a href="/blogs/2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform/">
-            <h3>2020/11/24</h3>
-            <h1 class="blog-post-title">Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform</h1>
-            <p class="blog-post-content">Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments. Beyond the most basic configuration with the default Identity Provider, there are plenty of use cases where integration with the SAP Identity and Authentication Service is needed ...</p>
-        </a>
-    </div>
-    <div class="feature-item">
-        <a href="/blogs/2020/11/20/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-cloud-foundry-environment/">
-            <h3>2020/11/20</h3>
-            <h1 class="blog-post-title">How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment</h1>
-            <p class="blog-post-content">Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments. To deploy Eclipse Dirigible on either one of these environments, you need to use a Docker image. In this tutorial, I’m going to show you how to deploy Eclipse Dirigible based Docker image from a private Docker repository ...</p>
-        </a>
-    </div>
-    <div class="feature-item">
-        <a href="/blogs/2020/11/19/eclipse-dirigible-building-application-docker-image/">
-            <h3>2020/11/19</h3>
-            <h1 class="blog-post-title">Eclipse Dirigible – Building a Docker Image for Your Application</h1>
-            <p class="blog-post-content">Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments. To deploy Eclipse Dirigible on either one of these environments, you need to use a Docker image ...</p>
+        <a href="{{ next.location }}">
+            <h3>{{ next.date }}</h3>
+            <h1 class="blog-post-title">{{ next.title }}</h1>
+            <p class="blog-post-content">{{ next.description }}</p>
         </a>
     </div>
 </div>
@@ -506,12 +478,8 @@
     <div class="feature-item">
         <h2>Releases</h2>
         <div>
-            <ul>
-                <li><p>2021-09-29 <a class="post-link" href="/releases/2021/09/29/news-new-release-6-0/">Release 6.0</p></a></li>
-                <li><p>2021-07-04 <a class="post-link" href="/releases/2021/07/04/news-new-release-5-12/">Release 5.12</p></a></li>
-                <li><p>2021-05-27 <a class="post-link" href="/releases/2021/05/27/news-new-release-5-11/">Release 5.11</p></a></li>
-                <li><p>2021-04-24 <a class="post-link" href="/releases/2021/04/24/news-new-release-5-10/">Release 5.10</p></a></li>
-                <li><p>2021-03-26 <a class="post-link" href="/releases/2021/03/26/news-new-release-5-9/">Release 5.9</p></a></li>
+            <ul ng-controller="ReleasesController" ng-repeat="next in releases">
+                <li><p>{{ next.date }} <a class="post-link" href="{{ next.location }}">{{ next.title }}</p></a></li>
             </ul>
         </div>
         <br>
@@ -521,12 +489,8 @@
     <div class="feature-item">
         <h2>News and Updates</h2>
         <div>
-            <ul>
-                <li><p>2018-05-31 <a class="post-link" href="/news/2018/05/31/news-jprime-2018/">jPrime 2018</p></a></li>
-                <li><p>2017-10-04 <a class="post-link" href="/news/2017/10/04/news-javaone-2017/">JavaOne 2017</p></a></li>
-                <li><p>2017-04-07 <a class="post-link" href="/news/2017/04/07/news-uniteddev-2017/">UnitedDev Conference 2017</p></a></li>
-                <li><p>2017-03-20 <a class="post-link" href="/news/2017/03/20/news-eclipseconverge-2017/">EclipseConverge US 2017</p></a></li>
-                <li><p>2017-03-09 <a class="post-link" href="/news/2017/03/09/news-d-kom-sap-2017/">SAP d-kom Sofia 2017</p></a></li>
+            <ul ng-controller="NewsController" ng-repeat="next in news">
+                <li><p>{{ next.date }} <a class="post-link" href="{{ next.location }}">{{ next.title }}</p></a></li>
             </ul>
         </div>
         <br>
@@ -571,6 +535,36 @@ $(document).ready(function() {
                 $http.get("/blogs.json")
                     .then(function (response) {
                         $scope.blogs = response.data;
+                        $scope.blogs.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/"));
+                            e.location = "/blogs/" + e.substring(0, e.indexOf(".md")) + "/";
+                        });
+                    });
+            }
+            loadData();
+        })
+        .controller('ReleasesController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/releases.json")
+                    .then(function (response) {
+                        $scope.releases = response.data;
+                        $scope.releases.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/releases/" + e.substring(0, e.indexOf(".md")) + "/";
+                        });
+                    });
+            }
+            loadData();
+        })
+        .controller('NewsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/news.json")
+                    .then(function (response) {
+                        $scope.news = response.data;
+                        $scope.news.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/news/" + e.substring(0, e.indexOf(".md")) + "/";
+                        });
                     });
             }
             loadData();
