@@ -466,10 +466,10 @@
 
 <div class="top-hr" ng-controller="BlogsController" ng-repeat="next in blogs">
     <div class="feature-item">
-        <a href="{{ next.location }}">
-            <h3>{{ next.date }}</h3>
-            <h1 class="blog-post-title">{{ next.title }}</h1>
-            <p class="blog-post-content">{{ next.description }}</p>
+        <a href="[{ next.location }]">
+            <h3>[{ next.date }]</h3>
+            <h1 class="blog-post-title">[{ next.title }]</h1>
+            <p class="blog-post-content">[{ next.description }]</p>
         </a>
     </div>
 </div>
@@ -479,7 +479,7 @@
         <h2>Releases</h2>
         <div>
             <ul ng-controller="ReleasesController" ng-repeat="next in releases">
-                <li><p>{{ next.date }} <a class="post-link" href="{{ next.location }}">{{ next.title }}</p></a></li>
+                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
             </ul>
         </div>
         <br>
@@ -490,7 +490,7 @@
         <h2>News and Updates</h2>
         <div>
             <ul ng-controller="NewsController" ng-repeat="next in news">
-                <li><p>{{ next.date }} <a class="post-link" href="{{ next.location }}">{{ next.title }}</p></a></li>
+                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
             </ul>
         </div>
         <br>
@@ -529,7 +529,10 @@ $(document).ready(function() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script type="text/javascript">
-    angular.module('homePage', [])
+    angular.module('homePage', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('[{');
+            $interpolateProvider.endSymbol('}]');
+        })
         .controller('BlogsController', function ($scope, $http) {
             function loadData() {
                 $http.get("/blogs.json")
