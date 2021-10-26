@@ -464,7 +464,7 @@
 </section>
 
 
-<div class="top-hr">
+<div class="top-hr" ng-controller="BlogsController">
     <div class="feature-item">
         <a href="/blogs/2020/12/16/2020-what-a-year-for-eclipse-dirigible/">
             <h3>2020/12/16</h3>
@@ -562,5 +562,24 @@ $(document).ready(function() {
 </script>
 
 <script src="/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript">
+    angular.module('homePage', [])
+        .controller('BlogsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/blogs.json")
+                    .then(function (response) {
+                        $scope.blogs = response.data;
+                    });
+            }
+            loadData();
+        });
+
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['homePage']);
+    });
+</script>
+
 {% endblock %}
 {% block content %}{% endblock %}
