@@ -13,7 +13,8 @@
   },
   {
     "location": "2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md",
-    "title": "Low-Code Mobile Apps with Dirigible and NativeScript"
+    "title": "Low-Code Mobile Apps with Dirigible and NativeScript",
+    "description": "Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs."
   },
   {
     "location": "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
