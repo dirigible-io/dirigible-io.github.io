@@ -21,6 +21,8 @@ And it's fairly simple to produce - create a single-view application with a WebV
 
 _**If it's simple, why don't you automate it?**_
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iB1imL7WQiM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Step 1: Generate a WebView Mobile App from Dirigible
 
 First, let's create a WebView app for iOS from scratch. Create a new Xcode project, choose Single View Application and add a WKWebView to your one-and-only UIViewController.
@@ -191,4 +193,4 @@ To make our Xcode project template project support this some [changes](https://g
 
 !!! note
 
-    What we reviewed in this article is a **research topic** rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point, but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated.
+    What we reviewed in this article is a **research topic** rather than a fully implemented feature in Dirigible. The generation of mobile apps is certainly coming to Dirigible at some point, but there is a lot of work left to make it production-ready. That being said, any feedback, ideas and, of course, contribution will be appreciated. Link to the code sample on GitHub can be found [here](https://github.com/dirigiblelabs/mobile-gen). 
