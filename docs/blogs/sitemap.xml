@@ -2,282 +2,282 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.dirigible.io/blogs/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/03/21/blogs-start-of-journey/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/03/24/blogs-dirigible-on-sap-hana/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/06/11/blogs-dirigible-extensions-configs/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/08/04/blogs-dirigible-fast-track-to-hcp/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/10/15/blogs-dirigible-terminal-services/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2014/10/22/blogs-dirigible-java-runtime/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/09/24/blogs-dirigible-tools-for-vertical-scenarios/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/10/21/blogs-dirigible-impl-sql-plugin/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/10/28/blogs-dirigible-branding/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/10/28/blogs-dirigible-orion-editor/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/12/10/blogs-dirigible-remote-debugging/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/12/17/blogs-how-to-install-dirigible-on-sap-hana-cloud-platform/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/12/21/blogs-groovy-is-back/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/01/07/blogs-dirigible-custom-ds-1/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/01/11/blogs-dirigible-custom-ds-2/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/01/21/blogs-dirigible-custom-ds-3/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/01/21/blogs-repositories/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/02/05/blogs-develop-from-mobile-for-mobile/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/02/26/blogs-understanding-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/08/01/blogs-why-enterprise-js/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/08/17/sap-summer-practice/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/09/12/the-java-saurus/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2017/03/10/blogs-apps-testfwks/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2017/03/10/blogs-apps-tests-jasmine/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2017/03/10/blogs-apps-tests-jasmine1/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/02/02/blogs-3x-a-new-era-began/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/02/22/blogs-eclipse-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/03/02/blogs-3x-ide/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/06/25/kubernetes-keycloak-postgresql-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/11/08/blogs-make-low-code-great-again/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/11/09/dirigible-extend-embed-reuse/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/11/12/blogs-dirigible-ide-on-che-workspaces/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/11/13/blogs-dirigible-landed-in-faculty-of-mathematics-and-informatics/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/11/24/blogs-node-in-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/12/05/you-dont-need-abs-to-model-apps/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/01/20/managing-documents-with-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/02/05/sending-emails-with-the-eclipse-dirigible-mail-api/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/05/07/what-is-eclipse-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/06/29/celebrating-5-years-in-open-source/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/10/23/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/11/19/eclipse-dirigible-building-application-docker-image/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/11/20/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-cloud-foundry-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2020/12/16/2020-what-a-year-for-eclipse-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2021/10/11/low-code-mobile-apps-with-dirigible-and-ns/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible/</loc>
-         <lastmod>2021-10-27</lastmod>
+         <lastmod>2021-10-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

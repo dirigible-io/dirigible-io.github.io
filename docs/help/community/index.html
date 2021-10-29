@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/community/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.5">
     
     
       
@@ -20,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cdeb8541.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -1970,6 +1970,8 @@
       </a>
       
         
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -2002,6 +2004,33 @@
   <a href="#style-guide" class="md-nav__link">
     Style Guide
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blogs" class="md-nav__link">
+    Blogs
+  </a>
+  
+    <nav class="md-nav" aria-label="Blogs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-your-blog-to-the-right-folder" class="md-nav__link">
+    Add Your Blog to the Right Folder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-frontmatter" class="md-nav__link">
+    Markdown Frontmatter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2037,6 +2066,8 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -2069,6 +2100,33 @@
   <a href="#style-guide" class="md-nav__link">
     Style Guide
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blogs" class="md-nav__link">
+    Blogs
+  </a>
+  
+    <nav class="md-nav" aria-label="Blogs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-your-blog-to-the-right-folder" class="md-nav__link">
+    Add Your Blog to the Right Folder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-frontmatter" class="md-nav__link">
+    Markdown Frontmatter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2167,6 +2225,72 @@
 <li>Structure your topic with no more than 3 heading levels(heading 2, 3 and 4)</li>
 </ul>
 </details>
+<h3 id="blogs">Blogs</h3>
+<p>We'd welcome any contribution to our <a href="../../blogs"><strong>Blogs</strong></a> site as long as it conforms with out <a href="#legal-considerations">Legal considerations</a> outlined above. Below we've provided more details about the organization of the <strong>Blogs</strong> site and the frontmatter that needs to be added so new blogs have the same look and feel as all the others.</p>
+<h4 id="add-your-blog-to-the-right-folder">Add Your Blog to the Right Folder</h4>
+<p>All blogs are organized in folders by year, month, and day of publishing. Hence, a blog written on November 19, 2020 is placed in the directory <code>docs/2020/11/19/</code>:</p>
+<p><img alt="Blogs Folder Structure" src="../images/blogs-folderstructure.png" /></p>
+<p>This also helps arranging the blogs by year of publishing.</p>
+<p><img alt="Blogs Site" src="../images/blogs-site.png" /></p>
+<p>When publishing, add your blog to the right folder depending on the date. You can also create folders if needed.</p>
+<h4 id="markdown-frontmatter">Markdown Frontmatter</h4>
+<p>A big part of any blog's layout is controlled by its <code>.md</code> file frontmatter. This is metadata about the <code>.md</code> file and is denoted by the triple dashes at the start and end of the block. </p>
+<p>Here's an example with the title of this <strong>Community</strong> page:</p>
+<div class="highlight"><pre><span></span><code><span class="hll">    <span class="l l-Scalar l-Scalar-Plain">---</span>
+</span><span class="hll">    <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Community</span>
+</span><span class="hll">    <span class="l l-Scalar l-Scalar-Plain">---</span>
+</span>
+    <span class="l l-Scalar l-Scalar-Plain">Welcome to the community page for contributors! Here you will find resources to help you create even better documentation for Dirigible.</span> 
+
+    <span class="c1">## Contributor Guide</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Set the title of the blog in the frontmatter:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="hll"><span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span>
+</span><span class="nn">---</span>
+</code></pre></div>
+<div class="admonition caution">
+<p class="admonition-title">When the title is set in the frontmatter, use <code>Heading 2</code> level (<code>## This is a heading 2</code>) as the higher heading level in your blog. Otherwise, the first <code>Heading 1</code> you use will overwrite the title from the frontmatter and cause formatting issues.</p>
+</div>
+</li>
+<li>
+<p>Set the author:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span>
+<span class="hll"><span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span>
+</span><span class="nn">---</span>
+</code></pre></div>
+</li>
+<li>
+<p>Set your GitHub user:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span>
+<span class="hll"><span class="nt">author_gh_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span>
+</span><span class="nn">---</span>
+</code></pre></div>
+4. Set reading time and publishing date:</p>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span>
+<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span>
+<span class="nt">author_gh_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span>
+<span class="hll"><span class="nt">read_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Word Count/1000&gt;</span>
+</span><span class="hll"><span class="nt">publish_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Date of Publishing&gt;</span>
+</span><span class="nn">---</span>
+</code></pre></div>
+</li>
+</ol>
+<p>Providing all the metadata in the frontmatter as described will include:</p>
+<ul>
+<li>the title in the beginning of the page</li>
+<li>your GitHub avatar, your name, and a link to your GitHub profile in the author section</li>
+<li>reading time and publishing date in the details section</li>
+</ul>
+<p>Here's an example from one of our recent blogs:</p>
+<p><img alt="Blog details" src="../images/blogs-details.png" /></p>
+<p>Happy Blogging!</p>
 <h2 id="join-the-discussion">Join the Discussion</h2>
 <p>Reach out to other contributors and join in the discussion around Dirigible <a href="https://dev.eclipse.org/mailman/listinfo/dirigible-dev">here</a>.</p>
                 
