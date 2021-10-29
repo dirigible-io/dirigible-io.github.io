@@ -107,7 +107,7 @@ This also helps arranging the blogs by year of publishing.
 
 When publishing, add your blog to the right folder depending on the date. You can also create folders if needed.
 
-#### Markdown Frontmatter
+#### Include Markdown Frontmatter
 
 A big part of any blog's layout is controlled by its `.md` file frontmatter. This is metadata about the `.md` file and is denoted by the triple dashes at the start and end of the block. 
 
