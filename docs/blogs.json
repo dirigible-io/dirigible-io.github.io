@@ -1,10 +1,5 @@
 [
   {
-    "location": "2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform.md",
-    "title": "Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform",
-    "description": "Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments."
-  },
-  {
     "location": "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
     "title": "How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment",
     "description": "Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments."
@@ -23,5 +18,10 @@
     "location": "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
     "title": "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt",
     "description": "In this article we are going to setup custom domain for Dirigible application in Kubernes cluster with Gardener, AWS Route 53, Istio, Let's encrypt."
+  },
+  {
+    "location": "2021/11/1/dirigible-runs-material.md",
+    "title": "Dirigible now runs Material for MKDocs",
+    "description": "In this article we are going to explore the new appearance of dirible.io, dirigible.io/blogs/, dirigible.io/help/, dirigible.io/api/, dirigible.io/news/, dirigible.io/releases/, and dirigible.io/samples/"
   }
 ]
