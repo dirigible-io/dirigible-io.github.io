@@ -131,7 +131,7 @@ Here's an example with the title of this **Community** page:
 	title: <Your Blog Title>
 	---
 	```
-	!!! caution "When the title is set in the frontmatter, use ``Heading 2`` level (`## This is a heading 2`) as the higher heading level in your blog. Otherwise, the first `Heading 1` you use will overwrite the title from the frontmatter and cause formatting issues."
+	!!! caution "When the title is set in the frontmatter, use ``Heading 2`` level (`## This is a heading 2`) as the highest heading level in your blog. Otherwise, the first `Heading 1` you use will overwrite the title from the frontmatter and cause formatting issues."
 
 2. Set the author:
 
