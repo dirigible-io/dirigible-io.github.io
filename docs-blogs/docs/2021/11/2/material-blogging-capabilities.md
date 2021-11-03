@@ -16,7 +16,7 @@ In this blog, we're going to discuss how to add blogging capabilities to [Materi
 - a calendar icon with a publishing date next to it
 - a clock icon with a value for time to read next to it
 
-You can also see these above under the title of this blog.
+You can also see the above mentioned capabilities under the title of this blog.
 
 In particular, we'll look at:
 
@@ -32,7 +32,7 @@ As a result, a blog author will just have to provide sufficient metadata in the 
 
 Metadata about an `.md` file (also called frontmatter) is declared within a specific block in the beginning of the `.md` file itself and is denoted by the triple dashes at the start and end of the block. Usually, the metadata is not processed when generating HTML output from the `.md` file. With MkDocs, metadata can be displayed on the page or used to control the page rendering, but only if this is supported by the theme you're using with MkDocs. For more details, checkout the [MkDocs documentation](https://www.mkdocs.org/user-guide/writing-your-docs/#meta-data).
 
-We have to determine what metadata key-value pairs do we need for the blogging capabilities. As mentioned above, we want to have name, GitHub avatar, and link to GitHub profile of the author, as well as publishing date and reading time. 
+We have to determine what metadata key-value pairs are needed for the blogging capabilities. As mentioned above, we want to have name, GitHub avatar, and link to GitHub profile of the author, as well as publishing date and reading time. 
 
 Open your `.md` file and add the following lines:
 
@@ -63,7 +63,7 @@ It's quite self-explanatory which metadata key-value pairs are responsible for w
 
 ## Overriding the Content Block
 
-MkDocs supports theme extension out-of-the-box. Material for MkDocs leverages this feature and provides the possibility to override a partial (such as the default header or footer) or override a template block. The process is described in detail in the [Extending the theme](https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme) section of the Material for MkDocs documentation. 
+MkDocs supports theme extension out-of-the-box. Material for MkDocs leverages this feature and provides the possibility to override a partial (such as the default header or footer) or a template block. The process is described in detail in the [Extending the theme](https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme) section of the Material for MkDocs documentation. 
 
 Moreover, Material for MkDocs provides a ready-made `content` template blog, among others. [Overriding Blocks](https://squidfunk.github.io/mkdocs-material/customization/#overriding-blocks) provides the full details about template blogs that are provided by the theme. 
 

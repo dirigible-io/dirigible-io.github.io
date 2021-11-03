@@ -1,5 +1,5 @@
 ---
-title: Dirigible now runs Material for MKDocs
+title: Dirigible now runs Material for MkDocs
 description: In this article we are going to explore the new appearance of dirible.io, dirigible.io/blogs/, dirigible.io/help/, dirigible.io/api/, dirigible.io/news/, dirigible.io/releases/, and dirigible.io/samples/
 author: Svetoslav Pandeliev
 author_gh_user: slavipande
@@ -11,13 +11,13 @@ publish_date: November 1, 2021
 
 ## Intro
 
-Until recently, the Dirigible website was powered by [Jekyll](https://jekyllrb.com/). As part of a comprehensive update of the Dirigible website look-and-feel, we've switched entirely to [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/). In addition, we added our favorite Dirigible gold into the website color pallette. We're quite excited by the result so we decided to sum everything up in this post. Read on for more details as well as a couple of before/after comparisons.
+Until recently, the Eclipse Dirigible website was powered by [Jekyll](https://jekyllrb.com/). As part of a comprehensive update of the website's look-and-feel, we've switched entirely to [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). In addition, we added our favorite Dirigible gold into the website color pallette. We're quite excited by the result so we decided to sum everything up in this post. Read on for more details as well as a couple of before/after comparisons.
 
 ## [Main Site](https://www.dirigible.io/)
 
 ### Before
 
-Here's the old look of the Dirigible website:
+Here's the old look of the Eclipse Dirigible website:
 
 ![Main Site Before](../../../images/dirigible-old1.gif) 
 
