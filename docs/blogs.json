@@ -1,10 +1,5 @@
 [
   {
-    "location": "2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md",
-    "title": "How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment",
-    "description": "Starting with Eclipse Dirigible 5.0, there are built-in integrations with the SAP Cloud Platform Cloud Foundry and Kyma environments."
-  },
-  {
     "location": "2020/12/16/2020-what-a-year-for-eclipse-dirigible.md",
     "title": "2020 - What a year for Eclipse Dirigible!",
     "description": "It has been a challenging, but in the same time an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption."
@@ -23,5 +18,10 @@
     "location": "2021/11/1/dirigible-runs-material.md",
     "title": "Dirigible now runs Material for MKDocs",
     "description": "In this article we are going to explore the new appearance of dirible.io, dirigible.io/blogs/, dirigible.io/help/, dirigible.io/api/, dirigible.io/news/, dirigible.io/releases/, and dirigible.io/samples/"
+  },
+  {
+    "location": "2021/11/2/material-blogging-capabilities.md",
+    "title": "Enable Blogging Capabilities with Material for MkDocs",
+    "description": "In this article we are going to ..."
   }
 ]

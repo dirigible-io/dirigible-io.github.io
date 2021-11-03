@@ -1,8 +1,5 @@
 {% extends "base.html" %}
-<script src="https://kit.fontawesome.com/e8025afd43.js" crossorigin="anonymous"></script>
-<!-- Article -->
-<div class="md-content" data-md-component="content">
-    <article class="md-content__inner md-typeset">
+
 
       <!-- Content -->
       {% block content %}
@@ -28,7 +25,7 @@
         {% endif %}
 
         <!-- Markdown content -->
-        {% if page and page.meta and page.meta.author %}
+        {% if page and page.meta and page.meta.author_gh_user %}
         <aside class="mdx-author">
             <p>
             <img src="https://avatars.githubusercontent.com/{{ page.meta.author_gh_user }}" alt="@{{ page.meta.author_gh_user }}">
@@ -62,11 +59,3 @@
           {% endif %}
         {% endif %}
       {% endblock %}
-
-      <!-- Disqus integration -->
-      {% block disqus %}
-        {% include "partials/integrations/disqus.html" %}
-      {% endblock %}
-    </article>
-  </div>
-</div>
