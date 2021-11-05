@@ -26,7 +26,7 @@ In particular, we'll look at:
 
 As a result, a blog author will just have to provide sufficient metadata in the frontmatter of their `.md` file and data about author, publishing date, and reading time will be displayed as part of their blog. Cool, right?
 
-!!! tip "This can also be done manually by including a piece of HTML code in each `.md` file but we wanted to have everything setup for blog authors in a way that they can focus on the writing itself."
+!!! tip "This can also be done manually by including a piece of HTML code in each `.md` file but we wanted to have everything set up for blog authors in a way that they can focus on the writing itself."
 
 ## Adding Metadata to Your Blog
 
