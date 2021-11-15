@@ -4,9 +4,9 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blogs': 'index.md'
     - '2021':
+      - 'Enable Blogging Capabilities with Material for MkDocs': '2021/11/2/material-blogging-capabilities.md'
       - "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt": '2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md'
       - 'Low-code mobile apps with Dirigible and NativeScript': '2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md'
-      - 'Enable Blogging Capabilities with Material for MkDocs': '2021/11/2/material-blogging-capabilities.md'
     - '2020':
       - '2020 - What a year for Eclipse Dirigible!': '2020/12/16/2020-what-a-year-for-eclipse-dirigible.md'
       - 'How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment': '2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment.md'
