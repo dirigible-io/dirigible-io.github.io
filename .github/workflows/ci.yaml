@@ -14,7 +14,7 @@ jobs:
         token: ${{secrets.GH_TOKEN}}
     - name: Build the site with squidfunk/mkdocs-material container
       run: |
-        docker pull squidfunk/mkdocs-material
+        docker pull squidfunk/mkdocs-material:7.3.6
 
         # Build
         docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
