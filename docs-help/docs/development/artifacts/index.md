@@ -37,13 +37,29 @@ Artifacts Overview
 
 ### Security
 
-  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access).
-  - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - roles definition file. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.roles).
+  - [*.access](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - security constraints file. It defines the access permissions for the given endpoints.
+  - [*.roles](https://github.com/eclipse/dirigible/tree/master/modules/core/core-security) - roles definition file.
+
+    !!! example "Samples"
+
+        Security Files samples could be found here:
+
+        - [Security Access _`(*.access)`_](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access).
+        - [Security Roles _`(*.roles)`_](https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.roles).
+
 
 ### Flows
 
-  - [*.listener](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener) - listener definition describing the link between the message queue or topic and the corresponding handler. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/control/control.listener).
-  - [*.job](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job) - job definition describing the period in which the scheduled handler will be executed. Sample file can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/control/control.job).
+  - [*.listener](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener) - listener definition describing the link between the message queue or topic and the corresponding handler.
+  - [*.job](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job) - job definition describing the period in which the scheduled handler will be executed.
+
+    !!! example "Samples"
+
+        Flows Files samples could be found here:
+
+        - [Listener _`(*.listener)`_](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/META-INF/dirigible/control/control.listener).
+        - [Job _`(*.job)`_](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/META-INF/dirigible/control/control.job).
+
 
 ### Scripting
 
