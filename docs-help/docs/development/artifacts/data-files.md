@@ -24,10 +24,11 @@ To make it more flexible it is introduced semantic files as follows:
 * `UPDATE (*.update)` - the records in the database table got updated with the corresponding lines in the data files. The first column is the `ID = primary key` used as selection parameter for the update clause. The existing records in the table are not deleted in advance as at the `REPLACE` case. If no record exist by the given `ID`, it got inserted.
 
 
-!!! example
-    - Table sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
-    - View sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
-    - Replace sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
-    - Append sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
-    - Delete sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
-    - Update sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
+!!! example "Samples"
+    Data Structures and Data Files samples could be found here:
+    - [Database Table _`(*.table)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
+    - [Database View _`(*.view)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
+    - [Data Replace _`(*.replace)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
+    - [Data Append _`(*.append)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
+    - [Data Delete _`(*.delete)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
+    - [Data Update _`(*.update)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
