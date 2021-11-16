@@ -25,7 +25,9 @@ To make it more flexible it is introduced semantic files as follows:
 
 
 !!! example "Samples"
+
     Data Structures and Data Files samples could be found here:
+
     - [Database Table _`(*.table)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
     - [Database View _`(*.view)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
     - [Data Replace _`(*.replace)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
