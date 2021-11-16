@@ -2024,9 +2024,20 @@
 <p><code>DELETE (*.delete)</code> - if the file contains <code>*</code> as the only line, the whole table is cleaned up. Otherwise only the listed records got deleted by the ID <em>(first column = ID = primary key)</em>.</p>
 </li>
 <li>
-<p><code>UPDATE (*.update)</code> - the records in the database table got updated with the corresponding lines in the data files. The first column is the <code>ID = primary key</code> used as selection parameter for the update clause. The existing records in the table are not deleted in advance as at the <code>REPLACE</code> case. If no record exist by the given <code>ID</code>, it got inserted. </p>
+<p><code>UPDATE (*.update)</code> - the records in the database table got updated with the corresponding lines in the data files. The first column is the <code>ID = primary key</code> used as selection parameter for the update clause. The existing records in the table are not deleted in advance as at the <code>REPLACE</code> case. If no record exist by the given <code>ID</code>, it got inserted.</p>
 </li>
 </ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li>Table sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table">here</a>.</li>
+<li>View sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view">here</a>.</li>
+<li>Replace sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace">here</a>.</li>
+<li>Append sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append">here</a>.</li>
+<li>Delete sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete">here</a>.</li>
+<li>Update sample can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update">here</a>.</li>
+</ul>
+</div>
                 
                   
                 
