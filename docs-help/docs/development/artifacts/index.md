@@ -24,13 +24,14 @@ Artifacts Overview
 
   - [*.update](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'update' mode to the corresponding database table.
 
-    !!! example
-        - Table sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
-        - View sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
-        - Replace sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
-        - Append sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
-        - Delete sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
-        - Update sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
+    !!! example "Samples"
+        Data Structures and Data Files samples could be found here:
+        - [Database Table _`(*.table)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
+        - [Database View _`(*.view)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
+        - [Data Replace _`(*.replace)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
+        - [Data Append _`(*.append)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
+        - [Data Delete _`(*.delete)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
+        - [Data Update _`(*.update)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
 
 ### Security
 
