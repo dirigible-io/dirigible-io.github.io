@@ -21,4 +21,13 @@ To make it more flexible it is introduced semantic files as follows:
 
 * `DELETE (*.delete)` - if the file contains `*` as the only line, the whole table is cleaned up. Otherwise only the listed records got deleted by the ID _(first column = ID = primary key)_.
 
-* `UPDATE (*.update)` - the records in the database table got updated with the corresponding lines in the data files. The first column is the `ID = primary key` used as selection parameter for the update clause. The existing records in the table are not deleted in advance as at the `REPLACE` case. If no record exist by the given `ID`, it got inserted. 
+* `UPDATE (*.update)` - the records in the database table got updated with the corresponding lines in the data files. The first column is the `ID = primary key` used as selection parameter for the update clause. The existing records in the table are not deleted in advance as at the `REPLACE` case. If no record exist by the given `ID`, it got inserted.
+
+
+!!! example
+    - Table sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
+    - View sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
+    - Replace sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
+    - Append sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
+    - Delete sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
+    - Update sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
