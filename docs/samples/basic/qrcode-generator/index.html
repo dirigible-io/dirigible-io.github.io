@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/api/messaging/producer/">
+        <link rel="canonical" href="https://www.dirigible.io/samples/basic/qrcode-generator/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.0b1">
     
     
       
-        <title>Message Producer - Eclipse Dirigible API</title>
+        <title>QR Code Generator - Eclipse Dirigible Samples</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#message-producer" class="md-skip">
+        <a href="#qr-code-generator" class="md-skip">
           Skip to content
         </a>
       
@@ -88,9 +88,11 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://www.dirigible.io" title="Eclipse Dirigible API" class="md-header__button md-logo" aria-label="Eclipse Dirigible API" data-md-component="logo">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Samples" class="md-header__button md-logo" aria-label="Eclipse Dirigible Samples" data-md-component="logo">
       
   <img src="/img/logo/dirigible-logo.png" alt="logo">
 
@@ -102,13 +104,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Eclipse Dirigible API
+            Eclipse Dirigible Samples
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Message Producer
+              QR Code Generator
             
           </span>
         </div>
@@ -165,13 +167,84 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Samples
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../base64-decode/" class="md-tabs__link md-tabs__link--active">
+        Basic
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../complex/bookstore/" class="md-tabs__link">
+        Complex
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tutorial/contributing-to-ide-modules/" class="md-tabs__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -179,20 +252,24 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://www.dirigible.io" title="Eclipse Dirigible API" class="md-nav__button md-logo" aria-label="Eclipse Dirigible API" data-md-component="logo">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Samples" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Samples" data-md-component="logo">
       
   <img src="/img/logo/dirigible-logo.png" alt="logo">
 
     </a>
-    Eclipse Dirigible API
+    Eclipse Dirigible Samples
   </label>
   
     <div class="md-nav__source">
@@ -218,798 +295,8 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        Samples
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../bpm-process/" class="md-nav__link">
-        BPM Process
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmis/" class="md-nav__link">
-        CMIS
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../console/" class="md-nav__link">
-        Console
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../etcd/" class="md-nav__link">
-        Etcd Client API
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../logging/" class="md-nav__link">
-        Logging
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mail/" class="md-nav__link">
-        Mail
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Core
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Core" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Core
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/configurations/" class="md-nav__link">
-        Configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/context/" class="md-nav__link">
-        Context
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/destinations/" class="md-nav__link">
-        Destinations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/env/" class="md-nav__link">
-        Env
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/exec/" class="md-nav__link">
-        Exec
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/extensions/" class="md-nav__link">
-        Extensions
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/globals/" class="md-nav__link">
-        Globals
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../core/threads/" class="md-nav__link">
-        Thread
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_9">
-          Database
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Database" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Database
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/" class="md-nav__link">
-        Database
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/dao/" class="md-nav__link">
-        DAO
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/procedure/" class="md-nav__link">
-        Procedure
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/query/" class="md-nav__link">
-        Query
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/sequence/" class="md-nav__link">
-        Sequence
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/sql/" class="md-nav__link">
-        SQL
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../database/update/" class="md-nav__link">
-        Update
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_10">
-          Documents
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Documents" data-md-level="1">
-        <label class="md-nav__title" for="__nav_10">
-          <span class="md-nav__icon md-icon"></span>
-          Documents
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../documents/pdf/" class="md-nav__link">
-        PDF
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_11">
-          Http
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Http" data-md-level="1">
-        <label class="md-nav__title" for="__nav_11">
-          <span class="md-nav__icon md-icon"></span>
-          Http
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/client-async/" class="md-nav__link">
-        Client Async
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/client/" class="md-nav__link">
-        Client
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/request/" class="md-nav__link">
-        Request
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/response/" class="md-nav__link">
-        Response
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/rs-data/" class="md-nav__link">
-        RS-Data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/rs/" class="md-nav__link">
-        RS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/session/" class="md-nav__link">
-        Session
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../http/upload/" class="md-nav__link">
-        Upload
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_12">
-          Indexing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Indexing" data-md-level="1">
-        <label class="md-nav__title" for="__nav_12">
-          <span class="md-nav__icon md-icon"></span>
-          Indexing
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../indexing/searcher/" class="md-nav__link">
-        Indexing Searcher
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../indexing/writer/" class="md-nav__link">
-        Indexing Writer
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_13">
-          Io
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Io" data-md-level="1">
-        <label class="md-nav__title" for="__nav_13">
-          <span class="md-nav__icon md-icon"></span>
-          Io
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/bytes/" class="md-nav__link">
-        Bytes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/files/" class="md-nav__link">
-        Files
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/ftp/" class="md-nav__link">
-        FTP Client
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/streams/" class="md-nav__link">
-        Streams
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../io/zip/" class="md-nav__link">
-        Zip
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_14">
-          Kafka
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Kafka" data-md-level="1">
-        <label class="md-nav__title" for="__nav_14">
-          <span class="md-nav__icon md-icon"></span>
-          Kafka
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kafka/consumer/" class="md-nav__link">
-        Kafka Consumer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kafka/producer/" class="md-nav__link">
-        Kafka Producer
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1027,20 +314,20 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_15">
-          Messaging
+        <label class="md-nav__link" for="__nav_2">
+          Basic
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Messaging" data-md-level="1">
-        <label class="md-nav__title" for="__nav_15">
+      <nav class="md-nav" aria-label="Basic" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Messaging
+          Basic
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1050,8 +337,316 @@
   
   
     <li class="md-nav__item">
-      <a href="../consumer/" class="md-nav__link">
-        Message Consumer
+      <a href="../base64-decode/" class="md-nav__link">
+        Base64 - Decode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base64-encode/" class="md-nav__link">
+        Base64 - Encode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../console/" class="md-nav__link">
+        Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converting-json-xml/" class="md-nav__link">
+        Converting JSON to XML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../converting-xml-json/" class="md-nav__link">
+        Converting XML to JSON
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-dynamic/" class="md-nav__link">
+        Database - Dynamic Datasource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-procedure-call/" class="md-nav__link">
+        Database - Procedure Call
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-procedure/" class="md-nav__link">
+        Database Procedure - Create & Execute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-query/" class="md-nav__link">
+        Database - Query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-statement/" class="md-nav__link">
+        Database - Statement
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digest/" class="md-nav__link">
+        Encrypt - SHA-512
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents-pdf/" class="md-nav__link">
+        Generate PDF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ftp-client/" class="md-nav__link">
+        FTP Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hex-decode/" class="md-nav__link">
+        Hex - Decode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hex-encode/" class="md-nav__link">
+        Hex - Encode
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http-client-binary/" class="md-nav__link">
+        HTTP Client - Binary Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http-client-calls/" class="md-nav__link">
+        HTTP Client - Calls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http-request/" class="md-nav__link">
+        HTTP - Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquibase-simple/" class="md-nav__link">
+        Liquibase
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mail-client/" class="md-nav__link">
+        Send Email
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../platform-lifecycle/" class="md-nav__link">
+        Platform Lifecycle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print-configurations/" class="md-nav__link">
+        Print Configuration Variables
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../print-env/" class="md-nav__link">
+        Print Environment Variables
       </a>
     </li>
   
@@ -1074,12 +669,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Message Producer
+          QR Code Generator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Message Producer
+        QR Code Generator
       </a>
       
         
@@ -1098,37 +693,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#steps" class="md-nav__link">
+    Steps
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Objects">
+    <nav class="md-nav" aria-label="Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#queue" class="md-nav__link">
-    Queue
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#topic" class="md-nav__link">
-    Topic
+  <a href="#qr-code-service" class="md-nav__link">
+    QR Code Service
   </a>
   
 </li>
@@ -1147,48 +721,14 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" type="checkbox" id="__nav_16" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_16">
-          Mongodb
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Mongodb" data-md-level="1">
-        <label class="md-nav__title" for="__nav_16">
-          <span class="md-nav__icon md-icon"></span>
-          Mongodb
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
             
               
   
   
   
     <li class="md-nav__item">
-      <a href="../../mongodb/client/" class="md-nav__link">
-        MongoDB Client API
+      <a href="../repository-manager/" class="md-nav__link">
+        Repository Manager
       </a>
     </li>
   
@@ -1201,56 +741,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mongodb/dao/" class="md-nav__link">
-        MongoDB DAO API
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" type="checkbox" id="__nav_17" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_17">
-          Net
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Net" data-md-level="1">
-        <label class="md-nav__title" for="__nav_17">
-          <span class="md-nav__icon md-icon"></span>
-          Net
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../net/soap/" class="md-nav__link">
-        SOAP
+      <a href="../rest-service/" class="md-nav__link">
+        REST Service
       </a>
     </li>
   
@@ -1263,8 +755,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../net/websocket/" class="md-nav__link">
-        WebSocket
+      <a href="../soap-client/" class="md-nav__link">
+        SOAP - Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../soap-server/" class="md-nav__link">
+        SOAP - Server
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url-decode/" class="md-nav__link">
+        URL - UTF-8 Decoding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url-encode/" class="md-nav__link">
+        URL - UTF-8 Encoding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uuid-random-generation/" class="md-nav__link">
+        UUID - Random Generation
       </a>
     </li>
   
@@ -1288,20 +836,20 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" type="checkbox" id="__nav_18" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_18">
-          Platform
+        <label class="md-nav__link" for="__nav_3">
+          Complex
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Platform" data-md-level="1">
-        <label class="md-nav__title" for="__nav_18">
+      <nav class="md-nav" aria-label="Complex" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Platform
+          Complex
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1311,8 +859,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/engines/" class="md-nav__link">
-        Engines
+      <a href="../../complex/bookstore/" class="md-nav__link">
+        Bookstore Application
       </a>
     </li>
   
@@ -1325,8 +873,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/lifecycle/" class="md-nav__link">
-        Lifecycle
+      <a href="../../complex/embedded/" class="md-nav__link">
+        Embedded Dirigible
       </a>
     </li>
   
@@ -1339,8 +887,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/registry/" class="md-nav__link">
-        Registry
+      <a href="../../complex/file-upload/" class="md-nav__link">
+        File Upload
       </a>
     </li>
   
@@ -1353,8 +901,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/repository/" class="md-nav__link">
-        Repository
+      <a href="../../complex/job-console/" class="md-nav__link">
+        Scheduled Job
       </a>
     </li>
   
@@ -1367,8 +915,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/template-engines/" class="md-nav__link">
-        Template Engines
+      <a href="../../complex/kafka/" class="md-nav__link">
+        Kafka Producer and Consumer
       </a>
     </li>
   
@@ -1381,8 +929,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../platform/workspace/" class="md-nav__link">
-        Workspace
+      <a href="../../complex/listener-queue/" class="md-nav__link">
+        Listener of a Queue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex/master-repository/" class="md-nav__link">
+        Master Repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex/process-console/" class="md-nav__link">
+        BPMN Process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex/rbac-for-cms/" class="md-nav__link">
+        RBAC for CMS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complex/shell-command/" class="md-nav__link">
+        Shell Command
       </a>
     </li>
   
@@ -1406,82 +1010,20 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_19" type="checkbox" id="__nav_19" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_19">
-          Security
+        <label class="md-nav__link" for="__nav_4">
+          Tutorial
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Security" data-md-level="1">
-        <label class="md-nav__title" for="__nav_19">
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Security
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../security/oauth/" class="md-nav__link">
-        OAuth
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../security/user/" class="md-nav__link">
-        User
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_20" type="checkbox" id="__nav_20" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_20">
-          Utils
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Utils" data-md-level="1">
-        <label class="md-nav__title" for="__nav_20">
-          <span class="md-nav__icon md-icon"></span>
-          Utils
+          Tutorial
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1491,8 +1033,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/base64/" class="md-nav__link">
-        Base64
+      <a href="../../tutorial/contributing-to-ide-modules/" class="md-nav__link">
+        Contributing to IDE Modules
       </a>
     </li>
   
@@ -1505,8 +1047,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/digest/" class="md-nav__link">
-        Digest
+      <a href="../../tutorial/generate-application-from-model/" class="md-nav__link">
+        Generate Application from Model
       </a>
     </li>
   
@@ -1519,8 +1061,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/escape/" class="md-nav__link">
-        Escape
+      <a href="../../tutorial/helium-custom-stack/" class="md-nav__link">
+        Helium Custom Stack
       </a>
     </li>
   
@@ -1533,8 +1075,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/hex/" class="md-nav__link">
-        Hex
+      <a href="../../tutorial/zeus-on-kubernetes-minikube/" class="md-nav__link">
+        Zeus on Kubernetes
       </a>
     </li>
   
@@ -1547,8 +1089,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/qrcode/" class="md-nav__link">
-        QR Code Generator
+      <a href="../../tutorial/zeus-on-macos/" class="md-nav__link">
+        Zeus on Kubernetes with MacOS
       </a>
     </li>
   
@@ -1561,36 +1103,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/url/" class="md-nav__link">
-        Url
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/uuid/" class="md-nav__link">
-        UUID
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../utils/xml/" class="md-nav__link">
-        XML
+      <a href="../../tutorial/zeus-on-windows/" class="md-nav__link">
+        Zeus on Kubernetes with Windows OS
       </a>
     </li>
   
@@ -1611,7 +1125,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1630,37 +1146,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#steps" class="md-nav__link">
+    Steps
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Objects">
+    <nav class="md-nav" aria-label="Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#queue" class="md-nav__link">
-    Queue
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#topic" class="md-nav__link">
-    Topic
+  <a href="#qr-code-service" class="md-nav__link">
+    QR Code Service
   </a>
   
 </li>
@@ -1682,86 +1177,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-api/docs/messaging/producer.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-samples/docs/basic/qrcode-generator.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
                 
-<h1 id="message-producer">Message Producer</h1>
-<p>The Messaging Producer is an object which can send text messages to a Queue or Topic destination in the built-in Message Broker. This version is backed by the full fledged messaging broker <a href="http://activemq.apache.org/">Apache ActiveMQ</a>.</p>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Overview</label><div class="tabbed-content"></div>
-</div>
-<ul>
-<li>Module: <code>messaging/v4/producer</code></li>
-<li>Alias: <code>messaging/producer</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/91">https://github.com/eclipse/dirigible/issues/91</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-messaging/blob/master/messaging/v4/producer.js">/messaging/v4/producer.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java">MessagingFacade</a></li>
-<li>Status: <code>stable</code></li>
-</ul>
-<h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">producer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;messaging/v4/producer&quot;</span><span class="p">);</span>
-<span class="nx">producer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Text Message&quot;</span><span class="p">);</span>
+<h1 id="qr-code-generator">QR Code Generator</h1>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Create a project <code>utils-qrcode</code>.</li>
+<li>Then create a JavaScript service named <code>qr-generator.js</code>.</li>
+<li>Within the service code, enter the following content:</li>
+</ol>
+<h4 id="qr-code-service">QR Code Service</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">qrCodeGenerator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/qrcode&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span>        <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">result</span>          <span class="o">=</span> <span class="nx">qrCodeGenerator</span><span class="p">.</span><span class="nx">generateQRCode</span><span class="p">(</span><span class="s2">&quot;Dirigible&quot;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">));</span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
-<h3 id="functions">Functions</h3>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>queue()</strong></td>
-<td>Returns an object representing a Message Queue</td>
-<td><em>Queue</em></td>
-</tr>
-<tr>
-<td><strong>topic()</strong></td>
-<td>Returns an object representing a Message Topic</td>
-<td><em>Topic</em></td>
-</tr>
-</tbody>
-</table>
-<h3 id="objects">Objects</h3>
-<hr />
-<h4 id="queue">Queue</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>send(message)</strong></td>
-<td>Send a message to this Message Queue</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<h4 id="topic">Topic</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>send(message)</strong></td>
-<td>Send a message to this Message Topic</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
+<blockquote>
+<p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
+</blockquote>
                 
               
             </article>
@@ -1780,7 +1222,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../consumer/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../print-env/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
 					</div>
@@ -1789,19 +1231,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Message Consumer			
+							Print Environment Variables			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../../mongodb/client/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../repository-manager/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							MongoDB Client API
+							Repository Manager
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
@@ -1895,7 +1337,7 @@
       
       
     
-    <a href="https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg" target="_blank" rel="noopener" title="join.slack.com" class="md-social__link">
+    <a href="https://slack.dirigible.io" target="_blank" rel="noopener" title="slack.dirigible.io" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
     </a>
   
@@ -1908,7 +1350,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.0d86bc28.min.js"></script>
