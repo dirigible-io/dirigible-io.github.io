@@ -2174,13 +2174,33 @@
 </ul>
 <h3 id="security">Security</h3>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.access</a> - security constraints file. It defines the access permissions for the given endpoints. Sample file can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access">here</a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.roles</a> - roles definition file. Sample file can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/access/test.roles">here</a>.</li>
+<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.access</a> - security constraints file. It defines the access permissions for the given endpoints.</li>
+<li>
+<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.roles</a> - roles definition file.</p>
+<div class="admonition example">
+<p class="admonition-title">Samples</p>
+<p>Security Files samples could be found here:</p>
+<ul>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access">Security Access <em><code>(*.access)</code></em></a>.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.roles">Security Roles <em><code>(*.roles)</code></em></a>.</li>
+</ul>
+</div>
+</li>
 </ul>
 <h3 id="flows">Flows</h3>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener">*.listener</a> - listener definition describing the link between the message queue or topic and the corresponding handler. Sample file can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/control/control.listener">here</a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job">*.job</a> - job definition describing the period in which the scheduled handler will be executed. Sample file can be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/control/control.job">here</a>.</li>
+<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener">*.listener</a> - listener definition describing the link between the message queue or topic and the corresponding handler.</li>
+<li>
+<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job">*.job</a> - job definition describing the period in which the scheduled handler will be executed.</p>
+<div class="admonition example">
+<p class="admonition-title">Samples</p>
+<p>Flows Files samples could be found here:</p>
+<ul>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/META-INF/dirigible/control/control.listener">Listener <em><code>(*.listener)</code></em></a>.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/META-INF/dirigible/control/control.job">Job <em><code>(*.job)</code></em></a>.</li>
+</ul>
+</div>
+</li>
 </ul>
 <h3 id="scripting">Scripting</h3>
 <ul>
