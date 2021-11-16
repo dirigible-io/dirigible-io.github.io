@@ -25,7 +25,9 @@ Artifacts Overview
   - [*.update](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'update' mode to the corresponding database table.
 
     !!! example "Samples"
+
         Data Structures and Data Files samples could be found here:
+
         - [Database Table _`(*.table)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
         - [Database View _`(*.view)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
         - [Data Replace _`(*.replace)`_](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
