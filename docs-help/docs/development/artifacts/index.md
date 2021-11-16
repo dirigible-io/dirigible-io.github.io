@@ -14,33 +14,23 @@ Artifacts Overview
 
   - [*.table](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a JSON based database table descriptor file. Data structures synchroniser automatically reads all the available *.table files in the repository (including the classpath resources) and creates the underlying database tables into the default database. The definition supports also dependencies which gives the ability to the synchroniser to make a topological sorting before starting the creation of the database artefacts.
 
-    !!! example
-        Table sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
-
   - [*.view](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a JSON based database table descriptor file. The synchroniser reads and creates the database views as defined in the model.
-
-    !!! example
-        View sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
 
   - [*.replace](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'replace' mode to the corresponding database table.
 
-    !!! example
-        Replace sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
-
   - [*.append](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'append' mode to the corresponding database table.
 
-    !!! example
-        Append sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
-
   - [*.delete](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be deleted from the corresponding database table. For deleting all of the records use '*' symbol.
-
-    !!! example
-        Delete sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
 
   - [*.update](https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures) - a data file containing list of records to be imported with 'update' mode to the corresponding database table.
 
     !!! example
-        Update sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
+        - Table sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table).
+        - View sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view).
+        - Replace sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace).
+        - Append sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append).
+        - Delete sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete).
+        - Update sample can be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update).
 
 ### Security
 
