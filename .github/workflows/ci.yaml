@@ -14,16 +14,17 @@ jobs:
         token: ${{secrets.GH_TOKEN}}
     - name: Build the site with squidfunk/mkdocs-material container
       run: |
-        docker pull squidfunk/mkdocs-material:7.3.6
+        echo MKDOCS_MATERIAL_VERSION=7.3.6
+        docker pull squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION
 
         # Build
-        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-news:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-releases:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-news:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-releases:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
 
         # Copy build output
         rm -r docs/*
