@@ -5,6 +5,7 @@ nav:
     - 'Blogs': 'index.md'
     - '2021':
       - 'Enable Blogging Capabilities with Material for MkDocs': '2021/11/2/material-blogging-capabilities.md'
+      - 'Dirigible now runs Material for MkDocs': '2021/11/1/dirigible-runs-material.md'
       - "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt": '2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md'
       - 'Low-code mobile apps with Dirigible and NativeScript': '2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md'
     - '2020':
