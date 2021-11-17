@@ -1643,7 +1643,7 @@ When the title is set in the metadata, use <code>Heading 2</code> level (<code>#
 <p><img alt="Overrides Directory" src="../../../../images/overrides.png" /></p>
 </li>
 <li>
-<p>Open your <code>mkdocs.yml</code> and add a reference the <code>overrides</code> directory using the <code>custom_dir</code> parameter:
+<p>Open your <code>mkdocs.yml</code> and add a reference to the <code>overrides</code> directory using the <code>custom_dir</code> parameter:
     <div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span> 
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
 <span class="hll">  <span class="nt">custom_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">overrides</span>
@@ -1724,7 +1724,7 @@ When the title is set in the metadata, use <code>Heading 2</code> level (<code>#
 <p class="admonition-title">Kudos to <a href="https://github.com/squidfunk">squidfunk</a> for providing the raw code of his own implementation as part of this <a href="https://github.com/squidfunk/mkdocs-material/discussions/3101">discussion</a>.</p>
 </div>
 <p>By following the steps above, you've already overriden and extended the <code>content</code> block with information about the blog author, publishing date, and reading time.
-Let's have a closer look at the some of the settings:</p>
+Let's have a closer look at some of the settings:</p>
 <ul>
 <li><code>{% if page and page.meta and page.meta.author_gh_user %}</code> ensures that the blogging capabilities will be shown on the page only if the metadata key <code>author_gh_user</code> is defined in the <code>.md</code> file metadata.</li>
 <li><code>https://avatars.githubusercontent.com/{{ page.meta.author_gh_user }}</code> is the URL from which the author's avatar is extracted. It uses the <code>author_gh_user</code> value provided in the <code>.md</code> metadata to get the avatar from the author's GitHub profile.</li>
