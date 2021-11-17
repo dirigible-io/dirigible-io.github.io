@@ -73,7 +73,7 @@ Since we want to add the blogging capabilities above the content, but just under
 
     ![Overrides Directory](../../../images/overrides.png)
 
-2. Open your `mkdocs.yml` and add a reference the `overrides` directory using the `custom_dir` parameter:
+2. Open your `mkdocs.yml` and add a reference to the `overrides` directory using the `custom_dir` parameter:
     ```yaml hl_lines="3"
     theme: 
       name: material
@@ -155,7 +155,7 @@ Since we want to add the blogging capabilities above the content, but just under
     !!! success "Kudos to [squidfunk](https://github.com/squidfunk) for providing the raw code of his own implementation as part of this [discussion](https://github.com/squidfunk/mkdocs-material/discussions/3101)."
     
     By following the steps above, you've already overriden and extended the `content` block with information about the blog author, publishing date, and reading time.
-    Let's have a closer look at the some of the settings:
+    Let's have a closer look at some of the settings:
 
     - `{% if page and page.meta and page.meta.author_gh_user %}` ensures that the blogging capabilities will be shown on the page only if the metadata key `author_gh_user` is defined in the `.md` file metadata.
     - `https://avatars.githubusercontent.com/{{ page.meta.author_gh_user }}` is the URL from which the author's avatar is extracted. It uses the `author_gh_user` value provided in the `.md` metadata to get the avatar from the author's GitHub profile.
