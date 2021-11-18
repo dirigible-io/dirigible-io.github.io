@@ -99,9 +99,10 @@ nav:
           - Terminal: 'development/ide/views/terminal.md'
           - Web Sockets: 'development/ide/views/websockets.md'
           - Workspace: 'development/ide/views/workspace.md'
-    - Tips & Tricks:
-      - Cheat Sheet: 'tips-&-tricks/cheat-sheet.md'
-      - Keyboard Shortcuts: 'tips-&-tricks/keyboard-shortcuts.md'
+    - Developer Resources:
+      - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
+      - Cheat Sheet: 'developer-resources/cheat-sheet.md'
+      - Keyboard Shortcuts: 'developer-resourcess/keyboard-shortcuts.md'
     - Community: 'community.md'  
 
 theme:
