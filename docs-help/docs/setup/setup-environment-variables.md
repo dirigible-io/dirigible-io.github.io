@@ -399,3 +399,9 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DESTINATIONS_PROVIDER**   | The name of the Destinations Service provider used in this instance | _`local` or `managed`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER**   | The location of the Destinations internal repository | _`target`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
+
+### Terminal
+---
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_TERMINAL_ENABLED**   | Whether the `Terminal` view is enabled | _`true`_
