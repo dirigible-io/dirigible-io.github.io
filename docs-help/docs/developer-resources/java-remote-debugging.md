@@ -15,19 +15,19 @@ To connect for remote java debugging of Eclipse Dirigible, follow the next steps
 
     !!! example "Run Tomcat in JPDA mode"
 
-        === "Tomcat on macOS"
+        === "on macOS"
 
             ```
             ./catalina.sh jpda run`
             ```
 
-        === "Tomcat on Linux"
+        === "on Linux"
 
             ```
             ./catalina.sh jpda run`
             ```
 
-        === "Tomcat on Windows"
+        === "on Windows"
 
             ```
             catalina.bat jpda run
@@ -47,8 +47,8 @@ To connect for remote java debugging of Eclipse Dirigible, follow the next steps
 
         !!! note
 
-            Double click on the `Remote Java Application` to create new configuration.
-            Update the `host` and `port` properties, if needed.
+            - Double click on the `Remote Java Application` to create new configuration.
+            - Update the `host` and `port` properties, if needed.
 
         ![Remote Java Application Configuration](/help/images/developer-resources/java-remote-debugging/2-remote-java-application-configuration.png)
 
