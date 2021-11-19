@@ -56,17 +56,17 @@ To connect for remote java debugging of Eclipse Dirigible, follow the next steps
 
 === "IntelliJ IDEA"
 
-    1. Create new `Debug Configuration from "Edit Configurations.." option`:
+    1. Create new `Debug Configuration` from the `Edit Configurations..` option:
     
-        ![remote_debug_intellij](https://user-images.githubusercontent.com/20951516/142581815-1f6e18a5-cb8d-430f-a1db-e311fa031a83.png)
+        ![remote_debug_intellij](/help/images/developer-resources/java-remote-debugging/remote_debug_intellij.png)
 
-    1. Add new `Remote JVM Debug` configuration using "+" sign and double click on `Remote JVM Debug`:
+    1. Add new `Remote JVM Debug` configuration using the `+` button and double click on `Remote JVM Debug`:
     
-        ![new_remote_jvm_debug_configuration](https://user-images.githubusercontent.com/20951516/142582326-bb4490d4-c7bf-442e-9283-420c229c8565.png)
+        ![new_remote_jvm_debug_configuration](/help/images/developer-resources/java-remote-debugging/new_remote_jvm_debug_configuration.png)
         
-    1. Use the configuration provided on the screenshot below, updating the `host` and `port` properties if needed:
+    1. Use the configuration provided on the screenshot below, update the `host` and `port` properties if needed:
     
-        ![remote_debug_configuration](https://user-images.githubusercontent.com/20951516/142583056-5e674c95-4519-4302-b883-d137faa85c75.png)
+        ![remote_debug_configuration](/help/images/developer-resources/java-remote-debugging/remote_debug_configuration.png)
 
     1. Press the `Debug` button to start new remote debug session.    
     
