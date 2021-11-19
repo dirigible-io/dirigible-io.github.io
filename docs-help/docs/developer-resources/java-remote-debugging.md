@@ -18,13 +18,13 @@ To connect for remote java debugging of Eclipse Dirigible, follow the next steps
         === "on macOS"
 
             ```
-            ./catalina.sh jpda run`
+            ./catalina.sh jpda run
             ```
 
         === "on Linux"
 
             ```
-            ./catalina.sh jpda run`
+            ./catalina.sh jpda run
             ```
 
         === "on Windows"
