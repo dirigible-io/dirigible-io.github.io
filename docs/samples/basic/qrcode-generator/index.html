@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/basic/qrcode-generator/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.0b1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.0b2">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.450eaa28.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0c73cc44.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
@@ -697,19 +697,6 @@
     Steps
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qr-code-service" class="md-nav__link">
-    QR Code Service
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1150,19 +1137,6 @@
     Steps
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#qr-code-service" class="md-nav__link">
-    QR Code Service
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1181,7 +1155,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
-                
+
 <h1 id="qr-code-generator">QR Code Generator</h1>
 <h3 id="steps">Steps</h3>
 <ol>
@@ -1189,22 +1163,21 @@
 <li>Then create a JavaScript service named <code>qr-generator.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
-<h4 id="qr-code-service">QR Code Service</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">qrCodeGenerator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/qrcode&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span>        <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">result</span>          <span class="o">=</span> <span class="nx">qrCodeGenerator</span><span class="p">.</span><span class="nx">generateQRCode</span><span class="p">(</span><span class="s2">&quot;Dirigible&quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">qrCodeBytes</span> <span class="o">=</span> <span class="nx">qrCodeGenerator</span><span class="p">.</span><span class="nx">generateQRCode</span><span class="p">(</span><span class="s2">&quot;https://www.dirigible.io&quot;</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Bytes: &quot;</span> <span class="o">+</span> <span class="nx">qrCodeBytes</span><span class="p">);</span>
 
+<span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">qrCodeBytes</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
 <blockquote>
 <p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
 </blockquote>
-                
+
               
             </article>
           </div>
@@ -1353,7 +1326,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.0d86bc28.min.js"></script>
+      <script src="../../assets/javascripts/bundle.0885dc41.min.js"></script>
       
     
   </body>
