@@ -15,7 +15,7 @@
     
     
       
-        <title>QR Code Generator - Eclipse Dirigible API</title>
+        <title>QR Code - Eclipse Dirigible API</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qr-code-generator" class="md-skip">
+        <a href="#qr-code" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QR Code Generator
+              QR Code
             
           </span>
         </div>
@@ -1482,12 +1482,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          QR Code Generator
+          QR Code
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        QR Code Generator
+        QR Code
       </a>
       
         
@@ -1633,7 +1633,7 @@
 </a>
 
 
-<h1 id="qr-code-generator">QR Code Generator</h1>
+<h1 id="qr-code">QR Code</h1>
 <p>QRCode object is used to generate a JavaScript byte array based on an input string.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
@@ -1649,13 +1649,13 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">qrCodeGenerator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/qrcode&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span>        <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
 
-<span class="kd">var</span> <span class="nx">result</span>          <span class="o">=</span> <span class="nx">qrCodeGenerator</span><span class="p">.</span><span class="nx">generateQRCode</span><span class="p">(</span><span class="s2">&quot;Dirigible&quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">qrCodeBytes</span> <span class="o">=</span> <span class="nx">qrCodeGenerator</span><span class="p">.</span><span class="nx">generateQRCode</span><span class="p">(</span><span class="s2">&quot;https://www.dirigible.io&quot;</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="s2">&quot;QR Code Byte Array: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Bytes: &quot;</span> <span class="o">+</span> <span class="nx">qrCodeBytes</span><span class="p">);</span>
 
+<span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">qrCodeBytes</span><span class="p">);</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </code></pre></div>
@@ -1673,7 +1673,7 @@
 <tr>
 <td><strong>generateQRCode(input)</strong></td>
 <td>Generate a byte array from the input string</td>
-<td><em>byte[ ]</em></td>
+<td><em>byte array</em></td>
 </tr>
 </tbody>
 </table>
