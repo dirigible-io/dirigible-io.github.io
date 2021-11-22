@@ -1,8 +1,8 @@
 ---
-title: QR Code Generator
+title: QR Code
 ---
 
-QR Code Generator
+QR Code
 ===
 
 QRCode object is used to generate a JavaScript byte array based on an input string.
@@ -18,13 +18,13 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 
 ```javascript
 var qrCodeGenerator = require("utils/v4/qrcode");
-var response        = require("http/v4/response");
+var response = require("http/v4/response");
 
-var result          = qrCodeGenerator.generateQRCode("Dirigible");
+let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
 
-console.log("QR Code Byte Array: " + result);
-response.println(JSON.stringify("QR Code Byte Array: " + result));
+console.log("QR Code Bytes: " + qrCodeBytes);
 
+response.write(qrCodeBytes);
 response.flush();
 response.close();
 ```
@@ -35,4 +35,4 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**generateQRCode(input)**   | Generate a byte array from the input string | *byte[ ]*
+**generateQRCode(input)**   | Generate a byte array from the input string | *byte array*
