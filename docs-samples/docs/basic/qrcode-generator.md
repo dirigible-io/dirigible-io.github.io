@@ -12,17 +12,15 @@ hide:
 2. Then create a JavaScript service named `qr-generator.js`.
 3. Within the service code, enter the following content:
 
-#### QR Code Service
-
 ```javascript
 var qrCodeGenerator = require("utils/v4/qrcode");
-var response        = require("http/v4/response");
+var response = require("http/v4/response");
 
-var result          = qrCodeGenerator.generateQRCode("Dirigible");
+let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
 
-console.log("QR Code Byte Array: " + result);
-response.println(JSON.stringify("QR Code Byte Array: " + result));
+console.log("QR Code Bytes: " + qrCodeBytes);
 
+response.write(qrCodeBytes);
 response.flush();
 response.close();
 ```
