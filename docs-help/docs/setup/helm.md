@@ -47,37 +47,36 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 1. Kubernetes:
 
     === "Basic"
+        
+        ```
+        helm install dirigible dirigible/dirigible \
+        --set ingress.enabled=true \
+        --set ingress.host=<ingress-host>
+        ```
 
-            === "Ingress"
-                ```
-                helm install dirigible dirigible/dirigible \
-                --set ingress.enabled=true \
-                --set ingress.host=<ingress-host>
-                ```
+        This will expose the Dirigible instance through Ingress host (**`http://...`**).
 
-	        This will expose the Dirigible instance through Ingress host (**`http://...`**).
+    === "Istio"
 
-            === "Istio"
-
-                !!! info "Prerequisites"
+        !!! info "Prerequisites"
 	
-	            Install [Istio](https://istio.io/latest/docs/setup/getting-started/)
+            Install [Istio](https://istio.io/latest/docs/setup/getting-started/).
 
-                ```
-                kubectl label namespace default istio-injection=enabled
-                ```
+            ```
+            kubectl label namespace default istio-injection=enabled
+            ```
 
-                ```
-                helm install dirigible dirigible/dirigible \
-                --set istio.enabled=true
-                ```
+            ```
+            helm install dirigible dirigible/dirigible \
+            --set istio.enabled=true
+            ```
 	
-                This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
+            This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
 
-                ```
-                kubectl get svc istio-ingressgateway -n istio-system \
-                -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-                ```
+            ```
+            kubectl get svc istio-ingressgateway -n istio-system \
+            -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+            ```
 
     === "PostgreSQL"
 
@@ -88,7 +87,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set database.enabled=true
         ```
 
-		This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database._
+        This will install also `PostgreSQL` database with `1Gi` storage and update the Dirigible datasource configuration to consume the database.
 
     === "PostgreSQL & Keycloak"
 
@@ -101,7 +100,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set keycloak.install=true
         ```
 
-        In addition Keycloak will be deployed and configured._
+        In addition `Keycloak` will be deployed and configured.
         
         !!! info "Disable HTTPS"
 
@@ -131,7 +130,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
             kubectl delete pod keycloak-<pod-uuid>
             ```
 
-            Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
+            Now the `Required HTTPS` should be disabled and the keycloak instance should be accessible via **`http://`**
 
 1. Kyma:
 
@@ -143,7 +142,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set kyma.apirule.host=<kyma-host>
         ```
 
-        This will install additionally an ApiRule and XSUAA ServiceInstance and ServiceBinding. The appropriate roles should be assigned to the user.
+        This will install additionally an `ApiRule` and XSUAA `ServiceInstance` and `ServiceBinding`. The appropriate roles should be assigned to the user.
 
     === "PostgreSQL"
 
@@ -154,7 +153,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set database.enabled=true
         ```
 
-        This will install also PostgreSQL database with 1Gi storage and update the Dirigible datasource configuration to consume the database.
+        This will install also `PostgreSQL` database with `1Gi` storage and update the Dirigible datasource configuration to consume the database.
 
     === "PostgreSQL & Keycloak"
 
@@ -167,7 +166,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set keycloak.install=true
         ```
 
-        In addition Keycloak will be deployed and configured.
+        In addition `Keycloak` will be deployed and configured.
        
         !!! info "Disable HTTPS"
 
@@ -197,7 +196,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
             kubectl delete pod keycloak-<pod-uuid>
             ```
 
-            Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
+            Now the `Required HTTPS` should be disabled and the keycloak instance should be accessible via **`http://`**
 
 1. Uninstall:
     ```
