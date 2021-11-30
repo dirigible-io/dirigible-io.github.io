@@ -66,17 +66,17 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
             kubectl label namespace default istio-injection=enabled
             ```
 
-            ```
-            helm install dirigible dirigible/dirigible \
-            --set istio.enabled=true
-            ```
+        ```
+        helm install dirigible dirigible/dirigible \
+        --set istio.enabled=true
+        ```
 	
-            This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
+        This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
 
-            ```
-            kubectl get svc istio-ingressgateway -n istio-system \
-            -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-            ```
+        ```
+        kubectl get svc istio-ingressgateway -n istio-system \
+        -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+        ```
 
     === "PostgreSQL"
 
