@@ -110,6 +110,25 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
             Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
 
+    === "PostgreSQL & Istio"
+
+        - Install [Istio](https://istio.io/latest/docs/setup/getting-started/)
+
+        `kubectl label namespace default istio-injection=enabled`
+
+        ```
+        helm install dirigible dirigible/dirigible \
+        --set database.enabled=true \
+        --set istio.enabled=true
+        ```
+        This will install Eclipse Dirigible Deployment, Service with ClusterIP only and Istio gateway and virtual service.
+        To access the Dirigible instance execute the command that was printed in the console.
+
+       ```
+        kubectl get svc istio-ingressgateway -n istio-system \        
+              -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+       ```
+
 1. Kyma:
 
     === "Basic"
@@ -223,6 +242,23 @@ The following table lists all the configurable parameters expose by the Dirigibl
 | `ingress.annotations`        | Ingress annotations             | `{}`                               |
 | `ingress.host`               | Ingress host                    | `""`                               |
 | `ingress.tls`                | Ingress tls                     | `false`                            |
+
+#### Istio
+
+|             Name                  |          Description             |            Default           |
+|-----------------------------------|--------------------------------- |------------------------------|
+| `istio.enabled`                   | Istio to be enable               | `false`                      |
+| `istio.gatewayName`               | Istio gateway name               | `gateway`                    |
+| `istio.serversPortNumber`         | Istio servers port number        | `80`                         |
+| `istio.serversPortName`           | Istio servers port name          | `http`                       |
+| `istio.serversPortProtocol`       | Istio servers port protocol      | `HTTP`                       |
+| `istio.serversHost`               | Istio servers host               | `*`                          |
+| `istio.virtualserviceName`        | Istio virtual service name       | `dirigible`                  |
+| `istio.virtualserviceHosts`       | Istio virtual service hosts      | `*`                          |
+| `istio.virtualserviceGateways`    | Istio virtual service gateway    | `gateway`                    |
+| `istio.virtualserviceDestination` | Istio virtual service destination| `dirigible`                  |
+| `istio.virtualservicePort`        | Istio virtual service port       | `8080`                       |
+
 
 #### Kyma
 
