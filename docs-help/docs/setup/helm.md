@@ -110,6 +110,19 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
             Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
 
+    === "PostgreSQL & Istio"
+
+        - Install [Istio](https://istio.io/latest/docs/setup/getting-started/)
+
+        `kubectl label namespace default istio-injection=enabled`
+
+        ```
+        helm install dirigible dirigible/dirigible \
+        --set database.enabled=true \
+        --set istio.enabled=true
+        ```
+
+
 1. Kyma:
 
     === "Basic"
