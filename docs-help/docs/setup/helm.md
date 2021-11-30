@@ -48,13 +48,36 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
     === "Basic"
 
-        ```
-        helm install dirigible dirigible/dirigible \
-        --set ingress.enabled=true \
-        --set ingress.host=<ingress-host>
-        ```
+        === "Ingress"
+            ```
+            helm install dirigible dirigible/dirigible \
+            --set ingress.enabled=true \
+            --set ingress.host=<ingress-host>
+            ```
 
-		This will expose the Dirigible instance through Ingress host (**`http://...`**).
+	    This will expose the Dirigible instance through Ingress host (**`http://...`**).
+
+        === "Istio"
+
+            !!! info "Prerequisites"
+	
+	        Install [Istio](https://istio.io/latest/docs/setup/getting-started/)
+
+            ```
+            kubectl label namespace default istio-injection=enabled
+            ```
+
+            ```
+            helm install dirigible dirigible/dirigible \
+            --set istio.enabled=true
+            ```
+	
+            This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
+
+            ```
+            kubectl get svc istio-ingressgateway -n istio-system \
+            -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+            ```
 
     === "PostgreSQL"
 
@@ -109,25 +132,6 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
             ```
 
             Now the "Required HTTPS" should be disabled and the keycloak instance should be accessible via **`http://`**
-
-    === "PostgreSQL & Istio"
-
-        - Install [Istio](https://istio.io/latest/docs/setup/getting-started/)
-
-        `kubectl label namespace default istio-injection=enabled`
-
-        ```
-        helm install dirigible dirigible/dirigible \
-        --set database.enabled=true \
-        --set istio.enabled=true
-        ```
-        This will install Eclipse Dirigible Deployment, Service with ClusterIP only and Istio gateway and virtual service.
-        To access the Dirigible instance execute the command that was printed in the console.
-
-       ```
-        kubectl get svc istio-ingressgateway -n istio-system \        
-              -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-       ```
 
 1. Kyma:
 
