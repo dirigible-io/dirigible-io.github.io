@@ -2226,6 +2226,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 <p>Install <a href="https://istio.io/latest/docs/setup/getting-started/">Istio</a>.</p>
 <div class="highlight"><pre><span></span><code>kubectl label namespace default istio-injection=enabled
 </code></pre></div>
+</div>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
 --set istio.enabled=true
 </code></pre></div>
@@ -2233,7 +2234,6 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 <div class="highlight"><pre><span></span><code>kubectl get svc istio-ingressgateway -n istio-system \
 -o jsonpath=&quot;{.status.loadBalancer.ingress[*].hostname}&quot;
 </code></pre></div>
-</div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
