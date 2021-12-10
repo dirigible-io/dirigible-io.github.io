@@ -23,6 +23,23 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
     helm repo update
     ```
 
+1. Verify Eclipse Dirigible Helm chart:
+
+    ```
+    helm pull dirigible/dirigible --prov
+
+    curl -o ~/.gnupg/pubring.gpg https://eclipse.github.io/dirigible/charts/pubring.gpg
+    
+    helm verify dirigible-<version>.tgz
+    ```
+    ```
+    You shoul see message:
+    Signed by: 
+    Using Key With Fingerprint: 
+    Chart Hash Verified: 
+    ```
+
+
 1. Basic:
 
     ```
