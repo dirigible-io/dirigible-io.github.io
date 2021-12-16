@@ -102,7 +102,7 @@ nav:
     - Developer Resources:
       - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
       - Cheat Sheet: 'developer-resources/cheat-sheet.md'
-      - Keyboard Shortcuts: 'developer-resourcess/keyboard-shortcuts.md'
+      - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
     - Community: 'community.md'  
 
 theme:
