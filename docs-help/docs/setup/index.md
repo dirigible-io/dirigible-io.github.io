@@ -9,7 +9,7 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
 
 !!! info "Prerequisites"
     - Download the Tomcat [binary](https://tomcat.apache.org/download-80.cgi). More information about how to deploy on Tomcat can be found [here](http://tomcat.apache.org/tomcat-8.0-doc/appdev/deployment.html).
-    - JDK 11 or later - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
+    - JDK 11 or JDK 13 - OpenJDK versions can be found [here](https://adoptopenjdk.net/).
 
 
     === "macOS"
