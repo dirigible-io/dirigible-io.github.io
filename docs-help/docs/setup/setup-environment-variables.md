@@ -104,7 +104,8 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_REGISTRY_SYNCH_ROOT_FOLDER**   | The external folder that will be used for synchronizing the public registry | _`-`_
+**DIRIGIBLE_REGISTRY_EXTERNAL_FOLDER**   | The external folder that will be used for synchronizing the public registry | _`-`_
+**DIRIGIBLE_REGISTRY_IMPORT_WORKSPACE**   | The external folder that will be imported into the public registry | _`-`_
 
 ### Repository
 ---
