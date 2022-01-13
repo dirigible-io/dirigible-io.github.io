@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/basic/database-procedure-call/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -1160,23 +1160,23 @@
 <li>Switch to the <code>Database Perspective</code></li>
 <li>Execute the following SQL script:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">CUSTOMERS</span> <span class="p">(</span><span class="n">ID</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span> <span class="n">NAME</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">COUNTRY</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">COUNTRY</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span><span class="w"></span>
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;SAP&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;DigitalLights&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Quanterall&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">CUSTOMERS</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;SyMetric&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Google&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USA&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SAP&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Germany&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DigitalLights&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Quanterall&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SyMetric&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;India&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>Create <code>CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</code> stored procedure:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="n">CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</span> <span class="p">(</span><span class="k">in</span> <span class="n">country</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="k">out</span> <span class="n">customersByCountry</span> <span class="n">CUSTOMERS</span><span class="p">,</span> <span class="k">out</span> <span class="n">allCustomers</span> <span class="n">CUSTOMERS</span><span class="p">)</span>
-<span class="k">AS</span>
-  <span class="k">BEGIN</span>
-    <span class="n">customersByCountry</span> <span class="o">=</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CUSTOMERS</span> <span class="k">WHERE</span> <span class="n">COUNTRY</span> <span class="o">=</span> <span class="p">:</span><span class="n">country</span><span class="p">;</span>
-    <span class="n">allCustomers</span> <span class="o">=</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">CUSTOMERS</span><span class="p">;</span>
-  <span class="k">END</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS</span><span class="w"> </span><span class="p">(</span><span class="k">in</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">customersByCountry</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">allCustomers</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="p">)</span><span class="w"></span>
+<span class="k">AS</span><span class="w"></span>
+<span class="w">  </span><span class="k">BEGIN</span><span class="w"></span>
+<span class="w">    </span><span class="n">customersByCountry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">COUNTRY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">country</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">allCustomers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <ol>
 <li>Create a project <code>database-procedure</code>.</li>
@@ -1373,10 +1373,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>

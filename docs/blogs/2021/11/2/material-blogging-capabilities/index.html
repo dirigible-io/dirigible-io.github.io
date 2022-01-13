@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2021/11/2/material-blogging-capabilities/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -1626,24 +1626,24 @@
 <p>Metadata about an <code>.md</code> file (also called frontmatter) is declared within a specific block in the beginning of the <code>.md</code> file itself and is denoted by the triple dashes at the start and end of the block. Usually, the metadata is not processed when generating HTML output from the <code>.md</code> file. With MkDocs, metadata can be displayed on the page or used to control the page rendering, but only if this is supported by the theme you're using with MkDocs. For more details, checkout the <a href="https://www.mkdocs.org/user-guide/writing-your-docs/#meta-data">MkDocs documentation</a>.</p>
 <p>We have to determine what metadata key-value pairs are needed for the blogging capabilities. As mentioned above, we want to have name, GitHub avatar, and link to GitHub profile of the author, as well as publishing date and reading time. </p>
 <p>Open your <code>.md</code> file and add the following lines:</p>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span>
-<span class="nt">author_gh_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span>
-<span class="nt">read_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Reading Time&gt;</span>
-<span class="nt">publish_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Date of Publishing&gt;</span>
-<span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span><span class="w"></span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span><span class="w"></span>
+<span class="nt">author_gh_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span><span class="w"></span>
+<span class="nt">read_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Reading Time&gt;</span><span class="w"></span>
+<span class="nt">publish_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Date of Publishing&gt;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
 </code></pre></div>
 <p>It's quite self-explanatory which metadata key-value pairs are responsible for which of the blogging capabilities. You can find more details in step 5 of <a href="#overriding-the-content-block">Overriding the Content Block</a>. The more interesting one is <code>author_gh_user</code>. This value will be used for both getting the author's GitHub avatar and creating a hyperlink to their GitHub profile. </p>
 <details class="caution">
 <summary>Make sure the title is also set in the metadata.</summary>
 <p>Setting the title in the metadata will help position the blogging capabilities in the right place - under the title and before the rest of your blog.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="hll"><span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span>
-</span><span class="nt">author</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span>
-<span class="nt">author_gh_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span>
-<span class="nt">read_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Reading Time&gt;</span>
-<span class="nt">publish_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;Date of Publishing&gt;</span>
-<span class="nn">---</span>
+<p><div class="highlight"><pre><span></span><code><span class="nn">---</span><span class="w"></span>
+<span class="hll"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Your Blog Title&gt;</span><span class="w"></span>
+</span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Your Name&gt;</span><span class="w"></span>
+<span class="nt">author_gh_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Your GitHub User&gt;</span><span class="w"></span>
+<span class="nt">read_time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Reading Time&gt;</span><span class="w"></span>
+<span class="nt">publish_date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Date of Publishing&gt;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
 </code></pre></div>
 When the title is set in the metadata, use <code>Heading 2</code> level (<code>## This is a heading 2</code>) as the highest heading level in your blog. Otherwise, the first <code>Heading 1</code> you use will overwrite the title from the frontmatter and cause formatting issues.</p>
 </details>
@@ -1658,18 +1658,18 @@ When the title is set in the metadata, use <code>Heading 2</code> level (<code>#
 </li>
 <li>
 <p>Open your <code>mkdocs.yml</code> and add a reference to the <code>overrides</code> directory using the <code>custom_dir</code> parameter:
-    <div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span> 
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">material</span>
-<span class="hll">  <span class="nt">custom_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">overrides</span>
+    <div class="highlight"><pre><span></span><code><span class="nt">theme</span><span class="p">:</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="nt">custom_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">overrides</span><span class="w"></span>
 </span></code></pre></div></p>
 </li>
 <li>In the <code>overrides</code> directory, create a new file <code>main.html</code>.</li>
 <li>
 <p>Copy the original code of the <code>content</code> block from the source files of Material for MkDocs and paste it in your <code>main.html</code>. Here's the code you need:</p>
-<div class="highlight"><pre><span></span><code>    <span class="c">&lt;!-- Content --&gt;</span>
+<div class="highlight"><pre><span></span><code>    <span class="cm">&lt;!-- Content --&gt;</span>
 {% block content %}
 
- <span class="c">&lt;!-- Edit button --&gt;</span>
+ <span class="cm">&lt;!-- Edit button --&gt;</span>
  {% if page.edit_url %}
     <span class="p">&lt;</span><span class="nt">a</span>
         <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ page.edit_url }}&quot;</span>
@@ -1680,19 +1680,19 @@ When the title is set in the metadata, use <code>Heading 2</code> level (<code>#
     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
  {% endif %}
 
- <span class="c">&lt;!--</span>
-<span class="c"> Hack: check whether the content contains a h1 headline. If it</span>
-<span class="c"> doesn&#39;t, the page title (or respectively site name) is used</span>
-<span class="c"> as the main headline.</span>
-<span class="c"> --&gt;</span>
+ <span class="cm">&lt;!--</span>
+<span class="cm"> Hack: check whether the content contains a h1 headline. If it</span>
+<span class="cm"> doesn&#39;t, the page title (or respectively site name) is used</span>
+<span class="cm"> as the main headline.</span>
+<span class="cm"> --&gt;</span>
  {% if not &quot;\x3ch1&quot; in page.content %}
     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ page.title | d(config.site_name, true)}}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
  {% endif %}
 
- <span class="c">&lt;!-- Markdown content --&gt;</span>
+ <span class="cm">&lt;!-- Markdown content --&gt;</span>
     {{ page.content }}
 
-    <span class="c">&lt;!-- Last update of source file --&gt;</span>
+    <span class="cm">&lt;!-- Last update of source file --&gt;</span>
     {% if page and page.meta %}
         {% if page.meta.git_revision_date_localized or
             page.meta.revision_date
@@ -1708,7 +1708,7 @@ When the title is set in the metadata, use <code>Heading 2</code> level (<code>#
 </li>
 <li>
 <p>Under <code>Markdown content</code>, add the custom HTML code we need for the blogging capabilities:</p>
-<div class="highlight"><pre><span></span><code>    <span class="c">&lt;!-- Markdown content --&gt;</span>
+<div class="highlight"><pre><span></span><code>    <span class="cm">&lt;!-- Markdown content --&gt;</span>
 <span class="hll">    {% if page and page.meta and page.meta.author_gh_user %}
 </span><span class="hll">    <span class="p">&lt;</span><span class="nt">aside</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mdx-author&quot;</span><span class="p">&gt;</span>
 </span><span class="hll">        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -1749,8 +1749,8 @@ Let's have a closer look at some of the settings:</p>
 </li>
 <li>
 <p>Create a custom stylesheet file (<code>custom.css</code>) in the <code>docs/stylesheets</code> directory and add a reference to it in the <code>mkdocs.yml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">extra_css</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">stylesheets/custom.css</span>
+<div class="highlight"><pre><span></span><code><span class="nt">extra_css</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stylesheets/custom.css</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Any additional stylesheet files should be placed in a <code>stylesheets</code> directory within your <code>docs</code> folder. For more details, you can refer to <a href="https://squidfunk.github.io/mkdocs-material/customization/#additional-css">Additional CSS</a>.</p>
@@ -1758,33 +1758,33 @@ Let's have a closer look at some of the settings:</p>
 </li>
 <li>
 <p>Add the following styles to <code>custom.css</code>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="c">/* Styles for blog-like features - author avatar &amp; name, posting date, min to read, etc. */</span>
-<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">mdx-author</span> <span class="nt">img</span> <span class="p">{</span>
-<span class="k">border-radius</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-<span class="k">height</span><span class="p">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
-<span class="p">}</span>
+<p><div class="highlight"><pre><span></span><code><span class="c">/* Styles for blog-like features - author avatar &amp; name, posting date, min to read, etc. */</span><span class="w"></span>
+<span class="p">.</span><span class="nc">md-typeset</span><span class="w"> </span><span class="p">.</span><span class="nc">mdx-author</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span><span class="w"></span>
+<span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">mdx-author</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-<span class="k">font-size</span><span class="p">:</span> <span class="mf">.68</span><span class="kt">rem</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span><span class="w"> </span><span class="p">.</span><span class="nc">mdx-author</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span><span class="w"></span>
+<span class="k">font-size</span><span class="p">:</span><span class="w"> </span><span class="mf">.68</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">mdx-author</span> <span class="nt">p</span><span class="o">&gt;</span><span class="nt">span</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span><span class="w"> </span><span class="p">.</span><span class="nc">mdx-author</span><span class="w"> </span><span class="nt">p</span><span class="o">&gt;</span><span class="nt">span</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nt">p</span> <span class="p">{</span>
-<span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-<span class="n">margin-block-start</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
-<span class="n">margin-block-end</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
-<span class="n">margin-inline-start</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="n">margin-inline-end</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="nt">p</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span><span class="w"></span>
+<span class="n">margin-block-start</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="n">margin-block-end</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="p">;</span><span class="w"></span>
+<span class="n">margin-inline-start</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="n">margin-inline-end</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="kt">px</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="p">.</span><span class="nc">md-typeset</span> <span class="p">.</span><span class="nc">mdx-author</span> <span class="nt">p</span><span class="p">:</span><span class="nd">first-child</span> <span class="p">{</span>
-<span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">margin-right</span><span class="p">:</span> <span class="mf">.8</span><span class="kt">rem</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="p">.</span><span class="nc">md-typeset</span><span class="w"> </span><span class="p">.</span><span class="nc">mdx-author</span><span class="w"> </span><span class="nt">p</span><span class="p">:</span><span class="nd">first-child</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">flex-shrink</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="mf">.8</span><span class="kt">rem</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 This will provide the desired styling of our blogging capabilities. You can always play with the styles to make them more appealing.</p>
 </li>
@@ -1940,10 +1940,10 @@ This will provide the desired styling of our blogging capabilities. You can alwa
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>

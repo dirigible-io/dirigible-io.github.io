@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/development/concepts/extensions/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -2093,18 +2093,18 @@
 <p>Extensibility is an important requirement for business applications built to follow custom processes in Line of Business (LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.</p>
 <h2 id="extension-points">Extension Points</h2>
 <p>An extension point is the place in the core module, which is expected to be enhanced by particular custom created modules. It is a simple JSON formatted <code>*.extensionpoint</code> file and can be placed anywhere in your project.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;extension-point&quot;</span><span class="p">:</span> <span class="s2">&quot;/project1/extensionPoint1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description for Extension Point 1&quot;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;extension-point&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/project1/extensionPoint1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description for Extension Point 1&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="extensions">Extensions</h2>
 <p>An extension is the plug-in in the custom module, which extends the core functionality. It is a simple JSON formatted <code>*.extension</code> file and can be placed anywhere in your project.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;extension&quot;</span><span class="p">:</span> <span class="s2">&quot;/project1/extension1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;extension-point&quot;</span><span class="p">:</span> <span class="s2">&quot;/project1/extensionPoint1&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description for Extension 1&quot;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;extension&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/project1/extension1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;extension-point&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/project1/extensionPoint1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description for Extension 1&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2266,10 +2266,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>

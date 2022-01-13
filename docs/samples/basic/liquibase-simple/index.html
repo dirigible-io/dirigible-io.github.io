@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/basic/liquibase-simple/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -1172,157 +1172,157 @@
 Below you can see example for working with liquibase in Dirigible.</p>
 <p>Lets create a project and execute some .changelog file in our project.
 Jump to Workbench perspective. Here you need to create file with <strong>.changelog</strong> extension.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;databaseChangeLog&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;preConditions&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;runningAs&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;SA&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;changeSet&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;changes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;createTable&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="nt">&quot;tableName&quot;</span><span class="p">:</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;autoIncrement&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                                        <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                            <span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                                            <span class="nt">&quot;nullable&quot;</span><span class="p">:</span> <span class="kc">false</span>
-                                        <span class="p">}</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;firstname&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;varchar(50)&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lastname&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;varchar(50)&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                            <span class="nt">&quot;nullable&quot;</span><span class="p">:</span> <span class="kc">false</span>
-                                        <span class="p">}</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char(2)&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">}</span>
-                            <span class="p">]</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;changeSet&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;changes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;addColumn&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="nt">&quot;tableName&quot;</span><span class="p">:</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;varchar(8)&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">}</span>
-                            <span class="p">]</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;changeSet&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;changes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;addLookupTable&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="nt">&quot;existingTableName&quot;</span><span class="p">:</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;existingColumnName&quot;</span><span class="p">:</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;newTableName&quot;</span><span class="p">:</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;newColumnName&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;newColumnDataType&quot;</span><span class="p">:</span> <span class="s2">&quot;char(2)&quot;</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;changeSet&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;changes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="nt">&quot;createTable&quot;</span><span class="p">:</span> <span class="p">{</span>
-                            <span class="nt">&quot;tableName&quot;</span><span class="p">:</span> <span class="s2">&quot;table_users&quot;</span><span class="p">,</span>
-                            <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;autoIncrement&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                                        <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                            <span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                                            <span class="nt">&quot;nullable&quot;</span><span class="p">:</span> <span class="kc">false</span>
-                                        <span class="p">}</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;first_name&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;varchar(10)&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;last_name&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;varchar(50)&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                            <span class="nt">&quot;nullable&quot;</span><span class="p">:</span> <span class="kc">false</span>
-                                        <span class="p">}</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;int&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">},</span>
-                                <span class="p">{</span>
-                                    <span class="nt">&quot;column&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;last_updated&quot;</span><span class="p">,</span>
-                                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;timestamp&quot;</span>
-                                    <span class="p">}</span>
-                                <span class="p">}</span>
-                            <span class="p">]</span>
-                        <span class="p">}</span>
-                    <span class="p">}</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;databaseChangeLog&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;preConditions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;runningAs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SA&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;changeSet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;createTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;autoIncrement&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">                                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;firstname&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;varchar(50)&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lastname&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;varchar(50)&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">                                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;char(2)&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                            </span><span class="p">]</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;changeSet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;addColumn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;varchar(8)&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                            </span><span class="p">]</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;changeSet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;addLookupTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;existingTableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;existingColumnName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;newTableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;state&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;newColumnName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;newColumnDataType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;char(2)&quot;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;changeSet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iwolkow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                    </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;createTable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;tableName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;table_users&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                            </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;autoIncrement&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;primaryKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">                                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;varchar(10)&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;last_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;varchar(50)&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                            </span><span class="nt">&quot;nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">                                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;int&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                    </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;last_updated&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;timestamp&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                            </span><span class="p">]</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>On saving the file Dirigible automatically detects and executes the .changelog file.
 Switching to DB perspective we can see that in our PUBLIC schema, are created three tables,</p>
@@ -1339,13 +1339,13 @@ Switching to DB perspective we can see that in our PUBLIC schema, are created th
 </ul>
 <p><img alt="image" src="../../images/changelog_table.results.png" /></p>
 <p>In SQL View we can execute several queries to check if everything works properly.</p>
-<div class="highlight"><pre><span></span><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">STATE</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;RU&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">STATE</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;CH&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">STATE</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;FR&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">STATE</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;RU&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">STATE</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;CH&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">STATE</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="s1">&#39;FR&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">PERSON</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;IVAN&#39;</span><span class="p">,</span><span class="s1">&#39;PETROV&#39;</span><span class="p">,</span><span class="s1">&#39;RU&#39;</span><span class="p">,</span><span class="s1">&#39;ipetr88&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">PERSON</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;MAURICE&#39;</span><span class="p">,</span><span class="s1">&#39;LACROIX&#39;</span><span class="p">,</span><span class="s1">&#39;CH&#39;</span><span class="p">,</span><span class="s1">&#39;moris&#39;</span><span class="p">);</span>
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">PERSON</span> <span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;JEAN&#39;</span><span class="p">,</span><span class="s1">&#39;DE GAULLE&#39;</span><span class="p">,</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span><span class="s1">&#39;jdg66&#39;</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">PERSON</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;IVAN&#39;</span><span class="p">,</span><span class="s1">&#39;PETROV&#39;</span><span class="p">,</span><span class="s1">&#39;RU&#39;</span><span class="p">,</span><span class="s1">&#39;ipetr88&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">PERSON</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;MAURICE&#39;</span><span class="p">,</span><span class="s1">&#39;LACROIX&#39;</span><span class="p">,</span><span class="s1">&#39;CH&#39;</span><span class="p">,</span><span class="s1">&#39;moris&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">PERSON</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;JEAN&#39;</span><span class="p">,</span><span class="s1">&#39;DE GAULLE&#39;</span><span class="p">,</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span><span class="s1">&#39;jdg66&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1502,10 +1502,10 @@ Switching to DB perspective we can see that in our PUBLIC schema, are created th
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>

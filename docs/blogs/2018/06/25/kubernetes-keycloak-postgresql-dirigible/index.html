@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2018/06/25/kubernetes-keycloak-postgresql-dirigible/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -1840,20 +1840,20 @@
 <p>We are going to use cert-manager for issuing certificates for our access points to the Keycloak Admin Console and Eclipse Dirigible IDE.</p>
 <h2 id="namespaces-and-clusterissuer">Namespaces and ClusterIssuer</h2>
 <h3 id="authyaml">auth.yaml</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auth</span>
-<span class="nn">...</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">letsencrypt-production</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">acme</span><span class="p">:</span>
-    <span class="nt">server</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://acme-v02.api.letsencrypt.org/directory</span>
-    <span class="nt">email</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;your-email-address&gt;</span>
-    <span class="nt">privateKeySecretRef</span><span class="p">:</span>
-      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">letsencrypt-production</span>
-    <span class="nt">http01</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespace</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auth</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-production</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">acme</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://acme-v02.api.letsencrypt.org/directory</span><span class="w"></span>
+<span class="w">    </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;your-email-address&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">privateKeySecretRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt-production</span><span class="w"></span>
+<span class="w">    </span><span class="nt">http01</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> For testing purposes it's recommended to use the <strong>staging</strong> Let's Encrypt server.</p>
@@ -1863,62 +1863,62 @@
 </code></pre></div>
 <h2 id="keycloak-and-postgresql">Keycloak and PostgreSQL</h2>
 <h3 id="keycloakyaml">keycloak.yaml</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">StatefulSet</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="nn">...</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-          <span class="nt">env</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PGDATA</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;/var/lib/postgresql/data/pgdata&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;keycloak&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;keycloak&quot;</span>
-<span class="nn">...</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keycloak</span>
-<span class="nn">...</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keycloak</span>
-        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jboss/keycloak</span>
-        <span class="nt">env</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PROXY_ADDRESS_FORWARDING</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DB_VENDOR</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;postgres&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DB_USER</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;keycloak&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;keycloak&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DB_ADDR</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;postgres-jdbc.auth&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_USER</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;admin&quot;</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_PASSWORD</span>
-          <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;admin&quot;</span>
-<span class="nn">...</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keycloak</span>
-  <span class="nt">annotations</span><span class="p">:</span>
-    <span class="nt">ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">kubernetes.io/tls-acme</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">certmanager.k8s.io/cluster-issuer</span><span class="p">:</span> <span class="s">&quot;letsencrypt-production&quot;</span>
-    <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="s">&quot;nginx&quot;</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">tls</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">keycloak.&lt;your-domain-name&gt;</span>
-    <span class="nt">secretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keycloak-production-letsencrypt</span>
-  <span class="nt">rules</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keycloak.&lt;your-domain-name&gt;</span>
-<span class="nn">...</span>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatefulSet</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGDATA</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/data/pgdata&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;keycloak&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;keycloak&quot;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak</span><span class="w"></span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jboss/keycloak</span><span class="w"></span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PROXY_ADDRESS_FORWARDING</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_VENDOR</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_USER</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;keycloak&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;keycloak&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_ADDR</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres-jdbc.auth&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_USER</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_PASSWORD</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin&quot;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubernetes.io/tls-acme</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">certmanager.k8s.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;letsencrypt-production&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nginx&quot;</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak.&lt;your-domain-name&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak-production-letsencrypt</span><span class="w"></span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keycloak.&lt;your-domain-name&gt;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> The maximum length of the host name (e.g. <em><strong>keycloak.YOUR-DOMAIN-NAME</strong></em>) used for issuing Let's Encrypt certificate is 63 symbols.</p>
@@ -1928,69 +1928,69 @@
 </code></pre></div>
 <h2 id="dirigible-and-postgresql">Dirigible and PostgreSQL</h2>
 <h3 id="dirigibleyaml">dirigible.yaml</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">StatefulSet</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="nn">...</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-          <span class="nt">env</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PGDATA</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;/var/lib/postgresql/data/pgdata&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;dirigible&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;dirigible&quot;</span>
-<span class="nn">...</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">StatefulSet</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
-<span class="nn">...</span>
-    <span class="nt">spec</span><span class="p">:</span>
-      <span class="nt">containers</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
-          <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-keycloak</span>
-          <span class="nt">env</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIRIGIBLE_DATABASE_PROVIDER</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;custom&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;POSTGRES&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_URL</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_USERNAME</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;dirigible&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;dirigible&quot;</span>
-            <span class="l l-Scalar l-Scalar-Plain">...</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_CONFIDENTIAL_PORT</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;443&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_SSL_REQUIRED</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;none&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_CLIENT_ID</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;dirigible&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_REALM</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;master&quot;</span>
-            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_AUTH_SERVER_URL</span>
-              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;https://keycloak.&lt;your-domain-name&gt;/auth&quot;</span>
-<span class="nn">...</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
-<span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">annotations</span><span class="p">:</span>
-    <span class="nt">ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">kubernetes.io/tls-acme</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
-    <span class="nt">certmanager.k8s.io/cluster-issuer</span><span class="p">:</span> <span class="s">&quot;letsencrypt-production&quot;</span>
-    <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="s">&quot;nginx&quot;</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
-  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">tls</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ide.&lt;your-domain-name&gt;</span>
-    <span class="nt">secretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dirigible-certificate</span>
-  <span class="nt">rules</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ide.&lt;your-domain-name&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatefulSet</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGDATA</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/data/pgdata&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible&quot;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatefulSet</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-keycloak</span><span class="w"></span>
+<span class="w">          </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DIRIGIBLE_DATABASE_PROVIDER</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;custom&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POSTGRES&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_URL</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USERNAME</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_CONFIDENTIAL_PORT</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_SSL_REQUIRED</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_CLIENT_ID</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_REALM</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;master&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEYCLOAK_AUTH_SERVER_URL</span><span class="w"></span>
+<span class="w">              </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://keycloak.&lt;your-domain-name&gt;/auth&quot;</span><span class="w"></span>
+<span class="nn">...</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ingress.kubernetes.io/ssl-redirect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubernetes.io/tls-acme</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">certmanager.k8s.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;letsencrypt-production&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nginx&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ide.&lt;your-domain-name&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible-certificate</span><span class="w"></span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ide.&lt;your-domain-name&gt;</span><span class="w"></span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> The maximum length of the host name (e.g. <em><strong>ide.YOUR-DOMAIN-NAME</strong></em>) used for issuing Let's Encrypt certificate is 63 symbols.</p>
@@ -2173,10 +2173,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
     
   </body>
