@@ -3,7 +3,7 @@ title: Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors
 description: In this article we are going to focus on the overall design differences between the IDEs. 
 author: Stanislav Genchev
 author_gh_user: StanZGenchev
-read_time: tbd
+read_time: 10 min
 publish_date: January 14, 2022
 
 ---
@@ -60,7 +60,7 @@ Each view is contained in its own iframe window.
 
 For the view itself, Dirigible provides its own version of Bootstrap as a CSS framework combined with AngularJS as a front-end framework.
 
-This means that **Dirigible provides ready to use widgets and a developer can quickly create a view** module. Those components, however, are not mandatory.
+This means that **Dirigible provides ready-to-use widgets and a developer can quickly create a view** module. Those components, however, are not mandatory.
 
 If developers want to, they can use their own framework and make the UI however they like.
 
