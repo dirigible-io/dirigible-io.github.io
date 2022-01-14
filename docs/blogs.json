@@ -20,7 +20,7 @@
     "description": "In this article we are going to ..."
   },
   {
-    "location": "2022/01/14/dirigible-vs-vscode-vs-theia-custom-editors.md",
+    "location": "2022/01/14/dirigible-vscode-theia-custom-editors.md",
     "title": "Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors",
     "description": "In this article we are going to focus on the overall design differences between the IDEs. "
   }
