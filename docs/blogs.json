@@ -1,10 +1,5 @@
 [
   {
-    "location": "2020/12/16/2020-what-a-year-for-eclipse-dirigible.md",
-    "title": "2020 - What a year for Eclipse Dirigible!",
-    "description": "It has been a challenging, but in the same time an incredible year for Eclipse Dirigible in terms of progress, contribution and adoption."
-  },
-  {
     "location": "2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md",
     "title": "Low-Code Mobile Apps with Dirigible and NativeScript",
     "description": "Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs."
@@ -23,5 +18,10 @@
     "location": "2021/11/2/material-blogging-capabilities.md",
     "title": "Enable Blogging Capabilities with Material for MkDocs",
     "description": "In this article we are going to ..."
+  },
+  {
+    "location": "2022/01/14/dirigible-vs-vscode-vs-theia-custom-editors.md",
+    "title": "Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors",
+    "description": "In this article we are going to focus on the overall design differences between the IDEs. "
   }
 ]
