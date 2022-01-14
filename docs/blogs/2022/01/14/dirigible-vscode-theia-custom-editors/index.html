@@ -1801,7 +1801,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                  </svg> tbd read
+                  </svg> 10 min read
             </span>
             </p>
         </aside>
@@ -1832,7 +1832,7 @@
 <p>Every view module in Dirigible has a few basic components.</p>
 <p>Each view is contained in its own iframe window.</p>
 <p>For the view itself, Dirigible provides its own version of Bootstrap as a CSS framework combined with AngularJS as a front-end framework.</p>
-<p>This means that <strong>Dirigible provides ready to use widgets and a developer can quickly create a view</strong> module. Those components, however, are not mandatory.</p>
+<p>This means that <strong>Dirigible provides ready-to-use widgets and a developer can quickly create a view</strong> module. Those components, however, are not mandatory.</p>
 <p>If developers want to, they can use their own framework and make the UI however they like.</p>
 <p><strong>Everything is permitted</strong> as long as it is contained inside the iframe of the view.</p>
 <p>Theming in Dirigible is done by having each theme implement its own colors, fonts and widget sizes, in its own CSS file, packaged inside a theme module. The only rule is that <strong>CSS classes and IDs must have the same names as the default theme</strong>. When a view requests the IDE stylesheet, the back end responds with the CSS file of the currently selected theme. This means that <strong>a view is never aware of what theme is being used</strong>. Currently, this is being reworked as we move away from Bootstrap and adopt the “fundamental-styles” open-source project initiated by SAP.</p>
