@@ -10,7 +10,7 @@ publish_date: January 14, 2022
 
 Recently, I was tasked with porting an extension from Eclipse Dirigible to VS Code and Eclipse Theia. During that process, I found some interesting things about how those products work and their design choices, which inspired this short blog post. I will try to explain the main differences between them from the point of view of an extension developer. This will not be a tutorial on how to make extensions, instead it will be more focused on overall design differences between the IDEs (Integrated Development Environment). 
 
-## 1. What are they?
+## What are they?
 
 First, let me give you a brief introduction to what each of those products are and what they are best suited for. 
 
@@ -28,7 +28,7 @@ Eclipse Theia is a cloud and desktop IDE framework. Its primary aim is to be a m
 
  
 
-## 2. One extension to rule them all 
+## One extension to rule them all 
 
 “Extension” is the official name used by VS Code. In Dirigible, the same thing is referred to as a “module”. The equivalent in Theia is called “plug-in”. 
  
@@ -52,7 +52,7 @@ Theia and other editors based on Theia are, as I said, API compatible with VS Co
 
 Something to note here is that Theia has something called “extensions”, but they are not the same thing as the extensions found in VS Code and I will not be talking about them as they serve a different use case. As mentioned earlier, in Theia, VS Code extensions are referred to as “plug-ins”.
 
-## 3. Dirigible view modules and theming
+## Dirigible view modules and theming
 
 Every view module in Dirigible has a few basic components.
 
@@ -74,7 +74,7 @@ When **communicating with the back end**, modules use the Dirigible RESTful API.
 
 **View modules are stateful**, meaning that if they are created and active, they will not lose their state even if the user moves their focus to a different view in another tab and they will not have to be redrawn when focus is returned to them.
 
-## 4. Developing an extension in Dirigible
+## Developing an extension in Dirigible
 
 In Dirigible, modules are dynamically loaded.
 
@@ -86,7 +86,7 @@ If you want to see examples of Dirigible views and more detailed information, yo
 
 ![CSVIM editor in Dirigible](../../../images/eclipse-dirigible-vs-vscode/csvim-editor-dirigible.png)
 
-## 5. Custom editors in Dirigible
+## Custom editors in Dirigible
 
 When you create a custom editor in Dirigible, **your communication with the back end must be kept to a minimum**. After all, Dirigible is a cloud IDE and frequent requests can lead to a bad user experience.
 
@@ -94,7 +94,7 @@ When a user opens a file, the editor receives the contents of the file from the 
 
 Dirigible does not provide a universal API to create a custom editor. At least not yet. This means that functionalities such as undo and redo have to be implemented by the custom editor itself.
 
-## 6. Theia/VS Code extensions and theming
+## Theia/VS Code extensions and theming
 
 In VS Code, and therefore Theia, **extensions are done in a very different way**. In fact, it’s almost the exact opposite of Dirigible.
 
@@ -116,13 +116,13 @@ To not lose those changes, you can use the WebView state API which stores a Java
 
 Finally, WebViews are aware of themes. **The colors from the current theme are injected into the WebView** and your body element will have a special CSS class assigned to it, which will tell you if the theme is dark or light. Most of the time, your UI will work without problems regardless of themes, but in some small edge cases, you may need to implement special rules based on the theme selected.
 
-## 7. Developing an extension in Theia/VS Code
+## Developing an extension in Theia/VS Code
 
 **Extensions in VS Code and Theia are not loaded dynamically**, at least not in the same way they are in Dirigible. When developing an extension, before you could test it, you must compile it first, then start something called an “Extension Development Host”.
 
 It is a special instance of the IDE that runs your extension. **Every time you make a change, you must recompile and restart the development host**. It does not take a lot of time, but it is something that slows you down. On the plus side, if there is something very wrong with your extension, it will not affect the non-development host.
 
-## 8. Custom editors in Theia/VS Code
+## Custom editors in Theia/VS Code
 
 In the case of a custom editor, when a user opens a file, the back end sends the file contents to the front end and every change, no matter small or big, must be send back. Once the file is saved, it is again sent to the front end, which is redrawn. This means that unlike Dirigible, **actual editing and all unsaved changes take place in the back end back-end front end just displays its current state**. VS Code also provides a custom editor API, simplifying the process. Functionalities such as save, undo, and redo are handled by the IDE. That being said, the developer (or developers) can create their own editor API from scratch if they need to.
 
@@ -130,7 +130,7 @@ In the case of a custom editor, when a user opens a file, the back end sends the
 
 
 
-## 9. Summary
+## Summary
 
 To summarize everything, VS Code and Theia have a different design from Dirigible.
 
