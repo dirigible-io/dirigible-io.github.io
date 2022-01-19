@@ -1,7 +1,5 @@
 ---
 title: Environment Variables
-hide:
-  - toc
 ---
 
 Environment Variables
