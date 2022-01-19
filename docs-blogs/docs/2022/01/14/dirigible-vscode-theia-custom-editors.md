@@ -1,7 +1,7 @@
 ---
 title: Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors
 description: In this article we are going to focus on the overall design differences between the IDEs. 
-author: Stanislav Genchev
+author: Stan Genchev
 author_gh_user: StanZGenchev
 read_time: 10 min
 publish_date: January 14, 2022
