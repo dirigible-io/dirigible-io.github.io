@@ -14,7 +14,13 @@ Deploy Eclipse Dirigible in Docker.
 
 ## Steps
 ---
-      
+
+1. Pull the Dirigible Docker image:
+
+    ```
+    docker pull dirigiblelabs/dirigible-all:latest
+    ```
+
 1. Start the container:
 
     === "Run"
