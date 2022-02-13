@@ -1,13 +1,5 @@
 [
   {
-    "location": "2021/03/26/news-new-release-5-9.md",
-    "title": "Release 5.9"
-  },
-  {
-    "location": "2021/04/24/news-new-release-5-10.md",
-    "title": "Release 5.10"
-  },
-  {
     "location": "2021/05/27/news-new-release-5-11.md",
     "title": "Release 5.11"
   },
@@ -18,5 +10,13 @@
   {
     "location": "2021/09/29/news-new-release-6-0.md",
     "title": "Release 6.0"
+  },
+  {
+    "location": "2021/10/07/news-new-release-6-1.md",
+    "title": "Release 6.1"
+  },
+  {
+    "location": "2022/02/13/news-new-release-6-2.md",
+    "title": "Release 6.2"
   }
 ]
