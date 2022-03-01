@@ -404,6 +404,10 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DESTINATIONS_PROVIDER**   | The name of the Destinations Service provider used in this instance | _`local` or `managed`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER**   | The location of the Destinations internal repository | _`target`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
+**DIRIGIBLE_DESTINATION_CLIENT_ID**  | The Destination Service instance client id | _`-`_
+**DIRIGIBLE_DESTINATION_CLIENT_SECRET** | The Destination Service instance client secret | _`-`_
+**DIRIGIBLE_DESTINATION_URL**  | The Destination Service instance url | _`-`_
+**DIRIGIBLE_DESTINATION_URI**  | The Destination Service instance uri | _`-`_
 
 ### Terminal
 ---
