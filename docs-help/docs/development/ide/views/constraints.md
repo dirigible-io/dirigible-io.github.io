@@ -13,7 +13,7 @@ The **Constraints** view lets you restrict access through the **Documents** view
 To create a constraint, you have to specify:
 
 * a path to the folder or file. For example, `/Folder A`
-* a method - `READ`, `WRITE`, or both (`*`)
+* a method - `READ` or `WRITE` (`WRITE` constraint includes `READ` access)
 * a role - the role that the user needs to have in order to be able to see or edit the folder/file. For example, `Admin`.
 
 As specified in the screenshot below, only users with the role `Admin` can read `Folder C` that can be accessed by following the path `/Folder A/FolderC`.
