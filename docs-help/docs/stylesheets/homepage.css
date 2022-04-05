@@ -29,7 +29,7 @@
 .overlay {
   position: absolute;
   bottom: 0;
-  background: rgb(1, 0, 0);
+  background: #313131;
   background: rgba(45, 45, 45, 0.98); /* Black see-through */
   color: #a96060;
   width: 100%;
@@ -94,11 +94,18 @@
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: #000;
+  background-color: #313131;
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
+  transition-duration: color 125ms;
+  cursor: pointer
+}
+
+.card button:hover {
+  background-color: #414141; 
+  color: #f7fafd;
 }
 /* Solid border */
 hr.solid {
