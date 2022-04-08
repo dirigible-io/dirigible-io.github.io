@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../../help/setup/kubernetes.md/"
+--8<-- "../../docs-help/docs/setup/kubernetes.md"
