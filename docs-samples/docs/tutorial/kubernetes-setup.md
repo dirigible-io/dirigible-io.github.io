@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/kubernetes.md"
+--8<-- "includes/kubernetes.md"

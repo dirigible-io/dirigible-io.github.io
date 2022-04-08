@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/cloud-foundry.md"
+--8<-- "includes/cloud-foundry.md"

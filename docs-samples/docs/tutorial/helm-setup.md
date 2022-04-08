@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/helm.md"
+--8<-- "includes/helm.md"

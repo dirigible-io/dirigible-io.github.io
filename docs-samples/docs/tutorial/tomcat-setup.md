@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/index.md"
+--8<-- "includes/index.md"

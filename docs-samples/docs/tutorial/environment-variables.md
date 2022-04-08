@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/setup-environment-variables.md"
+--8<-- "includes/setup-environment-variables.md"

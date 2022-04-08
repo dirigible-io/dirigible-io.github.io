@@ -5,4 +5,4 @@ hide:
 ---
 
 
---8<-- "../docs/includes/kyma.md"
+--8<-- "includes/kyma.md"
