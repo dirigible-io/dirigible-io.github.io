@@ -16,11 +16,10 @@ extra_css:
   - stylesheets/homepage.css
 
 markdown_extensions:
-    - pymdownx.snippets
+    - pymdownx.snippets:
+        base_path: ../docs-help
     - pymdownx.highlight:
         linenums: false
-    - markdown_include.include:
-        base_path: docs
     - pymdownx.keys
     - pymdownx.inlinehilite
     - pymdownx.superfences
