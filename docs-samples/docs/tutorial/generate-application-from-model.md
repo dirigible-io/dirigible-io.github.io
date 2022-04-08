@@ -15,22 +15,23 @@ This tutorial will guide you through the creation of an entity data model and ge
 # Overview
 In this tutorial we will create an entity model of a **car service bookings** and generate full-stack Dirigible application from it. The complete sample can be found [here](https://github.com/dirigiblelabs/sample-v3-car-service-bookings).
 
-# Car Service Bookings
-
-## Setup
+# Setup Car Service Bookings
 1. Create new project **car-service-bookings**
 1. Right click -> New -> Entity Data Model
 1. Rename **file.edm** to **car-service-bookings.edm**
 1. Open **car-service-bookings.edm**
 
-## Brands 
-
+# Brands 
 1. _**Drag and drop**_ new entity
-    ![Create Entity](/img/samples/tutorials/generate-application-from-model/create-entity.gif){: .img-responsive }
+
+    ![Create Entity](/img/samples/tutorials/generate-application-from-model/create-entity.gif)
+
 1. Name it _**Brands**_
 1. Rename **entityId** to _**Id**_
 1. _**Drag and drop**_ new property
-    ![Add Property](/img/samples/tutorials/generate-application-from-model/add-property.gif){: .img-responsive }
+
+    ![Add Property](/img/samples/tutorials/generate-application-from-model/add-property.gif)
+
 1. Rename **property2** to _**Name**_
 1. Open the properties of the _**Brands**_ entity
 1. Open the **General** tab
@@ -38,14 +39,16 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Switch to the **User Interface** tab
 1. Set the **Layout Type** to _**Manage Master Entites**_
 
-## Models
+# Models
 1. _**Drag and drop**_ new entity
 1. Name it _**Models**_
 1. Rename **entityId** to _**Id**_
 1. _**Drag and drop**_ new property
 1. Rename **property2** to _**Name**_
 1. Add new relation between _**Models**_ and _**Brands**_
-    ![Add Relation](/img/samples/tutorials/generate-application-from-model/add-relation.gif){: .img-responsive }
+
+    ![Add Relation](/img/samples/tutorials/generate-application-from-model/add-relation.gif)
+
 1. Rename the relation property in the _**Models**_ entity to _**BrandId**_
 1. Open the relation properties
 1. Set **Name** to _**Brand**_
@@ -60,7 +63,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Swith to the **User Interface** tab
 1. Set the **Layout Tab** to _**Manage Details Entities**_
 
-## Cars
+# Cars
 1. _**Drag and drop**_ new entity
 1. Name it _**Cars**_
 1. Rename **entityId** to _**Id**_
@@ -78,9 +81,11 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Set **Dropdown Value** to _**Name**_
     > _**Note**_: the dropdown **key** and **value** refers respectively to the _**Models:Id**_ and _**Models:Name**_ values
 
-## Generation
+# Generation
 1. Save the model
-    ![Save Model](/img/samples/tutorials/generate-application-from-model/save-model.gif){: .img-responsive }
+
+    ![Save Model](/img/samples/tutorials/generate-application-from-model/save-model.gif)
+
 1. Right click on _**car-service-bookings.model**_ and select _**Generate**_
 1. Set **Template** to _**Full-stack Application (AngularJS)**_
 1. Set **Extension** to _**car-service**_
@@ -90,7 +95,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Click _**Generate**_
 1. Publish the project
 
-## Extensibility
+# Extensibility
 Sample view based extension can be found [here](https://github.com/dirigiblelabs/sample-v3-car-service-bookings-extension)
 
 ## Wrap up
