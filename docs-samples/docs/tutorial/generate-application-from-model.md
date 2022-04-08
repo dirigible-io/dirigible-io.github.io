@@ -9,19 +9,19 @@ Generate Application from Model
 
 This tutorial will guide you through the creation of an entity data model and generation of a full-stack Dirigible application, from this model.
 
-# Prerequisites
+### Prerequisites
 - Access to the latest version of Eclipse Dirigible (3.2.2+)
 
-# Overview
+### Overview
 In this tutorial we will create an entity model of a **car service bookings** and generate full-stack Dirigible application from it. The complete sample can be found [here](https://github.com/dirigiblelabs/sample-v3-car-service-bookings).
 
-# Setup Car Service Bookings
+### Setup Car Service Bookings
 1. Create new project **car-service-bookings**
 1. Right click -> New -> Entity Data Model
 1. Rename **file.edm** to **car-service-bookings.edm**
 1. Open **car-service-bookings.edm**
 
-# Brands 
+###Brands 
 1. _**Drag and drop**_ new entity
 
     ![Create Entity](/img/samples/tutorials/generate-application-from-model/create-entity.gif)
@@ -39,7 +39,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Switch to the **User Interface** tab
 1. Set the **Layout Type** to _**Manage Master Entites**_
 
-# Models
+### Models
 1. _**Drag and drop**_ new entity
 1. Name it _**Models**_
 1. Rename **entityId** to _**Id**_
@@ -63,7 +63,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Swith to the **User Interface** tab
 1. Set the **Layout Tab** to _**Manage Details Entities**_
 
-# Cars
+### Cars
 1. _**Drag and drop**_ new entity
 1. Name it _**Cars**_
 1. Rename **entityId** to _**Id**_
@@ -81,7 +81,7 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Set **Dropdown Value** to _**Name**_
     > _**Note**_: the dropdown **key** and **value** refers respectively to the _**Models:Id**_ and _**Models:Name**_ values
 
-# Generation
+### Generation
 1. Save the model
 
     ![Save Model](/img/samples/tutorials/generate-application-from-model/save-model.gif)
@@ -95,13 +95,13 @@ In this tutorial we will create an entity model of a **car service bookings** an
 1. Click _**Generate**_
 1. Publish the project
 
-# Extensibility
+### Extensibility
 Sample view based extension can be found [here](https://github.com/dirigiblelabs/sample-v3-car-service-bookings-extension)
 
-## Wrap up
+### Wrap up
 The whole application can be found [here](https://github.com/dirigiblelabs/sample-v3-car-service-bookings)
 
-# Resources
+### Resources
 - Sample Car Service Bookings: [sample-v3-car-service-bookings](https://github.com/dirigiblelabs/sample-v3-car-service-bookings)
 - Sample Data: [sample-v3-car-service-bookings-data](https://github.com/dirigiblelabs/sample-v3-car-service-bookings-data)
 - Sample Extension: [sample-v3-car-service-bookings-extension](https://github.com/dirigiblelabs/sample-v3-car-service-bookings-extension)
