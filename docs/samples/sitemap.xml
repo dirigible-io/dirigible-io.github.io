@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/samples/includes/kubernetes/</loc>
+         <lastmod>2022-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/samples/tutorial/contributing-to-ide-modules/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
