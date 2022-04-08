@@ -225,7 +225,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../includes/kubernetes/" class="md-tabs__link">
+      <a href="../../includes/" class="md-tabs__link">
         Includes
       </a>
     </li>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../contributing-to-ide-modules/" class="md-tabs__link md-tabs__link--active">
+      <a href="../cloud-foundry/" class="md-tabs__link md-tabs__link--active">
         Tutorial
       </a>
     </li>
@@ -992,8 +992,92 @@
   
   
     <li class="md-nav__item">
+      <a href="../../includes/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/cloud-foundry/" class="md-nav__link">
+        Cloud Foundry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../includes/kubernetes/" class="md-nav__link">
         Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/kyma/" class="md-nav__link">
+        Kyma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/setup-environment-variables/" class="md-nav__link">
+        Environment Variables
       </a>
     </li>
   
@@ -1042,8 +1126,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../cloud-foundry/" class="md-nav__link">
+        Cloud Foundry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../contributing-to-ide-modules/" class="md-nav__link">
         Contributing to IDE Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-image-setup/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-variables/" class="md-nav__link">
+        Environment Variables
       </a>
     </li>
   
@@ -1084,8 +1210,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../helm-setup/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../kubernetes-setup/" class="md-nav__link">
         Setup in Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kyma-setup/" class="md-nav__link">
+        Kyma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tomcat-setup/" class="md-nav__link">
+        Setup in Tomcat
       </a>
     </li>
   
@@ -1325,45 +1493,65 @@
 <li>Enabled VT-x or AMD-v virtualization (use the Performance tab for the CPU in the Task Manager to verify it)</li>
 </ul>
 <h3 id="install-kubernetes-command-line-tool">Install Kubernetes command-line tool</h3>
-<ol>
-<li>Install <strong>Chocolatey</strong> </li>
-</ol>
-<p>1.1. Run the following command:</p>
+<ul>
+<li>
+<p>Install <strong>Chocolatey</strong> </p>
+</li>
+<li>
+<p>Run the following command:</p>
+</li>
+</ul>
 <blockquote>
 <p>@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" &amp;&amp; SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"</p>
 </blockquote>
 <p>If you don't see any errors, you are ready to use Chocolatey! </p>
-<p>1.2. To ensure that Chocolatey is successfully installed, type <strong>choco</strong> or <strong>choco -?</strong>.</p>
+<ul>
+<li>To ensure that Chocolatey is successfully installed, type <strong>choco</strong> or <strong>choco -?</strong>.</li>
+</ul>
 <p>For more information see https://chocolatey.org/install.</p>
-<ol>
-<li>Install the Kubernetes command-line tool <strong>kubectl</strong> with Chocolatey </li>
-</ol>
-<p>2.1. Execute the command:</p>
+<ul>
+<li>
+<p>Install the Kubernetes command-line tool <strong>kubectl</strong> with Chocolatey </p>
+</li>
+<li>
+<p>Execute the command:</p>
+</li>
+</ul>
 <blockquote>
 <p>choco install kubernetes-cli</p>
 </blockquote>
-<p>2.2. To verify that the version you’ve installed is up-to-date, run </p>
+<ul>
+<li>To verify that the version you’ve installed is up-to-date, run </li>
+</ul>
 <blockquote>
 <p>kubectl version</p>
 </blockquote>
-<p>2.3. Configure kubectl to use a remote Kubernetes cluster:</p>
+<ul>
+<li>Configure kubectl to use a remote Kubernetes cluster:</li>
+</ul>
 <blockquote>
 <p>cd C:\users\yourusername (Or wherever your %HOME% directory is)<br />
 mkdir .kube cd .kube New-Item config -type file</p>
 </blockquote>
+<ul>
+<li>
 <p>Edit the config file with a text editor of your choice.</p>
-<p>2.4. Check that kubectl is properly configured by getting the cluster state:</p>
+</li>
+<li>
+<p>Check that kubectl is properly configured by getting the cluster state:</p>
+</li>
+</ul>
 <blockquote>
 <p>kubectl cluster-info</p>
 </blockquote>
 <h3 id="install-minikube">Install Minikube</h3>
-<ol>
+<ul>
 <li>Install <strong>Minikube v0.26.1</strong></li>
-</ol>
+</ul>
 <p>Download the <a href="https://github.com/kubernetes/minikube/releases/download/v0.26.1/minikube-installer.exe">minikube-installer.exe</a> file, and execute the installer. This will automatically add minikube.exe to your path.</p>
 <h3 id="additional-steps">Additional Steps</h3>
 <h4 id="install-docker">Install Docker</h4>
-<ol>
+<ul>
 <li>
 <p>Run CMD as Administrator</p>
 </li>
@@ -1373,39 +1561,39 @@ mkdir .kube cd .kube New-Item config -type file</p>
 <li>
 <p>Execute: </p>
 </li>
-</ol>
+</ul>
 <blockquote>
 <p>choco install docker</p>
 </blockquote>
-<ol>
+<ul>
 <li>Confirm with <strong>y</strong></li>
-</ol>
+</ul>
 <h4 id="build-the-image">Build the image</h4>
 <p>Build an image without uploading it:</p>
-<ol>
+<ul>
 <li>Set the environment variables with </li>
-</ol>
+</ul>
 <blockquote>
 <p>@FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i</p>
 </blockquote>
-<ol>
+<ul>
 <li>Clone the Zeus packaging project using Git Bash by executing:</li>
-</ol>
+</ul>
 <blockquote>
 <p>git clone https://github.com/dirigiblelabs/zeus-v3-package.git</p>
 </blockquote>
-<ol>
+<ul>
 <li>Build the image with the Docker daemon of Minikube:</li>
-</ol>
+</ul>
 <blockquote>
 <p>cd zeus-v3-package/zeus</p>
 <p>mvn clean install</p>
 <p>docker build -t zeus .</p>
 </blockquote>
-<ol>
+<ul>
 <li>Set the image in the pod spec like the build tag: <strong>zeus</strong></li>
 <li>Set the <strong>imagePullPolicy</strong> to <strong>Never</strong>, otherwise Kubernetes will try to download the image</li>
-</ol>
+</ul>
 <blockquote>
 <p>Important note: You have to run eval <strong> $(minikube docker-env)</strong> on each terminal you want to use, since it only sets the environment variables for the current shell session.</p>
 </blockquote>
