@@ -225,7 +225,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../includes/kubernetes/" class="md-tabs__link">
+      <a href="../../includes/" class="md-tabs__link">
         Includes
       </a>
     </li>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../contributing-to-ide-modules/" class="md-tabs__link md-tabs__link--active">
+      <a href="../cloud-foundry/" class="md-tabs__link md-tabs__link--active">
         Tutorial
       </a>
     </li>
@@ -992,8 +992,92 @@
   
   
     <li class="md-nav__item">
+      <a href="../../includes/" class="md-nav__link">
+        Tomcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/cloud-foundry/" class="md-nav__link">
+        Cloud Foundry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../includes/kubernetes/" class="md-nav__link">
         Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/kyma/" class="md-nav__link">
+        Kyma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../includes/setup-environment-variables/" class="md-nav__link">
+        Environment Variables
       </a>
     </li>
   
@@ -1042,8 +1126,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../cloud-foundry/" class="md-nav__link">
+        Cloud Foundry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../contributing-to-ide-modules/" class="md-nav__link">
         Contributing to IDE Modules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-image-setup/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environment-variables/" class="md-nav__link">
+        Environment Variables
       </a>
     </li>
   
@@ -1084,8 +1210,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../helm-setup/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../kubernetes-setup/" class="md-nav__link">
         Setup in Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kyma-setup/" class="md-nav__link">
+        Kyma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tomcat-setup/" class="md-nav__link">
+        Setup in Tomcat
       </a>
     </li>
   
@@ -1318,66 +1486,68 @@
 
 <h1 id="zeus-on-kubernetes-with-macos">Zeus on Kubernetes with MacOS</h1>
 <h3 id="prerequisites">Prerequisites</h3>
-<ol>
+<ul>
 <li>Have a Homebrew installed - <a href="https://docs.brew.sh/Installation">https://docs.brew.sh/Installation</a></li>
-</ol>
+</ul>
 <h3 id="install-kubernetes-command-line-tool">Install Kubernetes command-line tool</h3>
-<ol>
+<ul>
 <li>Run the following command:</li>
-</ol>
+</ul>
 <blockquote>
 <p>brew install kubectl</p>
 </blockquote>
-<ol>
+<ul>
 <li>To verify that the version you’ve installed is up-to-date, run:</li>
-</ol>
+</ul>
 <blockquote>
 <p>kubectl version</p>
 </blockquote>
 <h3 id="install-minikube">Install Minikube</h3>
-<ol>
-<li>Install <strong>Minikube v0.27.0</strong></li>
-</ol>
+<p>Install <strong>Minikube v0.27.0</strong></p>
 <blockquote>
 <p>curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.27.0/minikube-darwin-amd64 &amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/</p>
 </blockquote>
 <h3 id="additional-steps-with-docker">Additional Steps with Docker</h3>
 <h4 id="install-docker">Install Docker</h4>
-<ol>
+<ul>
 <li>Install it using Hombrew:</li>
-</ol>
+</ul>
 <blockquote>
 <p>brew cask install docker</p>
 </blockquote>
-<ol>
+<ul>
 <li>Open Docker.app and continue the installation of the network (Ctrl+Space)</li>
-</ol>
+</ul>
 <h4 id="build-the-image">Build the image</h4>
 <p>Build an image without uploading it:</p>
-<ol>
+<ul>
 <li>Set the environment variables with </li>
-</ol>
+</ul>
 <blockquote>
 <p>eval $(minikube docker-env)</p>
 </blockquote>
-<ol>
+<ul>
 <li>Clone the Zeus packaging project:</li>
-</ol>
+</ul>
 <blockquote>
 <p>git clone https://github.com/dirigiblelabs/zeus-v3-package.git</p>
 </blockquote>
-<ol>
+<ul>
 <li>Build the image with the Docker daemon of Minikube:</li>
-</ol>
+</ul>
 <blockquote>
 <p>cd zeus-v3-package/zeus </p>
 <p>mvn clean install</p>
 <p>docker build -t zeus .</p>
 </blockquote>
-<ol>
-<li>Set the image in the pod spec like the build tag: <strong>zeus</strong></li>
-<li>Set the <strong>imagePullPolicy</strong> to <strong>Never</strong>, otherwise Kubernetes will try to download the image</li>
-</ol>
+<ul>
+<li>
+<p>Set the image in the pod spec like the build tag: <strong>zeus</strong></p>
+</li>
+<li>
+<p>Set the <strong>imagePullPolicy</strong> to <strong>Never</strong>, otherwise Kubernetes will try to download the image</p>
+</li>
+</ul>
 <blockquote>
 <p>Important note: You have to run eval <strong> $(minikube docker-env)</strong> on each terminal you want to use, since it only sets the environment variables for the current shell session.</p>
 </blockquote>
