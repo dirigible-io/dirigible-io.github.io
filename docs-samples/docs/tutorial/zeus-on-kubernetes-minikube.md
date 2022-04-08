@@ -17,7 +17,7 @@ These tutorials will guide you through the processes of installation of Kubernet
 
 ### Start Minikube 
 
-To run the local Kubernetes cluster execute the following command:
+* To run the local Kubernetes cluster execute the following command:
 
 > minikube start
 
@@ -113,13 +113,13 @@ or run
 
 ### Undeploying Zeus
 
-If you want to undeploy Zeus, execute the following command:
+* If you want to undeploy Zeus, execute the following command:
 
 > kubectl delete -f https://raw.githubusercontent.com/dirigiblelabs/zeus-v3-package/master/zeus/zeus.yml
 
 
 ### Stop Minikube
 
-To stop Minikube run:
+* To stop Minikube run:
 
 > minikube stop
