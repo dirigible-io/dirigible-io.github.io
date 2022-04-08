@@ -1132,39 +1132,50 @@
 </ul>
 <h1 id="overview">Overview</h1>
 <p>In this tutorial we will create an entity model of a <strong>car service bookings</strong> and generate full-stack Dirigible application from it. The complete sample can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings">here</a>.</p>
-<h1 id="car-service-bookings">Car Service Bookings</h1>
-<h2 id="setup">Setup</h2>
+<h1 id="setup-car-service-bookings">Setup Car Service Bookings</h1>
 <ol>
 <li>Create new project <strong>car-service-bookings</strong></li>
 <li>Right click -&gt; New -&gt; Entity Data Model</li>
 <li>Rename <strong>file.edm</strong> to <strong>car-service-bookings.edm</strong></li>
 <li>Open <strong>car-service-bookings.edm</strong></li>
 </ol>
-<h2 id="brands">Brands</h2>
+<h1 id="brands">Brands</h1>
 <ol>
-<li><em><strong>Drag and drop</strong></em> new entity
-    <img alt="Create Entity" src="/img/samples/tutorials/generate-application-from-model/create-entity.gif" />{: .img-responsive }</li>
-<li>Name it <em><strong>Brands</strong></em></li>
+<li>
+<p><em><strong>Drag and drop</strong></em> new entity</p>
+<p><img alt="Create Entity" src="/img/samples/tutorials/generate-application-from-model/create-entity.gif" /></p>
+</li>
+<li>
+<p>Name it <em><strong>Brands</strong></em></p>
+</li>
 <li>Rename <strong>entityId</strong> to <em><strong>Id</strong></em></li>
-<li><em><strong>Drag and drop</strong></em> new property
-    <img alt="Add Property" src="/img/samples/tutorials/generate-application-from-model/add-property.gif" />{: .img-responsive }</li>
-<li>Rename <strong>property2</strong> to <em><strong>Name</strong></em></li>
+<li>
+<p><em><strong>Drag and drop</strong></em> new property</p>
+<p><img alt="Add Property" src="/img/samples/tutorials/generate-application-from-model/add-property.gif" /></p>
+</li>
+<li>
+<p>Rename <strong>property2</strong> to <em><strong>Name</strong></em></p>
+</li>
 <li>Open the properties of the <em><strong>Brands</strong></em> entity</li>
 <li>Open the <strong>General</strong> tab</li>
 <li>Set the <strong>Type</strong> to <em><strong>Primary Entity</strong></em></li>
 <li>Switch to the <strong>User Interface</strong> tab</li>
 <li>Set the <strong>Layout Type</strong> to <em><strong>Manage Master Entites</strong></em></li>
 </ol>
-<h2 id="models">Models</h2>
+<h1 id="models">Models</h1>
 <ol>
 <li><em><strong>Drag and drop</strong></em> new entity</li>
 <li>Name it <em><strong>Models</strong></em></li>
 <li>Rename <strong>entityId</strong> to <em><strong>Id</strong></em></li>
 <li><em><strong>Drag and drop</strong></em> new property</li>
 <li>Rename <strong>property2</strong> to <em><strong>Name</strong></em></li>
-<li>Add new relation between <em><strong>Models</strong></em> and <em><strong>Brands</strong></em>
-    <img alt="Add Relation" src="/img/samples/tutorials/generate-application-from-model/add-relation.gif" />{: .img-responsive }</li>
-<li>Rename the relation property in the <em><strong>Models</strong></em> entity to <em><strong>BrandId</strong></em></li>
+<li>
+<p>Add new relation between <em><strong>Models</strong></em> and <em><strong>Brands</strong></em></p>
+<p><img alt="Add Relation" src="/img/samples/tutorials/generate-application-from-model/add-relation.gif" /></p>
+</li>
+<li>
+<p>Rename the relation property in the <em><strong>Models</strong></em> entity to <em><strong>BrandId</strong></em></p>
+</li>
 <li>Open the relation properties</li>
 <li>Set <strong>Name</strong> to <em><strong>Brand</strong></em></li>
 <li>Set <strong>Relationship Type</strong> to <em><strong>Composition</strong></em></li>
@@ -1178,7 +1189,7 @@
 <li>Swith to the <strong>User Interface</strong> tab</li>
 <li>Set the <strong>Layout Tab</strong> to <em><strong>Manage Details Entities</strong></em></li>
 </ol>
-<h2 id="cars">Cars</h2>
+<h1 id="cars">Cars</h1>
 <ol>
 <li><em><strong>Drag and drop</strong></em> new entity</li>
 <li>Name it <em><strong>Cars</strong></em></li>
@@ -1197,11 +1208,15 @@
 <li>Set <strong>Dropdown Value</strong> to <em><strong>Name</strong></em>
     &gt; <em><strong>Note</strong></em>: the dropdown <strong>key</strong> and <strong>value</strong> refers respectively to the <em><strong>Models:Id</strong></em> and <em><strong>Models:Name</strong></em> values</li>
 </ol>
-<h2 id="generation">Generation</h2>
+<h1 id="generation">Generation</h1>
 <ol>
-<li>Save the model
-    <img alt="Save Model" src="/img/samples/tutorials/generate-application-from-model/save-model.gif" />{: .img-responsive }</li>
-<li>Right click on <em><strong>car-service-bookings.model</strong></em> and select <em><strong>Generate</strong></em></li>
+<li>
+<p>Save the model</p>
+<p><img alt="Save Model" src="/img/samples/tutorials/generate-application-from-model/save-model.gif" /></p>
+</li>
+<li>
+<p>Right click on <em><strong>car-service-bookings.model</strong></em> and select <em><strong>Generate</strong></em></p>
+</li>
 <li>Set <strong>Template</strong> to <em><strong>Full-stack Application (AngularJS)</strong></em></li>
 <li>Set <strong>Extension</strong> to <em><strong>car-service</strong></em></li>
 <li>Check <strong>Embedded</strong> mode</li>
@@ -1210,7 +1225,7 @@
 <li>Click <em><strong>Generate</strong></em></li>
 <li>Publish the project</li>
 </ol>
-<h2 id="extensibility">Extensibility</h2>
+<h1 id="extensibility">Extensibility</h1>
 <p>Sample view based extension can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings-extension">here</a></p>
 <h2 id="wrap-up">Wrap up</h2>
 <p>The whole application can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings">here</a></p>
