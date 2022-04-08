@@ -246,22 +246,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/tutorial/cloud-foundry/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/samples/tutorial/contributing-to-ide-modules/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/docker-image-setup/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/environment-variables/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -272,26 +257,6 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorial/helium-custom-stack/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/helm-setup/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/kubernetes-setup/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/kyma-setup/</loc>
-         <lastmod>2022-04-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/tutorial/tomcat-setup/</loc>
          <lastmod>2022-04-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
