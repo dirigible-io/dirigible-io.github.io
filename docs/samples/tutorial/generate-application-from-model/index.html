@@ -1001,9 +1001,103 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generate Application from Model
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Generate Application from Model
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-car-service-bookings" class="md-nav__link">
+    Setup Car Service Bookings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brands" class="md-nav__link">
+    Brands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cars" class="md-nav__link">
+    Cars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation" class="md-nav__link">
+    Generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility" class="md-nav__link">
+    Extensibility
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up" class="md-nav__link">
+    Wrap up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1108,6 +1202,84 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-car-service-bookings" class="md-nav__link">
+    Setup Car Service Bookings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brands" class="md-nav__link">
+    Brands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    Models
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cars" class="md-nav__link">
+    Cars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generation" class="md-nav__link">
+    Generation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility" class="md-nav__link">
+    Extensibility
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap-up" class="md-nav__link">
+    Wrap up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1126,20 +1298,20 @@
 
 <h1 id="generate-application-from-model">Generate Application from Model</h1>
 <p>This tutorial will guide you through the creation of an entity data model and generation of a full-stack Dirigible application, from this model.</p>
-<h1 id="prerequisites">Prerequisites</h1>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li>Access to the latest version of Eclipse Dirigible (3.2.2+)</li>
 </ul>
-<h1 id="overview">Overview</h1>
+<h3 id="overview">Overview</h3>
 <p>In this tutorial we will create an entity model of a <strong>car service bookings</strong> and generate full-stack Dirigible application from it. The complete sample can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings">here</a>.</p>
-<h1 id="setup-car-service-bookings">Setup Car Service Bookings</h1>
+<h3 id="setup-car-service-bookings">Setup Car Service Bookings</h3>
 <ol>
 <li>Create new project <strong>car-service-bookings</strong></li>
 <li>Right click -&gt; New -&gt; Entity Data Model</li>
 <li>Rename <strong>file.edm</strong> to <strong>car-service-bookings.edm</strong></li>
 <li>Open <strong>car-service-bookings.edm</strong></li>
 </ol>
-<h1 id="brands">Brands</h1>
+<h3 id="brands">Brands</h3>
 <ol>
 <li>
 <p><em><strong>Drag and drop</strong></em> new entity</p>
@@ -1162,7 +1334,7 @@
 <li>Switch to the <strong>User Interface</strong> tab</li>
 <li>Set the <strong>Layout Type</strong> to <em><strong>Manage Master Entites</strong></em></li>
 </ol>
-<h1 id="models">Models</h1>
+<h3 id="models">Models</h3>
 <ol>
 <li><em><strong>Drag and drop</strong></em> new entity</li>
 <li>Name it <em><strong>Models</strong></em></li>
@@ -1189,7 +1361,7 @@
 <li>Swith to the <strong>User Interface</strong> tab</li>
 <li>Set the <strong>Layout Tab</strong> to <em><strong>Manage Details Entities</strong></em></li>
 </ol>
-<h1 id="cars">Cars</h1>
+<h3 id="cars">Cars</h3>
 <ol>
 <li><em><strong>Drag and drop</strong></em> new entity</li>
 <li>Name it <em><strong>Cars</strong></em></li>
@@ -1208,7 +1380,7 @@
 <li>Set <strong>Dropdown Value</strong> to <em><strong>Name</strong></em>
     &gt; <em><strong>Note</strong></em>: the dropdown <strong>key</strong> and <strong>value</strong> refers respectively to the <em><strong>Models:Id</strong></em> and <em><strong>Models:Name</strong></em> values</li>
 </ol>
-<h1 id="generation">Generation</h1>
+<h3 id="generation">Generation</h3>
 <ol>
 <li>
 <p>Save the model</p>
@@ -1225,11 +1397,11 @@
 <li>Click <em><strong>Generate</strong></em></li>
 <li>Publish the project</li>
 </ol>
-<h1 id="extensibility">Extensibility</h1>
+<h3 id="extensibility">Extensibility</h3>
 <p>Sample view based extension can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings-extension">here</a></p>
-<h2 id="wrap-up">Wrap up</h2>
+<h3 id="wrap-up">Wrap up</h3>
 <p>The whole application can be found <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings">here</a></p>
-<h1 id="resources">Resources</h1>
+<h3 id="resources">Resources</h3>
 <ul>
 <li>Sample Car Service Bookings: <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings">sample-v3-car-service-bookings</a></li>
 <li>Sample Data: <a href="https://github.com/dirigiblelabs/sample-v3-car-service-bookings-data">sample-v3-car-service-bookings-data</a></li>
