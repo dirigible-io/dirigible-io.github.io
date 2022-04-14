@@ -1777,7 +1777,7 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<h5 id="start-listening-on-a-topic">Start listening on a topic</h5>
+<h4 id="start-listening-on-a-topic">Start listening on a topic</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span>
 <span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span> <span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">startListening</span><span class="p">(</span><span class="s2">&quot;&lt;kafka-project&gt;/&lt;kafka-handler&gt;&quot;</span><span class="p">,</span> <span class="mf">1000</span><span class="p">);</span>
 </code></pre></div>
@@ -1790,7 +1790,7 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error from My Kafka Listener! Error: &quot;</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">};</span>
 </code></pre></div></p>
-<h5 id="stop-listening-on-a-topic">Stop listening on a topic</h5>
+<h4 id="stop-listening-on-a-topic">Stop listening on a topic</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">consumer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span>
 <span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span> <span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">stopListening</span><span class="p">();</span>
 </code></pre></div>
