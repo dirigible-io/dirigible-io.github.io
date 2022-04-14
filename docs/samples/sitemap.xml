@@ -211,41 +211,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/includes/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/cloud-foundry/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/docker/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/helm/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/kubernetes/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/kyma/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/samples/includes/setup-environment-variables/</loc>
-         <lastmod>2022-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/samples/tutorial/</loc>
          <lastmod>2022-04-14</lastmod>
          <changefreq>daily</changefreq>
