@@ -52,7 +52,7 @@ Function     | Description | Returns
 
 ---
 
-##### Workspace
+#### Workspace
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -66,7 +66,7 @@ Function     | Description | Returns
 **copyProject(source, target)**   | Copies a given Project programmatically | *-*
 **moveProject(source, target)**   | Copies a given Project programmatically | *-*
 
-##### Projects
+#### Projects
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -74,7 +74,7 @@ Function     | Description | Returns
 **get(index)**   | Gets a Project by index programmatically | *[Project](#project)*
 
 
-##### Project
+#### Project
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -93,7 +93,7 @@ Function     | Description | Returns
 **deletesFile(path)**   | Deletes a File by *path* programmatically | *-*
 
 
-##### Folders
+#### Folders
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -101,7 +101,7 @@ Function     | Description | Returns
 **get(index)**   | Gets a Folder by index programmatically | *[Folder](#folder)*
 
 
-##### Files
+#### Files
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -109,7 +109,7 @@ Function     | Description | Returns
 **get(index)**   | Gets a File by index programmatically | *[File](#file)*
 
 
-##### Folder
+#### Folder
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -128,7 +128,7 @@ Function     | Description | Returns
 **deletesFile(path)**   | Deletes a File by *path* programmatically | *-*
 
 
-##### File
+#### File
 
 Function     | Description | Returns
 ------------ | ----------- | --------

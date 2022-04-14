@@ -55,7 +55,7 @@ Function     | Description | Returns
 
 ---
 
-##### Resource
+#### Resource
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -79,7 +79,7 @@ Function     | Description | Returns
 **isBinary()** | Returns _true_ if the Resource content is binary | *boolean*
 **getContentType()** | Returns the content type of the Resource | *string*
 
-##### Collection
+#### Collection
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -104,7 +104,7 @@ Function     | Description | Returns
 **createResource(name, content)** | Create new Resource | *Resource*
 
 
-##### EntityInformation
+#### EntityInformation
 
 Function     | Description | Returns
 ------------ | ----------- | --------

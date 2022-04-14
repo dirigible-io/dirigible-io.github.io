@@ -81,7 +81,7 @@ Function     | Description | Returns
 
 ---
 
-##### HttpFileItems
+#### HttpFileItems
 
 
 Function     | Description | Returns
@@ -106,7 +106,7 @@ Function     | Description | Returns
 **getHeaders()**   | The HttpFileItem's headers | *array of HttpFileItemHeaders*
 
 
-##### HttpFileItemHeaders
+#### HttpFileItemHeaders
 
 
 Function     | Description | Returns

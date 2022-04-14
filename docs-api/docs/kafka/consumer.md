@@ -18,7 +18,7 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 
 ### Basic Usage
 
-##### Start listening on a topic
+#### Start listening on a topic
 
 ```javascript
 var consumer = require("kafka/consumer");
@@ -36,7 +36,7 @@ exports.onError = function(error) {
 };
 ```
 
-##### Stop listening on a topic
+#### Stop listening on a topic
 ```javascript
 var consumer = require("kafka/consumer");
 consumer.topic("topic1", "{}").stopListening();

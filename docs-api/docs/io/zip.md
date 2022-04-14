@@ -73,7 +73,7 @@ Function     | Description | Returns
 
 ---
 
-##### ZipInputStream
+#### ZipInputStream
 
 
 Function     | Description | Returns
@@ -85,7 +85,7 @@ Function     | Description | Returns
 **close()**   | Closes the zip input stream | -
 
 
-##### ZipOutputStream
+#### ZipOutputStream
 
 
 Function     | Description | Returns
@@ -99,7 +99,7 @@ Function     | Description | Returns
 
 
 
-##### ZipEntry
+#### ZipEntry
 
 
 Function     | Description | Returns

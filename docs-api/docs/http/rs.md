@@ -45,7 +45,7 @@ Function     | Description | Returns
 
 
 
-##### HttpController
+#### HttpController
 
 
 Property     | Description | Returns
@@ -56,7 +56,7 @@ Property     | Description | Returns
 
 
 
-##### ResourceMappings
+#### ResourceMappings
 
 
 Property     | Description | Returns
@@ -69,7 +69,7 @@ Property     | Description | Returns
 **execute(oRequest?, oResponse?)**  | Executes the service | *----*
 
 
-##### Resource
+#### Resource
 
 
 Property     | Description | Returns
@@ -86,7 +86,7 @@ Property     | Description | Returns
 **find(sVerb, arrConsumes, arrProduces)**   | Finds a request handler for requests sent to this resource path with HTTP method sVerb and with consumes media type arrConsumes and produces media type arrProduces media type constraints | *ResourceMethod*
 **execute(oRequest?, oResponse?)**  | Executes the service | *----*
 
-##### ResourceMethod
+#### ResourceMethod
 
 
 Property     | Description | Returns

@@ -59,7 +59,7 @@ Function     | Description | Returns
 
 ---
 
-##### InputStream
+#### InputStream
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -69,7 +69,7 @@ Function     | Description | Returns
 **close()**   | Closes this InputStream to release the resources | -
 
 
-##### OutputStream
+#### OutputStream
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -79,11 +79,11 @@ Function     | Description | Returns
 **close()**   | Closes this OutputStream to release the resources | -
 
 
-##### ByteArrayInputStream
+#### ByteArrayInputStream
 
 > inherited from InputStream
 
-##### ByteArrayOutputStream
+#### ByteArrayOutputStream
 
 > inherited from OutputStream and:
 
