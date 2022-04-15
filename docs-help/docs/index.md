@@ -33,7 +33,7 @@ hide:
 	</a>
   </div>
   <div class="column">
-    <a href="../samples/tutorial/contributing-to-ide-modules/">
+    <a href="../samples/tutorials/contributing-to-ide-modules/">
 		<div class="card">
 			<div class="container">
 			<img src="images/homepage/tutorials.svg" alt="Tutorials" style="width:200px;height:200px">
