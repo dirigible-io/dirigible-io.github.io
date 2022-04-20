@@ -409,6 +409,17 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DESTINATION_URL**  | The Destination Service instance url | _`-`_
 **DIRIGIBLE_DESTINATION_URI**  | The Destination Service instance uri | _`-`_
 
+
+### Connectivity
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_CONNECTIVITY_CLIENT_ID**  | The Connectivity Service instance client id | _`-`_
+**DIRIGIBLE_CONNECTIVITY_CLIENT_SECRET** | The Connectivity Service instance client secret | _`-`_
+**DIRIGIBLE_CONNECTIVITY_URL**  | The Connectivity Service instance url | _`-`_
+**DIRIGIBLE_CONNECTIVITY_URI**  | The Connectivity Service instance uri | _`-`_
+
 ### Terminal
 ---
 Parameter     | Description | Default*
