@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2016/08/01/blogs-why-enterprise-js/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1775,165 +1775,165 @@
 <h4 id="database-access">Database Access</h4>
 <p>Very natural for a Java-saurus is to use the JDBC API for access and management of relational databases. It provides classes and methods for the manipulation of the data and the metadata. It is powerful enough and in the same time, well known, so can we reuse it?
 The module <a href="http://www.dirigible.io/api/database.html">db/database</a> gives the port of the main JDBC objects for data management - Datasource, Connection, Statement, ResultSet. An example of how to query the records from a table and print the result into the response stream looks like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">database</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;db/database&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;db/database&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">datasource</span> <span class="o">=</span> <span class="nx">database</span><span class="p">.</span><span class="nx">getDatasource</span><span class="p">();</span> <span class="c1">// default</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">datasource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">database</span><span class="p">.</span><span class="nx">getDatasource</span><span class="p">();</span><span class="w"> </span><span class="c1">// default</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">connection</span> <span class="o">=</span> <span class="nx">datasource</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span>
-<span class="k">try</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">statement</span> <span class="o">=</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">prepareStatement</span><span class="p">(</span><span class="s2">&quot;select * from DGB_FILES where FILE_PATH like ?&quot;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
-    <span class="nx">statement</span><span class="p">.</span><span class="nx">setString</span><span class="p">(</span><span class="o">++</span><span class="nx">i</span><span class="p">,</span> <span class="s2">&quot;%&quot;</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">resultSet</span> <span class="o">=</span> <span class="nx">statement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[path]: &quot;</span> <span class="o">+</span> <span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;FILE_PATH&quot;</span><span class="p">));</span>
-    <span class="p">}</span>
-    <span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-    <span class="nx">statement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-    <span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">datasource</span><span class="p">.</span><span class="nx">getConnection</span><span class="p">();</span><span class="w"></span>
+<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">statement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">connection</span><span class="p">.</span><span class="nx">prepareStatement</span><span class="p">(</span><span class="s2">&quot;select * from DGB_FILES where FILE_PATH like ?&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">statement</span><span class="p">.</span><span class="nx">setString</span><span class="p">(</span><span class="o">++</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;%&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">resultSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">statement</span><span class="p">.</span><span class="nx">executeQuery</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[path]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;FILE_PATH&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">resultSet</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nx">statement</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">connection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h4 id="http-communication">HTTP Communication</h4>
 <p>Another very popular API used in the above example is the Servlet API giving the access from the service body to the current Request, Response and Session objects. You can find more info in the modules <a href="http://www.dirigible.io/api/http_request.html">net/http/request</a>, <a href="http://www.dirigible.io/api/http_response.html">net/http/response</a> and <a href="http://www.dirigible.io/api/http_session.html">net/http/session</a>. What we decided to include also in the Enterprise JavaScript is the de facto standard component for handling of the uploaded binary files. Here is the moment to send big thanks to the Apache guys. Of course, we simplified a lot the API itself and added some utilities functions to make it convenient for the JavaScript developers:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">upload</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/upload&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/request&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/upload&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/request&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s2">&quot;POST&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">files</span> <span class="o">=</span> <span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span>
-        <span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[File Name] &quot;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[File Data]&quot;</span><span class="p">);</span>
-            <span class="c1">// response.println(file.data); // as a raw byte array or as a string below</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">file</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
-        <span class="p">});</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span> <span class="o">===</span> <span class="s2">&quot;GET&quot;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="nx">files</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[File Name] &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">file</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[File Data]&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// response.println(file.data); // as a raw byte array or as a string below</span><span class="w"></span>
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>More info can be found in module <a href="http://www.dirigible.io/api/http_upload.html">net/http/upload</a>.</p>
 <p>We also needed an HTTP client API to call external services. This one we defined similar to jQuery, no matter it is backed by the Apache's HTTPClient. You can use the module <a href="http://www.dirigible.io/api/http_client.html">net/http/client</a> to retrieve the raw data from an endpoint and print it to the response stream:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/client&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/client&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="c1">// default</span>
-    <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;http://services.odata.org&#39;</span><span class="p">,</span>
-    <span class="nx">port</span><span class="o">:</span> <span class="mf">80</span><span class="p">,</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/V4/Northwind/Northwind.svc/&#39;</span><span class="p">,</span>
-    <span class="nx">binary</span><span class="o">:</span> <span class="kc">false</span> 
-<span class="p">};</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// default</span><span class="w"></span>
+<span class="w">    </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://services.odata.org&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/V4/Northwind/Northwind.svc/&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">binary</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">httpResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>or even simpler:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://services.odata.org/V4/Northwind/Northwind.svc/&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">httpResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;http://services.odata.org/V4/Northwind/Northwind.svc/&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="websockets-and-soap">WebSockets and SOAP</h3>
 <p>If you need bi-directional communication channel in your use case, you can utilize the WebSockets module <a href="http://www.dirigible.io/api/websocket.html">net/websocket</a>. You can implement a handler for the received messages as well as to send messages back through the channel of the same session.</p>
 <p>Can we name this API "Enterprise" without including the SOAP web services? Of course, not! In the module <a href="http://www.dirigible.io/api/soap.html">net/soap</a> you can find how to construct a SOAP massage in order to be able to call an external SOAP web service. You can even create your own SOAP web service! Although, we are not completely sure why you would do this, but you can.</p>
 <h3 id="files-and-streams">Files and Streams</h3>
 <p>To standardize the IO access to the underlying file system we added the module <a href="http://www.dirigible.io/api/files.html">io/files</a>. How to create, copy and delete a file with this module is shown below:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">files</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="s2">&quot;../temp/file1.txt&quot;</span><span class="p">);</span>
-<span class="nx">files</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">&quot;../temp/file1.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;../temp/file2.txt&quot;</span><span class="p">);</span>
-<span class="nx">files</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;../temp/file2.txt&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">files</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="s2">&quot;../temp/file1.txt&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">files</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="s2">&quot;../temp/file1.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;../temp/file2.txt&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">files</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;../temp/file2.txt&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <p>You can also read, write and inspect the file and folders attributes.</p>
 <p>Reading from and writing to streams, for example, memory byte arrays, is possible via the module <a href="http://www.dirigible.io/api/streams.html">net/streams</a>.</p>
 <h3 id="indexing-messaging-mail">Indexing, Messaging, Mail...</h3>
 <p>The modules under the main package <strong>service</strong> e.g. <a href="http://www.dirigible.io/api/indexing.html">service/indexing</a>, <a href="http://www.dirigible.io/api/messaging.html">service/messaging</a>, and so on represents the underlying platform services. These services, as well as their management and operation, are usually provided by the platform on which Eclipse Dirigible is running. The quality and the performance of the services themselves can differ depending on the platform provider, but the goal here is to provide a unified manner of using such standard services, or at least the common denominator of their capabilities.</p>
 <p>For instance if you want to create a free text search index, you can do it like this:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">indexing</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;service/indexing&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">indexing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;service/indexing&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">indexing</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">(</span><span class="s2">&quot;myIndex&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">document1</span> <span class="o">=</span> <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;some cool content 1&quot;</span>
-    <span class="p">};</span>
-<span class="kd">var</span> <span class="nx">document2</span> <span class="o">=</span> <span class="p">{</span>
-       <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-       <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;some cool content 2&quot;</span>
-    <span class="p">};</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">indexing</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">(</span><span class="s2">&quot;myIndex&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">document1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;some cool content 1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">document2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="s2">&quot;content&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;some cool content 2&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="nx">index</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">document1</span><span class="p">);</span>
-<span class="nx">index</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">document2</span><span class="p">);</span>
+<span class="nx">index</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">document1</span><span class="p">);</span><span class="w"></span>
+<span class="nx">index</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">document2</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;cool&quot;</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;cool&#39;]: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>    
-<span class="p">}</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;cool&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;cool&#39;]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w">    </span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">results</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">result</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;1&#39;]: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;1&#39;]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">results</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">);</span>
-<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">result</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;2&#39;]: &quot;</span> <span class="o">+</span> <span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">index</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Found for &#39;2&#39;]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="nx">index</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+<span class="nx">index</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>Eclipse Dirigible provides default sample implementations of all the service APIs. To be able to redirect the API to the real platform service, you need to implement an adapter plugin to this service if it is not already available and then to configure the usage.</p>
 <h3 id="utilities">Utilities</h3>
 <p>Another set of modules under the package <strong>utils</strong>, provides some commodity functionality backed mainly by the Apache Commons - <a href="http://www.dirigible.io/api/utils_base64.html">utils/base64</a>, <a href="http://www.dirigible.io/api/utils_digest.html">utils/digest</a>, <a href="http://www.dirigible.io/api/utils_hex.html">utils/hex</a>, etc.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">hex</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;utils/hex&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;utils/hex&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;Hex Encoded&#39;</span><span class="p">));</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;48657820456e636f646564&#39;</span><span class="p">));</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;Hex Encoded&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;48657820456e636f646564&#39;</span><span class="p">));</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h3 id="threads">Threads</h3>
 <p>What would you say to have thread management API in JavaScript? This is missing even in the most popular - Node.js framework. In the Enterprise JavaScript module <a href="http://www.dirigible.io/api/threads.html">core/threads</a> you can use a simple function as a "runnable" object. You can start/stop new threads, wait and notify locks and even use of synchronized functions.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">threads</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;core/threads&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;core/threads&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net/http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// Define a JavaScript function</span>
-<span class="kd">function</span> <span class="nx">runnable</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello World from a Thread!&quot;</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="c1">// Define a JavaScript function</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">runnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello World from a Thread!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// Pass a JavaScript function</span>
-<span class="kd">var</span> <span class="nx">worker</span> <span class="o">=</span> <span class="nx">threads</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">runnable</span><span class="p">,</span> <span class="s2">&quot;I am a thread&quot;</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">worker</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
-<span class="nx">worker</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-<span class="nx">worker</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span> <span class="c1">// to be able to print to the response</span>
+<span class="c1">// Pass a JavaScript function</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">threads</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">runnable</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I am a thread&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">worker</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span><span class="w"></span>
+<span class="nx">worker</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span><span class="w"> </span><span class="c1">// to be able to print to the response</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <blockquote>
 <p>Be sure that you use this module with caution!</p>
@@ -2095,7 +2095,7 @@ Everything you need to know about it is at <a href="http://api.dirigible.io">htt
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

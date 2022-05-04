@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/complex/bookstore/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1431,161 +1431,161 @@ It contains a database table definition, a RESTful service and a web page for ma
 <li>Create a JavaScript service named <strong>Books.js</strong> under the folder <strong>dao</strong>.</li>
 <li>Replace the service code with the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">daoApi</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;db/v4/dao&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">dao</span> <span class="o">=</span> <span class="nx">daoApi</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-    <span class="s1">&#39;table&#39;</span><span class="o">:</span> <span class="s1">&#39;BABYLON_BOOKS&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;properties&#39;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;id&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_ID&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;INTEGER&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">true</span>
-        <span class="p">},</span>      <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;isbn&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_ISBN&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;CHAR&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>      <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;title&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_TITLE&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>      <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;publisher&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_PUBLISHER&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>      <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;date&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_DATE&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;DATE&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">true</span>
-        <span class="p">},</span>      <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="o">:</span>  <span class="s1">&#39;price&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;column&#39;</span><span class="o">:</span> <span class="s1">&#39;BOOK_PRICE&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;DOUBLE&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s1">&#39;required&#39;</span><span class="o">:</span> <span class="kc">true</span>
-        <span class="p">}]</span>
-<span class="p">});</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">daoApi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;db/v4/dao&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">daoApi</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;table&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BABYLON_BOOKS&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s1">&#39;properties&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_ID&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;INTEGER&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;isbn&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_ISBN&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;CHAR&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_TITLE&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;publisher&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_PUBLISHER&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_DATE&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;DATE&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w">  </span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;column&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;BOOK_PRICE&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;DOUBLE&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;id&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s1">&#39;required&#39;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">}]</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="nx">settings</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="nx">settings</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">get</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">get</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">create</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="nx">exports</span><span class="p">.</span><span class="ow">delete</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">dao</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="nx">exports</span><span class="p">.</span><span class="ow">delete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">dao</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <h4 id="restful-service">RESTful Service</h4>
 <ol>
 <li>Then create a <strong>Books.js</strong> service file under the folder <strong>service</strong></li>
 <li>Replace the content with the following code:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">rs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/rs&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">dao</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;babylon_project/dao/Books&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/rs&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;babylon_project/dao/Books&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// HTTP 200</span>
-<span class="kd">var</span> <span class="nx">sendResponseOk</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sendResponse</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span> <span class="nx">entity</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="c1">// HTTP 200</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponseOk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// HTTP 201</span>
-<span class="kd">var</span> <span class="nx">sendResponseCreated</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sendResponse</span><span class="p">(</span><span class="mf">201</span><span class="p">,</span> <span class="nx">entity</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="c1">// HTTP 201</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponseCreated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="mf">201</span><span class="p">,</span><span class="w"> </span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// HTTP 200</span>
-<span class="kd">var</span> <span class="nx">sendResponseNoContent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">sendResponse</span><span class="p">(</span><span class="mf">204</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="c1">// HTTP 200</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponseNoContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="mf">204</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// HTTP 400</span>
-<span class="kd">var</span> <span class="nx">sendResponseBadRequest</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sendResponse</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="o">:</span> <span class="mf">400</span><span class="p">,</span>
-        <span class="s1">&#39;message&#39;</span><span class="o">:</span> <span class="nx">message</span>
-    <span class="p">});</span>
-<span class="p">};</span>
+<span class="c1">// HTTP 400</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponseBadRequest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;code&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">400</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;message&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// HTTP 404</span>
-<span class="kd">var</span> <span class="nx">sendResponseNotFound</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">sendResponse</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;code&#39;</span><span class="o">:</span> <span class="mf">404</span><span class="p">,</span>
-        <span class="s1">&#39;message&#39;</span><span class="o">:</span> <span class="nx">message</span>
-    <span class="p">});</span>
-<span class="p">};</span>
+<span class="c1">// HTTP 404</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponseNotFound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sendResponse</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;code&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">404</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;message&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="c1">// Generic</span>
-<span class="kd">var</span> <span class="nx">sendResponse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s1">&#39;application/json&#39;</span><span class="p">);</span>
-    <span class="nx">response</span><span class="p">.</span><span class="nx">setStatus</span><span class="p">(</span><span class="nx">status</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">));</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+<span class="c1">// Generic</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sendResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">status</span><span class="p">,</span><span class="w"> </span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s1">&#39;application/json&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">setStatus</span><span class="p">(</span><span class="nx">status</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 
-<span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">entities</span> <span class="o">=</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
-            <span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entities</span><span class="p">);</span>
-        <span class="p">})</span>
-    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nx">sendResponseNotFound</span><span class="p">(</span><span class="s1">&#39;Books not found&#39;</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">})</span>
-    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">();</span>
-            <span class="nx">entity</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-            <span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Location&#39;</span><span class="p">,</span> <span class="s1">&#39;/services/v4/js/babylon_project/service/Books.js/&#39;</span> <span class="o">+</span> <span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
-            <span class="nx">sendResponseCreated</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-        <span class="p">})</span>
-    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">();</span>
-            <span class="nx">entity</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-            <span class="nx">dao</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-            <span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span>
-        <span class="p">})</span>
-    <span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span>
-        <span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-            <span class="kd">var</span> <span class="nx">entity</span> <span class="o">=</span> <span class="nx">dao</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">dao</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
-                <span class="nx">sendResponseNoContent</span><span class="p">();</span>
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nx">sendResponseNotFound</span><span class="p">(</span><span class="s1">&#39;Books not found&#39;</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">})</span>
-<span class="p">.</span><span class="nx">execute</span><span class="p">();</span>
+<span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">entities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entities</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">sendResponseNotFound</span><span class="p">(</span><span class="s1">&#39;Books not found&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/services/v4/js/babylon_project/service/Books.js/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">sendResponseCreated</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nx">dao</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">sendResponseOk</span><span class="p">(</span><span class="nx">entity</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s1">&#39;{id}&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">pathParameters</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">dao</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="nx">sendResponseNoContent</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">sendResponseNotFound</span><span class="p">(</span><span class="s1">&#39;Books not found&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="p">.</span><span class="nx">execute</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h4 id="user-interface">User Interface</h4>
 <ol>
@@ -1706,81 +1706,81 @@ It contains a database table definition, a RESTful service and a web page for ma
 <li>Create the controller file as <strong>controller.js</strong> under the same <strong>view</strong> folder next to the <em>index.html</em></li>
 <li>Replace the content with the following code:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="p">[]);</span>
-<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PageController&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[]);</span><span class="w"></span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;PageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">$http</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="s1">&#39;/services/v4/js/babylon_project/service/Books.js&#39;</span><span class="p">;</span>
-
-
-
-    <span class="kd">function</span> <span class="nx">load</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">api</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
-    <span class="nx">load</span><span class="p">();</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">openNewDialog</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span> <span class="o">=</span> <span class="s1">&#39;new&#39;</span><span class="p">;</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span> <span class="o">=</span> <span class="p">{};</span>
-        <span class="nx">toggleEntityModal</span><span class="p">();</span>
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">openEditDialog</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span> <span class="o">=</span> <span class="s1">&#39;update&#39;</span><span class="p">;</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span> <span class="o">=</span> <span class="nx">entity</span><span class="p">;</span>
-        <span class="nx">toggleEntityModal</span><span class="p">();</span>
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">openDeleteDialog</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span> <span class="o">=</span> <span class="s1">&#39;delete&#39;</span><span class="p">;</span>
-        <span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span> <span class="o">=</span> <span class="nx">entity</span><span class="p">;</span>
-        <span class="nx">toggleEntityModal</span><span class="p">();</span>
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">close</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">load</span><span class="p">();</span>
-        <span class="nx">toggleEntityModal</span><span class="p">();</span>
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">))</span>
-        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">load</span><span class="p">();</span>
-            <span class="nx">toggleEntityModal</span><span class="p">();</span>
-        <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-        <span class="p">});</span>
-
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="nx">update</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$http</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">))</span>
-
-        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">load</span><span class="p">();</span>
-            <span class="nx">toggleEntityModal</span><span class="p">();</span>
-        <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-        <span class="p">})</span>
-    <span class="p">};</span>
-
-    <span class="nx">$scope</span><span class="p">.</span><span class="ow">delete</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$http</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">load</span><span class="p">();</span>
-            <span class="nx">toggleEntityModal</span><span class="p">();</span>
-        <span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-        <span class="p">});</span>
-    <span class="p">};</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/services/v4/js/babylon_project/service/Books.js&#39;</span><span class="p">;</span><span class="w"></span>
 
 
-    <span class="kd">function</span> <span class="nx">toggleEntityModal</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#entityModal&#39;</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">load</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">api</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">load</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">openNewDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;new&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="w">        </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">openEditDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;update&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entity</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">openDeleteDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">actionType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;delete&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">entity</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">close</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">load</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">create</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">api</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">load</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$http</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">api</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">load</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="ow">delete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$http</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">api</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">load</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">toggleEntityModal</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}).</span><span class="nx">error</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">alert</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">toggleEntityModal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#entityModal&#39;</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">&#39;toggle&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 <h4 id="publish-and-preview">Publish and Preview</h4>
 <ol>
@@ -1940,7 +1940,7 @@ It contains a database table definition, a RESTful service and a web page for ma
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

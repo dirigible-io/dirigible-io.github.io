@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/tutorials/helium-custom-stack/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1625,32 +1625,32 @@ Such a custom stack contains only the core components of Dirigible plus the cust
 <p>The Java code can be integrated nicely into the custom stack not only as a side-car 3-thd party component, but also as a custom functionality exposed to the Dirigible's layer via an API bridge.</p>
 <p>You can have a look at the sub-project here <a href="https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/tree/master/helium/core/java">https://github.com/dirigiblelabs/sample-v3-helium-custom-stack/tree/master/helium/core/java</a></p>
 <p>The Java side is a facade class which exposes a given functionality to the above layer:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span> <span class="nn">io.dirigible.helium</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.helium</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HeliumFacade</span> <span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HeliumFacade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">boolean</span> <span class="nf">isInert</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isInert</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-<span class="p">}</span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>In our case it is over-simplified to just return a boolean flag and no input parameters present. In general, you can use more complex functions described here: <a href="https://github.com/eclipse/dirigible/wiki/api-v4-guidelines">https://github.com/eclipse/dirigible/wiki/api-v4-guidelines</a></p>
 <p>At the JavaScript side you have an API module, which performs the actual call via the Java bridge:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">isInert</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">Packages</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">helium</span><span class="p">.</span><span class="nx">HeliumFacade</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span>
-    <span class="k">return</span> <span class="nx">output</span><span class="p">;</span>
-<span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">isInert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Packages</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">helium</span><span class="p">.</span><span class="nx">HeliumFacade</span><span class="p">.</span><span class="nx">isInert</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">output</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <p>In this way you can use de-facto arbitrary Java class and method from your favorite framework as JavaScript function in Dirigible's layer. The sample module shows how to use the API bridge afterwards:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">helium</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sample/helium&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">isInert</span> <span class="o">=</span> <span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">helium</span><span class="p">.</span><span class="nx">isInert</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">isInert</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">helium</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;sample/helium&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">isInert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">helium</span><span class="p">.</span><span class="nx">isInert</span><span class="p">());</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">isInert</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Is Helium an inert gas? - &quot;</span> <span class="o">+</span> <span class="nx">isInert</span><span class="p">);</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Is Helium an inert gas? - &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">isInert</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <h3 id="build-and-package">Build and Package</h3>
 <p>Once we have all the artifacts in place, we can run the standard build and package command:</p>
@@ -1816,7 +1816,7 @@ Such a custom stack contains only the core components of Dirigible plus the cust
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

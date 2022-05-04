@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/help/development/extensions/template/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -2133,25 +2133,25 @@
 <li><code>extensionPoint</code> - The name of the built-in extension point to which the current plugin will contribute.</li>
 </ul>
 <h3 id="my-templatejs">my-template.js</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getTemplate</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">template</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;My Template&quot;</span><span class="p">,</span>
-    <span class="nx">description</span><span class="o">:</span> <span class="s2">&quot;My cool template&quot;</span><span class="p">,</span>
-    <span class="nx">extension</span><span class="o">:</span> <span class="s2">&quot;myfile&quot;</span><span class="p">,</span>
-    <span class="nx">sources</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">location</span><span class="o">:</span> <span class="s2">&quot;/my-project/my-source.template&quot;</span><span class="p">,</span>
-        <span class="nx">action</span><span class="o">:</span> <span class="s2">&quot;generate&quot;</span><span class="p">,</span>
-        <span class="nx">rename</span><span class="o">:</span> <span class="s2">&quot;{{fileName}}.&quot;</span><span class="p">,</span>
-        <span class="nx">engine</span><span class="o">:</span> <span class="s2">&quot;velocity&quot;</span><span class="p">,</span>
-        <span class="nx">start</span> <span class="o">:</span> <span class="s2">&quot;[[&quot;</span><span class="p">,</span>
-        <span class="nx">end</span> <span class="o">:</span> <span class="s2">&quot;]]&quot;</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nx">parameters</span><span class="o">:</span> <span class="p">[]</span>
-  <span class="p">};</span>
-  <span class="k">return</span> <span class="nx">template</span><span class="p">;</span>
-<span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getTemplate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My Template&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My cool template&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">extension</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;myfile&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sources</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">location</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/my-project/my-source.template&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;generate&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">rename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{fileName}}.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">engine</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;velocity&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">start</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;[[&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">end</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;]]&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">parameters</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">template</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 <ul>
 <li><code>name</code> - The exact name of the template, which will be shown in drop-down boxes.</li>
@@ -2346,7 +2346,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

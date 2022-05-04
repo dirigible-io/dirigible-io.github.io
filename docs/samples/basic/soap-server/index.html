@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/samples/basic/soap-server/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1261,63 +1261,63 @@
 <li>Create a JavaScript service with the name <code>soap-server.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">soap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/v4/soap&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">xml</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/xml&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">soap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/v4/soap&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/xml&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="c1">// Parse SOAP request</span>
-<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="nx">soap</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span>
+<span class="c1">// Parse SOAP request</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">soap</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">requestPart</span> <span class="o">=</span> <span class="nx">message</span><span class="p">.</span><span class="nx">getPart</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">requestEnvelope</span> <span class="o">=</span> <span class="nx">requestPart</span><span class="p">.</span><span class="nx">getEnvelope</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">requestBody</span> <span class="o">=</span> <span class="nx">requestEnvelope</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">childElements</span> <span class="o">=</span> <span class="nx">requestBody</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">();</span>
-<span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">requestPart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">getPart</span><span class="p">();</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">requestEnvelope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestPart</span><span class="p">.</span><span class="nx">getEnvelope</span><span class="p">();</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">requestBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestEnvelope</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">childElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestBody</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">();</span><span class="w"></span>
+<span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/xml; charset=utf-8&quot;</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/xml; charset=utf-8&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;soap:Envelope&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;-xmlns:soap&quot;</span><span class="o">:</span> <span class="s2">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-xmlns:xsd&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;-xmlns:xsi&quot;</span><span class="o">:</span> <span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;soap:Body&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">ResolveIPResponse</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;-xmlns&quot;</span><span class="o">:</span> <span class="s2">&quot;http://ws.cdyne.com/&quot;</span><span class="p">,</span>
-        <span class="nx">ResolveIPResult</span><span class="o">:</span> <span class="p">{</span>
-          <span class="nx">Country</span><span class="o">:</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span>
-          <span class="nx">Organization</span><span class="o">:</span> <span class="p">{},</span>
-          <span class="nx">Latitude</span><span class="o">:</span> <span class="s2">&quot;51.2993&quot;</span><span class="p">,</span>
-          <span class="nx">Longitude</span><span class="o">:</span> <span class="s2">&quot;9.490997&quot;</span><span class="p">,</span>
-          <span class="nx">AreaCode</span><span class="o">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
-          <span class="nx">TimeZone</span><span class="o">:</span> <span class="p">{},</span>
-          <span class="nx">HasDaylightSavings</span><span class="o">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
-          <span class="nx">Certainty</span><span class="o">:</span> <span class="s2">&quot;90&quot;</span><span class="p">,</span>
-          <span class="nx">RegionName</span><span class="o">:</span> <span class="p">{},</span>
-          <span class="nx">CountryCode</span><span class="o">:</span> <span class="s2">&quot;DE&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-      <span class="p">},</span>
-    <span class="p">},</span>
-  <span class="p">},</span>
-<span class="p">};</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s2">&quot;soap:Envelope&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-xmlns:soap&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-xmlns:xsd&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-xmlns:xsi&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;soap:Body&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nx">ResolveIPResponse</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;-xmlns&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;http://ws.cdyne.com/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">ResolveIPResult</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Country</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Organization</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Latitude</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;51.2993&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Longitude</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;9.490997&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">AreaCode</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">TimeZone</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">          </span><span class="nx">HasDaylightSavings</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">Certainty</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;90&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nx">RegionName</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">          </span><span class="nx">CountryCode</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DE&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">xml</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">xml</span><span class="p">.</span><span class="nx">fromJson</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">));</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">payload</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 
-<span class="kd">function</span> <span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">());</span>
-      <span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">}</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">printElements</span><span class="p">(</span><span class="nx">childElements</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">childElements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">isSOAPElement</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">getElementName</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">getLocalName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">());</span><span class="w"></span>
+<span class="w">      </span><span class="nx">printElements</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">getChildElements</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">});</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <hr />
 <blockquote>
@@ -1472,7 +1472,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://www.dirigible.io/api/indexing/searcher/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1697,14 +1697,14 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">writer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/writer&quot;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">searcher</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/searcher&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/writer&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">searcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/searcher&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file1&quot;</span><span class="p">,</span> <span class="s2">&quot;apache lucene&quot;</span><span class="p">,</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">123</span><span class="p">));</span>
-<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file2&quot;</span><span class="p">,</span> <span class="s2">&quot;lucene - the search engine&quot;</span><span class="p">,</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">234</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span>
-<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="s2">&quot;file3&quot;</span><span class="p">,</span> <span class="s2">&quot;search engine&quot;</span><span class="p">,</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">345</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span>
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;file1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;apache lucene&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">123</span><span class="p">));</span><span class="w"></span>
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;file2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lucene - the search engine&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">234</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span><span class="w"></span>
+<span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;file3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;search engine&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">345</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span><span class="w"></span>
 
-<span class="kd">var</span> <span class="nx">found</span> <span class="o">=</span> <span class="nx">searcher</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">124</span><span class="p">),</span> <span class="ow">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mf">344</span><span class="p">));</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">searcher</span><span class="p">.</span><span class="nx">between</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">124</span><span class="p">),</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">344</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
@@ -1888,7 +1888,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

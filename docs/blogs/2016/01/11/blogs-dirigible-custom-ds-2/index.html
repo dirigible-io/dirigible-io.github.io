@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2016/01/11/blogs-dirigible-custom-ds-2/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1911,16 +1911,16 @@
 <p>Technologies such as Dirigible delegate to concrete dialects the handling of database-specific statements and the interface <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/IDialectSpecifier.java">IDialectSpecifier</a> defines this contract. In addition, the interface also specifies some more generic characteristics of a database product kind, such as if it is a schemaless database or not (Yes, we look at you NoSQL! But more on that in a future blog).</p>
 <p>To make things easier and reduce redundant code to the minimum, Dirigible provides an out-of-the-box, convenience, common implementation for relational databases called <a href="https://github.com/eclipse/dirigible/blob/master/org.eclipse.dirigible/org.eclipse.dirigible.parent/repository/org.eclipse.dirigible.repository.ext/src/org/eclipse/dirigible/repository/ext/db/dialect/RDBGenericDialectSpecifier.java">RDBGenericDialectSpecifier</a>.</p>
 <p>An absolutely minimal implementation of a dialect is the following</p>
-<div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">H2DBSpecifier</span> <span class="kd">extends</span> <span class="n">RDBGenericDialectSpecifier</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">H2DBSpecifier</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RDBGenericDialectSpecifier</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PRODUCT_NAME</span> <span class="o">=</span> <span class="s">&quot;H2&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PRODUCT_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;H2&quot;</span><span class="p">;</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span> <span class="n">productName</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">productName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>It doesn’t do much but is just enough to get us going. We will leave it as it is for now and proceed with some plumbing. Later, we shall come back to the class for a more elaborate insight and implementation.</p>
 <h2 id="bundling">Bundling</h2>
@@ -1999,52 +1999,52 @@
 <p>But above all it's worth mentioning here the <code>isDialectForName</code> method. As you probably noted, this was the only one that was part of the minimal implementation of a dialect. What it does essentially is to assess the dialect where it is declared is applicable for the database product name supplied as argument for the <code>productName</code> parameter of the method. The value of the <code>productName</code> parameter is the string supplied by JDBC drivers implementation of <a href="https://docs.oracle.com/javase/7/docs/api/java/sql/DatabaseMetaData.html#getDatabaseProductName()">DatabaseMetaData#getDatabaseProductName</a> API. Dirigible uses this to determine, which of the available service implementations of IDialectSpecifier is applicable for a given database.</p>
 <h2 id="wrapping-up">Wrapping up</h2>
 <p>Summing up what we already know about the <code>IDialectSpecifier</code> interface, here is a slightly more elaborated variant of the minimal dialect implementation that we started with:</p>
-<div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">H2DBSpecifier</span> <span class="kd">extends</span> <span class="n">RDBGenericDialectSpecifier</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">H2DBSpecifier</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RDBGenericDialectSpecifier</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PRODUCT_NAME</span> <span class="o">=</span> <span class="s">&quot;H2&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">PRODUCT_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;H2&quot;</span><span class="p">;</span><span class="w"></span>
 
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_TIMESTAMP</span> <span class="o">=</span> <span class="s">&quot;TIMESTAMP&quot;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_CLOB</span> <span class="o">=</span> <span class="s">&quot;CLOB&quot;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_BLOB</span> <span class="o">=</span> <span class="s">&quot;BLOB&quot;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_CURRENT_TIMESTAMP</span> <span class="o">=</span> <span class="s">&quot;CURRENT_TIMESTAMP&quot;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_BIG_VARCHAR</span> <span class="o">=</span> <span class="s">&quot;VARCHAR(1000)&quot;</span><span class="p">;</span>
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">H2_KEY_VARCHAR</span> <span class="o">=</span> <span class="s">&quot;VARCHAR(4000)&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_TIMESTAMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TIMESTAMP&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_CLOB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CLOB&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_BLOB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BLOB&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_CURRENT_TIMESTAMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CURRENT_TIMESTAMP&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_BIG_VARCHAR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;VARCHAR(1000)&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">H2_KEY_VARCHAR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;VARCHAR(4000)&quot;</span><span class="p">;</span><span class="w"></span>
 
-        <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">LIMIT_D_D</span> <span class="o">=</span> <span class="s">&quot;LIMIT %d OFFSET %d&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">LIMIT_D_D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LIMIT %d OFFSET %d&quot;</span><span class="p">;</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span> <span class="n">productName</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isDialectForName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">productName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">PRODUCT_NAME</span><span class="p">.</span><span class="na">equalsIgnoreCase</span><span class="p">(</span><span class="n">productName</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">specify</span><span class="p">(</span><span class="n">String</span> <span class="n">sql</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">sql</span><span class="o">==</span><span class="kc">null</span> <span class="o">||</span> <span class="n">sql</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">sql</span><span class="p">;</span>
-            <span class="k">return</span> <span class="n">sql</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_TIMESTAMP</span><span class="p">,</span> <span class="n">H2_TIMESTAMP</span><span class="p">)</span>
-                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CLOB</span><span class="p">,</span> <span class="n">H2_CLOB</span><span class="p">)</span>
-                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BLOB</span><span class="p">,</span> <span class="n">H2_BLOB</span><span class="p">)</span>
-                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CURRENT_TIMESTAMP</span><span class="p">,</span> <span class="n">H2_CURRENT_TIMESTAMP</span><span class="p">)</span>
-                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BIG_VARCHAR</span><span class="p">,</span> <span class="n">H2_BIG_VARCHAR</span><span class="p">)</span>
-                        <span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_KEY_VARCHAR</span><span class="p">,</span> <span class="n">H2_KEY_VARCHAR</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">specify</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">sql</span><span class="o">==</span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">sql</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">sql</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">sql</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="n">H2_TIMESTAMP</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CLOB</span><span class="p">,</span><span class="w"> </span><span class="n">H2_CLOB</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BLOB</span><span class="p">,</span><span class="w"> </span><span class="n">H2_BLOB</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="n">H2_CURRENT_TIMESTAMP</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_BIG_VARCHAR</span><span class="p">,</span><span class="w"> </span><span class="n">H2_BIG_VARCHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="n">DIALECT_KEY_VARCHAR</span><span class="p">,</span><span class="w"> </span><span class="n">H2_KEY_VARCHAR</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">createLimitAndOffset</span><span class="p">(</span><span class="kt">int</span> <span class="n">limit</span><span class="p">,</span> <span class="kt">int</span> <span class="n">offset</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">LIMIT_D_D</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">limit</span><span class="p">);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">createLimitAndOffset</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">LIMIT_D_D</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="n">limit</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAlterAddOpen</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="s">&quot; ADD( &quot;</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getAlterAddOpen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot; ADD( &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAlterAddClose</span><span class="p">()</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="s">&quot;)&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getAlterAddClose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
         <!-- Last update of source file -->
@@ -2199,7 +2199,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>

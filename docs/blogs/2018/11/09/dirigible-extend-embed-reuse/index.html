@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2018/11/09/dirigible-extend-embed-reuse/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -21,10 +21,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -1762,37 +1762,37 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 <h3 id="database-sql-builder">Database - SQL Builder:</h3>
 <ol>
 <li>Builder:
-    <div class="highlight"><pre><span></span><code><span class="p">...</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.dirigible.database.sql.SqlFactory</span><span class="p">;</span>
-<span class="p">...</span>
+    <div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.eclipse.dirigible.database.sql.SqlFactory</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentsDao</span> <span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentsDao</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">SqlFactory</span> <span class="n">sqlFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">SqlFactory</span><span class="w"> </span><span class="n">sqlFactory</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span> <span class="nf">searchByFirstName</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">String</span> <span class="n">sql</span> <span class="o">=</span> <span class="n">getSqlFactory</span><span class="p">()</span>
-                <span class="p">.</span><span class="na">select</span><span class="p">()</span>
-                <span class="p">.</span><span class="na">column</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span>
-                <span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">&quot;STUDENTS&quot;</span><span class="p">)</span>
-                <span class="p">.</span><span class="na">where</span><span class="p">(</span><span class="s">&quot;STUDENT_FIRST_NAME like ?&quot;</span><span class="p">)</span>
-                <span class="p">.</span><span class="na">build</span><span class="p">();</span>
-        <span class="k">return</span> <span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">searchByFirstName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSqlFactory</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">select</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">column</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">&quot;STUDENTS&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">where</span><span class="p">(</span><span class="s">&quot;STUDENT_FIRST_NAME like ?&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">private</span> <span class="n">SqlFactory</span> <span class="nf">getSqlFactory</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">sqlFactory</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-            <span class="k">try</span> <span class="p">{</span>
-                <span class="n">connection</span> <span class="o">=</span> <span class="n">getConnection</span><span class="p">();</span>
-                <span class="n">sqlFactory</span> <span class="o">=</span> <span class="n">SqlFactory</span><span class="p">.</span><span class="na">getNative</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-                <span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">sqlFactory</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">...</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">SqlFactory</span><span class="w"> </span><span class="nf">getSqlFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sqlFactory</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getConnection</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="n">sqlFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlFactory</span><span class="p">.</span><span class="na">getNative</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sqlFactory</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </code></pre></div></li>
 <li>Dependency:
     <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
@@ -1807,52 +1807,52 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 <ol>
 <li>
 <p>Entity</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">...</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="p">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="p">;</span>
-<span class="p">...</span>
+<p><div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.Column</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.GeneratedValue</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.GenerationType</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.Id</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.persistence.Table</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 
-<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;STUDENTS&quot;</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentEntity</span> <span class="p">{</span>
+<span class="nd">@Table</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;STUDENTS&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentEntity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    <span class="nd">@Id</span>
-    <span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span>
-    <span class="nd">@Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;STUDENT_ID&quot;</span><span class="p">,</span> <span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">&quot;BIGINT&quot;</span><span class="p">)</span>
-    <span class="kd">private</span> <span class="n">Long</span> <span class="n">id</span><span class="p">;</span>
-<span class="p">...</span>
+<span class="w">    </span><span class="nd">@Id</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@GeneratedValue</span><span class="p">(</span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GenerationType</span><span class="p">.</span><span class="na">IDENTITY</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Column</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;STUDENT_ID&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">columnDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BIGINT&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </code></pre></div>
 1. DAO:
-<div class="highlight"><pre><span></span><code><span class="p">...</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.dirigible.database.persistence.PersistenceManager</span><span class="p">;</span>
-<span class="p">...</span>
+<div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.eclipse.dirigible.database.persistence.PersistenceManager</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentsDao</span> <span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StudentsDao</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
-    <span class="kd">private</span> <span class="n">PersistenceManager</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span> <span class="n">persistenceManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PersistenceManager</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">PersistenceManager</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="n">persistenceManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PersistenceManager</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="n">StudentEntity</span> <span class="nf">find</span><span class="p">(</span><span class="n">Long</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="n">connection</span> <span class="o">=</span> <span class="n">getConnection</span><span class="p">();</span>
-            <span class="k">return</span> <span class="n">persistenceManager</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">StudentEntity</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">id</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-            <span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">StudentEntity</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getConnection</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">persistenceManager</span><span class="p">.</span><span class="na">find</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span><span class="w"> </span><span class="n">StudentEntity</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span> <span class="nf">query</span><span class="p">(</span><span class="n">String</span> <span class="n">sql</span><span class="p">,</span> <span class="n">Object</span><span class="p">...</span> <span class="n">values</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Connection</span> <span class="n">connection</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-        <span class="k">try</span> <span class="p">{</span>
-            <span class="n">connection</span> <span class="o">=</span> <span class="n">getConnection</span><span class="p">();</span>
-            <span class="k">return</span> <span class="n">persistenceManager</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">StudentEntity</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="n">sql</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
-            <span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">...</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">StudentEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="p">...</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">Connection</span><span class="w"> </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getConnection</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">persistenceManager</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span><span class="w"> </span><span class="n">StudentEntity</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">sql</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">closeConnection</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </code></pre></div>
 1. Dependency</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
@@ -1866,16 +1866,16 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
 <h2 id="embedded-dirigible">Embedded Dirigible</h2>
 <p><img alt="Embedded-Dirigible" class="img-responsive" src="/img/posts/20181109/Embedded-Dirigible.png" /></p>
 <p>The last option is the hybrid/embedded deployment, where a legacy application is running in coexistence with part of the Dirigible stack. The setup targets the scenarios where there is a lot of legacy (Java) code, but the <em><strong>low-code/no-code</strong></em> and <em><strong>In-System Development</strong></em> capabilities of Dirigible are desired. </p>
-<div class="highlight"><pre><span></span><code><span class="p">...</span>
-<span class="kn">import</span> <span class="nn">org.eclipse.dirigible.runtime.core.embed.EmbeddedDirigible</span><span class="p">;</span>
-<span class="p">...</span>
+<div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.eclipse.dirigible.runtime.core.embed.EmbeddedDirigible</span><span class="p">;</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">callDirigible</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">EmbeddedDirigible</span> <span class="n">dirigible</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmbeddedDirigible</span><span class="p">();</span>
-    <span class="n">dirigible</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="s">&quot;./content&quot;</span><span class="p">);</span>
-    <span class="n">dirigible</span><span class="p">.</span><span class="na">executeJavaScript</span><span class="p">(</span><span class="s">&quot;project/api.js&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="p">...</span>
+<span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">callDirigible</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">EmbeddedDirigible</span><span class="w"> </span><span class="n">dirigible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">EmbeddedDirigible</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">dirigible</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="s">&quot;./content&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">dirigible</span><span class="p">.</span><span class="na">executeJavaScript</span><span class="p">(</span><span class="s">&quot;project/api.js&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </code></pre></div>
 <p>For more details about this setup, check out the embedded Dirigible <a href="https://github.com/eclipse/dirigible/tree/master/releng/embedded-all">sample</a>.</p>
 <h2 id="resources">Resources</h2>
@@ -2050,7 +2050,7 @@ The <a href="http://www.dirigible.io/samples/tutorial_helium_custom_stack.html">
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
       
     
   </body>
