@@ -418,7 +418,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_CONNECTIVITY_CLIENT_ID**  | The Connectivity Service instance client id | _`-`_
 **DIRIGIBLE_CONNECTIVITY_CLIENT_SECRET** | The Connectivity Service instance client secret | _`-`_
 **DIRIGIBLE_CONNECTIVITY_URL**  | The Connectivity Service instance url | _`-`_
-**DIRIGIBLE_CONNECTIVITY_URI**  | The Connectivity Service instance uri | _`-`_
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HOST** | The Connectivity Service instance onpremise proxy host | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HTTP_PORT** | The Connectivity Service instance onpremise proxy http port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_LDAP_PORT** | The Connectivity Service instance onpremise proxy ldap port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_PORT** | The Connectivity Service instance onpremise proxy port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_RFC_PORT** | The Connectivity Service instance onpremise proxy rfc port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_SOCKS5_PROXY_PORT** | The Connectivity Service instance onpremise socks5 proxy port | `-`
 
 ### Terminal
 ---
