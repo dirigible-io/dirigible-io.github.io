@@ -28,7 +28,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
             - name: dirigible
               image: dirigiblelabs/dirigible-tomcat:latest
               ports:
-                - name: dirigible
+                - name: http
                   containerPort: 8080
         ```
 
@@ -53,7 +53,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
                 - name: dirigible
                   image: dirigiblelabs/dirigible-tomcat:latest
                   ports:
-                    - name: dirigible
+                    - name: http
                       containerPort: 8080
                   env:
                     - name: DIRIGIBLE_THEME_DEFAULT
@@ -81,7 +81,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
                 - name: dirigible
                   image: dirigiblelabs/dirigible-tomcat:latest
                   ports:
-                    - name: dirigible
+                    - name: http
                       containerPort: 8080
                   env:
                     - name: DIRIGIBLE_THEME_DEFAULT
@@ -125,7 +125,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
             app: dirigible
         spec:
           ports:
-            - name: dirigible
+            - name: http
               port: 8080
           type: ClusterIP
           selector:
@@ -143,7 +143,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
             app: dirigible
         spec:
           ports:
-            - name: dirigible
+            - name: http
               port: 8080
           type: ClusterIP
           selector:
