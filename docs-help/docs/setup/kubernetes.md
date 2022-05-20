@@ -24,9 +24,6 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
         metadata:
           name: dirigible
         spec:
-          selector:
-            matchLabels:
-              app: dirigible
           containers:
             - name: dirigible
               image: dirigiblelabs/dirigible-tomcat:latest
@@ -152,7 +149,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
           selector:
             app: dirigible
         ---
-        apiVersion: extensions/v1beta1
+        apiVersion: networking.k8s.io/v1
         kind: Ingress
         metadata:
           name: dirigible
@@ -162,9 +159,12 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
               http:
                 paths:
                   - path: /
+                    pathType: Prefix
                     backend:
-                      serviceName: dirigible
-                      servicePort: 8080
+                      service:
+                        name: dirigible
+                        port:
+                          number: 8080
         ```
 
         !!! Note
