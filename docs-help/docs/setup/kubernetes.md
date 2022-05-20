@@ -130,7 +130,6 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
           type: ClusterIP
           selector:
             app: dirigible
-        apiVersion: extensions/v1beta1
         ```
 
     === "Ingress"
