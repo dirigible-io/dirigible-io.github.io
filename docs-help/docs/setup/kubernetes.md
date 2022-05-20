@@ -24,6 +24,9 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
         metadata:
           name: dirigible
         spec:
+          selector:
+            matchLabels:
+              app: dirigible
           containers:
             - name: dirigible
               image: dirigiblelabs/dirigible-tomcat:latest
