@@ -131,6 +131,23 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
           selector:
             app: dirigible
         ```
+    === "NodePort"
+
+        ```yaml
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: dirigible
+          labels:
+            app: dirigible
+        spec:
+          ports:
+            - name: http
+              port: 8080
+          type: NodePort
+          selector:
+            app: dirigible
+        ```
 
     === "Ingress"
 
