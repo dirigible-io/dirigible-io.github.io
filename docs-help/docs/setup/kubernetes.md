@@ -5,7 +5,7 @@ title: Kubernetes
 Setup in Kubernetes
 ===
 
-You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-tomcat`, in a Kubernetes cluster.
+You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-all`, in a Kubernetes cluster.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -26,7 +26,8 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
         spec:
           containers:
             - name: dirigible
-              image: dirigiblelabs/dirigible-tomcat:latest
+              image: dirigiblelabs/dirigible-all:latest
+              imagePullPolicy: Always
               ports:
                 - name: http
                   containerPort: 8080
@@ -51,7 +52,8 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-tomcat:latest
+                  image: dirigiblelabs/dirigible-all:latest
+                  imagePullPolicy: Always
                   ports:
                     - name: http
                       containerPort: 8080
@@ -79,7 +81,8 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-tomcat:latest
+                  image: dirigiblelabs/dirigible-all:latest
+                  imagePullPolicy: Always
                   ports:
                     - name: http
                       containerPort: 8080
@@ -200,7 +203,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 
     !!! Note
         - Replace `<kubernetes-ingress-host>` with your Ingress host.
-        - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-tomcat](https://hub.docker.com/r/dirigiblelabs/dirigible-tomcat/tags))_ used above.
+        - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-all](https://hub.docker.com/r/dirigiblelabs/dirigible-all/tags))_ used above.
 
 !!! example "Helm"
     The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
