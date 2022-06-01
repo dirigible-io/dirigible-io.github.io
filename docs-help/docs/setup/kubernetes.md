@@ -5,7 +5,7 @@ title: Kubernetes
 Setup in Kubernetes
 ===
 
-You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-all`, in a Kubernetes cluster.
+You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-all`, in a Kubernetes cluster.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -205,15 +205,61 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
         - Replace `<kubernetes-ingress-host>` with your Ingress host.
         - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-all](https://hub.docker.com/r/dirigiblelabs/dirigible-all/tags))_ used above.
 
-!!! example "Helm"
-    The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
+## Maintenance
+---
 
-    Example:
+### Version Update
+
+To update the Eclipse Dirigible version either use the **kubectl** or update the **Deployment YAML** as follows:
+
+=== "with kubectl"
 
     ```
-    helm repo add dirigible https://eclipse.github.io/dirigible
-    helm repo update
-    helm install dirigible dirigible/dirigible
+    kubectl set image deployment/dirigible dirigible=dirigiblelabs/dirigible-all:<dirigible-version>
     ```
 
-    More about the setup with Helm can be found [here](../helm/).
+=== "with Deployment YAML"
+
+    ```yaml hl_lines="4"
+    spec:
+      containers:
+      - name: dirigible
+        image: dirigiblelabs/dirigible-all:<dirigible-version>
+        imagePullPolicy: Always
+    ```
+
+!!! tip "Eclipse Dirigible versions"
+
+    Update the `<dirigible-version>` placeholder with a stable release version:
+
+    - You can find all released versions [here](https://github.com/eclipse/dirigible/releases/).
+    - You can find all Eclipse Dirigible Docker images and tags (versions) [here](https://hub.docker.com/u/dirigiblelabs).
+
+### Scaling
+
+The Eclipse Dirigible **Deployment** could be scaled horizontally by adding/removing **Pods** as follows:
+
+=== "Scale to Zero"
+
+    ```
+    kubectl scale deployment/dirigible --replicas=0
+    ```
+
+=== "Scale Up"
+
+    ```
+    kubectl scale deployment/dirigible --replicas=<number-of-replicas>
+    ```
+
+!!! note
+
+    To learn more about application scaling in Kubernetes, see [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
+
+### Debugging
+
+To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the following command:
+
+```
+kubectl port-forward deployment/dirigible 8000:8000
+```
