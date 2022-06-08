@@ -96,7 +96,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
                 - name: dirigible-data
                   persistentVolumeClaim:
                     claimName: "dirigible-data"
-        --
+        ---
         apiVersion: v1
         kind: PersistentVolumeClaim
         metadata:
