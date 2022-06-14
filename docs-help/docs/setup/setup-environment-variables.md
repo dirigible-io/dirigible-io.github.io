@@ -233,6 +233,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_SYNCHRONIZER_IGNORE_DEPENDENCIES**   |  Whether to ignore dependencies for synchronizers, e.g. for tests purposes  | _`false`_
+**DIRIGIBLE_SYNCHRONIZER_EXCLUDE_PATHS**   |  Paths to be excluded from processing (comma separated list)  | _``_
 
 
 ### Job Expression
