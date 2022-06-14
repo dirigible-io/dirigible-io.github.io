@@ -22,4 +22,4 @@ console.trace("Trace.");
 
 ---
 
-> For more information, see the _[API](../../api/)_ documentation.
+> For more information, see the _[API](https://www.dirigible.io/api/console/)_ documentation.

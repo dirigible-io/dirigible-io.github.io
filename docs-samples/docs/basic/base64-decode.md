@@ -28,4 +28,4 @@ response.close();
 
 ---
 
-> For more information, see the _[API](../../api/)_ documentation.
+> For more information, see the _[API](https://www.dirigible.io/api/utils/base64/)_ documentation.
