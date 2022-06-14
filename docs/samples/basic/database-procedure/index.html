@@ -1259,8 +1259,8 @@
 <h3 id="steps">Steps</h3>
 <ol>
 <li>Switch to the <code>Database Perspective</code></li>
-<li>Execute the following SQL script:</li>
-</ol>
+<li>
+<p>Execute the following SQL script:</p>
 <div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="n">COUNTRY</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span><span class="w"></span>
 
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Google&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USA&#39;</span><span class="p">);</span><span class="w"></span>
@@ -1269,11 +1269,13 @@
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Quanterall&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bulgaria&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">CUSTOMERS</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SyMetric&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;India&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Create a project <code>database-procedure</code>.</li>
+</li>
+<li>
+<p>Create a project <code>database-procedure</code>.</p>
+</li>
 <li>Then create a JavaScript service named <code>database-procedure-create.js</code>.</li>
-<li>Within the service code, enter the following content:</li>
-</ol>
+<li>
+<p>Within the service code, enter the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -1293,10 +1295,12 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Create a JavaScript service named <code>database-procedure-execute.js</code>.</li>
-<li>Within the service code, enter the following content:</li>
-</ol>
+</li>
+<li>
+<p>Create a JavaScript service named <code>database-procedure-execute.js</code>.</p>
+</li>
+<li>
+<p>Within the service code, enter the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -1308,9 +1312,11 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+</li>
+</ol>
 <hr />
 <blockquote>
-<p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
+<p>For more information, see the <em><a href="https://www.dirigible.io/api/database/procedure/">API</a></em> documentation.</p>
 </blockquote>
 
               

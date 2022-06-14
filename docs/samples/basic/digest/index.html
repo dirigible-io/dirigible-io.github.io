@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#encrypy-sha-512" class="md-skip">
+        <a href="#encrypt-sha-512" class="md-skip">
           Skip to content
         </a>
       
@@ -1255,13 +1255,13 @@
 
 
 
-<h1 id="encrypy-sha-512">Encrypy - SHA-512</h1>
+<h1 id="encrypt-sha-512">Encrypt - SHA-512</h1>
 <h3 id="steps">Steps</h3>
 <ol>
 <li>Create a project <code>digest</code>.</li>
 <li>Create a JavaScript service with the name <code>digest-sha512.js</code>.</li>
-<li>Enter the following content:</li>
-</ol>
+<li>
+<p>Enter the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">digest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/digest&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -1274,9 +1274,11 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+</li>
+</ol>
 <hr />
 <blockquote>
-<p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
+<p>For more information, see the <em><a href="https://www.dirigible.io/api/utils/digest/">API</a></em> documentation.</p>
 </blockquote>
 
               

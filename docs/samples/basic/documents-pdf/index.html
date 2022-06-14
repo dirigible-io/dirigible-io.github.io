@@ -1260,8 +1260,8 @@
 <ol>
 <li>Create a project <code>generate-pdf</code>.</li>
 <li>Create a JavaScript service with the name <code>pdf-service.js</code>.</li>
-<li>Enter the following content:</li>
-</ol>
+<li>
+<p>Enter the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -1323,14 +1323,16 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+</li>
+</ol>
 <p>Expected result:
 <img alt="Generated PDF" src="/img/samples/documents/pdf-generator.png" /></p>
 <hr />
 <ol>
 <li>Create a project <code>generate-pdf</code>.</li>
 <li>Create a JavaScript service with the name <code>pdf-service-advanced.js</code>.</li>
-<li>Enter the following content:</li>
-</ol>
+<li>
+<p>Enter the following content:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -1377,11 +1379,13 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+</li>
+</ol>
 <p>Expected result:
 <img alt="Generated PDF" src="/img/samples/documents/pdf-generator-advanced.png" /></p>
 <hr />
 <blockquote>
-<p>For more information, see the <em><a href="../../api/">API</a></em> documentation.</p>
+<p>For more information, see the <em><a href="https://www.dirigible.io/api/documents/pdf/">API</a></em> documentation.</p>
 </blockquote>
 
               
