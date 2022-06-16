@@ -11,7 +11,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
     
 !!! info "Prerequisites"
     - Install [Cloud Foundry Command Line Interface](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
-    - Access to SAP BTP account _(the Trial landscape can be accessed [here](https://account.hanatrial.ondemand.com/))._
+    - Access to SAP BTP account _(more details on different options available in [Get started with SAP Business Technology Platform](https://www.sap.com/products/business-technology-platform/trial.html))._
 
 ## Steps
 ---

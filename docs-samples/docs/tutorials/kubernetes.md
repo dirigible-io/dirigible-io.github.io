@@ -9,7 +9,7 @@ You can deploy [Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-    - Access to [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice.
+    - Access to [Kubernetes Cluster](https://kubernetes.io/docs/setup/) on IaaS provider of your choice.
 
 ## Steps
 ---

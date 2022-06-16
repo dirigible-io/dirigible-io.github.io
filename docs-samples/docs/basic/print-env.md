@@ -14,20 +14,20 @@ hide:
 4. Give it a meaningful name (e.g `print-env-vars.js`).
 5. Replace the generated code in `print-env-vars.js` with the following:
 
-```javascript
-var env = require("core/v4/env");
-var response = require("http/v4/response");
+    ```javascript
+    var env = require("core/v4/env");
+    var response = require("http/v4/response");
 
-var envVarsList = JSON.parse(env.list());
-var envVarValue;
-for (var envVarName in envVarsList) {
-  envVarValue = envVarsList[envVarName];
-  response.println(envVarName + "=" + envVarValue);
-}
-response.flush();
-response.close();
-```
+    var envVarsList = JSON.parse(env.list());
+    var envVarValue;
+    for (var envVarName in envVarsList) {
+      envVarValue = envVarsList[envVarName];
+      response.println(envVarName + "=" + envVarValue);
+    }
+    response.flush();
+    response.close();
+    ```
 
 ---
 
-> For more information, see the _[API](../../api/)_ documentation.
+> For more information, see the _[API](https://www.dirigible.io/api/core/env/)_ documentation.

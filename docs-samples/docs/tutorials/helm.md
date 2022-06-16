@@ -10,7 +10,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
 !!! info "Prerequisites"
     - [Helm](https://helm.sh/)
-    - [Kubernetes Cluster](https://kubernetes.io/docs/setup/pick-right-solution/) on IaaS provider of your choice
+    - [Kubernetes Cluster](https://kubernetes.io/docs/setup/) on IaaS provider of your choice
 
 ## Steps
 ---

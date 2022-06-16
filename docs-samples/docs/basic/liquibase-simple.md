@@ -1,7 +1,7 @@
 # Liquibase
 
 ###
-Liquibase is a tool for tracking, managing and applying database schema changes. Liquibase supports JSON, YAML, XML, SQL and etc. formats. More information about Liquibase can be found [here](https://www.liquibase.org/)
+Liquibase is a tool for tracking, managing and applying database schema changes. Liquibase supports JSON, YAML, XML, SQL and etc. formats. More information about Liquibase can be found on the [Liquibase website](https://www.liquibase.org/).
 
 ## Dirigible
 Dirigible are fully integrated with Liquibase. By changesets included in .changelog you can create, delete, update, insert tables and columns. You can even create rollback tags and rolback changes to desired point.

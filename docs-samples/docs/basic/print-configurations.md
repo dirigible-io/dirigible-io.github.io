@@ -14,25 +14,25 @@ hide:
 4. Give it a meaningful name (e.g `print-config-vars.js`).
 5. Replace the generated code in `print-config-vars.js` with the following:
 
-```javascript
-var configurations = require("core/v4/configurations");
-var response = require("http/v4/response");
+    ```javascript
+    var configurations = require("core/v4/configurations");
+    var response = require("http/v4/response");
 
-var keys = configurations.getKeys();
+    var keys = configurations.getKeys();
 
-var dirigibleKeys = {};
+    var dirigibleKeys = {};
 
-for (var i = 0; i < keys.length; i++) {
-  var key = keys[i];
-  if (key.startsWith("DIRIGIBLE")) {
-    var value = configurations.get(key);
-    dirigibleKeys[key] = value;
-  }
-}
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      if (key.startsWith("DIRIGIBLE")) {
+        var value = configurations.get(key);
+        dirigibleKeys[key] = value;
+      }
+    }
 
-response.print(JSON.stringify(dirigibleKeys));
-```
+    response.print(JSON.stringify(dirigibleKeys));
+    ```
 
 ---
 
-> For more information, see the _[API](../../api/)_ documentation.
+> For more information, see the _[API](https://www.dirigible.io/api/core/configurations/)_ documentation.

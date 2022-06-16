@@ -289,7 +289,7 @@ Then under the **application/target** folder we can find the *ROOT.war* file con
 
 ### Deploy
 
-Now we can use one of the deploy options to setup our application [here](../../help/setup).
+Now we can use one of the deploy options in [Setup](https://www.dirigible.io/help/setup/) to setup our application.
 
 ### Test
 
