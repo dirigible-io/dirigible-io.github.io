@@ -22,7 +22,7 @@ Standard access to the registered relational data sources.
 var database = require("db/v4/database");
 var response = require("http/v4/response");
 
-var connection = database.getConnection();
+var connection = database.getConnection("local", "SystemDB");
 try {
     var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
     var resultSet = statement.executeQuery();
