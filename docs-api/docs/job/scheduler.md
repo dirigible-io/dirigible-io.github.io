@@ -10,8 +10,8 @@ Job Scheduler provides convenient API for managing Job state and execution.
 === "Overview"
 - Module: `job/v4/scheduler`
 - Alias: `job/scheduler`
-- Source: [/job/v4/scheduler.js](https://github.com/dirigiblelabs/api-job/blob/master/job/v3/scheduler.js)
-- Facade: [JobFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-job/src/main/java/org/eclipse/dirigible/api/v4/job/JobFacade.java)
+- Source: [/job/v4/scheduler.js](https://github.com/dirigiblelabs/api-job/blob/master/job/v4/scheduler.js)
+- Facade: [JobFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-job/src/main/java/org/eclipse/dirigible/api/v3/job/JobFacade.java)
 - Status: `stable`
 
 
