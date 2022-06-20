@@ -21,10 +21,9 @@ Job Scheduler provides convenient API for managing Job state and execution.
 var scheduler = require("job/v4/scheduler");
 
 let job = scheduler.getJob("/sample-job/myjob.job");
+let param = job.getParameter("myParam");
 
-let stringParam = job.getParameter("stringParam");
-
-console.log('echo stringParam: ' + stringParam);
+console.log('Param is: ' + param);
 ```
 
 ### Functions
