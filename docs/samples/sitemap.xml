@@ -2,277 +2,277 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.dirigible.io/samples/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/base64-decode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/base64-encode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/console/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/converting-json-xml/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/converting-xml-json/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/database-dynamic/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/database-procedure-call/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/database-procedure/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/database-query/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/database-statement/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/digest/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/documents-pdf/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/ftp-client/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/hex-decode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/hex-encode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/http-client-binary/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/http-client-calls/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/http-request/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/liquibase-simple/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/mail-client/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/platform-lifecycle/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/print-configurations/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/print-env/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/qrcode-generator/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/repository-manager/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/rest-service/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/soap-client/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/soap-server/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/url-decode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/url-encode/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/basic/uuid-random-generation/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/bookstore/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/embedded/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/file-upload/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/job-console/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/kafka/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/listener-queue/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/master-repository/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/process-console/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/rbac-for-cms/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/complex/shell-command/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/cloud-foundry/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/contributing-to-ide-modules/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/docker/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/generate-application-from-model/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/helium-custom-stack/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/helm/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/kubernetes/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/kyma/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/setup-environment-variables/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/zeus-on-kubernetes-minikube/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/zeus-on-macos/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/samples/tutorials/zeus-on-windows/</loc>
-         <lastmod>2022-06-17</lastmod>
+         <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
