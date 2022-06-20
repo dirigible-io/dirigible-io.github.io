@@ -196,6 +196,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/job/scheduler/</loc>
+         <lastmod>2022-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/kafka/consumer/</loc>
          <lastmod>2022-06-20</lastmod>
          <changefreq>daily</changefreq>
