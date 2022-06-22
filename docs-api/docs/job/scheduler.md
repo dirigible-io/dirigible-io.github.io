@@ -34,9 +34,13 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **getJobs()**   | Returns the list of all the registered user jobs | *Job array*
 **getJob(name)**   | Gets a Job object by its name | *Job*
-**enableJob(name)**   | Enables the Job regular execution | *-*
-**disableJob(name)**   | Disables the Job regular execution | *-*
-**triggerJob(name, parameters)**   | Triggers the Job regular execution with parameters | *-*
+**enable(name)**   | Enables the Job regular execution | *-*
+**disable(name)**   | Disables the Job regular execution | *-*
+**trigger(name, parameters)**   | Triggers the Job regular execution with parameters | *-*
+**log(name, message)**   | Logs a message with normal severity | *-*
+**error(name, message)**   | Logs a message with error severity | *-*
+**warn(name, message)**   | Logs a message with warn severity | *-*
+**info(name, message)**   | Logs a message with info severity | *-*
 
 ### Objects
 
@@ -62,6 +66,11 @@ Function     | Description | Returns
 **enable()** | Enables the Job | *-*
 **disable()** | Disables the Job | *-*
 **trigger()** | Triggers the Job | *-*
+**log(message)**   | Logs a message with normal severity | *-*
+**error(message)**   | Logs a message with error severity | *-*
+**warn(message)**   | Logs a message with warn severity | *-*
+**info(message)**   | Logs a message with info severity | *-*
+
 
 #### JobParameters
 
