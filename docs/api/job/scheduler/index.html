@@ -1842,18 +1842,38 @@
 <td><em>Job</em></td>
 </tr>
 <tr>
-<td><strong>enableJob(name)</strong></td>
+<td><strong>enable(name)</strong></td>
 <td>Enables the Job regular execution</td>
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>disableJob(name)</strong></td>
+<td><strong>disable(name)</strong></td>
 <td>Disables the Job regular execution</td>
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>triggerJob(name, parameters)</strong></td>
+<td><strong>trigger(name, parameters)</strong></td>
 <td>Triggers the Job regular execution with parameters</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>log(name, message)</strong></td>
+<td>Logs a message with normal severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>error(name, message)</strong></td>
+<td>Logs a message with error severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>warn(name, message)</strong></td>
+<td>Logs a message with warn severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>info(name, message)</strong></td>
+<td>Logs a message with info severity</td>
 <td><em>-</em></td>
 </tr>
 </tbody>
@@ -1948,6 +1968,26 @@
 <tr>
 <td><strong>trigger()</strong></td>
 <td>Triggers the Job</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>log(message)</strong></td>
+<td>Logs a message with normal severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>error(message)</strong></td>
+<td>Logs a message with error severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>warn(message)</strong></td>
+<td>Logs a message with warn severity</td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>info(message)</strong></td>
+<td>Logs a message with info severity</td>
 <td><em>-</em></td>
 </tr>
 </tbody>
