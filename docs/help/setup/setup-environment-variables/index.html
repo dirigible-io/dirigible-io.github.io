@@ -717,6 +717,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    Keycloak
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     Git
   </a>
@@ -2448,6 +2455,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#keycloak" class="md-nav__link">
+    Keycloak
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#git" class="md-nav__link">
     Git
   </a>
@@ -2976,6 +2990,48 @@
 <td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
 <td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
 <td><em><code>true</code></em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="keycloak">Keycloak</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_ENABLED</strong></td>
+<td>Sets whether the  Keycloak Authentication is enabled</td>
+<td><em><code>false</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL</strong></td>
+<td>The Keycloak Authentication Server URL <em>(e.g. <code>https://keycloak-server/auth/</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_REALM</strong></td>
+<td>The Keycloak realm <em>(e.g. <code>my-realm</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_SSL_REQUIRED</strong></td>
+<td>The Keyclaok SSL Required <em>(e.g. <code>none</code>/<code>external</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_CLIENT_ID</strong></td>
+<td>The Keycloak Client ID <em>(e.g. <code>my-client</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT</strong></td>
+<td>The Keycloak Confidential Port <em>(e.g. <code>443</code>)</em></td>
+<td><em><code>-</code></em></td>
 </tr>
 </tbody>
 </table>
