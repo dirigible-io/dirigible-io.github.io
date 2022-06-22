@@ -90,6 +90,18 @@ Parameter     | Description | Default*
 **DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
 **DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
 
+### Keycloak
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_KEYCLOAK_ENABLED** | Sets whether the  Keycloak Authentication is enabled | _`false`_
+**DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL** | The Keycloak Authentication Server URL _(e.g. `https://keycloak-server/auth/`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_REALM** | The Keycloak realm _(e.g. `my-realm`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_SSL_REQUIRED** | The Keyclaok SSL Required _(e.g. `none`/`external`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_CLIENT_ID** | The Keycloak Client ID _(e.g. `my-client`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
+
+
 ### Git
 
 Parameter     | Description | Default*
