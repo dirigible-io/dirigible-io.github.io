@@ -211,6 +211,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_MEMORY_STORE**   | Whether Quartz to use in-memory job store | _`false`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz, if not the default one | _`-`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz, if not the default one | _`-`_
+**DIRIGIBLE_SCHEDULER_LOGS_RETANTION_PERIOD**   | The period the logs of the job execution will be kept (the default is one week - 24x7) | _`168`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE**   | The name of the JDBC delegate used by Quartz, if not the default one | _`org.quartz.impl.jdbcjobstore.StdJDBCDelegate`_
 
 - `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` (for fully JDBC-compliant drivers)
