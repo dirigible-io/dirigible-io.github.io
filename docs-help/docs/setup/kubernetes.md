@@ -71,8 +71,8 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
           name: dirigible
         spec:
           replicas: 1
-            strategy:
-              type: Recreate
+          strategy:
+            type: Recreate
           selector:
             matchLabels:
               app: dirigible
