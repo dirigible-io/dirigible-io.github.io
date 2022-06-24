@@ -8,6 +8,7 @@ theme:
   features:
     - navigation.instant
     - navigation.top
+    - navigation.indexes
 
 extra_css:
   - stylesheets/custom.css

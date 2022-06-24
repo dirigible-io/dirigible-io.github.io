@@ -10,6 +10,7 @@ theme:
     - navigation.top
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.indexes
 
 extra_css:
   - stylesheets/custom.css
