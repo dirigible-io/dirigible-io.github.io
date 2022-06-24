@@ -1,8 +1,8 @@
 ---
-title: Kyma
+title: SAP BTP Kyma
 ---
 
-Setup in Kyma
+Setup in SAP BTP Kyma
 ===
 
 Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
@@ -197,18 +197,3 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
 1. Assign the `Developer` and `Operator` roles.
 
 1. Log in.
-
-!!! example "Additional Materials"
-    The `helm` package manager could be used to install Eclipse Dirigible via Helm [Chart](https://artifacthub.io/packages/search?page=1&org=dirigiblelabs).
-
-    Example:
-
-    ```
-    helm repo add dirigible https://eclipse.github.io/dirigible
-    helm repo update
-    helm install dirigible dirigible/dirigible
-    ```
-
-    More about the setup with Helm can be found [here](../helm/).
-
-    - Step by step tutorial can be found [here](https://blogs.sap.com/2020/10/13/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/).

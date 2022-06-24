@@ -17,9 +17,12 @@ nav:
     - Setup: 
       - Tomcat: 'setup/index.md'
       - Docker: 'setup/docker.md'
-      - Kubernetes: 'setup/kubernetes.md'
-      - Kyma: 'setup/kyma.md'
-      - Helm: 'setup/helm.md'
+      - Kubernetes:
+        - 'setup/kubernetes/index.md'
+        - Google Kubernetes Engine: 'setup/kubernetes/google-kubernetes-engine.md'
+        - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
+        - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
+        - Helm: 'setup/kubernetes/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'
     - Development:
