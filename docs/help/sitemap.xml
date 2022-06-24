@@ -436,7 +436,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/setup/helm/</loc>
+         <loc>https://www.dirigible.io/help/setup/setup-environment-variables/</loc>
          <lastmod>2022-06-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -446,12 +446,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/setup/kyma/</loc>
+         <loc>https://www.dirigible.io/help/setup/kubernetes/google-kubernetes-engine/</loc>
          <lastmod>2022-06-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/setup/setup-environment-variables/</loc>
+         <loc>https://www.dirigible.io/help/setup/kubernetes/helm/</loc>
+         <lastmod>2022-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/setup/kubernetes/red-hat-openshift/</loc>
+         <lastmod>2022-06-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/setup/kubernetes/sap-btp-kyma/</loc>
          <lastmod>2022-06-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
