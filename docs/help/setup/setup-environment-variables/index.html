@@ -3723,17 +3723,24 @@
 <td>The port part of the URL for the e-mail notifications</td>
 <td><em><code>-</code></em></td>
 </tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE</strong></td>
+<td>The name of the JDBC delegate used by Quartz, if not the default one</td>
+<td><em><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code></em></td>
+</tr>
 </tbody>
 </table>
-<p><strong>DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE</strong>   | The name of the JDBC delegate used by Quartz, if not the default one | <em><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code></em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quartz JDBC delegates:</p>
 <ul>
-<li><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code> (for fully JDBC-compliant drivers)</li>
-<li><code>org.quartz.impl.jdbcjobstore.MSSQLDelegate</code> (for Microsoft SQL Server, and Sybase)</li>
+<li><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code> <em>(for fully JDBC-compliant drivers)</em></li>
+<li><code>org.quartz.impl.jdbcjobstore.MSSQLDelegate</code> <em>(for Microsoft SQL Server, and Sybase)</em></li>
 <li><code>org.quartz.impl.jdbcjobstore.PostgreSQLDelegate</code></li>
-<li><code>org.quartz.impl.jdbcjobstore.WebLogicDelegate</code> (for WebLogic drivers)</li>
+<li><code>org.quartz.impl.jdbcjobstore.WebLogicDelegate</code> <em>(for WebLogic drivers)</em></li>
 <li><code>org.quartz.impl.jdbcjobstore.oracle.OracleDelegate</code></li>
-<li><code>org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate</code> (for Oracle drivers used within Weblogic)</li>
-<li><code>org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate</code> (for Oracle drivers used within Weblogic)</li>
+<li><code>org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate</code> <em>(for Oracle drivers used within Weblogic)</em></li>
+<li><code>org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate</code> <em>(for Oracle drivers used within Weblogic)</em></li>
 <li><code>org.quartz.impl.jdbcjobstore.CloudscapeDelegate</code></li>
 <li><code>org.quartz.impl.jdbcjobstore.DB2v6Delegate</code></li>
 <li><code>org.quartz.impl.jdbcjobstore.DB2v7Delegate</code></li>
@@ -3742,6 +3749,7 @@
 <li><code>org.quartz.impl.jdbcjobstore.PointbaseDelegate</code></li>
 <li><code>org.quartz.impl.jdbcjobstore.SybaseDelegate</code></li>
 </ul>
+</div>
 <h3 id="synchronizer">Synchronizer</h3>
 <table>
 <thead>
