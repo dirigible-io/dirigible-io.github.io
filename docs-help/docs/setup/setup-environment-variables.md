@@ -235,23 +235,25 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_EMAIL_URL_SCHEME**   | The scheme part of the URL for the e-mail notifications | _`-`_
 **DIRIGIBLE_SCHEDULER_EMAIL_URL_HOST**   | The host part of the URL for the e-mail notifications | _`-`_
 **DIRIGIBLE_SCHEDULER_EMAIL_URL_PORT**   | The port part of the URL for the e-mail notifications | _`-`_
-
 **DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE**   | The name of the JDBC delegate used by Quartz, if not the default one | _`org.quartz.impl.jdbcjobstore.StdJDBCDelegate`_
 
-- `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` (for fully JDBC-compliant drivers)
-- `org.quartz.impl.jdbcjobstore.MSSQLDelegate` (for Microsoft SQL Server, and Sybase)
-- `org.quartz.impl.jdbcjobstore.PostgreSQLDelegate`
-- `org.quartz.impl.jdbcjobstore.WebLogicDelegate` (for WebLogic drivers)
-- `org.quartz.impl.jdbcjobstore.oracle.OracleDelegate`
-- `org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
-- `org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
-- `org.quartz.impl.jdbcjobstore.CloudscapeDelegate`
-- `org.quartz.impl.jdbcjobstore.DB2v6Delegate`
-- `org.quartz.impl.jdbcjobstore.DB2v7Delegate`
-- `org.quartz.impl.jdbcjobstore.DB2v8Delegate`
-- `org.quartz.impl.jdbcjobstore.HSQLDBDelegate`
-- `org.quartz.impl.jdbcjobstore.PointbaseDelegate`
-- `org.quartz.impl.jdbcjobstore.SybaseDelegate`
+!!! Note
+	Quartz JDBC delegates:
+
+	- `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` _(for fully JDBC-compliant drivers)_
+	- `org.quartz.impl.jdbcjobstore.MSSQLDelegate` _(for Microsoft SQL Server, and Sybase)_
+	- `org.quartz.impl.jdbcjobstore.PostgreSQLDelegate`
+	- `org.quartz.impl.jdbcjobstore.WebLogicDelegate` _(for WebLogic drivers)_
+	- `org.quartz.impl.jdbcjobstore.oracle.OracleDelegate`
+	- `org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate` _(for Oracle drivers used within Weblogic)_
+	- `org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate` _(for Oracle drivers used within Weblogic)_
+	- `org.quartz.impl.jdbcjobstore.CloudscapeDelegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v6Delegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v7Delegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v8Delegate`
+	- `org.quartz.impl.jdbcjobstore.HSQLDBDelegate`
+	- `org.quartz.impl.jdbcjobstore.PointbaseDelegate`
+	- `org.quartz.impl.jdbcjobstore.SybaseDelegate`
 
 ### Synchronizer
 
