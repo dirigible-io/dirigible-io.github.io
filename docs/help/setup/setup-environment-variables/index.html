@@ -3678,17 +3678,53 @@
 <td>The period the logs of the job execution will be kept (the default is one week - 24x7)</td>
 <td><em><code>168</code></em></td>
 </tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_SENDER</strong></td>
+<td>The sender for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_RECIPIENTS</strong></td>
+<td>The recipients list for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_ERROR</strong></td>
+<td>The error subject for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_NORMAL</strong></td>
+<td>The normal subject for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_ERROR</strong></td>
+<td>The error template for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_NORMAL</strong></td>
+<td>The normal template for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_SCHEME</strong></td>
+<td>The scheme part of the URL for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_HOST</strong></td>
+<td>The host part of the URL for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_PORT</strong></td>
+<td>The port part of the URL for the e-mail notifications</td>
+<td><em><code>-</code></em></td>
+</tr>
 </tbody>
 </table>
-<p><strong>DIRIGIBLE_SCHEDULER_EMAIL_SENDER</strong>   | The sender for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_RECIPIENTS</strong>   | The recipients list for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_ERROR</strong>   | The error subject for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_NORMAL</strong>   | The normal subject for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_ERROR</strong>   | The error template for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_NORMAL</strong>   | The normal template for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_SCHEME</strong>   | The scheme part of the URL for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_HOST</strong>   | The host part of the URL for the e-mail notifications | <em><code>-</code></em>
-<strong>DIRIGIBLE_SCHEDULER_EMAIL_URL_PORT</strong>   | The port part of the URL for the e-mail notifications | <em><code>-</code></em></p>
 <p><strong>DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE</strong>   | The name of the JDBC delegate used by Quartz, if not the default one | <em><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code></em></p>
 <ul>
 <li><code>org.quartz.impl.jdbcjobstore.StdJDBCDelegate</code> (for fully JDBC-compliant drivers)</li>
