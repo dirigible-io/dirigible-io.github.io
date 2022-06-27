@@ -226,7 +226,6 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz, if not the default one | _`-`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz, if not the default one | _`-`_
 **DIRIGIBLE_SCHEDULER_LOGS_RETANTION_PERIOD**   | The period the logs of the job execution will be kept (the default is one week - 24x7) | _`168`_
-
 **DIRIGIBLE_SCHEDULER_EMAIL_SENDER**   | The sender for the e-mail notifications | _`-`_
 **DIRIGIBLE_SCHEDULER_EMAIL_RECIPIENTS**   | The recipients list for the e-mail notifications | _`-`_
 **DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_ERROR**   | The error subject for the e-mail notifications | _`-`_
