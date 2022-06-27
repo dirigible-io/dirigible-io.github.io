@@ -2389,7 +2389,7 @@
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-keycloak:latest</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
 <span class="w">          </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
@@ -2443,7 +2443,7 @@
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-keycloak:latest</span><span class="w"></span>
 <span class="w">          </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
@@ -2512,7 +2512,7 @@
 </li>
 <li>
 <p>Create service configuration file: <code>service.yaml</code></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Service</label><label for="__tabbed_2_2">Ingress</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Service</label><label for="__tabbed_2_2">Ingress</label><label for="__tabbed_2_3">Custom Domain</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
@@ -2563,6 +2563,114 @@
 <span class="w">                  </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
 </code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>Install <a href="https://istio.io/">Istio</a>, if not already installed.</li>
+<li>Install <a href="https://cert-manager.io/">cert-manager</a>, if not already installed.</li>
+<li>Register your zone in <code>Google Cloud Platform</code> &#8594; <code>Cloud DNS</code>, if not already registered.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Register DNS Record Set</p>
+<ul>
+<li>Get the Istio Ingress Gateway IP:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl get service -n istio-system istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
+</code></pre></div>
+<ul>
+<li>Register DNS Record Set:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction start --zone=&lt;your-cloud-dns-zone-name&gt;
+
+gcloud dns record-sets transaction add &lt;istio-ingress-gateway-ip&gt; \
+--name=dirigible.&lt;your-custom-domain&gt; \
+--ttl=300 \
+--type=A \
+--zone=&lt;your-cloud-dns-zone-name&gt;
+
+gcloud dns record-sets transaction execute --zone=&lt;your-cloud-dns-zone-name&gt;
+</code></pre></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Certificate</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">  </span><span class="nt">issuerRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt</span><span class="w"></span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span><span class="w"></span>
+<span class="w">  </span><span class="nt">commonName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dirigible.&lt;your-custom-domain&gt;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dnsNames</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;dirigible.&lt;your-custom-domain&gt;&quot;</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1beta1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gateway</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible-gateway</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">istio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingressgateway</span><span class="w"></span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.&lt;your-custom-domain&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span><span class="w"></span>
+<span class="w">      </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTP</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># Initially it should be commented, then uncomment to enforce https!</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># tls:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#   httpsRedirect: true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">httpsRedirect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.&lt;your-custom-domain&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https-443</span><span class="w"></span>
+<span class="w">      </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span><span class="w"></span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTPS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">credentialName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIMPLE</span><span class="w"></span>
+<span class="nn">---</span><span class="w"></span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1alpha3</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualService</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.default.svc.cluster.local</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.&lt;your-custom-domain&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gateways</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible-gateway</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh</span><span class="w"></span>
+<span class="w">  </span><span class="nt">http</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uri</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"></span>
+<span class="w">    </span><span class="nt">route</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">destination</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
+<span class="w">        </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.default.svc.cluster.local</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Replace Placeholders</p>
+<p>Before deploying, replace the following placeholders:</p>
+<ul>
+<li><code>&lt;your-cloud-dns-zone-name&gt;</code> with your Cloud DNS Zone name <em>(e.g. <code>my-zone</code>)</em>.</li>
+<li><code>&lt;istio-ingress-gateway-ip&gt;</code> with your Istio Ingress Gateway IP <em>(e.g. <code>32.118.56.186</code>)</em>.</li>
+<li><code>&lt;your-custom-domain&gt;</code> with your custom domain <em>(e.g. <code>my-company.com</code>)</em>.</li>
+</ul>
+<p>To enforce HTTPS, after the initial deployment, update the following fragment:
+<div class="highlight"><pre><span></span><code><span class="c1"># Initially it should be commented, then uncomment to enforce https!</span><span class="w"></span>
+<span class="c1"># tls:</span><span class="w"></span>
+<span class="c1">#   httpsRedirect: true</span><span class="w"></span>
+</code></pre></div></p>
+</div>
+</div>
 </div>
 </div>
 </li>
@@ -2574,7 +2682,7 @@ kubectl apply -f service.yml
 </code></pre></div>
 </li>
 <li>
-<p>Open a web browser and go to: <strong><code>http://dirigible.&lt;your-google-kubernetes-engine-domain&gt;</code></strong></p>
+<p>Open a web browser and go to: <strong><code>https://dirigible.&lt;your-google-kubernetes-engine-domain&gt;</code></strong></p>
 </li>
 </ol>
 
