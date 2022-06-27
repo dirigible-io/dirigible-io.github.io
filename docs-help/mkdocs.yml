@@ -22,6 +22,9 @@ nav:
         - Google Kubernetes Engine: 'setup/kubernetes/google-kubernetes-engine.md'
         - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
         - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
+        - Addons:
+          - Keycloack: 'setup/kubernetes/addons/keycloack.md'
+          - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
         - Helm: 'setup/kubernetes/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'
