@@ -75,7 +75,7 @@ Deploy Eclipse Dirigible in Red Hat OpenShift environment.
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-keycloak:latest
+                  image: dirigiblelabs/dirigible-all:latest
                   imagePullPolicy: Always
                   resources:
                     requests:
@@ -135,7 +135,7 @@ Deploy Eclipse Dirigible in Red Hat OpenShift environment.
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-all:latest
+                  image: dirigiblelabs/dirigible-keycloak:latest
                   imagePullPolicy: Always
                   resources:
                     requests:

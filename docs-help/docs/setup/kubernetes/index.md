@@ -54,6 +54,13 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
                 - name: dirigible
                   image: dirigiblelabs/dirigible-all:latest
                   imagePullPolicy: Always
+                  resources:
+                    requests:
+                      memory: "1Gi"
+                      cpu: "0.5"
+                    limits:
+                      memory: "4Gi"
+                      cpu: "2"
                   ports:
                     - name: http
                       containerPort: 8080
@@ -85,6 +92,13 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
                 - name: dirigible
                   image: dirigiblelabs/dirigible-all:latest
                   imagePullPolicy: Always
+                  resources:
+                    requests:
+                      memory: "1Gi"
+                      cpu: "0.5"
+                    limits:
+                      memory: "4Gi"
+                      cpu: "2"
                   ports:
                     - name: http
                       containerPort: 8080

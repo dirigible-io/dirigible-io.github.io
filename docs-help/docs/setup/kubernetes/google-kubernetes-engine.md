@@ -75,7 +75,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-keycloak:latest
+                  image: dirigiblelabs/dirigible-all:latest
                   imagePullPolicy: Always
                   resources:
                     requests:
@@ -131,7 +131,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-all:latest
+                  image: dirigiblelabs/dirigible-keycloak:latest
                   imagePullPolicy: Always
                   resources:
                     requests:
@@ -244,6 +244,113 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
                           number: 8080
         ```
 
+    === "Custom Domain"
+
+        !!! info "Prerequisites"
+            - Install [Istio](https://istio.io/), if not already installed.
+            - Install [cert-manager](https://cert-manager.io/), if not already installed.
+            - Register your zone in `Google Cloud Platform` &#8594; `Cloud DNS`, if not already registered.
+
+        !!! note "Register DNS Record Set"
+            - Get the Istio Ingress Gateway IP:
+
+            ```
+            kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+            ```
+
+            - Register DNS Record Set:
+
+            ```
+            gcloud dns record-sets transaction start --zone=<your-cloud-dns-zone-name>
+
+            gcloud dns record-sets transaction add <istio-ingress-gateway-ip> \
+            --name=dirigible.<your-custom-domain> \
+            --ttl=300 \
+            --type=A \
+            --zone=<your-cloud-dns-zone-name>
+
+            gcloud dns record-sets transaction execute --zone=<your-cloud-dns-zone-name>
+            ```
+
+        ```yaml
+        apiVersion: cert-manager.io/v1
+        kind: Certificate
+        metadata:
+          name: dirigible
+        spec:
+          secretName: dirigible
+          issuerRef:
+            name: letsencrypt
+            kind: ClusterIssuer
+          commonName: "dirigible.<your-custom-domain>"
+          dnsNames:
+          - "dirigible.<your-custom-domain>"
+        ---
+        apiVersion: networking.istio.io/v1beta1
+        kind: Gateway
+        metadata:
+          name: dirigible-gateway
+        spec:
+          selector:
+            istio: ingressgateway
+          servers:
+          - hosts:
+            - dirigible.<your-custom-domain>
+            port:
+              name: http
+              number: 80
+              protocol: HTTP
+            # Initially it should be commented, then uncomment to enforce https!
+            # tls:
+            #   httpsRedirect: true
+            tls:
+              httpsRedirect: false
+          - hosts:
+            - dirigible.<your-custom-domain>
+            port:
+              name: https-443
+              number: 443
+              protocol: HTTPS
+            tls:
+              credentialName: dirigible
+              mode: SIMPLE
+        ---
+        apiVersion: networking.istio.io/v1alpha3
+        kind: VirtualService
+        metadata:
+          name: dirigible
+        spec:
+          hosts:
+          - dirigible.default.svc.cluster.local
+          - dirigible.<your-custom-domain>
+          gateways:
+          - dirigible-gateway
+          - mesh
+          http:
+          - match:
+            - uri:
+                prefix: /
+            route:
+            - destination:
+                port:
+                  number: 8080
+                host: dirigible.default.svc.cluster.local
+        ```
+
+        !!! note "Replace Placeholders"
+            Before deploying, replace the following placeholders:
+
+            - `<your-cloud-dns-zone-name>` with your Cloud DNS Zone name _(e.g. `my-zone`)_.
+            - `<istio-ingress-gateway-ip>` with your Istio Ingress Gateway IP _(e.g. `32.118.56.186`)_.
+            - `<your-custom-domain>` with your custom domain _(e.g. `my-company.com`)_.
+
+            To enforce HTTPS, after the initial deployment, update the following fragment:
+            ```yaml
+            # Initially it should be commented, then uncomment to enforce https!
+            # tls:
+            #   httpsRedirect: true
+            ```
+
 1. Deploy to the Google Kubernetes Engine Cluster with:
 
     ```
@@ -252,4 +359,4 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
     kubectl apply -f service.yml
     ```
 
-1. Open a web browser and go to: **`http://dirigible.<your-google-kubernetes-engine-domain>`**
+1. Open a web browser and go to: **`https://dirigible.<your-google-kubernetes-engine-domain>`**

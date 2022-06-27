@@ -42,6 +42,13 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
               - name: dirigible
                 image: dirigiblelabs/dirigible-sap-kyma:latest
                 imagePullPolicy: Always
+                resources:
+                    requests:
+                      memory: "1Gi"
+                      cpu: "0.5"
+                    limits:
+                      memory: "4Gi"
+                      cpu: "2"
                 env:
                 - name: DIRIGIBLE_THEME_DEFAULT
                   value: fiori
