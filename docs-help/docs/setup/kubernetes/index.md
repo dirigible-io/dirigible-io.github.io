@@ -25,6 +25,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
     
     - [Keycloak Setup](addons/keycloak/).
     - [PostgreSQL Setup](addons/postgresql/).
+    - [GCP DNS Zone Setup](addons/dns/).
 
 1. Create deployment configuration file: `deployment.yaml`
 

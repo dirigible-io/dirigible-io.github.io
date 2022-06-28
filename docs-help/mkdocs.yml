@@ -25,6 +25,7 @@ nav:
         - Addons:
           - Keycloak: 'setup/kubernetes/addons/keycloak.md'
           - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
+          - GCP DNS Zone: 'setup/kubernetes/addons/dns.md'
         - Helm: 'setup/kubernetes/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'

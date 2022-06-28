@@ -250,6 +250,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
             - Install [Istio](https://istio.io/), if not already installed.
             - Install [cert-manager](https://cert-manager.io/), if not already installed.
             - Register your zone in `Google Cloud Platform` &#8594; `Cloud DNS`, if not already registered.
+              You can find more information on this page: [GCP DNS Zone Setup](addons/dns/).
 
         !!! note "Register DNS Record Set"
             - Get the Istio Ingress Gateway IP:
