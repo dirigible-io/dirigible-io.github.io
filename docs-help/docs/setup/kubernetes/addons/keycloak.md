@@ -1,8 +1,8 @@
 ---
-title: Keycloack
+title: Keycloak
 ---
 
-Keycloack Setup
+Keycloak Setup
 ===
 
 Deploy Keycloak in Kubernetes environment.
@@ -22,21 +22,21 @@ Deploy Keycloak in Kubernetes environment.
         apiVersion: apps/v1
         kind: Deployment
         metadata:
-          name: keycloack
+          name: keycloak
           labels:
-            app: keycloack
+            app: keycloak
         spec:
           replicas: 1
           selector:
             matchLabels:
-              app: keycloack
+              app: keycloak
           template:
             metadata:
               labels:
-                app: keycloack
+                app: keycloak
             spec:
               containers:
-                - name: keycloack
+                - name: keycloak
                   image: jboss/keycloak:12.0.4
                   env:
                     - name: PROXY_ADDRESS_FORWARDING
@@ -46,7 +46,7 @@ Deploy Keycloak in Kubernetes environment.
                     - name: KEYCLOAK_PASSWORD
                       value: <your-keycloak-password>
                     - name: KEYCLOAK_FRONTEND_URL
-                      value:  "https://keycloack.<your-keycloack-host>/auth/"
+                      value:  "https://keycloak.<your-keycloak-host>/auth/"
                   ports:
                     - name: http
                       containerPort: 8080
@@ -58,7 +58,7 @@ Deploy Keycloak in Kubernetes environment.
 
             - `<your-keycloak-username>` with your Keycloak username _(e.g. `admin`)_.
             - `<your-keycloak-password>` with your Keycloak password _(e.g. `admin`)_.
-            - `<your-keycloack-host>` with your Keycloak host _(e.g. `my-company.com`)_.
+            - `<your-keycloak-host>` with your Keycloak host _(e.g. `my-company.com`)_.
 
     === "Deployment with PostgreSQL"
 
@@ -66,18 +66,18 @@ Deploy Keycloak in Kubernetes environment.
         apiVersion: apps/v1
         kind: Deployment
         metadata:
-          name: keycloack
+          name: keycloak
           labels:
-            app: keycloack
+            app: keycloak
         spec:
           replicas: 1
           selector:
             matchLabels:
-              app: keycloack
+              app: keycloak
           template:
             metadata:
               labels:
-                app: keycloack
+                app: keycloak
             spec:
               initContainers:
                 - name: wait-db-ready
@@ -87,7 +87,7 @@ Deploy Keycloak in Kubernetes environment.
                     - -c
                     - for i in {1..15}; do echo "Waiting for database creation."; sleep 2; done;
               containers:
-                - name: keycloack
+                - name: keycloak
                   image: jboss/keycloak:12.0.4
                   env:
                     - name: PROXY_ADDRESS_FORWARDING
@@ -97,7 +97,7 @@ Deploy Keycloak in Kubernetes environment.
                     - name: KEYCLOAK_PASSWORD
                       value: <your-keycloak-password>
                     - name: KEYCLOAK_FRONTEND_URL
-                      value:  "https://keycloack.<your-keycloack-host>/auth/"
+                      value:  "https://keycloak.<your-keycloak-host>/auth/"
                     - name: DB_VENDOR
                       value: postgres
                     - name: DB_USER
@@ -152,7 +152,7 @@ Deploy Keycloak in Kubernetes environment.
         apiVersion: v1
         kind: PersistentVolumeClaim
         metadata:
-          name: keycloack-database-data
+          name: keycloak-database-data
         spec:
           accessModes:
           - ReadWriteOnce
@@ -166,7 +166,7 @@ Deploy Keycloak in Kubernetes environment.
 
             - `<your-keycloak-username>` with your Keycloak username _(e.g. `admin`)_.
             - `<your-keycloak-password>` with your Keycloak password _(e.g. `admin`)_.
-            - `<your-keycloack-host>` with your Keycloak host _(e.g. `my-company.com`)_.
+            - `<your-keycloak-host>` with your Keycloak host _(e.g. `my-company.com`)_.
             - `<your-keycloak-database-username>` with your Keycloak database username _(e.g. `dbadmin`)_.
             - `<your-keycloak-database-password>` with your Keycloak database password _(e.g. `dbadmin`)_.
 
@@ -214,9 +214,9 @@ Deploy Keycloak in Kubernetes environment.
         apiVersion: v1
         kind: Service
         metadata:
-          name: keycloack-database
+          name: keycloak-database
           labels:
-            app: keycloack-database
+            app: keycloak-database
         spec:
           type: ClusterIP
           ports:
@@ -225,7 +225,7 @@ Deploy Keycloak in Kubernetes environment.
               protocol: TCP
               name: jdbc
           selector:
-            app: keycloack-database
+            app: keycloak-database
         ```
 
     === "Route (OpenShift)"
@@ -250,9 +250,9 @@ Deploy Keycloak in Kubernetes environment.
         apiVersion: v1
         kind: Service
         metadata:
-          name: keycloack-database
+          name: keycloak-database
           labels:
-            app: keycloack-database
+            app: keycloak-database
         spec:
           type: ClusterIP
           ports:
@@ -261,17 +261,17 @@ Deploy Keycloak in Kubernetes environment.
               protocol: TCP
               name: jdbc
           selector:
-            app: keycloack-database
+            app: keycloak-database
         ---
         kind: Route
         apiVersion: route.openshift.io/v1
         metadata:
-          name: keycloack
+          name: keycloak
         spec:
-          host: keycloack.<your-openshift-domain>
+          host: keycloak.<your-openshift-domain>
           to:
             kind: Service
-            name: keycloack
+            name: keycloak
           port:
             targetPort: http
           tls:
@@ -293,4 +293,4 @@ Deploy Keycloak in Kubernetes environment.
     kubectl apply -f service.yml
     ```
 
-1. Open a web browser and go to: **`https://keycloack.<your-openshift-domain>`**
+1. Open a web browser and go to: **`https://keycloak.<your-openshift-domain>`**
