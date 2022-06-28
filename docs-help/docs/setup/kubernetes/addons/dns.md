@@ -24,7 +24,7 @@ Create Google DNS Zone Setup
 
             - In the Google Cloud console, go to the Create a DNS zone page.
 
-              `Go to Create a DNS zone`
+                    `Go to Create a DNS zone`
 
             - For the Zone type, select Public.
 
@@ -72,10 +72,20 @@ Create Google DNS Zone Setup
 
     - Install cert-manager
 
-    - Add Jetstack Helm repository: `helm repo add jetstack https://charts.jetstack.io`
-    - Update your local Helm chart repository cache: `helm repo update`
+    - Add Jetstack Helm repository: 
+        ```
+        helm repo add jetstack https://charts.jetstack.io
+        ```
 
-    - Intall CustomResourceDefinitions: `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml`
+    - Update your local Helm chart repository cache: 
+        ```
+        helm repo update
+        ```
+
+    - Intall CustomResourceDefinitions: 
+        ```
+        kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml
+        ```
     
     - Install cert-manager:
     
@@ -141,6 +151,11 @@ Create Google DNS Zone Setup
               credentialName: trial.apps 
         ```
 
+        !!! note "Install Istio"
+           - Install [istioctl](https://istio.io/latest/docs/setup/install/istioctl/)
+           - Install [istio](https://istio.io/latest/docs/setup/install/)
+           - You can install with default profile ```istioctl install``` this will install `istio-ingressgateway` and `istiod`
+
     !!! note "Replace Placeholders"
            - `<your-domain>` with your domain from previous step
 
@@ -169,17 +184,24 @@ Create Google DNS Zone Setup
 
     === "Kubernetes Ingress"
 
-        `kubectl get ingress <your-ingressgateway-name>` and you will see column `ADDRESS`
+        ```
+        kubectl get ingress <your-ingressgateway-name>
+        ```
+        check column `ADDRESS`
 
     === "Istio Ingress"
 
-        `kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"`
+        ```
+        kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+        ```
 
 1. Create `A` record in Cloud DNS
 
     - Set zone for which you will create records
 
-        `gcloud dns record-sets transaction start --zone=<your-cloud-dns-zone-name>`
+        ```
+        gcloud dns record-sets transaction start --zone=<your-cloud-dns-zone-name>
+        ```
 
     - Add `A` record
 
@@ -193,7 +215,9 @@ Create Google DNS Zone Setup
 
     - Apply the new record
 
-        `gcloud dns record-sets transaction execute --zone=<your-cloud-dns-zone-name>`
+       ```
+       gcloud dns record-sets transaction execute --zone=<your-cloud-dns-zone-name>
+       ```
 
     - Get your current DNS records for your zone
 
