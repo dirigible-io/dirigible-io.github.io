@@ -245,8 +245,8 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
         ```
 
     === "Custom Domain"
-        !!! info "Prerequisites"
-            - You can find more information on this page: [GCP DNS Zone Setup](help/setup/kubernetes/google-kubernetes-engine/addons/dns).
+        !!! info "Note"
+            - You can find more information on this page: [GCP DNS Zone Setup](https://www.dirigible.io/help/setup/kubernetes/addons/dns/).
 
         !!! info "Prerequisites"
             - Install [Istio](https://istio.io/), if not already installed.
