@@ -2360,11 +2360,11 @@
 <div class="tabbed-block">
 <div class="admonition note">
 <p class="admonition-title">Google Cloud console</p>
-<ol>
+<ul>
 <li>In the Google Cloud console, go to the Create a DNS zone page.</li>
-</ol>
+</ul>
 <p><code>Go to Create a DNS zone</code></p>
-<ol>
+<ul>
 <li>
 <p>For the Zone type, select Public.</p>
 </li>
@@ -2380,7 +2380,7 @@
 <li>
 <p>Click Create. The Zone details page is displayed.</p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="tabbed-block">
@@ -2408,14 +2408,14 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="admonition note">
-<p class="admonition-title">Update name servers</p>
+<p class="admonition-title">Note</p>
 <p>If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
 <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
 </div>
 </div>
 <div class="tabbed-block">
 <div class="admonition note">
-<p class="admonition-title">Update name servers</p>
+<p class="admonition-title">Note</p>
 <p>At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
 Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
 </div>
@@ -2425,11 +2425,23 @@ Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledoma
 </li>
 <li>
 <p>Create certificate for your domain or subdomain</p>
+<ul>
+<li>
 <p>Install cert-manager</p>
-<p>Add Jetstack Helm repository: <code>helm repo add jetstack https://charts.jetstack.io</code>
-Update your local Helm chart repository cache: <code>helm repo update</code>
-Intall CustomResourceDefinitions: <code>kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml</code>
-Install cert-manager:</p>
+</li>
+<li>
+<p>Add Jetstack Helm repository: <code>helm repo add jetstack https://charts.jetstack.io</code></p>
+</li>
+<li>
+<p>Update your local Helm chart repository cache: <code>helm repo update</code></p>
+</li>
+<li>
+<p>Intall CustomResourceDefinitions: <code>kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml</code></p>
+</li>
+<li>
+<p>Install cert-manager:</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code>helm install \
 cert-manager jetstack/cert-manager \
 --namespace cert-manager \
@@ -2438,11 +2450,68 @@ cert-manager jetstack/cert-manager \
 </code></pre></div>
 </li>
 <li>
-<p>Create Cluster Issuer</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>With this service account we will obtain certificate:</p>
+<p>Create Ingress</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Kubernetes Ingress</label><label for="__tabbed_3_2">Istio Ingress</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="nt">rules</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">paths</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">pathType</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">backend</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">service</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">                </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
+</code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1alpha3</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gateway</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible-trial-gateway</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">istio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingressgateway</span><span class="w"></span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span><span class="w"></span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTP</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.&lt;your-domain&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># Initially it should be commented, then uncomment to enforce https!</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># tls:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#   httpsRedirect: true</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https-443</span><span class="w"></span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HTTPS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.&lt;your-domain&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIMPLE</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">credentialName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trial.apps</span><span class="w"> </span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Replace Placeholders</p>
+<ul>
+<li><code>&lt;your-domain&gt;</code> with your domain from previous step</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create Cluster Issuer</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager.io/v1alpha2</span><span class="w"></span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span><span class="w"></span>
 <span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
@@ -2463,7 +2532,7 @@ cert-manager jetstack/cert-manager \
 </li>
 <li>
 <p>Get Ingress IP address</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Kubernetes Ingress</label><label for="__tabbed_3_2">Istio Ingress</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Kubernetes Ingress</label><label for="__tabbed_4_2">Istio Ingress</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><code>kubectl get ingress &lt;your-ingressgateway-name&gt;</code> and you will see column <code>ADDRESS</code></p>
@@ -2475,20 +2544,30 @@ cert-manager jetstack/cert-manager \
 </div>
 </li>
 <li>
-<p>Create A record in Cloud DNS</p>
+<p>Create <code>A</code> record in Cloud DNS</p>
+<ul>
+<li>
 <p>Set zone for which you will create records</p>
 <p><code>gcloud dns record-sets transaction start --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
+</li>
+<li>
 <p>Add <code>A</code> record</p>
 <div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction add &lt;your-ingress-ip&gt; \
-   --name=dirigible.&lt;your-cloud-dns-zone-name&gt; \
-   --ttl=300 \
-   --type=A \
-   --zone=&lt;your-cloud-dns-zone-name&gt;
+--name=dirigible.&lt;your-cloud-dns-zone-name&gt; \
+--ttl=300 \
+--type=A \
+--zone=&lt;your-cloud-dns-zone-name&gt;
 </code></pre></div>
+</li>
+<li>
 <p>Apply the new record</p>
 <p><code>gcloud dns record-sets transaction execute --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
+</li>
+<li>
 <p>Get your current DNS records for your zone</p>
 <p><code>gcloud dns record-sets list --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Replace Placeholders<p>Before run the commands, replace the following placeholders:</p>
 <ul>
