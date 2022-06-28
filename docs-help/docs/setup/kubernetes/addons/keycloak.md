@@ -104,6 +104,8 @@ Deploy Keycloak in Kubernetes environment.
                       value: <your-keycloak-database-username>
                     - name: DB_PASSWORD
                       value: <your-keycloak-database-password>
+                    - name: DB_DATABASE
+                      value: <your-keycloak-database-username>
                     - name: DB_ADDR
                       value: keycloak-database
                   ports:
