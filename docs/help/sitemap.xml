@@ -466,6 +466,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/help/setup/kubernetes/addons/dns/</loc>
+         <lastmod>2022-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/help/setup/kubernetes/addons/keycloak/</loc>
          <lastmod>2022-06-28</lastmod>
          <changefreq>daily</changefreq>
