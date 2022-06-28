@@ -2361,10 +2361,11 @@
 <div class="admonition note">
 <p class="admonition-title">Google Cloud console</p>
 <ul>
-<li>In the Google Cloud console, go to the Create a DNS zone page.</li>
-</ul>
-<p><code>Go to Create a DNS zone</code></p>
-<ul>
+<li>
+<p>In the Google Cloud console, go to the Create a DNS zone page.</p>
+<div class="highlight"><pre><span></span><code>`Go to Create a DNS zone`
+</code></pre></div>
+</li>
 <li>
 <p>For the Zone type, select Public.</p>
 </li>
@@ -2430,13 +2431,19 @@ Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledoma
 <p>Install cert-manager</p>
 </li>
 <li>
-<p>Add Jetstack Helm repository: <code>helm repo add jetstack https://charts.jetstack.io</code></p>
+<p>Add Jetstack Helm repository: 
+    <div class="highlight"><pre><span></span><code>helm repo add jetstack https://charts.jetstack.io
+</code></pre></div></p>
 </li>
 <li>
-<p>Update your local Helm chart repository cache: <code>helm repo update</code></p>
+<p>Update your local Helm chart repository cache: 
+    <div class="highlight"><pre><span></span><code>helm repo update
+</code></pre></div></p>
 </li>
 <li>
-<p>Intall CustomResourceDefinitions: <code>kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml</code></p>
+<p>Intall CustomResourceDefinitions: 
+    <div class="highlight"><pre><span></span><code>kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.2/cert-manager.crds.yaml
+</code></pre></div></p>
 </li>
 <li>
 <p>Install cert-manager:</p>
@@ -2500,6 +2507,14 @@ cert-manager jetstack/cert-manager \
 <span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIMPLE</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">credentialName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trial.apps</span><span class="w"> </span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Install Istio</p>
+</div>
+<ul>
+<li>Install <a href="https://istio.io/latest/docs/setup/install/istioctl/">istioctl</a></li>
+<li>Install <a href="https://istio.io/latest/docs/setup/install/">istio</a></li>
+<li>You can install with default profile <code>istioctl install</code> this will install <code>istio-ingressgateway</code> and <code>istiod</code></li>
+</ul>
 </div>
 </div>
 </div>
@@ -2535,10 +2550,13 @@ cert-manager jetstack/cert-manager \
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Kubernetes Ingress</label><label for="__tabbed_4_2">Istio Ingress</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><code>kubectl get ingress &lt;your-ingressgateway-name&gt;</code> and you will see column <code>ADDRESS</code></p>
+<p><div class="highlight"><pre><span></span><code>kubectl get ingress &lt;your-ingressgateway-name&gt;
+</code></pre></div>
+check column <code>ADDRESS</code></p>
 </div>
 <div class="tabbed-block">
-<p><code>kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"</code></p>
+<div class="highlight"><pre><span></span><code>kubectl get service -n istio-system istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
+</code></pre></div>
 </div>
 </div>
 </div>
@@ -2548,7 +2566,8 @@ cert-manager jetstack/cert-manager \
 <ul>
 <li>
 <p>Set zone for which you will create records</p>
-<p><code>gcloud dns record-sets transaction start --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
+<div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction start --zone=&lt;your-cloud-dns-zone-name&gt;
+</code></pre></div>
 </li>
 <li>
 <p>Add <code>A</code> record</p>
@@ -2561,8 +2580,11 @@ cert-manager jetstack/cert-manager \
 </li>
 <li>
 <p>Apply the new record</p>
-<p><code>gcloud dns record-sets transaction execute --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
 </li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction execute --zone=&lt;your-cloud-dns-zone-name&gt;
+</code></pre></div>
+<ul>
 <li>
 <p>Get your current DNS records for your zone</p>
 <p><code>gcloud dns record-sets list --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
