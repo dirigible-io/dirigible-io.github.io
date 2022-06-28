@@ -52,6 +52,12 @@ Deploy Eclipse Dirigible in Red Hat OpenShift environment.
                   env:
                     - name: DIRIGIBLE_THEME_DEFAULT
                       value: "fiori"
+                  volumeMounts:
+                    - name: dirigible-temp-data
+                      mountPath: /usr/local/tomcat/target
+              volumes:
+                - name: dirigible-temp-data
+                  emptyDir: {}
         ```
 
     === "Deployment with PVC"
