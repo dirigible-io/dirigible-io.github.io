@@ -23,7 +23,7 @@ nav:
         - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
         - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
         - Addons:
-          - Keycloack: 'setup/kubernetes/addons/keycloak.md'
+          - Keycloak: 'setup/kubernetes/addons/keycloak.md'
           - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
         - Helm: 'setup/kubernetes/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
