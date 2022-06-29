@@ -14,16 +14,16 @@ hide:
 
 #### Simple HTTP Service
 
-    ```javascript
-    var request = require("http/v4/request");
-    var response = require("http/v4/response");
+```javascript
+var request = require("http/v4/request");
+var response = require("http/v4/response");
 
-    var method = request.getMethod();
+var method = request.getMethod();
 
-    response.println("[Method]: " + method);
-    response.flush();
-    response.close();
-    ```
+response.println("[Method]: " + method);
+response.flush();
+response.close();
+```
 
 ---
 
