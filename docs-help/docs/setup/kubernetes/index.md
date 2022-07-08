@@ -304,23 +304,24 @@ To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the 
 
 3. Edit the deployment and add `command` and `args`:
 
-   ```
-   kubectl edit deployment dirigible
-   ```
+    ```
+    kubectl edit deployment dirigible
+    ```
 
-   ```yaml hl_lines="5 6"
-   containers:
-     - name: dirigible
-       image: dirigiblelabs/dirigible-all:latest
-       imagePullPolicy: Always
-       command: ["/bin/sh"]
-       args: ["/usr/local/tomcat/bin/catalina.sh", "jpda", "run"]
-   ```
+    ```yaml hl_lines="5 6"
+    containers:
+      - name: dirigible
+        image: dirigiblelabs/dirigible-all:latest
+        imagePullPolicy: Always
+        command: ["/bin/sh"]
+        args: ["/usr/local/tomcat/bin/catalina.sh", "jpda", "run"]
+    ```
+
 4. Forward the debug port:
 
-   ```
-   kubectl port-forward deployment/dirigible 8000:8000
-   ```
+    ```
+    kubectl port-forward deployment/dirigible 8000:8000
+    ```
 
 5. Scale up the deployment:
 
