@@ -2682,9 +2682,56 @@ kubectl apply -f service.yml
 </div>
 <h3 id="debugging">Debugging</h3>
 <p>To debug the Eclipse Dirigible engine via <strong>Remote Java Debugging</strong> execute the following commands:</p>
-<div class="highlight"><pre><span></span><code>kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
-kubectl port-forward deployment/dirigible 8000:8000
+<ol>
+<li>
+<p>Scale the deployment to zero:</p>
+<div class="highlight"><pre><span></span><code>kubectl scale deployment/dirigible --replicas=0
 </code></pre></div>
+</li>
+<li>
+<p>Set debug environment variables:</p>
+<div class="highlight"><pre><span></span><code>kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
+</code></pre></div>
+</li>
+<li>
+<p>Edit the deployment and add <code>command</code> and <code>args</code>:</p>
+</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+</span><span class="hll"><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/usr/local/tomcat/bin/catalina.sh&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;jpda&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;run&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
+</span></code></pre></div>
+4. Forward the debug port:</p>
+<div class="highlight"><pre><span></span><code>kubectl port-forward deployment/dirigible 8000:8000
+</code></pre></div>
+<ol>
+<li>
+<p>Scale up the deployment:</p>
+<div class="highlight"><pre><span></span><code>kubectl scale deployment/dirigible --replicas=1
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To clean-up the environment after the debugging is done:</p>
+<ul>
+<li>Stop the port forwarding.</li>
+<li>Scale the deployment to zero.</li>
+<li>
+<p>Remove the debug environment variables:</p>
+<div class="highlight"><pre><span></span><code>kubectl set env deployment/dirigible -e JPDA_ADDRESS-
+kubectl set env deployment/dirigible -e JPDA_TRANSPORT-
+</code></pre></div>
+</li>
+<li>
+<p>Edit the deployment and remove <code>command</code> and <code>args</code>.</p>
+</li>
+<li>Scale up the deployment.</li>
+</ul>
+</div>
 
               
             </article>
