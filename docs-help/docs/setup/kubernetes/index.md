@@ -317,19 +317,19 @@ To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the 
         args: ["/usr/local/tomcat/bin/catalina.sh", "jpda", "run"]
     ```
 
-4. Forward the debug port:
-
-    ```
-    kubectl port-forward deployment/dirigible 8000:8000
-    ```
-
-5. Scale up the deployment:
+4. Scale up the deployment:
 
     ```
     kubectl scale deployment/dirigible --replicas=1
     ```
 
-!!! note
+5. Forward the debug port:
+
+    ```
+    kubectl port-forward deployment/dirigible 8000:8000
+    ```
+
+!!! note "Clean-up"
 
     To clean-up the environment after the debugging is done:
     
