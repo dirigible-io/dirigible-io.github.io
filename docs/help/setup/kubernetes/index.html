@@ -2690,7 +2690,8 @@ kubectl apply -f service.yml
 </li>
 <li>
 <p>Set debug environment variables:</p>
-<div class="highlight"><pre><span></span><code>kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
+<div class="highlight"><pre><span></span><code>kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000
+kubectl set env deployment/dirigible -e JPDA_TRANSPORT=dt_socket
 </code></pre></div>
 </li>
 <li>
