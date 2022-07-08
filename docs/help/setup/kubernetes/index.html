@@ -2698,6 +2698,8 @@ kubectl set env deployment/dirigible -e JPDA_TRANSPORT=dt_socket
 <p>Edit the deployment and add <code>command</code> and <code>args</code>:</p>
 </li>
 </ol>
+<div class="highlight"><pre><span></span><code>kubectl edit deployment dirigible
+</code></pre></div>
 <p><div class="highlight"><pre><span></span><code><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
