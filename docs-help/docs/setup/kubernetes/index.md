@@ -304,6 +304,10 @@ To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the 
 
 3. Edit the deployment and add `command` and `args`:
 
+   ```
+   kubectl edit deployment dirigible
+   ```
+
    ```yaml hl_lines="5 6"
    containers:
      - name: dirigible
