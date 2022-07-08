@@ -298,7 +298,8 @@ To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the 
 2. Set debug environment variables:
 
     ```
-    kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
+    kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000
+    kubectl set env deployment/dirigible -e JPDA_TRANSPORT=dt_socket
     ```
 
 3. Edit the deployment and add `command` and `args`:
