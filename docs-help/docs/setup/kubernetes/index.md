@@ -287,8 +287,9 @@ The Eclipse Dirigible **Deployment** could be scaled horizontally by adding/remo
 
 ### Debugging
 
-To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the following command:
+To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the following commands:
 
 ```
+kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
 kubectl port-forward deployment/dirigible 8000:8000
 ```
