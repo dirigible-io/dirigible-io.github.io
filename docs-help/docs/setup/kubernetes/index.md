@@ -289,7 +289,53 @@ The Eclipse Dirigible **Deployment** could be scaled horizontally by adding/remo
 
 To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the following commands:
 
-```
-kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
-kubectl port-forward deployment/dirigible 8000:8000
-```
+1. Scale the deployment to zero:
+
+    ```
+    kubectl scale deployment/dirigible --replicas=0
+    ```
+
+2. Set debug environment variables:
+
+    ```
+    kubectl set env deployment/dirigible -e JPDA_ADDRESS=0.0.0.0:8000 -e JPDA_TRANSPORT=dt_socket
+    ```
+
+3. Edit the deployment and add `command` and `args`:
+
+   ```yaml hl_lines="5 6"
+   containers:
+     - name: dirigible
+       image: dirigiblelabs/dirigible-all:latest
+       imagePullPolicy: Always
+       command: ["/bin/sh"]
+       args: ["/usr/local/tomcat/bin/catalina.sh", "jpda", "run"]
+   ```
+4. Forward the debug port:
+
+   ```
+   kubectl port-forward deployment/dirigible 8000:8000
+   ```
+
+5. Scale up the deployment:
+
+    ```
+    kubectl scale deployment/dirigible --replicas=1
+    ```
+
+!!! note
+
+    To clean-up the environment after the debugging is done:
+    
+    - Stop the port forwarding.
+    - Scale the deployment to zero.
+    - Remove the debug environment variables:
+
+        ```
+        kubectl set env deployment/dirigible -e JPDA_ADDRESS-
+        kubectl set env deployment/dirigible -e JPDA_TRANSPORT-
+        ```
+
+    - Edit the deployment and remove `command` and `args`.
+    - Scale up the deployment.
+        
