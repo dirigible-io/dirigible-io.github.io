@@ -292,6 +292,13 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_VERTX_PORT**   | The Vert.x server port, if used | _`8888`_
 
+### CSV
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_CSV_DATA_MAX_COMPARE_SIZE**   | The maximum number of CSV records for which will be performed comparison with the existing table data | _`1000`_
+**DIRIGIBLE_CSV_DATA_BATCH_SIZE** | The number of CSV records to be included in a _**batch**_ operation | _`100`_
+
 ### CMS
 
 Parameter     | Description | Default*
