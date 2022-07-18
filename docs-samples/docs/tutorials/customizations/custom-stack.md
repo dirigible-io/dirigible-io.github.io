@@ -1,10 +1,10 @@
 ---
-title: Helium Custom Stack
+title: Custom Stack
 hide:
   - toc
 ---
 
-Helium Custom Stack
+Custom Stack
 ===
 
 This tutorial will guide you through the creation of a custom Dirigible stack for production. It also explains how to create a facade of a functionality written in Java and to expose it via API bridge to the application layer - JavaScript.

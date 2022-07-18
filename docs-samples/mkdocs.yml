@@ -12,6 +12,68 @@ theme:
     - navigation.tabs.sticky
     - navigation.indexes
 
+nav:
+    - 'Basic':
+      - 'Base64 - Decode': 'basic/base64-decode.md'
+      - 'Base64 - Encode': 'basic/base64-encode.md'
+      - 'Console': 'basic/console.md'
+      - 'Converting JSON to XML': 'basic/converting-json-xml.md'
+      - 'Converting XML to JSON': 'basic/converting-xml-json.md'
+      - 'Database - Dynamic Datasource': 'basic/database-dynamic.md'
+      - 'Database - Procedure Call': 'basic/database-procedure-call.md'
+      - 'Database Procedure - Create & Execute': 'basic/database-procedure.md'
+      - 'Database - Query': 'basic/database-query.md'
+      - 'Database - Statement': 'basic/database-statement.md'
+      - 'Encrypt - SHA-512': 'basic/digest.md'
+      - 'Generate PDF': 'basic/documents-pdf.md'
+      - 'FTP Client': 'basic/ftp-client.md'
+      - 'Hex - Decode': 'basic/hex-decode.md'
+      - 'Hex - Encode': 'basic/hex-encode.md'
+      - 'HTTP Client - Binary Response': 'basic/http-client-binary.md'
+      - 'HTTP Client - Calls': 'basic/http-client-calls.md'
+      - 'HTTP - Request': 'basic/http-request.md'
+      - 'Liquibase': 'basic/liquibase-simple.md'
+      - 'Send Email': 'basic/mail-client.md'
+      - 'Platform Lifecycle': 'basic/platform-lifecycle.md'
+      - 'Print Configuration Variables': 'basic/print-configurations.md'
+      - 'Print Environment Variables': 'basic/print-env.md'
+      - 'QR Code Generator': 'basic/qrcode-generator.md'
+      - 'Repository Manager': 'basic/repository-manager.md'
+      - 'REST Service': 'basic/rest-service.md'
+      - 'SOAP - Client': 'basic/soap-client.md'
+      - 'SOAP - Server': 'basic/soap-server.md'
+      - 'URL - UTF-8 Decoding': 'basic/url-decode.md'
+      - 'URL - UTF-8 Encoding': 'basic/url-encode.md'
+      - 'UUID - Random Generation': 'basic/uuid-random-generation.md'
+    - 'Tutorials':
+      - 'Application Development':
+        - 'Bookstore Application': 'tutorials/application-development/bookstore.md'
+        - 'File Upload': 'tutorials/application-development/file-upload.md'
+        - 'Shell Command': 'tutorials/application-development/shell-command.md'
+        - 'Scheduled Job': 'tutorials/application-development/job-console.md'
+        - 'Kafka Producer and Consumer': 'tutorials/application-development/kafka.md'
+        - 'Listener of a Queue': 'tutorials/application-development/listener-queue.md'
+      - 'Customizations':
+        - 'Custom Stack': 'tutorials/customizations/custom-stack.md'
+        - 'IDE':
+          - 'Contributing to IDE Modules': 'tutorials/customizations/ide/contributing-to-ide-modules.md'
+        - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
+        - 'Master Repository': 'tutorials/customizations/master-repository.md'
+        - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'
+      - 'Modeling':
+        - 'Generate Application from Model': 'tutorials/modeling/generate-application-from-model.md'
+        - 'BPMN Process' : 'tutorials/modeling/process-console.md'
+      - 'Setup':
+        - 'Tomcat': 'https://www.dirigible.io/help/setup/'
+        - 'Docker': 'https://www.dirigible.io/help/setup/docker/'
+        - 'Kubernetes': 'https://www.dirigible.io/help/setup/kubernetes/'
+        - 'Cloud Foundry': 'https://www.dirigible.io/help/setup/cloud-foundry/'
+        - 'Environment Variables': 'https://www.dirigible.io/help/setup/setup-environment-variables/'
+        - 'Zeus':
+          - 'Zeus on Kubernetes': 'tutorials/modeling/zeus-on-kubernetes-minikube.md'
+          - 'Zeus on Kubernetes with MacOS': 'tutorials/modeling/zeus-on-macos.md'
+          - 'Zeus on Kubernetes with Windows OS': 'tutorials/modeling/zeus-on-windows.md'
+
 extra_css:
   - stylesheets/custom.css
   - stylesheets/homepage.css
