@@ -161,11 +161,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/samples/tutorials/</loc>
-         <lastmod>2022-07-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/samples/tutorials/application-development/bookstore/</loc>
          <lastmod>2022-07-18</lastmod>
          <changefreq>daily</changefreq>
