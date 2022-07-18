@@ -13,6 +13,7 @@ theme:
     - navigation.indexes
 
 nav:
+    - 'Samples': 'index.md'
     - 'Basic':
       - 'Base64 - Decode': 'basic/base64-decode.md'
       - 'Base64 - Encode': 'basic/base64-encode.md'
