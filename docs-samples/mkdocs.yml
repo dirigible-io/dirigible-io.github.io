@@ -71,9 +71,9 @@ nav:
         - 'Cloud Foundry': 'https://www.dirigible.io/help/setup/cloud-foundry/'
         - 'Environment Variables': 'https://www.dirigible.io/help/setup/setup-environment-variables/'
         - 'Zeus':
-          - 'Zeus on Kubernetes': 'tutorials/modeling/zeus-on-kubernetes-minikube.md'
-          - 'Zeus on Kubernetes with MacOS': 'tutorials/modeling/zeus-on-macos.md'
-          - 'Zeus on Kubernetes with Windows OS': 'tutorials/modeling/zeus-on-windows.md'
+          - 'Zeus on Kubernetes': 'tutorials/setup/zeus-on-kubernetes-minikube.md'
+          - 'Zeus on Kubernetes with MacOS': 'tutorials/setup/zeus-on-macos.md'
+          - 'Zeus on Kubernetes with Windows OS': 'tutorials/setup/zeus-on-windows.md'
 
 extra_css:
   - stylesheets/custom.css

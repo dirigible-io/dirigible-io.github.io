@@ -1,4 +1,9 @@
-# Contributing to IDE Modules
+---
+title: Contributing to IDE Modules
+---
+
+Contributing to IDE Modules
+===
 
 All IDE modules are located in the [DirigibleLabs](https://github.com/dirigiblelabs) GitHub organization. Sample repositories, used for showing how to create Dirigible modules, start with `sample-`.
 

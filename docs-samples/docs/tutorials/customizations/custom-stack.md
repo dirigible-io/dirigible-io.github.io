@@ -1,7 +1,5 @@
 ---
 title: Custom Stack
-hide:
-  - toc
 ---
 
 Custom Stack

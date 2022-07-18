@@ -1,7 +1,5 @@
 ---
 title: Listener of a Queue
-hide:
-  - toc
 ---
 
 Listener of a Queue

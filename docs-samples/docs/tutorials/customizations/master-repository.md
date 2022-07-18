@@ -1,7 +1,5 @@
 ---
 title: Master Repository
-hide:
-  - toc
 ---
 
 Master Repository

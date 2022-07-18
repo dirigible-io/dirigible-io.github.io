@@ -1,7 +1,5 @@
 ---
 title: RBAC for CMS
-hide:
-  - toc
 ---
 
 RBAC for CMS

@@ -1,7 +1,5 @@
 ---
 title: Zeus on Kubernetes
-hide:
-  - toc
 ---
 
 Zeus on Kubernetes

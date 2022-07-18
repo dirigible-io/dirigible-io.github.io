@@ -1,7 +1,5 @@
 ---
 title: Kafka Producer and Consumer
-hide:
-  - toc
 ---
 
 Kafka Producer and Counsmer

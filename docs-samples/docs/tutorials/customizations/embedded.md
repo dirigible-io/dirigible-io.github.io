@@ -1,7 +1,5 @@
 ---
 title: Embedded Dirigible
-hide:
-  - toc
 ---
 
 Embedded Dirigible

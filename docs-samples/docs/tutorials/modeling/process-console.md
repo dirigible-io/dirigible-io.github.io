@@ -1,7 +1,5 @@
 ---
 title: BPMN Process
-hide:
-  - toc
 ---
 
 BPMN Process

@@ -1,7 +1,5 @@
 ---
 title: Shell Command
-hide:
-  - toc
 ---
 
 Shell Command

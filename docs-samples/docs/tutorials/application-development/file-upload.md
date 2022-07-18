@@ -1,7 +1,5 @@
 ---
 title: File Upload
-hide:
-  - toc
 ---
 
 File Upload

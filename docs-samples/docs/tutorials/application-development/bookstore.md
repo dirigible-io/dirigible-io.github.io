@@ -1,7 +1,5 @@
 ---
 title: Bookstore Application
-hide:
-  - toc
 ---
 
 Bookstore Application

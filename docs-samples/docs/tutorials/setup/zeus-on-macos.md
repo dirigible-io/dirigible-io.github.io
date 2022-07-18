@@ -1,7 +1,5 @@
 ---
 title: Zeus on Kubernetes with MacOS
-hide:
-  - toc
 ---
 
 Zeus on Kubernetes with MacOS

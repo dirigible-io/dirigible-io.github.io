@@ -1,7 +1,5 @@
 ---
 title: Generate Application from Model
-hide:
-  - toc
 ---
 
 Generate Application from Model

@@ -1,7 +1,5 @@
 ---
 title: Zeus on Kubernetes with Windows OS
-hide:
-  - toc
 ---
 
 Zeus on Kubernetes with Windows OS
