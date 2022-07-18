@@ -15,11 +15,11 @@ It contains a database table definition, a RESTful service and a web page for ma
 1. Create a project named `babylon-project`.
 #### Database Descriptor
 
-1. Right click on the `babylon-project` project and select `New &#8594; Folder`.
+1. Right click on the `babylon-project` project and select **New &#8594; Folder**.
 1. Enter `data` for the name of the folder.
-1. Right click on the `data` folder and select `New &#8594; Database Table`.
+1. Right click on the `data` folder and select **New &#8594; Database Table**.
 1. Enter `BABYLON_BOOKS.table` for the name of the database table descriptor.
-1. Right click on `BABYLON_BOOKS.table` and select `Open With &#8594; Code Editor`.
+1. Right click on `BABYLON_BOOKS.table` and select **Open With &#8594; Code Editor**.
 1. Replace the content with the following definition:
 
     ```json
@@ -100,9 +100,9 @@ It contains a database table definition, a RESTful service and a web page for ma
 
 #### Data Access Object
 
-1. Right click on the `babylon-project` project and select `New &#8594; Folder`.
+1. Right click on the `babylon-project` project and select **New &#8594; Folder**.
 1. Enter `dao` for the name of the folder.
-1. Right click on the `dao` folder and select `New &#8594; JavaScript CJS Service`.
+1. Right click on the `dao` folder and select **New &#8594; JavaScript CJS Service**.
 1. Enter `Books.js` for the name of the JavaScript Service.
 1. Replace the content with the following code:
 
@@ -174,9 +174,9 @@ It contains a database table definition, a RESTful service and a web page for ma
 
 #### REST Service
 
-1. Right click on the `babylon-project` project and select `New &#8594; Folder`.
+1. Right click on the `babylon-project` project and select **New &#8594; Folder**.
 1. Enter `service` for the name of the folder.
-1. Right click on the `service` folder and select `New &#8594; JavaScript CJS Service`.
+1. Right click on the `service` folder and select **New &#8594; JavaScript CJS Service**.
 1. Enter `Books.js` for the name of the JavaScript Service.
 1. Replace the content the following code:
 
@@ -246,9 +246,9 @@ It contains a database table definition, a RESTful service and a web page for ma
 
 #### User Interface
 
-1. Right click on the `babylon-project` project and select `New &#8594; Folder`.
+1. Right click on the `babylon-project` project and select **New &#8594; Folder**.
 1. Enter `view` for the name of the folder.
-1. Right click on the `view` folder and select `New &#8594; HTML5 Page`.
+1. Right click on the `view` folder and select **New &#8594; HTML5 Page**.
 1. Enter `index.html` for the name of the HTML5 Page.
 1. Replace the content with the following code:
 
@@ -374,7 +374,7 @@ It contains a database table definition, a RESTful service and a web page for ma
     </html>
     ```
 
-1. Right click on the `view` folder and select `New &#8594; File`.
+1. Right click on the `view` folder and select **New &#8594; File**.
 1. Enter `controller.js` for the name of the file.
 1. Replace the content with the following code:
 
