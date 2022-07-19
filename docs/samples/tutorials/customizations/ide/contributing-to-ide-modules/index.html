@@ -1094,9 +1094,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Contributing to IDE Modules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Contributing to IDE Modules
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commit-change-to-dirigiblelabs-organization" class="md-nav__link">
+    Commit Change to DirigibleLabs Organization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-change-to-eclipse-dirigible-repository" class="md-nav__link">
+    Commit Change to Eclipse Dirigible Repository
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1452,6 +1490,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commit-change-to-dirigiblelabs-organization" class="md-nav__link">
+    Commit Change to DirigibleLabs Organization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-change-to-eclipse-dirigible-repository" class="md-nav__link">
+    Commit Change to Eclipse Dirigible Repository
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1469,59 +1529,91 @@
 
 
 <h1 id="contributing-to-ide-modules">Contributing to IDE Modules</h1>
-<p>All IDE modules are located in the <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> GitHub organization. Sample repositories, used for showing how to create Dirigible modules, start with <code>sample-</code>.</p>
+<p>All IDE modules are located in the <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> GitHub organization. Sample repositories, used for showing how to create Eclipse Dirigible modules, starts with the <code>sample-</code> prefix.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <ul>
-<li>Make sure you have permissions to commit in <strong>DirigibleLabs</strong>.</li>
+<li>Make sure you have permissions to commit in <code>DirigibleLabs</code>.</li>
 <li>PR are also accepted.</li>
 </ul>
 </div>
+<h3 id="commit-change-to-dirigiblelabs-organization">Commit Change to DirigibleLabs Organization</h3>
 <ol>
 <li>
-<p>Commit change to <strong>DirigibleLabs</strong> organization:</p>
+<p>Go to <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> and copy the url to the IDE project you will contribute to.</p>
+</li>
+<li>
+<p>Start Eclipse Dirigible locally (http://localhost:8080/)</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can find more information on how to do that by following the <a href="https://www.dirigible.io/help/development/">Getting Started</a> or the <a href="https://www.dirigible.io/help/setup/">Setup</a> sections.</p>
+</div>
+</li>
+<li>
+<p>Go to the <code>Git</code> perspective and click on  <code>Clone  Project</code> button.</p>
 <ul>
-<li>Go to <a href="https://github.com/dirigiblelabs">DirigibleLabs</a> and copy the url to the IDE project you will contribute to.</li>
-<li>Start dirigible locally (http://localhost:8080/). You can find more information on how to do that <a href="https://www.dirigible.io/help/development/">here</a>.</li>
-<li>Go to the <code>Git</code> perspective and click on  <code>Clone  Project</code> button.</li>
 <li>Enter the <code>URL</code> of the IDE project and click <code>Clone</code>.</li>
 <li>The project will appear under the git project list.</li>
-<li>Go to the <code>Workspace</code> perspective and make your changes. To be 100% sure all changes are saved and applied, right click on the project and select <code>Publish</code>. Now you can test the changes locally.</li>
-<li>After the changes are tested you can submit them.</li>
-<li>Open the <code>Git</code> perspective, click on the project and select the <code>Stage</code> tab. Select the changed files and use the down arrow button to stage them.</li>
-<li>Enter <code>Commit Message</code>.</li>
-<li>Enter your <code>Username</code>, <code>Email</code>, <code>Password</code> and click <code>Commit and Push</code>.<ul>
-<li>In case your profile has <code>two-factor authentication</code>, for the <code>Password</code> field use your GitHub <code>Personal Access Token (PAT)</code>. See the additional info below.</li>
-</ul>
-</li>
-<li>Go to the IDE project github page and make sure your changes were committed.</li>
 </ul>
 </li>
 <li>
-<p>Commit change to <strong>Eclipse Dirigible</strong> repository:</p>
+<p>Go to the <code>Workspace</code> perspective and make your changes.</p>
 <ul>
-<li>Fork the <a href="https://github.com/eclipse/dirigible">Eclipse Dirigible</a> git repository into your account.</li>
-<li>Pull the forked project locally.<ul>
-<li>If you have done this before and now have to push new changes, make sure to checkout the <code>master</code> branch, fetch all changes from the original repository in GitHub and pull them locally.</li>
+<li>To be 100% sure all changes are saved and applied, right click on the project and select <code>Publish</code>. Now you can test the changes locally.</li>
+<li>After the changes are tested you can submit them.</li>
 </ul>
 </li>
-<li>Checkout to a new branch by giving it either a topic name or a name starting with <code>fix-</code> followed by the issue number.</li>
-<li>Execute <code>mvn clean install -Pcontent</code> in the ide module root directory. You can also execute this for the whole project but that will pull the changes from all modules.</li>
-<li>Execute <code>mvn clean install</code> in the same module.</li>
-<li>You should see your changes that you already committed in the DirigibleLabs project.</li>
-<li>Add, commit and push only the files that you have changed. When committing, never forget to sign off you commit  using the <code>-s</code> argument. You can use the <code>git status</code> command, to see all changed files.</li>
-<li>Create a PR to the master branch.</li>
+<li>
+<p>Open the <code>Git</code> perspective, click on the project and select the <code>Stage</code> tab.</p>
+<ul>
+<li>Select the changed files and use the down arrow button to stage them.</li>
+<li>Enter <code>Commit Message</code>.</li>
+<li>Enter your <code>Username</code>, <code>Email</code>, <code>Password</code> and click <code>Commit and Push</code>.</li>
 </ul>
-</li>
-</ol>
 <div class="admonition info">
-<p class="admonition-title">How to generate and get my personal access token</p>
+<p class="admonition-title">GitHub Personal Access Token (PAT)</p>
+<p>In case your profile has <code>two-factor authentication</code>, for the <code>Password</code> field use your GitHub <code>Personal Access Token (PAT)</code>.</p>
 <ul>
 <li><a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Creating a personal access token - GitHub Docs</a>.</li>
 <li>Select all scopes.</li>
 <li>Copy and save your token, because after you navigate off the page, you will not be able to see the token again.</li>
+<li>Go to the IDE project github page and make sure your changes were committed.</li>
 </ul>
 </div>
+</li>
+</ol>
+<h3 id="commit-change-to-eclipse-dirigible-repository">Commit Change to Eclipse Dirigible Repository</h3>
+<ol>
+<li>
+<p>Fork the <a href="https://github.com/eclipse/dirigible">Eclipse Dirigible</a> git repository into your account.</p>
+<ul>
+<li>Pull the forked project locally.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have done this before and now have to push new changes, make sure to checkout the <code>master</code> branch, fetch all changes from the original repository in GitHub and pull them locally.</p>
+</div>
+<ul>
+<li>Checkout to a new branch by giving it either a topic name or a name starting with <code>fix-</code> followed by the issue number.</li>
+</ul>
+</li>
+<li>
+<p>Execute <code>mvn clean install -P content</code> in the ide module root directory.</p>
+<ul>
+<li>You can also execute this for the whole project but that will pull the changes from all modules.</li>
+<li>Execute <code>mvn clean install</code> in the same module.</li>
+<li>You should see your changes that you already committed in the <code>DirigibleLabs</code> project.</li>
+</ul>
+</li>
+<li>
+<p>Add, commit and push only the files that you have changed.</p>
+<ul>
+<li>When committing, never forget to sign off you commit using the <code>-s</code> argument.</li>
+<li>You can use the <code>git status</code> command, to see all changed files.</li>
+<li>Create a PR to the <code>master</code> branch.</li>
+</ul>
+</li>
+</ol>
 
               
             </article>
