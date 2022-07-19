@@ -15,11 +15,14 @@ All IDE modules are located in the [DirigibleLabs](https://github.com/dirigiblel
 
 1. Go to [DirigibleLabs](https://github.com/dirigiblelabs) and copy the url to the IDE project you will contribute to.
 
-1. Start Eclipse Dirigible locally (http://localhost:8080/)
+1. Start Eclipse Dirigible.
 
     !!! info 
 
-        You can find more information on how to do that by following the [Getting Started](https://www.dirigible.io/help/development/) or the [Setup](https://www.dirigible.io/help/setup/) sections.
+        You can find more information on how to do that by following:
+
+        - [Getting Started](https://www.dirigible.io/help/development/) section.
+        - [Setup](https://www.dirigible.io/help/setup/) section.
 
 1. Go to the `Git` perspective and click on  `Clone  Project` button.
 
