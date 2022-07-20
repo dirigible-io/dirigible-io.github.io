@@ -5,7 +5,7 @@ title: Create View
 Create View
 ===
 
-All views in Eclipse Dirigible are loaded via the `ide-view` extension point. To develop a new view, _extension_, _view definition_ and _frontend resources_ should be created. The following example is using [AngularJS](https://angularjs.org/) and [Fundamental Library](https://sap.github.io/fundamental/).
+All views in Eclipse Dirigible are loaded via the `ide-view` extension point. List with all extension points can be found at the[Extensions Overview](/help/development/extensions/) page. To develop a new view, _extension_, _view definition_ and _frontend resources_ should be created. The following example is using [AngularJS](https://angularjs.org/) and [Fundamental Library](https://sap.github.io/fundamental/).
 
 ### Steps
 
