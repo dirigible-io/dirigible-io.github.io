@@ -216,6 +216,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/samples/tutorials/customizations/ide/create-perspective/</loc>
+         <lastmod>2022-07-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/samples/tutorials/customizations/ide/create-view/</loc>
          <lastmod>2022-07-20</lastmod>
          <changefreq>daily</changefreq>
