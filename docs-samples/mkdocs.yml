@@ -57,7 +57,7 @@ nav:
       - 'Customizations':
         - 'Custom Stack': 'tutorials/customizations/custom-stack.md'
         - 'IDE':
-          - 'Create View': 'tutorials/customizations/ide/creating-view.md'
+          - 'Create View': 'tutorials/customizations/ide/create-view.md'
           - 'Contribute IDE Modules': 'tutorials/customizations/ide/contribute-ide-modules.md'
         - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
         - 'Master Repository': 'tutorials/customizations/master-repository.md'

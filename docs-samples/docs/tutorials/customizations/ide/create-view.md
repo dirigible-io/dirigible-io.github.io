@@ -74,6 +74,8 @@ All views in Eclipse Dirigible are loaded via the `ide-view` extension point. To
 
 1. Create view frontend resources:
 
+    - Create `index.html` and `controller.js` files.
+
     === "index.html"
 
         1. Right click on the `my-view` project and select **New &#8594; HTML5 Page**.
