@@ -5,7 +5,7 @@ title: Create Perspective
 Create Perspective
 ===
 
-All perspectives in Eclipse Dirigible are loaded via the `ide-perspective` extension point. List with all extension points can be found at the[Extensions Overview](/help/development/extensions/) page. To develop a new perspective, _extension_, _perspective definition_ and _frontend resources_ should be created. The following example is using [AngularJS](https://angularjs.org/) and [Fundamental Library](https://sap.github.io/fundamental/).
+All perspectives in Eclipse Dirigible are loaded via the `ide-perspective` extension point. List with all extension points can be found at the [Extensions Overview](/help/development/extensions/) page. To develop a new perspective, _extension_, _perspective definition_ and _frontend resources_ should be created. The following example is using [AngularJS](https://angularjs.org/) and [Fundamental Library](https://sap.github.io/fundamental/).
 
 ### Steps
 
