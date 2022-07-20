@@ -319,8 +319,8 @@ All perspectives in Eclipse Dirigible are loaded via the `ide-perspective` exten
     === "icon.svg"
 
         1. Right click on the `my-perspective` project and select **New &#8594; File**.
-        1. Enter `controller.js` for the name of the file.
-        1. Double click on the `controller.js` file to open it with the _Code Editor_.
+        1. Enter `icon.svg` for the name of the file.
+        1. Right click on the `icon.svg` file and select **Open With &#8594; Code Editor**.
         1. Replace the content with the following code:
 
         ```xml
@@ -346,6 +346,8 @@ All perspectives in Eclipse Dirigible are loaded via the `ide-perspective` exten
           </g>
         </svg>
         ```
+
+        1. Save the changes and close the _Code Editor_.
 
 1. Refresh the browser.
 
