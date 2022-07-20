@@ -55,11 +55,11 @@ nav:
         - 'Kafka Producer and Consumer': 'tutorials/application-development/kafka.md'
         - 'Listener of a Queue': 'tutorials/application-development/listener-queue.md'
       - 'Customizations':
-        - 'Custom Stack': 'tutorials/customizations/custom-stack.md'
         - 'IDE':
           - 'Create View': 'tutorials/customizations/ide/create-view.md'
           - 'Create Perspective': 'tutorials/customizations/ide/create-perspective.md'
           - 'Contribute IDE Modules': 'tutorials/customizations/ide/contribute-ide-modules.md'
+        - 'Custom Stack': 'tutorials/customizations/custom-stack.md'
         - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
         - 'Master Repository': 'tutorials/customizations/master-repository.md'
         - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'
