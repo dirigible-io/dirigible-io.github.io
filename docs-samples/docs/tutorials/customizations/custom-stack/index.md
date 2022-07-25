@@ -24,7 +24,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 	    1. Create new `pom.xml` file.
 		1. Paste the following content:
 
-    	```xml
+    	```xml hl_lines="65"
     	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <modelVersion>4.0.0</modelVersion>
 
@@ -108,7 +108,11 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
         </project>
     	```
 
-		!!! note "Git Repository"
+		!!! tip "Eclipse Dirigible version"
+
+			The tutorial is using Eclipse Dirigible version `6.3.12` as highlighted on line **65**. To check for a more recent and stable version go to [Eclipse Dirigible Releases](https://github.com/eclipse/dirigible/releases/).
+
+		!!! info "Git Repository"
 
 			For git repositories uncomment the following lines, in order to receive the `Commit Id` information in the **About** view:
 
@@ -136,8 +140,8 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
     === "releng/pom.xml"
 
-	    1. Create new folder `releng`.
-		1. Navigate to the `releng` folder and create new `pom.xml` file.
+	    1. Create new folder `releng` and navigate to it.
+		1. Create new `pom.xml` file.
 		1. Paste the following content:
 
 		```xml
@@ -651,7 +655,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		      authRoles: [Operator]
 		```
 
-    === "application.yaml"
+    === "CustomPlatformApplication.java"
 
 		1. Navigate to the `src/main` folder.
 		1. Create `java/io/dirigible/custom/platform` and navigate to it.
