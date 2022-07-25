@@ -61,6 +61,7 @@ nav:
           - 'Contribute IDE Modules': 'tutorials/customizations/ide/contribute-ide-modules.md'
         - 'Custom Stack':
           - 'tutorials/customizations/custom-stack/index.md'
+          - 'Branding': 'tutorials/customizations/custom-stack/branding.md'
         - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
         - 'Master Repository': 'tutorials/customizations/master-repository.md'
         - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'

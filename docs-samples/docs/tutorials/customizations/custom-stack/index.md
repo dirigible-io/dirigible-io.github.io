@@ -187,6 +187,14 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 			</build>
 
 			<dependencies>
+
+				<!-- Dirigible -->
+				<dependency>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-server-spring</artifactId>
+					<version>${dirigible.version}</version>
+				</dependency>
+
 				<!-- Platform -->
 				<dependency>
 					<groupId>org.slf4j</groupId>
@@ -213,12 +221,6 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 					<version>${spring.boot.version}</version>
 				</dependency>
 
-				<!-- Dirigible -->
-				<dependency>
-					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-server-spring</artifactId>
-					<version>${dirigible.version}</version>
-				</dependency>
 			</dependencies>
 		
 		</project>
@@ -704,3 +706,5 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 			```
 			java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar custom-stack-spring-boot-*.jar
 			```
+
+	- Go to [http://localhost:8080](http://localhost:8080/) to access the _Custom Stack_.
