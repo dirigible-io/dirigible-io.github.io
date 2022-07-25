@@ -1138,12 +1138,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Custom Stack</a>
+          
+            <label for="__nav_3_2_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -1154,6 +1160,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -1719,6 +1739,14 @@
     <span class="nt">&lt;/build&gt;</span>
 
     <span class="nt">&lt;dependencies&gt;</span>
+
+        <span class="cm">&lt;!-- Dirigible --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-server-spring<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
         <span class="cm">&lt;!-- Platform --&gt;</span>
         <span class="nt">&lt;dependency&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
@@ -1745,12 +1773,6 @@
             <span class="nt">&lt;version&gt;</span>${spring.boot.version}<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;/dependency&gt;</span>
 
-        <span class="cm">&lt;!-- Dirigible --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>dirigible-server-spring<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
     <span class="nt">&lt;/dependencies&gt;</span>
 
 <span class="nt">&lt;/project&gt;</span>
@@ -2250,6 +2272,9 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 </code></pre></div>
 </div>
 </li>
+<li>
+<p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
+</li>
 </ul>
 </li>
 </ol>
@@ -2292,13 +2317,13 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 				</a>
     		
 			
-				<a href="../embedded/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="branding/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Embedded Dirigible
+							Branding
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">

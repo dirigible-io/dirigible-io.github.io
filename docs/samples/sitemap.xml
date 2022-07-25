@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/samples/tutorials/customizations/custom-stack/branding/</loc>
+         <lastmod>2022-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/samples/tutorials/customizations/ide/contribute-ide-modules/</loc>
          <lastmod>2022-07-25</lastmod>
          <changefreq>daily</changefreq>
