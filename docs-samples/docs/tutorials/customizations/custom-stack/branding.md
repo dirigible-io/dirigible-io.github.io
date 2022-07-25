@@ -169,133 +169,133 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
     === "Add Modules Dependency"
 
-    1. Navigate to the `<dependencies>` section.
-	1. Add the following dependency:
+        1. Navigate to the `<dependencies>` section.
+    	1. Add the following dependency:
 
-	    ```xml
-		<!-- Custom Stack Modules -->
-        <dependency>
-            <groupId>io.dirigible.custom.stack</groupId>
-            <artifactId>custom-stack-modules-all</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-		```
+    	    ```xml
+    		<!-- Custom Stack Modules -->
+            <dependency>
+                <groupId>io.dirigible.custom.stack</groupId>
+                <artifactId>custom-stack-modules-all</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+    		```
 
     === "Exclude Default Branding"
 
-    1. Navigate to the `<dependencies>` section.
-	1. Edit the `dirigible-server-spring` dependency:
+        1. Navigate to the `<dependencies>` section.
+    	1. Edit the `dirigible-server-spring` dependency:
 
-	    ```xml hl_lines="6 11"
-		<!-- Dirigible -->
-        <dependency>
-            <groupId>org.eclipse.dirigible</groupId>
-            <artifactId>dirigible-server-spring</artifactId>
-            <version>${dirigible.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.eclipse.dirigible</groupId>
-                    <artifactId>dirigible-ide-ui-branding</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-		```
+    	    ```xml hl_lines="6 11"
+    		<!-- Dirigible -->
+            <dependency>
+                <groupId>org.eclipse.dirigible</groupId>
+                <artifactId>dirigible-server-spring</artifactId>
+                <version>${dirigible.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.eclipse.dirigible</groupId>
+                        <artifactId>dirigible-ide-ui-branding</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+    		```
 
     === "Final pom.xml"
 
-	```xml
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	    <modelVersion>4.0.0</modelVersion>
+    	```xml
+    	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/    maven-v4_0_0.xsd">
+    	    <modelVersion>4.0.0</modelVersion>
 
-	    <parent>
-	        <groupId>io.dirigible.custom.stack</groupId>
-	        <artifactId>custom-stack-parent</artifactId>
-	        <version>1.0.0-SNAPSHOT</version>
-	        <relativePath>../pom.xml</relativePath>
-	    </parent>
+    	    <parent>
+    	        <groupId>io.dirigible.custom.stack</groupId>
+    	        <artifactId>custom-stack-parent</artifactId>
+    	        <version>1.0.0-SNAPSHOT</version>
+    	        <relativePath>../pom.xml</relativePath>
+    	    </parent>
 
-	    <name>Custom Stack - Releng - Spring Boot</name>
-	    <artifactId>custom-stack-spring-boot</artifactId>
-	    <version>1.0.0-SNAPSHOT</version>
-	    <packaging>jar</packaging>
+    	    <name>Custom Stack - Releng - Spring Boot</name>
+    	    <artifactId>custom-stack-spring-boot</artifactId>
+    	    <version>1.0.0-SNAPSHOT</version>
+    	    <packaging>jar</packaging>
 
-	    <build>
-	        <plugins>
-	            <plugin>
-	                <groupId>org.springframework.boot</groupId>
-	                <artifactId>spring-boot-maven-plugin</artifactId>
-	                <version>${spring.boot.version}</version>
-	                <configuration>
-	                    <mainClass>io.dirigible.custom.platform.CustomPlatformApplication</mainClass>
-	                </configuration>
-	                <executions>
-	                    <execution>
-	                        <goals>
-	                            <goal>repackage</goal>
-	                        </goals>
-	                    </execution>
-	                </executions>
-	            </plugin>
-	        </plugins>
-	        <resources>
-	            <resource>
-	                <directory>src/main/resources</directory>
-	                <filtering>true</filtering>
-	            </resource>
-	        </resources>
-	    </build>
+    	    <build>
+    	        <plugins>
+    	            <plugin>
+    	                <groupId>org.springframework.boot</groupId>
+    	                <artifactId>spring-boot-maven-plugin</artifactId>
+    	                <version>${spring.boot.version}</version>
+    	                <configuration>
+    	                    <mainClass>io.dirigible.custom.platform.CustomPlatformApplication</mainClass>
+    	                </configuration>
+    	                <executions>
+    	                    <execution>
+    	                        <goals>
+    	                            <goal>repackage</goal>
+    	                        </goals>
+    	                    </execution>
+    	                </executions>
+    	            </plugin>
+    	        </plugins>
+    	        <resources>
+    	            <resource>
+    	                <directory>src/main/resources</directory>
+    	                <filtering>true</filtering>
+    	            </resource>
+    	        </resources>
+    	    </build>
 
-	    <dependencies>
+    	    <dependencies>
 
-	        <!-- Custom Stack Modules -->
-	        <dependency>
-	            <groupId>io.dirigible.custom.stack</groupId>
-	            <artifactId>custom-stack-modules-all</artifactId>
-	            <version>1.0.0-SNAPSHOT</version>
-	        </dependency>
+    	        <!-- Custom Stack Modules -->
+    	        <dependency>
+    	            <groupId>io.dirigible.custom.stack</groupId>
+    	            <artifactId>custom-stack-modules-all</artifactId>
+    	            <version>1.0.0-SNAPSHOT</version>
+    	        </dependency>
 
-	        <!-- Dirigible -->
-	        <dependency>
-	            <groupId>org.eclipse.dirigible</groupId>
-	            <artifactId>dirigible-server-spring</artifactId>
-	            <version>${dirigible.version}</version>
-	            <exclusions>
-	                <exclusion>
-	                    <groupId>org.eclipse.dirigible</groupId>
-	                    <artifactId>dirigible-ide-ui-branding</artifactId>
-	                </exclusion>
-	            </exclusions>
-	        </dependency>
+    	        <!-- Dirigible -->
+    	        <dependency>
+    	            <groupId>org.eclipse.dirigible</groupId>
+    	            <artifactId>dirigible-server-spring</artifactId>
+    	            <version>${dirigible.version}</version>
+    	            <exclusions>
+    	                <exclusion>
+    	                    <groupId>org.eclipse.dirigible</groupId>
+    	                    <artifactId>dirigible-ide-ui-branding</artifactId>
+    	                </exclusion>
+    	            </exclusions>
+    	        </dependency>
 
-	        <!-- Platform -->
-	        <dependency>
-	            <groupId>org.slf4j</groupId>
-	            <artifactId>slf4j-api</artifactId>
-	            <version>${slf4j.version}</version>
-	            <scope>compile</scope>
-	        </dependency>
-	        <dependency>
-	            <groupId>ch.qos.logback</groupId>
-	            <artifactId>logback-core</artifactId>
-	            <version>${logback.version}</version>
-	            <scope>compile</scope>
-	        </dependency>
-	        <dependency>
-	            <groupId>ch.qos.logback</groupId>
-	            <artifactId>logback-classic</artifactId>
-	            <version>${logback.version}</version>
-	            <scope>compile</scope>
-	        </dependency>
-	        <dependency>
-	            <groupId>org.springframework.boot</groupId>
-	            <artifactId>spring-boot-configuration-processor</artifactId>
-	            <optional>true</optional>
-	            <version>${spring.boot.version}</version>
-	        </dependency>
-	    </dependencies>
+    	        <!-- Platform -->
+    	        <dependency>
+    	            <groupId>org.slf4j</groupId>
+    	            <artifactId>slf4j-api</artifactId>
+    	            <version>${slf4j.version}</version>
+    	            <scope>compile</scope>
+    	        </dependency>
+    	        <dependency>
+    	            <groupId>ch.qos.logback</groupId>
+    	            <artifactId>logback-core</artifactId>
+    	            <version>${logback.version}</version>
+    	            <scope>compile</scope>
+    	        </dependency>
+    	        <dependency>
+    	            <groupId>ch.qos.logback</groupId>
+    	            <artifactId>logback-classic</artifactId>
+    	            <version>${logback.version}</version>
+    	            <scope>compile</scope>
+    	        </dependency>
+    	        <dependency>
+    	            <groupId>org.springframework.boot</groupId>
+    	            <artifactId>spring-boot-configuration-processor</artifactId>
+    	            <optional>true</optional>
+    	            <version>${spring.boot.version}</version>
+    	        </dependency>
+    	    </dependencies>
 
-	</project>
-	```
+    	</project>
+    	```
 
 1. Build the _Custom Platform_.
 
