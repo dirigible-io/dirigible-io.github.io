@@ -78,6 +78,10 @@ This tutorial will guide you through the creation of Java facade and JavaScript 
 		};
 		```
 
+		!!! note "Access to Packages"
+		    
+			Java classes are accessed by Fully Qualified Name (FQN). For classes that are not packaged in `java`, `com` or `org` packages, the `Packages` object should be used.
+
 1. Add Modules Dependency:
 
     - Navigate to the `modules` folder.
@@ -200,3 +204,24 @@ This tutorial will guide you through the creation of Java facade and JavaScript 
 			```
 
 	- Go to [http://localhost:8080](http://localhost:8080/) to access the _Custom Stack_.
+
+1. Test the changes.
+
+    1. Create a project named `sample-custom-stack`.
+	1. Right click on the `sample-custom-stack` project and select **New &#8594; JavaScript CJS Service**.
+	1. Enter `greeting.js` for the name of the JavaScript Service.
+	1. Replace the content with the following code:
+
+		```javascript
+		var response = require("http/v4/response");
+		let greetings = require("custom-stack/greetings");
+
+		let message = greetings.getMessage();
+
+		response.println(message);
+		response.flush();
+		response.close();
+		```
+
+	1. Save the changes.
+	1. Open the **Preview** view to see the result.
