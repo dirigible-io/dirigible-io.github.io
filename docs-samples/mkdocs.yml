@@ -62,6 +62,7 @@ nav:
         - 'Custom Stack':
           - 'tutorials/customizations/custom-stack/index.md'
           - 'Branding': 'tutorials/customizations/custom-stack/branding.md'
+          - 'Facade': 'tutorials/customizations/custom-stack/facade.md'
         - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
         - 'Master Repository': 'tutorials/customizations/master-repository.md'
         - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'

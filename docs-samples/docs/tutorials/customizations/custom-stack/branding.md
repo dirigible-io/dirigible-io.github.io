@@ -9,7 +9,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
 !!! note "Prerequisites"
 
-	This tutorial is assuming, that the [Custom Stack](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/) tutorial was completed.
+	This tutorial is assuming, that you've successfully completed the [Custom Stack](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/) tutorial.
 
 ### Steps
 
@@ -130,7 +130,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
 		!!! warning "Favicons"
 
-		    For the sake of simplicity, the favicon files are omitted.
+		    For the sake of simplicity, the favicon files were omitted.
 
 	=== "custom-stack.svg"
 
