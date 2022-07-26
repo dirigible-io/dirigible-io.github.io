@@ -1142,6 +1142,8 @@
         
           
         
+          
+        
       
       
         
@@ -1228,6 +1230,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency/" class="md-nav__link">
+        Dependency
+      </a>
     </li>
   
 
@@ -1686,6 +1702,10 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`Hello &#39;</span><span class="si">${</span><span class="nx">username</span><span class="si">}</span><span class="sb">&#39;! </span><span class="si">${</span><span class="nx">greeting</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Access to Packages</p>
+<p>Java classes are accessed by Fully Qualified Name (FQN). For classes that are not packaged in <code>java</code>, <code>com</code> or <code>org</code> packages, the <code>Packages</code> object should be used.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1825,6 +1845,30 @@
 </li>
 </ul>
 </li>
+<li>
+<p>Test the changes.</p>
+<ol>
+<li>Create a project named <code>sample-custom-stack</code>.</li>
+<li>Right click on the <code>sample-custom-stack</code> project and select <strong>New &#8594; JavaScript CJS Service</strong>.</li>
+<li>Enter <code>greeting.js</code> for the name of the JavaScript Service.</li>
+<li>
+<p>Replace the content with the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">greetings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;custom-stack/greetings&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">greetings</span><span class="p">.</span><span class="nx">getMessage</span><span class="p">();</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Save the changes.</p>
+</li>
+<li>Open the <strong>Preview</strong> view to see the result.</li>
+</ol>
+</li>
 </ol>
 
 
@@ -1865,13 +1909,13 @@
 				</a>
     		
 			
-				<a href="../../embedded/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../dependency/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Embedded Dirigible
+							Dependency
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
