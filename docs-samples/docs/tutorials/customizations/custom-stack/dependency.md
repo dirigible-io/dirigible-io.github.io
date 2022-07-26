@@ -18,7 +18,8 @@ This tutorial will guide you through the process of adding external Maven depend
 
 1. Add External Dependency:
 
-    - Navigate to the `releng` folder.
+    - Navigate to the root folder of the custom stack _(e.g. `<my-custom-stack-path>/custom-stack`)_.
+	- Navigate to the `releng` folder.
 	- Open the `pom.xml` file.
 	- Make the following changes:
 
