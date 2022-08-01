@@ -18,7 +18,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
     This guide describes the _**generic**_ steps on how to deploy Eclipse Dirigible in a Kubernetes cluster. For more detailed deployment guides go to:
 
     - [Setup in Google Kubernetes Engine](google-kubernetes-engine/).
-    - [Setup in Google Kubernetes Engine](azure-kubernetes-service/).
+    - [Setup in Azure Kubernetes Service](azure-kubernetes-service/).
     - [Setup in Red Hat OpenShift](red-hat-openshift/).
     - [Setup in SAP BTP Kyma](sap-btp-kyma/).
 
