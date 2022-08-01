@@ -1,20 +1,24 @@
 ---
-title: Google Kubernetes Engine
+title: Azure Kubernetes Services
 ---
 
-Setup in Google Kubernetes Engine
+Setup in Azure Kubernetes Services
 ===
 
-Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
+Deploy Eclipse Dirigible in Azure Kubernetes Services(AKS) environment.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-    - Access to [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
+    - Install [Azure cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
+!!! info "Note"
+    - Configure [Azure DNS Zone](addons/azure-dns-zone/) 
+    - Setup [letsencrypt](addons/letsencrypt.md) certificate for your domain.
+     
 ## Steps
 ---
 
-1. Access the Google Kubernetes Engine (GKE) environment via the Google Cloud Console:
+1. Access the Azure Kubernetes Services (AKS) environment via the Azure cli:
 
 1. Create deployment configuration file: `deployment.yaml`
 
@@ -246,33 +250,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
 
     === "Custom Domain"
         !!! info "Note"
-            - You can find more information on this page: [GCP DNS Zone Setup](https://www.dirigible.io/help/setup/kubernetes/addons/google-dns-zone).
-
-        !!! info "Prerequisites"
-            - Install [Istio](https://istio.io/), if not already installed.
-            - Install [cert-manager](https://cert-manager.io/), if not already installed.
-            - Register your zone in `Google Cloud Platform` &#8594; `Cloud DNS`, if not already registered.            
-
-        !!! note "Register DNS Record Set"
-            - Get the Istio Ingress Gateway IP:
-
-            ```
-            kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
-            ```
-
-            - Register DNS Record Set:
-
-            ```
-            gcloud dns record-sets transaction start --zone=<your-cloud-dns-zone-name>
-
-            gcloud dns record-sets transaction add <istio-ingress-gateway-ip> \
-            --name=dirigible.<your-custom-domain> \
-            --ttl=300 \
-            --type=A \
-            --zone=<your-cloud-dns-zone-name>
-
-            gcloud dns record-sets transaction execute --zone=<your-cloud-dns-zone-name>
-            ```
+            - You can find more information on this page: [Azure DNS Zone Setup](https://www.dirigible.io/help/setup/kubernetes/addons/azure-dns-zone/).
 
         ```yaml
         apiVersion: cert-manager.io/v1
@@ -353,7 +331,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
             #   httpsRedirect: true
             ```
 
-1. Deploy to the Google Kubernetes Engine Cluster with:
+1. Deploy to the Azure Cluster with:
 
     ```
     kubectl apply -f deployment.yml
@@ -361,4 +339,4 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
     kubectl apply -f service.yml
     ```
 
-1. Open a web browser and go to: **`https://dirigible.<your-google-kubernetes-engine-domain>`**
+1. Open a web browser and go to: **`https://dirigible.<your-azure-kubernetes-service-domain>`**
