@@ -2519,13 +2519,14 @@
 </li>
 <li>
 <p>Create cluster</p>
-</li>
-</ol>
-<p>!!! info "Set the project"</p>
-<div class="highlight"><pre><span></span><code>  - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
-  - Set the project in every command `--project &lt;your-project-id&gt;`.
-</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Set the project</p>
 <ul>
+<li>Set the project on which you will create DNS Zone <code>gcloud config set project PROJECT_ID</code></li>
+<li>Set the project in every command <code>--project &lt;your-project-id&gt;</code>.</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Create an IAM service account with the minimum permissions required to operate GKE</p>
 <p>SA_NAME: the name of the new service account.
@@ -2567,7 +2568,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 <li>
 <p>Get connection to the cluster</p>
 </li>
-</ul>
+</ol>
 <p><code>gcloud container clusters get-credentials &lt;your-cluster-demo&gt;</code></p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
