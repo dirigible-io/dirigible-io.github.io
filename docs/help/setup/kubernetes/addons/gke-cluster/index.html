@@ -810,12 +810,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          GCP cluster
+          GKE cluster
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        GCP cluster
+        GKE cluster
       </a>
       
         
@@ -2499,20 +2499,19 @@
 <hr />
 <ol>
 <li>
-<p>Create organization</p>
+<p><a href="https://cloud.google.com/resource-manager/docs/creating-managing-organization">Create organization</a></p>
 </li>
 <li>
 <p>Create project</p>
 </li>
 <li>
 <p>List the organizations</p>
-</li>
-</ol>
 <p><code>gcloud organizations list</code></p>
-<p><code>gcloud projects create  dirigible-demo --name=dirigible --organization=&lt;your-organization-id&gt;</code> take the id from the list</p>
-<ul>
+<p><code>gcloud projects create  dirigible-demo --name=dirigible --organization=&lt;your-organization-id&gt;</code> </p>
+</li>
 <li>
-<p>You can check for the new project with <code>gcloud projects list --filter 'parent.id=&lt;your-organization-id&gt;'</code></p>
+<p>You can check for the new project with:
+    <code>gcloud projects list --filter 'parent.id=&lt;your-organization-id&gt;'</code></p>
 </li>
 <li>
 <p>Enable Engine Api</p>
@@ -2521,7 +2520,7 @@
 <li>
 <p>Create cluster</p>
 </li>
-</ul>
+</ol>
 <p>!!! note "Set the project"</p>
 <div class="highlight"><pre><span></span><code>  - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
   - Set the project in every command `--project &lt;your-project-id&gt;`.
