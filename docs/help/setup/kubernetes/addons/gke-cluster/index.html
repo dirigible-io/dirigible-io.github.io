@@ -2526,8 +2526,8 @@
   - Set the project in every command `--project &lt;your-project-id&gt;`.
 </code></pre></div>
 <ul>
-<li>Create an IAM service account with the minimum permissions required to operate GKE</li>
-</ul>
+<li>
+<p>Create an IAM service account with the minimum permissions required to operate GKE</p>
 <p>SA_NAME: the name of the new service account.
 DISPLAY_NAME: the display name for the new service account, which makes the account easier to identify.
 PROJECT_ID: the project ID of the project in which you want to create the new service account.
@@ -2555,17 +2555,19 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member &quot;serviceAccount:$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com&quot; \
   --role roles/stackdriver.resourceMetadata.writer
 </code></pre></div>
-<ul>
-<li>Create the cluster</li>
-</ul>
+</li>
+<li>
+<p>Create the cluster</p>
 <div class="highlight"><pre><span></span><code>gcloud container clusters create &lt;your-cluster-name&gt; \
     --region europe-west1-b \
     --project=$PROJECT_ID \
     --service-account=$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com
 </code></pre></div>
-<ol>
-<li>Get connection to the cluster</li>
-</ol>
+</li>
+<li>
+<p>Get connection to the cluster</p>
+</li>
+</ul>
 <p><code>gcloud container clusters get-credentials &lt;your-cluster-demo&gt;</code></p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
