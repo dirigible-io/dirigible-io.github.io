@@ -2483,11 +2483,8 @@
 <h2 id="steps">Steps</h2>
 <ol>
 <li>
-<p>Create certificate for your domain or subdomain</p>
-<ul>
-<li>
 <p>Install cert-manager</p>
-</li>
+<ul>
 <li>
 <p>Add Jetstack Helm repository: 
     <div class="highlight"><pre><span></span><code>helm repo add jetstack https://charts.jetstack.io
@@ -2527,6 +2524,16 @@ cert-manager jetstack/cert-manager \
 <span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
 <span class="w">    </span><span class="nt">http01</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>-If your ingress is <code>Istio</code> change the <code>ClusterIssuer</code> add:</p>
+<div class="highlight"><pre><span></span><code>solvers:
+- selector: {}
+  http01:
+    ingress:
+      class: istio
+</code></pre></div>
+</div>
 </li>
 <li>
 <p>Create certificate</p>
@@ -2543,6 +2550,12 @@ cert-manager jetstack/cert-manager \
 <span class="w">  </span><span class="nt">dnsNames</span><span class="p">:</span><span class="w"> </span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;&lt;your-domain&gt;&quot;</span><span class="w"></span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>If your <code>Istio ingress</code> is installed to namespace <code>istio-ingress</code> add <code>namespace: istio-ingress</code></li>
+</ul>
+</div>
 </li>
 <li>
 <p>Create Ingress</p>
@@ -2595,25 +2608,53 @@ cert-manager jetstack/cert-manager \
 <span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SIMPLE</span><span class="w"> </span>
 <span class="w">      </span><span class="nt">credentialName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
 </code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create Virtual Service for Istio</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1beta1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualService</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;dirigible.&lt;your-domain&gt;&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gateways</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible-gateway</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mesh</span><span class="w"></span>
+<span class="w">  </span><span class="nt">http</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uri</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"></span>
+<span class="w">    </span><span class="nt">route</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">destination</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible.default.svc.cluster.local</span><span class="w"></span>
+<span class="w">          </span><span class="nt">port</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span><span class="w"></span>
+</code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Install Istio</p>
+<p class="admonition-title">Note</p>
 </div>
 <ul>
 <li>Install <a href="https://istio.io/latest/docs/setup/install/istioctl/">istioctl</a></li>
-<li>Install <a href="https://istio.io/latest/docs/setup/install/">istio</a></li>
-<li>You can install with default profile <code>istioctl install</code> this will install <code>istio-ingressgateway</code> and <code>istiod</code></li>
+<li>You can install with default profile <code>istioctl install</code> this will install <code>istio-ingressgateway</code> and <code>istiod</code> and <a href="../istio/">manually</a></li>
 </ul>
-</div>
-</div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Replace Placeholders</p>
-<ul>
-<li><code>&lt;your-domain&gt;</code> with your domain from previous step</li>
-</ul>
 </div>
+<ul>
+<li>
+<p><code>&lt;your-domain&gt;</code> with your domain from previous step</p>
 </li>
-</ol>
+<li>
+<p>Check certificate status in cert-manager.</p>
+</li>
+</ul>
+<p><code>kubectl logs -n cert-manager -lapp=cert-manager</code></p>
 
 
   

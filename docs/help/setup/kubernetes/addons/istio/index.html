@@ -2434,6 +2434,10 @@
 </ul>
 </div>
 <ol>
+<li>Create <code>istio-system</code> namespace</li>
+</ol>
+<p><code>kubectl create namespace istio-system</code></p>
+<ol>
 <li>
 <p>Install Istio conrol plane service istiod</p>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
@@ -2462,7 +2466,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Install minimal</p>
+<p>Install minimal and reduce gateway config.</p>
 <ul>
 <li>Create <code>control-plane.yaml</code> file</li>
 </ul>
@@ -2472,13 +2476,22 @@
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">control-plane</span><span class="w"></span>
 <span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">minimal</span><span class="w"></span>
+<span class="w">  </span><span class="nt">components</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pilot</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PILOT_FILTER_GATEWAY_CLUSTER_CONFIG</span><span class="w"></span>
+<span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
 <span class="w">  </span><span class="nt">meshConfig</span><span class="p">:</span><span class="w">              </span>
 <span class="w">    </span><span class="nt">defaultConfig</span><span class="p">:</span><span class="w">       </span>
 <span class="w">      </span><span class="nt">proxyMetadata</span><span class="p">:</span><span class="w">      </span>
 <span class="w">        </span><span class="nt">ISTIO_META_DNS_CAPTURE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="nt">enablePrometheusMerge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
 </code></pre></div>
-<p><code>istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-1</code></p>
+<ul>
+<li>Check the latest version <code>https://github.com/istio/istio/releases</code></li>
+</ul>
+<p><code>istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-3</code></p>
 </li>
 <li>
 <p>Add Istio injection</p>
@@ -2517,7 +2530,7 @@
 <span class="w">                </span><span class="nt">exec</span><span class="p">:</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;sleep</span><span class="nv"> </span><span class="s">5&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
 </code></pre></div>
-<p><code>istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-1</code></p>
+<p><code>istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-3</code></p>
 </li>
 <li>
 <p>Apply Strict mTLS</p>

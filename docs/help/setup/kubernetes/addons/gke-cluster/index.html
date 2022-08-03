@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/help/setup/kubernetes/addons/google-dns-zone/">
+        <link rel="canonical" href="https://www.dirigible.io/help/setup/kubernetes/addons/gke-cluster/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0rc1">
     
     
       
-        <title>Google DNS - Eclipse Dirigible Documentation</title>
+        <title>Create GKE cluster - Eclipse Dirigible Documentation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-google-dns-zone-setup" class="md-skip">
+        <a href="#create-google-kubernetes-cluster-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Google DNS
+              Create GKE cluster
             
           </span>
         </div>
@@ -218,15 +218,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../" class="md-tabs__link">
         Setup
       </a>
     </li>
@@ -538,14 +536,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -602,14 +598,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
       
       
       
@@ -712,14 +706,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_6" type="checkbox" id="__nav_4_3_6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_6" type="checkbox" id="__nav_4_3_6" >
       
       
       
@@ -782,52 +774,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          GCP DNS Zone
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../google-dns-zone/" class="md-nav__link">
         GCP DNS Zone
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
-    Steps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2464,177 +2415,100 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs/setup/kubernetes/addons/google-dns-zone.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs/setup/kubernetes/addons/gke-cluster.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="create-google-dns-zone-setup">Create Google DNS Zone Setup</h1>
+<h1 id="create-google-kubernetes-cluster-setup">Create Google Kubernetes cluster Setup</h1>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <ul>
-<li>Enable <a href="https://console.cloud.google.com/start/api?id=dns&amp;credential=client_key&amp;_ga=2.126966857.579303116.1656398157-1033365968.1651760276&amp;_gac=1.127004159.1652717017.CjwKCAjw7IeUBhBbEiwADhiEMXtYrlOvlKhHq7GdYe0GWEh3QVerWtVxivpUWLlvQEVAncBbbn-NsBoC1KQQAvD_BwE">Cloud DNS API</a>.</li>
-<li>install <a href="https://cloud.google.com/sdk/docs/install">gcloud</a></li>
-<li>install gcloud component <code>gcloud components install kubectl</code></li>
-<li>Access to Kubernetes cluster <code>gcloud auth login</code>.</li>
-<li>Update the kubectl configuration to use the plugin <code>gcloud container clusters get-credentials &lt;your-cluster&gt; --zone &lt;your-cluster-zone&gt;</code></li>
+<li>First you will need to add your billing information</li>
+<li>Install the <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a></li>
+<li>Install kubectl and <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#default_cluster_kubectl">configure cluster access</a></li>
 </ul>
 </div>
 <h2 id="steps">Steps</h2>
 <hr />
 <ol>
 <li>
-<p>Create managed DNS Zone</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Console</label><label for="__tabbed_1_2">gcloud</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Google Cloud console</p>
-<ul>
-<li>
-<p>In the Google Cloud console, go to the Create a DNS zone page.</p>
-<div class="highlight"><pre><span></span><code>`Go to Create a DNS zone`
-</code></pre></div>
+<p>Create organization</p>
 </li>
 <li>
-<p>For the Zone type, select Public.</p>
+<p>Create project</p>
 </li>
 <li>
-<p>Enter a Zone name such as my-new-zone.</p>
-</li>
-<li>
-<p>Enter a DNS name suffix for the zonegcloud config set project PROJECT_ID using a domain name that you own. All records in the zone share this suffix, for example: example.com.</p>
-</li>
-<li>
-<p>Under DNSSEC, select Off, On, or Transfer. For more information, see Enable DNSSEC for existing managed zones.</p>
-</li>
-<li>
-<p>Click Create. The Zone details page is displayed.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Set the project</p>
-<ul>
-<li>Set the project on which you will create DNS Zone <code>gcloud config set project PROJECT_ID</code></li>
-<li>Set the project in every command <code>--project &lt;your-project-id&gt;</code>.</li>
-</ul>
-</div>
-<div class="highlight"><pre><span></span><code>gcloud dns managed-zones create NAME \
---description=DESCRIPTION \
---dns-name=DNS_SUFFIX \
---labels=LABELS \
---visibility=public
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Replace Placeholders</p>
-<ul>
-<li><code>DESCRIPTION</code> with your description.</li>
-<li><code>LABELS</code> with your label.</li>
-<li><code>DNS_SUFFIX</code> with your main domain or subdomain.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Add name servers</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Subdomain</label><label for="__tabbed_2_2">Main domain</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
-<code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
-Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Get Ingress IP address</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Kubernetes Ingress</label><label for="__tabbed_3_2">Istio Ingress</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code>kubectl get ingress &lt;your-ingressgateway-name&gt;
-</code></pre></div>
-check column <code>ADDRESS</code></p>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>kubectl get service -n istio-ingress istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
-</code></pre></div>
-<ul>
-<li>Change namespace <code>istio-ingress</code> to match your installation.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul>
-<li>You can check <a href="../istio/">Istio setup</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Create <code>A</code> record in Cloud DNS</p>
-<ul>
-<li>
-<p>Set zone for which you will create records</p>
-<div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction start --zone=&lt;your-cloud-dns-zone-name&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Add <code>A</code> record</p>
-<div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction add &lt;ingress-ip-address&gt; \
---name=dirigible.&lt;your-cloud-dns-zone-name&gt; \
---ttl=300 \
---type=A \
---zone=&lt;your-cloud-dns-zone-name&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Apply the new record</p>
-</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>gcloud dns record-sets transaction execute --zone=&lt;your-cloud-dns-zone-name&gt;
-</code></pre></div>
-- Promote ephemeral ip to reserve</p>
-<div class="highlight"><pre><span></span><code>```
-gcloud compute addresses create &lt;name-for-reserver-ip&gt; --addresses=&lt;ingress-ip-address&gt; \
-  --region=&lt;your-cluster-region&gt;
-```
-</code></pre></div>
-<ul>
-<li>
-<p>Get your current DNS records for your zone</p>
-<p><code>gcloud dns record-sets list --zone=&lt;your-cloud-dns-zone-name&gt;</code></p>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Replace Placeholders<p>Before run the commands, replace the following placeholders:</p>
-<ul>
-<li><code>&lt;your-cloud-dns-zone-name&gt;</code> with your Google cloud dnz zone name.</li>
-</ul>
-</p>
-</div>
+<p>List the organizations</p>
 </li>
 </ol>
+<p><code>gcloud organizations list</code></p>
+<p><code>gcloud projects create  dirigible-demo --name=dirigible --organization=&lt;your-organization-id&gt;</code> take the id from the list</p>
+<ul>
+<li>
+<p>You can check for the new project with <code>gcloud projects list --filter 'parent.id=&lt;your-organization-id&gt;'</code></p>
+</li>
+<li>
+<p>Enable Engine Api</p>
+<p>Go to <code>Kubernetes Engine</code>-&gt; <code>Clusters</code> and click on <code>Enable</code> to allow creating cluster.</p>
+</li>
+<li>
+<p>Create cluster</p>
+</li>
+</ul>
+<p>!!! note "Set the project"</p>
+<div class="highlight"><pre><span></span><code>  - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
+  - Set the project in every command `--project &lt;your-project-id&gt;`.
+</code></pre></div>
+<ul>
+<li>Create an IAM service account with the minimum permissions required to operate GKE</li>
+</ul>
+<p>SA_NAME: the name of the new service account.
+DISPLAY_NAME: the display name for the new service account, which makes the account easier to identify.
+PROJECT_ID: the project ID of the project in which you want to create the new service account.
+<div class="highlight"><pre><span></span><code>SA_NAME=sa-minimum-pemissions-gke-demo \
+DISPLAY_NAME=&#39;SA minimum permissions required to operate GKE&#39; \
+PROJECT_ID=&lt;your-project-id&gt;
+</code></pre></div></p>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts create $SA_NAME \
+  --display-name=&quot;$DISPLAY_NAME&quot; \
+  --project $PROJECT_ID
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member &quot;serviceAccount:$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com&quot; \
+  --role roles/logging.logWriter
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member &quot;serviceAccount:$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com&quot; \
+  --role roles/monitoring.metricWriter
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member &quot;serviceAccount:$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com&quot; \
+  --role roles/monitoring.viewer
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member &quot;serviceAccount:$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com&quot; \
+  --role roles/stackdriver.resourceMetadata.writer
+</code></pre></div>
+<ul>
+<li>Create the cluster</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud container clusters create &lt;your-cluster-name&gt; \
+    --region europe-west1-b \
+    --project=$PROJECT_ID \
+    --service-account=$SA_NAME@$PROJECT_ID.iam.gserviceaccount.com
+</code></pre></div>
+<ol>
+<li>Get connection to the cluster</li>
+</ol>
+<p><code>gcloud container clusters get-credentials &lt;your-cluster-demo&gt;</code></p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
 <ul>
-<li>How to <a href="../letsencrypt/">create certificate for your domain</a>.</li>
+<li>How to <a href="addons/google-dns-zone.md">create Google DNS Zone</a> </li>
+<li>How to <a href="addons/istio.md">setup Istio</a>.</li>
+<li>How to <a href="addons/letsencrypt.md">create certificate for your domain</a>.</li>
 </ul>
 </div>
 
@@ -2658,39 +2532,6 @@ gcloud compute addresses create &lt;name-for-reserver-ip&gt; --addresses=&lt;ing
       
         
 <footer class="md-footer">
-	
-		<nav class="md-footer__inner md-grid" aria-label="Footer">
-			
-				<a href="../postgresql/" class="md-footer__link md-footer__link--prev" rel="prev">
-					<div class="md-footer__button md-icon">
-					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-					</div>
-					<div class="md-footer__title">
-						<div class="md-ellipsis">
-							<span class="md-footer__direction">
-								Previous
-							</span>
-							PostgreSQL			
-						</div>
-					</div>
-				</a>
-    		
-			
-				<a href="../azure-dns-zone/" class="md-footer__link md-footer__link--next" rel="next">
-					<div class="md-footer__title">
-						<div class="md-ellipsis">
-							<span class="md-footer__direction">
-								Next
-							</span>
-							Azure DNS Zone
-						</div>
-					</div>
-					<div class="md-footer__button md-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-					</div>
-				</a>
-			
-		</nav>
 	
   <div class="md-footer-meta md-typeset">	
 		<div class="md-footer-meta__inner md-grid">
