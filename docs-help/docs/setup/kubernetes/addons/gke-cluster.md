@@ -32,7 +32,7 @@ Create Google Kubernetes cluster Setup
 
 1. Create cluster
 
-  !!! note "Set the project"
+  !!! info "Set the project"
 
       - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
       - Set the project in every command `--project <your-project-id>`.
