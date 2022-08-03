@@ -11,6 +11,9 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
     - Access to [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/).
 
+!!! info "Note"
+    - Create [GKE cluster](addons/gke-cluster.md).
+
 ## Steps
 ---
 
