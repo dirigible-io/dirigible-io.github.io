@@ -2558,29 +2558,8 @@
 </div>
 </li>
 <li>
-<p>Add name servers</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Subdomain</label><label for="__tabbed_2_2">Main domain</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
-<code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
-</div>
-</div>
-<div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
-Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
 <p>Get Ingress IP address</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Kubernetes Ingress</label><label for="__tabbed_3_2">Istio Ingress</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Kubernetes Ingress</label><label for="__tabbed_2_2">Istio Ingress</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><div class="highlight"><pre><span></span><code>kubectl get ingress &lt;your-ingressgateway-name&gt;
@@ -2644,6 +2623,27 @@ gcloud compute addresses create &lt;name-for-reserver-ip&gt; --addresses=&lt;ing
 <li><code>&lt;your-cloud-dns-zone-name&gt;</code> with your Google cloud dnz zone name.</li>
 </ul>
 </p>
+</div>
+</li>
+<li>
+<p>Add name servers</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Subdomain</label><label for="__tabbed_3_2">Main domain</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
+<code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
+Example: <code>ns-cloud-d1.googledomains.com</code>,<code>ns-cloud-d2.googledomains.com</code>,<code>ns-cloud-d3.googledomains.com</code>,<code>ns-cloud-d4.googledomains.com</code></p>
+</div>
+</div>
+</div>
 </div>
 </li>
 </ol>
