@@ -31,11 +31,10 @@ Create Google Kubernetes cluster Setup
     Go to `Kubernetes Engine`-> `Clusters` and click on `Enable` to allow creating cluster.
 
 1. Create cluster
-
-  !!! info "Set the project"
-
-      - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
-      - Set the project in every command `--project <your-project-id>`.
+    
+    !!! info "Set the project"
+        - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
+        - Set the project in every command `--project <your-project-id>`.
 
   - Create an IAM service account with the minimum permissions required to operate GKE
 

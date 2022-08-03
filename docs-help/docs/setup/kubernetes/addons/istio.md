@@ -12,7 +12,7 @@ Istio Setup
     - Access to Kubernetes cluster.
 1. Create `istio-system` namespace
 
-  `kubectl create namespace istio-system`
+    `kubectl create namespace istio-system`
 
 1. Install Istio conrol plane service istiod
 
