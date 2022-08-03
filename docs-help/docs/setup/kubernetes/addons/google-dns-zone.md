@@ -57,22 +57,6 @@ Create Google DNS Zone Setup
             - `LABELS` with your label.
             - `DNS_SUFFIX` with your main domain or subdomain.
 
-1. Add name servers
-
-    === "Subdomain"
-
-        !!! note "Note"
-
-            If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
-            `ns-cloud-d1.googledomains.com`,`ns-cloud-d2.googledomains.com`,`ns-cloud-d3.googledomains.com`,`ns-cloud-d4.googledomains.com`
-
-    === "Main domain"
-
-        !!! note "Note"
-
-            At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
-            Example: `ns-cloud-d1.googledomains.com`,`ns-cloud-d2.googledomains.com`,`ns-cloud-d3.googledomains.com`,`ns-cloud-d4.googledomains.com`
-
 1. Get Ingress IP address
 
     === "Kubernetes Ingress"
@@ -131,6 +115,23 @@ Create Google DNS Zone Setup
             Before run the commands, replace the following placeholders:
 
             - `<your-cloud-dns-zone-name>` with your Google cloud dnz zone name.
+
+1. Add name servers
+
+    === "Subdomain"
+
+        !!! note "Note"
+
+            If you configure subdomain add Google name servers to your main domain control panel for this subdomain example:
+            `ns-cloud-d1.googledomains.com`,`ns-cloud-d2.googledomains.com`,`ns-cloud-d3.googledomains.com`,`ns-cloud-d4.googledomains.com`
+
+    === "Main domain"
+
+        !!! note "Note"
+
+            At the end you need to update your domain's name servers to use Cloud DNS to publish your new records to the internet.
+            Example: `ns-cloud-d1.googledomains.com`,`ns-cloud-d2.googledomains.com`,`ns-cloud-d3.googledomains.com`,`ns-cloud-d4.googledomains.com`
+
 
 !!! info "Note"
     - How to [create certificate for your domain](letsencrypt.md).
