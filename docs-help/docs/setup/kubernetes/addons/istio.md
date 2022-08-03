@@ -10,6 +10,9 @@ Istio Setup
     - Install [istioctl](https://istio.io/downloadIstio /).
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
     - Access to Kubernetes cluster.
+1. Create `istio-system` namespace
+
+  `kubectl create namespace istio-system`
 
 1. Install Istio conrol plane service istiod
 
@@ -39,7 +42,7 @@ Istio Setup
         app: istiod
     ```
 
-1. Install minimal
+1. Install minimal and reduce gateway config.
     * Create `control-plane.yaml` file
 
     ```yaml
@@ -49,6 +52,12 @@ Istio Setup
       name: control-plane
     spec:
       profile: minimal
+      components:
+      pilot:
+        k8s:
+          env: 
+          - name: PILOT_FILTER_GATEWAY_CLUSTER_CONFIG
+            value: "true"
       meshConfig:              
         defaultConfig:       
           proxyMetadata:      
@@ -56,7 +65,9 @@ Istio Setup
         enablePrometheusMerge: true  
     ```
 
-    `istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-1`
+    * Check the latest version `https://github.com/istio/istio/releases`
+
+    `istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-3`
 
 1. Add Istio injection
 
@@ -97,7 +108,7 @@ Istio Setup
                       command: ["sh", "-c", "sleep 5"]
     ```
 
-    `istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-1`
+    `istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-3`
 
 1. Apply Strict mTLS
 
@@ -111,3 +122,4 @@ Istio Setup
       mtls:
         mode: STRICT
     ```
+

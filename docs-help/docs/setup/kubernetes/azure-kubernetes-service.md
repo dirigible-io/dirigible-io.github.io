@@ -12,7 +12,7 @@ Deploy Eclipse Dirigible in Azure Kubernetes Services(AKS) environment.
     - Install [Azure cli](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
 !!! info "Note"
-    - Configure [Azure DNS Zone](addons/azure-dns-zone/) 
+    - Configure [Azure DNS Zone](addons/azure-dns-zone.md) 
     - Setup [letsencrypt](addons/letsencrypt.md) certificate for your domain.
      
 ## Steps

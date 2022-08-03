@@ -30,14 +30,19 @@ Create Google DNS Zone Setup
 
             - Enter a Zone name such as my-new-zone.
 
-            - Enter a DNS name suffix for the zone using a domain name that you own. All records in the zone share this suffix, for example: example.com.
+            - Enter a DNS name suffix for the zonegcloud config set project PROJECT_ID using a domain name that you own. All records in the zone share this suffix, for example: example.com.
 
             - Under DNSSEC, select Off, On, or Transfer. For more information, see Enable DNSSEC for existing managed zones.
 
             - Click Create. The Zone details page is displayed.
 
     === "gcloud"
-      
+
+        !!! note "Set the project"
+
+            - Set the project on which you will create DNS Zone `gcloud config set project PROJECT_ID`
+            - Set the project in every command `--project <your-project-id>`.
+
         ```
         gcloud dns managed-zones create NAME \
         --description=DESCRIPTION \
@@ -80,8 +85,13 @@ Create Google DNS Zone Setup
     === "Istio Ingress"
 
         ```
-        kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+        kubectl get service -n istio-ingress istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
         ```
+        
+        * Change namespace `istio-ingress` to match your installation.
+
+        !!! note "Note"
+            - You can check [Istio setup](istio.md)
 
 1. Create `A` record in Cloud DNS
 
@@ -94,7 +104,7 @@ Create Google DNS Zone Setup
     - Add `A` record
 
         ```
-        gcloud dns record-sets transaction add <your-ingress-ip> \
+        gcloud dns record-sets transaction add <ingress-ip-address> \
         --name=dirigible.<your-cloud-dns-zone-name> \
         --ttl=300 \
         --type=A \
@@ -106,7 +116,13 @@ Create Google DNS Zone Setup
        ```
        gcloud dns record-sets transaction execute --zone=<your-cloud-dns-zone-name>
        ```
+    - Promote ephemeral ip to reserve
 
+        ```
+        gcloud compute addresses create <name-for-reserver-ip> --addresses=<ingress-ip-address> \
+          --region=<your-cluster-region>
+        ```
+    
     - Get your current DNS records for your zone
 
         `gcloud dns record-sets list --zone=<your-cloud-dns-zone-name>`
@@ -116,3 +132,5 @@ Create Google DNS Zone Setup
 
             - `<your-cloud-dns-zone-name>` with your Google cloud dnz zone name.
 
+!!! info "Note"
+    - How to [create certificate for your domain](letsencrypt.md).
