@@ -65,9 +65,9 @@ Istio Setup
         enablePrometheusMerge: true  
     ```
 
-    * Check the latest version `https://github.com/istio/istio/releases`
+    * Check the [latest version](https://github.com/istio/istio/releases)
 
-    `istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-3`
+      `istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-3`
 
 1. Add Istio injection
 
@@ -75,7 +75,9 @@ Istio Setup
 
 1. Enable istio-ingressgateway component
 
-    `kubectl create namespace istio-ingress`
+    * Create namespace istio-ingress
+      
+      `kubectl create namespace istio-ingress`
 
     * Create `istio-ingress-gw-install.yaml`
 
@@ -108,7 +110,9 @@ Istio Setup
                       command: ["sh", "-c", "sleep 5"]
     ```
 
-    `istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-3`
+    * Apply latest revision
+
+      `istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-3`
 
 1. Apply Strict mTLS
 
