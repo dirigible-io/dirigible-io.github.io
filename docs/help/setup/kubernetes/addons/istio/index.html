@@ -2505,7 +2505,7 @@
 <span class="w">    </span><span class="nt">enablePrometheusMerge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
 </code></pre></div>
 <ul>
-<li>Check the latest version <code>https://github.com/istio/istio/releases</code></li>
+<li>Check the <a href="https://github.com/istio/istio/releases">latest version</a></li>
 </ul>
 <p><code>istioctl install -y -n istio-system -f control-plane.yaml --revision 1-14-3</code></p>
 </li>
@@ -2515,6 +2515,9 @@
 </li>
 <li>
 <p>Enable istio-ingressgateway component</p>
+<ul>
+<li>Create namespace istio-ingress</li>
+</ul>
 <p><code>kubectl create namespace istio-ingress</code></p>
 <ul>
 <li>Create <code>istio-ingress-gw-install.yaml</code></li>
@@ -2546,6 +2549,9 @@
 <span class="w">                </span><span class="nt">exec</span><span class="p">:</span><span class="w"></span>
 <span class="w">                  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;sleep</span><span class="nv"> </span><span class="s">5&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
 </code></pre></div>
+<ul>
+<li>Apply latest revision</li>
+</ul>
 <p><code>istioctl install -y -n istio-ingress -f istio-ingress-gw-install.yaml --revision 1-14-3</code></p>
 </li>
 <li>
