@@ -58,7 +58,7 @@ Deploy Cert Manager in Kubernetes environment.
     ```
 
     !!! note "Note"
-        -If your ingress is `Istio` change the `ClusterIssuer` add:
+        - If your ingress is `Istio` change the `ClusterIssuer` add:
 
         ```
         solvers:
@@ -112,6 +112,9 @@ Deploy Cert Manager in Kubernetes environment.
         ```
 
     === "Istio Ingress"
+      
+      !!! note "Note"
+          - You can install `istio` with default profile `istioctl install` this will install `istio-ingressgateway` and `istiod` and you can install [manually](istio.md)
 
         ```yaml
         apiVersion: networking.istio.io/v1alpha3
@@ -142,37 +145,34 @@ Deploy Cert Manager in Kubernetes environment.
               credentialName: dirigible
         ```
 
-1. Create Virtual Service for Istio
+      - Create Virtual Service for Istio
+      
+          ```yaml
+          apiVersion: networking.istio.io/v1beta1
+          kind: VirtualService
+          metadata:
+            name: dirigible
+          spec:
+            hosts:
+            - "dirigible.<your-domain>"
+            gateways:
+            - dirigible-gateway
+            - mesh
+            http:
+            - match:
+              - uri:
+                  prefix: /
+              route:
+              - destination:
+                    host: dirigible.default.svc.cluster.local
+                    port:
+                      number: 8080
+          ```
 
-  ```yaml
-  apiVersion: networking.istio.io/v1beta1
-  kind: VirtualService
-  metadata:
-    name: dirigible
-  spec:
-    hosts:
-    - "dirigible.<your-domain>"
-    gateways:
-    - dirigible-gateway
-    - mesh
-    http:
-    - match:
-      - uri:
-          prefix: /
-      route:
-      - destination:
-            host: dirigible.default.svc.cluster.local
-            port:
-              number: 8080
-  ```
+1. Check certificate status in cert-manager.
 
-!!! note "Note"
-   - Install [istioctl](https://istio.io/latest/docs/setup/install/istioctl/)
-   - You can install with default profile ```istioctl install``` this will install `istio-ingressgateway` and `istiod` and [manually](istio.md)
+  `kubectl logs -n cert-manager -lapp=cert-manager`
 
 !!! note "Replace Placeholders"
    - `<your-domain>` with your domain from previous step
 
-1. Check certificate status in cert-manager.
-
-`kubectl logs -n cert-manager -lapp=cert-manager`
