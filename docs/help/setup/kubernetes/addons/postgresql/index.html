@@ -810,6 +810,33 @@
     Steps
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    Kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcp-cloud-dirigible-postgresql-instances" class="md-nav__link">
+    GCP Cloud Dirigible PostgreSQL instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcp-cloud-keycloak-postgresql-instances" class="md-nav__link">
+    GCP Cloud Keycloak PostgreSQL instances
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2466,6 +2493,33 @@
     Steps
   </a>
   
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes" class="md-nav__link">
+    Kubernetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcp-cloud-dirigible-postgresql-instances" class="md-nav__link">
+    GCP Cloud Dirigible PostgreSQL instances
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcp-cloud-keycloak-postgresql-instances" class="md-nav__link">
+    GCP Cloud Keycloak PostgreSQL instances
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2497,6 +2551,7 @@
 </div>
 <h2 id="steps">Steps</h2>
 <hr />
+<h3 id="kubernetes">Kubernetes</h3>
 <ol>
 <li>
 <p>Create deployment configuration file: <code>deployment.yaml</code></p>
@@ -2627,6 +2682,513 @@
 <div class="highlight"><pre><span></span><code>kubectl apply -f deployment.yml
 
 kubectl apply -f service.yml
+</code></pre></div>
+</li>
+</ol>
+<h3 id="gcp-cloud-dirigible-postgresql-instances">GCP Cloud Dirigible PostgreSQL instances</h3>
+<ol>
+<li>
+<p>Enable API</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Console</label><label for="__tabbed_3_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Enable API</p>
+<ul>
+<li><a href="https://console.cloud.google.com/sql/instances">Cloud SQL Admin API</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>gcloud services enable sqladmin.googleapis.com \
+servicenetworking.googleapis.com 
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create an instance with a private IP address and SSL enabled</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Console</label><label for="__tabbed_4_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>In the Google Cloud console, go to the Cloud SQL Instances page.</li>
+</ul>
+<p><a href="https://console.cloud.google.com/sql">Go to Cloud SQL Instances</a></p>
+<ul>
+<li>Click Create instance.</li>
+<li>Click PostgreSQL.</li>
+<li>Enter quickstart-instance for Instance ID.</li>
+<li>Enter a password for the postgres user. Save this password for future use.</li>
+<li>Click the Single zone option for Choose region and zonal availability.</li>
+<li>Click and expand Show configuration options.</li>
+<li>For Machine Type, select Lightweight.</li>
+<li>In Connections, select Private IP.</li>
+<li>Select default in the Network drop-down menu.</li>
+<li>If you see a dialog stating Private services access connection required, click the Set Up Connection button.</li>
+<li>In the Enable Service Networking API dialog, click the Enable API button.</li>
+<li>In the Allocate an IP range dialog, select Use an automatically allocated IP range and click Continue.</li>
+<li>In the Create a connection dialog, click Create Connection.</li>
+<li>Clear the Public IP checkbox to create an instance only with a private IP.</li>
+<li>Click Create instance and then wait for the instance to initialize and start.</li>
+<li>Click Connections.</li>
+<li>In the Security section, select Allow only SSL connections to enable SSL connections.</li>
+<li>In the Allow only SSL connections dialog, click Save and then wait for the instance to restart.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Creating an instance with a private IP address only requires configuring private services access to enable connections from other Google Cloud services, such as GKE.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud compute addresses create google-managed-services-default \
+--global \
+--purpose=VPC_PEERING \
+--prefix-length=16 \
+--description=&quot;peering range for Google&quot; \
+--network=default
+</code></pre></div>
+<ul>
+<li>Run the gcloud services vpc-peerings connect command to create the private services access connection:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud services vpc-peerings connect \
+--service=servicenetworking.googleapis.com \
+--ranges=google-managed-services-default \
+--network=default
+</code></pre></div>
+<ul>
+<li>Create PostgreSQL instance</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud beta sql instances create YOUR_DIRIGIBLE_SQL_INSTANCE \
+--database-version=POSTGRES_13 \
+ --cpu=1 \
+ --memory=4GB \
+ --region=&lt;your-region&gt; \
+ --root-password=&#39;DB_ROOT_PASSWORD&#39; \
+ --no-assign-ip \
+--network=default
+</code></pre></div>
+<ul>
+<li>Run the gcloud sql instances patch command to allow only SSL connections for the instance.</li>
+</ul>
+<p><code>gcloud sql instances patch dirigible-postgre --require-ssl</code></p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create Dirigible database</p>
+<p>== "Console"</p>
+<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
+
+[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
+
+- Select quickstart-instance.
+- Open the Databases tab.
+- Click Create database.
+    - In the New database dialog box, enter quickstart_db as the name of the database.
+    - Click Create.
+</code></pre></div>
+<p>== "gcloud"</p>
+<div class="highlight"><pre><span></span><code>```
+gcloud sql databases create YOUR_DIRIGIBLE_DB_NAME \
+--instance=YOUR_DIRIGIBLE_SQL_INSTANCE
+```
+</code></pre></div>
+</li>
+<li>
+<p>Create Dirigible user</p>
+<p>== "Console"</p>
+<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
+
+[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
+
+- To open the Overview page of an instance, click the instance name.
+- Select Users from the SQL navigation menu.
+- Click Add user account.
+- In the Add a user account to instance instance_name page, add the following information:
+    - Username: Set to quickstart-user
+    - Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.
+- Click Add.
+</code></pre></div>
+<p>== "gcloud"</p>
+<div class="highlight"><pre><span></span><code>```
+gcloud sql users create dirigible-user \
+--instance=dirigible-instance \
+--password=&#39;DB_PASS&#39;
+```
+</code></pre></div>
+</li>
+<li>
+<p>Create new service account</p>
+<ul>
+<li>
+<p>Run the gcloud iam service-accounts create command as follows to create a new service account:</p>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts create YOUR_DIRIGIBLE_GOOGLE_SERVICE_ACCOUNT \
+--display-name=&quot;GKE Quickstart Service Account&quot;
+</code></pre></div>
+</li>
+<li>
+<p>Run the gcloud projects add-iam-policy-binding command as follows to add the Cloud SQL Client role to the Google Cloud service account you just created. Replace YOUR_PROJECT_ID with the project ID.</p>
+<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+--member=&quot;serviceAccount:YOUR_DIRIGIBLE_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com&quot; \
+--role=&quot;roles/cloudsql.client&quot;
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Enable Workload Identity</p>
+<ul>
+<li>To have access to Cloud SQL by binding it to the Google Cloud service account using Workload Identity.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud container clusters update CLUSTER_NAME \
+--region=COMPUTE_REGION \
+--workload-pool=PROJECT_ID.svc.id.goog
+</code></pre></div>
+</li>
+<li>
+<p>Create a Kubernetes Service Account</p>
+<div class="highlight"><pre><span></span><code>kubectl create sa YOUR_KUBERNETES_SERVICE_ACCOUNT
+</code></pre></div>
+</li>
+<li>
+<p>Enable IAM binding</p>
+<ul>
+<li>
+<p>Run the gcloud iam service-accounts add-iam-policy-binding command as follows to enable IAM binding of the Google Cloud Service Account and the Kubernetes Service Account. Make the following replacements:</p>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts add-iam-policy-binding \
+--role=&quot;roles/iam.workloadIdentityUser&quot; \
+--member=&quot;serviceAccount:YOUR_PROJECT_ID.svc.id.goog[YOUR_K8S_NAMESPACE/YOUR_KSA_NAME]&quot; \
+YOUR_DIRIGIBLE_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Annotate the Kubernetes Service Account</p>
+<ul>
+<li>
+<p>Run the kubectl annotate command as follows to annotate the Kubernetes Service Account with IAM binding. Make the following replacements:</p>
+<div class="highlight"><pre><span></span><code>kubectl annotate serviceaccount \
+YOUR_KSA_NAME  \
+iam.gke.io/gcp-service-account=YOUR_DIRIGIBLE_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Use your new account for the your deployment</p>
+<div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">serviceAccountName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_SERVICE_ACCOUNT_NAME</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Configure secrets</p>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic YOUR_DIRIGIBLE_SECRET_NAMET \
+--from-literal=database=YOUR_DIRIGIBLE_DATABASE \
+--from-literal=username=YOUR_DIRIGIBLE_USERNAME \
+--from-literal=password=DB_PASS
+</code></pre></div>
+</li>
+<li>
+<p>Deploye app connects to your Cloud SQL instance</p>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PORT</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSTANCE_HOST</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PORT</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_USER</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_DIRIGIBLE_SECRET_NAMET</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASS</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_DIRIGIBLE_SECRET_NAMET</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_NAME</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_DIRIGIBLE_SECRET_NAMET</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span><span class="w"></span>
+<span class="w">     </span><span class="w w-Error"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud-sql-proxy</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># This uses the latest version of the Cloud SQL proxy</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># It is recommended to use a specific version for production environments.</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># See: https://github.com/GoogleCloudPlatform/cloudsql-proxy</span><span class="w"></span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcr.io/cloudsql-docker/gce-proxy:latest</span><span class="w"></span>
+<span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/cloud_sql_proxy&quot;</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1"># If connecting from a VPC-native GKE cluster, you can use the</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># following flag to have the proxy connect over private IP</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;-ip_address_types=PRIVATE&quot;</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1"># tcp should be set to the port the proxy should listen on</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># and should match the DB_PORT value set above.</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># Defaults: MySQL: 3306, Postgres: 5432, SQLServer: 1433</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;-instances=&lt;PROJECT_ID&gt;:&lt;LOCATION&gt;:&lt;SQL_INSTANCE&gt;=tcp:5432&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># The default Cloud SQL proxy image runs as the</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># &quot;nonroot&quot; user and group (uid: 65532) by default.</span><span class="w"></span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="gcp-cloud-keycloak-postgresql-instances">GCP Cloud Keycloak PostgreSQL instances</h3>
+<ol>
+<li>
+<p>Enable API</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Console</label><label for="__tabbed_5_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Enable API</p>
+<ul>
+<li><a href="https://console.cloud.google.com/sql/instances">Cloud SQL Admin API</a></li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>gcloud services enable sqladmin.googleapis.com \
+servicenetworking.googleapis.com 
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create an instance with a private IP address and SSL enabled</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Console</label><label for="__tabbed_6_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>In the Google Cloud console, go to the Cloud SQL Instances page.</li>
+</ul>
+<p><a href="https://console.cloud.google.com/sql">Go to Cloud SQL Instances</a></p>
+<ul>
+<li>Click Create instance.</li>
+<li>Click PostgreSQL.</li>
+<li>Enter quickstart-instance for Instance ID.</li>
+<li>Enter a password for the postgres user. Save this password for future use.</li>
+<li>Click the Single zone option for Choose region and zonal availability.</li>
+<li>Click and expand Show configuration options.</li>
+<li>For Machine Type, select Lightweight.</li>
+<li>In Connections, select Private IP.</li>
+<li>Select default in the Network drop-down menu.</li>
+<li>If you see a dialog stating Private services access connection required, click the Set Up Connection button.</li>
+<li>In the Enable Service Networking API dialog, click the Enable API button.</li>
+<li>In the Allocate an IP range dialog, select Use an automatically allocated IP range and click Continue.</li>
+<li>In the Create a connection dialog, click Create Connection.</li>
+<li>Clear the Public IP checkbox to create an instance only with a private IP.</li>
+<li>Click Create instance and then wait for the instance to initialize and start.</li>
+<li>Click Connections.</li>
+<li>In the Security section, select Allow only SSL connections to enable SSL connections.</li>
+<li>In the Allow only SSL connections dialog, click Save and then wait for the instance to restart.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Creating an instance with a private IP address only requires configuring private services access to enable connections from other Google Cloud services, such as GKE.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud compute addresses create google-managed-services-default \
+--global \
+--purpose=VPC_PEERING \
+--prefix-length=16 \
+--description=&quot;peering range for Google&quot; \
+--network=default
+</code></pre></div>
+<ul>
+<li>Run the gcloud services vpc-peerings connect command to create the private services access connection:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud services vpc-peerings connect \
+--service=servicenetworking.googleapis.com \
+--ranges=google-managed-services-default \
+--network=default
+</code></pre></div>
+<ul>
+<li>Create Keycloak PostgreSQL instance</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud beta sql instances create YOUR_KEYCLOAK_INSTANCE \
+--database-version=POSTGRES_13 \
+ --cpu=1 \
+ --memory=4GB \
+ --region=&lt;your-region&gt; \
+ --root-password=&#39;DB_ROOT_PASSWORD&#39; \
+ --no-assign-ip \
+--network=default
+</code></pre></div>
+<ul>
+<li>Run the gcloud sql instances patch command to allow only SSL connections for the instance.</li>
+</ul>
+<p><code>gcloud sql instances patch keycloak-postgre --require-ssl</code></p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create Keycloak database</p>
+<p>== "Console"</p>
+<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
+
+[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
+
+- Select quickstart-instance.
+- Open the Databases tab.
+- Click Create database.
+    - In the New database dialog box, enter quickstart_db as the name of the database.
+    - Click Create.
+</code></pre></div>
+<p>== "gcloud"</p>
+<div class="highlight"><pre><span></span><code>```
+gcloud sql databases create YOUR_KEYCLOAK_DB \
+--instance=YOUR_KEYCLOAK_INSTANCE
+```
+</code></pre></div>
+</li>
+<li>
+<p>Create Keycloak user</p>
+<p>== "Console"</p>
+<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
+
+[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
+
+- To open the Overview page of an instance, click the instance name.
+- Select Users from the SQL navigation menu.
+- Click Add user account.
+- In the Add a user account to instance instance_name page, add the following information:
+    - Username: Set to quickstart-user
+    - Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.
+- Click Add.
+</code></pre></div>
+<p>== "gcloud"</p>
+<div class="highlight"><pre><span></span><code>```
+gcloud sql users create YOUR_KEYCLOAK_USER \
+--instance=YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT \
+--password=&#39;DB_PASS&#39;
+```
+</code></pre></div>
+</li>
+<li>
+<p>Create new service account</p>
+<ul>
+<li>
+<p>Run the gcloud iam service-accounts create command as follows to create a new service account:</p>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts create YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT \
+--display-name=&quot;GKE Keycloak Service Account&quot;
+</code></pre></div>
+</li>
+<li>
+<p>Run the gcloud projects add-iam-policy-binding command as follows to add the Cloud SQL Client role to the Google Cloud service account you just created. Replace YOUR_PROJECT_ID with the project ID.</p>
+<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+--member=&quot;serviceAccount:YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com&quot; \
+--role=&quot;roles/cloudsql.client&quot;
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Enable Workload Identity</p>
+<ul>
+<li>To have access to Cloud SQL by binding it to the Google Cloud service account using Workload Identity.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud container clusters update CLUSTER_NAME \
+--region=COMPUTE_REGION \
+--workload-pool=PROJECT_ID.svc.id.goog
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gcloud container node-pools update WORKLOAD_POOL \
+--cluster=YOUR_CLUSTER \
+--workload-metadata=GKE_METADATA
+</code></pre></div>
+</li>
+<li>
+<p>Create a Kubernetes Service Account</p>
+<div class="highlight"><pre><span></span><code>kubectl create sa YOUR_KUBERNETES_SERVICE_ACCOUNT_NAME
+</code></pre></div>
+</li>
+<li>
+<p>Enable IAM binding</p>
+<ul>
+<li>
+<p>Run the gcloud iam service-accounts add-iam-policy-binding command as follows to enable IAM binding of the Google Cloud Service Account and the Kubernetes Service Account. Make the following replacements:</p>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts add-iam-policy-binding \
+--role=&quot;roles/iam.workloadIdentityUser&quot; \
+--member=&quot;serviceAccount:YOUR_PROJECT_ID.svc.id.goog[YOUR_K8S_NAMESPACE/YOUR_KUBERNETES_SERVICE_ACCOUNT_NAME]&quot; \
+YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Annotate the Kubernetes Service Account</p>
+<ul>
+<li>
+<p>Run the kubectl annotate command as follows to annotate the Kubernetes Service Account with IAM binding. Make the following replacements:</p>
+<div class="highlight"><pre><span></span><code>kubectl annotate serviceaccount \
+YOUR_KUBERNETES_SERVICE_ACCOUNT_NAME  \
+iam.gke.io/gcp-service-account=YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT@YOUR_PROJECT_ID.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Use your new account for the your deployment</p>
+<div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">serviceAccountName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">YOUR_KUBERNETES_SERVICE_ACCOUNT</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Configure secrets</p>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic YOUR_KEYCLOAK_SECRET_NAME \
+--from-literal=database=YOUR_KEYCLOAK_DB_NAME \
+--from-literal=username=YOUR_KEYCLOAK_USER_NAME \
+--from-literal=password=YOUR_KEYCLOAK_DB_PASS \
+--from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/YOUR_KEYCLOAK_DB_NAME
+</code></pre></div>
+</li>
+<li>
+<p>Set the environments to Dirigible deployment.</p>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PORT</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INSTANCE_HOST</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PORT</span><span class="w"></span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_USER</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_KEYCLOAK_SECRET_NAME&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASS</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_KEYCLOAK_SECRET_NAME&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_NAME</span><span class="w"></span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR_KEYCLOAK_SECRET_NAME&gt;</span><span class="w"></span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span><span class="w"></span>
+<span class="w">     </span><span class="w w-Error"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cloud-sql-proxy</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># This uses the latest version of the Cloud SQL proxy</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># It is recommended to use a specific version for production environments.</span><span class="w"></span>
+<span class="w">        </span><span class="c1"># See: https://github.com/GoogleCloudPlatform/cloudsql-proxy</span><span class="w"></span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gcr.io/cloudsql-docker/gce-proxy:latest</span><span class="w"></span>
+<span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/cloud_sql_proxy&quot;</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1"># If connecting from a VPC-native GKE cluster, you can use the</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># following flag to have the proxy connect over private IP</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;-ip_address_types=PRIVATE&quot;</span><span class="w"></span>
+
+<span class="w">          </span><span class="c1"># tcp should be set to the port the proxy should listen on</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># and should match the DB_PORT value set above.</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># Defaults: MySQL: 3306, Postgres: 5432, SQLServer: 1433</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;-instances=&lt;PROJECT_ID:REGION:KEYCLOAK_SQL_INSTANCE&gt;=tcp:5432&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># The default Cloud SQL proxy image runs as the</span><span class="w"></span>
+<span class="w">          </span><span class="c1"># &quot;nonroot&quot; user and group (uid: 65532) by default.</span><span class="w"></span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </code></pre></div>
 </li>
 </ol>
