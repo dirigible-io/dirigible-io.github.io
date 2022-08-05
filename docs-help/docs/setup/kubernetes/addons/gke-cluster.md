@@ -17,15 +17,15 @@ Create Google Kubernetes cluster Setup
 
 1. Create project
 
-  * List the organizations
+    * List the organizations
 
-    `gcloud organizations list`
+      `gcloud organizations list`
 
-    `gcloud projects create  dirigible-demo --name=dirigible --organization=<your-organization-id>` 
+      `gcloud projects create  dirigible-demo --name=dirigible --organization=<your-organization-id>` 
 
-  * You can check for the new project with:
-    
-    `gcloud projects list --filter 'parent.id=<your-organization-id>'`
+    * You can check for the new project with:
+      
+      `gcloud projects list --filter 'parent.id=<your-organization-id>'`
 
 1. Enable Engine Api
 

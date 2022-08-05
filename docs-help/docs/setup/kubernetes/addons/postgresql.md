@@ -223,11 +223,11 @@ Deploy PostgreSQL in Kubernetes environment.
 
         * Run the gcloud sql instances patch command to allow only SSL connections for the instance.
 
-          `gcloud sql instances patch dirigible-postgre --require-ssl`
+          `gcloud sql instances patch YOUR_DIRIGIBLE_SQL_INSTANCE --require-ssl`
 
 1. Create Dirigible database
 
-    == "Console"
+    === "Console"
 
         - In the Google Cloud console, go to the Cloud SQL Instances page.
 
@@ -239,7 +239,7 @@ Deploy PostgreSQL in Kubernetes environment.
             - In the New database dialog box, enter quickstart_db as the name of the database.
             - Click Create.
 
-    == "gcloud"
+    === "gcloud"
 
         ```
         gcloud sql databases create YOUR_DIRIGIBLE_DB_NAME \
@@ -248,7 +248,7 @@ Deploy PostgreSQL in Kubernetes environment.
 
 1. Create Dirigible user
 
-    == "Console"
+    === "Console"
 
         - In the Google Cloud console, go to the Cloud SQL Instances page.
 
@@ -262,11 +262,11 @@ Deploy PostgreSQL in Kubernetes environment.
             - Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.
         - Click Add.
 
-    == "gcloud"
+    === "gcloud"
 
         ```
-        gcloud sql users create dirigible-user \
-        --instance=dirigible-instance \
+        gcloud sql users create YOUR_DIRIGIBLE_DB_USER \
+        --instance=YOUR_DIRIGIBLE_SQL_INSTANCE \
         --password='DB_PASS'
         ```
 
@@ -295,6 +295,12 @@ Deploy PostgreSQL in Kubernetes environment.
     gcloud container clusters update CLUSTER_NAME \
     --region=COMPUTE_REGION \
     --workload-pool=PROJECT_ID.svc.id.goog
+    ```
+
+    ```
+    gcloud container node-pools update YOUR_NODE_GKE_CLUSTER_NODE_POOL \
+    --cluster=YOUR_GKE_CLUSTER_NAME \
+    --workload-metadata=GKE_METADATA
     ```
 
 1. Create a Kubernetes Service Account
@@ -344,27 +350,23 @@ Deploy PostgreSQL in Kubernetes environment.
 
     ```yaml
             env:
-            - name: PORT
-              value: "8080"
-            - name: INSTANCE_HOST
-              value: "127.0.0.1"
-            - name: DB_PORT
-              value: "5432"
-            - name: DB_USER
+            - name: POSTGRE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: YOUR_DIRIGIBLE_SECRET_NAMET 
+                  key: postgre_url
+            - name: POSTGRE_DRIVER
+              value: org.postgresql.Driver
+            - name: POSTGRE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: YOUR_DIRIGIBLE_SECRET_NAMET
                   key: username
-            - name: DB_PASS
+            - name: POSTGRE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: YOUR_DIRIGIBLE_SECRET_NAMET
                   key: password
-            - name: DB_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: YOUR_DIRIGIBLE_SECRET_NAMET
-                  key: database
           - name: cloud-sql-proxy
             # This uses the latest version of the Cloud SQL proxy
             # It is recommended to use a specific version for production environments.
@@ -468,7 +470,7 @@ Deploy PostgreSQL in Kubernetes environment.
 
         * Run the gcloud sql instances patch command to allow only SSL connections for the instance.
 
-          `gcloud sql instances patch keycloak-postgre --require-ssl`
+          `gcloud sql instances patch YOUR_KEYCLOAK_INSTANCE --require-ssl`
 
 1. Create Keycloak database
 
@@ -533,7 +535,7 @@ Deploy PostgreSQL in Kubernetes environment.
         ```
 
 1. Enable Workload Identity
-
+    
     * To have access to Cloud SQL by binding it to the Google Cloud service account using Workload Identity.
 
     ```
@@ -542,8 +544,10 @@ Deploy PostgreSQL in Kubernetes environment.
     --workload-pool=PROJECT_ID.svc.id.goog
     ```
 
+    * Update node pool if is not updated
+
     ```
-    gcloud container node-pools update WORKLOAD_POOL \
+    gcloud container node-pools update YOUR_NODE_GKE_CLUSTER_NODE_POOL \
     --cluster=YOUR_CLUSTER \
     --workload-metadata=GKE_METADATA
     ```
@@ -594,31 +598,29 @@ Deploy PostgreSQL in Kubernetes environment.
     --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/YOUR_KEYCLOAK_DB_NAME
     ```
 
-1. Set the environments to Dirigible deployment.
+1. Set the environments to Keycloak deployment.
 
     ```yaml
             env:
-            - name: PORT
-              value: "8080"
-            - name: INSTANCE_HOST
-              value: "127.0.0.1"
-            - name: DB_PORT
-              value: "5432"
-            - name: DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: <YOUR_KEYCLOAK_SECRET_NAME>
-                  key: username
-            - name: DB_PASS
-              valueFrom:
-                secretKeyRef:
-                  name: <YOUR_KEYCLOAK_SECRET_NAME>
-                  key: password
-            - name: DB_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: <YOUR_KEYCLOAK_SECRET_NAME>
-                  key: database
+              - name: DB_VENDOR
+                value: postgres
+              - name: DB_USER
+                valueFrom:
+                  secretKeyRef:
+                    name: YOUR_KEYCLOAK_SECRET_NAME
+                    key: username
+              - name: DB_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: YOUR_KEYCLOAK_SECRET_NAME
+                    key: password
+              - name: DB_DATABASE
+                valueFrom:
+                  secretKeyRef:
+                    name: YOUR_KEYCLOAK_SECRET_NAME
+                    key: database
+              - name: DB_ADDR
+              value: 127.0.0.1
           - name: cloud-sql-proxy
             # This uses the latest version of the Cloud SQL proxy
             # It is recommended to use a specific version for production environments.
