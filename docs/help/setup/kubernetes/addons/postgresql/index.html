@@ -3041,46 +3041,60 @@ servicenetworking.googleapis.com
 </li>
 <li>
 <p>Create Keycloak database</p>
-<p>== "Console"</p>
-<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
-
-[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
-
-- Select quickstart-instance.
-- Open the Databases tab.
-- Click Create database.
-    - In the New database dialog box, enter quickstart_db as the name of the database.
-    - Click Create.
-</code></pre></div>
-<p>== "gcloud"</p>
-<div class="highlight"><pre><span></span><code>```
-gcloud sql databases create YOUR_KEYCLOAK_DB \
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Console</label><label for="__tabbed_9_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>In the Google Cloud console, go to the Cloud SQL Instances page.</li>
+</ul>
+<p><a href="https://console.cloud.google.com/sql">Go to Cloud SQL Instances</a></p>
+<ul>
+<li>Select quickstart-instance.</li>
+<li>Open the Databases tab.</li>
+<li>Click Create database.<ul>
+<li>In the New database dialog box, enter quickstart_db as the name of the database.</li>
+<li>Click Create.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>gcloud sql databases create YOUR_KEYCLOAK_DB \
 --instance=YOUR_KEYCLOAK_INSTANCE
-```
 </code></pre></div>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Create Keycloak user</p>
-<p>== "Console"</p>
-<div class="highlight"><pre><span></span><code>- In the Google Cloud console, go to the Cloud SQL Instances page.
-
-[Go to Cloud SQL Instances](https://console.cloud.google.com/sql)
-
-- To open the Overview page of an instance, click the instance name.
-- Select Users from the SQL navigation menu.
-- Click Add user account.
-- In the Add a user account to instance instance_name page, add the following information:
-    - Username: Set to quickstart-user
-    - Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.
-- Click Add.
-</code></pre></div>
-<p>== "gcloud"</p>
-<div class="highlight"><pre><span></span><code>```
-gcloud sql users create YOUR_KEYCLOAK_USER \
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Console</label><label for="__tabbed_10_2">gcloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>In the Google Cloud console, go to the Cloud SQL Instances page.</li>
+</ul>
+<p><a href="https://console.cloud.google.com/sql">Go to Cloud SQL Instances</a></p>
+<ul>
+<li>To open the Overview page of an instance, click the instance name.</li>
+<li>Select Users from the SQL navigation menu.</li>
+<li>Click Add user account.</li>
+<li>In the Add a user account to instance instance_name page, add the following information:<ul>
+<li>Username: Set to quickstart-user</li>
+<li>Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.</li>
+</ul>
+</li>
+<li>Click Add.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>gcloud sql users create YOUR_KEYCLOAK_USER \
 --instance=YOUR_KEYCLOAK_GOOGLE_SERVICE_ACCOUNT \
 --password=&#39;DB_PASS&#39;
-```
 </code></pre></div>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Create new service account</p>
