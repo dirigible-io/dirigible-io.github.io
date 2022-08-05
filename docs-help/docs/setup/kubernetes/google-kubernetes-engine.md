@@ -13,6 +13,10 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
 
 !!! info "Note"
     - Create [GKE cluster](addons/gke-cluster.md).
+    - How to [create Google DNS Zone](addons/google-dns-zone.md) 
+    - How to [setup Istio](addons/istio.md).
+    - How to [create certificate for your domain](addons/letsencrypt.md).
+    - How to [create GCP Cloud SQL instances](addons/postgresql.md)
 
 ## Steps
 ---
