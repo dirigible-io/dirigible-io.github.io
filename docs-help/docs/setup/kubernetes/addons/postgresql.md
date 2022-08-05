@@ -474,7 +474,7 @@ Deploy PostgreSQL in Kubernetes environment.
 
 1. Create Keycloak database
 
-    == "Console"
+    === "Console"
 
         - In the Google Cloud console, go to the Cloud SQL Instances page.
 
@@ -486,7 +486,7 @@ Deploy PostgreSQL in Kubernetes environment.
             - In the New database dialog box, enter quickstart_db as the name of the database.
             - Click Create.
 
-    == "gcloud"
+    === "gcloud"
 
         ```
         gcloud sql databases create YOUR_KEYCLOAK_DB \
@@ -495,7 +495,7 @@ Deploy PostgreSQL in Kubernetes environment.
 
 1. Create Keycloak user
 
-    == "Console"
+    === "Console"
 
         - In the Google Cloud console, go to the Cloud SQL Instances page.
 
@@ -509,7 +509,7 @@ Deploy PostgreSQL in Kubernetes environment.
             - Password: Specify a password for your database user. Make a note of this for use in a later step of this quickstart.
         - Click Add.
 
-    == "gcloud"
+    === "gcloud"
 
         ```
         gcloud sql users create YOUR_KEYCLOAK_USER \
