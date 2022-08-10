@@ -4,7 +4,7 @@ description: In this article we are going to setup custom domain for Dirigible a
 author: Krasimir Dermendzhiev
 author_gh_user: krasimirdermendzhiev
 author_avatar: https://avatars.githubusercontent.com/u/82384876?v=4
-read_time: 
+read_time: 15 min
 publish_date: August 10, 2022
 ---
 
@@ -112,6 +112,7 @@ In this article we assume that you have already [GCP account](https://cloud.goog
   ![set-cluster-size](/img/posts/20220810/set-cluster-size.png)
 
   * Verify machine type.
+
   ![verify-machine-type](/img/posts/20220810/verify-machine-type.png)
 
   * Advanced settings.
@@ -134,9 +135,9 @@ We need workload identity to allow our Dirigible pod to access PostgreSQL
 
 ## Istio configuration
 
-  !!! note "Note" 
-      
-      * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
+    !!! note "Note" 
+        
+        * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands
 
@@ -520,7 +521,9 @@ EOF
 
 ## Check the logs on the cert-manager pod
 
-`kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"`
+```
+kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"
+```
 
 You shoud see something similar, that's mean the certificate is ready and we can redirect http traffic to https.
 
@@ -532,6 +535,7 @@ I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certifi
 ```
 We can add to our helm deploy the `httpsRedirect: false` and run again to update.
 
+```
 helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set ingress.host=demo.apps.dirigible.io \
 --set ingress.tls=true \
@@ -544,6 +548,7 @@ helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set istio.enableHttps=true \
 --set volume.enabled=true \
 --set httpsRedirect=true
+```
 
 ## Keycloak configuration
 
