@@ -85,7 +85,8 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
 
         ```
         helm install dirigible dirigible/dirigible \
-        --set istio.enabled=true
+        --set istio.enabled=true \
+        --set ingress.host=<ingress-host>
         ```
 	
         This will install Eclipse Dirigible `Deployment`, `Service` with `ClusterIP` only and Istio `Gateway` and `Virtual Service`. To access the Dirigible instance execute the command that was printed in the console.
@@ -148,6 +149,31 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
             ```
 
             Now the `Required HTTPS` should be disabled and the keycloak instance should be accessible via **`http://`**
+
+    === "GCP Cloud SQL Postgre & Keycloak"
+
+        !!! info "Prerequisites"
+            - Install the [gcloud CLI](https://cloud.google.com/sdk/docs/install)
+            - Install [kubectl](https://kubernetes.io/docs/tasks/tools/) and [configure cluster access](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#default_cluster_kubectl)
+            - Install [Helm](https://helm.sh/docs/intro/install/)
+
+        !!! info "Info"
+            - You can check the [blog](https://www.dirigible.io/blogs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/) for more details.
+
+        ```
+        helm upgrade --install dirigible dirigible -n dirigible-demo \
+        --set volume.enabled=true \
+        --set serviceAccount.create=false \
+        --set ingress.tls=true \
+        --set keycloak.enabled=true \
+        --set keycloak.install=true \
+        --set istio.enabled=true \
+        --set istio.enableHttps=true \
+        --set gke.cloudSQL=true \  
+        --set gke.projectId=<your-project-id> \
+        --set gke.region=<your-gke-cluster-region> \
+        --set ingress.host=<your-domain>
+        ```
 
 1. Kyma:
 

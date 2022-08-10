@@ -502,21 +502,22 @@ EOF
 
 ## Dirigible deploy
 
-  * Create Istio Gateway and VirtualService for Dirigible and Keycloak
+  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
 
-  ```
-  helm upgrade --install dirigible dirigible -n dirigible-demo \
-  --set ingress.host=demo.apps.dirigible.io \
-  --set ingress.tls=true \
-  --set keycloak.enabled=true \
-  --set keycloak.install=true \
-  --set gke.cloudSQL=true \
-  --set gke.projectId=dirigible-gke-demo \
-  --set gke.region=europe-north1 \
-  --set istio.enabled=true \
-  --set istio.enableHttps=true \
-  --set volume.enabled=true 
-  ```
+```
+helm upgrade --install dirigible dirigible -n dirigible-demo \
+--set volume.enabled=true \
+--set serviceAccount.create=false \
+--set ingress.tls=true \
+--set keycloak.enabled=true \
+--set keycloak.install=true \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
+--set gke.cloudSQL=true \
+--set gke.projectId=dirigible-gke-demo \
+--set gke.region=europe-north1 \
+--set ingress.host=demo.apps.dirigible.io
+```
 
 ## Check the logs on the cert-manager pod
 
@@ -536,16 +537,17 @@ We can add to our helm deploy the `httpsRedirect: false` and run again to update
 
 ```
 helm upgrade --install dirigible dirigible -n dirigible-demo \
---set ingress.host=demo.apps.dirigible.io \
+--set volume.enabled=true \
+--set serviceAccount.create=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
 --set gke.cloudSQL=true \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
---set istio.enabled=true \
---set istio.enableHttps=true \
---set volume.enabled=true \
+--set ingress.host=demo.apps.dirigible.io \
 --set httpsRedirect=true
 ```
 
