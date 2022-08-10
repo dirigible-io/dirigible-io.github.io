@@ -164,6 +164,7 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         helm upgrade --install dirigible dirigible -n dirigible-demo \
         --set volume.enabled=true \
         --set serviceAccount.create=false \
+        --set keycloak.serviceAccountCreate=false \
         --set ingress.tls=true \
         --set keycloak.enabled=true \
         --set keycloak.install=true \

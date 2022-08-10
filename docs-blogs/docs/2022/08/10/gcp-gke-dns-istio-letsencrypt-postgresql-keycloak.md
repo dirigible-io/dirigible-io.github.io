@@ -502,12 +502,13 @@ EOF
 
 ## Dirigible deploy
 
-  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
+  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
 
 ```
 helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
+--set keycloak.serviceAccountCreate=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
@@ -539,6 +540,7 @@ We can add to our helm deploy the `httpsRedirect: false` and run again to update
 helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
+--set keycloak.serviceAccountCreate=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
