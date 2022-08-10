@@ -137,7 +137,7 @@ We need workload identity to allow our Dirigible pod to access PostgreSQL
 
     !!! info "Note"
         
-          * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
+        * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands
 
