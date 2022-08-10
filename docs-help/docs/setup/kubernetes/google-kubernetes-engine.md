@@ -239,7 +239,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
           name: dirigible
         spec:
           rules:
-            - host: dirigible
+            - host: <set-your-domain-or-ip>
               http:
                 paths:
                   - path: /

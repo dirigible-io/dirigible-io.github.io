@@ -115,7 +115,8 @@ You can deploy Dirigible via Helm [Chart](https://artifacthub.io/packages/search
         --set ingress.host=<ingress-host> \
         --set database.enabled=true \
         --set keycloak.enabled=true \
-        --set keycloak.install=true
+        --set keycloak.install=true \
+        --set keycloak.database.enabled=true
         ```
 
         In addition `Keycloak` will be deployed and configured.
