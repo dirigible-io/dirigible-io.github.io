@@ -2362,11 +2362,12 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 </ul>
 <h2 id="dirigible-deploy">Dirigible deploy</h2>
 <ul>
-<li>When you run this Dirigible helm chart with this sets. This will create <code>volume</code>, enable <code>https</code>, install <code>keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. We don't need to create service account because is created in previous steps. We need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
+<li>When you run this Dirigible helm chart with this sets. This will create <code>volume</code>, enable <code>https</code>, install <code>keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
+--set keycloak.serviceAccountCreate=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
@@ -2390,6 +2391,7 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
+--set keycloak.serviceAccountCreate=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \

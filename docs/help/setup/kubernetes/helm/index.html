@@ -2734,6 +2734,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
+--set keycloak.serviceAccountCreate=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
