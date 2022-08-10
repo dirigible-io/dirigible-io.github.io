@@ -1828,7 +1828,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                  </svg> None read
+                  </svg> 15 min read
             </span>
             </p>
         </aside>
@@ -1943,9 +1943,11 @@
   <img alt="set-cluster-size" src="/img/posts/20220810/set-cluster-size.png" /></p>
 </li>
 <li>
-<p>Verify machine type.
-  <img alt="verify-machine-type" src="/img/posts/20220810/verify-machine-type.png" /></p>
+<p>Verify machine type.</p>
 </li>
+</ul>
+<p><img alt="verify-machine-type" src="/img/posts/20220810/verify-machine-type.png" /></p>
+<ul>
 <li>
 <p>Advanced settings.</p>
 <ul>
@@ -1971,8 +1973,9 @@
 * Node Workload Identity
   <img alt="node-workload-identity" src="/img/posts/20220810/node-workload.png" /></p>
 <h2 id="istio-configuration">Istio configuration</h2>
-<p>!!! note "Note" </p>
-<div class="highlight"><pre><span></span><code>  * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
+<div class="highlight"><pre><span></span><code>!!! note &quot;Note&quot;
+
+    * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 </code></pre></div>
 <ul>
 <li>
@@ -2372,7 +2375,8 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 --set volume.enabled=true 
 </code></pre></div>
 <h2 id="check-the-logs-on-the-cert-manager-pod">Check the logs on the cert-manager pod</h2>
-<p><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"</code></p>
+<div class="highlight"><pre><span></span><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i &quot;READY&quot;
+</code></pre></div>
 <p>You shoud see something similar, that's mean the certificate is ready and we can redirect http traffic to https.</p>
 <p><div class="highlight"><pre><span></span><code>I0809 13:58:22.750528       1 conditions.go:190] Found status change for Certificate &quot;keycloak&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:22.750516762 +0000 UTC m=+18939.377721330
 I0809 13:58:22.781247       1 conditions.go:190] Found status change for Certificate &quot;keycloak&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:22.781230149 +0000 UTC m=+18939.408434691
@@ -2380,7 +2384,7 @@ I0809 13:58:23.193897       1 conditions.go:250] Found status change for Certifi
 I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certificate &quot;dirigible&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:23.347561322 +0000 UTC m=+18939.974765874
 </code></pre></div>
 We can add to our helm deploy the <code>httpsRedirect: false</code> and run again to update.</p>
-<p>helm upgrade --install dirigible dirigible -n dirigible-demo \
+<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
 --set ingress.host=demo.apps.dirigible.io \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
@@ -2391,7 +2395,8 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 --set istio.enabled=true \
 --set istio.enableHttps=true \
 --set volume.enabled=true \
---set httpsRedirect=true</p>
+--set httpsRedirect=true
+</code></pre></div>
 <h2 id="keycloak-configuration">Keycloak configuration</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
