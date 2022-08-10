@@ -1,0 +1,2555 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="In this article we are going to setup custom domain for Dirigible application in Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak.">
+      
+      
+        <meta name="author" content="Krasimir Dermendzhiev">
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0rc1">
+    
+    
+      
+        <title>Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak - Eclipse Dirigible Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.476df7d4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/homepage.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-header__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible Blogs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Blogs
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../01/14/dirigible-vscode-theia-custom-editors/" class="md-tabs__link">
+        2022
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2021/11/2/material-blogging-capabilities/" class="md-tabs__link">
+        2021
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-tabs__link">
+        2020
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-tabs__link">
+        2019
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2018/12/05/you-dont-need-abs-to-model-apps/" class="md-tabs__link">
+        2018
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-tabs__link">
+        2017
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-tabs__link">
+        2016
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-tabs__link">
+        2015
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-tabs__link">
+        2014
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Blogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2022" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01/14/dirigible-vscode-theia-custom-editors/" class="md-nav__link">
+        Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          2021
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2021" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2021
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/11/2/material-blogging-capabilities/" class="md-nav__link">
+        Enable Blogging Capabilities with Material for MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/11/1/dirigible-runs-material/" class="md-nav__link">
+        Dirigible now runs Material for MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible/" class="md-nav__link">
+        Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/10/11/low-code-mobile-apps-with-dirigible-and-ns/" class="md-nav__link">
+        Low-code mobile apps with Dirigible and NativeScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-nav__link">
+        2020 - What a year for Eclipse Dirigible!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform/" class="md-nav__link">
+        Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/20/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/19/eclipse-dirigible-building-application-docker-image/" class="md-nav__link">
+        Eclipse Dirigible – Building a Docker Image for Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/10/23/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/06/29/celebrating-5-years-in-open-source/" class="md-nav__link">
+        Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/05/07/what-is-eclipse-dirigible/" class="md-nav__link">
+        What is Eclipse Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/05/sending-emails-with-the-eclipse-dirigible-mail-api/" class="md-nav__link">
+        Sending E-Mails with the Eclipse Dirigible Mail API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/01/20/managing-documents-with-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          2019
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2019" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          2019
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-nav__link">
+        How Does Eclipse Dirigible Contribute to Eclipse Che 7?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          2018
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2018" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          2018
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/12/05/you-dont-need-abs-to-model-apps/" class="md-nav__link">
+        You Dont Need Abs to Model Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/24/blogs-node-in-dirigible/" class="md-nav__link">
+        Node.js in Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/13/blogs-dirigible-landed-in-faculty-of-mathematics-and-informatics/" class="md-nav__link">
+        Dirigible Landed in the Faculty of Mathematics and Informatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/12/blogs-dirigible-ide-on-che-workspaces/" class="md-nav__link">
+        Running Dirigible on Che Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/09/dirigible-extend-embed-reuse/" class="md-nav__link">
+        Dirigible - Extend, Embed, Reuse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/11/08/blogs-make-low-code-great-again/" class="md-nav__link">
+        Make Low-Code/No-Code Platforms Great Again!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/06/25/kubernetes-keycloak-postgresql-dirigible/" class="md-nav__link">
+        Kubernetes, Keycloak, PostgreSQL & Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/03/02/blogs-3x-ide/" class="md-nav__link">
+        Dirigible Cloud IDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/02/22/blogs-eclipse-dirigible/" class="md-nav__link">
+        Eclipse Dirigible - Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2018/02/02/blogs-3x-a-new-era-began/" class="md-nav__link">
+        3.x Series - A new era has begun!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          2017
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2017" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          2017
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-nav__link">
+        Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine/" class="md-nav__link">
+        Testing Server-Side JavaScript with Jasmine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-testfwks/" class="md-nav__link">
+        Integration of Third-Party JavaScript Libraries in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          2016
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2016" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          2016
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+        Document Service Explorer at SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/09/12/the-java-saurus/" class="md-nav__link">
+        The Java-saurus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure - Part II?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/17/sap-summer-practice/" class="md-nav__link">
+        Summer Practice in SAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/01/blogs-why-enterprise-js/" class="md-nav__link">
+        Why Enterprise JavaScript?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+        WebSockets and Equinox OSGi in a Servlet Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/02/26/blogs-understanding-dirigible/" class="md-nav__link">
+        Understanding Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+        Develop from Mobile for Mobile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/21/blogs-repositories/" class="md-nav__link">
+        Developer - Repositories, repositories, repositories...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          2015
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2015" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          2015
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-nav__link">
+        Developer - Groovy is back
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/17/blogs-how-to-install-dirigible-on-sap-hana-cloud-platform/" class="md-nav__link">
+        Tutorial - How to install Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/10/blogs-dirigible-remote-debugging/" class="md-nav__link">
+        Developer - Remote debugging Dirigible source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-orion-editor/" class="md-nav__link">
+        How the Orion editor is integrated in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-branding/" class="md-nav__link">
+        Tutorial - How to re-brand Dirigible workbench
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/21/blogs-dirigible-impl-sql-plugin/" class="md-nav__link">
+        Tutorial - How to implement a plugin for SQL language support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/09/24/blogs-dirigible-tools-for-vertical-scenarios/" class="md-nav__link">
+        Dirigible - Toolkit for Vertical Scenarios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          2014
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2014" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          2014
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-nav__link">
+        Dirigible enables dynamic in-memory Java runtime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/15/blogs-dirigible-terminal-services/" class="md-nav__link">
+        Dirigible - Terminal Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate/" class="md-nav__link">
+        Dirigible - To Replicate or Not To Replicate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/04/blogs-dirigible-fast-track-to-hcp/" class="md-nav__link">
+        Dirigible is the fast track to your HCP HANA DB instance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/06/11/blogs-dirigible-extensions-configs/" class="md-nav__link">
+        Dirigible - Extensions vs Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/24/blogs-dirigible-on-sap-hana/" class="md-nav__link">
+        Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/21/blogs-start-of-journey/" class="md-nav__link">
+        Start of Journey
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gke-cluster-configuration" class="md-nav__link">
+    GKE cluster configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="GKE cluster configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-workload-identity" class="md-nav__link">
+    Enable Workload Identity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#istio-configuration" class="md-nav__link">
+    Istio configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcp-cloud-dns-configuration" class="md-nav__link">
+    GCP Cloud DNS configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lets-encrypt-configuration" class="md-nav__link">
+    Let's encrypt configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcp-cloud-sql-postgre-configuration" class="md-nav__link">
+    GCP Cloud SQL Postgre configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="GCP Cloud SQL Postgre configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-dirigible-database" class="md-nav__link">
+    Setup Dirigible database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dirigible-and-keycloak-kubernetes-service-account" class="md-nav__link">
+    Create a Dirigible and Keycloak Kubernetes Service Account
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dirigible-deploy" class="md-nav__link">
+    Dirigible deploy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-the-logs-on-the-cert-manager-pod" class="md-nav__link">
+    Check the logs on the cert-manager pod
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keycloak-configuration" class="md-nav__link">
+    Keycloak configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/krasimirdermendzhiev" alt="@krasimirdermendzhiev">
+            </p>
+            <p>
+            <span> 
+            <b>Krasimir Dermendzhiev</b> · <a href="https://github.com/krasimirdermendzhiev">@krasimirdermendzhiev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> August 10, 2022 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> None read
+            </span>
+            </p>
+        </aside>
+        
+
+        <h2 id="overview">Overview</h2>
+<p>In this article we are going to setup custom domain for <strong>Dirigible</strong> application in <strong>GKE</strong> cluster with <strong>GCP Cloud DNS</strong>, <strong>GCP Cloud SQL Postgre</strong>, <strong>Istio</strong>, <strong>Let's encrypt</strong>, <strong>Keycloak</strong>.</p>
+<p>Components:
+<img alt="gcp-gke-dns-istio-letsencrypt-postgresql-keycloak" src="/img/posts/20220810/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.png" /></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Kubernetes</label><label for="__tabbed_1_2">GCP Cloud DNS</label><label for="__tabbed_1_3">GCP Cloud SQL Postgre</label><label for="__tabbed_1_4">Istio</label><label for="__tabbed_1_5">"Let's encrypt</label><label for="__tabbed_1_6">Cert-manager</label><label for="__tabbed_1_7">Keycloak</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes <a href="https://kubernetes.io/">here</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Reliable, resilient, low-latency DNS serving from Google's worldwide network with everything you need to register, manage, and serve your domains. <a href="https://cloud.google.com/dns">here</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. [here](https://cloud.google.com/sql.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. <a href="https://istio.io/">here</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. <a href="https://letsencrypt.org/">here</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry. <a href="https://cert-manager.io/">here</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">Overview</p>
+<p>Open Source Identity and Access Management. <a href="https://www.keycloak.org/">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In this article we assume that you have already <a href="https://cloud.google.com/">GCP account</a> and added billing account.</p>
+<h2 id="gke-cluster-configuration">GKE cluster configuration</h2>
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>Install the <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a></li>
+<li>Install <a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a> and <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#default_cluster_kubectl">configure cluster access</a></li>
+<li>Install <a href="https://helm.sh/docs/intro/install/">Helm</a></li>
+</ul>
+</div>
+<ol>
+<li>
+<p>Create project</p>
+<p>Go to <a href="https://console.cloud.google.com/projectcreate">create your project</a>.</p>
+<ul>
+<li>Set name, organization and billing account.
+<img alt="create-project" src="/img/posts/20220810/create-project.png" /></li>
+</ul>
+</li>
+<li>
+<p>Enable Engine Api </p>
+<ul>
+<li>To be able to create cluster we need to enable Kubernetes Api.</li>
+</ul>
+<p>Go to <a href="https://console.cloud.google.com/kubernetes">enable Kubernetes API</a>
+<img alt="gcp-gke-dns-istio-letsencrypt-postgresql-keycloak" src="/img/posts/20220810/gke-api.png" /></p>
+</li>
+<li>
+<p>Create GKE cluster</p>
+</li>
+</ol>
+<p>You can create standard and autopilot cluster in ths article we will create standard cluster.
+  At this time you have two options to create cluster <code>manually</code> or by <code>Use a setup guide</code>. </p>
+<ul>
+<li>
+<p>Manually.
+  <img alt="create-manually-cluster" src="/img/posts/20220810/create-manually-cluster.png" /> </p>
+</li>
+<li>
+<p>Use a setup guide.
+    In this article we will <code>use a setup guide</code> and <code>cost-optimized cluster</code>. 
+    <img alt="create-setup-guide" src="/img/posts/20220810/create-setup-guide.png" /> </p>
+</li>
+<li>
+<p>Pick up the suitable location and name for you.
+  <img alt="cost-optimized-cluster" src="/img/posts/20220810/pick-name-location.png" /></p>
+</li>
+<li>
+<p>Set release channel.
+    We are going to set <code>Regular channel</code> is two months after new release.
+  <img alt="set-release-channel" src="/img/posts/20220810/set-release-channel.png" /></p>
+</li>
+<li>
+<p>Choose cluster size.
+    In this article we are going to keep the default size.
+  <img alt="set-cluster-size" src="/img/posts/20220810/set-cluster-size.png" /></p>
+</li>
+<li>
+<p>Verify machine type.
+  <img alt="verify-machine-type" src="/img/posts/20220810/verify-machine-type.png" /></p>
+</li>
+<li>
+<p>Advanced settings.</p>
+<ul>
+<li>In this article we will use <code>Optimize utilization</code>.
+  Prioritize optimizing utilization over keeping spare resources in the cluster. When selected, the cluster autoscaler scales down the cluster more aggressively: it can remove more nodes, and remove nodes faster.</li>
+<li>For cluster autoscaler you can configure how many maximum nodes to scale. It's depend on your requirements. For this article we are going to keep this configuration maximum nodes <code>3</code>. </li>
+<li>Vertical Pod Autoscalling will be enable to sure the pods will deploy on the right node.
+  <img alt="advanced-settings" src="/img/posts/20220810/advanced-settings.png" /></li>
+</ul>
+</li>
+<li>
+<p>Configure usage metering.</p>
+<ul>
+<li>In this article we are not using metering.
+  <img alt="configure-usage-metering" src="/img/posts/20220810/configure-usage-metering.png" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="enable-workload-identity">Enable Workload Identity</h3>
+<p>We need workload identity to allow our Dirigible pod to access PostgreSQL
+* Cluster Workload Identity
+  <img alt="cluster-workload-identity" src="/img/posts/20220810/cluster-workload-identity.png" />
+* Node Workload Identity
+  <img alt="node-workload-identity" src="/img/posts/20220810/node-workload.png" /></p>
+<h2 id="istio-configuration">Istio configuration</h2>
+<p>!!! note "Note" </p>
+<div class="highlight"><pre><span></span><code>  * In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
+</code></pre></div>
+<ul>
+<li>
+<p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands</p>
+<div class="highlight"><pre><span></span><code>gcloud container clusters get-credentials dirigible \
+  --region europe-north1-a
+</code></pre></div>
+</li>
+<li>
+<p>Create istio-system namespace and add label istio-injection</p>
+<div class="highlight"><pre><span></span><code>kubectl create namespace istio-system
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl label namespace istio-system istio-injection=enabled --overwrite
+</code></pre></div>
+</li>
+<li>
+<p>Create Istio control plane service istiod</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f - &lt;&lt;EOF</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istiod</span><span class="w"></span>
+<span class="w">    </span><span class="nt">istio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pilot</span><span class="w"></span>
+<span class="w">    </span><span class="nt">release</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istiod</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-system</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span><span class="w">  </span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-xds</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15010</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https-dns</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15012</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https-webhook</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span><span class="w"></span>
+<span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15017</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http-monitoring</span><span class="w"></span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15014</span><span class="w"></span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istiod</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>Install minimal control plane</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">istioctl install -y -n istio-system --revision 1-14-3 -f - &lt;&lt;EOF</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install.istio.io/v1alpha1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IstioOperator</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">control-plane</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">minimal</span><span class="w"></span>
+<span class="w">  </span><span class="nt">values</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gateways</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">istio-ingressgateway</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">autoscaleEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="nt">components</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">pilot</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">                                                                            </span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PILOT_FILTER_GATEWAY_CLUSTER_CONFIG</span><span class="w">                                                  </span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">meshConfig</span><span class="p">:</span><span class="w">              </span>
+<span class="w">    </span><span class="nt">defaultConfig</span><span class="p">:</span><span class="w">       </span>
+<span class="w">      </span><span class="nt">proxyMetadata</span><span class="p">:</span><span class="w">      </span>
+<span class="w">        </span><span class="nt">ISTIO_META_DNS_CAPTURE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">enablePrometheusMerge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p>Enable istio-ingressgateway component</p>
+<ul>
+<li>Install the istio-ingress gateway in a namespace that is different than istiod and add tag istio-injection</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl create namespace istio-ingress
+</code></pre></div>
+<ul>
+<li>Install it with a revision that matches the control plane in the istio-system namespace.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">istioctl install -y -n istio-ingress --revision 1-14-3 -f - &lt;&lt;EOF</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install.istio.io/v1alpha1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IstioOperator</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-ingress-gw-install</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">empty</span><span class="w"></span>
+<span class="w">  </span><span class="nt">values</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gateways</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">istio-ingressgateway</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">autoscaleEnabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="nt">components</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ingressGateways</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-ingressgateway</span><span class="w"></span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-ingress</span><span class="w"></span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">k8s</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">overlays</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span><span class="w"></span>
+<span class="w">          </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span><span class="w"></span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-ingressgateway</span><span class="w"></span>
+<span class="w">          </span><span class="nt">patches</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spec.template.spec.containers[name:istio-proxy].lifecycle</span><span class="w"></span>
+<span class="w">            </span><span class="nt">value</span><span class="p">:</span><span class="w"></span>
+<span class="w">              </span><span class="nt">preStop</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="nt">exec</span><span class="p">:</span><span class="w"></span>
+<span class="w">                  </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;sleep</span><span class="nv"> </span><span class="s">5&quot;</span><span class="p p-Indicator">]</span><span class="w">      </span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>
+<p>Apply Strict mTLS </p>
+<ul>
+<li>Encrypt traffic between services in the mesh with mutual TLS.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply --namespace istio-system -f - &lt;&lt;EOF</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.istio.io/v1beta1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PeerAuthentication</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRICT</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+</code></pre></div>
+<h2 id="gcp-cloud-dns-configuration">GCP Cloud DNS configuration</h2>
+<ul>
+<li>
+<p>Enable Cloud DNS Api
+    Go to <a href="https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com">page</a> and enable api.</p>
+<p><img alt="enable-cloud-dns" src="/img/posts/20220810/clouddns-api.png" /></p>
+</li>
+<li>
+<p>Create Cloud DNS Zone
+    Go to <a href="https://console.cloud.google.com/net-services/dns/zones/new/create">page</a>
+    <img alt="create-dns-zone" src="/img/posts/20220810/create-dns-zone.png" /></p>
+</li>
+<li>
+<p>Copy dns name servers and add to your domain for subdomain example ( demo.apps.dirigible.io )
+      Which look like this:
+      <div class="highlight"><pre><span></span><code>ns-cloud-e1.googledomains.com.
+ns-cloud-e2.googledomains.com.
+ns-cloud-e3.googledomains.com.
+ns-cloud-e4.googledomains.com.
+</code></pre></div>
+      <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
+</li>
+<li>
+<p>Create A record</p>
+<ul>
+<li>
+<p>Which will be using for Dirigible certificate and deployment.
+  <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
+</li>
+<li>
+<p>We need Istio Gateway IP 
+    <div class="highlight"><pre><span></span><code>kubectl get svc -n istio-ingress istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
+</code></pre></div></p>
+</li>
+<li>
+<p>Promote ephemeral IP address to reserver
+      You need to create the IP address in your region.
+    <div class="highlight"><pre><span></span><code>gcloud compute addresses create demo --addresses=&lt;YOUR-GATEWAY-IP&gt; \
+--region=europe-north1
+</code></pre></div></p>
+</li>
+<li>
+<p>Set the ip
+    <img alt="create-a-record" src="/img/posts/20220810/create-a-record.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="lets-encrypt-configuration">Let's encrypt configuration</h2>
+<ul>
+<li>
+<p>Install Cert-manager</p>
+<ul>
+<li>Check for <a href="https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions">last version</a></li>
+</ul>
+</li>
+<li>
+<p>Add cert-manager helm repo</p>
+<div class="highlight"><pre><span></span><code>helm repo add jetstack https://charts.jetstack.io
+helm repo update
+</code></pre></div>
+</li>
+<li>
+<p>Install cert-manager</p>
+<div class="highlight"><pre><span></span><code>helm install \
+cert-manager jetstack/cert-manager \
+--namespace cert-manager \
+--create-namespace \
+--version v1.9.1 \
+--set installCRDs=true
+</code></pre></div>
+</li>
+<li>
+<p>Create ClusterIssuer</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f - &lt;&lt;EOF</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager.io/v1</span><span class="w"></span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIssuer</span><span class="w"></span>
+<span class="nt">metadata</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt</span><span class="w"></span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cert-manager</span><span class="w"></span>
+<span class="nt">spec</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">acme</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://acme-v02.api.letsencrypt.org/directory</span><span class="w"></span>
+<span class="w">    </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;YOUR-EMAIL-ADDRESS&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">privateKeySecretRef</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">letsencrypt</span><span class="w"></span>
+<span class="w">    </span><span class="nt">solvers</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">selector</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">http01</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">ingress</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
+</code></pre></div>
+<h2 id="gcp-cloud-sql-postgre-configuration">GCP Cloud SQL Postgre configuration</h2>
+<ul>
+<li>
+<p>Enable Cloud SQL Api and create instance
+    Go to <a href="https://console.cloud.google.com/sql/instances">page</a></p>
+</li>
+<li>
+<p>Enable Cloud SQL Admin API
+    Go to <a href="https://console.cloud.google.com/flows/enableapi?apiid=sqladmin">page</a></p>
+</li>
+<li>
+<p>Choose PostgreSQL database engine
+    <img alt="choose-postgresql-database-engine" src="/img/posts/20220810/choose-postgresql-database-engine.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and just rename the instance to be <code>keycloak</code>.</p>
+</div>
+<ul>
+<li>
+<p>Create instance</p>
+<ul>
+<li>
+<p>Set instance info, production
+<img alt="sql-configuration-1" src="/img/posts/20220810/sql-configuration-1.png" /></p>
+</li>
+<li>
+<p>Set region, machine type, storage
+<img alt="set-region-machine-storage" src="/img/posts/20220810/sql-region-machine-storage.png" /></p>
+</li>
+<li>
+<p>Set connections
+  We need to <a href="https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com">Enable Service Networking API</a>
+  <img alt="set-connections" src="/img/posts/20220810/set-connections.png" /></p>
+</li>
+<li>
+<p>Set data protection and maintance
+  <img alt="set-data-protection-maintance" src="/img/posts/20220810/set-data-protection-maintenance.png" /></p>
+</li>
+<li>
+<p>After you create the instance update the configuration for connections
+  <img alt="set-only-ssl-connections" src="/img/posts/20220810/allow-ssl-connections.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="setup-dirigible-database">Setup Dirigible database</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Create the same way database and user for Keycloak</p>
+</div>
+<ul>
+<li>
+<p>Create database
+    Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create database.
+    <img alt="create-database" src="/img/posts/20220810/create-database.png" /></p>
+</li>
+<li>
+<p>Create user
+    Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create user.
+    <img alt="create-user" src="/img/posts/20220810/create-user.png" /></p>
+</li>
+<li>
+<p>Create service account
+    <img alt="create-sa" src="/img/posts/20220810/dirigible-service-account.png" /></p>
+</li>
+<li>
+<p>Add IAM policy binding
+    <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
+<p>or with <code>gcloud</code>
+<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
+--member=&quot;serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
+--role=&quot;roles/cloudsql.client&quot;
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="create-a-dirigible-and-keycloak-kubernetes-service-account">Create a Dirigible and Keycloak Kubernetes Service Account</h3>
+<ul>
+<li>
+<p>Create namespace <code>dirigible-demo</code> </p>
+<div class="highlight"><pre><span></span><code>kubectl create namespace dirigible-demo
+</code></pre></div>
+</li>
+<li>
+<p>Add Istio injection</p>
+<div class="highlight"><pre><span></span><code>kubectl label namespace dirigible-demo istio-injection=enabled --overwrite
+</code></pre></div>
+</li>
+<li>
+<p>Configure kubernetes service account binding to the Google Cloud service account using Workload Identity.</p>
+<div class="highlight"><pre><span></span><code>k create sa dirigible-sa -n dirigible-demo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>k create sa keycloak-sa -n dirigible-demo
+</code></pre></div>
+</li>
+<li>
+<p>Add new binding.</p>
+<p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
+<ul>
+<li>Dirigible</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts add-iam-policy-binding \
+--role=&quot;roles/iam.workloadIdentityUser&quot; \
+--member=&quot;serviceAccount:dirigible-gke-demo.svc.id.goog[dirigible-demo/dirigible-sa]&quot; \
+dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
+</code></pre></div>
+<ul>
+<li>Keycloak</li>
+</ul>
+<div class="highlight"><pre><span></span><code>gcloud iam service-accounts add-iam-policy-binding \
+--role=&quot;roles/iam.workloadIdentityUser&quot; \
+--member=&quot;serviceAccount:dirigible-gke-demo.svc.id.goog[dirigible-demo/keycloak-sa]&quot; \
+keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+<li>
+<p>Annotate the Kubernetes Service Account with the new binding</p>
+<ul>
+<li>Dirigible</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl annotate serviceaccount -n dirigible-demo \
+dirigible-sa  \
+iam.gke.io/gcp-service-account=dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
+</code></pre></div>
+<ul>
+<li>Keycloak</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl annotate serviceaccount -n dirigible-demo \
+keycloak-sa  \
+iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
+</code></pre></div>
+</li>
+<li>
+<p>Create secrets for kubernetes service accounts</p>
+<ul>
+<li>Dirigible</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic dirigible-db -n dirigible-demo \
+--from-literal=username=dirigible_user \
+--from-literal=password=&quot;:I8[&#39;/,(p:a|c3s]&quot; \
+--from-literal=database=dirigible \
+--from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/dirigible
+</code></pre></div>
+<ul>
+<li>Keycloak</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic keycloak-db -n dirigible-demo \
+--from-literal=username=keycloak_user \
+--from-literal=password=&#39;q7So\/Q&gt;;5kzUZ6:&#39; \
+--from-literal=database=keycloak \
+--from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/keycloak
+</code></pre></div>
+</li>
+</ul>
+<h2 id="dirigible-deploy">Dirigible deploy</h2>
+<ul>
+<li>Create Istio Gateway and VirtualService for Dirigible and Keycloak</li>
+</ul>
+<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
+--set ingress.host=demo.apps.dirigible.io \
+--set ingress.tls=true \
+--set keycloak.enabled=true \
+--set keycloak.install=true \
+--set gke.cloudSQL=true \
+--set gke.projectId=dirigible-gke-demo \
+--set gke.region=europe-north1 \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
+--set volume.enabled=true 
+</code></pre></div>
+<h2 id="check-the-logs-on-the-cert-manager-pod">Check the logs on the cert-manager pod</h2>
+<p><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"</code></p>
+<p>You shoud see something similar, that's mean the certificate is ready and we can redirect http traffic to https.</p>
+<p><div class="highlight"><pre><span></span><code>I0809 13:58:22.750528       1 conditions.go:190] Found status change for Certificate &quot;keycloak&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:22.750516762 +0000 UTC m=+18939.377721330
+I0809 13:58:22.781247       1 conditions.go:190] Found status change for Certificate &quot;keycloak&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:22.781230149 +0000 UTC m=+18939.408434691
+I0809 13:58:23.193897       1 conditions.go:250] Found status change for CertificateRequest &quot;dirigible-spnjm&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:23.193882791 +0000 UTC m=+18939.821087330
+I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certificate &quot;dirigible&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:23.347561322 +0000 UTC m=+18939.974765874
+</code></pre></div>
+We can add to our helm deploy the <code>httpsRedirect: false</code> and run again to update.</p>
+<p>helm upgrade --install dirigible dirigible -n dirigible-demo \
+--set ingress.host=demo.apps.dirigible.io \
+--set ingress.tls=true \
+--set keycloak.enabled=true \
+--set keycloak.install=true \
+--set gke.cloudSQL=true \
+--set gke.projectId=dirigible-gke-demo \
+--set gke.region=europe-north1 \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
+--set volume.enabled=true \
+--set httpsRedirect=true</p>
+<h2 id="keycloak-configuration">Keycloak configuration</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need change <code>demo.apps.dirigible.io</code> with your domain.</p>
+</div>
+<p>At the first run when we will try to open <code>https://dirigible.demo.apps.dirigible.io</code> will see 
+<img alt="keycloak-configure-client" src="/img/posts/20220810/keycloak-configure-client.png" /></p>
+<ol>
+<li>
+<p>We need to creat clientId <code>dirigible</code> go to <code>https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients</code>
+<img alt="create-clientid" src="/img/posts/20220810/keycloak-create-cliendid.png" /></p>
+</li>
+<li>
+<p>Add Role – Open new client and add new roles Developer, Operator, Everyone.  
+<img alt="create-default-roles" src="/img/posts/20220810/create-default-roles.png" /></p>
+</li>
+<li>
+<p>Add Default Roles – <code>Roles-&gt;Default Roles</code> add all roles from previous step
+<img alt="keycloak-add-default-roles" src="/img/posts/20220810/keycloak-default-roles.png" /> </p>
+</li>
+<li>
+<p>Add user – add one of the role or Everyone from Role Mappings and Client Roles
+Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master">page</a>
+<img alt="add-user" src="/img/posts/20220810/keycloak-add-user.png" /></p>
+</li>
+<li>
+<p>Add password
+<img alt="keycloak-add-password" src="/img/posts/20220810/keycloak-add-password.png" /></p>
+</li>
+<li>
+<p>Valid Redirect url 
+<img alt="valid-recirect" src="/img/posts/20220810/valid-redirect.png" /></p>
+</li>
+</ol>
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/discussions">Join the Discussion</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						<div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://slack.dirigible.io" target="_blank" rel="noopener" title="slack.dirigible.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
+  
+</div>
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.0bc13b87.min.js"></script>
+      
+    
+  </body>
+</html>

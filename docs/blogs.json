@@ -1,10 +1,5 @@
 [
   {
-    "location": "2021/10/11/low-code-mobile-apps-with-dirigible-and-ns.md",
-    "title": "Low-Code Mobile Apps with Dirigible and NativeScript",
-    "description": "Nowadays, modern browsers allow web developers to access more and more native APIs and thus making them a platform good enough too meet more and more needs."
-  },
-  {
     "location": "2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible.md",
     "title": "Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt",
     "description": "In this article we are going to setup custom domain for Dirigible application in Kubernes cluster with Gardener, AWS Route 53, Istio, Let's encrypt."
@@ -23,5 +18,10 @@
     "location": "2022/01/14/dirigible-vscode-theia-custom-editors.md",
     "title": "Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors",
     "description": "In this article we are going to focus on the overall design differences between the IDEs. "
+  },
+  {
+    "location": "2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md",
+    "title": "Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak",
+    "description": "In this article we are going to setup custom domain for Dirigible application in Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak."
   }
 ]
