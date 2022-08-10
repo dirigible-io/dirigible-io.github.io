@@ -2648,7 +2648,7 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </li>
 <li>
 <p>Kubernetes:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Basic</label><label for="__tabbed_1_2">Istio</label><label for="__tabbed_1_3">PostgreSQL</label><label for="__tabbed_1_4">PostgreSQL &amp; Keycloak</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Basic</label><label for="__tabbed_1_2">Istio</label><label for="__tabbed_1_3">PostgreSQL</label><label for="__tabbed_1_4">PostgreSQL &amp; Keycloak</label><label for="__tabbed_1_5">GCP Cloud SQL Postgre &amp; Keycloak</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
@@ -2665,7 +2665,8 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </code></pre></div>
 </div>
 <div class="highlight"><pre><span></span><code>helm install dirigible dirigible/dirigible \
---set istio.enabled=true
+--set istio.enabled=true \
+--set ingress.host=&lt;ingress-host&gt;
 </code></pre></div>
 <p>This will install Eclipse Dirigible <code>Deployment</code>, <code>Service</code> with <code>ClusterIP</code> only and Istio <code>Gateway</code> and <code>Virtual Service</code>. To access the Dirigible instance execute the command that was printed in the console.</p>
 <div class="highlight"><pre><span></span><code>kubectl get svc istio-ingressgateway -n istio-system \
@@ -2714,6 +2715,35 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 </code></pre></div>
 <p>Now the <code>Required HTTPS</code> should be disabled and the keycloak instance should be accessible via <strong><code>http://</code></strong></p>
 </div>
+</div>
+<div class="tabbed-block">
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>Install the <a href="https://cloud.google.com/sdk/docs/install">gcloud CLI</a></li>
+<li>Install <a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a> and <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#default_cluster_kubectl">configure cluster access</a></li>
+<li>Install <a href="https://helm.sh/docs/intro/install/">Helm</a></li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>You can check the <a href="https://www.dirigible.io/blogs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/">blog</a> for more details.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
+--set volume.enabled=true \
+--set serviceAccount.create=false \
+--set ingress.tls=true \
+--set keycloak.enabled=true \
+--set keycloak.install=true \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
+--set gke.cloudSQL=true \  
+--set gke.projectId=&lt;your-project-id&gt; \
+--set gke.region=&lt;your-gke-cluster-region&gt; \
+--set ingress.host=&lt;your-domain&gt;
+</code></pre></div>
 </div>
 </div>
 </div>

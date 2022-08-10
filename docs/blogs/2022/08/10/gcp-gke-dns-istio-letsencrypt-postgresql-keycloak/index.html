@@ -2362,19 +2362,20 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 </ul>
 <h2 id="dirigible-deploy">Dirigible deploy</h2>
 <ul>
-<li>Create Istio Gateway and VirtualService for Dirigible and Keycloak</li>
+<li>When you run this Dirigible helm chart with this sets. This will create <code>volume</code>, enable <code>https</code>, install <code>keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. We don't need to create service account because is created in previous steps. We need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
---set ingress.host=demo.apps.dirigible.io \
+--set volume.enabled=true \
+--set serviceAccount.create=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
 --set gke.cloudSQL=true \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
---set istio.enabled=true \
---set istio.enableHttps=true \
---set volume.enabled=true 
+--set ingress.host=demo.apps.dirigible.io
 </code></pre></div>
 <h2 id="check-the-logs-on-the-cert-manager-pod">Check the logs on the cert-manager pod</h2>
 <div class="highlight"><pre><span></span><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i &quot;READY&quot;
@@ -2387,16 +2388,17 @@ I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certifi
 </code></pre></div>
 We can add to our helm deploy the <code>httpsRedirect: false</code> and run again to update.</p>
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
---set ingress.host=demo.apps.dirigible.io \
+--set volume.enabled=true \
+--set serviceAccount.create=false \
 --set ingress.tls=true \
 --set keycloak.enabled=true \
 --set keycloak.install=true \
+--set istio.enabled=true \
+--set istio.enableHttps=true \
 --set gke.cloudSQL=true \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
---set istio.enabled=true \
---set istio.enableHttps=true \
---set volume.enabled=true \
+--set ingress.host=demo.apps.dirigible.io \
 --set httpsRedirect=true
 </code></pre></div>
 <h2 id="keycloak-configuration">Keycloak configuration</h2>
