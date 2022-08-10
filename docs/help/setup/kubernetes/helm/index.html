@@ -2687,7 +2687,8 @@ kubectl --namespace default port-forward $POD_NAME 8080:8080
 --set ingress.host=&lt;ingress-host&gt; \
 --set database.enabled=true \
 --set keycloak.enabled=true \
---set keycloak.install=true
+--set keycloak.install=true \
+--set keycloak.database.enabled=true
 </code></pre></div>
 <p>In addition <code>Keycloak</code> will be deployed and configured.</p>
 <div class="admonition info">
