@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blogs': 'index.md'
     - '2022':
+      - 'Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Lets encrypt, PostgreSQL and Keycloak': '2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md'
       - 'Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors': '2022/01/14/dirigible-vscode-theia-custom-editors.md'
     - '2021':
       - 'Enable Blogging Capabilities with Material for MkDocs': '2021/11/2/material-blogging-capabilities.md'
