@@ -2383,7 +2383,7 @@ cert-manager jetstack/cert-manager \
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and just rename the instance to be <code>keycloak</code>.</p>
+<p>For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.</p>
 </div>
 <ul>
 <li>
@@ -2434,21 +2434,27 @@ cert-manager jetstack/cert-manager \
 <img alt="create-user" src="/img/posts/20220810/create-user.png" /></p>
 </li>
 <li>
-<p>Create service account for Dirigible and Keycloak use next steps for Keycloak
+<p>Create service account for Dirigible and Keycloak.
     <img alt="create-sa" src="/img/posts/20220810/dirigible-service-account.png" /></p>
 </li>
 <li>
-<p>Create service account
+<p>Add role for the service account
     <img alt="create-sa-role" src="/img/posts/20220810/create-sa-role.png" /></p>
 </li>
 <li>
 <p>Add IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
     <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
-<p>or with <code>gcloud</code>
+<p>or with <code>gcloud</code></p>
+<p>Dirigible</p>
 <div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
 --member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
 --role=&quot;roles/cloudsql.client&quot;
-</code></pre></div></p>
+</code></pre></div>
+<p>Keycloak</p>
+<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
+--member=&quot;serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
+--role=&quot;roles/cloudsql.client&quot;
+</code></pre></div>
 </li>
 </ul>
 <h3 id="create-a-dirigible-and-keycloak-kubernetes-service-account">Create a Dirigible and Keycloak Kubernetes Service Account</h3>
@@ -2594,10 +2600,12 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 <img alt="keycloak-add-default-roles" src="/img/posts/20220810/keycloak-default-roles.png" /> </p>
 </li>
 <li>
-<p>Add user – by default the new user should have default roles
-Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master">page</a>
-<img alt="add-user" src="/img/posts/20220810/keycloak-add-user.png" /></p>
+<p>Add user – by default the new user should have default roles</p>
 </li>
+</ol>
+<p>Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master">page</a> to create new user.
+<img alt="add-user" src="/img/posts/20220810/keycloak-add-user.png" /></p>
+<ol>
 <li>
 <p>Add password
 <img alt="keycloak-add-password" src="/img/posts/20220810/keycloak-add-password.png" /></p>
@@ -2607,7 +2615,7 @@ Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console
 <img alt="valid-recirect" src="/img/posts/20220810/valid-redirect.png" /></p>
 </li>
 </ol>
-<p>At the end when we try to access Dirigible on https://dirigible.demo.apps.dirigible.io and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have certificate for your domain.</p>
+<p>At the end when we try to access Dirigible on <code>https://dirigible.demo.apps.dirigible.io</code> and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have assigned certificate.</p>
 <p><img alt="dirigible-home" src="/img/posts/20220810/dirigible-home.png" /></p>
 
         <!-- Last update of source file -->
