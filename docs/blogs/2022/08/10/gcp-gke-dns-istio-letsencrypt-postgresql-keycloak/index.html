@@ -2120,11 +2120,17 @@
 </li>
 </ul>
 <h3 id="enable-workload-identity">Enable Workload Identity</h3>
-<p>We need workload identity to allow our Dirigible pod to access PostgreSQL
-* Cluster Workload Identity
-  <img alt="cluster-workload-identity" src="/img/posts/20220810/cluster-workload-identity.png" />
-* Node Workload Identity
-  <img alt="node-workload-identity" src="/img/posts/20220810/node-workload.png" /></p>
+<p>We need workload identity to allow our Dirigible pod to access PostgreSQL</p>
+<ul>
+<li>
+<p>Cluster Workload Identity
+    <img alt="cluster-workload-identity" src="/img/posts/20220810/cluster-workload-identity.png" /></p>
+</li>
+<li>
+<p>Node Workload Identity
+    <img alt="node-workload-identity" src="/img/posts/20220810/node-workload.png" /></p>
+</li>
+</ul>
 <h2 id="istio-configuration">Istio configuration</h2>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
@@ -2211,6 +2217,8 @@
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl create namespace istio-ingress
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>kubectl label namespace istio-ingress istio-injection=enabled --overwrite
+</code></pre></div>
 <ul>
 <li>Install it with a revision that matches the control plane in the istio-system namespace.</li>
 </ul>
@@ -2286,12 +2294,8 @@ ns-cloud-e4.googledomains.com.
       <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
 </li>
 <li>
-<p>Create A record</p>
+<p>Create A record for Dirigible and Keycloak</p>
 <ul>
-<li>
-<p>Which will be using for Dirigible certificate and deployment.
-  <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
-</li>
 <li>
 <p>We need Istio Gateway IP 
     <div class="highlight"><pre><span></span><code>kubectl get svc -n istio-ingress istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
@@ -2305,8 +2309,12 @@ ns-cloud-e4.googledomains.com.
 </code></pre></div></p>
 </li>
 <li>
-<p>Set the ip
+<p>Set the ip for Dirigible
     <img alt="create-a-record" src="/img/posts/20220810/create-a-record.png" /></p>
+</li>
+<li>
+<p>Set the ip for Keycloak
+    <img alt="create-a-record" src="/img/posts/20220810/create-a-record-keycloak.png" /></p>
 </li>
 </ul>
 </li>
@@ -2395,6 +2403,10 @@ cert-manager jetstack/cert-manager \
   <img alt="set-connections" src="/img/posts/20220810/set-connections.png" /></p>
 </li>
 <li>
+<p>Set
+  <img alt="set-connections" src="/img/posts/20220810/set-connections-use-automatically-allocated-ip.png" /></p>
+</li>
+<li>
 <p>Set data protection and maintance
   <img alt="set-data-protection-maintance" src="/img/posts/20220810/set-data-protection-maintenance.png" /></p>
 </li>
@@ -2412,25 +2424,29 @@ cert-manager jetstack/cert-manager \
 </div>
 <ul>
 <li>
-<p>Create database
-    Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create database.
-    <img alt="create-database" src="/img/posts/20220810/create-database.png" /></p>
+<p>Create database</p>
+<p>Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create database.
+<img alt="create-database" src="/img/posts/20220810/create-database.png" /></p>
 </li>
 <li>
-<p>Create user
-    Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create user.
-    <img alt="create-user" src="/img/posts/20220810/create-user.png" /></p>
+<p>Create user</p>
+<p>Go to <a href="https://console.cloud.google.com/sql/instances/">your PostgreSQL instance</a> and create user.
+<img alt="create-user" src="/img/posts/20220810/create-user.png" /></p>
 </li>
 <li>
-<p>Create service account
+<p>Create service account for Dirigible and Keycloak use next steps for Keycloak
     <img alt="create-sa" src="/img/posts/20220810/dirigible-service-account.png" /></p>
 </li>
 <li>
-<p>Add IAM policy binding
+<p>Create service account
+    <img alt="create-sa-role" src="/img/posts/20220810/create-sa-role.png" /></p>
+</li>
+<li>
+<p>Add IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
     <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
 <p>or with <code>gcloud</code>
 <div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
---member=&quot;serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
+--member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
 --role=&quot;roles/cloudsql.client&quot;
 </code></pre></div></p>
 </li>
@@ -2455,7 +2471,7 @@ cert-manager jetstack/cert-manager \
 </code></pre></div>
 </li>
 <li>
-<p>Add new binding.</p>
+<p>Add new binding - </p>
 <p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
 <ul>
 <li>Dirigible</li>
@@ -2515,9 +2531,9 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 </ul>
 <h2 id="dirigible-deploy">Dirigible deploy</h2>
 <ul>
-<li>When you run this Dirigible helm chart with this sets. This will create <code>volume</code>, enable <code>https</code>, install <code>keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
+<li>When you run this Dirigible helm chart with this sets. This will create <code>volume</code>, enable <code>https</code>, install <code>Keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
+<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
 --set keycloak.serviceAccountCreate=false \
@@ -2532,6 +2548,7 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 --set ingress.host=demo.apps.dirigible.io
 </code></pre></div>
 <h2 id="check-the-logs-on-the-cert-manager-pod">Check the logs on the cert-manager pod</h2>
+<p>Wait for 3-5 minutes and check the logs.</p>
 <div class="highlight"><pre><span></span><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i &quot;READY&quot;
 </code></pre></div>
 <p>You shoud see something similar, that's mean the certificate is ready and we can redirect http traffic to https.</p>
@@ -2541,7 +2558,7 @@ I0809 13:58:23.193897       1 conditions.go:250] Found status change for Certifi
 I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certificate &quot;dirigible&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:23.347561322 +0000 UTC m=+18939.974765874
 </code></pre></div>
 We can add to our helm deploy the <code>httpsRedirect: false</code> and run again to update.</p>
-<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible -n dirigible-demo \
+<div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible/dirigible  -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
 --set keycloak.serviceAccountCreate=false \
@@ -2565,7 +2582,7 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 <img alt="keycloak-configure-client" src="/img/posts/20220810/keycloak-configure-client.png" /></p>
 <ol>
 <li>
-<p>We need to creat clientId <code>dirigible</code> go to <code>https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients</code>
+<p>We need to creat clientId <code>dirigible</code> go to <code>https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients</code> and login with username <code>admin</code> and password <code>admin</code>.
 <img alt="create-clientid" src="/img/posts/20220810/keycloak-create-cliendid.png" /></p>
 </li>
 <li>
@@ -2577,7 +2594,7 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 <img alt="keycloak-add-default-roles" src="/img/posts/20220810/keycloak-default-roles.png" /> </p>
 </li>
 <li>
-<p>Add user – add one of the role or Everyone from Role Mappings and Client Roles
+<p>Add user – by default the new user should have default roles
 Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master">page</a>
 <img alt="add-user" src="/img/posts/20220810/keycloak-add-user.png" /></p>
 </li>
@@ -2590,6 +2607,8 @@ Go to <a href="https://keycloak.demo.apps.dirigible.io/auth/admin/master/console
 <img alt="valid-recirect" src="/img/posts/20220810/valid-redirect.png" /></p>
 </li>
 </ol>
+<p>At the end when we try to access Dirigible on https://dirigible.demo.apps.dirigible.io and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have certificate for your domain.</p>
+<p><img alt="dirigible-home" src="/img/posts/20220810/dirigible-home.png" /></p>
 
         <!-- Last update of source file -->
         
