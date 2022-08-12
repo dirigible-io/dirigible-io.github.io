@@ -128,10 +128,12 @@ In this article we assume that you have already [GCP account](https://cloud.goog
 
 ### Enable Workload Identity
 We need workload identity to allow our Dirigible pod to access PostgreSQL
-* Cluster Workload Identity
-  ![cluster-workload-identity](/img/posts/20220810/cluster-workload-identity.png)
-* Node Workload Identity
-  ![node-workload-identity](/img/posts/20220810/node-workload.png)
+  
+  * Cluster Workload Identity
+    ![cluster-workload-identity](/img/posts/20220810/cluster-workload-identity.png)
+  
+  * Node Workload Identity
+    ![node-workload-identity](/img/posts/20220810/node-workload.png)
 
 ## Istio configuration
 
@@ -221,6 +223,10 @@ EOF
       kubectl create namespace istio-ingress
       ```
 
+      ```
+      kubectl label namespace istio-ingress istio-injection=enabled --overwrite
+      ```
+
     - Install it with a revision that matches the control plane in the istio-system namespace.
 
 ```yaml
@@ -291,9 +297,7 @@ EOF
       ```
       ![copy-dns-name-servers](/img/posts/20220810/dns-nameservers.png)
 
-  * Create A record
-      - Which will be using for Dirigible certificate and deployment.
-      ![copy-dns-name-servers](/img/posts/20220810/dns-nameservers.png)
+  * Create A record for Dirigible and Keycloak
 
       - We need Istio Gateway IP 
         ```
@@ -307,8 +311,12 @@ EOF
         --region=europe-north1
         ```
 
-      - Set the ip
+      - Set the ip for Dirigible
         ![create-a-record](/img/posts/20220810/create-a-record.png)
+
+      - Set the ip for Keycloak
+        ![create-a-record](/img/posts/20220810/create-a-record-keycloak.png)
+
 
 ## Let's encrypt configuration
 
@@ -381,6 +389,9 @@ EOF
       We need to [Enable Service Networking API](https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com)
       ![set-connections](/img/posts/20220810/set-connections.png)
 
+    - Set
+      ![set-connections](/img/posts/20220810/set-connections-use-automatically-allocated-ip.png)
+
     - Set data protection and maintance
       ![set-data-protection-maintance](/img/posts/20220810/set-data-protection-maintenance.png)
 
@@ -393,23 +404,28 @@ EOF
     Create the same way database and user for Keycloak
 
   * Create database
+
     Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create database.
     ![create-database](/img/posts/20220810/create-database.png)
 
   * Create user
+
     Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create user.
     ![create-user](/img/posts/20220810/create-user.png)
 
-  * Create service account
+  * Create service account for Dirigible and Keycloak use next steps for Keycloak
     ![create-sa](/img/posts/20220810/dirigible-service-account.png)
 
-  * Add IAM policy binding
+  * Create service account
+    ![create-sa-role](/img/posts/20220810/create-sa-role.png)
+
+  * Add IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
     ![create-binding](/img/posts/20220810/add-iam-binding.png)
     
     or with `gcloud`
     ```
     gcloud projects add-iam-policy-binding dirigible-gke-demo \
-    --member="serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
+    --member="serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
     --role="roles/cloudsql.client"
     ```
 
@@ -437,7 +453,7 @@ EOF
     k create sa keycloak-sa -n dirigible-demo
     ```
 
-  * Add new binding.
+  * Add new binding - 
 
     ![iam-binding](/img/posts/20220810/iam-binding.png)
 
@@ -502,10 +518,10 @@ EOF
 
 ## Dirigible deploy
 
-  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
+  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `Keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
 
 ```
-helm upgrade --install dirigible dirigible -n dirigible-demo \
+helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
 --set keycloak.serviceAccountCreate=false \
@@ -522,6 +538,8 @@ helm upgrade --install dirigible dirigible -n dirigible-demo \
 
 ## Check the logs on the cert-manager pod
 
+Wait for 3-5 minutes and check the logs.
+
 ```
 kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"
 ```
@@ -537,7 +555,7 @@ I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certifi
 We can add to our helm deploy the `httpsRedirect: false` and run again to update.
 
 ```
-helm upgrade --install dirigible dirigible -n dirigible-demo \
+helm upgrade --install dirigible dirigible/dirigible  -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
 --set keycloak.serviceAccountCreate=false \
@@ -561,7 +579,7 @@ helm upgrade --install dirigible dirigible -n dirigible-demo \
 At the first run when we will try to open `https://dirigible.demo.apps.dirigible.io` will see 
 ![keycloak-configure-client](/img/posts/20220810/keycloak-configure-client.png)
 
-1. We need to creat clientId `dirigible` go to `https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients`
+1. We need to creat clientId `dirigible` go to `https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients` and login with username `admin` and password `admin`.
 ![create-clientid](/img/posts/20220810/keycloak-create-cliendid.png)
 
 
@@ -571,7 +589,7 @@ At the first run when we will try to open `https://dirigible.demo.apps.dirigible
 1. Add Default Roles – `Roles->Default Roles` add all roles from previous step
 ![keycloak-add-default-roles](/img/posts/20220810/keycloak-default-roles.png) 
 
-1. Add user – add one of the role or Everyone from Role Mappings and Client Roles
+1. Add user – by default the new user should have default roles
 Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master)
 ![add-user](/img/posts/20220810/keycloak-add-user.png)
 
@@ -580,3 +598,7 @@ Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#
 
 1. Valid Redirect url 
 ![valid-recirect](/img/posts/20220810/valid-redirect.png)
+
+At the end when we try to access Dirigible on https://dirigible.demo.apps.dirigible.io and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have certificate for your domain.
+
+![dirigible-home](/img/posts/20220810/dirigible-home.png)
