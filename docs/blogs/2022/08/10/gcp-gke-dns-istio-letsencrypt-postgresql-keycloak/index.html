@@ -2383,7 +2383,9 @@ cert-manager jetstack/cert-manager \
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.</p>
+<ul>
+<li>For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.</li>
+</ul>
 </div>
 <ul>
 <li>
@@ -2551,7 +2553,8 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 --set gke.cloudSQL=true \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
---set ingress.host=demo.apps.dirigible.io
+--set ingress.host=demo.apps.dirigible.io \
+--set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 </code></pre></div>
 <h2 id="check-the-logs-on-the-cert-manager-pod">Check the logs on the cert-manager pod</h2>
 <p>Wait for 3-5 minutes and check the logs.</p>
@@ -2577,6 +2580,7 @@ We can add to our helm deploy the <code>httpsRedirect: false</code> and run agai
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
 --set ingress.host=demo.apps.dirigible.io \
+--set dirigible.image=dirigiblelabs/dirigible-keycloak:latest \
 --set httpsRedirect=true
 </code></pre></div>
 <h2 id="keycloak-configuration">Keycloak configuration</h2>
