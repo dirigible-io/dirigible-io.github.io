@@ -376,7 +376,7 @@ EOF
     ![choose-postgresql-database-engine](/img/posts/20220810/choose-postgresql-database-engine.png)
 
 !!! note "Note"
-    For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.
+    - For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.
 
   * Create instance
     - Set instance info, production
@@ -544,7 +544,8 @@ helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set gke.cloudSQL=true \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
---set ingress.host=demo.apps.dirigible.io
+--set ingress.host=demo.apps.dirigible.io \
+--set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 ```
 
 ## Check the logs on the cert-manager pod
@@ -579,6 +580,7 @@ helm upgrade --install dirigible dirigible/dirigible  -n dirigible-demo \
 --set gke.projectId=dirigible-gke-demo \
 --set gke.region=europe-north1 \
 --set ingress.host=demo.apps.dirigible.io \
+--set dirigible.image=dirigiblelabs/dirigible-keycloak:latest \
 --set httpsRedirect=true
 ```
 
