@@ -376,7 +376,7 @@ EOF
     ![choose-postgresql-database-engine](/img/posts/20220810/choose-postgresql-database-engine.png)
 
 !!! note "Note"
-    For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and just rename the instance to be `keycloak`.
+    For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.
 
   * Create instance
     - Set instance info, production
@@ -413,19 +413,30 @@ EOF
     Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create user.
     ![create-user](/img/posts/20220810/create-user.png)
 
-  * Create service account for Dirigible and Keycloak use next steps for Keycloak
+  * Create service account for Dirigible and Keycloak.
     ![create-sa](/img/posts/20220810/dirigible-service-account.png)
 
-  * Create service account
+  * Add role for the service account
     ![create-sa-role](/img/posts/20220810/create-sa-role.png)
 
   * Add IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
     ![create-binding](/img/posts/20220810/add-iam-binding.png)
     
     or with `gcloud`
+    
+    Dirigible
+
     ```
     gcloud projects add-iam-policy-binding dirigible-gke-demo \
     --member="serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
+    --role="roles/cloudsql.client"
+    ```
+
+    Keycloak
+
+    ```
+    gcloud projects add-iam-policy-binding dirigible-gke-demo \
+    --member="serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
     --role="roles/cloudsql.client"
     ```
 
@@ -590,7 +601,8 @@ At the first run when we will try to open `https://dirigible.demo.apps.dirigible
 ![keycloak-add-default-roles](/img/posts/20220810/keycloak-default-roles.png) 
 
 1. Add user – by default the new user should have default roles
-Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master)
+
+Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master) to create new user.
 ![add-user](/img/posts/20220810/keycloak-add-user.png)
 
 1. Add password
@@ -599,6 +611,6 @@ Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#
 1. Valid Redirect url 
 ![valid-recirect](/img/posts/20220810/valid-redirect.png)
 
-At the end when we try to access Dirigible on https://dirigible.demo.apps.dirigible.io and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have certificate for your domain.
+At the end when we try to access Dirigible on `https://dirigible.demo.apps.dirigible.io` and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have assigned certificate.
 
 ![dirigible-home](/img/posts/20220810/dirigible-home.png)
