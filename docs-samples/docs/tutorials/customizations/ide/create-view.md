@@ -97,9 +97,6 @@ All views in Eclipse Dirigible are loaded via the `ide-view` extension point. Li
                     <!-- Title directive -->
                     <title dg-view-title></title>
             
-                    <!-- View data -->
-                    <script type="text/javascript" src="/services/v4/web/ide-example/services/game-view.js"></script>
-            
                     <!-- jQuery -->
                     <script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js"></script>
                     <!-- AngularJS -->
