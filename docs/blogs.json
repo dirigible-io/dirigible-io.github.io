@@ -21,7 +21,7 @@
   },
   {
     "location": "2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md",
-    "title": "Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak",
-    "description": "In this article we are going to setup custom domain for Dirigible application in Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak."
+    "title": "Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's Encrypt, PostgreSQL and Keycloak",
+    "description": "In this article we are going to setup а custom domain for а Dirigible application in а Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak."
   }
 ]
