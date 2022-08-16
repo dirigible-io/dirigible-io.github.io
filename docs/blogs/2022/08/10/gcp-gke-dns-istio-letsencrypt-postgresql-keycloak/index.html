@@ -2140,20 +2140,20 @@
 </div>
 <ul>
 <li>
-<p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands</p>
+<p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands.</p>
 <div class="highlight"><pre><span></span><code>gcloud container clusters get-credentials dirigible \
   --region europe-north1-a
 </code></pre></div>
 </li>
 <li>
-<p>Create istio-system namespace and add label istio-injection</p>
+<p>Create istio-system namespace and add label istio-injection.</p>
 <div class="highlight"><pre><span></span><code>kubectl create namespace istio-system
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>kubectl label namespace istio-system istio-injection=enabled --overwrite
 </code></pre></div>
 </li>
 <li>
-<p>Create Istio control plane service istiod</p>
+<p>Create Istio control plane service istiod.</p>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f - &lt;&lt;EOF</span><span class="w"></span>
@@ -2183,7 +2183,7 @@
 <span class="l l-Scalar l-Scalar-Plain">EOF</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li>Install minimal control plane</li>
+<li>Install minimal control plane.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">istioctl install -y -n istio-system --revision 1-14-3 -f - &lt;&lt;EOF</span><span class="w"></span>
 <span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install.istio.io/v1alpha1</span><span class="w"></span>
@@ -2211,7 +2211,7 @@
 </code></pre></div>
 <ul>
 <li>
-<p>Enable the istio-ingressgateway component</p>
+<p>Enable the istio-ingressgateway component.</p>
 <ul>
 <li>Install the istio-ingress gateway in a namespace that is different from istiod and add the istio-injection tag.</li>
 </ul>
@@ -2274,12 +2274,12 @@
 <h2 id="gcp-cloud-dns-configuration">GCP Cloud DNS Configuration</h2>
 <ul>
 <li>
-<p>Enable Cloud DNS API
+<p>Enable Cloud DNS API.
     Go to <a href="https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com">page</a> and choose <code>Enable</code> to enable the API.</p>
 <p><img alt="enable-cloud-dns" src="/img/posts/20220810/clouddns-api.png" /></p>
 </li>
 <li>
-<p>Create Cloud DNS Zone
+<p>Create Cloud DNS Zone.
     Go to <a href="https://console.cloud.google.com/net-services/dns/zones/new/create">page</a>
     <img alt="create-dns-zone" src="/img/posts/20220810/create-dns-zone.png" /></p>
 </li>
@@ -2294,10 +2294,10 @@ ns-cloud-e4.googledomains.com.
       <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
 </li>
 <li>
-<p>Create an A record for Dirigible and Keycloak</p>
+<p>Create an A record for Dirigible and Keycloak.</p>
 <ul>
 <li>
-<p>We need Istio Gateway IP 
+<p>We need Istio Gateway IP .
     <div class="highlight"><pre><span></span><code>kubectl get svc -n istio-ingress istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
 </code></pre></div></p>
 </li>
@@ -2309,11 +2309,11 @@ ns-cloud-e4.googledomains.com.
 </code></pre></div></p>
 </li>
 <li>
-<p>Set the IP for Dirigible
+<p>Set the IP for Dirigible.
     <img alt="create-a-record" src="/img/posts/20220810/create-a-record.png" /></p>
 </li>
 <li>
-<p>Set the IP for Keycloak
+<p>Set the IP for Keycloak.
     <img alt="create-a-record" src="/img/posts/20220810/create-a-record-keycloak.png" /></p>
 </li>
 </ul>
@@ -2322,19 +2322,19 @@ ns-cloud-e4.googledomains.com.
 <h2 id="lets-encrypt-configuration">Let's Encrypt Configuration</h2>
 <ul>
 <li>
-<p>Install Cert-manager</p>
+<p>Install Cert-manager.</p>
 <ul>
 <li>Check for <a href="https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions">last version</a></li>
 </ul>
 </li>
 <li>
-<p>Add cert-manager helm repo</p>
+<p>Add cert-manager helm repo.</p>
 <div class="highlight"><pre><span></span><code>helm repo add jetstack https://charts.jetstack.io
 helm repo update
 </code></pre></div>
 </li>
 <li>
-<p>Install cert-manager</p>
+<p>Install Cert-Manager.</p>
 <div class="highlight"><pre><span></span><code>helm install \
 cert-manager jetstack/cert-manager \
 --namespace cert-manager \
@@ -2369,15 +2369,15 @@ cert-manager jetstack/cert-manager \
 <h2 id="gcp-cloud-sql-postgre-configuration">GCP Cloud SQL Postgre Configuration</h2>
 <ul>
 <li>
-<p>Enable Cloud SQL API and create instance
+<p>Enable Cloud SQL API and create instance.
     Go to <a href="https://console.cloud.google.com/sql/instances">page</a></p>
 </li>
 <li>
-<p>Enable Cloud SQL Admin API
+<p>Enable Cloud SQL Admin API.
     Go to <a href="https://console.cloud.google.com/flows/enableapi?apiid=sqladmin">page</a></p>
 </li>
 <li>
-<p>Choose PostgreSQL database engine
+<p>Choose PostgreSQL database engine.
     <img alt="choose-postgresql-database-engine" src="/img/posts/20220810/choose-postgresql-database-engine.png" /></p>
 </li>
 </ul>
@@ -2389,23 +2389,23 @@ cert-manager jetstack/cert-manager \
 </div>
 <ul>
 <li>
-<p>Create an instance</p>
+<p>Create an instance.</p>
 <ul>
 <li>
 <p>Set instance info, production
 <img alt="sql-configuration-1" src="/img/posts/20220810/sql-configuration-1.png" /></p>
 </li>
 <li>
-<p>Set region, machine type, storage
+<p>Set region, machine type, storage.
 <img alt="set-region-machine-storage" src="/img/posts/20220810/sql-region-machine-storage.png" /></p>
 </li>
 <li>
-<p>Set connections
+<p>Set connections.
   We need to <a href="https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com">Enable Service Networking API</a>
   <img alt="set-connections" src="/img/posts/20220810/set-connections.png" /></p>
 </li>
 <li>
-<p>Set automatically allocated IP range
+<p>Set automatically allocated IP range.
   <img alt="set-connections" src="/img/posts/20220810/set-connections-use-automatically-allocated-ip.png" /></p>
 </li>
 <li>
@@ -2413,7 +2413,7 @@ cert-manager jetstack/cert-manager \
   <img alt="set-data-protection-maintance" src="/img/posts/20220810/set-data-protection-maintenance.png" /></p>
 </li>
 <li>
-<p>After you create the instance update the configuration for connections
+<p>After you create the instance update the configuration for connections.
   <img alt="set-only-ssl-connections" src="/img/posts/20220810/allow-ssl-connections.png" /></p>
 </li>
 </ul>
@@ -2422,7 +2422,7 @@ cert-manager jetstack/cert-manager \
 <h3 id="set-up-a-dirigible-database">Set Up a Dirigible Database</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Create the same way a database and a user for Keycloak</p>
+<p>Create the same way a database and a user for Keycloak.</p>
 </div>
 <ul>
 <li>
@@ -2440,11 +2440,11 @@ cert-manager jetstack/cert-manager \
     <img alt="create-sa" src="/img/posts/20220810/dirigible-service-account.png" /></p>
 </li>
 <li>
-<p>Add a role for the service account
+<p>Add a role for the service account.
     <img alt="create-sa-role" src="/img/posts/20220810/create-sa-role.png" /></p>
 </li>
 <li>
-<p>Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
+<p>Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa.
     <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
 <p>or with <code>gcloud</code></p>
 <p>Dirigible</p>
@@ -2575,7 +2575,7 @@ Now you can set <code>httpsRedirect: true</code> to redirect <code>HTTP</code> t
 <p>You need to replace <code>demo.apps.dirigible.io</code> with your domain.</p>
 </div>
 <p>When you first open <code>https://dirigible.demo.apps.dirigible.io</code>, you will see 
-<img alt="keycloak-configure-client" src="/img/posts/20220810/keycloak-configure-client.png" /></p>
+<img alt="keycloak-configure-client" src="/img/posts/20220810/keycloak-configure-client.png" />.</p>
 <ol>
 <li>
 <p>We need to create clientId <code>dirigible</code> that's why go to <code>https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients</code> and login with username <code>admin</code> and password <code>admin</code>.
@@ -2597,7 +2597,7 @@ Now you can set <code>httpsRedirect: true</code> to redirect <code>HTTP</code> t
 <img alt="add-user" src="/img/posts/20220810/keycloak-add-user.png" /></p>
 <ol>
 <li>
-<p>Add a password
+<p>Add a password.
 <img alt="keycloak-add-password" src="/img/posts/20220810/keycloak-add-password.png" /></p>
 </li>
 <li>
