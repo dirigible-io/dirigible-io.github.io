@@ -140,14 +140,14 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL
 !!! info "Note"        
     - In this article we will configure istioctl to use the configmaps from the 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 
-  * Enable the specific GKE cluster as the default cluster to be used for the remaining commands
+  * Enable the specific GKE cluster as the default cluster to be used for the remaining commands.
 
     ```
     gcloud container clusters get-credentials dirigible \
       --region europe-north1-a
     ```
 
-  * Create istio-system namespace and add label istio-injection
+  * Create istio-system namespace and add label istio-injection.
 
     ```
     kubectl create namespace istio-system
@@ -157,7 +157,7 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL
     kubectl label namespace istio-system istio-injection=enabled --overwrite
     ```
 
-  * Create Istio control plane service istiod
+  * Create Istio control plane service istiod.
 
 ```yaml
 kubectl apply -f - <<EOF
@@ -187,7 +187,7 @@ spec:
 EOF
 ```
 
-  * Install minimal control plane
+  * Install minimal control plane.
 
 ```yaml
 istioctl install -y -n istio-system --revision 1-14-3 -f - <<EOF
@@ -215,7 +215,7 @@ spec:
 EOF
 ```
 
-  * Enable the istio-ingressgateway component
+  * Enable the istio-ingressgateway component.
 
     - Install the istio-ingress gateway in a namespace that is different from istiod and add the istio-injection tag.
 
@@ -278,12 +278,12 @@ EOF
 
 ## GCP Cloud DNS Configuration
 
-  * Enable Cloud DNS API
+  * Enable Cloud DNS API.
     Go to [page](https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com) and choose `Enable` to enable the API.
 
     ![enable-cloud-dns](/img/posts/20220810/clouddns-api.png)
 
-  * Create Cloud DNS Zone
+  * Create Cloud DNS Zone.
     Go to [page](https://console.cloud.google.com/net-services/dns/zones/new/create)
     ![create-dns-zone](/img/posts/20220810/create-dns-zone.png)
 
@@ -297,9 +297,9 @@ EOF
       ```
       ![copy-dns-name-servers](/img/posts/20220810/dns-nameservers.png)
 
-  * Create an A record for Dirigible and Keycloak
+  * Create an A record for Dirigible and Keycloak.
 
-      - We need Istio Gateway IP 
+      - We need Istio Gateway IP .
         ```
         kubectl get svc -n istio-ingress istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
         ```
@@ -311,26 +311,26 @@ EOF
         --region=europe-north1
         ```
 
-      - Set the IP for Dirigible
+      - Set the IP for Dirigible.
         ![create-a-record](/img/posts/20220810/create-a-record.png)
 
-      - Set the IP for Keycloak
+      - Set the IP for Keycloak.
         ![create-a-record](/img/posts/20220810/create-a-record-keycloak.png)
 
 
 ## Let's Encrypt Configuration
 
-  * Install Cert-manager
+  * Install Cert-manager.
     - Check for [last version](https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions)
 
-  * Add cert-manager helm repo
+  * Add cert-manager helm repo.
     
     ```
     helm repo add jetstack https://charts.jetstack.io
     helm repo update
     ```
 
-  * Install cert-manager
+  * Install Cert-Manager.
 
     ```
     helm install \
@@ -366,42 +366,42 @@ EOF
 
 ## GCP Cloud SQL Postgre Configuration
 
-  * Enable Cloud SQL API and create instance
+  * Enable Cloud SQL API and create instance.
     Go to [page](https://console.cloud.google.com/sql/instances)
 
-  * Enable Cloud SQL Admin API
+  * Enable Cloud SQL Admin API.
     Go to [page](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin)
 
-  * Choose PostgreSQL database engine
+  * Choose PostgreSQL database engine.
     ![choose-postgresql-database-engine](/img/posts/20220810/choose-postgresql-database-engine.png)
 
 !!! note "Note"
     - For this article we will create separate instances for Dirigible and Keycloak. You can follow these steps for Dirigible and Keycloak.
 
-  * Create an instance
+  * Create an instance.
     - Set instance info, production
     ![sql-configuration-1](/img/posts/20220810/sql-configuration-1.png)
     
-    - Set region, machine type, storage
+    - Set region, machine type, storage.
     ![set-region-machine-storage](/img/posts/20220810/sql-region-machine-storage.png)
 
-    - Set connections
+    - Set connections.
       We need to [Enable Service Networking API](https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com)
       ![set-connections](/img/posts/20220810/set-connections.png)
 
-    - Set automatically allocated IP range
+    - Set automatically allocated IP range.
       ![set-connections](/img/posts/20220810/set-connections-use-automatically-allocated-ip.png)
 
     - Set data protection and maintenance.
       ![set-data-protection-maintance](/img/posts/20220810/set-data-protection-maintenance.png)
 
-    - After you create the instance update the configuration for connections
+    - After you create the instance update the configuration for connections.
       ![set-only-ssl-connections](/img/posts/20220810/allow-ssl-connections.png)
 
 ### Set Up a Dirigible Database
 
 !!! note "Note"
-    Create the same way a database and a user for Keycloak
+    Create the same way a database and a user for Keycloak.
 
   * Create a database
 
@@ -416,10 +416,10 @@ EOF
   * Create a service account for Dirigible and Keycloak.
     ![create-sa](/img/posts/20220810/dirigible-service-account.png)
 
-  * Add a role for the service account
+  * Add a role for the service account.
     ![create-sa-role](/img/posts/20220810/create-sa-role.png)
 
-  * Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
+  * Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa.
     ![create-binding](/img/posts/20220810/add-iam-binding.png)
     
     or with `gcloud`
@@ -576,7 +576,7 @@ Now you can set `httpsRedirect: true` to redirect `HTTP` traffic to `HTTPS`.
     You need to replace `demo.apps.dirigible.io` with your domain.
 
 When you first open `https://dirigible.demo.apps.dirigible.io`, you will see 
-![keycloak-configure-client](/img/posts/20220810/keycloak-configure-client.png)
+![keycloak-configure-client](/img/posts/20220810/keycloak-configure-client.png).
 
 1. We need to create clientId `dirigible` that's why go to `https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients` and login with username `admin` and password `admin`.
 ![create-clientid](/img/posts/20220810/keycloak-create-cliendid.png)
@@ -593,7 +593,7 @@ When you first open `https://dirigible.demo.apps.dirigible.io`, you will see
 Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master) to create the new user.
 ![add-user](/img/posts/20220810/keycloak-add-user.png)
 
-1. Add a password
+1. Add a password.
 ![keycloak-add-password](/img/posts/20220810/keycloak-add-password.png)
 
 1. Set a valid redirect URL. 
