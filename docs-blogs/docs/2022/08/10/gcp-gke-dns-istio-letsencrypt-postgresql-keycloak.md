@@ -1,6 +1,6 @@
 ---
-title: Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's encrypt, PostgreSQL and Keycloak
-description: In this article we are going to setup custom domain for Dirigible application in Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak.
+title: Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's Encrypt, PostgreSQL and Keycloak
+description: In this article we are going to setup а custom domain for а Dirigible application in а Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak.
 author: Krasimir Dermendzhiev
 author_gh_user: krasimirdermendzhiev
 author_avatar: https://avatars.githubusercontent.com/u/82384876?v=4
@@ -11,7 +11,7 @@ publish_date: August 10, 2022
 
 ## Overview
 
-In this article we are going to setup custom domain for **Dirigible** application in **GKE** cluster with **GCP Cloud DNS**, **GCP Cloud SQL Postgre**, **Istio**, **Let's encrypt**, **Keycloak**.
+In this article we are going to setup a custom domain for a **Dirigible** application in a **GKE** cluster with **GCP Cloud DNS**, **GCP Cloud SQL Postgre**, **Istio**, **Let's Encrypt**, **Keycloak**.
 
 Components:
 ![gcp-gke-dns-istio-letsencrypt-postgresql-keycloak](/img/posts/20220810/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.png)
@@ -21,53 +21,53 @@ Components:
 
     !!! tip "Overview"
 
-        Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
+        Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at [here](https://kubernetes.io/).
 
 === "GCP Cloud DNS"
 
     !!! tip "Overview"
 
-        Reliable, resilient, low-latency DNS serving from Google's worldwide network with everything you need to register, manage, and serve your domains. [here](https://cloud.google.com/dns).
+        Reliable, resilient, low-latency DNS serving from Google's worldwide network provides you with everything you need to register, manage, and serve your domains. For more information, see [Cloud DNS](https://cloud.google.com/dns).
 
 
 === "GCP Cloud SQL Postgre"
 
     !!! tip "Overview"
 
-        Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. [here](https://cloud.google.com/sql.
+        Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql.
 
 
 === "Istio"
 
     !!! tip "Overview"
 
-        Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://istio.io/).
+        Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Istio](https://istio.io/).
 
-=== ""Let's encrypt"
+=== "Let's Encrypt"
 
     !!! tip "Overview"
 
-        Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://letsencrypt.org/).
+        Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Let's Encrypt](https://letsencrypt.org/).
 
 === "Cert-manager"
 
     !!! tip "Overview"
 
-        cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry. [here](https://cert-manager.io/).
+        Cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry. For more information, see [Cert-manager](https://cert-manager.io/).
 
 === "Keycloak"
 
     !!! tip "Overview"
 
-        Open Source Identity and Access Management. [here](https://www.keycloak.org/).
+        Keycloak is an open source Identity and Access Management system for applications and services.For more information, see [Keycloak](https://www.keycloak.org/).
 
 
 ## Prerequisites
 
-In this article we assume that you have already [GCP account](https://cloud.google.com/) and added billing account.
+In this article, we assume that you already have a [GCP account](https://cloud.google.com/) and added billing account.
 
 
-## GKE cluster configuration
+## GKE Cluster Configuration
 
 !!! info "Prerequisites"
     - Install the [gcloud CLI](https://cloud.google.com/sdk/docs/install)
@@ -81,45 +81,45 @@ In this article we assume that you have already [GCP account](https://cloud.goog
     * Set name, organization and billing account.
     ![create-project](/img/posts/20220810/create-project.png)
 
-1. Enable Engine Api 
+1. Enable Engine API
 
-    * To be able to create cluster we need to enable Kubernetes Api.
+    * To be able to create a cluster, we need to enable Kubernetes Api.
 
     Go to [enable Kubernetes API](https://console.cloud.google.com/kubernetes)
     ![gcp-gke-dns-istio-letsencrypt-postgresql-keycloak](/img/posts/20220810/gke-api.png)
 
 1. Create GKE cluster
 
-  You can create standard and autopilot cluster in ths article we will create standard cluster.
-  At this time you have two options to create cluster `manually` or by `Use a setup guide`. 
+  You can create standard and autopilot cluster. In ths article, we will create the standard cluster.
+  At this time you have two options to create a cluster: `manually` or by `Use a setup guide`. 
 
-  * Manually.
+  * Manually
   ![create-manually-cluster](/img/posts/20220810/create-manually-cluster.png) 
 
-  * Use a setup guide.
+  * Use a setup guide
     In this article we will `use a setup guide ` and `cost-optimized cluster`. 
     ![create-setup-guide](/img/posts/20220810/create-setup-guide.png) 
   
-  * Pick up the suitable location and name for you.
+  * Choose a suitable location and name your cluster.
   ![cost-optimized-cluster](/img/posts/20220810/pick-name-location.png)
 
   * Set release channel.
-    We are going to set `Regular channel` is two months after new release.
+    We are going to set `Regular channel` . This version have passed internal validation and are considered production-quality.
   ![set-release-channel](/img/posts/20220810/set-release-channel.png)
 
   * Choose cluster size.
     In this article we are going to keep the default size.
   ![set-cluster-size](/img/posts/20220810/set-cluster-size.png)
 
-  * Verify machine type.
+  * Verify the machine type.
 
   ![verify-machine-type](/img/posts/20220810/verify-machine-type.png)
 
   * Advanced settings.
     - In this article we will use `Optimize utilization`.
       Prioritize optimizing utilization over keeping spare resources in the cluster. When selected, the cluster autoscaler scales down the cluster more aggressively: it can remove more nodes, and remove nodes faster.
-    - For cluster autoscaler you can configure how many maximum nodes to scale. It's depend on your requirements. For this article we are going to keep this configuration maximum nodes `3`. 
-    - Vertical Pod Autoscalling will be enable to sure the pods will deploy on the right node.
+    - For cluster autoscaler you can configure how many maximum nodes to scale on your requirements. For this article we are going to keep this configuration maximum nodes `3`. 
+    - Vertical Pod Autoscaling will ensure taht pods will be deployed on the right node.
   ![advanced-settings](/img/posts/20220810/advanced-settings.png)
 
   * Configure usage metering.
@@ -127,7 +127,7 @@ In this article we assume that you have already [GCP account](https://cloud.goog
       ![configure-usage-metering](/img/posts/20220810/configure-usage-metering.png)
 
 ### Enable Workload Identity
-We need workload identity to allow our Dirigible pod to access PostgreSQL
+We need a workload identity to allow our Dirigible pod to access PostgreSQL
   
   * Cluster Workload Identity
     ![cluster-workload-identity](/img/posts/20220810/cluster-workload-identity.png)
@@ -135,10 +135,10 @@ We need workload identity to allow our Dirigible pod to access PostgreSQL
   * Node Workload Identity
     ![node-workload-identity](/img/posts/20220810/node-workload.png)
 
-## Istio configuration
+## Istio Configuration
 
 !!! info "Note"        
-    - In this article we will configure istioctl to use the configmaps from 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
+    - In this article we will configure istioctl to use the configmaps from the 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands
 
@@ -215,9 +215,9 @@ spec:
 EOF
 ```
 
-  * Enable istio-ingressgateway component
+  * Enable the istio-ingressgateway component
 
-    - Install the istio-ingress gateway in a namespace that is different than istiod and add tag istio-injection
+    - Install the istio-ingress gateway in a namespace that is different from istiod and add the istio-injection tag.
 
       ```
       kubectl create namespace istio-ingress
@@ -262,7 +262,7 @@ EOF
 
   * Apply Strict mTLS 
   
-    - Encrypt traffic between services in the mesh with mutual TLS.
+    - Encrypt the traffic between services in the mesh with mutual TLS.
 
 ```yaml
 kubectl apply --namespace istio-system -f - <<EOF
@@ -276,10 +276,10 @@ spec:
 EOF
 ```
 
-## GCP Cloud DNS configuration
+## GCP Cloud DNS Configuration
 
-  * Enable Cloud DNS Api
-    Go to [page](https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com) and enable api.
+  * Enable Cloud DNS API
+    Go to [page](https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com) and choose `Enable` to enable the API.
 
     ![enable-cloud-dns](/img/posts/20220810/clouddns-api.png)
 
@@ -287,8 +287,8 @@ EOF
     Go to [page](https://console.cloud.google.com/net-services/dns/zones/new/create)
     ![create-dns-zone](/img/posts/20220810/create-dns-zone.png)
 
-  * Copy dns name servers and add to your domain for subdomain example ( demo.apps.dirigible.io )
-      Which look like this:
+  * Copy the DNS name servers and add them to your domain as subdomain for example ( demo.apps.dirigible.io )
+      They should look like this:
       ```
       ns-cloud-e1.googledomains.com.
       ns-cloud-e2.googledomains.com.
@@ -297,28 +297,28 @@ EOF
       ```
       ![copy-dns-name-servers](/img/posts/20220810/dns-nameservers.png)
 
-  * Create A record for Dirigible and Keycloak
+  * Create an A record for Dirigible and Keycloak
 
       - We need Istio Gateway IP 
         ```
         kubectl get svc -n istio-ingress istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
         ```
 
-      - Promote ephemeral IP address to reserver
+      - A static external IP address is the IP address that is reserved for your project until you decide to release it.  
           You need to create the IP address in your region.
         ```
         gcloud compute addresses create demo --addresses=<YOUR-GATEWAY-IP> \
         --region=europe-north1
         ```
 
-      - Set the ip for Dirigible
+      - Set the IP for Dirigible
         ![create-a-record](/img/posts/20220810/create-a-record.png)
 
-      - Set the ip for Keycloak
+      - Set the IP for Keycloak
         ![create-a-record](/img/posts/20220810/create-a-record-keycloak.png)
 
 
-## Let's encrypt configuration
+## Let's Encrypt Configuration
 
   * Install Cert-manager
     - Check for [last version](https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions)
@@ -364,9 +364,9 @@ spec:
 EOF
 ```
 
-## GCP Cloud SQL Postgre configuration
+## GCP Cloud SQL Postgre Configuration
 
-  * Enable Cloud SQL Api and create instance
+  * Enable Cloud SQL API and create instance
     Go to [page](https://console.cloud.google.com/sql/instances)
 
   * Enable Cloud SQL Admin API
@@ -376,9 +376,9 @@ EOF
     ![choose-postgresql-database-engine](/img/posts/20220810/choose-postgresql-database-engine.png)
 
 !!! note "Note"
-    - For this article we will create separate instances for Dirigible and Keycloak. You can follow this steps for Dirigible and Keycloak.
+    - For this article we will create separate instances for Dirigible and Keycloak. You can follow these steps for Dirigible and Keycloak.
 
-  * Create instance
+  * Create an instance
     - Set instance info, production
     ![sql-configuration-1](/img/posts/20220810/sql-configuration-1.png)
     
@@ -389,37 +389,37 @@ EOF
       We need to [Enable Service Networking API](https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com)
       ![set-connections](/img/posts/20220810/set-connections.png)
 
-    - Set
+    - Set automatically allocated IP range
       ![set-connections](/img/posts/20220810/set-connections-use-automatically-allocated-ip.png)
 
-    - Set data protection and maintance
+    - Set data protection and maintenance.
       ![set-data-protection-maintance](/img/posts/20220810/set-data-protection-maintenance.png)
 
     - After you create the instance update the configuration for connections
       ![set-only-ssl-connections](/img/posts/20220810/allow-ssl-connections.png)
 
-### Setup Dirigible database
+### Set Up a Dirigible Database
 
 !!! note "Note"
-    Create the same way database and user for Keycloak
+    Create the same way a database and a user for Keycloak
 
-  * Create database
+  * Create a database
 
-    Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create database.
+    Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create the database.
     ![create-database](/img/posts/20220810/create-database.png)
 
-  * Create user
+  * Create a user
 
-    Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create user.
+    Go to [your PostgreSQL instance](https://console.cloud.google.com/sql/instances/) and create the user.
     ![create-user](/img/posts/20220810/create-user.png)
 
-  * Create service account for Dirigible and Keycloak.
+  * Create a service account for Dirigible and Keycloak.
     ![create-sa](/img/posts/20220810/dirigible-service-account.png)
 
-  * Add role for the service account
+  * Add a role for the service account
     ![create-sa-role](/img/posts/20220810/create-sa-role.png)
 
-  * Add IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
+  * Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa
     ![create-binding](/img/posts/20220810/add-iam-binding.png)
     
     or with `gcloud`
@@ -442,19 +442,19 @@ EOF
 
 ### Create a Dirigible and Keycloak Kubernetes Service Account
 
-  * Create namespace `dirigible-demo` 
+  * Create the namespace `dirigible-demo`.
 
     ```
     kubectl create namespace dirigible-demo
     ```
   
-  * Add Istio injection
+  * Add an Istio injection.
 
     ```
     kubectl label namespace dirigible-demo istio-injection=enabled --overwrite
     ```
 
-  * Configure kubernetes service account binding to the Google Cloud service account using Workload Identity.
+  * Configure a Kubernetes service account binding to the Google Cloud service account using Workload Identity.
 
     ```
     k create sa dirigible-sa -n dirigible-demo
@@ -464,7 +464,7 @@ EOF
     k create sa keycloak-sa -n dirigible-demo
     ```
 
-  * Add new binding - 
+  * Add a new binding - 
 
     ![iam-binding](/img/posts/20220810/iam-binding.png)
 
@@ -487,7 +487,7 @@ EOF
       keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
       ```
 
-  * Annotate the Kubernetes Service Account with the new binding
+  * Annotate the Kubernetes Service Account with the new binding.
     
     - Dirigible
     
@@ -505,7 +505,7 @@ EOF
       iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
       ```
 
-  * Create secrets for kubernetes service accounts
+  * Create secrets for Kubernetes service accounts.
 
     - Dirigible
 
@@ -527,9 +527,9 @@ EOF
       --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/keycloak
       ```
 
-## Dirigible deploy
+## Dirigible Deployment
 
-  * When you run this Dirigible helm chart with this sets. This will create `volume`, enable `https`, install `Keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. We don't need to create service account for Dirigible annd Keycloak, because is created in previous steps. We need to provide `gke.projectId`, `gke.region`, `ingress.host`.
+  * When you run this Dirigible helm chart with these sets, it will create `volume`, enable `https`, install `Keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. You don't need to create a service account for Dirigible annd Keycloak, because it was already created in the previous steps. You need to provide `gke.projectId`, `gke.region`, `ingress.host`.
 
 ```
 helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
@@ -548,7 +548,7 @@ helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 ```
 
-## Check the logs on the cert-manager pod
+## Check the Logs on the Cert-Manager Pod
 
 Wait for 3-5 minutes and check the logs.
 
@@ -556,7 +556,7 @@ Wait for 3-5 minutes and check the logs.
 kubectl logs -n cert-manager -lapp=cert-manager |  grep -i "READY"
 ```
 
-You shoud see something similar, that's mean the certificate is ready and we can redirect http traffic to https.
+You should see something telling you that the certificate is ready and you can redirect http traffic to https.
 
 ```
 I0809 13:58:22.750528       1 conditions.go:190] Found status change for Certificate "keycloak" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2022-08-09 13:58:22.750516762 +0000 UTC m=+18939.377721330
@@ -564,55 +564,41 @@ I0809 13:58:22.781247       1 conditions.go:190] Found status change for Certifi
 I0809 13:58:23.193897       1 conditions.go:250] Found status change for CertificateRequest "dirigible-spnjm" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2022-08-09 13:58:23.193882791 +0000 UTC m=+18939.821087330
 I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certificate "dirigible" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2022-08-09 13:58:23.347561322 +0000 UTC m=+18939.974765874
 ```
-We can add to our helm deploy the `httpsRedirect: false` and run again to update.
+Now you can set `httpsRedirect: true` to redirect `HTTP` traffic to `HTTPS`.
 
 ```
-helm upgrade --install dirigible dirigible/dirigible  -n dirigible-demo \
---set volume.enabled=true \
---set serviceAccount.create=false \
---set keycloak.serviceAccountCreate=false \
---set ingress.tls=true \
---set keycloak.enabled=true \
---set keycloak.install=true \
---set istio.enabled=true \
---set istio.enableHttps=true \
---set gke.cloudSQL=true \
---set gke.projectId=dirigible-gke-demo \
---set gke.region=europe-north1 \
---set ingress.host=demo.apps.dirigible.io \
---set dirigible.image=dirigiblelabs/dirigible-keycloak:latest \
 --set httpsRedirect=true
 ```
 
-## Keycloak configuration
+## Keycloak Configuration
 
 !!! note "Note"
-    You need change `demo.apps.dirigible.io` with your domain.
+    You need to replace `demo.apps.dirigible.io` with your domain.
 
-At the first run when we will try to open `https://dirigible.demo.apps.dirigible.io` will see 
+When you first open `https://dirigible.demo.apps.dirigible.io`, you will see 
 ![keycloak-configure-client](/img/posts/20220810/keycloak-configure-client.png)
 
-1. We need to creat clientId `dirigible` go to `https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients` and login with username `admin` and password `admin`.
+1. We need to create clientId `dirigible` that's why go to `https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/realms/master/clients` and login with username `admin` and password `admin`.
 ![create-clientid](/img/posts/20220810/keycloak-create-cliendid.png)
 
 
-1. Add Role – Open new client and add new roles Developer, Operator, Everyone.  
+1. Add Role – Open a new client and add the new roles Developer, Operator, Everyone.  
 ![create-default-roles](/img/posts/20220810/create-default-roles.png)
 
-1. Add Default Roles – `Roles->Default Roles` add all roles from previous step
+1. Add Default Roles – `Roles->Default Roles` add all roles from the previous step.
 ![keycloak-add-default-roles](/img/posts/20220810/keycloak-default-roles.png) 
 
-1. Add user – by default the new user should have default roles
+1. Add User – By default, the new user should have the default roles assigned to it.
 
-Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master) to create new user.
+Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master) to create the new user.
 ![add-user](/img/posts/20220810/keycloak-add-user.png)
 
-1. Add password
+1. Add a password
 ![keycloak-add-password](/img/posts/20220810/keycloak-add-password.png)
 
-1. Valid Redirect url 
+1. Set a valid redirect URL. 
 ![valid-recirect](/img/posts/20220810/valid-redirect.png)
 
-At the end when we try to access Dirigible on `https://dirigible.demo.apps.dirigible.io` and login with password which we using for our user. We can see that we have database connection to Cloud SQL PostgreSQL and we have assigned certificate.
+Finally access Dirigible at `https://dirigible.demo.apps.dirigible.io` and log in with the password that we used for our user password. We can see that we have database connection to Cloud SQL PostgreSQL and we have assigned a certificate.
 
 ![dirigible-home](/img/posts/20220810/dirigible-home.png)
