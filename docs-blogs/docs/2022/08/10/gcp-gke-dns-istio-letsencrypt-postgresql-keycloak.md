@@ -1,5 +1,5 @@
 ---
-title: Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let's Encrypt, PostgreSQL and Keycloak
+title: Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let\'s Encrypt, PostgreSQL and Keycloak
 description: In this article we are going to setup а custom domain for а Dirigible application in а Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak.
 author: Krasimir Dermendzhiev
 author_gh_user: krasimirdermendzhiev
