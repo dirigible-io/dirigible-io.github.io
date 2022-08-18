@@ -1996,7 +1996,7 @@
 <div class="tabbed-block">
 <div class="admonition tip">
 <p class="admonition-title">Overview</p>
-<p>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at <a href="https://kubernetes.io/">here</a>.</p>
+<p>Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at <a href="https://kubernetes.io/">www.kubernetes.io</a>.</p>
 </div>
 </div>
 <div class="tabbed-block">
@@ -2008,7 +2008,7 @@
 <div class="tabbed-block">
 <div class="admonition tip">
 <p class="admonition-title">Overview</p>
-<p>Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql.</p>
+<p>Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see <a href="https://cloud.google.com/sql">GCP Cloud SQL Postgreere</a>.</p>
 </div>
 </div>
 <div class="tabbed-block">
@@ -2069,7 +2069,7 @@
 <p>Create GKE cluster</p>
 </li>
 </ol>
-<p>You can create standard and autopilot cluster. In ths article, we will create the standard cluster.
+<p>You can create standard and an autopilot cluster. In ths article, we will create the standard cluster.
   At this time you have two options to create a cluster: <code>manually</code> or by <code>Use a setup guide</code>. </p>
 <ul>
 <li>
@@ -2077,21 +2077,21 @@
   <img alt="create-manually-cluster" src="/img/posts/20220810/create-manually-cluster.png" /> </p>
 </li>
 <li>
-<p>Use a setup guide
-    In this article we will <code>use a setup guide</code> and <code>cost-optimized cluster</code>. 
-    <img alt="create-setup-guide" src="/img/posts/20220810/create-setup-guide.png" /> </p>
+<p>Use a setup guide</p>
+<p>In this article we will <code>use a setup guide</code> and <code>cost-optimized cluster</code>. 
+<img alt="create-setup-guide" src="/img/posts/20220810/create-setup-guide.png" /> </p>
 </li>
 <li>
 <p>Choose a suitable location and name your cluster.
   <img alt="cost-optimized-cluster" src="/img/posts/20220810/pick-name-location.png" /></p>
 </li>
 <li>
-<p>Set release channel.
+<p>Set a release channel.
     We are going to set <code>Regular channel</code> . This version have passed internal validation and are considered production-quality.
   <img alt="set-release-channel" src="/img/posts/20220810/set-release-channel.png" /></p>
 </li>
 <li>
-<p>Choose cluster size.
+<p>Choose a cluster size.
     In this article we are going to keep the default size.
   <img alt="set-cluster-size" src="/img/posts/20220810/set-cluster-size.png" /></p>
 </li>
@@ -2102,12 +2102,12 @@
 <p><img alt="verify-machine-type" src="/img/posts/20220810/verify-machine-type.png" /></p>
 <ul>
 <li>
-<p>Advanced settings.</p>
+<p>Advanced settings:</p>
 <ul>
-<li>In this article we will use <code>Optimize utilization</code>.
+<li>In this article we will use <code>Optimize utilization</code>.  <br />
   Prioritize optimizing utilization over keeping spare resources in the cluster. When selected, the cluster autoscaler scales down the cluster more aggressively: it can remove more nodes, and remove nodes faster.</li>
-<li>For cluster autoscaler you can configure how many maximum nodes to scale on your requirements. For this article we are going to keep this configuration maximum nodes <code>3</code>. </li>
-<li>Vertical Pod Autoscaling will ensure taht pods will be deployed on the right node.
+<li>For cluster autoscaler you can configure how many maximum nodes to scale. It depends on your requirements. For this article we are going to keep this configuration maximum nodes <code>3</code>. </li>
+<li>Vertical Pod Autoscaling will ensure that the pods will be deployed on the right node.
   <img alt="advanced-settings" src="/img/posts/20220810/advanced-settings.png" /></li>
 </ul>
 </li>
@@ -2120,7 +2120,7 @@
 </li>
 </ul>
 <h3 id="enable-workload-identity">Enable Workload Identity</h3>
-<p>We need a workload identity to allow our Dirigible pod to access PostgreSQL</p>
+<p>We need a workload identity to allow our Dirigible pod to access PostgreSQL.</p>
 <ul>
 <li>
 <p>Cluster Workload Identity
@@ -2213,7 +2213,7 @@
 <li>
 <p>Enable the istio-ingressgateway component.</p>
 <ul>
-<li>Install the istio-ingress gateway in a namespace that is different from istiod and add the istio-injection tag.</li>
+<li>Install the istio-ingress gateway in a namespace that is different from <code>istiod</code> and add the <code>istio-injection</code> tag.</li>
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl create namespace istio-ingress
 </code></pre></div>
@@ -2274,24 +2274,24 @@
 <h2 id="gcp-cloud-dns-configuration">GCP Cloud DNS Configuration</h2>
 <ul>
 <li>
-<p>Enable Cloud DNS API.
-    Go to <a href="https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com">page</a> and choose <code>Enable</code> to enable the API.</p>
+<p>Enable Cloud DNS API.</p>
+<p>Go to <a href="https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com">page</a> and choose <code>Enable</code> to enable the API.</p>
 <p><img alt="enable-cloud-dns" src="/img/posts/20220810/clouddns-api.png" /></p>
 </li>
 <li>
-<p>Create Cloud DNS Zone.
-    Go to <a href="https://console.cloud.google.com/net-services/dns/zones/new/create">page</a>
-    <img alt="create-dns-zone" src="/img/posts/20220810/create-dns-zone.png" /></p>
+<p>Create Cloud DNS Zone.</p>
+<p>Go to <a href="https://console.cloud.google.com/net-services/dns/zones/new/create">page</a>
+<img alt="create-dns-zone" src="/img/posts/20220810/create-dns-zone.png" /></p>
 </li>
 <li>
-<p>Copy the DNS name servers and add them to your domain as subdomain for example ( demo.apps.dirigible.io )
-      They should look like this:
-      <div class="highlight"><pre><span></span><code>ns-cloud-e1.googledomains.com.
+<p>Copy the generated DNS name servers for your zone and add them to your domain, if your control is not in Google Clod DNS. </p>
+<p>The generated DNS name servers should look like this:
+  <div class="highlight"><pre><span></span><code>ns-cloud-e1.googledomains.com.
 ns-cloud-e2.googledomains.com.
 ns-cloud-e3.googledomains.com.
 ns-cloud-e4.googledomains.com.
 </code></pre></div>
-      <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
+  <img alt="copy-dns-name-servers" src="/img/posts/20220810/dns-nameservers.png" /></p>
 </li>
 <li>
 <p>Create an A record for Dirigible and Keycloak.</p>
@@ -2344,7 +2344,7 @@ cert-manager jetstack/cert-manager \
 </code></pre></div>
 </li>
 <li>
-<p>Create ClusterIssuer</p>
+<p>Create ClusterIssuer.</p>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f - &lt;&lt;EOF</span><span class="w"></span>
@@ -2369,7 +2369,7 @@ cert-manager jetstack/cert-manager \
 <h2 id="gcp-cloud-sql-postgre-configuration">GCP Cloud SQL Postgre Configuration</h2>
 <ul>
 <li>
-<p>Enable Cloud SQL API and create instance.
+<p>Enable Cloud SQL API and create an instance.
     Go to <a href="https://console.cloud.google.com/sql/instances">page</a></p>
 </li>
 <li>
@@ -2392,7 +2392,7 @@ cert-manager jetstack/cert-manager \
 <p>Create an instance.</p>
 <ul>
 <li>
-<p>Set instance info, production
+<p>Set instance info, production.
 <img alt="sql-configuration-1" src="/img/posts/20220810/sql-configuration-1.png" /></p>
 </li>
 <li>
@@ -2400,10 +2400,12 @@ cert-manager jetstack/cert-manager \
 <img alt="set-region-machine-storage" src="/img/posts/20220810/sql-region-machine-storage.png" /></p>
 </li>
 <li>
-<p>Set connections.
-  We need to <a href="https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com">Enable Service Networking API</a>
-  <img alt="set-connections" src="/img/posts/20220810/set-connections.png" /></p>
+<p>Set connections.</p>
 </li>
+</ul>
+<p>We need to <a href="https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com">Enable Service Networking API</a>
+  <img alt="set-connections" src="/img/posts/20220810/set-connections.png" /></p>
+<ul>
 <li>
 <p>Set automatically allocated IP range.
   <img alt="set-connections" src="/img/posts/20220810/set-connections-use-automatically-allocated-ip.png" /></p>
@@ -2444,9 +2446,9 @@ cert-manager jetstack/cert-manager \
     <img alt="create-sa-role" src="/img/posts/20220810/create-sa-role.png" /></p>
 </li>
 <li>
-<p>Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa.
+<p>Add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code>.
     <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
-<p>or with <code>gcloud</code></p>
+<p>You can add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code> <code>gcloud</code> with gcloud.</p>
 <p>Dirigible</p>
 <div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
 --member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
@@ -2479,7 +2481,7 @@ cert-manager jetstack/cert-manager \
 </code></pre></div>
 </li>
 <li>
-<p>Add a new binding - </p>
+<p>Add a new binding.</p>
 <p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
 <ul>
 <li>Dirigible</li>
@@ -2522,7 +2524,7 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl create secret generic dirigible-db -n dirigible-demo \
 --from-literal=username=dirigible_user \
---from-literal=password=&quot;:I8[&#39;/,(p:a|c3s]&quot; \
+--from-literal=password=&lt;your-password&gt; \
 --from-literal=database=dirigible \
 --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/dirigible
 </code></pre></div>
@@ -2531,7 +2533,7 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 </ul>
 <div class="highlight"><pre><span></span><code>kubectl create secret generic keycloak-db -n dirigible-demo \
 --from-literal=username=keycloak_user \
---from-literal=password=&#39;q7So\/Q&gt;;5kzUZ6:&#39; \
+--from-literal=password=&lt;your-password&gt; \
 --from-literal=database=keycloak \
 --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/keycloak
 </code></pre></div>
