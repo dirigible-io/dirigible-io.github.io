@@ -21,7 +21,7 @@ Components:
 
     !!! tip "Overview"
 
-        Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at [here](https://kubernetes.io/).
+        Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at [www.kubernetes.io](https://kubernetes.io/).
 
 === "GCP Cloud DNS"
 
@@ -34,7 +34,7 @@ Components:
 
     !!! tip "Overview"
 
-        Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql.
+        Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql).
 
 
 === "Istio"
@@ -90,24 +90,25 @@ In this article, we assume that you already have a [GCP account](https://cloud.g
 
 1. Create GKE cluster
 
-  You can create standard and autopilot cluster. In ths article, we will create the standard cluster.
+  You can create standard and an autopilot cluster. In ths article, we will create the standard cluster.
   At this time you have two options to create a cluster: `manually` or by `Use a setup guide`. 
 
   * Manually
   ![create-manually-cluster](/img/posts/20220810/create-manually-cluster.png) 
 
   * Use a setup guide
+
     In this article we will `use a setup guide ` and `cost-optimized cluster`. 
     ![create-setup-guide](/img/posts/20220810/create-setup-guide.png) 
   
   * Choose a suitable location and name your cluster.
   ![cost-optimized-cluster](/img/posts/20220810/pick-name-location.png)
 
-  * Set release channel.
+  * Set a release channel.
     We are going to set `Regular channel` . This version have passed internal validation and are considered production-quality.
   ![set-release-channel](/img/posts/20220810/set-release-channel.png)
 
-  * Choose cluster size.
+  * Choose a cluster size.
     In this article we are going to keep the default size.
   ![set-cluster-size](/img/posts/20220810/set-cluster-size.png)
 
@@ -115,11 +116,11 @@ In this article, we assume that you already have a [GCP account](https://cloud.g
 
   ![verify-machine-type](/img/posts/20220810/verify-machine-type.png)
 
-  * Advanced settings.
-    - In this article we will use `Optimize utilization`.
+  * Advanced settings:
+    - In this article we will use `Optimize utilization`.    
       Prioritize optimizing utilization over keeping spare resources in the cluster. When selected, the cluster autoscaler scales down the cluster more aggressively: it can remove more nodes, and remove nodes faster.
-    - For cluster autoscaler you can configure how many maximum nodes to scale on your requirements. For this article we are going to keep this configuration maximum nodes `3`. 
-    - Vertical Pod Autoscaling will ensure taht pods will be deployed on the right node.
+    - For cluster autoscaler you can configure how many maximum nodes to scale. It depends on your requirements. For this article we are going to keep this configuration maximum nodes `3`. 
+    - Vertical Pod Autoscaling will ensure that the pods will be deployed on the right node.
   ![advanced-settings](/img/posts/20220810/advanced-settings.png)
 
   * Configure usage metering.
@@ -127,7 +128,7 @@ In this article, we assume that you already have a [GCP account](https://cloud.g
       ![configure-usage-metering](/img/posts/20220810/configure-usage-metering.png)
 
 ### Enable Workload Identity
-We need a workload identity to allow our Dirigible pod to access PostgreSQL
+We need a workload identity to allow our Dirigible pod to access PostgreSQL.
   
   * Cluster Workload Identity
     ![cluster-workload-identity](/img/posts/20220810/cluster-workload-identity.png)
@@ -217,7 +218,7 @@ EOF
 
   * Enable the istio-ingressgateway component.
 
-    - Install the istio-ingress gateway in a namespace that is different from istiod and add the istio-injection tag.
+    - Install the istio-ingress gateway in a namespace that is different from `istiod` and add the `istio-injection` tag.
 
       ```
       kubectl create namespace istio-ingress
@@ -279,16 +280,19 @@ EOF
 ## GCP Cloud DNS Configuration
 
   * Enable Cloud DNS API.
+
     Go to [page](https://console.cloud.google.com/marketplace/product/google/dns.googleapis.com) and choose `Enable` to enable the API.
 
     ![enable-cloud-dns](/img/posts/20220810/clouddns-api.png)
 
   * Create Cloud DNS Zone.
+
     Go to [page](https://console.cloud.google.com/net-services/dns/zones/new/create)
     ![create-dns-zone](/img/posts/20220810/create-dns-zone.png)
 
-  * Copy the DNS name servers and add them to your domain as subdomain for example ( demo.apps.dirigible.io )
-      They should look like this:
+  * Copy the generated DNS name servers for your zone and add them to your domain, if your control is not in Google Clod DNS. 
+
+      The generated DNS name servers should look like this:
       ```
       ns-cloud-e1.googledomains.com.
       ns-cloud-e2.googledomains.com.
@@ -341,7 +345,7 @@ EOF
     --set installCRDs=true
     ```
 
-  * Create ClusterIssuer
+  * Create ClusterIssuer.
 
 ```yaml
 kubectl apply -f - <<EOF
@@ -366,7 +370,7 @@ EOF
 
 ## GCP Cloud SQL Postgre Configuration
 
-  * Enable Cloud SQL API and create instance.
+  * Enable Cloud SQL API and create an instance.
     Go to [page](https://console.cloud.google.com/sql/instances)
 
   * Enable Cloud SQL Admin API.
@@ -379,13 +383,14 @@ EOF
     - For this article we will create separate instances for Dirigible and Keycloak. You can follow these steps for Dirigible and Keycloak.
 
   * Create an instance.
-    - Set instance info, production
+    - Set instance info, production.
     ![sql-configuration-1](/img/posts/20220810/sql-configuration-1.png)
     
     - Set region, machine type, storage.
     ![set-region-machine-storage](/img/posts/20220810/sql-region-machine-storage.png)
 
     - Set connections.
+
       We need to [Enable Service Networking API](https://console.cloud.google.com/apis/library/servicenetworking.googleapis.com)
       ![set-connections](/img/posts/20220810/set-connections.png)
 
@@ -419,10 +424,10 @@ EOF
   * Add a role for the service account.
     ![create-sa-role](/img/posts/20220810/create-sa-role.png)
 
-  * Add an IAM policy binding for dirigible-gcp-sa and keycloak-gcp-sa.
+  * Add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa`.
     ![create-binding](/img/posts/20220810/add-iam-binding.png)
     
-    or with `gcloud`
+    You can add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa` `gcloud` with gcloud.
     
     Dirigible
 
@@ -464,7 +469,7 @@ EOF
     k create sa keycloak-sa -n dirigible-demo
     ```
 
-  * Add a new binding - 
+  * Add a new binding.
 
     ![iam-binding](/img/posts/20220810/iam-binding.png)
 
@@ -512,7 +517,7 @@ EOF
       ```
       kubectl create secret generic dirigible-db -n dirigible-demo \
       --from-literal=username=dirigible_user \
-      --from-literal=password=":I8['/,(p:a|c3s]" \
+      --from-literal=password=<your-password> \
       --from-literal=database=dirigible \
       --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/dirigible
       ```
@@ -522,7 +527,7 @@ EOF
       ```
       kubectl create secret generic keycloak-db -n dirigible-demo \
       --from-literal=username=keycloak_user \
-      --from-literal=password='q7So\/Q>;5kzUZ6:' \
+      --from-literal=password=<your-password> \
       --from-literal=database=keycloak \
       --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/keycloak
       ```
