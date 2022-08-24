@@ -2143,8 +2143,8 @@
 <p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>You need to replace <code>dirigible</code> with <code>your cluster name</code> and <code>europe-north1-a</code> with <code>your region</code> .</p>
+</div>
 <div class="highlight"><pre><span></span><code>gcloud container clusters get-credentials dirigible \
   --region europe-north1-a
 </code></pre></div>
@@ -2455,8 +2455,8 @@ cert-manager jetstack/cert-manager \
 <p>You can add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code> <code>gcloud</code> with gcloud.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
+</div>
 <p>Dirigible</p>
 <div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
 --member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
@@ -2493,8 +2493,8 @@ cert-manager jetstack/cert-manager \
 <p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
+</div>
 <ul>
 <li>Dirigible</li>
 </ul>
@@ -2516,8 +2516,8 @@ keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
 <p>Annotate the Kubernetes Service Account with the new binding.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
+</div>
 <ul>
 <li>Dirigible</li>
 </ul>
@@ -2565,11 +2565,13 @@ helm repo update
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>You need to replace:</li>
+<li>You need to replace:<ul>
 <li><code>dirigible-gke-demo</code> with <code>your-project-id</code>.</li>
 <li><code>europe-north1</code> with <code>your-region</code>.</li>
 <li><code>demo.apps.dirigible.io</code> with <code>your domain</code>.</li>
 <li><code>dirigible-demo</code> with <code>your namespace</code>.</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
