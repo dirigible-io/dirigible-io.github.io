@@ -144,7 +144,7 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL.
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands.
 
     !!! note "Note"
-    You need to replace `dirigible` with `your cluster name` and `europe-north1-a` with `your region` .
+        You need to replace `dirigible` with `your cluster name` and `europe-north1-a` with `your region` .
 
     ```
     gcloud container clusters get-credentials dirigible \
@@ -433,7 +433,7 @@ EOF
     You can add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa` `gcloud` with gcloud.
     
     !!! note "Note"
-    You need to replace `dirigible-gke-demo` with `your project id`.
+        You need to replace `dirigible-gke-demo` with `your project id`.
 
     Dirigible
 
@@ -481,7 +481,7 @@ EOF
 
 
     !!! note "Note"
-    You need to replace `dirigible-gke-demo` with `your project id`.
+        You need to replace `dirigible-gke-demo` with `your project id`.
 
     - Dirigible
 
@@ -504,7 +504,7 @@ EOF
   * Annotate the Kubernetes Service Account with the new binding.
 
     !!! note "Note"
-    You need to replace `dirigible-gke-demo` with `your project id`.
+        You need to replace `dirigible-gke-demo` with `your project id`.
     
     - Dirigible
     
@@ -556,10 +556,10 @@ helm repo update
 
 !!! note "Note"
     * You need to replace:
-      - `dirigible-gke-demo` with `your-project-id`.
-      - `europe-north1` with `your-region`.
-      - `demo.apps.dirigible.io` with `your domain`.
-      - `dirigible-demo` with `your namespace`.
+        - `dirigible-gke-demo` with `your-project-id`.
+        - `europe-north1` with `your-region`.
+        - `demo.apps.dirigible.io` with `your domain`.
+        - `dirigible-demo` with `your namespace`.
 
 ```
 helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
