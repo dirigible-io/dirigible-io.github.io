@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.0">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
     
     
       
@@ -2141,6 +2141,10 @@
 <ul>
 <li>
 <p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>You need to replace <code>dirigible</code> with <code>your cluster name</code> and <code>europe-north1-a</code> with <code>your region</code> .</p>
 <div class="highlight"><pre><span></span><code>gcloud container clusters get-credentials dirigible \
   --region europe-north1-a
 </code></pre></div>
@@ -2449,6 +2453,10 @@ cert-manager jetstack/cert-manager \
 <p>Add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code>.
     <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
 <p>You can add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code> <code>gcloud</code> with gcloud.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
 <p>Dirigible</p>
 <div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
 --member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
@@ -2475,14 +2483,18 @@ cert-manager jetstack/cert-manager \
 </li>
 <li>
 <p>Configure a Kubernetes service account binding to the Google Cloud service account using Workload Identity.</p>
-<div class="highlight"><pre><span></span><code>k create sa dirigible-sa -n dirigible-demo
+<div class="highlight"><pre><span></span><code>kubectl create sa dirigible-sa -n dirigible-demo
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>k create sa keycloak-sa -n dirigible-demo
+<div class="highlight"><pre><span></span><code>kubectl create sa keycloak-sa -n dirigible-demo
 </code></pre></div>
 </li>
 <li>
 <p>Add a new binding.</p>
 <p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
 <ul>
 <li>Dirigible</li>
 </ul>
@@ -2502,6 +2514,10 @@ keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com
 </li>
 <li>
 <p>Annotate the Kubernetes Service Account with the new binding.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
 <ul>
 <li>Dirigible</li>
 </ul>
@@ -2543,6 +2559,19 @@ iam.gke.io/gcp-service-account=keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceac
 <ul>
 <li>When you run this Dirigible helm chart with these sets, it will create <code>volume</code>, enable <code>https</code>, install <code>Keycloak</code>, create <code>Istio gateway and virtualservice</code>, enable usages for <code>GCP Cloud SQL</code>. You don't need to create a service account for Dirigible annd Keycloak, because it was already created in the previous steps. You need to provide <code>gke.projectId</code>, <code>gke.region</code>, <code>ingress.host</code>.</li>
 </ul>
+<div class="highlight"><pre><span></span><code>helm repo add dirigible https://eclipse.github.io/dirigible
+helm repo update
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>You need to replace:</li>
+<li><code>dirigible-gke-demo</code> with <code>your-project-id</code>.</li>
+<li><code>europe-north1</code> with <code>your-region</code>.</li>
+<li><code>demo.apps.dirigible.io</code> with <code>your domain</code>.</li>
+<li><code>dirigible-demo</code> with <code>your namespace</code>.</li>
+</ul>
+</div>
 <div class="highlight"><pre><span></span><code>helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set volume.enabled=true \
 --set serviceAccount.create=false \
