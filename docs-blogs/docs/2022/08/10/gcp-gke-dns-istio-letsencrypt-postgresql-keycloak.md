@@ -143,6 +143,9 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL.
 
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands.
 
+    !!! note "Note"
+    You need to replace `dirigible` with `your cluster name` and `europe-north1-a` with `your region` .
+
     ```
     gcloud container clusters get-credentials dirigible \
       --region europe-north1-a
@@ -429,6 +432,9 @@ EOF
     
     You can add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa` `gcloud` with gcloud.
     
+    !!! note "Note"
+    You need to replace `dirigible-gke-demo` with `your project id`.
+
     Dirigible
 
     ```
@@ -462,17 +468,20 @@ EOF
   * Configure a Kubernetes service account binding to the Google Cloud service account using Workload Identity.
 
     ```
-    k create sa dirigible-sa -n dirigible-demo
+    kubectl create sa dirigible-sa -n dirigible-demo
     ```
 
     ```
-    k create sa keycloak-sa -n dirigible-demo
+    kubectl create sa keycloak-sa -n dirigible-demo
     ```
 
   * Add a new binding.
 
     ![iam-binding](/img/posts/20220810/iam-binding.png)
 
+
+    !!! note "Note"
+    You need to replace `dirigible-gke-demo` with `your project id`.
 
     - Dirigible
 
@@ -493,6 +502,9 @@ EOF
       ```
 
   * Annotate the Kubernetes Service Account with the new binding.
+
+    !!! note "Note"
+    You need to replace `dirigible-gke-demo` with `your project id`.
     
     - Dirigible
     
@@ -535,6 +547,19 @@ EOF
 ## Dirigible Deployment
 
   * When you run this Dirigible helm chart with these sets, it will create `volume`, enable `https`, install `Keycloak`, create `Istio gateway and virtualservice`, enable usages for `GCP Cloud SQL`. You don't need to create a service account for Dirigible annd Keycloak, because it was already created in the previous steps. You need to provide `gke.projectId`, `gke.region`, `ingress.host`.
+
+```
+helm repo add dirigible https://eclipse.github.io/dirigible
+helm repo update
+
+```
+
+!!! note "Note"
+    * You need to replace:
+      - `dirigible-gke-demo` with `your-project-id`.
+      - `europe-north1` with `your-region`.
+      - `demo.apps.dirigible.io` with `your domain`.
+      - `dirigible-demo` with `your namespace`.
 
 ```
 helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
