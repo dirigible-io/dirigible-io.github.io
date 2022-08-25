@@ -141,6 +141,12 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL.
 !!! info "Note"        
     - In this article we will configure istioctl to use the configmaps from the 1-14-3 revision. We can run multiple versions of Istio concurrently and can specify exactly which revision gets applied in the tooling.
 
+  * Initialize or reinitialize `gcloud` - check this [url](https://cloud.google.com/sdk/gcloud/reference/init) for more information.
+
+    ```
+    gcloud init
+    ```
+
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands.
 
     !!! note "Note"
@@ -350,6 +356,9 @@ EOF
 
   * Create ClusterIssuer.
 
+    !!! note "Note"
+        You need to replace `<YOUR-EMAIL-ADDRESS>` with your valid email address. 
+
 ```yaml
 kubectl apply -f - <<EOF
 apiVersion: cert-manager.io/v1
@@ -403,7 +412,7 @@ EOF
     - Set data protection and maintenance.
       ![set-data-protection-maintance](/img/posts/20220810/set-data-protection-maintenance.png)
 
-    - After you create the instance update the configuration for connections.
+    - After you create the instance update the configuration for connections to allow only SSL connection.
       ![set-only-ssl-connections](/img/posts/20220810/allow-ssl-connections.png)
 
 ### Set Up a Dirigible Database
@@ -475,11 +484,8 @@ EOF
     kubectl create sa keycloak-sa -n dirigible-demo
     ```
 
-  * Add a new binding.
-
-    ![iam-binding](/img/posts/20220810/iam-binding.png)
-
-
+  * Add a new binding between your gcp service account and kubernetes service account 
+  
     !!! note "Note"
         You need to replace `dirigible-gke-demo` with `your project id`.
 
@@ -577,6 +583,9 @@ helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set ingress.host=demo.apps.dirigible.io \
 --set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 ```
+
+!!! note "Note"
+    If you see 
 
 ## Check the Logs on the Cert-Manager Pod
 
