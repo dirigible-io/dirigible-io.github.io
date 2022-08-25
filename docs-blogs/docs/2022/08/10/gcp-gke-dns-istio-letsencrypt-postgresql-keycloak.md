@@ -606,7 +606,7 @@ I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certifi
 Now you can set `httpsRedirect: true` to redirect `HTTP` traffic to `HTTPS`.
 
 ```
---set httpsRedirect=true
+--set istio.httpsRedirect=true
 ```
 
 ## Keycloak Configuration
