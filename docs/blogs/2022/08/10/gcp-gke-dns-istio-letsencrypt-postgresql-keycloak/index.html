@@ -2612,7 +2612,7 @@ I0809 13:58:23.193897       1 conditions.go:250] Found status change for Certifi
 I0809 13:58:23.347574       1 conditions.go:190] Found status change for Certificate &quot;dirigible&quot; condition &quot;Ready&quot;: &quot;False&quot; -&gt; &quot;True&quot;; setting lastTransitionTime to 2022-08-09 13:58:23.347561322 +0000 UTC m=+18939.974765874
 </code></pre></div>
 Now you can set <code>httpsRedirect: true</code> to redirect <code>HTTP</code> traffic to <code>HTTPS</code>.</p>
-<div class="highlight"><pre><span></span><code>--set httpsRedirect=true
+<div class="highlight"><pre><span></span><code>--set istio.httpsRedirect=true
 </code></pre></div>
 <h2 id="keycloak-configuration">Keycloak Configuration</h2>
 <div class="admonition note">
