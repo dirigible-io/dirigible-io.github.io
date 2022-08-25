@@ -2140,6 +2140,11 @@
 </div>
 <ul>
 <li>
+<p>Initialize or reinitialize <code>gcloud</code> - check this <a href="https://cloud.google.com/sdk/gcloud/reference/init">url</a> for more information.</p>
+<div class="highlight"><pre><span></span><code>gcloud init
+</code></pre></div>
+</li>
+<li>
 <p>Enable the specific GKE cluster as the default cluster to be used for the remaining commands.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2349,6 +2354,10 @@ cert-manager jetstack/cert-manager \
 </li>
 <li>
 <p>Create ClusterIssuer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to replace <code>&lt;YOUR-EMAIL-ADDRESS&gt;</code> with your valid email address. </p>
+</div>
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">kubectl apply -f - &lt;&lt;EOF</span><span class="w"></span>
@@ -2419,7 +2428,7 @@ cert-manager jetstack/cert-manager \
   <img alt="set-data-protection-maintance" src="/img/posts/20220810/set-data-protection-maintenance.png" /></p>
 </li>
 <li>
-<p>After you create the instance update the configuration for connections.
+<p>After you create the instance update the configuration for connections to allow only SSL connection.
   <img alt="set-only-ssl-connections" src="/img/posts/20220810/allow-ssl-connections.png" /></p>
 </li>
 </ul>
@@ -2489,8 +2498,7 @@ cert-manager jetstack/cert-manager \
 </code></pre></div>
 </li>
 <li>
-<p>Add a new binding.</p>
-<p><img alt="iam-binding" src="/img/posts/20220810/iam-binding.png" /></p>
+<p>Add a new binding between your gcp service account and kubernetes service account </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
@@ -2589,6 +2597,10 @@ helm repo update
 --set ingress.host=demo.apps.dirigible.io \
 --set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you see </p>
+</div>
 <h2 id="check-the-logs-on-the-cert-manager-pod">Check the Logs on the Cert-Manager Pod</h2>
 <p>Wait for 3-5 minutes and check the logs.</p>
 <div class="highlight"><pre><span></span><code>kubectl logs -n cert-manager -lapp=cert-manager |  grep -i &quot;READY&quot;
