@@ -8,8 +8,6 @@ read_time: 5 min
 publish_date: September 12, 2022
 ---
 
-# Connecting Eclipse Dirigible with SendGrid SMTP Relay
-
 Recent changes in **Gmail**'s policies allows **Eclipse Dirigible** users to send emails only via Workspace enabled accounts in **G Suite** and require workspace administration privileges. By connecting Eclipse Dirigible with Twilio SendGrid's SMTP Relay feature you can send emails with your personal gmail account. 
 
 !!! note
