@@ -492,6 +492,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#send-an-email-with-sendgrid-smtp-relay" class="md-nav__link">
+    Send an Email with SendGrid SMTP Relay
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1775,6 +1782,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#send-an-email-with-sendgrid-smtp-relay" class="md-nav__link">
+    Send an Email with SendGrid SMTP Relay
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1809,11 +1823,11 @@
         
         <aside class="mdx-author">
             <p>
-            <img src="https://avatars.githubusercontent.com/https://github.com/Fluctuationqt/" alt="@https://github.com/Fluctuationqt/">
+            <img src="https://avatars.githubusercontent.com/Fluctuationqt" alt="@Fluctuationqt">
             </p>
             <p>
             <span> 
-            <b>Ivo Yakov</b> · <a href="https://github.com/https://github.com/Fluctuationqt/">@https://github.com/Fluctuationqt/</a>
+            <b>Ivo Yakov</b> · <a href="https://github.com/Fluctuationqt">@Fluctuationqt</a>
             </span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
@@ -1830,42 +1844,81 @@
         
 
         <h1 id="connecting-eclipse-dirigible-with-sendgrid-smtp-relay">Connecting Eclipse Dirigible with SendGrid SMTP Relay</h1>
-<p>Recent changes in Gmail's policies allows Dirigible users to send emails only via Workspace enabled accounts in G Suite and require workspace administration privileges. By connecting Eclipse Dirigible with Twilio SendGrid's SMTP Relay feature you can send Emails with your personal gmail account. </br></p>
-<p><b>Notice:</b> <i>SendGrid is a 3rd party service and charges/limits apply (See their Email API Plans <a href="https://sendgrid.com/pricing/?sg_product=mc">here</a>). </i></p>
+<p>Recent changes in <strong>Gmail</strong>'s policies allows <strong>Eclipse Dirigible</strong> users to send emails only via Workspace enabled accounts in <strong>G Suite</strong> and require workspace administration privileges. By connecting Eclipse Dirigible with Twilio SendGrid's SMTP Relay feature you can send emails with your personal gmail account. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SendGrid is a 3rd party service and charges/limits apply. Here you can find more information about their <a href="https://sendgrid.com/pricing/?sg_product=mc">Email API Plans</a>. </p>
+</div>
 <h2 id="setup-sendgrid-account">Setup SendGrid Account</h2>
+<ol>
+<li>Create a SendGrid account at <a href="https://app.sendgrid.com">https://app.sendgrid.com</a>.</li>
+<li>Login at <a href="https://app.sendgrid.com/">https://app.sendgrid.com</a>.</li>
+<li>
+<p>Verify a single sender email:</p>
 <ul>
-<li>Create a SendGrid account at https://app.sendgrid.com/</li>
-<li>Login at https://app.sendgrid.com/</li>
-<li>Verify a single sender email</li>
-<li>Click <code>Settings</code> &gt; <code>Sender Authentication</code> &gt; <code>Verify a Single Sender</code></li>
+<li>Click <code>Settings</code> &gt; <code>Sender Authentication</code> &gt; <code>Verify a Single Sender</code>.</li>
 <li>Enter the details of the email address that Dirigible mails will be sent from.</li>
-<li>Setup SMTP Relay</li>
-<li>Click <code>Email API</code> &gt; <code>Integration Guide</code> &gt; <code>SMTP Relay</code></li>
-<li>Enter an API Key Name and click <code>Create Key</code> to get an API Key for your SendGrid SMTP Relay.</li>
-<li>Notice the <code>Configure your application</code> section. The details from it will be your <code>dirigible.properties</code> configuration</li>
 </ul>
-<h2 id="setup-eclipse-dirigible">Setup Eclipse Dirigible</h2>
+</li>
+<li>
+<p>Setup SMTP Relay:</p>
 <ul>
-<li>Setup Dirigible Properties</li>
-<li>Add the following entries to your dirigible.properties:
-    <div class="highlight"><pre><span></span><code>DIRIGIBLE_MAIL_USERNAME=apikey
-DIRIGIBLE_MAIL_PASSWORD=&lt;YOUR_API_KEY_HERE/&gt;
+<li>Click <code>Email API</code> &gt; <code>Integration Guide</code> &gt; <code>SMTP Relay</code>.</li>
+<li>Enter an API Key Name and click <code>Create Key</code> to get an API Key for your SendGrid SMTP Relay.</li>
+<li>Notice the <code>Configure your application</code> section. The details from it will be added to the environment variables.</li>
+</ul>
+</li>
+</ol>
+<h2 id="setup-eclipse-dirigible">Setup Eclipse Dirigible</h2>
+<div class="admonition info">
+<p class="admonition-title">Prerequisites</p>
+<p>You can follow the <a href="https://www.dirigible.io/help/setup/">Setup</a> guide on how to deploy Eclipse Dirigible locally or in the cloud.</p>
+</div>
+<ol>
+<li>
+<p>Add the following environment variables to your deployment:</p>
+<div class="highlight"><pre><span></span><code>DIRIGIBLE_MAIL_USERNAME=apikey
+DIRIGIBLE_MAIL_PASSWORD=&lt;YOUR_API_KEY_HERE&gt;
 DIRIGIBLE_MAIL_TRANSPORT_PROTOCOL=smtps
 DIRIGIBLE_MAIL_SMTPS_HOST=smtp.sendgrid.net
 DIRIGIBLE_MAIL_SMTPS_PORT=465
-</code></pre></div></li>
-<li>Send an email by running this script
-    <div class="highlight"><pre><span></span><code>import { client as mail } from &quot;@dirigible/mail&quot;;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace the <code>&lt;YOUR_API_KEY_HERE&gt;</code> placeholder with the SendGrid SMTP Relay API key.</p>
+</div>
+</li>
+<li>
+<p>Restart the Eclipse Dirigible instance in order to apply the new environment variables.</p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Environment Variables</p>
+<p>To get a complete list of all environment variables navigate to the <a href="https://www.dirigible.io/help/setup/setup-environment-variables/">Environment Variables</a> page.</p>
+</div>
+<h2 id="send-an-email-with-sendgrid-smtp-relay">Send an Email with SendGrid SMTP Relay</h2>
+<ol>
+<li>Login to your Eclipse Dirigible instance.</li>
+<li>Create new project.</li>
+<li>Create new <code>Javascript ESM Service</code>.</li>
+<li>
+<p>Use the following sinippet to send emails:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">mail</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mail&quot;</span><span class="p">;</span><span class="w"></span>
 
-const from = &quot;&lt;YOUR_VERIFIED_SENDER_EMAIL_HERE/&gt;&quot;;
-const to = &quot;&lt;YOUR_RECIPIENT_EMAIL_HERE/&gt;&quot;;
-const subject = &quot;Subject&quot;;
-const content = &quot;Hello World!&quot;;
-const subType = &quot;html&quot;;
+<span class="kd">const</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;YOUR_VERIFIED_SENDER_EMAIL_HERE&gt;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;YOUR_RECIPIENT_EMAIL_HERE&gt;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello World!&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
 
-mail.send(from, to, subject, content, subType);
-</code></pre></div></li>
-</ul>
+<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace the <code>&lt;YOUR_VERIFIED_SENDER_EMAIL_HERE&gt;</code> and the <code>&lt;YOUR_RECIPIENT_EMAIL_HERE&gt;</code> placeholders with valid email addresses.</p>
+</div>
+</li>
+</ol>
 
         <!-- Last update of source file -->
         
