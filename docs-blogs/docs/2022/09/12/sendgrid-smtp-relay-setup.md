@@ -19,19 +19,23 @@ Recent changes in **Gmail**'s policies allows **Eclipse Dirigible** users to sen
 
 ## Setup SendGrid Account
 
-1. Create a SendGrid account at [https://app.sendgrid.com](https://app.sendgrid.com).
+1. Create a SendGrid account at [https://sendgrid.com](https://sendgrid.com).
 1. Login at [https://app.sendgrid.com](https://app.sendgrid.com/).
 1. Verify a single sender email:
 
-    - Click `Settings` > `Sender Authentication` > `Verify a Single Sender`.
-    - Enter the details of the email address that Dirigible mails will be sent from.
+    - Click **Settings** &#8594; **Sender Authentication** &#8594; **Verify a Single Sender**.
+    - Enter the details of the email address that Eclipse Dirigible mails will be sent from.
+
+    ![Create Single Sender](../../../images/sendgrid-smtp-relay-setup/create-single-sender.png)
 
 1. Setup SMTP Relay:
 
-    - Click `Email API` > `Integration Guide` > `SMTP Relay`.
-    - Enter an API Key Name and click `Create Key` to get an API Key for your SendGrid SMTP Relay.
-    - Notice the `Configure your application` section. The details from it will be added to the environment variables.
+    - Click **Email API** &#8594; **Integration Guide** &#8594; **SMTP Relay**.
+    - Enter an API Key Name and click **Create Key** to get an API Key for your SendGrid SMTP Relay.
+    - Notice the **Configure your application** section, the credentials from it will be used to configure the mail client.
   
+    ![API Key](../../../images/sendgrid-smtp-relay-setup/api-key.png)
+
 ## Setup Eclipse Dirigible
 
 !!! info "Prerequisites"
@@ -80,3 +84,6 @@ Recent changes in **Gmail**'s policies allows **Eclipse Dirigible** users to sen
     !!! note
 
         Replace the `<YOUR_VERIFIED_SENDER_EMAIL_HERE>` and the `<YOUR_RECIPIENT_EMAIL_HERE>` placeholders with valid email addresses.
+
+
+    ![Mail Delivered](../../../images/sendgrid-smtp-relay-setup/mail-delivered.png)
