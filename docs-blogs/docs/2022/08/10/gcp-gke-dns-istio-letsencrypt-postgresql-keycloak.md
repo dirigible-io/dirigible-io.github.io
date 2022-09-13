@@ -584,9 +584,6 @@ helm upgrade --install dirigible dirigible/dirigible -n dirigible-demo \
 --set dirigible.image=dirigiblelabs/dirigible-keycloak:latest
 ```
 
-!!! note "Note"
-    If you see 
-
 ## Check the Logs on the Cert-Manager Pod
 
 Wait for 3-5 minutes and check the logs.
