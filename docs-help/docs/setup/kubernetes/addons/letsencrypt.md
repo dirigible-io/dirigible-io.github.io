@@ -94,7 +94,7 @@ Deploy Cert Manager in Kubernetes environment.
       - "<your-domain>"
     ```
 
-    !!! note "Replace Placeholders"
+    !!! note
 
         Replace the `<your-domain>` placeholder with your domain from previous step.
 
