@@ -15,23 +15,22 @@ Deploy Cert Manager in Kubernetes environment.
 
 ## Steps
 
-
-1. Install cert-manager
+1. Install cert-manager:
 
     - Add Jetstack Helm repository: 
+
         ```
         helm repo add jetstack https://charts.jetstack.io
         ```
 
     - Update your local Helm chart repository cache: 
+
         ```
         helm repo update
         ```
 
-    - Intall Ccert-manager and CustomResourceDefinitions:
+    - Intall **cert-manager** and **CustomResourceDefinitions**:
         
-        * Check the current version - `https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions`
-
         ```
         helm install \
         cert-manager jetstack/cert-manager \
@@ -41,7 +40,12 @@ Deploy Cert Manager in Kubernetes environment.
         --set installCRDs=true
         ```
 
-1. Create Cluster Issuer
+        !!! note
+
+            Check the current version of the [Installation with Helm](https://cert-manager.io/docs/installation/helm/#3-install-customresourcedefinitions).
+
+
+1. Create Cluster Issuer:
     
     ```yaml
     apiVersion: cert-manager.io/v1alpha2
@@ -56,9 +60,14 @@ Deploy Cert Manager in Kubernetes environment.
           name: dirigible
         http01: {}
     ```
+    !!! note
+    
+        Replace the `<your-email>` placeholder with valid email address.
 
-    !!! note "Note"
-        - If your ingress is `Istio` change the `ClusterIssuer` add:
+
+    !!! note "Update ClusterIssuer"
+
+        If your ingress is **Istio** change the **ClusterIssuer** and add:
 
         ```
         solvers:
@@ -68,7 +77,7 @@ Deploy Cert Manager in Kubernetes environment.
               class: istio
         ```
 
-1. Create certificate
+1. Create certificate:
 
     ```yaml
     apiVersion: cert-manager.io/v1
@@ -85,10 +94,15 @@ Deploy Cert Manager in Kubernetes environment.
       - "<your-domain>"
     ```
 
-    !!! note "Note"
-        - If your `Istio ingress` is installed to namespace `istio-ingress` add `namespace: istio-ingress`
+    !!! note "Replace Placeholders"
 
-1. Create Ingress
+        Replace the `<your-domain>` placeholder with your domain from previous step.
+
+    !!! note "Add Namespace"
+
+        If your **Istio Ingress** is installed to namespace **istio-ingress** add `namespace: istio-ingress`.
+
+1. Create Ingress:
 
     === "Kubernetes Ingress"
 
@@ -112,67 +126,70 @@ Deploy Cert Manager in Kubernetes environment.
         ```
 
     === "Istio Ingress"
+
+        !!! note "Note"
+
+            - You can install `istio` with default profile `istioctl install` this will install `istio-ingressgateway` and `istiod` and you can install [manually](istio.md):
+
+            ```yaml
+            apiVersion: networking.istio.io/v1alpha3
+            kind: Gateway
+            metadata:
+              name: dirigible-gateway
+            spec:
+              selector:
+                istio: ingressgateway
+              servers:
+              - port:
+                  number: 80
+                  name: http
+                  protocol: HTTP
+                hosts:
+                - dirigible.<your-domain>
+                # Initially it should be commented, then uncomment to enforce https!
+                # tls:
+                #   httpsRedirect: true
+              - port:
+                  number: 443
+                  name: https-443
+                  protocol: HTTPS
+                hosts:
+                - dirigible.<your-domain>
+                tls:
+                  mode: SIMPLE 
+                  credentialName: dirigible
+            ```
+
+            - Replace the `<your-domain>` placeholder with your domain from previous step.
+
+            - Create Virtual Service for Istio:
       
-      !!! note "Note"
-          - You can install `istio` with default profile `istioctl install` this will install `istio-ingressgateway` and `istiod` and you can install [manually](istio.md)
+            ```yaml
+            apiVersion: networking.istio.io/v1beta1
+            kind: VirtualService
+            metadata:
+              name: dirigible
+            spec:
+              hosts:
+              - "dirigible.<your-domain>"
+              gateways:
+              - dirigible-gateway
+              - mesh
+              http:
+              - match:
+                - uri:
+                    prefix: /
+                route:
+                - destination:
+                      host: dirigible.default.svc.cluster.local
+                      port:
+                        number: 8080
+            ```
 
-        ```yaml
-        apiVersion: networking.istio.io/v1alpha3
-        kind: Gateway
-        metadata:
-          name: dirigible-gateway
-        spec:
-          selector:
-            istio: ingressgateway
-          servers:
-          - port:
-              number: 80
-              name: http
-              protocol: HTTP
-            hosts:
-            - dirigible.<your-domain>
-            # Initially it should be commented, then uncomment to enforce https!
-            # tls:
-            #   httpsRedirect: true
-          - port:
-              number: 443
-              name: https-443
-              protocol: HTTPS
-            hosts:
-            - dirigible.<your-domain>
-            tls:
-              mode: SIMPLE 
-              credentialName: dirigible
-        ```
+            - Replace the `<your-domain>` placeholder with your domain from previous step.
 
-      - Create Virtual Service for Istio
-      
-          ```yaml
-          apiVersion: networking.istio.io/v1beta1
-          kind: VirtualService
-          metadata:
-            name: dirigible
-          spec:
-            hosts:
-            - "dirigible.<your-domain>"
-            gateways:
-            - dirigible-gateway
-            - mesh
-            http:
-            - match:
-              - uri:
-                  prefix: /
-              route:
-              - destination:
-                    host: dirigible.default.svc.cluster.local
-                    port:
-                      number: 8080
-          ```
+1. Check certificate status in cert-manager:
 
-1. Check certificate status in cert-manager.
-
-  `kubectl logs -n cert-manager -lapp=cert-manager`
-
-!!! note "Replace Placeholders"
-   - `<your-domain>` with your domain from previous step
-
+    ```
+    kubectl logs -n cert-manager -lapp=cert-manager
+    ```
