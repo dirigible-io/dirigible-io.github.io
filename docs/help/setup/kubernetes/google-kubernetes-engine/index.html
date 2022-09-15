@@ -2764,7 +2764,7 @@
 <ul>
 <li>Get the Istio Ingress Gateway IP:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>kubectl get service -n istio-system istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
+<div class="highlight"><pre><span></span><code>kubectl get service -n istio-ingress istio-ingressgateway -o jsonpath=&quot;{.status.loadBalancer.ingress[0].ip}&quot;
 </code></pre></div>
 <ul>
 <li>Register DNS Record Set:</li>
