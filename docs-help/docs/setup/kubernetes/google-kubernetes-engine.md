@@ -264,7 +264,7 @@ Deploy Eclipse Dirigible in Google Kubernetes Engine (GKE) environment.
             - Get the Istio Ingress Gateway IP:
 
             ```
-            kubectl get service -n istio-system istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
+            kubectl get service -n istio-ingress istio-ingressgateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}"
             ```
 
             - Register DNS Record Set:
