@@ -397,6 +397,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
+**DIRIGIBLE_GRAALIUM_ENABLE_DEBUG** | Whether the debug mode is enabled | _`false`_
 **DIRIGIBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | _`8081` and `0.0.0.0:8081` in Docker environment_
 **DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_HOST_ACCESS** | Whether GraalVM can load classes form custom packages | _`true`_
 **DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_THREAD** | Whether GraalVM can create threads | _`true`_
