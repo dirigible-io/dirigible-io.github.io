@@ -436,30 +436,6 @@ EOF
   * Add a role for the service account.
     ![create-sa-role](/img/posts/20220810/create-sa-role.png)
 
-  * Add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa`.
-    ![create-binding](/img/posts/20220810/add-iam-binding.png)
-    
-    You can add an IAM policy binding for `dirigible-gcp-sa` and `keycloak-gcp-sa` `gcloud` with gcloud.
-    
-    !!! note "Note"
-        You need to replace `dirigible-gke-demo` with `your project id`.
-
-    Dirigible
-
-    ```
-    gcloud projects add-iam-policy-binding dirigible-gke-demo \
-    --member="serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
-    --role="roles/cloudsql.client"
-    ```
-
-    Keycloak
-
-    ```
-    gcloud projects add-iam-policy-binding dirigible-gke-demo \
-    --member="serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com" \
-    --role="roles/cloudsql.client"
-    ```
-
 ### Create a Dirigible and Keycloak Kubernetes Service Account
 
   * Create the namespace `dirigible-demo`.
