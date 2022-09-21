@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2477,25 +2477,6 @@ cert-manager jetstack/cert-manager \
 <p>Add a role for the service account.
     <img alt="create-sa-role" src="/img/posts/20220810/create-sa-role.png" /></p>
 </li>
-<li>
-<p>Add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code>.
-    <img alt="create-binding" src="/img/posts/20220810/add-iam-binding.png" /></p>
-<p>You can add an IAM policy binding for <code>dirigible-gcp-sa</code> and <code>keycloak-gcp-sa</code> <code>gcloud</code> with gcloud.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You need to replace <code>dirigible-gke-demo</code> with <code>your project id</code>.</p>
-</div>
-<p>Dirigible</p>
-<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
---member=&quot;serviceAccount:dirigible-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
---role=&quot;roles/cloudsql.client&quot;
-</code></pre></div>
-<p>Keycloak</p>
-<div class="highlight"><pre><span></span><code>gcloud projects add-iam-policy-binding dirigible-gke-demo \
---member=&quot;serviceAccount:keycloak-gcp-sa@dirigible-gke-demo.iam.gserviceaccount.com&quot; \
---role=&quot;roles/cloudsql.client&quot;
-</code></pre></div>
-</li>
 </ul>
 <h3 id="create-a-dirigible-and-keycloak-kubernetes-service-account">Create a Dirigible and Keycloak Kubernetes Service Account</h3>
 <ul>
@@ -2820,10 +2801,10 @@ Now you can set <code>httpsRedirect: true</code> to redirect <code>HTTP</code> t
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
     
   </body>
