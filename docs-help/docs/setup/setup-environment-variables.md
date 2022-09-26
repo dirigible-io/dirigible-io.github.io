@@ -276,7 +276,7 @@ Parameter     | Description | Default*
 | **DIRIGIBLE_JOB_EXPRESSION_MIGRATIONS**  | Migration synchronizer job config | _`0/55 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_ODATA**  | OData synchronizer job config | _`0/45 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_PUBLISHER**  | Publisher synchronizer job config | _`0/5 * * * * ?`_ |
-| **DIRIGIBLE_JOB_EXPRESSION_SECURITY**  | Security synchronizer job config | _`0/20 * * * * ?`_ |
+| **DIRIGIBLE_JOB_EXPRESSION_SECURITY**  | Security synchronizer job config | _`0/10 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_REGISTRY**  | Registry synchronizer job config | _`0/35 * * * * ?`_ |
 | **DIRIGIBLE_JOB_DEFAULT_TIMEOUT**  | Default timeout in minutes | _`3`_ |
 
