@@ -41,7 +41,9 @@ Function     | Description | Returns
 ------------ | ----------- | --------
 **getResource(path)**   | Get Resource by path | *Resource*
 **createResource(path, content, contentType)**   | Creates Resource programmatically | *Resource*
+**createResourceNative(path, content, contentType)**   | Creates Resource programmatically, with array of Java bytes | *Resource*
 **updateResource(path, content)**   | Updates Resource content | *Resource*
+**updateResourceNative(path, content)**   | Updates Resource content, with array of Java bytes | *Resource*
 **deleteResource(path)**   | Delete Resource by path | *-*
 **getCollection(path)**   | Get Collection by path | *Collection*
 **createCollection(path)**   | Creates Collection programmatically | *Collection*
@@ -53,7 +55,7 @@ Function     | Description | Returns
 
 ---
 
-##### Resource
+#### Resource
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -70,11 +72,14 @@ Function     | Description | Returns
 **isEmpty()** | Returns _true_ if the Resource is empty | *boolean*
 **getText()** | Returns the content of the Resource as text | *string*
 **getContent()** | Returns the content of the Resource | *byte array*
+**getContentNative()** | Returns the content of the Resource | *array of Java bytes*
+**setText(text)** | Sets the Resource content as text | *-*
 **setContent(content)** | Sets the Resource content | *-*
+**setContentNative(content)** | Sets the Resource content as array of Java bytes | *-*
 **isBinary()** | Returns _true_ if the Resource content is binary | *boolean*
 **getContentType()** | Returns the content type of the Resource | *string*
 
-##### Collection
+#### Collection
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -99,7 +104,7 @@ Function     | Description | Returns
 **createResource(name, content)** | Create new Resource | *Resource*
 
 
-##### EntityInformation
+#### EntityInformation
 
 Function     | Description | Returns
 ------------ | ----------- | --------

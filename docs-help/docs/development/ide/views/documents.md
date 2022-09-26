@@ -10,3 +10,8 @@ The **Documents** view enables you to manage the binary artifacts such as pictur
 ![Documents view](../../../images/ide_view_documents.png)
 
 
+!!! info "Related content"
+
+	* [Access View](../access)
+    * [Constraints View](../constraints)
+    * [Documents Perspective](../../perspectives/documents) 

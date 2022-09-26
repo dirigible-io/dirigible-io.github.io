@@ -7,22 +7,98 @@ theme:
   custom_dir: overrides
   features:
     - navigation.instant
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+
+nav:
+    - 'Samples': 'index.md'
+    - 'Basic':
+      - 'Base64 - Decode': 'basic/base64-decode.md'
+      - 'Base64 - Encode': 'basic/base64-encode.md'
+      - 'Console': 'basic/console.md'
+      - 'Converting JSON to XML': 'basic/converting-json-xml.md'
+      - 'Converting XML to JSON': 'basic/converting-xml-json.md'
+      - 'Database - Dynamic Datasource': 'basic/database-dynamic.md'
+      - 'Database - Procedure Call': 'basic/database-procedure-call.md'
+      - 'Database Procedure - Create & Execute': 'basic/database-procedure.md'
+      - 'Database - Query': 'basic/database-query.md'
+      - 'Database - Statement': 'basic/database-statement.md'
+      - 'Encrypt - SHA-512': 'basic/digest.md'
+      - 'Generate PDF': 'basic/documents-pdf.md'
+      - 'FTP Client': 'basic/ftp-client.md'
+      - 'Hex - Decode': 'basic/hex-decode.md'
+      - 'Hex - Encode': 'basic/hex-encode.md'
+      - 'HTTP Client - Binary Response': 'basic/http-client-binary.md'
+      - 'HTTP Client - Calls': 'basic/http-client-calls.md'
+      - 'HTTP - Request': 'basic/http-request.md'
+      - 'Liquibase': 'basic/liquibase-simple.md'
+      - 'Send Email': 'basic/mail-client.md'
+      - 'Platform Lifecycle': 'basic/platform-lifecycle.md'
+      - 'Print Configuration Variables': 'basic/print-configurations.md'
+      - 'Print Environment Variables': 'basic/print-env.md'
+      - 'QR Code Generator': 'basic/qrcode-generator.md'
+      - 'Repository Manager': 'basic/repository-manager.md'
+      - 'REST Service': 'basic/rest-service.md'
+      - 'SOAP - Client': 'basic/soap-client.md'
+      - 'SOAP - Server': 'basic/soap-server.md'
+      - 'URL - UTF-8 Decoding': 'basic/url-decode.md'
+      - 'URL - UTF-8 Encoding': 'basic/url-encode.md'
+      - 'UUID - Random Generation': 'basic/uuid-random-generation.md'
+    - 'Tutorials':
+      - 'Application Development':
+        - 'Bookstore Application': 'tutorials/application-development/bookstore.md'
+        - 'File Upload': 'tutorials/application-development/file-upload.md'
+        - 'Shell Command': 'tutorials/application-development/shell-command.md'
+        - 'Scheduled Job': 'tutorials/application-development/job-console.md'
+        - 'Kafka Producer and Consumer': 'tutorials/application-development/kafka.md'
+        - 'Listener of a Queue': 'tutorials/application-development/listener-queue.md'
+      - 'Customizations':
+        - 'IDE':
+          - 'Create View': 'tutorials/customizations/ide/create-view.md'
+          - 'Create Perspective': 'tutorials/customizations/ide/create-perspective.md'
+          - 'Contribute IDE Modules': 'tutorials/customizations/ide/contribute-ide-modules.md'
+        - 'Custom Stack':
+          - 'tutorials/customizations/custom-stack/index.md'
+          - 'Branding': 'tutorials/customizations/custom-stack/branding.md'
+          - 'Facade': 'tutorials/customizations/custom-stack/facade.md'
+          - 'Dependency': 'tutorials/customizations/custom-stack/dependency.md'
+        - 'Embedded Dirigible': 'tutorials/customizations/embedded.md'
+        - 'Master Repository': 'tutorials/customizations/master-repository.md'
+        - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'
+      - 'Modeling':
+        - 'Generate Application from Model': 'tutorials/modeling/generate-application-from-model.md'
+        - 'BPMN Process' : 'tutorials/modeling/process-console.md'
+      - 'Setup':
+        - 'Tomcat': 'https://www.dirigible.io/help/setup/'
+        - 'Docker': 'https://www.dirigible.io/help/setup/docker/'
+        - 'Kubernetes': 'https://www.dirigible.io/help/setup/kubernetes/'
+        - 'Cloud Foundry': 'https://www.dirigible.io/help/setup/cloud-foundry/'
+        - 'Environment Variables': 'https://www.dirigible.io/help/setup/setup-environment-variables/'
+        - 'Zeus':
+          - 'Zeus on Kubernetes': 'tutorials/setup/zeus-on-kubernetes-minikube.md'
+          - 'Zeus on Kubernetes with MacOS': 'tutorials/setup/zeus-on-macos.md'
+          - 'Zeus on Kubernetes with Windows OS': 'tutorials/setup/zeus-on-windows.md'
 
 extra_css:
   - stylesheets/custom.css
   - stylesheets/homepage.css
 
 markdown_extensions:
-    - pymdownx.snippets
+    - pymdownx.snippets:
+        base_path: docs
     - pymdownx.highlight:
         linenums: false
     - pymdownx.keys
     - pymdownx.inlinehilite
     - pymdownx.superfences
-    - pymdownx.tabbed
+    - pymdownx.tabbed:
+        alternate_style: true
     - pymdownx.emoji
     - meta
     - admonition
+    - footnotes
     - pymdownx.details
 
 repo_url: https://github.com/eclipse/dirigible
@@ -31,6 +107,10 @@ edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-samples/doc
 
 copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
 extra:
+  homepage: https://www.dirigible.io
+  analytics:
+    provider: google
+    property: UA-49027147-1
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/dirigible_io
@@ -41,8 +121,4 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/c/dirigibleio
     - icon: fontawesome/brands/slack
-      link: https://eclipse-dirigible.slack.com/
-
-google_analytics:
-  - UA-49027147-1
-  - auto
+      link: https://slack.dirigible.io

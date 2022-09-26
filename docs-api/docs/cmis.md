@@ -96,12 +96,14 @@ response.close();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **getSession()**   | Returns the CMIS connection session to the CMS system | *Session*
+**getAccessDefinitions(path, method)**   | Returns array of CMIS access constraints for the specified path and method | *array of objects*
+
 
 ### Objects
 
 ---
 
-##### Session
+#### Session
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -112,7 +114,7 @@ Function     | Description | Returns
 **getObjectByPath()**   | Returns a CMIS Object by path | *CmisObject*
 
 
-##### RepositoryInfo
+#### RepositoryInfo
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -120,21 +122,21 @@ Function     | Description | Returns
 **getName()**   | Returns the Name of the CMIS repository | *string*
 
 
-##### ObjectFactory
+#### ObjectFactory
 
 Function     | Description | Returns
 ------------ | ----------- | --------
 **createContentStream()**   | Returns a newly created ContentStream object | *ContentStream*
 
 
-##### ContentStream
+#### ContentStream
 
 Function     | Description | Returns
 ------------ | ----------- | --------
 **getStream()**   | Returns the InputStream of this ContentStream object | *streams.InputStream*
 
 
-##### CmisObject
+#### CmisObject
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -145,7 +147,7 @@ Function     | Description | Returns
 **rename(newName)**   | Renames this CmisObject | *-*
 
 
-##### Folder
+#### Folder
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -161,7 +163,7 @@ Function     | Description | Returns
 **rename(newName)**   | Renames this Folder | *-*
 
 
-##### Document
+#### Document
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -177,7 +179,7 @@ Function     | Description | Returns
 
 ---
 
-##### Base
+#### Base
 
 Constant     | Description | Type
 ------------ | ----------- | --------
@@ -192,7 +194,7 @@ Constant     | Description | Type
 **CHANGE_TOKEN**   | Value is *mis:changeToken* | *string*
 
 
-##### Document
+#### Document
 
 Constant     | Description | Type
 ------------ | ----------- | --------
@@ -212,7 +214,7 @@ Constant     | Description | Type
 **CONTENT_STREAM_ID**   | Value is *cmis:contentStreamId* | *string*
 
 
-##### Folder
+#### Folder
 
 Constant     | Description | Type
 ------------ | ----------- | --------
@@ -221,7 +223,7 @@ Constant     | Description | Type
 **PATH**   | Value is *cmis:path* | *string*
 
 
-##### Relationship
+#### Relationship
 
 Constant     | Description | Type
 ------------ | ----------- | --------
@@ -229,14 +231,14 @@ Constant     | Description | Type
 **TARGET_ID**   | Value is *cmis:targetId* | *string*
 
 
-##### Relationship
+#### Relationship
 
 Constant     | Description | Type
 ------------ | ----------- | --------
 **POLICY_TEXT**   | Value is *cmis:policyText* | *string*
 
 
-##### Versioning States
+#### Versioning States
 
 Constant     | Description | Type
 ------------ | ----------- | --------
@@ -246,7 +248,7 @@ Constant     | Description | Type
 **VERSIONING_STATE_CHECKEDOUT**   | Value is *checkedout* | *string*
 
 
-##### Object Types
+#### Object Types
 
 Constant     | Description | Type
 ------------ | ----------- | --------

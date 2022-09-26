@@ -12,3 +12,8 @@ The **Access** view displays the defined security constraints on HTTP servers ac
 More info about the type of the artifacts you can find in [Artifacts](../../../artifacts).
 
 
+!!! info "Related content"
+
+	* [Documents View](../documents)
+    * [Constraints View](../constraints)
+    * [Documents Perspective](../../perspectives/documents) 

@@ -64,10 +64,16 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
            ],
            "role-collections": [
               {
-                 "name": "dirigible",
+                 "name": "Dirigible Developer",
                  "description": "Dirigible Developer",
                  "role-template-references": [
-                    "$XSAPPNAME.Developer",
+                    "$XSAPPNAME.Developer"
+                 ]
+              },
+              {
+                 "name": "Dirigible Operator",
+                 "description": "Dirigible Operator",
+                 "role-template-references": [
                     "$XSAPPNAME.Operator"
                  ]
               }
@@ -75,7 +81,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         }
         ```
 
-        Replace the **`<applicationName>`** placeholder with your application name, e.g. **`dirigible`**.
+        !!! Note
+            Replace the `<applicationName>` placeholder with your application name, e.g. **`dirigible`**.
 
     - Create a XSUAA service instance:
 
@@ -83,7 +90,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         cf create-service xsuaa application <applicationName>-xsuaa -c xs-security.json
         ```
 
-        Use the same **`<applicationName>`** as in the previous step.
+        !!! Note
+            Use the same `<applicationName>` as in the previous step.
 
 1. Deploy Eclipse Dirigible:
 
@@ -96,11 +104,14 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
         --hostname dirigible-<org-name> \
         -m 2G -k 2G
         ```
-        !!! info "Note"
-            - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
-            - Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
-                - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
-                - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
+        !!! Note
+            Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+
+        !!! tip "Eclipse Dirigible versions"
+            Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
+            
+            - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+            - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
         - Bind the XSUAA service instance to the Eclipse Dirigible deployment:
 
@@ -108,7 +119,8 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
             cf bind-service dirigible <applicationName>-xsuaa
             ```
 
-            Replace the `<applicationName>` placeholder with the application name used in the previous steps.
+            !!! Note
+                Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
         - Restart the `dirigible` deployment:
 
@@ -135,19 +147,18 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Cloud Foundry environment.
                 - <applicationName>-xsuaa
             ```
 
-            !!! info "Note"
-                - Replace the **`<org-name>`** placeholder with your subaccount's Subdomain value.
-                - Replace the **`<applicationName>`** placeholder with the application name used in the previous steps.
+            !!! Note
+                - Replace the `<org-name>` placeholder with your subaccount's **Subdomain** value.
+                - Replace the `<applicationName>` placeholder with the application name used in the previous steps.
 
         - Deploy with:
             ```
             cf push
             ```
 
-1. Assign the Developer and Operator roles.
+1. Assign the `Developer` and `Operator` roles.
 
 1. Log in.
 
 !!! example "Additional Materials"
-    - For deployment through `manifest.yaml` follow these [steps](https://github.com/dirigiblelabs/deployment-sap-cloud-foundry).
-    - A step-by-step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).
+    Step-by-step tutorial can be found [here](https://blogs.sap.com/2020/03/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/).

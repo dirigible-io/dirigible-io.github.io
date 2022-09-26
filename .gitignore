@@ -7,3 +7,9 @@ _site
 *.sublime-*
 .jekyll-metadata
 .jekyll-cache/
+.history/
+
+docs-api/site/
+docs-blogs/site/
+docs-help/site/
+docs-home/site/

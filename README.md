@@ -1,4 +1,4 @@
-# Website of Eclipse Dirigible (dirigible-io.github.io) <img src="http://www.dirigible.io/img/dirigible.svg" align="left" height="60" width="120"> 
+# Website of Eclipse Dirigible (dirigible.io) <img src="https://www.dirigible.io/img/dirigible.svg" align="left" height="60" width="120"> 
 
 Eclipse Dirigible is a High-Productivity Application Platform providing development tools and runtime environment. The main project goal of the platform is to provide all required capabilities needed to develop and run an end-to-end vertical scenario in the Cloud for the shortest time ever.
 
@@ -53,3 +53,4 @@ docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-mat
 ## License:
 
 Eclipse Dirigible is under the [Eclipse Public License - v 2.0] (https://www.eclipse.org/legal/epl-v20.html).
+

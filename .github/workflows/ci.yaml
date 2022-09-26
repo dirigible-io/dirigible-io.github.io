@@ -12,20 +12,31 @@ jobs:
     - uses: actions/checkout@v2
       with:
         token: ${{secrets.GH_TOKEN}}
+    - name: Set MkDocs Material Version
+      run: echo MKDOCS_MATERIAL_VERSION=latest >> $GITHUB_ENV
+
     - name: Build the site with squidfunk/mkdocs-material container
       run: |
-        docker pull squidfunk/mkdocs-material
+        docker pull squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION
 
         # Build
-        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material build
-        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material build
+        docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-samples:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-blogs:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-news:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-releases:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
+        docker run -v ${{ github.workspace }}/docs-home:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
 
         # Copy build output
         rm -r docs/*
         mkdir docs/api/
         mkdir docs/help/
         mkdir docs/samples/
+        mkdir docs/blogs/
+        mkdir docs/news/
+        mkdir docs/releases/
+        mkdir docs/home/
 
         cp -a docs-api/site/. docs/api/
         cp -a docs-api/redirects/. docs/api/
@@ -37,12 +48,26 @@ jobs:
         cp -a docs-samples/site/. docs/samples/
         cp -a docs-samples/redirects/. docs/samples/
 
+        cp -a docs-blogs/site/. docs/blogs/
+        cp -a docs-blogs/redirects/. docs/blogs/
+        cp -a docs-blogs/overrides/. docs/blogs/
+
+        cp -a docs-news/site/. docs/news/
+        cp -a docs-news/redirects/. docs/news/
+        cp -a docs-news/overrides/. docs/news/
+
+        cp -a docs-releases/site/. docs/releases/
+        cp -a docs-releases/redirects/. docs/release/
+        cp -a docs-releases/overrides/. docs/releases/
+
+        cp -a docs-home/site/. docs/
+        cp -a docs-home/redirects/. docs/
+        cp -a docs-home/overrides/. docs/
+
         # Copy static content
         cp -a _data docs/_data
         cp -a _includes docs/_includes
         cp -a _layouts docs/_layouts
-        cp -a _posts docs/_posts
-        cp -a _sass docs/_sass
         cp -a css docs/css
         cp -a fonts docs/fonts
         cp -a gdpr docs/gdpr
@@ -53,16 +78,30 @@ jobs:
         cp Gemfile docs/Gemfile
         cp Gemfile.lock docs/Gemfile.lock
         cp _config.yml docs/_config.yml
-        cp blogs.html docs/blogs.html
         cp depots.json docs/depots.json
+
+        # TODO Delete the old artefacts
+        cp index.html docs/index-old.html
         cp features.html docs/features.html 
         cp for_developers.html docs/for_developers.html
         cp getting_started.html docs/getting_started.html
-        cp index.html docs/index.html
-        cp news.html docs/news.html
         cp project.html docs/project.html
-        cp releases.html docs/releases.html
+    
+    - name: Grant execute permission for folders
+      run: chmod +x ${{ github.workspace }}/.github/folders.sh    
+        
+    - name: Generate json file for last 5 articles       
+      run: |
+        bash ${{ github.workspace }}/.github/folders.sh
+        cat blogs.json
+        cat releases.json
+        cat news.json
 
+        # Copy static content
+        cp blogs.json docs/blogs.json
+        cp releases.json docs/releases.json
+        cp news.json docs/news.json
+        
     - name: Git Commit and Push
       run: |
         git config user.name ${{secrets.GH_USER_NAME}}

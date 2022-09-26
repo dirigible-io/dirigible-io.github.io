@@ -1,7 +1,5 @@
 ---
 title: Environment Variables
-hide:
-  - toc
 ---
 
 Environment Variables
@@ -11,21 +9,37 @@ Environment Variables
 
 Based on the layer, they are defined, configuration variables have the following priorities:
 
-1. **Runtime** - highest precedence: 
+=== "Runtime"
+
+    Highest precedence:
+    
     - No rebuild or restart of the application is required when configuration is changed.
     - The [Configuration API](../../../api/core/configurations/) could be used to apply changes in the **Runtime** configuration.
-1. **Environment**:
+
+=== "Environment"
+
+    Second precedence:
+    
     - No rebuild is required when configuration is changed, however the application should be restarted, to apply the environment changes.
     - Usually the **Environment** configurations are provided during the application deployment, as part of application descriptor _(e.g. [Define environment variable for container in Kubernetes](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) or in [Cloud Foundry App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#-add-variables-to-a-manifest))_.
-1. **Deployment**:
+
+
+=== "Deployment"
+
+    Third precedence:
+    
     - Rebuild and re-deployment is required.
     - "Default" deployment _(`ROOT.war`)_ configuration variables are taken from `dirigible.properties` properties file _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties))_.
-1. **Module** - lowest precedence:
+
+=== "Module"
+
+    Lowest precedence:
+    
     - Rebuild and re-deployment is required.
     - "Default" module _(e.g. `dirigible-database-custom.jar`, `dirigible-database-h2.jar`)_ configuration variables are taken from `dirigible-xxx.properties` properties files _(sample could be found [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties) and [here](https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties))_
 
 !!! Note
-	This means that if the there is an **Environment** variable with name `DIRIGIBLE_TEST` and **Runtime** variable with the same name, the **Runtime** variable will have high prority and will be applied.
+	The precedence order means that, if the there is an **Environment** variable with name `DIRIGIBLE_TEST` and **Runtime** variable with the same name, the **Runtime** variable will have high prority and will be applied.
 
 All applied configuration values could be found under the [Configurations View](https://www.dirigible.io/help/development/ide/views/configurations/).
 
@@ -76,6 +90,20 @@ Parameter     | Description | Default*
 **DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
 **DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
 
+### Keycloak
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_KEYCLOAK_ENABLED** | Sets whether the  Keycloak Authentication is enabled | _`false`_
+**DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL** | The Keycloak Authentication Server URL _(e.g. `https://keycloak-server/auth/`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_REALM** | The Keycloak realm _(e.g. `my-realm`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_SSL_REQUIRED** | The Keyclaok SSL Required _(e.g. `none`/`external`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_CLIENT_ID** | The Keycloak Client ID _(e.g. `my-client`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
+
+!!! Note
+	To find more details about the Keycloak configuration go to [Keycloak Java Adapter Configuration](https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config).
+
 ### Git
 
 Parameter     | Description | Default*
@@ -88,7 +116,8 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_REGISTRY_SYNCH_ROOT_FOLDER**   | The external folder that will be used for synchronizing the public registry | _`-`_
+**DIRIGIBLE_REGISTRY_EXTERNAL_FOLDER**   | The external folder that will be used for synchronizing the public registry | _`-`_
+**DIRIGIBLE_REGISTRY_IMPORT_WORKSPACE**   | The external folder that will be imported into the public registry | _`-`_
 
 ### Repository
 ---
@@ -96,7 +125,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | _`local` or `database`_
-**DIRIGIBLE_REPOSITORY_DISABLE_CACHE**   | Disable the usage of the cache, which is enabled by default | _`true` or `false`_
+**DIRIGIBLE_REPOSITORY_CACHE_ENABLED**   | Enable the usage of the repository cache | _`true`_
 
 #### Database Repository
 
@@ -145,6 +174,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance | _`DefaultDB`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance | _`SystemDB`_
 **DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive | _`false`_
+**DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer | _`1000`_
 
 
 #### Database - Custom
@@ -196,28 +226,42 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SCHEDULER_MEMORY_STORE**   | Whether Quartz to use in-memory job store | _`false`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_TYPE**   | The type of the custom data-source used by Quartz, if not the default one | _`-`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DATASOURCE_NAME**   | The name of the custom data-source used by Quartz, if not the default one | _`-`_
+**DIRIGIBLE_SCHEDULER_LOGS_RETANTION_PERIOD**   | The period the logs of the job execution will be kept (the default is one week - 24x7) | _`168`_
+**DIRIGIBLE_SCHEDULER_EMAIL_SENDER**   | The sender for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_RECIPIENTS**   | The recipients list for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_ERROR**   | The error subject for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_SUBJECT_NORMAL**   | The normal subject for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_ERROR**   | The error template for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_TEMPLATE_NORMAL**   | The normal template for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_URL_SCHEME**   | The scheme part of the URL for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_URL_HOST**   | The host part of the URL for the e-mail notifications | _`-`_
+**DIRIGIBLE_SCHEDULER_EMAIL_URL_PORT**   | The port part of the URL for the e-mail notifications | _`-`_
 **DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE**   | The name of the JDBC delegate used by Quartz, if not the default one | _`org.quartz.impl.jdbcjobstore.StdJDBCDelegate`_
 
-- `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` (for fully JDBC-compliant drivers)
-- `org.quartz.impl.jdbcjobstore.MSSQLDelegate` (for Microsoft SQL Server, and Sybase)
-- `org.quartz.impl.jdbcjobstore.PostgreSQLDelegate`
-- `org.quartz.impl.jdbcjobstore.WebLogicDelegate` (for WebLogic drivers)
-- `org.quartz.impl.jdbcjobstore.oracle.OracleDelegate`
-- `org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
-- `org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate` (for Oracle drivers used within Weblogic)
-- `org.quartz.impl.jdbcjobstore.CloudscapeDelegate`
-- `org.quartz.impl.jdbcjobstore.DB2v6Delegate`
-- `org.quartz.impl.jdbcjobstore.DB2v7Delegate`
-- `org.quartz.impl.jdbcjobstore.DB2v8Delegate`
-- `org.quartz.impl.jdbcjobstore.HSQLDBDelegate`
-- `org.quartz.impl.jdbcjobstore.PointbaseDelegate`
-- `org.quartz.impl.jdbcjobstore.SybaseDelegate`
+!!! Note
+	Quartz JDBC delegates:
+
+	- `org.quartz.impl.jdbcjobstore.StdJDBCDelegate` _(for fully JDBC-compliant drivers)_
+	- `org.quartz.impl.jdbcjobstore.MSSQLDelegate` _(for Microsoft SQL Server, and Sybase)_
+	- `org.quartz.impl.jdbcjobstore.PostgreSQLDelegate`
+	- `org.quartz.impl.jdbcjobstore.WebLogicDelegate` _(for WebLogic drivers)_
+	- `org.quartz.impl.jdbcjobstore.oracle.OracleDelegate`
+	- `org.quartz.impl.jdbcjobstore.oracle.WebLogicOracleDelegate` _(for Oracle drivers used within Weblogic)_
+	- `org.quartz.impl.jdbcjobstore.oracle.weblogic.WebLogicOracleDelegate` _(for Oracle drivers used within Weblogic)_
+	- `org.quartz.impl.jdbcjobstore.CloudscapeDelegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v6Delegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v7Delegate`
+	- `org.quartz.impl.jdbcjobstore.DB2v8Delegate`
+	- `org.quartz.impl.jdbcjobstore.HSQLDBDelegate`
+	- `org.quartz.impl.jdbcjobstore.PointbaseDelegate`
+	- `org.quartz.impl.jdbcjobstore.SybaseDelegate`
 
 ### Synchronizer
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_SYNCHRONIZER_IGNORE_DEPENDENCIES**   |  Whether to ignore dependencies for synchronizers, e.g. for tests purposes  | _`false`_
+**DIRIGIBLE_SYNCHRONIZER_EXCLUDE_PATHS**   |  Paths to be excluded from processing (comma separated list)  | _``_
 
 
 ### Job Expression
@@ -232,7 +276,7 @@ Parameter     | Description | Default*
 | **DIRIGIBLE_JOB_EXPRESSION_MIGRATIONS**  | Migration synchronizer job config | _`0/55 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_ODATA**  | OData synchronizer job config | _`0/45 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_PUBLISHER**  | Publisher synchronizer job config | _`0/5 * * * * ?`_ |
-| **DIRIGIBLE_JOB_EXPRESSION_SECURITY**  | Security synchronizer job config | _`0/20 * * * * ?`_ |
+| **DIRIGIBLE_JOB_EXPRESSION_SECURITY**  | Security synchronizer job config | _`0/10 * * * * ?`_ |
 | **DIRIGIBLE_JOB_EXPRESSION_REGISTRY**  | Registry synchronizer job config | _`0/35 * * * * ?`_ |
 | **DIRIGIBLE_JOB_DEFAULT_TIMEOUT**  | Default timeout in minutes | _`3`_ |
 
@@ -243,12 +287,25 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_HOME_URL**   | The home URL where the user to be redirected on access | _`/services/v4/web/ide/index.html`_
 
+### Vert.x
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_VERTX_PORT**   | The Vert.x server port, if used | _`8888`_
+
+### CSV
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_CSV_DATA_MAX_COMPARE_SIZE**   | The maximum number of CSV records for which will be performed comparison with the existing table data | _`1000`_
+**DIRIGIBLE_CSV_DATA_BATCH_SIZE** | The number of CSV records to be included in a _**batch**_ operation | _`100`_
+
 ### CMS
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance _(e.g. `internal`, `managed` or `database`)_| _`internal`_
-**DIRIGIBLE_CMS_ROLES_ENABLED** | Whether the RBAC over the CMS content to be enabled | _`false`_
+**DIRIGIBLE_CMS_ROLES_ENABLED** | Whether the RBAC over the CMS content to be enabled | _`true`_
 
 #### CMS - Internal
 
@@ -340,13 +397,22 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | _`8081` and `0.0.0.0:8081` in Docker environment_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_HOST_ACCESS** | Whether GraalVM can load classes form custom packages | _`true`_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_THREAD** | Whether GraalVM can create threads | _`true`_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_PROCESS** | Whether GraalVM can make IO operations | _`true`_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_ALLOW_IO** | Whether GraalVM can make IO operations | _`true`_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_NASHORN** | Whether GraalVM has enabled compatibility mode for Nashorn | _`true`_
-**DIRIGBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_MOZILLA** | Whether GraalVM has enabled compatibility mode for Mozilla | _`false`_
+**DIRIGIBLE_GRAALIUM_ENABLE_DEBUG** | Whether the debug mode is enabled | _`false`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT** | The GraalVM debugger port | _`8081` and `0.0.0.0:8081` in Docker environment_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_HOST_ACCESS** | Whether GraalVM can load classes form custom packages | _`true`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_THREAD** | Whether GraalVM can create threads | _`true`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_CREATE_PROCESS** | Whether GraalVM can make IO operations | _`true`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_ALLOW_IO** | Whether GraalVM can make IO operations | _`true`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_NASHORN** | Whether GraalVM has enabled compatibility mode for Nashorn | _`true`_
+**DIRIGIBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_MOZILLA** | Whether GraalVM has enabled compatibility mode for Mozilla | _`false`_
+
+#### OData
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_ODATA_HANDLER_EXECUTOR_TYPE**   | The type of the JavaScript engine to be used for event handlers in OData | 
+**DIRIGIBLE_ODATA_HANDLER_EXECUTOR_ON_EVENT**   | The location of the wrapper helper to be used for event handlers in OData | 
+
 
 ### Operations
 ---
@@ -356,6 +422,7 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_OPERATIONS_LOGS_ROOT_FOLDER_DEFAULT**   | The folder where the log files are stored in | _`../logs`_
+**DIRIGIBLE_EXEC_COMMAND_LOGGING_ENABLED** | Whether to log the executed command by the _[exec](/api/core/exec/)_ API | _`false`_
 
 ### Look & Feel
 ---
@@ -374,7 +441,29 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DESTINATIONS_PROVIDER**   | The name of the Destinations Service provider used in this instance | _`local` or `managed`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER**   | The location of the Destinations internal repository | _`target`_
 **DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
+**DIRIGIBLE_DESTINATION_CLIENT_ID**  | The Destination Service instance client id | _`-`_
+**DIRIGIBLE_DESTINATION_CLIENT_SECRET** | The Destination Service instance client secret | _`-`_
+**DIRIGIBLE_DESTINATION_URL**  | The Destination Service instance url | _`-`_
+**DIRIGIBLE_DESTINATION_URI**  | The Destination Service instance uri | _`-`_
 
 
-The source is [here](https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/README.md)
+### Connectivity
+---
 
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_CONNECTIVITY_CLIENT_ID**  | The Connectivity Service instance client id | _`-`_
+**DIRIGIBLE_CONNECTIVITY_CLIENT_SECRET** | The Connectivity Service instance client secret | _`-`_
+**DIRIGIBLE_CONNECTIVITY_URL**  | The Connectivity Service instance url | _`-`_
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HOST** | The Connectivity Service instance onpremise proxy host | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HTTP_PORT** | The Connectivity Service instance onpremise proxy http port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_LDAP_PORT** | The Connectivity Service instance onpremise proxy ldap port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_PORT** | The Connectivity Service instance onpremise proxy port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_RFC_PORT** | The Connectivity Service instance onpremise proxy rfc port | `-`
+**DIRIGIBLE_CONNECTIVITY_ONPREMISE_SOCKS5_PROXY_PORT** | The Connectivity Service instance onpremise socks5 proxy port | `-`
+
+### Terminal
+---
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_TERMINAL_ENABLED**   | Whether the `Terminal` view is enabled | _`true`_

@@ -33,6 +33,7 @@ files.deleteFile(tempFile);
 
 Function     | Description | Returns
 ------------ | ----------- | --------
+**list(path)**   | List files under this *path* | *array of string*
 **exists(path)**   | Whether a file by this *path* exists | *boolean*
 **isExecutable(path)**   | Whether the file by this *path* is executable | *boolean*
 **isReadable(path)**   | Whether the file by this *path* is readable | *boolean*
@@ -45,8 +46,10 @@ Function     | Description | Returns
 **getName(path)**   | Returns the name of the file by this *path* | *string*
 **getParentPath(path)**   | Returns the parent's path of the file by this *path* | *string*
 **readBytes(path)**   | Returns the content of the given file as byte array | *array of bytes*
+**readBytesNative(path)**   | Returns the content of the given file as array of Java bytes | *array of Java bytes*
 **readText(path)**   | Returns the content of the given file as string | *string*
 **writeBytes(path, bytes)**   | Writes the given byte array content to the file | -
+**writeBytesNative(path, bytes)**   | Writes the given array of Java bytes content to the file | -
 **writeText(path, text)**   | Writes the given text content to the file | -
 **getLastModified(path)**   | Returns the last modification date of the file by this *path* | *Date*
 **setLastModified(path, date)**   | Sets the last modification date of the file by this *path* | -

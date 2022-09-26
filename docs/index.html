@@ -1,172 +1,1152 @@
----
-layout: default-home
----
+<!-- Custom HTML site displayed as the Home chapter -->
 
-    <div class="container">
-        <div class="row">
-	        <div class="col-lg-4 heading-lead page-scroll">
-				<br>
-                <div class="clearfix"></div>
-	            <h2><i class="fa fa-question-circle fa-fw"></i>
-                What is Dirigible?</h2>
-	            <p>Eclipse Dirigible<sup>&trade;</sup> is a High-Productivity Application Platform that provides development tools and a runtime environment. It supports the full development lifecycle of applications by leveraging an in-system programming model and rapid application development techniques.</p>
-	            <a class="btn btn-default" href="{{ site.url }}/project.html">Overview</a>
-	        </div>
-	        <div class="col-lg-4 heading-lead">
-				<br>
-                <div class="clearfix"></div>
-	            <h2><i class="fa fa fa-search fa-fw"></i>
-                What can I do?</h2>
-	            <p>Eclipse Dirigible provides capabilities for end-to-end development process from database modeling and management, through RESTful services authoring using various dynamic languages, to pattern-based user interface generation, role-based security, external services integration, testing, debugging, operations, and monitoring.</p>
-	            <a class="btn btn-default" href="{{ site.url }}/features.html">Features</a>
-	        </div>
-	        <div class="col-lg-4 heading-lead">
-				<br>
-                <div class="clearfix"></div>
-	        	<h2><i class="fa fa-github fa-fw"></i>
-                Is it free?</h2>
-	            <p>YES<br/>All the Eclipse Dirigible project's source code and sample applications are licensed under
-	            <a href='https://www.eclipse.org/legal/epl-v20.html' target='_blank'>Eclipse Public License - v 2.0</a>
-	            and maintained at <a href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>.</p>
-	            <a class="btn btn-default" href="https://github.com/eclipse/dirigible" target="_blank">GitHub</a>
-	        </div>
-	    </div>
-	    <div class="row">
-	        <div class="col-lg-4 heading-lead page-scroll">
-				<hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-	            <h2><i class="fa fa-graduation-cap fa-fw"></i>
-                For Education</h2>
-	            <p>You can develop student projects, test different technologies and scenarios, learn popular programming languages.</p>
-	            <!-- <a class="btn btn-default" href="help/develop_web_ide.html">WebIDE</a> -->
-	        </div>
-	        <div class="col-lg-4 heading-lead">
-				<hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-	            <h2><i class="fa fa-file-text-o fa-fw"></i>
-                For Developers</h2>
-	            <p>Eclipse Dirigible provides everything you need for your development project:</p>
-	            <ul>
-	            	<li>Application server</li>
-	            	<li>Content repository</li>
-	            	<li>Web IDE</li>
-	            	<li>Variety of features</li>
-	            </ul>
-	            <a class="btn btn-default" href="{{ site.url }}/for_developers.html">Developers Space</a>
-	        </div>
-	        <div class="col-lg-4 heading-lead">
-				<hr class="section-heading-spacer">
-                <div class="clearfix"></div>
-	        <h2><i class="fa fa-line-chart fa-fw"></i>
-                For Business</h2>
-	            <p>You can easily develop, document, and monitor your business applications, taking full advantage of the diverse selection of features and services offered by Eclipse Dirigible.</p>
-	            <!-- <a class="btn btn-default" href="help/architecture.html" target="_blank">Architecture</a> -->
-	        </div>
-	    </div>
-    </div>
-    <br/>
-    <div class="content-section-a" id="news">
-        <div class="container">
-            <div class="row" align="center">
-            	<h2>Video Tutorials</h2>
-            	<br>
-            	<!-- <video width="800" height="600" controls>
-				  <source src="/img/hello-world.mp4" type="video/mp4">
-				</video> -->
-				<img width="750" alt="Hello World" src="{{ site.url }}/img/hello-world-480px.gif">
-				
-            	<!-- 
-	            <iframe width="400" height="225" src="https://www.youtube.com/embed/Q1SxBr155zk" frameborder="0" allowfullscreen></iframe>
-				<iframe width="400" height="225" src="https://www.youtube.com/embed/GwzxjBAhy_4" frameborder="0" allowfullscreen></iframe>
-				<br>
-				<iframe width="400" height="225" src="https://www.youtube.com/embed/C6hSoYUT2oM" frameborder="0" allowfullscreen></iframe>
-				<iframe width="400" height="225" src="https://www.youtube.com/embed/D6XEs5Zlav4" frameborder="0" allowfullscreen></iframe>
-				 -->
-				<br><br>
-				<a href="https://www.youtube.com/channel/UCYnsiVQ0M9iQLqP5DXCLMBA/videos">More Videos</a>
-			</div>
-        </div>
-        <!-- /.container -->
-    </div>
-    <div class="content-section-b" id="blogs">
-        <div class="container">
-            <div class="row">
-	            <div class="col-sm-8">
-	                <h2>Blog it out!</h2>
-	                <div>
-						{% for post in site.tags.blogs limit:10 %}
-						 {% include blog-brief.html %}
-						{% endfor %}
 
-					</div>
-					<br>
-					<a class="btn btn-default" href="{{ site.url }}/blogs.html" target="_blank">All Posts ...</a>
-	            </div>
-	            <div class="col-sm-4">
-	                <h2>News and Updates</h2>
-	                <div>
-						{% for post in site.tags.news limit:6 %}
-							{% if post.categories contains 'news' %}
-									<p class="post-item">
-										{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-									</p>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<br>
-					<a class="btn btn-default" href="{{ site.url }}/news.html" target="_blank">All News ...</a>
-	            </div>
-	            <div class="col-sm-4">
-	                <h2>Releases</h2>
-	                <div>
-						{% for post in site.tags.release limit:6 %}
-							{% if post.categories contains 'release' %}
-								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-								</p>
-							{% endif %}
-						{% endfor %}
-					</div>
-					<br>
-					<a class="btn btn-default" href="{{ site.url }}/releases.html" target="_blank">All Releases ...</a> <a class="btn btn-primary" href="http://download.dirigible.io" target="_blank">Downloads</a>
-	            </div>
-	            <div class="col-sm-4">
-	            	<h2>Tweets</h2>
-	            	<div style="overflow: hidden; max-height: 500px">
-		            	<div id="tweets" style="overflow-y: scroll; height: 1500px">
-		            	</div>
-	            	</div>
-	            	<script>
-	            		if (document.cookie.indexOf('cookieControl') > -1) {
-	            			var script = document.createElement('script');
-	            		    script.src = "//platform.twitter.com/widgets.js";
-	            		    script.type = 'text/javascript';
-	            		    script['async']="true";
-	            		    script.charset="utf-8";
-	            		    document.getElementById("tweets").appendChild(script);
-	            		    script.onload = function () {
-	            		    	twttr.widgets.createTimeline(
-	            		    			  {
-	            		    			    sourceType: "profile",
-	            		    			    screenName: "dirigible_io",
-	            		    			    tweetLimit: 3
-	            		    			  },
-	            		    			  document.getElementById("tweets")
-	            		    			);
-	            		    };
-	            		} else {
-	            			var p = document.createElement('p');
-	            			p.innerHTML="Please, accept the Cookies & Privacy Policy below to be able to load the Twitter widget.";
-	            			document.getElementById("tweets").appendChild(p);
-	            		}
-	            	</script>
-	            	
-	            	
-	            	<!--
-		            <a class="twitter-timeline" href="https://twitter.com/dirigible_io" data-tweet-limit="3" data-dnt="true">Tweets by dirigible_io</a>
-		            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-		             -->
-          		</div>
-	        </div>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>Home - Eclipse Dirigible</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="stylesheets/homepage.css">
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible" class="md-header__button md-logo" aria-label="Eclipse Dirigible" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="." class="md-tabs__link md-tabs__link--active">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/help/" class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/api/" class="md-tabs__link">
+      API
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/samples/" class="md-tabs__link">
+      Samples
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/blogs/" class="md-tabs__link">
+      Blogs
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/news/" class="md-tabs__link">
+      News
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/releases/" class="md-tabs__link">
+      Releases
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="https://downloads.dirigible.io" class="md-tabs__link">
+      Downloads
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+
+        
+      
+<style>
+
+    .md-main {
+        flex-grow: 0
+    }
+
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .tx-container {
+        padding-top: .0rem;
+        background: conic-gradient(from 225deg at 60% 50%, rgb(255, 255, 255), rgba(0, 0, 0, 0.1
+        ), #fecc04, rgb(206, 206, 206, 0.15));
+    }
+
+    .tx-container-2 {
+        padding-top: .0rem;
+        background: linear-gradient(0deg, transparent, #facf20, transparent);
+    }
+
+    .tx-hero {
+        margin: 32px 2.8rem;
+        justify-content: center;
+    }
+
+    .tx-hero h1 {
+        margin-bottom: 1rem;
+        font-weight: 700
+    }
+
+    .tx-hero__content {
+        padding-bottom: 1rem;
+        margin: 0 auto;
+    }
+
+    .tx-hero__image{
+        width:24rem;
+        height:24rem;
+        order:1;
+        padding-right: 2.5rem;
+    }
+
+    .tx-hero__image-features {
+        width: 32rem;
+        height: 18rem;
+    }
+
+    .tx-hero .md-button {
+        margin-top: .5rem;
+        margin-right: .5rem;
+    }
+
+    .feature-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        transform: translateY(10%);
+    }
+
+    .top-hr {
+        margin-top: 42px;
+    }
+
+    .feature-item {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .feature-item h2 {
+        font-weight: 300;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .feature-item p {
+        font-size: 16px;
+        line-height: 1.8em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        margin: 0 0 10px;
+        display: block;
+    }
+
+    @media screen and (max-width:30em) {
+        .tx-hero h1 {
+            font-size: 1.4rem
+        }
+    }
+
+    @media screen and (min-width:60em) {
+        .md-sidebar--secondary {
+            display: none
+        }
+
+        .tx-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tx-hero__content {
+            max-width: 22rem;
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+            margin-left: 1.0rem;
+            margin-right: 4.0rem;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:76.25em) {
+        .md-sidebar--primary {
+            display: none
+        }
+
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-item:hover {
+            border-radius: 3px;
+        }
+    }
+
+    .hr {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .text-center {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15px;
+        font-family: 'Lato', sans-serif;
+        font-size: 23px;
+        font-weight: 300;
+        padding-bottom: 10px;
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer-meta__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.0rem;
+    }
+
+    .md-footer-social {
+        padding-top: 20px;
+    }
+
+    .md-button {
+        background-color: #fff;
+        color: #333;
+        border-color: #ccc;
+    }
+
+    .md-button:hover {
+        background-color: #ebebeb;
+        color: #333;
+        border-color: #adadad;
+    }
+
+    .tx-hero .md-button {
+        background-color: #fff;
+        color: #333;
+        border-color: #ccc;
+    }
+
+    .tx-hero .md-button:hover {
+        background-color: #ebebeb;
+        color: #333;
+        border-color: #adadad;
+    }
+
+    .md-typeset .md-button--primary {
+        background-color: #313131;
+        color: #f7fafd;
+        border-color: #313131;
+    }
+
+    .md-typeset .md-button--primary:hover {
+        background-color: #414141;
+        color: #fff;
+        border-color: #515151;
+    }
+
+    .post-link {
+        color: #2c7bb9
+    }
+
+    #gdpr-cookie-message {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        max-width: 375px;
+        background-color: #313131;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 6px 6px rgba(0,0,0,0.25);
+        margin-left: 30px;
+        font-family: system-ui;
+    }
+    #gdpr-cookie-message h4 {
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    #gdpr-cookie-message p {
+        color: white;
+        font-size: 15px;
+        line-height: 1.5em;
+    }
+    #gdpr-cookie-message p:last-child {
+        margin-bottom: 0;
+        text-align: right;
+    }
+    #gdpr-cookie-message a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        padding-bottom: 2px;
+        border-bottom: 1px dotted rgba(255,255,255,0.75);
+        transition: all 0.3s ease-in;
+    }
+    #gdpr-cookie-message a:hover {
+        color: white;
+        border-bottom-color: var(--red);
+        transition: all 0.3s ease-in;
+    }
+    #gdpr-cookie-message button {
+        border: none;
+        background: #357ebd;
+        color: white;
+        font-family: 'Quicksand', sans-serif;
+        font-size: 15px;
+        padding: 7px;
+        border-radius: 3px;
+        margin-left: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+    }
+    #gdpr-cookie-message button:hover {
+        background: #559edd;
+        color: white;
+        transition: all 0.3s ease-in;
+    }
+
+    .tx-hero__image-shadow {
+        box-shadow: 3px 3px 15px 0px;
+    }
+
+    .md-code-snippets {
+        margin: auto;
+        width: 50rem;
+    }
+
+    .blog-post-title {
+        display: -webkit-box !important;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .blog-post-content {
+        display: -webkit-box !important;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+</style>
+
+<!-- Main site Entry button descriptions -->
+<section class="tx-container">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero">
+        <div class="tx-hero__image">
+          <img src="/img/home.png" draggable="false">
+        </div>
+        <div class="tx-hero__content">
+          <h1>Eclipse Dirigible</h1>
+          <h5>Enjoy Programming Like Never Before</h5>
+          <p>The low-code platform for end-to-end rapid development of business applications</p>
+          <a href="/help/development/" title="Get started" class="md-button">Get started</a>
+          <a href="https://trial.apps.dirigible.io" title="Try it out" class="md-button md-button--primary">Try it out</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>What is Dirigible?</h2>
+        <p>Eclipse Dirigible™ is a High-Productivity Application Platform that provides development tools and a runtime environment. It supports the full development lifecycle of applications by leveraging an in-system programming model and rapid application development techniques.</p>
+    </div>
+    <div class="feature-item">
+        <h2>What can I do?</h2>
+        <p>Eclipse Dirigible provides capabilities for end-to-end development process from database modeling and management, through RESTful services authoring using various dynamic languages, to pattern-based user interface generation, role-based security, external services integration, testing, debugging, operations, and monitoring.</p>
+    </div>
+    <div class="feature-item">
+        <h2>Is it free?</h2>
+        <p>YES<br>All the Eclipse Dirigible project's source code and sample applications are licensed under <a class="post-link" href="https://www.eclipse.org/legal/epl-v20.html">Eclipse Public License - v 2.0</a> and maintained at <a class="post-link" href="https://github.com/eclipse/dirigible">GitHub</a>.</p>
+    </div>
+</div>
+
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>For Education</h2>
+        <p>You can develop student projects, test different technologies and scenarios, learn popular programming languages.</p>
+    </div>
+    <div class="feature-item">
+        <h2>For Developers</h2>
+        <p>Eclipse Dirigible provides everything you need for your development project:
+            <ul>
+                <li><p>Application server</p></li>
+                <li><p>Content repository</p></li>
+                <li><p>Web IDE</p></li>
+                <li><p>Variety of features</p></li>
+            </ul>
+        </p>
+    </div>
+    <div class="feature-item">
+        <h2>For Business</h2>
+        <p>You can easily develop, document, and monitor your business applications, taking full advantage of the diverse selection of features and services offered by Eclipse Dirigible.</p>
+    </div>
+</div>
+
+<!-- Don't format, as this leads to wrong indentation in the code snippets -->
+<article class="md-content__inner md-typeset md-code-snippets">
+    
+    <div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><label for="__tabbed_2_1">Hello World</label><div class="tabbed-content">
+<div class="highlight"><pre id="__code_2"><span></span><button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_2 > code"></button><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"http/v4/response"</span><span class="p">);</span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio"><label for="__tabbed_2_2">Database Query</label><div class="tabbed-content">
+<div class="highlight"><pre id="__code_3"><span></span><button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_3 > code"></button><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"http/v4/response"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">query</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"db/v4/query"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">resultset</span> <span class="o">=</span> <span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span> <span class="p">[</span><span class="s2">"ide-view"</span><span class="p">]);</span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">"application/json"</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mf">2</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio"><label for="__tabbed_2_3">HTTP Client</label><div class="tabbed-content">
+<div class="highlight"><pre id="__code_4"><span></span><button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_4 > code"></button><code><span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"http/v4/response"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">httpClient</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"http/v4/client"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">httpResponse</span> <span class="o">=</span> <span class="nx">httpClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"https://services.odata.org/V4/Northwind/Northwind.svc/"</span><span class="p">);</span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">statusMessage</span><span class="p">);</span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">httpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</code></pre></div>
+</div>
+</div>
+
+</article>
+<!-- Don't format, as this leads to wrong indentation in the code snippets -->
+
+<section class="tx-container-2">
+    <div class="md-grid md-typeset">
+        <div class="tx-hero">
+          <div class="tx-hero__image tx-hero__image-features">
+            <img src="/img/home-in-system-development.png" class="tx-hero__image-shadow" draggable="false">
+          </div>
+          <div class="tx-hero__content">
+            <h1>In-System Development</h1>
+            <p>
+                Enjoy the quickest development turnaround time in the low-code world. All thanks to the in-system development model and the benefits of cloud environment. 
+                Compile and deploy for free via our <a href="/help/development/ide/">Web IDE</a>. Use our server-side JavaScript <a href="/api/">APIs</a> to develop and extend applications. 
+                Benefit from simple artifact definitions for <a href="/help/development/artifacts/database-table/">Database Tables</a>, <a href="https://github.com/dirigiblelabs/sample-odata" target="_blank">OData APIs</a>, <a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access" target="_blank">Access Constraints</a>, and more.
+            </p>
+          </div>
+        </div>
+        <div class="tx-hero">
+            <div class="tx-hero__image tx-hero__image-features">
+                <img src="/img/home-entity-domain-modeling.png" class="tx-hero__image-shadow" draggable="false">
+            </div>
+            <div class="tx-hero__content">
+                <h1>Entity Domain Modeling</h1>
+                <p>
+                    Boost your productivity with our <a href="/help/development/ide/modelers/entity-data/">Modeler</a> for application domain entities. Our low-code tools for developers allow you to generate applications from models. 
+                    The modeler offers transparency and access to generated artifacts.
+                </p>
+            </div>
+        </div>
+        <div class="tx-hero">
+            <div class="tx-hero__image tx-hero__image-features">
+                <img src="/img/home-business-process-modeling.png" class="tx-hero__image-shadow" draggable="false">
+            </div>
+            <div class="tx-hero__content">
+                <h1>Business Process Modeling</h1>
+                <p>
+                    Design your business processes with our <a href="/help/development/ide/modelers/bpmn/">Modeler</a> based on <a href="https://flowable.com/open-source/" target="_blank">Flowable</a>.
+                    Implement process task handlers with server-side JavaScript.
+                </p>
+            </div>
         </div>
     </div>
+</section>
+
+
+<div class="top-hr" ng-controller="BlogsController">
+    <div ng-repeat="next in blogs" class="feature-item">
+        <a href="[{ next.location }]">
+            <h3>[{ next.date }]</h3>
+            <h1 class="blog-post-title">[{ next.title }]</h1>
+            <p class="blog-post-content">[{ next.description }]</p>
+        </a>
+    </div>
+</div>
+
+<div class="top-hr">
+    <div class="feature-item" ng-controller="ReleasesController" >
+        <h2>Releases</h2>
+        <div>
+            <ul>
+                <li ng-repeat="next in releases"><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
+            </ul>
+        </div>
+        <br>
+        <a class="md-button" href="/releases/"><p>All Releases ...</p></a>
+    </div>
+
+    <div class="feature-item" ng-controller="NewsController">
+        <h2>News and Updates</h2>
+        <div>
+            <ul ng-repeat="next in news">
+                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
+            </ul>
+        </div>
+        <br>
+        <a class="md-button" href="/news/"><p>All News ...</p></a>
+    </div>
+
+    <div class="feature-item">
+        <h2>Tweets</h2>
+        <div style="overflow: hidden; max-height: 500px">
+            <div id="tweets" style="overflow-y: scroll; height: 1500px">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/gdpr/jquery.ihavecookies.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('body').ihavecookies({
+        title: 'Accept Cookies & Privacy Policy?',
+        message: 'This website uses cookies to ensure you get the best experience on our website',
+        delay: 2000,
+        expires: 30,
+        link: '//www.eclipse.org/legal/privacy.php',
+        onAccept: function(){
+            location.reload();
+        },
+        uncheckBoxes: true
+    });
+});
+</script>
+
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript">
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['homePage']);
+    });
+
+    angular.module('homePage', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('[{');
+            $interpolateProvider.endSymbol('}]');
+        })
+        .controller('BlogsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/blogs.json")
+                    .then(function (response) {
+                        $scope.blogs = response.data;
+                        $scope.blogs.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/"));
+                            e.location = "/blogs/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
+                        });
+                        $scope.blogs = $scope.blogs.reverse();
+                    });
+            }
+            loadData();
+        })
+        .controller('ReleasesController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/releases.json")
+                    .then(function (response) {
+                        $scope.releases = response.data;
+                        $scope.releases.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/releases/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
+                        });
+                        $scope.releases.reverse();
+                    });
+            }
+            loadData();
+        })
+        .controller('NewsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/news.json")
+                    .then(function (response) {
+                        $scope.news = response.data;
+                        $scope.news.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/news/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
+                        });
+                        $scope.news.reverse();
+                    });
+            }
+            loadData();
+        });
+</script>
+
+
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible" class="md-nav__button md-logo" aria-label="Eclipse Dirigible" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        Home
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/help/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/samples/" class="md-nav__link">
+        Samples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/blogs/" class="md-nav__link">
+        Blogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/news/" class="md-nav__link">
+        News
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/releases/" class="md-nav__link">
+        Releases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://downloads.dirigible.io" class="md-nav__link">
+        Downloads
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/discussions">Join the Discussion</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						<div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://slack.dirigible.io" target="_blank" rel="noopener" title="slack.dirigible.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
+  
+</div>
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+        <script src="stylesheets/extra.js"></script>
+      
+    
+  </body>
+</html>

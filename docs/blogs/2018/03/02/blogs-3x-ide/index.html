@@ -1,0 +1,2348 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Georgi Pavlov">
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2018/03/02/blogs-3x-ide/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+    
+    
+      
+        <title>Dirigible Cloud IDE - Eclipse Dirigible Blogs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/homepage.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meet-and-greet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-header__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible Blogs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dirigible Cloud IDE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Blogs
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2022/09/12/sendgrid-smtp-relay-setup/" class="md-tabs__link">
+        2022
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2021/11/2/material-blogging-capabilities/" class="md-tabs__link">
+        2021
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-tabs__link">
+        2020
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-tabs__link">
+        2019
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../12/05/you-dont-need-abs-to-model-apps/" class="md-tabs__link md-tabs__link--active">
+        2018
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-tabs__link">
+        2017
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-tabs__link">
+        2016
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-tabs__link">
+        2015
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-tabs__link">
+        2014
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Blogs" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Blogs" data-md-component="logo">
+      
+  <img src="/img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible Blogs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Blogs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          2022
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2022" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          2022
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2022/09/12/sendgrid-smtp-relay-setup/" class="md-nav__link">
+        Connecting Eclipse Dirigible with SendGrid SMTP Relay
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak/" class="md-nav__link">
+        Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Lets Encrypt, PostgreSQL and Keycloak
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2022/01/14/dirigible-vscode-theia-custom-editors/" class="md-nav__link">
+        Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          2021
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2021" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2021
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/11/2/material-blogging-capabilities/" class="md-nav__link">
+        Enable Blogging Capabilities with Material for MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/11/1/dirigible-runs-material/" class="md-nav__link">
+        Dirigible now runs Material for MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/10/14/kubernetes-aws-gardener-istio-letsencrypt-dirigible/" class="md-nav__link">
+        Custom Domain in Kubernetes with AWS Route 53, Gardener, Istio & Let's encrypt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2021/10/11/low-code-mobile-apps-with-dirigible-and-ns/" class="md-nav__link">
+        Low-code mobile apps with Dirigible and NativeScript
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/12/16/2020-what-a-year-for-eclipse-dirigible/" class="md-nav__link">
+        2020 - What a year for Eclipse Dirigible!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/24/eclipse-dirigible-sap-identity-and-authentication-service-integration-on-the-sap-cloud-platform/" class="md-nav__link">
+        Eclipse Dirigible – SAP Identity and Authentication Service Integration on the SAP Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/20/how-to-deploy-eclipse-dirigible-private-docker-image-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible private Docker image in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/11/19/eclipse-dirigible-building-application-docker-image/" class="md-nav__link">
+        Eclipse Dirigible – Building a Docker Image for Your Application
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/10/23/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Kyma environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/06/29/celebrating-5-years-in-open-source/" class="md-nav__link">
+        Eclipse Dirigible 5.0 - celebrating 5 years in open source with 5 killer features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/05/07/what-is-eclipse-dirigible/" class="md-nav__link">
+        What is Eclipse Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Neo environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/15/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-cloud-foundry-environment/" class="md-nav__link">
+        How to deploy Eclipse Dirigible in the SAP Cloud Platform Cloud Foundry environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/02/05/sending-emails-with-the-eclipse-dirigible-mail-api/" class="md-nav__link">
+        Sending E-Mails with the Eclipse Dirigible Mail API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2020/01/20/managing-documents-with-eclipse-dirigible-in-the-sap-cloud-platform-neo-environment/" class="md-nav__link">
+        Managing Documents with Eclipse Dirigible in the SAP Cloud Platform Neo Environment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          2019
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2019" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          2019
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/" class="md-nav__link">
+        How Does Eclipse Dirigible Contribute to Eclipse Che 7?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          2018
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2018" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          2018
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../12/05/you-dont-need-abs-to-model-apps/" class="md-nav__link">
+        You Dont Need Abs to Model Apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/24/blogs-node-in-dirigible/" class="md-nav__link">
+        Node.js in Dirigible?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/13/blogs-dirigible-landed-in-faculty-of-mathematics-and-informatics/" class="md-nav__link">
+        Dirigible Landed in the Faculty of Mathematics and Informatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/12/blogs-dirigible-ide-on-che-workspaces/" class="md-nav__link">
+        Running Dirigible on Che Workspaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/09/dirigible-extend-embed-reuse/" class="md-nav__link">
+        Dirigible - Extend, Embed, Reuse
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../11/08/blogs-make-low-code-great-again/" class="md-nav__link">
+        Make Low-Code/No-Code Platforms Great Again!
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06/25/kubernetes-keycloak-postgresql-dirigible/" class="md-nav__link">
+        Kubernetes, Keycloak, PostgreSQL & Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Dirigible Cloud IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Dirigible Cloud IDE
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#meet-and-greet" class="md-nav__link">
+    Meet and greet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-blocks" class="md-nav__link">
+    Building blocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-the-box" class="md-nav__link">
+    What's in the box
+  </a>
+  
+    <nav class="md-nav" aria-label="What's in the box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workbench" class="md-nav__link">
+    Workbench
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    Terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editors" class="md-nav__link">
+    Editors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-ui-framework" class="md-nav__link">
+    Core UI framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Core UI framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-hub" class="md-nav__link">
+    Message Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layouts" class="md-nav__link">
+    Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolbar" class="md-nav__link">
+    Toolbar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    Sidebar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statusbar" class="md-nav__link">
+    Statusbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility-and-dynamic-compositions" class="md-nav__link">
+    Extensibility and Dynamic Compositions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enjoy" class="md-nav__link">
+    Enjoy!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02/22/blogs-eclipse-dirigible/" class="md-nav__link">
+        Eclipse Dirigible - Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02/02/blogs-3x-a-new-era-began/" class="md-nav__link">
+        3.x Series - A new era has begun!
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          2017
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2017" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          2017
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-nav__link">
+        Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine/" class="md-nav__link">
+        Testing Server-Side JavaScript with Jasmine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-testfwks/" class="md-nav__link">
+        Integration of Third-Party JavaScript Libraries in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          2016
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2016" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          2016
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+        Document Service Explorer at SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/09/12/the-java-saurus/" class="md-nav__link">
+        The Java-saurus
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure - Part II?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/17/sap-summer-practice/" class="md-nav__link">
+        Summer Practice in SAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+        How to Run Dirigible Anywhere - Microsoft Azure?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/08/01/blogs-why-enterprise-js/" class="md-nav__link">
+        Why Enterprise JavaScript?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+        WebSockets and Equinox OSGi in a Servlet Container
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/02/26/blogs-understanding-dirigible/" class="md-nav__link">
+        Understanding Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+        Develop from Mobile for Mobile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/21/blogs-repositories/" class="md-nav__link">
+        Developer - Repositories, repositories, repositories...
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+        BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          2015
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2015" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          2015
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/21/blogs-groovy-is-back/" class="md-nav__link">
+        Developer - Groovy is back
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/17/blogs-how-to-install-dirigible-on-sap-hana-cloud-platform/" class="md-nav__link">
+        Tutorial - How to install Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/12/10/blogs-dirigible-remote-debugging/" class="md-nav__link">
+        Developer - Remote debugging Dirigible source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-orion-editor/" class="md-nav__link">
+        How the Orion editor is integrated in Dirigible
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/28/blogs-dirigible-branding/" class="md-nav__link">
+        Tutorial - How to re-brand Dirigible workbench
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/10/21/blogs-dirigible-impl-sql-plugin/" class="md-nav__link">
+        Tutorial - How to implement a plugin for SQL language support
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2015/09/24/blogs-dirigible-tools-for-vertical-scenarios/" class="md-nav__link">
+        Dirigible - Toolkit for Vertical Scenarios
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          2014
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="2014" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          2014
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/22/blogs-dirigible-java-runtime/" class="md-nav__link">
+        Dirigible enables dynamic in-memory Java runtime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/10/15/blogs-dirigible-terminal-services/" class="md-nav__link">
+        Dirigible - Terminal Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/19/blogs-dirigible-to-replicate-or-not-to-replicate/" class="md-nav__link">
+        Dirigible - To Replicate or Not To Replicate
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/08/04/blogs-dirigible-fast-track-to-hcp/" class="md-nav__link">
+        Dirigible is the fast track to your HCP HANA DB instance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/06/11/blogs-dirigible-extensions-configs/" class="md-nav__link">
+        Dirigible - Extensions vs Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/24/blogs-dirigible-on-sap-hana/" class="md-nav__link">
+        Dirigible on SAP HANA Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../2014/03/21/blogs-start-of-journey/" class="md-nav__link">
+        Start of Journey
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#meet-and-greet" class="md-nav__link">
+    Meet and greet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-blocks" class="md-nav__link">
+    Building blocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-the-box" class="md-nav__link">
+    What's in the box
+  </a>
+  
+    <nav class="md-nav" aria-label="What's in the box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workbench" class="md-nav__link">
+    Workbench
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    Repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal" class="md-nav__link">
+    Terminal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editors" class="md-nav__link">
+    Editors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-ui-framework" class="md-nav__link">
+    Core UI framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Core UI framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-hub" class="md-nav__link">
+    Message Hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layouts" class="md-nav__link">
+    Layouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolbar" class="md-nav__link">
+    Toolbar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sidebar" class="md-nav__link">
+    Sidebar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#statusbar" class="md-nav__link">
+    Statusbar
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensibility-and-dynamic-compositions" class="md-nav__link">
+    Extensibility and Dynamic Compositions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enjoy" class="md-nav__link">
+    Enjoy!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+        <!-- Edit button -->
+        
+          <a
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2018/03/02/blogs-3x-ide.md"
+            title="Edit this page"
+            class="md-content__button md-icon"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+          </a>
+        
+
+        <!--
+          Hack: check whether the content contains a h1 headline. If it
+          doesn't, the page title (or respectively site name) is used
+          as the main headline.
+        -->
+        
+          <h1>Dirigible Cloud IDE</h1>
+        
+
+        <!-- Markdown content -->
+        
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/shturec" alt="@shturec">
+            </p>
+            <p>
+            <span> 
+            <b>Georgi Pavlov</b> · <a href="https://github.com/shturec">@shturec</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> March 2, 2018 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 12 min read
+            </span>
+            </p>
+        </aside>
+        
+
+        <p>Dirigible is a cloud runtime platform that comes with a neat, all-in-one, frustration-free package of devops productivity tools, including a brand new cloud IDE for in-system application development. This blog is a <em>getting-to-know</em> the new cloud IDE. </p>
+<h3 id="meet-and-greet">Meet and greet</h3>
+<p>A picture's worth a thousand words they say...  </p>
+<p><img src="/img/posts/20180306/ide-01.png" width="70%" title="Dirigible Cloud IDE"/></p>
+<p>We took our years-long experience in building high-productivity web-based IDE and used it to create <strong>a completely new cloud IDE from ground up</strong>, using exclusively lean, <em>web-native</em> UI technologies (vanilla JS, <a href="https://jquery.com/">JQuery</a>, <a href="https://angularjs.org/">AngularJS</a>, <a href="https://getbootstrap.com">Twitter Bootstrap</a>) backed by lightweight services. </p>
+<p>The new design follows the latest trends in the segment, enriched with some unique flavors, such as interactive work plot personalization (a.k.a. as <em>perspective</em> in Eclipse) to provide a real-world, high-productivity finishing.</p>
+<p>Our primary design goals (in short) were to deliver 
+-   functionally rich, desktop-like experience (performant, reliable)
+-   highly configurable and interactively composable working area
+-   highly extensible and customizable core
+-   leveraging popular in the community, web-native technologies and frameworks</p>
+<h3 id="building-blocks">Building blocks</h3>
+<p>From end user perspective, the IDE is composition of <strong>perspectives</strong>, each consisting of the necessary <strong>tools</strong> to accomplish certain goal. There are three areas with fixed positions:
+- top-area toolbar for the <strong>menus</strong>, <strong>theme</strong> selection and <strong>user</strong> control;
+- <strong>sidebar</strong> to the left, with shortcuts e.g. to the perspectives;
+- <strong>statusbar</strong> at the bottom, for notifications and other use by the tools.  </p>
+<p>The tools that constitute perspectives are laid out in different (predefined) regions of the work plot, but their position is not fixed and can be changed by dragging it to a new one. The perspectives are simply predefined configurations and end users are free to <em>open</em>, <em>move</em> or <em>close</em> tools on the work plot of a perspective as they see fit. The tools can also be <em>maximized</em> or <em>minimized</em>, even <em>popped out</em> in own window. The tools are the <em>minimal atomic parts</em> in the IDE. They are referred to as <strong>views</strong> or <strong>editors</strong> and each type is handled differently.</p>
+<p><img src="/img/posts/20180306/ide-01_1.png" width="70%" title="Dirigible Cloud IDE - Moving a view"/></p>
+<h3 id="whats-in-the-box">What's in the box</h3>
+<p>The IDE package contains the <strong>Workbench</strong>, <strong>Git</strong>, <strong>Database</strong>, <strong>Repository</strong> and <strong>Terminal</strong> perspectives. The list is neither limited, nor fixed.</p>
+<h4 id="workbench">Workbench</h4>
+<p>The <em>Workbench</em> perspective comprises <em>Workspace</em>, <em>Import</em>, <em>Properties</em>, <em>Console</em> and <em>Preview</em> views, plus the editors registered for each file type. In a word, the minimal toolset for file management, preview and editing operations. A very handy feature is also the template-based project and artifacts scaffolding generators.</p>
+<blockquote>
+<p>New in 3.x <br />
+  - <strong>Multiple workspaces per user</strong>. User now can create multiple workspaces and use the Workspace view to manage and switch between them. 
+  - <strong>Non-normative project file structure</strong>. The projects file organization is now non-normative and entirely up-to your preferences.
+  - <strong>Multiple editors</strong>. The IDE now supports multiple editors registered for different file (MIME) types. More than one editor can be registered for one file type and in this case a "<em>Open with...</em>" context menu entry is rendered for the user to select, which one to use.</p>
+</blockquote>
+<h4 id="git">Git</h4>
+<p><img src="/img/posts/20180306/ide-02.png" width="40%" title="Dirigible Cloud IDE - Git"/></p>
+<p>Git perspective is built from tools supporting Git client operations. It doesn't aim to be what EGit is to Eclipse, but rather to present a simplified interface for the most common operations, such as cloning a repository to a workspace, pulling changes, and pushing commits. For more sophisticated command-line interaction see Terminal</p>
+<h4 id="database">Database</h4>
+<p><img src="/img/posts/20180306/ide-03.png" width="50%" title="Dirigible Cloud IDE - Database"/></p>
+<p>The Database perspective is essential for full stack developers. It features a database explorer, a console to execute SQL statements and preview results in table format.</p>
+<h4 id="repository">Repository</h4>
+<p>The Repository perspective offers explorer for the repository of the Dirigible instance where the IDE is running, and import/export snapshots.</p>
+<h4 id="terminal">Terminal</h4>
+<p><img alt="Dirigible Cloud IDE - Terminal" src="/img/posts/20180306/ide-04.png" /></p>
+<p>The key view in the perspective is a terminal that emulates console client connected to the environment of the Dirigible IDE that can execute commands.</p>
+<h4 id="editors">Editors</h4>
+<p>The editors that have been integrated are <a href="https://orionhub.org/mixloginstatic/landing.html">Orion</a> and <a href="https://ace.c9.io/">Ace</a>. More sophisticated and also visual editors are in the pipeline.</p>
+<h3 id="core-ui-framework">Core UI framework</h3>
+<p>The Core UI framework is an Angular module (<strong>ideUiCore</strong>) that exposes a number of key components, building the backbone of perspectives and tools in the cloud IDE. Many of these can be further customized and some are part of larger compositions (e.g. the Angular directives for menu, sidebar or statusbar). The design encourages customizations if you are up to some tricky scenario or just rolling out a whole new fully functional perspective with a just a couple lines of code. </p>
+<p>To give you the idea how literally true is that, here is a clue:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;workbench&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;WorkbenchController as wb&quot;</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">menu</span> <span class="na">menu-data-url</span><span class="o">=</span><span class="s">&quot;../../js/ide/services/menu.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;shell&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sidebar list-group&quot;</span> <span class="na">sidebar</span> <span class="na">active</span><span class="o">=</span><span class="s">&quot;Workbench&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;workbench&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;plane&quot;</span> <span class="na">views-layout</span> <span class="na">views-layout-model</span><span class="o">=</span><span class="s">&quot;wb.layoutModel&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;statusbar&quot;</span> <span class="na">status-bar</span><span class="p">&gt;</span>{{message}}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>In this HTML template, the directives <strong>menu</strong>, <strong>sidebar</strong>, <strong>views-layout</strong> and <strong>statusbar</strong> will build a standard perspective layout for you. All you need to add to that (in the corresponding controller) is, which are the views that will be part of the perspective (note the <strong>views</strong> array property in the <strong>layoutModel</strong> member below):</p>
+<div class="highlight"><pre><span></span><code><span class="p">...</span><span class="w"></span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;WorkbenchController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;Layouts&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">Layouts</span><span class="p">){</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">layoutModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;workspace&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;import&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;editor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;properties&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;console&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;preview&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The components in the core UI framework provide a coherent look and feel for the perspectives and their views and editors in the IDE. A brief description for some of the key components follows.</p>
+<h4 id="message-hub">Message Hub</h4>
+<p>The IDE building blocks work together in <em>choreography</em>. An action in the <em>Workspace</em> view for example opens-up an editor, or triggers the <em>Preview</em> view to send a request to a service. The communication between the isolated choreography participants is decentralized, and realized by a highly performant, entirely client-side framework - the <strong>Message Hub</strong>.</p>
+<p>The Message Hub is a self-contained (no dependencies) JS library that leverages the <a href="https://html.spec.whatwg.org/multipage/web-messaging.html#web-messaging">HTML5 messaging API</a> to convey messages across the UI component isolation (iframe) boundaries via a simplified, yet highly customizable interface. It works across domains if necessary, yet implementing all best-practices for secure cross-origin client-side communication.</p>
+<p>Here is a hint for the simplicity of the API:</p>
+<p>A. Load the library
+  <div class="highlight"><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;ui/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- and the following for Angular Apps --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;ui/ui-layout.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;ui/ui-core-ng-modules.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<p>B. Get an instance
+- With vanilla JS<br />
+  <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">messageHub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FramesMessageHub</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+ Or in Anguar app
+  <div class="highlight"><pre><span></span><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;App&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUiCore&#39;</span><span class="p">])</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+<span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;SomeController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;messageHub&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">messageHub</span><span class="p">){</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+</code></pre></div></p>
+<p>C. Subscirbe for messages of type 'namespace.messageName'
+  <code>javascript
+,  messageHub.on('namespace.messageName', function(message, postEvent){
+    //do something...
+  });</code></p>
+<p>D. Post a message to subscribers for the 'namespace.messageName' messages
+  <div class="highlight"><pre><span></span><code><span class="nx">messageHub</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;namespace.messageName&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+</code></pre></div></p>
+<p>Using the message hub framework, we build highly performant loosely coupled integrations between isolated components, reducing the boilerplate in setting up communication channels to the bare minimum. </p>
+<h4 id="layouts">Layouts</h4>
+<p>The cloud IDE layout API delegates the layout management to the <a href="https://golden-layout.com/">GoldenLayout</a> framework – a “<em>multi-window JavaScript layout manager for webapps</em>“, as the author defines it. It handles all the magic of laying things out, stacking, moving interactively, popping out, maximize/minimize, close and open of views and editors. </p>
+<p>The angular directive <strong>views-layout</strong> encapsulates all the complexity of initializing the layout of views in a perspective and reduces it all to a very simple configuration.</p>
+<div class="highlight"><pre><span></span><code>  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;workbench&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;plane&quot;</span> <span class="na">views-layout</span> <span class="na">views-layout-model</span><span class="o">=</span><span class="s">&quot;wb.layoutModel&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>In that code snippet above, <strong>wb.layoutModel</strong> is a JSON like:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;workspace&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;import&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;editor&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;properties&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;console&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;preview&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<blockquote>
+<p>The strings in the <em>views</em> array are in fact identifiers for the views registered in the <em>Views Registry</em> maintained by the framework. The registry entries provide essential configuration information for the views, such as their intended region on the work plot, factory function, label and specific configuration. The registry is populated by the <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/services/views.js">views.js</a> service.</p>
+</blockquote>
+<p><strong>Layouts</strong> is a convenience bag of functions that significantly simplifies the work with layouts. It takes care of views registry setup, the work plot regions configuration, layout initialization, serialization, control on the layout manager, open view and open editor functions, global notifications and others. </p>
+<p>For example, the API to open programmatically a view (after layout initialization):
+<code>Layouts.manager.open(viewId, regionId);</code></p>
+<h4 id="toolbar">Toolbar</h4>
+<p>The Toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name and sign-out control. It uses the corresponding UI microservices available in the <strong>ideUiCore</strong> module as <strong>Menu</strong>, <strong>User</strong> and <strong>Theme</strong>. Having a fully functional standard template menu in a perspective costs as much as this line: </p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">menu</span> <span class="na">menu-data-url</span><span class="o">=</span><span class="s">&quot;../../js/ide/services/menu.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>The Angular directive <strong>menu</strong> will take care to render it as appropriate and all it needs for that is the (perspective-specific) URL of a service that will provide the menu items configuration.</p>
+<p>By convention, all UI components are built with Bootstrap 3.x CSS and the themes in the cloud IDE are actually custom Bootstrap CSS. A UI microservice enables dynamic change of the CSS upon change of the theme automatically. It is available as Angular Factory <strong>Theme</strong>.</p>
+<p>The Angular service <strong>User</strong> provides the details for the user that are rendered by the <strong>Menu</strong> directive, such as the user name.</p>
+<h4 id="sidebar">Sidebar</h4>
+<p>The <strong>sidebar</strong> is Angular directive that takes care to render a standard sidebar in the framework template. It works with the <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/services/perspectives.js">perspectives.js</a> service to populate the registered perspectives as shortcuts.</p>
+<h4 id="statusbar">Statusbar</h4>
+<p>The <strong>statusbar</strong> is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the <strong>status-bar-topic</strong> attribute, or by default to <strong>status-message</strong> messages.</p>
+<h3 id="extensibility-and-dynamic-compositions">Extensibility and Dynamic Compositions</h3>
+<p>The content of the Menu, Sidebar, Open With (editor) action list, the views/editors in a perspective and their positions on the work plot are all examples of configurations that are delivered at runtime by Dirigible services.</p>
+<p>They leverage the <strong>extensions</strong> concept in Dirigible, so integrating a new menu (for example) is as easy as a Dirigible module “advertising” itself (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/extensions/menu/file.extension">file.extension</a>) to the corresponding Dirigible <strong>extension point</strong> (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/extensions/menu.extensionpoint">menu.extensionpoint</a>). At runtime, the extensions will be invoked dynamically, their results aggregated and ultimately delivered to the front-end by a service responsible to mashup everything into a lean consumable JSON model (see <a href="https://github.com/eclipse/dirigible/blob/master/ide/ui/ide-core/src/main/resources/ide/services/menu.js">menu.js</a>). </p>
+<p>The whole mechanism shares concepts with the Eclipse plugin framework. It detaches the client-side, which would render anything that can satisfy its data format needs, and server-side data composition mechanisms from the data contributors which are resolved and invoked dynamically. Therefore, to extend the system, all you need to do is to focus on providing a compliant data contributor and the system will take care to resolve and request it for its piece of data when required.</p>
+<h2 id="enjoy">Enjoy!</h2>
+
+        <!-- Last update of source file -->
+        
+          
+        
+      
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+		<nav class="md-footer__inner md-grid" aria-label="Footer">
+			
+				<a href="../../../06/25/kubernetes-keycloak-postgresql-dirigible/" class="md-footer__link md-footer__link--prev" rel="prev">
+					<div class="md-footer__button md-icon">
+					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+					</div>
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Previous
+							</span>
+							Kubernetes, Keycloak, PostgreSQL & Dirigible			
+						</div>
+					</div>
+				</a>
+    		
+			
+				<a href="../../../02/22/blogs-eclipse-dirigible/" class="md-footer__link md-footer__link--next" rel="next">
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Next
+							</span>
+							Eclipse Dirigible - Getting Started
+						</div>
+					</div>
+					<div class="md-footer__button md-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+					</div>
+				</a>
+			
+		</nav>
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/discussions">Join the Discussion</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						<div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://slack.dirigible.io" target="_blank" rel="noopener" title="slack.dirigible.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
+  
+</div>
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      
+    
+  </body>
+</html>

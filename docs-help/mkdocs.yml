@@ -1,8 +1,9 @@
-site_name: Eclipse Dirigible Help Portal
+site_name: Eclipse Dirigible Documentation
 site_url: https://www.dirigible.io/help/
 
 nav:
     - Welcome: 'index.md'
+    - Getting Started: 'development/index.md'
     - Overview: 
       - The Eclipse Dirigible Project: 'overview/index.md'
       - Editors & Modelers: 'overview/editors-modelers.md'
@@ -16,13 +17,24 @@ nav:
     - Setup: 
       - Tomcat: 'setup/index.md'
       - Docker: 'setup/docker.md'
-      - Kubernetes: 'setup/kubernetes.md'
-      - Kyma: 'setup/kyma.md'
-      - Helm: 'setup/helm.md'
+      - Kubernetes:
+        - 'setup/kubernetes/index.md'
+        - Google Kubernetes Engine: 'setup/kubernetes/google-kubernetes-engine.md'
+        - Azure Kubernetes Service: 'setup/kubernetes/azure-kubernetes-service.md'
+        - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
+        - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
+        - Addons:
+          - Keycloak: 'setup/kubernetes/addons/keycloak.md'
+          - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
+          - GCP DNS Zone: 'setup/kubernetes/addons/google-dns-zone.md'
+          - GKE cluster: 'setup/kubernetes/addons/gke-cluster.md'
+          - Azure DNS Zone: 'setup/kubernetes/addons/azure-dns-zone.md'
+          - Letsencrypt: 'setup/kubernetes/addons/letsencrypt.md'
+          - Istio: 'setup/kubernetes/addons/istio.md'
+        - Helm: 'setup/kubernetes/helm.md'
       - Cloud Foundry: 'setup/cloud-foundry.md'
       - Environment Variables: 'setup/setup-environment-variables.md'
-    - Development: 
-      - Getting Started: 'development/index.md'
+    - Development:
       - Development & Operations: 'development/devops.md'
       - Artifacts:
         - Artifacts Overview: 'development/artifacts/index.md'
@@ -50,6 +62,9 @@ nav:
       - IDE:
         - IDE Overview: 'development/ide/index.md'
         - About: 'development/ide/about.md'
+        - Access Editor: 'development/ide/editor-access.md'
+        - CSV Editor: 'development/ide/editor-csv.md'
+        - CSVIM Editor: 'development/ide/editor-csvim.md'
         - Monaco Editor: 'development/ide/editor-monaco.md'
         - Modelers:
           - BPMN: 'development/ide/modelers/bpmn.md'
@@ -70,9 +85,11 @@ nav:
           - Access: 'development/ide/views/access.md'
           - Configurations: 'development/ide/views/configurations.md'
           - Console: 'development/ide/views/console.md'
+          - Constraints: 'development/ide/views/constraints.md'
           - Database: 'development/ide/views/database.md'
           - Data Structures: 'development/ide/views/datastructures.md'
           - Debugger: 'development/ide/views/debugger.md'
+          - Discussions: 'development/ide/views/discussions.md'
           - Documents: 'development/ide/views/documents.md'
           - Extensions: 'development/ide/views/extensions.md'
           - Git: 'development/ide/views/git.md'
@@ -85,6 +102,7 @@ nav:
           - Previews: 'development/ide/views/preview.md'
           - Registry: 'development/ide/views/registry.md'
           - Repository: 'development/ide/views/repository.md'
+          - Result: 'development/ide/views/resultview.md'
           - Roles: 'development/ide/views/roles.md'
           - Search: 'development/ide/views/search.md'
           - Snapshot: 'development/ide/views/snapshot.md'
@@ -93,10 +111,11 @@ nav:
           - Terminal: 'development/ide/views/terminal.md'
           - Web Sockets: 'development/ide/views/websockets.md'
           - Workspace: 'development/ide/views/workspace.md'
-    - Tips & Tricks:
-      - Cheat Sheet: 'tips-&-tricks/cheat-sheet.md'
-    - Community: 'community.md'
-        
+    - Developer Resources:
+      - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
+      - Cheat Sheet: 'developer-resources/cheat-sheet.md'
+      - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
+    - Community: 'community.md'  
 
 theme:
   favicon: /img/favicon.png
@@ -105,6 +124,10 @@ theme:
   custom_dir: overrides
   features:
     - navigation.instant
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
     
 extra_css:
   - stylesheets/custom.css
@@ -118,7 +141,8 @@ markdown_extensions:
     - pymdownx.keys
     - pymdownx.inlinehilite
     - pymdownx.superfences
-    - pymdownx.tabbed
+    - pymdownx.tabbed:
+        alternate_style: true
     - pymdownx.emoji
     - meta
     - footnotes
@@ -131,6 +155,10 @@ edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs
 
 copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
 extra:
+  homepage: https://www.dirigible.io
+  analytics:
+    provider: google
+    property: UA-49027147-1
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/dirigible_io
@@ -141,8 +169,4 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/c/dirigibleio
     - icon: fontawesome/brands/slack
-      link: https://eclipse-dirigible.slack.com/
-
-google_analytics:
-  - UA-49027147-1
-  - auto
+      link: https://slack.dirigible.io

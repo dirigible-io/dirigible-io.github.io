@@ -85,7 +85,7 @@ Function     | Description | Returns
 ---
 
 
-##### TableData
+#### TableData
 
 Property     | Description | Type
 ------------ | ----------- | --------
@@ -94,14 +94,14 @@ Property     | Description | Type
 **columns**   | The table columns.  | *array of [TableDataColumns](#tabledatacolumns)*
 **rows** | The table data. | *array of [TableDataRows](#tabledatacolumns)*
 
-##### TableDataColumns
+#### TableDataColumns
 
 Property     | Description | Type
 ------------ | ----------- | --------
 **name**   | The displayed column name.  | *string*
 **key**   | The property key in the *rows* object.  | *string*
 
-##### TableDataRows
+#### TableDataRows
 
 Property     | Description | Type
 ------------ | ----------- | --------
@@ -109,7 +109,7 @@ Property     | Description | Type
 **highlight**   | (Optional) Whether to highlight the row.  | *boolean*
 **breakAfter**   | (Optional) Whether to bold the row.  | *boolean*
 
-##### TableConfig
+#### TableConfig
 
 Property     | Description | Type     | Default
 ------------ | ----------- | -------- | --------

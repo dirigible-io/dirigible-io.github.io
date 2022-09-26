@@ -14,6 +14,8 @@ To learn more about the `Extensions` concept, click [here](../concepts/extension
 
 ## Extension Points
 
+### IDE
+
   - [ide-perspective](perspective/)
   - [ide-view](view/)
   - [ide-editor](editor/)
@@ -31,7 +33,17 @@ To learn more about the `Extensions` concept, click [here](../concepts/extension
   - ide-database-menu
   - ide-repository-menu
 
+### Server
+
+  - ide-workspace-on-save
+  - ide-workspace-before-publish
+  - ide-workspace-after-publish
+  - ide-workspace-before-unpublish
+  - ide-workspace-after-unpublish
+
 ## Events
+
+### IDE
 
   - editor.file.saved
   - editor.file.dirty

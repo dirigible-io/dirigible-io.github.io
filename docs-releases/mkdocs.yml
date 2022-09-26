@@ -1,0 +1,117 @@
+site_name: Eclipse Dirigible Releases
+site_url: https://www.dirigible.io/releases/
+
+nav:
+    - 'Releases': 'index.md'
+    - '2022':
+      - 'Release 6.2': '2022/02/13/news-new-release-6-2.md'
+    - '2021':
+      - 'Release 6.1': '2021/10/07/news-new-release-6-1.md'
+      - 'Release 6.0': '2021/09/29/news-new-release-6-0.md'
+      - 'Release 5.12': '2021/07/04/news-new-release-5-12.md'
+      - 'Release 5.11': '2021/05/27/news-new-release-5-11.md'
+      - 'Release 5.10': '2021/04/24/news-new-release-5-10.md'
+      - 'Release 5.9': '2021/03/26/news-new-release-5-9.md'
+      - 'Release 5.8': '2021/02/18/news-new-release-5-8.md'
+      - 'Release 5.7': '2021/01/31/news-new-release-5-7.md'
+    - '2020':
+      - 'Release 5.6': '2020/12/22/news-new-release-5-6.md'
+      - 'Release 5.5': '2020/11/11/news-new-release-5-5.md'
+      - 'Release 5.4': '2020/10/23/news-new-release-5-4.md'
+      - 'Release 5.3': '2020/10/05/news-new-release-5-3.md'
+      - 'Release 5.2': '2020/09/02/news-new-release-5-2.md'
+      - 'Release 5.1': '2020/08/24/news-new-release-5-1.md'
+      - 'Release 5.0': '2020/06/25/news-new-release-5-0.md'
+      - 'Release 4.6': '2020/05/31/news-new-release-4-6.md'
+      - 'Release 4.5': '2020/05/04/news-new-release-4-5.md'
+      - 'Release 4.4': '2020/04/04/news-new-release-4-4.md'
+      - 'Release 4.3': '2020/03/11/news-new-release-4-3.md'
+      - 'Release 4.2': '2020/01/14/news-new-release-4-2.md'
+    - '2019':
+      - 'Release 4.1': '2019/12/27/news-new-release-4-1.md'
+      - 'Release 4.0': '2019/11/24/news-new-release-4-0.md'
+      - 'Release 3.5': '2019/09/10/news-new-release-3-5.md'
+    - '2018':
+      - 'Release 3.3': '2018/12/20/news-new-release-3-3.md'
+      - 'Release 3.2': '2018/05/19/news-new-release-3-2.md'
+      - 'Release 3.1': '2018/01/19/news-new-release-3-1.md'
+    - '2017':
+      - 'Release 3.0': '2017/11/14/news-new-release-3-0.md'
+      - 'Release 2.8.170821-R': '2017/08/21/news-new-release-2-8.md'
+      - 'Release 2.7.1706008-R': '2017/06/08/news-new-release-2-7.md'
+      - 'Milestone 2.7.170504-M3': '2017/05/04/news-new-milestone-2-7-3.md'
+      - 'Milestone 2.7.170225-M2': '2017/02/25/news-new-milestone-2-7-2.md'
+      - 'Milestone 2.7.170109-M1': '2017/01/09/news-new-milestone-2-7-1.md'
+    - '2016':
+      - 'Release 2.6.161203-R': '2016/12/03/news-new-release-2-6.md'
+      - 'Milestone 2.6.161122-M4': '2016/11/22/news-new-milestone-2-6-4.md'
+      - 'Milestone 2.6.161021-M3': '2016/10/21/news-new-milestone-2-6-3.md'
+      - 'Milestone 2.6.161014-M2': '2016/10/14/news-new-milestone-2-6-2.md'
+      - 'Milestone 2.6.161005-M1': '2016/10/05/news-new-milestone-2-6-1.md'
+      - 'Release 2.5.160804-R': '2016/08/04/news-new-release-2-5.md'
+      - 'Release 2.4.160519-R': '2016/05/19/news-new-release-2-4.md'
+      - 'Release 2.3.160317-R': '2016/03/17/news-new-release-2-3.md'
+      - 'Release 2.2.160203-R': '2016/02/03/news-new-release-2-2.md'
+      - 'Milestone 2.2.160119-M3': '2016/01/19/news-new-milestone-2-2-3.md'
+    - '2015':
+      - 'Milestone 2.2.151217-M2': '2015/12/17/news-new-milestone-2-2-2.md'
+      - 'Milestone 2.2.151117-M1': '2015/11/17/news-new-milestone-2-2-1.md'
+      - 'Release 2.1.151007': '2015/10/07/news-new-release-2-1.md'
+      - 'Milestone 2.1 M1': '2015/09/23/news-2-1-m1.md'
+      - 'Release 2.0.150424': '2015/04/24/news-new-release-orion-as-editor.md'
+      - 'Release 2.0.150316': '2015/03/16/news-new-release-root-package.md'
+      - 'Release 2.0.150223': '2015/02/23/news-new-release-rcp-native-eclipse-plugins.md'
+      - 'Release 2.0.150121': '2015/01/21/news-new-release-osgiruntime-flowengine.md'
+theme:
+  favicon: /img/favicon.png
+  logo: /img/logo/dirigible-logo.png
+  name: mkdocs
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+
+extra_css:
+  - stylesheets/custom.css
+  - stylesheets/homepage.css
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.snippets
+    - pymdownx.highlight:
+        linenums: false
+    - pymdownx.keys
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.emoji
+    - meta
+    - footnotes
+    - admonition
+    - pymdownx.details
+
+repo_url: https://github.com/eclipse/dirigible
+repo_name: eclipse/dirigible
+edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-releases/docs
+
+copyright: Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+extra:
+  homepage: https://www.dirigible.io
+  analytics:
+    provider: google
+    property: UA-49027147-1
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/dirigible_io
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/dirigible.io
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/groups/8413366
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/c/dirigibleio
+    - icon: fontawesome/brands/slack
+      link: https://slack.dirigible.io

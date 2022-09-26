@@ -46,7 +46,7 @@ Function     | Description | Returns
 
 ---
 
-##### FTPClient
+#### FTPClient
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -66,7 +66,7 @@ Function     | Description | Returns
 **deleteFolder(path, folderName)** | Deletes folder | *boolean*
 **close()** | Closes the FPT client | *-*
 
-##### FTPFolder
+#### FTPFolder
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -85,7 +85,7 @@ Function     | Description | Returns
 **deleteFile(fileName)** | Deletes FTPFile | *boolean*
 **deleteFolder(folderName)** | Deletes FTPFolder | *boolean*
 
-##### FTPFile
+#### FTPFile
 
 Function     | Description | Returns
 ------------ | ----------- | --------
@@ -102,7 +102,7 @@ Function     | Description | Returns
 **appendContentText(text)** | Appends file content from string | *boolean*
 **delete()** | Deletes the file | *boolean*
 
-##### FTPObject
+#### FTPObject
 
 Function     | Description | Returns
 ------------ | ----------- | --------
