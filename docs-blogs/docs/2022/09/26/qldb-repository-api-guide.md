@@ -27,76 +27,87 @@ publish_date: September 26, 2022
 
 - [Sign up for AWS](https://portal.aws.amazon.com/billing/signup) or use an existing account.
 
-- Create an AWS Identity and Access Management (IAM) user:
-  - Sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password.
-  - In the navigation pane, choose Users and then choose Add users.
-  - For User name, enter `dirigible_qldb_user`.
-  - Select the check box next to AWS Management Console access. Then select `Password - AWS Management Console access` and then enter your new user password in the text box.
-  - (Optional) By default, AWS requires the new user to create a new password when first signing in. You can clear the check box next to User must create a new password at next sign-in to allow the new user to reset their password after they sign in.
-  - Choose Next: `Permissions.`
-  - Under `Set permissions`, choose `Add user to group`.
-  - Choose `Create group`.
-  - In the Create group dialog box, for Group name enter `dirigible_qldb_group`.
-  - Choose in the `Filter policies` input, search for the term `qldb`.
-  - Put checkboxes on `AmazonQLDBReadOnly`, `AmazonQLDBFullAccess` and `AmazonQLDBConsoleFullAccess`.
-  - Then click on `Create group`.
-  - Back in the list of groups, select the `check box` for your new group. Choose `Refresh` if necessary to see the group in the list.
-  - Choose `Next: Tags`.
-  - (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the IAM User Guide.
-  - Choose `Next: Review` to see the list of group memberships to be added to the new user. When you are ready to proceed, choose `Create user`.
+### Create AWS IAM User
+- To create AWS Identity and Access Management (IAM) user, sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password.
+- In the navigation pane, choose Users and then choose Add users.
+- For User name, enter `dirigible_qldb_user`.
+- Select the check box next to AWS Management Console access. Then select `Password - AWS Management Console access` and then enter your new user password in the text box.
+- (Optional) By default, AWS requires the new user to create a new password when first signing in. You can clear the check box next to User must create a new password at next sign-in to allow the new user to reset their password after they sign in.
+- Choose Next: `Permissions.`
+- Under `Set permissions`, choose `Add user to group`.
+- Choose `Create group`.
+- In the Create group dialog box, for Group name enter `dirigible_qldb_group`.
+- Choose in the `Filter policies` input, search for the term `qldb`.
+- Put checkboxes on `AmazonQLDBReadOnly`, `AmazonQLDBFullAccess` and `AmazonQLDBConsoleFullAccess`.
+- Then click on `Create group`.
+- Back in the list of groups, select the `check box` for your new group. Choose `Refresh` if necessary to see the group in the list.
+- Choose `Next: Tags`.
+- (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the IAM User Guide.
+- Choose `Next: Review` to see the list of group memberships to be added to the new user. When you are ready to proceed, choose `Create user`.
   
-  !!! note
+!!! note
 
     You can read more in the AWS documentation [How to Create an IAM User](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-create-iam-user).
   
-- Get an IAM access key (Used by the QLDB Driver in Eclipse Dirigible to establish connections securely).
-  - Go back to the [IAM console](https://console.aws.amazon.com/iam/).
-  - In the navigation pane, choose `Users`.
-  - Click on the name of the user you created in the previous step.
-  - Choose the `Security credentials` tab.
-  - In the `Access keys` section, choose `Create access key`.
-  - To view the new access key pair, choose Show. You will not have access to the secret access key again after this dialog box closes. 
-  - Copy and remember the `Access key ID` and `Secret access key` they will be used in the next step.
-    - Your credentials will look something like this:
-      ``` 
-      Access key ID: AKIAIOSFODNN7EXAMPLE
-      Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY 
-      ```
-      !!! note
+### Get an IAM Access Key
 
-        You can read more in the AWS documentation [How to Get an IAM Access Key](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-iam-user-access-keys).
+- The Access Key is used by the QLDB Driver in Eclipse Dirigible to establish connections securely.
+- Go back to the [IAM console](https://console.aws.amazon.com/iam/).
+- In the navigation pane, choose `Users`.
+- Click on the name of the user you created in the previous step.
+- Choose the `Security credentials` tab.
+- In the `Access keys` section, choose `Create access key`.
+- To view the new access key pair, choose Show. You will not have access to the secret access key again after this dialog box closes. 
+- Copy and remember the `Access key ID` and `Secret access key` they will be used in the next step.
 
-- Setup the credentials and region on the machine you are running Eclipse Dirigible.
-  -  Create a file `~/.aws/credentials`, where the tilde character (~) represents your home directory:
-  ```
-  [default] 
-  region = eu-west-2
-  aws_access_key_id = your_access_key_id
-  aws_secret_access_key = your_secret_access_key
-  ```
-  !!! note
+!!! note
+
+    Your credentials will look something like this:
+    
+    ```
+    Access key ID: AKIAIOSFODNN7EXAMPLE
+    Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY 
+    ```
+
+    You can read more in the AWS documentation [How to Get an IAM Access Key](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-iam-user-access-keys).
+
+### Credentials and Region Setup
+
+- Setup the credentials and region on the machine you are running Eclipse Dirigible
+
+!!! note
+
+    Create a file `~/.aws/credentials`, where the tilde character (~) represents your home directory:
+
+    ```
+    [default] 
+    region = eu-west-2
+    aws_access_key_id = <your_access_key_id>
+    aws_secret_access_key = <your_secret_access_key>
+    ```
 
     Replace _(`eu-west-2`, `your_access_key_id`, `your_secret_access_key`)_ with your credentials from the last step.
   
-- Setup a ledger:
-  - Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
-  - In the navigation pane, choose `Getting started`.
-  - On the Create your first ledger card, choose Create Ledger.
-  - For `Ledger information` – The Ledger name should be pre-populated with `vehicle-registration`, change that to `myTestLedger`.
-  - For `Permission mode` - choose `Standard – (Recommended)` (A permissions mode that enables access control with finer granularity for ledgers, tables, and PartiQL commands.)
-  - For `Encrypt data at rest` – choose `Use AWS owned KMS key` (Use a KMS key that is owned and managed by AWS on your behalf. This is the default option and requires no additional setup.)
-  - Tags – (Optional) Add metadata to the ledger by attaching tags as key-value pairs. You can add tags to your ledger to help organize and identify them. For more information, see [Tagging Amazon QLDB resources](https://docs.aws.amazon.com/qldb/latest/developerguide/tagging.html).
-  - Choose `Create ledger`.
-  - In the list of Ledgers, locate `myTestLedger` and wait for the ledger's status to become Active.
+### Setup a ledger
+- Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
+- In the navigation pane, choose `Getting started`.
+- On the Create your first ledger card, choose Create Ledger.
+- For `Ledger information` – The Ledger name should be pre-populated with `vehicle-registration`, change that to `myTestLedger`.
+- For `Permission mode` - choose `Standard – (Recommended)` (A permissions mode that enables access control with finer granularity for ledgers, tables, and PartiQL commands.)
+- For `Encrypt data at rest` – choose `Use AWS owned KMS key` (Use a KMS key that is owned and managed by AWS on your behalf. This is the default option and requires no additional setup.)
+- Tags – (Optional) Add metadata to the ledger by attaching tags as key-value pairs. You can add tags to your ledger to help organize and identify them. For more information, see [Tagging Amazon QLDB resources](https://docs.aws.amazon.com/qldb/latest/developerguide/tagging.html).
+- Choose `Create ledger`.
+- In the list of Ledgers, locate `myTestLedger` and wait for the ledger's status to become Active.
   
-  !!! note
+!!! note
 
     You can read more in the AWS QLDB documentation [How to Setup a Ledger](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-step-1.html).
   
 ## Build Custom Eclipse Dirigible stack with AWS QLDB support
   - To create a Custom Stack - Follow the steps here [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/).
   - After that replace the content of the `releng/pom.xml` file (described in the first step of the [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/)) with:
-  ```
+
+  ```xml
   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -186,11 +197,12 @@ publish_date: September 26, 2022
   ```
 
 ## Create Eclipse Dirigible Project with AWS QLDB
-  - Create a new Project
-  - Add a `qldbSample.js` or `qldbSample.mjs` file to the project.
-  - Add the following content with an example usage of the QLDBRepository API to the file: </br>
 
-  === "qldbSample.js"
+- Create a new Project.
+- Add a `qldb-sample.js` or `qldb-sample.mjs` file to the project.
+- Add the following content with an example usage of the QLDBRepository API to the file:
+
+=== "qldb-sample.js"
 
     ```javascript
     const QLDBRepository = require("qldb/QLDBRepository"); 
@@ -244,7 +256,7 @@ publish_date: September 26, 2022
     // an SQL UNDROP statement in PartiQL
     ```
 
-=== "qldbSample.mjs"
+=== "qldb-sample.mjs"
 
     ```javascript
     import { QLDBRepository } from "@dirigible/qldb
