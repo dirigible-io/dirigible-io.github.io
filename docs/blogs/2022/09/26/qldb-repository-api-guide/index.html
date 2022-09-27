@@ -6,6 +6,10 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API.">
+      
+      
+        <meta name="author" content="Ivo Yakov">
       
       
         <link rel="canonical" href="https://www.dirigible.io/blogs/2022/09/26/qldb-repository-api-guide/">
@@ -509,7 +513,7 @@
         
           <li class="md-nav__item">
   <a href="#setup-a-ledger" class="md-nav__link">
-    Setup a ledger
+    Setup a Ledger
   </a>
   
 </li>
@@ -1854,7 +1858,7 @@
         
           <li class="md-nav__item">
   <a href="#setup-a-ledger" class="md-nav__link">
-    Setup a ledger
+    Setup a Ledger
   </a>
   
 </li>
@@ -1918,6 +1922,27 @@
 
         <!-- Markdown content -->
         
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/Fluctuationqt" alt="@Fluctuationqt">
+            </p>
+            <p>
+            <span> 
+            <b>Ivo Yakov</b> · <a href="https://github.com/Fluctuationqt">@Fluctuationqt</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> September 26, 2022 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 15 min read
+            </span>
+            </p>
+        </aside>
+        
 
         <h1 id="how-to-use-amazon-quantum-ledger-database-within-eclipse-dirigible-projects">How to use Amazon Quantum Ledger Database within Eclipse Dirigible projects</h1>
 <div class="admonition question">
@@ -1937,8 +1962,8 @@
 <li><a href="https://portal.aws.amazon.com/billing/signup">Sign up for AWS</a> or use an existing account.</li>
 </ul>
 <h3 id="create-aws-iam-user">Create AWS IAM User</h3>
+<p>To create AWS Identity and Access Management (IAM) user, sign in to the <a href="https://console.aws.amazon.com/iam/">IAM console</a> as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password:</p>
 <ul>
-<li>To create AWS Identity and Access Management (IAM) user, sign in to the <a href="https://console.aws.amazon.com/iam/">IAM console</a> as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password.</li>
 <li>In the navigation pane, choose Users and then choose Add users.</li>
 <li>For User name, enter <code>dirigible_qldb_user</code>.</li>
 <li>Select the check box next to AWS Management Console access. Then select <code>Password - AWS Management Console access</code> and then enter your new user password in the text box.</li>
@@ -1979,9 +2004,7 @@ Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 <p>You can read more in the AWS documentation <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-iam-user-access-keys">How to Get an IAM Access Key</a>.</p>
 </div>
 <h3 id="credentials-and-region-setup">Credentials and Region Setup</h3>
-<ul>
-<li>Setup the credentials and region on the machine you are running Eclipse Dirigible</li>
-</ul>
+<p>Setup the credentials and region on the machine you are running Eclipse Dirigible.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Create a file <code>~/.aws/credentials</code>, where the tilde character (~) represents your home directory:</p>
@@ -1992,9 +2015,9 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 </code></pre></div>
 <p>Replace <em>(<code>eu-west-2</code>, <code>your_access_key_id</code>, <code>your_secret_access_key</code>)</em> with your credentials from the last step.</p>
 </div>
-<h3 id="setup-a-ledger">Setup a ledger</h3>
+<h3 id="setup-a-ledger">Setup a Ledger</h3>
+<p>To create a ledger, sign in to the AWS Management Console, and open the <a href="https://console.aws.amazon.com/qldb">Amazon QLDB console</a>:</p>
 <ul>
-<li>Sign in to the AWS Management Console, and open the <a href="https://console.aws.amazon.com/qldb">Amazon QLDB console</a>.</li>
 <li>In the navigation pane, choose <code>Getting started</code>.</li>
 <li>On the Create your first ledger card, choose Create Ledger.</li>
 <li>For <code>Ledger information</code> – The Ledger name should be pre-populated with <code>vehicle-registration</code>, change that to <code>myTestLedger</code>.</li>
@@ -2009,8 +2032,8 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 <p>You can read more in the AWS QLDB documentation <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-step-1.html">How to Setup a Ledger</a>.</p>
 </div>
 <h2 id="build-custom-eclipse-dirigible-stack-with-aws-qldb-support">Build Custom Eclipse Dirigible stack with AWS QLDB support</h2>
+<p>To create a <strong>Custom Stack</strong> follow the steps here <a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/">Custom Stack documentation</a>.</p>
 <ul>
-<li>To create a Custom Stack - Follow the steps here <a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/">Custom Stack documentation</a>.</li>
 <li>After that replace the content of the <code>releng/pom.xml</code> file (described in the first step of the <a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/">Custom Stack documentation</a>) with:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
@@ -2227,6 +2250,8 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 </div>
 
         <!-- Last update of source file -->
+        
+          
         
       
               </article>
