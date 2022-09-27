@@ -8,7 +8,7 @@ read_time: 15 min
 publish_date: September 26, 2022
 ---
 
-# How to use Amazon Quantum Ledger Database within Eclipse Dirigible projects
+In this blog you will learn how to use **Amazon Quantum Ledger Database** within Eclipse Dirigible projects.
 
 !!! question "What is QLDB?"
 
