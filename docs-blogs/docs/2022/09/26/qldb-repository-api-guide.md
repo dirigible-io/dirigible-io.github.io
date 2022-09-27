@@ -28,7 +28,9 @@ publish_date: September 26, 2022
 - [Sign up for AWS](https://portal.aws.amazon.com/billing/signup) or use an existing account.
 
 ### Create AWS IAM User
-- To create AWS Identity and Access Management (IAM) user, sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password.
+
+To create AWS Identity and Access Management (IAM) user, sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password:
+
 - In the navigation pane, choose Users and then choose Add users.
 - For User name, enter `dirigible_qldb_user`.
 - Select the check box next to AWS Management Console access. Then select `Password - AWS Management Console access` and then enter your new user password in the text box.
@@ -73,7 +75,7 @@ publish_date: September 26, 2022
 
 ### Credentials and Region Setup
 
-- Setup the credentials and region on the machine you are running Eclipse Dirigible
+Setup the credentials and region on the machine you are running Eclipse Dirigible.
 
 !!! note
 
@@ -88,8 +90,10 @@ publish_date: September 26, 2022
 
     Replace _(`eu-west-2`, `your_access_key_id`, `your_secret_access_key`)_ with your credentials from the last step.
   
-### Setup a ledger
-- Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
+### Setup a Ledger
+
+To create a ledger, sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb):
+
 - In the navigation pane, choose `Getting started`.
 - On the Create your first ledger card, choose Create Ledger.
 - For `Ledger information` – The Ledger name should be pre-populated with `vehicle-registration`, change that to `myTestLedger`.
@@ -104,7 +108,9 @@ publish_date: September 26, 2022
     You can read more in the AWS QLDB documentation [How to Setup a Ledger](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-step-1.html).
   
 ## Build Custom Eclipse Dirigible stack with AWS QLDB support
-  - To create a Custom Stack - Follow the steps here [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/).
+
+To create a **Custom Stack** follow the steps here [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/).
+
   - After that replace the content of the `releng/pom.xml` file (described in the first step of the [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/)) with:
 
   ```xml
