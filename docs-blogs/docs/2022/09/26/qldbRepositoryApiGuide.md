@@ -1,9 +1,9 @@
 
 ---
-title: Eclipse Dirigible's QLDB Repository API
+title: Amazon Quantum Ledger Database with Eclipse Dirigible
 description: In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API.
 author: Ivo Yakov
-author_gh_user: https://github.com/Fluctuationqt/
+author_gh_user: Fluctuationqt
 author_avatar: https://avatars.githubusercontent.com/u/19828259?v=4
 read_time: 15 min
 publish_date: September 26, 2022
@@ -11,17 +11,19 @@ publish_date: September 26, 2022
 
 # How to use Amazon Quantum Ledger Database within Eclipse Dirigible projects
 
-- What is QLDB?
-	- Amazon Quantum Ledger Database (QLDB) is a fully managed database running over a ledger that provides a transparent, immutable, and cryptographically verifiable transaction log.
+!!! question "What is QLDB?"
 
-- What is the QLDB Repository API and why is it useful for Eclipse Dirigible projects?
-	- The QLDB Repository API in Eclipse Dirigible adds a clean and low code JavaScript interface for work with AWS QLDB. It simplifies it's use and allows Eclipse Dirigible projects to use QLDB's secure transaction log to store many different kind of critical data. Such as, financial transactions or in supply chain systems to store transactions and details of every batch manufactured, shipped, stored, and sold from facility to store. See more use cases at [AWS QLDB](https://aws.amazon.com/qldb/) and [AWS QLDB FAQs](https://aws.amazon.com/qldb/faqs/).
+    Amazon Quantum Ledger Database (QLDB) is a fully managed database running over a ledger that provides a transparent, immutable, and cryptographically verifiable transaction log.
 
-- What are the limitations when using QLDB?
-	- Although QLDB automatically scales to support the demands of your application and you don't need to worry about provisioning capacity or configuring read and write limits, there are some limits that you might want to read [here](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html) and [here](https://docs.aws.amazon.com/general/latest/gr/qldb.html).
+!!! question "What is the QLDB Repository API and why is it useful for Eclipse Dirigible projects?"
 
-## Getting Started Guide
-### 1. Setup AWS Account with QLDB Enabled
+    The QLDB Repository API in Eclipse Dirigible adds a clean and low code JavaScript interface for work with AWS QLDB. It simplifies it's use and allows Eclipse Dirigible projects to use QLDB's secure transaction log to store many different kind of critical data. Such as, financial transactions or in supply chain systems to store transactions and details of every batch manufactured, shipped, stored, and sold from facility to store. See more use cases at [AWS QLDB](https://aws.amazon.com/qldb/) and [AWS QLDB FAQs](https://aws.amazon.com/qldb/faqs/).
+
+!!! question "What are the limitations when using QLDB?"
+
+    Although QLDB automatically scales to support the demands of your application and you don't need to worry about provisioning capacity or configuring read and write limits, there are some limits that you might want to read [Quotas and limits in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html) and [Amazon QLDB endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/qldb.html).
+
+## Setup AWS Account with QLDB Enabled
 
 - [Sign up for AWS](https://portal.aws.amazon.com/billing/signup) or use an existing account.
 
@@ -43,7 +45,9 @@ publish_date: September 26, 2022
   - (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see [Tagging IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the IAM User Guide.
   - Choose `Next: Review` to see the list of group memberships to be added to the new user. When you are ready to proceed, choose `Create user`.
   
-  <i>Notice: You can read more on how to Create an IAM user in the AWS doccumentation [here](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-create-iam-user).</i>
+  !!! note
+
+    You can read more in the AWS documentation [How to Create an IAM User](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-create-iam-user).
   
 - Get an IAM access key (Used by the QLDB Driver in Eclipse Dirigible to establish connections securely).
   - Go back to the [IAM console](https://console.aws.amazon.com/iam/).
@@ -58,7 +62,9 @@ publish_date: September 26, 2022
       Access key ID: AKIAIOSFODNN7EXAMPLE
       Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY 
       ```
-      </i> Notice: You can read more on how to Get an IAM access key in the AWS documentation [here](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-iam-user-access-keys).</i>
+      !!! note
+
+        You can read more in the AWS documentation [How to Get an IAM Access Key](https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-iam-user-access-keys).
 
 - Setup the credentials and region on the machine you are running Eclipse Dirigible.
   -  Create a file `~/.aws/credentials`, where the tilde character (~) represents your home directory:
@@ -68,7 +74,9 @@ publish_date: September 26, 2022
   aws_access_key_id = your_access_key_id
   aws_secret_access_key = your_secret_access_key
   ```
-  <i> Notice: Replace (`eu-west-2`, `your_access_key_id`, `your_secret_access_key`) with your credentials from the last step. </i>
+  !!! note
+
+    Replace _(`eu-west-2`, `your_access_key_id`, `your_secret_access_key`)_ with your credentials from the last step.
   
 - Setup a ledger:
   - Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
@@ -81,9 +89,11 @@ publish_date: September 26, 2022
   - Choose `Create ledger`.
   - In the list of Ledgers, locate `myTestLedger` and wait for the ledger's status to become Active.
   
-  <i>Notice: You can read more on how to setup a ledger in the AWS QLDB documentation [here](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-step-1.html). </i>
+  !!! note
+
+    You can read more in the AWS QLDB documentation [How to Setup a Ledger](https://docs.aws.amazon.com/qldb/latest/developerguide/getting-started-step-1.html).
   
-  ### 2. Setup a Custom Eclipse Dirigible stack with AWS QLDB support
+## Build Custom Eclipse Dirigible stack with AWS QLDB support
   - To create a Custom Stack - Follow the steps here [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/).
   - After that replace the content of the `releng/pom.xml` file (described in the first step of the [Custom Stack documentation](https://www.dirigible.io/samples/tutorials/customizations/custom-stack/)) with:
   ```
@@ -175,77 +185,125 @@ publish_date: September 26, 2022
   </project>
   ```
 
-  ### 3. Create an Eclipse Dirigible Project with AWS QLDB
+## Create Eclipse Dirigible Project with AWS QLDB
   - Create a new Project
   - Add a `qldbSample.js` or `qldbSample.mjs` file to the project.
   - Add the following content with an example usage of the QLDBRepository API to the file: </br>
-  :warning: <i> Notice: If you are using a `.mjs` file replace the first line with `import { QLDBRepository } from "@dirigible/qldb"`</i>
-  ```
-  const QLDBRepository = require("qldb/QLDBRepository"); 
 
-  // 1. Create a repository for the ledger 'myTestLedger' that works with a table 'tableName'
-  const qldb = new QLDBRepository("myTestLedger", "tableName");
+  === "qldbSample.js"
 
-  // 2. [OPTIONAL] Create the table as it doesn't exist in your ledger, 
-  // on the next execution of this script - comment out this line or it will fail.
-  qldb.createTable();
+    ```javascript
+    const QLDBRepository = require("qldb/QLDBRepository"); 
+    // 1. Create a repository for the ledger 'myTestLedger' that works with a table 'tableName'
+    const qldb = new QLDBRepository("myTestLedger", "tableName");
+    // 2. [OPTIONAL] Create the table as it doesn't exist in your ledger, 
+    // on the next execution of this script - comment out this line or it will fail.
+    qldb.createTable();
+    // 3. Insert a JS Object as a record.
+    let inserted = qldb.insert({
+        email: "test@mail.com",
+        number: 123,
+        status: false
+    });
+    // Notice: The inserted object now has a 'documentId' property, 
+    // which is the id of the record generated by QLDB
+    console.log("Inserted entry: " + inserted);
+    // 4.1 Update a record
+    inserted.email = "q@mail.com";
+    inserted.number = 5;
+    inserted.status = false;
+    let updated = qldb.update(inserted);
+    console.log("Updated entry: " + updated);
+    // 4.2 [OPTIONAL] Update a record with an object
+    // let updatedRaw = qldb.update({
+    //     email: "text@mail.com",
+    //     number: 50000,
+    //     status: true,
+    //     documentId: "7ekJBB1FEm1EmhJBqH0WLX"
+    // });
+    // Notice: Unlike insertion where the 'documentId' is generated by QLDB,
+    // in 'update' the object must have a 'documentId' property defined 
+    // with value - a valid documentId of an entry in your table.
+    // 5. Get all current records in the repository.
+    let allRecords = qldb.getAll();
+    console.log("allRecords: " + allRecords);
+    
+    // 6.1 Delete a record 
+    let deletedId = qldb.delete(updated);
+    console.log("Deleted entry with id: " + deletedId);
+    // 6.2 [OPTIONAL] Delete a record by ID
+    // deletedId = qldb.delete(updated.documentId);
+    // console.log("Deleted entry with id: " + deletedId);
+    // 7. Get array with all transactions for the table
+    let transactionHistory = qldb.getHistory();
+    console.log("Transaction History:" + transactionHistory);
+    // 8. [OPTIONAL] Drop the table
+    // qldb.dropTable();
+    // Notice: In QLDB dropping a table simply inactivates it, 
+    // you can reactivate a table that you have dropped by running
+    // an SQL UNDROP statement in PartiQL
+    ```
 
-  // 3. Insert a JS Object as a record.
-  let inserted = qldb.insert({
-      email: "test@mail.com",
-      number: 123,
-      status: false
-  });
+=== "qldbSample.mjs"
 
-  // Notice: The inserted object now has a 'documentId' property, 
-  // which is the id of the record generated by QLDB
-  console.log("Inserted entry: " + inserted);
+    ```javascript
+    import { QLDBRepository } from "@dirigible/qldb
+    // 1. Create a repository for the ledger 'myTestLedger' that works with a table 'tableName'
+    const qldb = new QLDBRepository("myTestLedger", "tableName");
+    // 2. [OPTIONAL] Create the table as it doesn't exist in your ledger, 
+    // on the next execution of this script - comment out this line or it will fail.
+    qldb.createTable();
+    // 3. Insert a JS Object as a record.
+    let inserted = qldb.insert({
+        email: "test@mail.com",
+        number: 123,
+        status: false
+    });
+    // Notice: The inserted object now has a 'documentId' property, 
+    // which is the id of the record generated by QLDB
+    console.log("Inserted entry: " + inserted);
+    // 4.1 Update a record
+    inserted.email = "q@mail.com";
+    inserted.number = 5;
+    inserted.status = false;
+    let updated = qldb.update(inserted);
+    console.log("Updated entry: " + updated);
+    // 4.2 [OPTIONAL] Update a record with an object
+    // let updatedRaw = qldb.update({
+    //     email: "text@mail.com",
+    //     number: 50000,
+    //     status: true,
+    //     documentId: "7ekJBB1FEm1EmhJBqH0WLX"
+    // });
+    // Notice: Unlike insertion where the 'documentId' is generated by QLDB,
+    // in 'update' the object must have a 'documentId' property defined 
+    // with value - a valid documentId of an entry in your table.
+    // 5. Get all current records in the repository.
+    let allRecords = qldb.getAll();
+    console.log("allRecords: " + allRecords);
+    
+    // 6.1 Delete a record 
+    let deletedId = qldb.delete(updated);
+    console.log("Deleted entry with id: " + deletedId);
+    // 6.2 [OPTIONAL] Delete a record by ID
+    // deletedId = qldb.delete(updated.documentId);
+    // console.log("Deleted entry with id: " + deletedId);
+    // 7. Get array with all transactions for the table
+    let transactionHistory = qldb.getHistory();
+    console.log("Transaction History:" + transactionHistory);
+    // 8. [OPTIONAL] Drop the table
+    // qldb.dropTable();
+    // Notice: In QLDB dropping a table simply inactivates it, 
+    // you can reactivate a table that you have dropped by running
+    // an SQL UNDROP statement in PartiQL
+    ```
 
-  // 4.1 Update a record
-  inserted.email = "q@mail.com";
-  inserted.number = 5;
-  inserted.status = false;
-  let updated = qldb.update(inserted);
-  console.log("Updated entry: " + updated);
-
-  // 4.2 [OPTIONAL] Update a record with an object
-  // let updatedRaw = qldb.update({
-  //     email: "text@mail.com",
-  //     number: 50000,
-  //     status: true,
-  //     documentId: "7ekJBB1FEm1EmhJBqH0WLX"
-  // });
-  // Notice: Unlike insertion where the 'documentId' is generated by QLDB,
-  // in 'update' the object must have a 'documentId' property defined 
-  // with value - a valid documentId of an entry in your table.
-
-  // 5. Get all current records in the repository.
-  let allRecords = qldb.getAll();
-  console.log("allRecords: " + allRecords);
-  
-  // 6.1 Delete a record 
-  let deletedId = qldb.delete(updated);
-  console.log("Deleted entry with id: " + deletedId);
-
-  // 6.2 [OPTIONAL] Delete a record by ID
-  // deletedId = qldb.delete(updated.documentId);
-  // console.log("Deleted entry with id: " + deletedId);
-
-  // 7. Get array with all transactions for the table
-  let transactionHistory = qldb.getHistory();
-  console.log("Transaction History:" + transactionHistory);
-
-  // 8. [OPTIONAL] Drop the table
-  // qldb.dropTable();
-  // Notice: In QLDB dropping a table simply inactivates it, 
-  // you can reactivate a table that you have dropped by running
-  // an SQL UNDROP statement in PartiQL
-  ```
-
-### 4. [Optional] Manually Run PartiQL queries against your ledger
+## (Optional) Manually Run PartiQL queries against your ledger
 - Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
 - In the navigation pane choose `PartiQL editor`.
 - In the editor's `Choose a ledger` dropdown select `myTestLedger`.
 - You can now write and execute queries to your database manually. 
 
-<i> Notice: This can be useful if you want to create, delete or restore deleted tables. Read more [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-gettingstarted.html). </i>
+!!! note
+
+    This can be useful if you want to create, delete or restore deleted tables. Read more at [Getting started with PartiQL for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-gettingstarted.html).
