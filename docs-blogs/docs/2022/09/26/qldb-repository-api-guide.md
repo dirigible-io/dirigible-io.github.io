@@ -1,4 +1,3 @@
-
 ---
 title: Amazon Quantum Ledger Database with Eclipse Dirigible
 description: In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API.
