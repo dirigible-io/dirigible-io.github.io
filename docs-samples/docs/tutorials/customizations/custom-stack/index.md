@@ -110,7 +110,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 		!!! tip "Eclipse Dirigible version"
 
-			The tutorial is using Eclipse Dirigible version `6.3.12` as highlighted on line **65**. To check for a more recent and stable version go to [Eclipse Dirigible Releases](https://github.com/eclipse/dirigible/releases/).
+			The tutorial is using Eclipse Dirigible version `6.3.24` as highlighted on line **65**. To check for a more recent and stable version go to [Eclipse Dirigible Releases](https://github.com/eclipse/dirigible/releases/).
 
 		!!! info "Git Repository"
 
