@@ -48,7 +48,7 @@ This tutorial will guide you through the creation of Java facade and JavaScript 
 
     === "GreetingsFacade.java"
 
-	    1. Create `src/main/java/io/dirigible/custom/platform/facade` folder stucture and navigate to it.
+	    1. Create `src/main/java/io/dirigible/custom/platform/facade/` folder stucture and navigate to it.
 		1. Create new `GreetingsFacade.java` file.
 		1. Paste the following content:
 
@@ -66,7 +66,7 @@ This tutorial will guide you through the creation of Java facade and JavaScript 
 
     === "greetings.js"
 
-	    1. Create `src/main/resources/META-INF/dirigible/custom-stack` folder stucture and navigate to it.
+	    1. Create `src/main/resources/META-INF/dirigible/custom-stack/` folder stucture and navigate to it.
 		1. Create new `greetings.js` file.
 		1. Paste the following content:
 
