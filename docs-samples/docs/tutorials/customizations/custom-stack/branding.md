@@ -106,7 +106,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 1. Create Branding resources:
 
 	- Navigate to the `branding` folder.
-	- Create `src/main/resources/META-INF/dirigible/ide-branding` folder structure and navigate to it.
+	- Create `src/main/resources/META-INF/dirigible/ide-branding/` folder structure and navigate to it.
 	- Create `branding.js` and `custom-stack.svg` files.
 
 	=== "branding.js"
