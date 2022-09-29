@@ -229,7 +229,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 1. Create Eclipse Dirigible resources:
 
     - Navigate to the `releng` folder.
-	- Create `src/main/resources` folder structure and navigate to it.
+	- Create `src/main/resources/` folder structure and navigate to it.
 	- Create `dirigible.properties`, `index.html` and `index-busy.html` files.
 
 	=== "dirigible.properties"
@@ -601,7 +601,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
     === "application.yaml"
 
-		1. Navigate to the `src/main/resouces` folder.
+		1. Navigate to the `src/main/resouces/` folder.
 		1. Create `application.yaml` file.
 		1. Paste the following content:
 
@@ -657,7 +657,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "CustomPlatformApplication.java"
 
 		1. Navigate to the `src/main` folder.
-		1. Create `java/io/dirigible/custom/platform` and navigate to it.
+		1. Create `java/io/dirigible/custom/platform/` and navigate to it.
 		1. Create `CustomPlatformApplication.java` file.
 		1. Paste the following content:
 
