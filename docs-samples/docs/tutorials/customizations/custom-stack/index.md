@@ -89,7 +89,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
             </profiles>
 
             <properties>
-                <dirigible.version>6.3.12</dirigible.version>
+                <dirigible.version>6.3.24</dirigible.version>
 
                 <java.version>11</java.version>
 
@@ -245,7 +245,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		DIRIGIBLE_PRODUCT_TYPE=custom
 		DIRIGIBLE_INSTANCE_NAME=custom-platform-spring-boot
 		DIRIGIBLE_DATABASE_PROVIDER=local
-		DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.web.GraaliumJavascriptHandler
+		DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
 		DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 		```
 
