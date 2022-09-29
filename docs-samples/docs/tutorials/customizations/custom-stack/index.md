@@ -253,7 +253,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 		    The properties file will be packaged inside the _Custom Stack_, and the above environment variables will be set by default. These environment variables could be overridden during _`Deployment`_ or at _`Runtime`_. To learn more about the supported configurations go to [Environment Variables](https://www.dirigible.io/help/setup/setup-environment-variables/).
 
-    === "index.html"
+    === "static/index.html"
 
 		1. Create `static` folder and navigate to it.
 		1. Create `index.html` file.
@@ -273,7 +273,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		</html>
 		```
 
-    === "index-busy.html"
+    === "static/index-busy.html"
 
 		1. Create `static` folder and navigate to it.
 		1. Create `index-busy.html` file.
