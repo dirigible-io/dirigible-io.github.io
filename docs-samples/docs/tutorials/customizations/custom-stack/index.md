@@ -281,187 +281,81 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 		```html
 		<!DOCTYPE HTML>
-		<html lang="en" ng-app="busy" ng-controller="BusyController as busy">
+		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="busyPage" ng-controller="BusyController">
+
 			<head>
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
 				<meta charset="utf-8">
-
-				<link type="text/css" rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
-
-		    	<link type="text/css" href="/webjars/fontawesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-				<style>
-					.busy-indicator {
-					  display: inline-block;
-					  position: relative;
-					  width: 64px;
-					  height: 64px;
-					}
-					.busy-indicator div {
-					  animation: busy-indicator 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-					  transform-origin: 32px 32px;
-					}
-					.busy-indicator div:after {
-					  content: " ";
-					  display: block;
-					  position: absolute;
-					  width: 6px;
-					  height: 6px;
-					  border-radius: 50%;
-					  background: #cef;
-					  margin: -3px 0 0 -3px;
-					}
-					.busy-indicator div:nth-child(1) {
-					  animation-delay: -0.036s;
-					}
-					.busy-indicator div:nth-child(1):after {
-					  top: 50px;
-					  left: 50px;
-					}
-					.busy-indicator div:nth-child(2) {
-					  animation-delay: -0.072s;
-					}
-					.busy-indicator div:nth-child(2):after {
-					  top: 54px;
-					  left: 45px;
-					}
-					.busy-indicator div:nth-child(3) {
-					  animation-delay: -0.108s;
-					}
-					.busy-indicator div:nth-child(3):after {
-					  top: 57px;
-					  left: 39px;
-					}
-					.busy-indicator div:nth-child(4) {
-					  animation-delay: -0.144s;
-					}
-					.busy-indicator div:nth-child(4):after {
-					  top: 58px;
-					  left: 32px;
-					}
-					.busy-indicator div:nth-child(5) {
-					  animation-delay: -0.18s;
-					}
-					.busy-indicator div:nth-child(5):after {
-					  top: 57px;
-					  left: 25px;
-					}
-					.busy-indicator div:nth-child(6) {
-					  animation-delay: -0.216s;
-					}
-					.busy-indicator div:nth-child(6):after {
-					  top: 54px;
-					  left: 19px;
-					}
-					.busy-indicator div:nth-child(7) {
-					  animation-delay: -0.252s;
-					}
-					.busy-indicator div:nth-child(7):after {
-					  top: 50px;
-					  left: 14px;
-					}
-					.busy-indicator div:nth-child(8) {
-					  animation-delay: -0.288s;
-					}
-					.busy-indicator div:nth-child(8):after {
-					  top: 45px;
-					  left: 10px;
-					}
-					@keyframes busy-indicator {
-					  0% {
-					    transform: rotate(0deg);
-					  }
-					  100% {
-					    transform: rotate(360deg);
-					  }
-					}
-
-					.Running:before {
-					    font-family: 'FontAwesome';
-					    font-size:1.3em;
-					    color: yellow;
-					    content: '\f054';  /* the chevron right icon */
-					    padding-right: 4px; /* plus 4px spacing */
-					}
-
-					.Succeeded:before {
-					    font-family: 'FontAwesome';
-					    font-size:1.3em;
-					    color: green;
-					    content: '\f00c';  /* the check icon */
-					    padding-right: 4px; /* plus 4px spacing */
-					}
-
-					.Failed:before {
-					    font-family: 'FontAwesome';
-					    font-size:1.3em;
-					    color: red;
-					    content: '\f00d';  /* the times icon */
-					    padding-right: 4px; /* plus 4px spacing */
-					}
-
-				</style>
-
-				<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
-
-				<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js" async></script>
-
-				<script type="text/javascript" src="/webjars/angularjs/1.8.2/angular.min.js"></script>
-				<script type="text/javascript" src="/webjars/angularjs/1.8.2/angular-resource.min.js"></script>
-
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="icon" href="/services/v4/web/resources/images/favicon.ico" />
+				<title>Loading ...</title>
+				<theme></theme>
+				<script type="text/javascript" src="/services/v4/js/resources-core/services/loader.js?id=application-view-js">
+				</script>
+				<link type="text/css" rel="stylesheet"
+					href="/services/v4/js/resources-core/services/loader.js?id=application-view-css" />
 			</head>
 
-			<body>
-				<div class="container text-center">
-					<br><br><br><br><br>
-					<h1>Preparing your Custom Platform environment... <span class="badge badge-secondary"><div class="busy-indicator">
-					<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></span></h1>
+			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-					<table class="table table-striped">
-				    <thead>
-				        <tr>
-				            <td>Name</td>
-				            <td>Status</td>
-				        </tr>
-				    </thead>
-				    <tbody>
-				        <tr ng-repeat="job in jobs">
-						   <td>{{job.name}}</td>
-						   <td class="{{job.status}}">{{job.status}}</td>
-						</tr>
-				    </tbody>
-				</table>
-
+				<div style="padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;">
+					<div class="fd-panel fd-panel--fixed">
+						<div class="fd-panel__header">
+							<h4 class="fd-panel__title">Preparing your Custom Platform environment</h4>
+						</div>
+					</div>
+					<fd-list>
+						<fd-list-item ng-repeat="job in jobs">
+							<span fd-object-status status="{{job.status}}" glyph="{{job.statusIcon}}"
+								text="{{job.name}}"></span>
+						</fd-list-item>
+					</fd-list>
+					<fd-busy-indicator style="margin-top: 3rem;" dg-size="l"></fd-busy-indicator>
 				</div>
+
+				<script>
+					let busyPage = angular.module('busyPage', ['ideUI', 'ideView']);
+
+					busyPage.controller('BusyController', ['$scope', '$http', 'theming', function ($scope, $http, theming) {
+
+						setInterval(function() {
+
+							$http({
+								method: 'GET',
+								url: '/services/v4/healthcheck'
+							}).then(function(healthStatus){
+								if (healthStatus.data.status === "Ready") {
+									window.location='/home';
+								}
+								let jobs = [];
+								for (const [key, value] of Object.entries(healthStatus.data.jobs.statuses)) {
+									let job = new Object();
+									job.name = key;
+									switch(value) {
+										case "Succeeded":
+											job.status = "positive";
+											job.statusIcon = "sap-icon--message-success"
+											break;
+										case "Failed":
+											job.status = "negative";
+											job.statusIcon = "sap-icon--message-error";
+										default:
+											job.status = "informative";
+											job.statusIcon = "sap-icon--message-information"
+											break;
+									}
+									jobs.push(job);
+								}
+								$scope.jobs = jobs.sort((x, y) => x.name > y.name ? 1 : -1);
+							}), (function(e){
+								console.error("Error retreiving the health status", e);
+							});
+
+						}, 1000);
+					}]);
+				</script>
 			</body>
 
-			<script>
-				angular.module('busy', ['ngResource'])
-					.controller('BusyController', ['$scope', '$http', function ($scope, $http) {
-
-					setInterval(function() {
-
-						$http({
-				            method: 'GET',
-				            url: 'services/v4/healthcheck'
-				        }).then(function(healthStatus){
-				        	if (healthStatus.data.status === "Ready") {
-								window.location='home';
-							}
-							var jobs = [];
-							for (const [key, value] of Object.entries(healthStatus.data.jobs.statuses)) {
-								var job = new Object();
-								job.name = key;
-								job.status = value;
-								jobs.push(job);
-							}
-				        	$scope.jobs = jobs.sort((x, y) => x.name > y.name ? 1 : -1);
-						}), (function(e){
-				            console.error("Error retreiving the health status", e);
-				        });
-					}, 1000);
-				}]);
-			</script>
 		</html>
 		```
 
@@ -477,38 +371,63 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		- Paste the following content:
 
 		```html
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<meta charset="utf-8">
-		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!DOCTYPE HTML>
+		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-		    <title>Custom Platform | Error</title>
+			<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="icon" href="/services/v4/web/resources/images/favicon.ico" />
+				<title>Custom Platform | Unexpected Error Occurred</title>
+				<theme></theme>
+				<script type="text/javascript" src="/services/v4/js/resources-core/services/loader.js?id=application-view-js">
+				</script>
+				<link type="text/css" rel="stylesheet"
+					href="/services/v4/js/resources-core/services/loader.js?id=application-view-css" />
+			</head>
 
-			<link type="text/css" rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-			<link rel="shortcut icon" type="image/png" href="/services/v4/web/resources/images/favicon.png" />
-		</head>
-		<body>
-		<div class="container">
-		    <div class="row">
-		    <div class="error-template">
-			    <h2>Oops!</h2>
-			    <h3>Unexpected error occurred</h3>
-			    <div class="error-details">
-				Sorry, an error has occurred<br>
-			    </div>
-			    <div class="error-actions">
-				<a href="/" class="btn btn-primary">
-				    <i class="icon-home icon-white"></i> Take Me Home </a>
-				<a href="https://www.dirigible.io" class="btn btn-default">
-				    <i class="icon-envelope"></i> Contact Support </a>
-			    </div>
-			</div>
-		    </div>
-		</div>
-		</body>
+				<div style="height: 600px; width: 100%;">
+					<fd-message-page glyph="sap-icon--error">
+						<fd-message-page-title>Unexpected Error Occurred</fd-message-page-title>
+						<fd-message-page-subtitle>
+							<b>There was a problem serving the requested page</b>.
+							<br>
+							Usually this means that an enexpected error
+							happened while processing your request. Here's what you can try next:
+							<br>
+							<br>
+							<i><b>Reload the page</b>, the problem may be temporary. If the problem persists, <b>contact us</b>
+								and we'll
+								help get you on your way.</i>
+						</fd-message-page-subtitle>
+						<fd-message-page-actions>
+							<fd-button compact="true" dg-label="Reload Page" dg-type="emphasized" style="margin: 0 0.25rem;"
+								ng-click="reloadPage()">
+							</fd-button>
+							<fd-button compact="true" dg-label="Contact Support" ng-click="contactSupport()"></fd-button>
+						</fd-message-page-actions>
+					</fd-message-page>
+				</div>
+
+				<script>
+					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+
+					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+
+						$scope.reloadPage = function() {
+							location.reload();
+						};
+
+						$scope.contactSupport = function() {
+							window.open("https://bugs.dirigible.io", "_blank");
+						};
+					}]);
+				</script>
+			</body>
+
 		</html>
 		```
 
@@ -519,37 +438,44 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		- Paste the following content:
 
 		```html
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<meta charset="utf-8">
-		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!DOCTYPE HTML>
+		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-		    <title>Custom Platform | Error 403</title>
+			<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="icon" href="/services/v4/web/resources/images/favicon.ico" />
+				<title>Custom Platform | Access Denied</title>
+				<theme></theme>
+				<script type="text/javascript" src="/services/v4/js/resources-core/services/loader.js?id=application-view-js">
+				</script>
+				<link type="text/css" rel="stylesheet"
+					href="/services/v4/js/resources-core/services/loader.js?id=application-view-css" />
+			</head>
 
-			<link type="text/css" rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-			<link rel="shortcut icon" type="image/png" href="/services/v4/web/resources/images/favicon.png" />
-		</head>
-		<body>
-		<div class="container">
-		    <div class="row">
-		    <div class="error-template">
-			    <h3>403 Forbidden</h3>
-			    <div class="error-details">
-				Sorry, an error has occurred, this page is forbidden<br>
-			    </div>
-			    <div class="error-actions">
-				<a href="/" class="btn btn-primary">
-				    <i class="icon-home icon-white"></i> Take Me Home </a>
-				<a href="https://www.dirigible.io" class="btn btn-default">
-				    <i class="icon-envelope"></i> Contact Support </a>
-			    </div>
-			</div>
-		    </div>
-		</div>
-		</body>
+				<div style="height: 600px; width: 100%;">
+					<fd-message-page glyph="sap-icon--alert">
+						<fd-message-page-title>Access Denied</fd-message-page-title>
+						<fd-message-page-subtitle>
+							<b>The page you're trying to access has resctricted access</b>.
+							<br>
+							Pleace contact your system administrator for more details.
+						</fd-message-page-subtitle>
+					</fd-message-page>
+				</div>
+
+				<script>
+					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+
+					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+
+					}]);
+				</script>
+			</body>
+
 		</html>
 		```
 
@@ -560,37 +486,62 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		- Paste the following content:
 
 		```html
-		<!DOCTYPE html>
-		<html>
-		<head>
-			<meta charset="utf-8">
-		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!DOCTYPE HTML>
+		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-		    <title>Custom Platform | Error 404</title>
+			<head>
+				<meta charset="utf-8">
+				<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="icon" href="/services/v4/web/resources/images/favicon.ico" />
+				<title>Custom Platform | Page Not Found</title>
+				<theme></theme>
+				<script type="text/javascript" src="/services/v4/js/resources-core/services/loader.js?id=application-view-js">
+				</script>
+				<link type="text/css" rel="stylesheet"
+					href="/services/v4/js/resources-core/services/loader.js?id=application-view-css" />
+			</head>
 
-			<link type="text/css" rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css">
+			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-			<link rel="shortcut icon" type="image/png" href="/services/v4/web/resources/images/favicon.png" />
-		</head>
-		<body>
-		<div class="container">
-		    <div class="row">
-		    <div class="error-template">
-			    <h3>404 Not Found</h3>
-			    <div class="error-details">
-				Sorry, an error has occurred, requested page not found!<br>
-			    </div>
-			    <div class="error-actions">
-				<a href="/" class="btn btn-primary">
-				    <i class="icon-home icon-white"></i> Take Me Home </a>
-				<a href="https://www.dirigible.io" class="btn btn-default">
-				    <i class="icon-envelope"></i> Contact Support </a>
-			    </div>
-			</div>
-		    </div>
-		</div>
-		</body>
+				<div style="height: 600px; width: 100%;">
+					<fd-message-page glyph="sap-icon--documents">
+						<fd-message-page-title>Page Not Found</fd-message-page-title>
+						<fd-message-page-subtitle>
+							<b>It looks like you've reached a URL that doesn't exist</b>.
+							<br>
+							The page you are looking for is no longer here, or never existed in the first place.
+							<br>
+							<br>
+							<i>You can go to the <b>previous page</b>, or start over from the <b>home page</b>.</i>
+						</fd-message-page-subtitle>
+						<fd-message-page-actions>
+							<fd-button compact="true" dg-label="Go Back" dg-type="emphasized" style="margin: 0 0.25rem;"
+								ng-click="goBack()">
+							</fd-button>
+							<fd-button compact="true" dg-label="Take Me Home" ng-click="goHome()" ng-click="goHome()">
+							</fd-button>
+						</fd-message-page-actions>
+					</fd-message-page>
+				</div>
+
+				<script>
+					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+
+					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+
+						$scope.goBack = function() {
+							history.back();
+						};
+
+						$scope.goHome = function() {
+							window.location = "/home";
+						};
+
+					}]);
+				</script>
+			</body>
+
 		</html>
 		```
 
