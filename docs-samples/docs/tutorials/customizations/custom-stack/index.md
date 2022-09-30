@@ -552,8 +552,8 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
     === "application.yaml"
 
-		1. Navigate to the `src/main/resouces/` folder.
-		1. Create `releng/src/main/resouces/application.yaml` file.
+		1. Navigate to the `src/main/resources/` folder.
+		1. Create `releng/src/main/resources/application.yaml` file.
 		1. Paste the following content:
 
 		```yaml
