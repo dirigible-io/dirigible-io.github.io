@@ -367,7 +367,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
     === "error.html"
 
-	    - Create `error.html` file.
+	    - Create `releng/src/main/resources/public/error/error.html` file.
 		- Paste the following content:
 
 		```html
@@ -434,7 +434,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "403.html"
 
 	    - Create `error` folder and navigate to it. 
-		- Create `403.html` file.
+		- Create `releng/src/main/resources/error/403.html` file.
 		- Paste the following content:
 
 		```html
@@ -482,7 +482,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "404.html"
 
 	    - Create `error` folder and navigate to it. 
-		- Create `404.html` file.
+		- Create `releng/src/main/resources/error/404.html` file.
 		- Paste the following content:
 
 		```html
@@ -553,7 +553,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "application.yaml"
 
 		1. Navigate to the `src/main/resouces/` folder.
-		1. Create `application.yaml` file.
+		1. Create `releng/src/main/resouces/application.yaml` file.
 		1. Paste the following content:
 
 		```yaml
@@ -609,7 +609,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 		1. Navigate to the `src/main` folder.
 		1. Create `java/io/dirigible/custom/platform/` and navigate to it.
-		1. Create `CustomPlatformApplication.java` file.
+		1. Create `releng/src/main/java/io/dirigible/custom/platform/CustomPlatformApplication.java` file.
 		1. Paste the following content:
 
 		```java
