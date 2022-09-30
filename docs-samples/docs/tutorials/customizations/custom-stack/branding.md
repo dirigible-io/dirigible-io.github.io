@@ -21,7 +21,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
 	=== "pom.xml"
 
-	    1. Create new `pom.xml` file.
+	    1. Create new `modules/pom.xml` file.
 		1. Paste the following content:
 
     	```xml
@@ -50,7 +50,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
     === "all/pom.xml"
 
 	    1. Create new folder `all` and navigate to it.
-		1. Create new `pom.xml` file.
+		1. Create new `modules/all/pom.xml` file.
 		1. Paste the following content:
 
 		```xml
@@ -82,7 +82,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
     === "branding/pom.xml"
 
 	    1. Create new folder `branding` and navigate to it.
-		1. Create new `pom.xml` file.
+		1. Create new `modules/branding/pom.xml` file.
 		1. Paste the following content:
 
 		```xml
@@ -111,7 +111,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
 	=== "branding.js"
 
-	    1. Create new `branding.js` file.
+	    1. Create new `modules/branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js` file.
 		1. Paste the following content:
 
     	```javascript
@@ -134,7 +134,7 @@ This tutorial will guide you through the process of rebranding of Eclipse Dirigi
 
 	=== "custom-stack.svg"
 
-	    1. Create new `custom-stack.svg` file.
+	    1. Create new `modules/branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg` file.
 		1. Paste the following content:
 
     	```xml
