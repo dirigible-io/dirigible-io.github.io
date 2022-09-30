@@ -234,7 +234,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 	=== "dirigible.properties"
 
-		1. Create `src/main/resources/dirigible.properties` file.
+		1. Create `releng/src/main/resources/dirigible.properties` file.
 		1. Paste the following content:
 
 		```
@@ -256,7 +256,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "static/index.html"
 
 		1. Create `static` folder and navigate to it.
-		1. Create `src/main/resources/static/index.html` file.
+		1. Create `releng/src/main/resources/static/index.html` file.
 		1. Paste the following content:
 
 		```html
@@ -276,7 +276,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "static/index-busy.html"
 
 		1. Create `static` folder and navigate to it.
-		1. Create `src/main/resources/static/index-busy.html` file.
+		1. Create `releng/src/main/resources/static/index-busy.html` file.
 		1. Paste the following content:
 
 		```html
