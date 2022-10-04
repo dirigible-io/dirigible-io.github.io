@@ -10,6 +10,8 @@ publish_date: September 26, 2022
 
 In this blog you will learn how to use **Amazon Quantum Ledger Database** within Eclipse Dirigible projects.
 
+![aws-features](/blogs/2022/09/26/images/aws-features.png)
+
 !!! question "What is QLDB?"
 
     Amazon Quantum Ledger Database (QLDB) is a fully managed database running over a ledger that provides a transparent, immutable, and cryptographically verifiable transaction log.
@@ -30,6 +32,8 @@ In this blog you will learn how to use **Amazon Quantum Ledger Database** within
 
 To create AWS Identity and Access Management (IAM) user, sign in to the [IAM console](https://console.aws.amazon.com/iam/) as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password:
 
+![add-iam-user](/blogs/2022/09/26/images/add-user.png)
+
 - In the navigation pane, choose Users and then choose Add users.
 - For User name, enter `dirigible_qldb_user`.
 - Select the check box next to AWS Management Console access. Then select `Password - AWS Management Console access` and then enter your new user password in the text box.
@@ -37,6 +41,8 @@ To create AWS Identity and Access Management (IAM) user, sign in to the [IAM con
 - Choose Next: `Permissions.`
 - Under `Set permissions`, choose `Add user to group`.
 - Choose `Create group`.
+
+![create-group](/blogs/2022/09/26/images/create-group.png)
 - In the Create group dialog box, for Group name enter `dirigible_qldb_group`.
 - Choose in the `Filter policies` input, search for the term `qldb`.
 - Put checkboxes on `AmazonQLDBReadOnly`, `AmazonQLDBFullAccess` and `AmazonQLDBConsoleFullAccess`.
@@ -264,7 +270,7 @@ To create a **Custom Stack** follow the steps here [Custom Stack documentation](
 === "qldb-sample.mjs"
 
     ```javascript
-    import { QLDBRepository } from "@dirigible/qldb
+    import { QLDBRepository } from "@dirigible/qldb"
     // 1. Create a repository for the ledger 'myTestLedger' that works with a table 'tableName'
     const qldb = new QLDBRepository("myTestLedger", "tableName");
     // 2. [OPTIONAL] Create the table as it doesn't exist in your ledger, 
@@ -316,10 +322,15 @@ To create a **Custom Stack** follow the steps here [Custom Stack documentation](
     ```
 
 ## (Optional) Manually Run PartiQL queries against your ledger
+
+![partiql-editor](/blogs/2022/09/26/images/partiql-editor.png)
+
 - Sign in to the AWS Management Console, and open the [Amazon QLDB console](https://console.aws.amazon.com/qldb).
 - In the navigation pane choose `PartiQL editor`.
 - In the editor's `Choose a ledger` dropdown select `myTestLedger`.
 - You can now write and execute queries to your database manually. 
+
+![partiql-result](/blogs/2022/09/26/images/partiql-result.png)
 
 !!! note
 
