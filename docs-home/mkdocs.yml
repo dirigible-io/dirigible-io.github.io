@@ -47,8 +47,6 @@ markdown_extensions:
     - admonition
     - pymdownx.details
 
-plugins: []
-
 repo_url: https://github.com/eclipse/dirigible
 repo_name: eclipse/dirigible
 edit_uri: ../../dirigible-io/dirigible-io.github.io/edit/master/docs-home/docs
@@ -70,3 +68,6 @@ extra:
       link: https://www.youtube.com/c/dirigibleio
     - icon: fontawesome/brands/slack
       link: https://slack.dirigible.io
+
+plugins:
+  - social

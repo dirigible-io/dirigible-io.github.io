@@ -8,6 +8,7 @@ _site
 .jekyll-metadata
 .jekyll-cache/
 .history/
+.cache/
 
 docs-api/site/
 docs-blogs/site/

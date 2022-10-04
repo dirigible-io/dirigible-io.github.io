@@ -115,3 +115,6 @@ extra:
       link: https://www.youtube.com/c/dirigibleio
     - icon: fontawesome/brands/slack
       link: https://slack.dirigible.io
+
+plugins:
+  - social
