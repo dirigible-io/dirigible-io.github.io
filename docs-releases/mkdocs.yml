@@ -63,8 +63,8 @@ nav:
       - 'Release 2.0.150223': '2015/02/23/news-new-release-rcp-native-eclipse-plugins.md'
       - 'Release 2.0.150121': '2015/01/21/news-new-release-osgiruntime-flowengine.md'
 theme:
-  favicon: ../img/favicon.png
-  logo: ../img/logo/dirigible-logo.png
+  favicon: /img/favicon.png
+  logo: /img/logo/dirigible-logo.png
   name: mkdocs
   custom_dir: overrides
   features:

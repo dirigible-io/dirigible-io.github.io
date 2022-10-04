@@ -33,8 +33,8 @@ nav:
     - '2014':
       - 'Dirigible - one of the founders of Cloud Development Initiative at Eclipse together with Orion, Che and Flux': '2014/10/27/news-dirigible-founders-of-cdi.md'
 theme:
-  favicon: ../img/favicon.png
-  logo: ../img/logo/dirigible-logo.png
+  favicon: /img/favicon.png
+  logo: /img/logo/dirigible-logo.png
   name: mkdocs
   custom_dir: overrides
   features:
