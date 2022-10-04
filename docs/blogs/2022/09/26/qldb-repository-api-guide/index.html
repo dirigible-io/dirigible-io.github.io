@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://www.dirigible.io/blogs/2022/09/26/qldb-repository-api-guide/">
       
       <link rel="icon" href="/img/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7a952b86.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1941,6 +1941,7 @@
         
 
         <p>In this blog you will learn how to use <strong>Amazon Quantum Ledger Database</strong> within Eclipse Dirigible projects.</p>
+<p><img alt="aws-features" src="/blogs/2022/09/26/images/aws-features.png" /></p>
 <div class="admonition question">
 <p class="admonition-title">What is QLDB?</p>
 <p>Amazon Quantum Ledger Database (QLDB) is a fully managed database running over a ledger that provides a transparent, immutable, and cryptographically verifiable transaction log.</p>
@@ -1959,6 +1960,7 @@
 </ul>
 <h3 id="create-aws-iam-user">Create AWS IAM User</h3>
 <p>To create AWS Identity and Access Management (IAM) user, sign in to the <a href="https://console.aws.amazon.com/iam/">IAM console</a> as the account owner by choosing Root user and entering your AWS account email address. On the next page, enter your password:</p>
+<p><img alt="add-iam-user" src="/blogs/2022/09/26/images/add-user.png" /></p>
 <ul>
 <li>In the navigation pane, choose Users and then choose Add users.</li>
 <li>For User name, enter <code>dirigible_qldb_user</code>.</li>
@@ -1967,15 +1969,16 @@
 <li>Choose Next: <code>Permissions.</code></li>
 <li>Under <code>Set permissions</code>, choose <code>Add user to group</code>.</li>
 <li>Choose <code>Create group</code>.</li>
-<li>In the Create group dialog box, for Group name enter <code>dirigible_qldb_group</code>.</li>
-<li>Choose in the <code>Filter policies</code> input, search for the term <code>qldb</code>.</li>
-<li>Put checkboxes on <code>AmazonQLDBReadOnly</code>, <code>AmazonQLDBFullAccess</code> and <code>AmazonQLDBConsoleFullAccess</code>.</li>
-<li>Then click on <code>Create group</code>.</li>
-<li>Back in the list of groups, select the <code>check box</code> for your new group. Choose <code>Refresh</code> if necessary to see the group in the list.</li>
-<li>Choose <code>Next: Tags</code>.</li>
-<li>(Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM entities</a> in the IAM User Guide.</li>
-<li>Choose <code>Next: Review</code> to see the list of group memberships to be added to the new user. When you are ready to proceed, choose <code>Create user</code>.</li>
 </ul>
+<p><img alt="create-group" src="/blogs/2022/09/26/images/create-group.png" />
+- In the Create group dialog box, for Group name enter <code>dirigible_qldb_group</code>.
+- Choose in the <code>Filter policies</code> input, search for the term <code>qldb</code>.
+- Put checkboxes on <code>AmazonQLDBReadOnly</code>, <code>AmazonQLDBFullAccess</code> and <code>AmazonQLDBConsoleFullAccess</code>.
+- Then click on <code>Create group</code>.
+- Back in the list of groups, select the <code>check box</code> for your new group. Choose <code>Refresh</code> if necessary to see the group in the list.
+- Choose <code>Next: Tags</code>.
+- (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM entities</a> in the IAM User Guide.
+- Choose <code>Next: Review</code> to see the list of group memberships to be added to the new user. When you are ready to proceed, choose <code>Create user</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can read more in the AWS documentation <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-create-iam-user">How to Create an IAM User</a>.</p>
@@ -2180,50 +2183,50 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qldb</span>
-<span class="s2">// 1. Create a repository for the ledger &#39;myTestLedger&#39; that works with a table &#39;tableName&#39;</span>
-<span class="s2">const qldb = new QLDBRepository(&quot;</span><span class="nx">myTestLedger</span><span class="s2">&quot;, &quot;</span><span class="nx">tableName</span><span class="s2">&quot;);</span>
-<span class="s2">// 2. [OPTIONAL] Create the table as it doesn&#39;t exist in your ledger, </span>
-<span class="s2">// on the next execution of this script - comment out this line or it will fail.</span>
-<span class="s2">qldb.createTable();</span>
-<span class="s2">// 3. Insert a JS Object as a record.</span>
-<span class="s2">let inserted = qldb.insert({</span>
-<span class="s2">    email: &quot;</span><span class="nx">test</span><span class="err">@</span><span class="nx">mail</span><span class="p">.</span><span class="nx">com</span><span class="s2">&quot;,</span>
-<span class="s2">    number: 123,</span>
-<span class="s2">    status: false</span>
-<span class="s2">});</span>
-<span class="s2">// Notice: The inserted object now has a &#39;documentId&#39; property, </span>
-<span class="s2">// which is the id of the record generated by QLDB</span>
-<span class="s2">console.log(&quot;</span><span class="nx">Inserted</span><span class="w"> </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot; + inserted);</span>
-<span class="s2">// 4.1 Update a record</span>
-<span class="s2">inserted.email = &quot;</span><span class="nx">q</span><span class="err">@</span><span class="nx">mail</span><span class="p">.</span><span class="nx">com</span><span class="s2">&quot;;</span>
-<span class="s2">inserted.number = 5;</span>
-<span class="s2">inserted.status = false;</span>
-<span class="s2">let updated = qldb.update(inserted);</span>
-<span class="s2">console.log(&quot;</span><span class="nx">Updated</span><span class="w"> </span><span class="nx">entry</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot; + updated);</span>
-<span class="s2">// 4.2 [OPTIONAL] Update a record with an object</span>
-<span class="s2">// let updatedRaw = qldb.update({</span>
-<span class="s2">//     email: &quot;</span><span class="nx">text</span><span class="err">@</span><span class="nx">mail</span><span class="p">.</span><span class="nx">com</span><span class="s2">&quot;,</span>
-<span class="s2">//     number: 50000,</span>
-<span class="s2">//     status: true,</span>
-<span class="s2">//     documentId: &quot;</span><span class="mf">7</span><span class="nx">ekJBB1FEm1EmhJBqH0WLX</span><span class="s2">&quot;</span>
-<span class="s2">// });</span>
-<span class="s2">// Notice: Unlike insertion where the &#39;documentId&#39; is generated by QLDB,</span>
-<span class="s2">// in &#39;update&#39; the object must have a &#39;documentId&#39; property defined </span>
-<span class="s2">// with value - a valid documentId of an entry in your table.</span>
-<span class="s2">// 5. Get all current records in the repository.</span>
-<span class="s2">let allRecords = qldb.getAll();</span>
-<span class="s2">console.log(&quot;</span><span class="nx">allRecords</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot; + allRecords);</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qldb&quot;</span><span class="w"></span>
+<span class="c1">// 1. Create a repository for the ledger &#39;myTestLedger&#39; that works with a table &#39;tableName&#39;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myTestLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tableName&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// 2. [OPTIONAL] Create the table as it doesn&#39;t exist in your ledger, </span><span class="w"></span>
+<span class="c1">// on the next execution of this script - comment out this line or it will fail.</span><span class="w"></span>
+<span class="nx">qldb</span><span class="p">.</span><span class="nx">createTable</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// 3. Insert a JS Object as a record.</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">inserted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">qldb</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test@mail.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">number</span><span class="o">:</span><span class="w"> </span><span class="mf">123</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="c1">// Notice: The inserted object now has a &#39;documentId&#39; property, </span><span class="w"></span>
+<span class="c1">// which is the id of the record generated by QLDB</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Inserted entry: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">inserted</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// 4.1 Update a record</span><span class="w"></span>
+<span class="nx">inserted</span><span class="p">.</span><span class="nx">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;q@mail.com&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">inserted</span><span class="p">.</span><span class="nx">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"></span>
+<span class="nx">inserted</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">updated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">qldb</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">inserted</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Updated entry: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">updated</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// 4.2 [OPTIONAL] Update a record with an object</span><span class="w"></span>
+<span class="c1">// let updatedRaw = qldb.update({</span><span class="w"></span>
+<span class="c1">//     email: &quot;text@mail.com&quot;,</span><span class="w"></span>
+<span class="c1">//     number: 50000,</span><span class="w"></span>
+<span class="c1">//     status: true,</span><span class="w"></span>
+<span class="c1">//     documentId: &quot;7ekJBB1FEm1EmhJBqH0WLX&quot;</span><span class="w"></span>
+<span class="c1">// });</span><span class="w"></span>
+<span class="c1">// Notice: Unlike insertion where the &#39;documentId&#39; is generated by QLDB,</span><span class="w"></span>
+<span class="c1">// in &#39;update&#39; the object must have a &#39;documentId&#39; property defined </span><span class="w"></span>
+<span class="c1">// with value - a valid documentId of an entry in your table.</span><span class="w"></span>
+<span class="c1">// 5. Get all current records in the repository.</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">allRecords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">qldb</span><span class="p">.</span><span class="nx">getAll</span><span class="p">();</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;allRecords: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">allRecords</span><span class="p">);</span><span class="w"></span>
 
-<span class="s2">// 6.1 Delete a record </span>
-<span class="s2">let deletedId = qldb.delete(updated);</span>
-<span class="s2">console.log(&quot;</span><span class="nx">Deleted</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot; + deletedId);</span>
-<span class="s2">// 6.2 [OPTIONAL] Delete a record by ID</span>
-<span class="s2">// deletedId = qldb.delete(updated.documentId);</span>
-<span class="s2">// console.log(&quot;</span><span class="nx">Deleted</span><span class="w"> </span><span class="nx">entry</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot; + deletedId);</span>
-<span class="s2">// 7. Get array with all transactions for the table</span>
-<span class="s2">let transactionHistory = qldb.getHistory();</span>
-<span class="s2">console.log(&quot;</span><span class="nx">Transaction</span><span class="w"> </span><span class="nx">History</span><span class="o">:</span><span class="err">&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">transactionHistory</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// 6.1 Delete a record </span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">deletedId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">qldb</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">updated</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Deleted entry with id: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">deletedId</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// 6.2 [OPTIONAL] Delete a record by ID</span><span class="w"></span>
+<span class="c1">// deletedId = qldb.delete(updated.documentId);</span><span class="w"></span>
+<span class="c1">// console.log(&quot;Deleted entry with id: &quot; + deletedId);</span><span class="w"></span>
+<span class="c1">// 7. Get array with all transactions for the table</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">transactionHistory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">qldb</span><span class="p">.</span><span class="nx">getHistory</span><span class="p">();</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Transaction History:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">transactionHistory</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// 8. [OPTIONAL] Drop the table</span><span class="w"></span>
 <span class="c1">// qldb.dropTable();</span><span class="w"></span>
 <span class="c1">// Notice: In QLDB dropping a table simply inactivates it, </span><span class="w"></span>
@@ -2234,12 +2237,14 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 </div>
 </div>
 <h2 id="optional-manually-run-partiql-queries-against-your-ledger">(Optional) Manually Run PartiQL queries against your ledger</h2>
+<p><img alt="partiql-editor" src="/blogs/2022/09/26/images/partiql-editor.png" /></p>
 <ul>
 <li>Sign in to the AWS Management Console, and open the <a href="https://console.aws.amazon.com/qldb">Amazon QLDB console</a>.</li>
 <li>In the navigation pane choose <code>PartiQL editor</code>.</li>
 <li>In the editor's <code>Choose a ledger</code> dropdown select <code>myTestLedger</code>.</li>
 <li>You can now write and execute queries to your database manually. </li>
 </ul>
+<p><img alt="partiql-result" src="/blogs/2022/09/26/images/partiql-result.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This can be useful if you want to create, delete or restore deleted tables. Read more at <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-gettingstarted.html">Getting started with PartiQL for DynamoDB</a>.</p>
@@ -2400,7 +2405,7 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
     <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.37e9125f.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>
