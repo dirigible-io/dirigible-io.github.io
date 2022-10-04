@@ -1970,15 +1970,17 @@
 <li>Under <code>Set permissions</code>, choose <code>Add user to group</code>.</li>
 <li>Choose <code>Create group</code>.</li>
 </ul>
-<p><img alt="create-group" src="/blogs/2022/09/26/images/create-group.png" />
-- In the Create group dialog box, for Group name enter <code>dirigible_qldb_group</code>.
-- Choose in the <code>Filter policies</code> input, search for the term <code>qldb</code>.
-- Put checkboxes on <code>AmazonQLDBReadOnly</code>, <code>AmazonQLDBFullAccess</code> and <code>AmazonQLDBConsoleFullAccess</code>.
-- Then click on <code>Create group</code>.
-- Back in the list of groups, select the <code>check box</code> for your new group. Choose <code>Refresh</code> if necessary to see the group in the list.
-- Choose <code>Next: Tags</code>.
-- (Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM entities</a> in the IAM User Guide.
-- Choose <code>Next: Review</code> to see the list of group memberships to be added to the new user. When you are ready to proceed, choose <code>Create user</code>.</p>
+<p><img alt="create-group" src="/blogs/2022/09/26/images/create-group.png" /></p>
+<ul>
+<li>In the Create group dialog box, for Group name enter <code>dirigible_qldb_group</code>.</li>
+<li>Choose in the <code>Filter policies</code> input, search for the term <code>qldb</code>.</li>
+<li>Put checkboxes on <code>AmazonQLDBReadOnly</code>, <code>AmazonQLDBFullAccess</code> and <code>AmazonQLDBConsoleFullAccess</code>.</li>
+<li>Then click on <code>Create group</code>.</li>
+<li>Back in the list of groups, select the <code>check box</code> for your new group. Choose <code>Refresh</code> if necessary to see the group in the list.</li>
+<li>Choose <code>Next: Tags</code>.</li>
+<li>(Optional) Add metadata to the user by attaching tags as key-value pairs. For more information about using tags in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM entities</a> in the IAM User Guide.</li>
+<li>Choose <code>Next: Review</code> to see the list of group memberships to be added to the new user. When you are ready to proceed, choose <code>Create user</code>.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can read more in the AWS documentation <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/accessing.html#setting-up-create-iam-user">How to Create an IAM User</a>.</p>
