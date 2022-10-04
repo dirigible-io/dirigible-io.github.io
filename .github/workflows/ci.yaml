@@ -19,6 +19,14 @@ jobs:
       run: |
         docker pull squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION
 
+        cp -a img/. docs-api/docs/
+        cp -a img/. docs-help/docs/
+        cp -a img/. docs-samples/docs/
+        cp -a img/. docs-blogs/docs/
+        cp -a img/. docs-news/docs/
+        cp -a img/. docs-releases/docs/
+        cp -a img/. docs-home/docs/
+
         # Build
         docker run -v ${{ github.workspace }}/docs-api:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
         docker run -v ${{ github.workspace }}/docs-help:/docs squidfunk/mkdocs-material:$MKDOCS_MATERIAL_VERSION build
