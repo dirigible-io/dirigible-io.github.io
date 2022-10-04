@@ -43,6 +43,7 @@ To create AWS Identity and Access Management (IAM) user, sign in to the [IAM con
 - Choose `Create group`.
 
 ![create-group](/blogs/2022/09/26/images/create-group.png)
+
 - In the Create group dialog box, for Group name enter `dirigible_qldb_group`.
 - Choose in the `Filter policies` input, search for the term `qldb`.
 - Put checkboxes on `AmazonQLDBReadOnly`, `AmazonQLDBFullAccess` and `AmazonQLDBConsoleFullAccess`.
