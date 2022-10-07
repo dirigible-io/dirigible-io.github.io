@@ -71,7 +71,7 @@ jobs:
         cp -a css docs/css
         cp -a fonts docs/fonts
         cp -a gdpr docs/gdpr
-        cp -a img docs/img
+        cp -a img docs/
         cp -a js docs/js
         cp -a services docs/services
         cp CNAME docs/CNAME
