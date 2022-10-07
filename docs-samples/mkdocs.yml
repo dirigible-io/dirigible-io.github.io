@@ -2,7 +2,7 @@ site_name: Eclipse Dirigible Samples
 site_url: https://www.dirigible.io/samples/
 theme:
   favicon: /img/favicon.png
-  logo: ../img/logo/dirigible-logo.png
+  logo: img/logo/dirigible-logo.png
   name: material
   custom_dir: overrides
   features:
