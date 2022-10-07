@@ -1,7 +1,7 @@
 site_name: Eclipse Dirigible API
 site_url: https://www.dirigible.io/api/
 theme:
-  favicon: ../img/favicon.png
+  favicon: /img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: material
   custom_dir: overrides
@@ -9,6 +9,10 @@ theme:
     - navigation.instant
     - navigation.top
     - navigation.indexes
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
 
 extra_css:
   - stylesheets/custom.css
@@ -51,4 +55,8 @@ extra:
       link: https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg
 
 plugins:
-  - social
+  - social:
+    cards_color:
+      fill: "#FECC04"
+      text: "#2D2D2D"
+  - search

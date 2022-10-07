@@ -33,7 +33,7 @@ nav:
     - '2014':
       - 'Dirigible - one of the founders of Cloud Development Initiative at Eclipse together with Orion, Che and Flux': '2014/10/27/news-dirigible-founders-of-cdi.md'
 theme:
-  favicon: ../img/favicon.png
+  favicon: /img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: mkdocs
   custom_dir: overrides
@@ -43,6 +43,10 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
 
 extra_css:
   - stylesheets/custom.css
@@ -87,4 +91,8 @@ extra:
       link: https://slack.dirigible.io
 
 plugins:
-  - social
+  - social:
+    cards_color:
+      fill: "#FECC04"
+      text: "#2D2D2D"
+  - search

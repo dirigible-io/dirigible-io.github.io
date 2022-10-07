@@ -1,7 +1,7 @@
 site_name: Eclipse Dirigible Samples
 site_url: https://www.dirigible.io/samples/
 theme:
-  favicon: ../img/favicon.png
+  favicon: /img/favicon.png
   logo: ../img/logo/dirigible-logo.png
   name: material
   custom_dir: overrides
@@ -11,6 +11,10 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.indexes
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
 
 nav:
     - 'Samples': 'index.md'
@@ -124,4 +128,8 @@ extra:
       link: https://slack.dirigible.io
 
 plugins:
-  - social
+  - social:
+    cards_color:
+      fill: "#FECC04"
+      text: "#2D2D2D"
+  - search
