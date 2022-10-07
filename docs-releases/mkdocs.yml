@@ -122,7 +122,7 @@ extra:
 
 plugins:
   - social:
-    cards_color:
-      fill: "#FECC04"
-      text: "#2D2D2D"
+      cards_color:
+        fill: "#FECC04"
+        text: "#2D2D2D"
   - search
