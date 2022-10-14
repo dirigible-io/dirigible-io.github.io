@@ -445,7 +445,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DESTINATION_CLIENT_SECRET** | The Destination Service instance client secret | _`-`_
 **DIRIGIBLE_DESTINATION_URL**  | The Destination Service instance url | _`-`_
 **DIRIGIBLE_DESTINATION_URI**  | The Destination Service instance uri | _`-`_
-
+**DIRIGIBLE_DESTINATIONS_PROXY_ENABLED**  | Whether the Destinations Proxy is enabled | _`false`_
 
 ### Connectivity
 ---
