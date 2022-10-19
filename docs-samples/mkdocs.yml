@@ -73,7 +73,7 @@ nav:
         - 'RBAC for CMS': 'tutorials/customizations/rbac-for-cms.md'
       - 'Modeling':
         - 'Generate Application from Model': 'tutorials/modeling/generate-application-from-model.md'
-        - 'BPMN Process' : 'tutorials/modeling/process-console.md'
+        - 'BPMN Process' : 'tutorials/modeling/bpmn-process.md'
       - 'Setup':
         - 'Tomcat': 'https://www.dirigible.io/help/setup/'
         - 'Docker': 'https://www.dirigible.io/help/setup/docker/'
