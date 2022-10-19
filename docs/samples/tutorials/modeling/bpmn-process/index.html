@@ -1438,15 +1438,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#optional-email-configuration" class="md-nav__link">
     (Optional) Email Configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1762,15 +1762,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#optional-email-configuration" class="md-nav__link">
     (Optional) Email Configuration
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1987,7 +1987,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 <li>Right click on the <code>sample-bpm</code> project and select <strong>New &#8594; Business Process Model</strong>.</li>
 <li>Enter <code>time-entry-request.bpmn</code> for the name of the business process.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Manual Steps</label><label for="__tabbed_2_2">XML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Manual Steps</label><label for="__tabbed_2_2">XML Content</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -2586,7 +2586,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 </div>
 </div>
 </div>
-<h3 id="optional-email-configuration">(Optional) Email Configuration</h3>
+<h4 id="optional-email-configuration">(Optional) Email Configuration</h4>
 <p>In order to recieve email notifications about the process steps a mail configuration should be provided.</p>
 <p>The following environment variables are needed:</p>
 <div class="highlight"><pre><span></span><code>DIRIGIBLE_MAIL_USERNAME=&lt;YOUR_MAIL_USERNAME&gt;
@@ -2616,8 +2616,8 @@ APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;
 <li>If email configuration was provided an email notification will be send to the email address set by the <code>APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;</code> environment variable.</li>
 <li>
 <p>If email configuration wasn't provided then in the <code>Console</code> view the following message can be found:</p>
-<p><code>`
-Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...</code></p>
+<div class="highlight"><pre><span></span><code>Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
+</code></pre></div>
 </li>
 <li>
 <p>Open the URL from the <code>Console</code> view or open it from the email notification.</p>
@@ -2628,7 +2628,7 @@ Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?d
 </ol>
 <div class="admonition info">
 <p class="admonition-title">BPM Sample GitHub Repository</p>
-<p>Go to <a href="https://github.com/dirigiblelabs/sample-bpm">https://github.com/dirigiblelabs/sample-bpm</a> to find the complete sample. The repository can be clone in the <code>Git</code> perspective and after few minutes the <strong>BPM Sample</strong> would be active.</p>
+<p>Go to <a href="https://github.com/dirigiblelabs/sample-bpm">https://github.com/dirigiblelabs/sample-bpm</a> to find the complete sample. The repository can be cloned in the <code>Git</code> perspective and after few minutes the <strong>BPM Sample</strong> would be active.</p>
 </div>
 
 
