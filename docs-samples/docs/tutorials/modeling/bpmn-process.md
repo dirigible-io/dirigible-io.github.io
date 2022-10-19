@@ -255,7 +255,7 @@ JavaScript handlers should be provided for the `Service Task` steps in the `Busi
 
 		![bpmn-process](bpmn-process/9-save-changes.png)
 
-=== "XML"
+=== "XML Content"
 
 	1. Right click on the `time-entry-request.bpmn` file and select **Open With &#8594; Code Editor**.
 	1. Replace the content with the following:
@@ -748,7 +748,7 @@ The process form would call the server-side javascript api that was created befo
 			}]);
 		```
 
-### (Optional) Email Configuration
+#### (Optional) Email Configuration
 
 In order to recieve email notifications about the process steps a mail configuration should be provided.
 
@@ -787,7 +787,7 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 
 	```
 	Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
-	``
+	```
 
 1. Open the URL from the `Console` view or open it from the email notification.
 1. The **Process form** would be prefilled with the data that was entered in the **Submit form**.
@@ -796,4 +796,4 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 
 !!! Info "BPM Sample GitHub Repository"
 
-    Go to [https://github.com/dirigiblelabs/sample-bpm](https://github.com/dirigiblelabs/sample-bpm) to find the complete sample. The repository can be clone in the `Git` perspective and after few minutes the **BPM Sample** would be active.
+    Go to [https://github.com/dirigiblelabs/sample-bpm](https://github.com/dirigiblelabs/sample-bpm) to find the complete sample. The repository can be cloned in the `Git` perspective and after few minutes the **BPM Sample** would be active.
