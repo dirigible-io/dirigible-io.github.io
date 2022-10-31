@@ -3447,11 +3447,6 @@
 <td><em><code>-</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
-<td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
-<td><em><code>true</code></em></td>
-</tr>
-<tr>
 <td><strong>DIRIGIBLE_OAUTH_ISSUER</strong></td>
 <td>The OAuth <code>issuer</code> <em>(e.g. <code>http://xxx.localhost:8080/uaa/oauth/token</code>)</em></td>
 <td><em><code>-</code></em></td>
@@ -3460,6 +3455,21 @@
 <td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY</strong></td>
 <td>The OAuth <code>verificationkey</code> <em>(e.g. <code>-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...</code>)</em></td>
 <td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY_EXPONENT</strong></td>
+<td>The OAuth verificationkey exponent <em>(e.g. <code>AQAB</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
+<td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
+<td><em><code>true</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_CHECK_AUDIENCE_ENABLED</strong></td>
+<td>Sets whether the JWT verifier should check the token <code>aud</code></td>
+<td><em><code>true</code></em></td>
 </tr>
 <tr>
 <td><strong>DIRIGIBLE_OAUTH_APPLICATION_NAME</strong></td>
