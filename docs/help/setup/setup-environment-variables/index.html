@@ -3442,6 +3442,21 @@
 <td><em><code>-</code></em></td>
 </tr>
 <tr>
+<td><strong>DIRIGIBLE_OAUTH_APPLICATION_HOST</strong></td>
+<td>The application host <em>(e.g. <code>https://my-application-host</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
+<td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
+<td><em><code>true</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_OAUTH_ISSUER</strong></td>
+<td>The OAuth <code>issuer</code> <em>(e.g. <code>http://xxx.localhost:8080/uaa/oauth/token</code>)</em></td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
 <td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY</strong></td>
 <td>The OAuth <code>verificationkey</code> <em>(e.g. <code>-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...</code>)</em></td>
 <td><em><code>-</code></em></td>
@@ -3451,23 +3466,12 @@
 <td>The application name <em>(e.g. <code>dirigible-xxx</code>)</em></td>
 <td><em><code>-</code></em></td>
 </tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_APPLICATION_HOST</strong></td>
-<td>The application host <em>(e.g. <code>https://my-application-host</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_ISSUER</strong></td>
-<td>The OAuth <code>issuer</code> <em>(e.g. <code>http://xxx.localhost:8080/uaa/oauth/token</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
-<td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
-<td><em><code>true</code></em></td>
-</tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Redirect/Callback URL</p>
+<p>Configure the Redirect/Callback URL in the OAuth client to: <code>&lt;DIRIGIBLE_OAUTH_APPLICATION_HOST&gt;/services/v4/oauth/callback</code></p>
+</div>
 <h3 id="keycloak">Keycloak</h3>
 <table>
 <thead>
