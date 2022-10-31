@@ -85,11 +85,15 @@ Parameter     | Description | Default*
 **DIRIGIBLE_OAUTH_TOKEN_URL** | The OAuth token URL _(e.g. `https://my-oauth-server/oauth/token`)_ | _`-`_
 **DIRIGIBLE_OAUTH_CLIENT_ID** | The OAuth `clientid` _(e.g. `sb-xxx-yyy`)_ | _`-`_
 **DIRIGIBLE_OAUTH_CLIENT_SECRET** | The OAuth `clientsecret` _(e.g. `PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...`)_ | _`-`_
+**DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
+**DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
+**DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
 **DIRIGIBLE_OAUTH_VERIFICATION_KEY** | The OAuth `verificationkey` _(e.g. `-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...`)_ | _`-`_
 **DIRIGIBLE_OAUTH_APPLICATION_NAME** | The application name _(e.g. `dirigible-xxx`)_ | _`-`_
-**DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
-**DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
-**DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
+
+!!! Note "Redirect/Callback URL"
+
+    Configure the Redirect/Callback URL in the OAuth client to: `<DIRIGIBLE_OAUTH_APPLICATION_HOST>/services/v4/oauth/callback`
 
 ### Keycloak
 
