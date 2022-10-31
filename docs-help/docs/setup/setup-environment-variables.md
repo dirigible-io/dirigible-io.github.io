@@ -83,6 +83,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_OAUTH_ENABLED** | Whether the OAuth authentication is enabled | _`false`_
 **DIRIGIBLE_OAUTH_AUTHORIZE_URL** | The OAuth authorization URL _(e.g. `https://my-oauth-server/oauth/authorize`)_ | _`-`_
 **DIRIGIBLE_OAUTH_TOKEN_URL** | The OAuth token URL _(e.g. `https://my-oauth-server/oauth/token`)_ | _`-`_
+**DIRIGIBLE_OAUTH_TOKEN_REQUEST_METHOD** | The OAuth token reqyest method _(`GET` or `POST`)_ | _`GET`_
 **DIRIGIBLE_OAUTH_CLIENT_ID** | The OAuth `clientid` _(e.g. `sb-xxx-yyy`)_ | _`-`_
 **DIRIGIBLE_OAUTH_CLIENT_SECRET** | The OAuth `clientsecret` _(e.g. `PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...`)_ | _`-`_
 **DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
