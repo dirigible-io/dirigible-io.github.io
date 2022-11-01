@@ -1,9 +1,5 @@
 [
   {
-    "location": "2017/04/07/news-uniteddev-2017.md",
-    "title": "UnitedDev Conference 2017"
-  },
-  {
     "location": "2017/10/04/news-javaone-2017.md",
     "title": "JavaOne 2017"
   },
@@ -18,5 +14,9 @@
   {
     "location": "2022/10/06/cloud-tool-time-building-white-label-platforms.md",
     "title": "Cloud Tool Time - Building white-label platforms"
+  },
+  {
+    "location": "2022/10/15/openfestbg-2022-hackaton.md",
+    "title": "Open Fest 2022 - Low-Code Hackaton"
   }
 ]
