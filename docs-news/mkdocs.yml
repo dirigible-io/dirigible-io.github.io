@@ -3,6 +3,8 @@ site_url: https://www.dirigible.io/news/
 
 nav:
     - 'News': 'index.md'
+    - '2022':
+      - 'Fundamentals Conf 2022': '2022/09/29/news-fundamentals-conf-2022.md'
     - '2018':
       - 'jPrime 2018': '2018/05/31/news-jprime-2018.md'
     - '2017':
