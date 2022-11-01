@@ -6,6 +6,8 @@ tag: news
 
 In this session Yordan Pavlov (CTO of [codbex](https://www.codbex.com)) shared his experience from building "white-label" platforms on top of Eclipse Dirigible.
 
+![Session](cloud-tools-time-white-label.png){: .img-responsive }
+
 ### White-label Business Model
 
 * Manufacturer: Creates generic (whilte-label) products.
