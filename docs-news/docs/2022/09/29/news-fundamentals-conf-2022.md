@@ -29,4 +29,4 @@ On Fundamentals Conf 2022 Stan came with a new revamped and modernized Eclipse D
 
 [Recording](https://www.youtube.com/watch?v=ZnXSchQhWT4)
 
-#### Congrats!
+### Congrats!
