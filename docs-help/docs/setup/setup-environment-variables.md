@@ -108,6 +108,8 @@ Parameter     | Description | Default*
 **DIRIGIBLE_KEYCLOAK_SSL_REQUIRED** | The Keyclaok SSL Required _(e.g. `none`/`external`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_CLIENT_ID** | The Keycloak Client ID _(e.g. `my-client`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
+**DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
+**SERVER_MAXHTTPHEADERSIZE** | The HTTP header max size _(.e.g. `48000`)_ | _`Default for the underlying server (e.g. Tomcat)`_
 
 !!! Note
 	To find more details about the Keycloak configuration go to [Keycloak Java Adapter Configuration](https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config).
