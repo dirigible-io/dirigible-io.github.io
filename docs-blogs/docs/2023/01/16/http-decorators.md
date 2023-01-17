@@ -16,8 +16,9 @@ Although decorators support is something new in Dirigible yet to be documented, 
 
 For some time now, we have been thinking of an easier-to-code and easier-to-read solution for writing REST APIs. The current way of writing RESTful services is via [the rs module](https://www.dirigible.io/api/http/rs/). At a first glance, this is pretty similar to the plain old NodeJS Express. We have a router and we define some routes:
 
-```JS
-import { rs } from "@dirigible/http" // or 'const rs = require("http/v4/rs");' if you use the CJS modules support
+```javascript
+import { rs } from "@dirigible/http"
+// const rs = require("http/v4/rs"); // if you use the CJS modules support
 
 rs.service()
     .get("/hello", (ctx, req, res) => res.println("Hello there!");)
@@ -28,8 +29,9 @@ This approach has been working well but we've been hearing more and more about p
 
 When the new GraalJS version supporting decorators was released, we decided to create a PoC for decorator-based APIs. The first thing we tried out was something like the following:
 
-```JS
-import { Controller, Get } from "@dirigible/http" // or 'const { Controller, Get } = require("http/v4/rs/decorators");' if you use the CJS modules support
+```javascript
+import { Controller, Get } from "@dirigible/http"
+// const { Controller, Get } = require("http/v4/rs/decorators"); // if you use the CJS modules support
 
 @Controller
 class MyApi {
@@ -43,8 +45,9 @@ class MyApi {
 
 While this was good enough for a PoC, it was still a bit more verbose than necessary for simple APIs. From what we have seen, people most often write an API that receives some request data and respond with some other data. So, we changed our design to the following:
 
-```JS
-import { Controller, Get, Post } from "@dirigible/http" // or 'const { Controller, Get, Post } = require("http/v4/rs/decorators");' if you use the CJS modules support
+```javascript
+import { Controller, Get, Post } from "@dirigible/http"
+// const { Controller, Get, Post } = require("http/v4/rs/decorators"); // if you use the CJS modules support
 
 @Controller
 class MyApi {
@@ -65,7 +68,7 @@ class MyApi {
 
 This change made writing simple APIs a lot easier - you just receive some data, and return some data. But what if you need to read some query parameters? Or headers? Or something that we have still not added support via just decorators? Well, you could still write your request handler like this:
 
-```JS
+```javascript
 @Post("/test/:id")
 onPost(body, ctx) {
     const id = ctx.req.params.id;
