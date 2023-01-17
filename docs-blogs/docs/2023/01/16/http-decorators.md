@@ -18,7 +18,8 @@ For some time now, we have been thinking of an easier-to-code and easier-to-read
 
 ```javascript
 import { rs } from "@dirigible/http"
-// const rs = require("http/v4/rs"); // if you use the CJS modules support
+// or if you use the CJS modules support
+// const rs = require("http/v4/rs");
 
 rs.service()
     .get("/hello", (ctx, req, res) => res.println("Hello there!");)
@@ -31,7 +32,8 @@ When the new GraalJS version supporting decorators was released, we decided to c
 
 ```javascript
 import { Controller, Get } from "@dirigible/http"
-// const { Controller, Get } = require("http/v4/rs/decorators"); // if you use the CJS modules support
+// or if you use the CJS modules support
+// const { Controller, Get } = require("http/v4/rs/decorators");
 
 @Controller
 class MyApi {
@@ -47,7 +49,8 @@ While this was good enough for a PoC, it was still a bit more verbose than neces
 
 ```javascript
 import { Controller, Get, Post } from "@dirigible/http"
-// const { Controller, Get, Post } = require("http/v4/rs/decorators"); // if you use the CJS modules support
+// or if you use the CJS modules support
+// const { Controller, Get, Post } = require("http/v4/rs/decorators");
 
 @Controller
 class MyApi {
@@ -82,4 +85,4 @@ onPost(body, ctx) {
 By using the `ctx` argument of the request handler you can access the underlying [request](https://www.dirigible.io/api/http/request/) with `ctx.req` or the [response](https://www.dirigible.io/api/http/response/) object with `ctx.res`.
 
 ## Wrap up
-Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at [Dirigible Trial](https://trial.apps.dirigible.io/)
+Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at [Dirigible Trial](https://trial.apps.dirigible.io/).
