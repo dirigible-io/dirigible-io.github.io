@@ -1,10 +1,5 @@
 [
   {
-    "location": "2021/11/2/material-blogging-capabilities.md",
-    "title": "Enable Blogging Capabilities with Material for MkDocs",
-    "description": "In this article we are going to ..."
-  },
-  {
     "location": "2022/01/14/dirigible-vscode-theia-custom-editors.md",
     "title": "Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors",
     "description": "In this article we are going to focus on the overall design differences between the IDEs. "
@@ -23,5 +18,10 @@
     "location": "2022/09/26/qldb-repository-api-guide.md",
     "title": "Amazon Quantum Ledger Database with Eclipse Dirigible",
     "description": "In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API."
+  },
+  {
+    "location": "2023/01/16/http-decorators.md",
+    "title": "JavaScript Decorators in Eclipse Dirigible",
+    "description": "In this article we are going to take a look at the HTTP JS decorators of Eclipse Dirigible"
   }
 ]
