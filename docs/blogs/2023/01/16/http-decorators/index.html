@@ -1963,7 +1963,8 @@
 <h2 id="what-do-we-use-javascript-decorators-for">What do we use JavaScript decorators for?</h2>
 <p>For some time now, we have been thinking of an easier-to-code and easier-to-read solution for writing REST APIs. The current way of writing RESTful services is via <a href="https://www.dirigible.io/api/http/rs/">the rs module</a>. At a first glance, this is pretty similar to the plain old NodeJS Express. We have a router and we define some routes:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
-<span class="c1">// const rs = require(&quot;http/v4/rs&quot;); // if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// const rs = require(&quot;http/v4/rs&quot;);</span><span class="w"></span>
 
 <span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello there!&quot;</span><span class="p">);)</span><span class="w"></span>
@@ -1972,7 +1973,8 @@
 <p>This approach has been working well but we've been hearing more and more about people wanting to write APIs in a way similar to Java Spring's and NestJS's annotation/decorator definitions.</p>
 <p>When the new GraalJS version supporting decorators was released, we decided to create a PoC for decorator-based APIs. The first thing we tried out was something like the following:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
-<span class="c1">// const { Controller, Get } = require(&quot;http/v4/rs/decorators&quot;); // if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// const { Controller, Get } = require(&quot;http/v4/rs/decorators&quot;);</span><span class="w"></span>
 
 <span class="err">@</span><span class="nx">Controller</span><span class="w"></span>
 <span class="kd">class</span><span class="w"> </span><span class="nx">MyApi</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1985,7 +1987,8 @@
 </code></pre></div>
 <p>While this was good enough for a PoC, it was still a bit more verbose than necessary for simple APIs. From what we have seen, people most often write an API that receives some request data and respond with some other data. So, we changed our design to the following:</p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="p">,</span><span class="w"> </span><span class="nx">Post</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
-<span class="c1">// const { Controller, Get, Post } = require(&quot;http/v4/rs/decorators&quot;); // if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
+<span class="c1">// const { Controller, Get, Post } = require(&quot;http/v4/rs/decorators&quot;);</span><span class="w"></span>
 
 <span class="err">@</span><span class="nx">Controller</span><span class="w"></span>
 <span class="kd">class</span><span class="w"> </span><span class="nx">MyApi</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2015,7 +2018,7 @@
 </code></pre></div>
 <p>By using the <code>ctx</code> argument of the request handler you can access the underlying <a href="https://www.dirigible.io/api/http/request/">request</a> with <code>ctx.req</code> or the <a href="https://www.dirigible.io/api/http/response/">response</a> object with <code>ctx.res</code>.</p>
 <h2 id="wrap-up">Wrap up</h2>
-<p>Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at <a href="https://trial.apps.dirigible.io/">Dirigible Trial</a></p>
+<p>Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at <a href="https://trial.apps.dirigible.io/">Dirigible Trial</a>.</p>
 
         <!-- Last update of source file -->
         
