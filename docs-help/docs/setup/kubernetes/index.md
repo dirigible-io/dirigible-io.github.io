@@ -184,6 +184,28 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
             app: dirigible
         ```
 
+    === "LoadBalancer"
+
+        ```yaml
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: dirigible
+          labels:
+            app: dirigible
+        spec:
+          ports:
+            - name: http
+              port: 80
+              targetPort: 8080
+            - name: https
+              port: 443
+              targetPort: 8080
+          type: LoadBalancer
+          selector:
+            app: dirigible
+        ```
+
     === "Ingress"
 
         ```yaml
