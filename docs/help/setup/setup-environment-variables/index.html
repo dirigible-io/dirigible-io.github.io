@@ -1004,6 +1004,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#oauth" class="md-nav__link">
     OAuth
   </a>
@@ -2909,6 +2916,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    Basic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#oauth" class="md-nav__link">
     OAuth
   </a>
@@ -3406,6 +3420,23 @@
 </tr>
 </tbody>
 </table>
+<h3 id="basic">Basic</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_BASIC_ENABLED</strong></td>
+<td>Whether the Basic authentication is enabled</td>
+<td><em><code>true</code></em></td>
+</tr>
+</tbody>
+</table>
 <h3 id="oauth">OAuth</h3>
 <table>
 <thead>
@@ -3499,7 +3530,7 @@
 <tbody>
 <tr>
 <td><strong>DIRIGIBLE_KEYCLOAK_ENABLED</strong></td>
-<td>Sets whether the  Keycloak Authentication is enabled</td>
+<td>Sets whether the  Keycloak Authentication is enabled*</td>
 <td><em><code>false</code></em></td>
 </tr>
 <tr>
@@ -3541,7 +3572,8 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To find more details about the Keycloak configuration go to <a href="https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config">Keycloak Java Adapter Configuration</a>.</p>
+<p>In addition to setting the <code>DIRIGIBLE_KEYCLOAK_ENABLED</code> property to <code>true</code>, the <code>DIRIGIBLE_BASIC_ENABLED</code> property should be set to <code>false</code> in order to enable the Keycloak integration.
+To find more details about the Keycloak configuration go to <a href="https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config">Keycloak Java Adapter Configuration</a>.</p>
 </div>
 <h3 id="git">Git</h3>
 <table>
