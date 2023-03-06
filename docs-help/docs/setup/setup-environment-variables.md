@@ -76,6 +76,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER**   | (Optional) The order of the custom help item | _`0`_
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER**   | (Optional) Whether to set divider after the custom help item | _`false`_
 
+### Basic
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_BASIC_ENABLED** | Whether the Basic authentication is enabled | _`true`_
+
 ### OAuth
 
 Parameter     | Description | Default*
@@ -102,7 +108,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_KEYCLOAK_ENABLED** | Sets whether the  Keycloak Authentication is enabled | _`false`_
+**DIRIGIBLE_KEYCLOAK_ENABLED** | Sets whether the  Keycloak Authentication is enabled* | _`false`_
 **DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL** | The Keycloak Authentication Server URL _(e.g. `https://keycloak-server/auth/`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_REALM** | The Keycloak realm _(e.g. `my-realm`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_SSL_REQUIRED** | The Keyclaok SSL Required _(e.g. `none`/`external`)_ | _`-`_
@@ -112,6 +118,7 @@ Parameter     | Description | Default*
 **SERVER_MAXHTTPHEADERSIZE** | The HTTP header max size _(e.g. `48000`)_ | _`Default for the underlying server (e.g. Tomcat)`_
 
 !!! Note
+	In addition to setting the `DIRIGIBLE_KEYCLOAK_ENABLED` property to `true`, the `DIRIGIBLE_BASIC_ENABLED` property should be set to `false` in order to enable the Keycloak integration.
 	To find more details about the Keycloak configuration go to [Keycloak Java Adapter Configuration](https://www.keycloak.org/docs/latest/securing_apps/#_java_adapter_config).
 
 ### Git
