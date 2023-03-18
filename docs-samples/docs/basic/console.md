@@ -9,7 +9,7 @@ hide:
 ### Steps
 
 1. Create a project `sample-core-console`.
-2. Then create a JavaScript service named `sample.js`.
+2. Then create a JavaScript service named `console-log.js`.
 3. Within the service code, enter the following content:
 
 ```javascript
