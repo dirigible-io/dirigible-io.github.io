@@ -8,17 +8,15 @@ Git Client
 Git Client is used by scripting services to call git commands
 
 === "Overview"
-- Module: `git/v4/client`
-- Alias: `git/client`
-- Source: [/git/v4/client.js](https://github.com/dirigiblelabs/api-git/blob/master/git/v4/client.js)
-- Facade: [GitFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-git/src/main/java/org/eclipse/dirigible/api/v4/git/GitFacade.java)
+- Module: `git/client`
+- Source: [/git/client.js](https://github.com/dirigiblelabs/api-git/blob/master/git/v4/client.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-const git = require("git/v4/client");
+const git = require("git/client");
 
 const user = "dirigible";
 const email = "dirigible@eclipse.org";
