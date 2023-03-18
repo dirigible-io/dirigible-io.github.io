@@ -12,12 +12,12 @@ Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent informat
 ### Hello World
 
 1. Create new project: `hello-world`
-1. Create new file: `helloWorld.js`
+1. Create new file: `hello-world.js`
 1. Copy and paste the sample code.
 1. Save the changes.
 1. See the result in the `Preview` tab.
 ```javascript
-var response = require("http/v4/response");
+var response = require("http/response");
 
 response.println("Hello World!");
 ```
