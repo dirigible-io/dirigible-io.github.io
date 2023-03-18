@@ -8,7 +8,7 @@ hide:
 
 ### Steps
 
-1. Create a project `sample-core-console`.
+1. Create a project `sample-builtin-console`.
 2. Then create a JavaScript service named `console-log.js`.
 3. Within the service code, enter the following content:
 
