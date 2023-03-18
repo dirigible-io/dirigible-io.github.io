@@ -2,26 +2,24 @@
 title: Request
 ---
 
-Request
+HTTP Request
 ===
 
 
 HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.
 
 === "Overview"
-- Module: `http/v4/request`
-- Alias: `http/request`
+- Module: `http/request`
 - Definition: [https://github.com/eclipse/dirigible/issues/12](https://github.com/eclipse/dirigible/issues/12)
-- Source: [/http/v4/request.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/request.js)
-- Facade: [HttpRequestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java)
+- Source: [/http/request.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/request.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var request = require("http/v4/request");
-var response = require("http/v4/response");
+var request = require("http/request");
+var response = require("http/response");
 
 var method = request.getMethod();
 
