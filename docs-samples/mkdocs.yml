@@ -19,9 +19,9 @@ theme:
 nav:
     - 'Samples': 'index.md'
     - 'Basic':
+      - 'Console': 'basic/console.md'
       - 'Base64 - Decode': 'basic/base64-decode.md'
       - 'Base64 - Encode': 'basic/base64-encode.md'
-      - 'Console': 'basic/console.md'
       - 'Converting JSON to XML': 'basic/converting-json-xml.md'
       - 'Converting XML to JSON': 'basic/converting-xml-json.md'
       - 'Database - Dynamic Datasource': 'basic/database-dynamic.md'
