@@ -1907,7 +1907,7 @@
 
 
 <h1 id="console">Console</h1>
-<p>Console object is used to write messages to the default logging output. It has several log levels <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>TRACE</code>. </p>
+<p>Console object is used to write messages to the default logging output. It has several log levels <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> and <code>DEBUG</code>. </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -1915,9 +1915,6 @@
 </div>
 <ul>
 <li>Module: <code>built-in</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/46">https://github.com/eclipse/dirigible/issues/46</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/console.js">/core/v4/console.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ConsoleFacade.java">ConsoleFacade</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
@@ -1927,7 +1924,6 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="sb">`Warning message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="sb">`Debug message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Log message </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span><span class="w"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="sb">`Trace </span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
@@ -1963,11 +1959,6 @@
 <tr>
 <td><strong>debug(message)</strong></td>
 <td>Logs a message with level DEBUG</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>trace(message)</strong></td>
-<td>Logs a message with level ERROR with the full stack trace</td>
 <td>-</td>
 </tr>
 </tbody>
