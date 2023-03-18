@@ -2174,16 +2174,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>core/v4/env</code></li>
-<li>Alias: <code>core/env</code></li>
+<li>Module: <code>core/env</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/29">https://github.com/eclipse/dirigible/issues/29</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/env.js">/core/v4/env.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/EnvFacade.java">EnvFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/env.js">/core/env.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/env&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/env&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">env</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;os.name&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[OS]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">os</span><span class="p">);</span><span class="w"></span>
