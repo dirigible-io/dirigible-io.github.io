@@ -8,19 +8,17 @@ Database
 Standard access to the registered relational data sources.
 
 === "Overview"
-- Module: `db/v4/database`
-- Alias: `db/database`
+- Module: `db/database`
 - Definition: [https://github.com/eclipse/dirigible/issues/21](https://github.com/eclipse/dirigible/issues/21)
-- Source: [/db/v4/database.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/database.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Source: [/db/database.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/database.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var database = require("db/v4/database");
-var response = require("http/v4/response");
+var database = require("db/database");
+var response = require("http/response");
 
 var connection = database.getConnection("local", "SystemDB");
 try {
