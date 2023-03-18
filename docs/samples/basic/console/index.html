@@ -1668,15 +1668,21 @@
 <h1 id="console">Console</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>console</code>.</li>
-<li>Then create a JavaScript service named <code>console-test.js</code>.</li>
+<li>Create a project <code>sample-core-console</code>.</li>
+<li>Then create a JavaScript service named <code>sample.js</code>.</li>
 <li>Within the service code, enter the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Info message: %s&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Info</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Info message.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Error</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error message.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="c1">// Warning</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="s2">&quot;Warning message.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Log message.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="s2">&quot;Trace.&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Arguments</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">firstName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">lastName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Smith&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`First name: </span><span class="si">${</span><span class="nx">firstName</span><span class="si">}</span><span class="sb">, last name: </span><span class="si">${</span><span class="nx">lastName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <hr />
 <blockquote>
