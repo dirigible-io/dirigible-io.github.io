@@ -2361,8 +2361,8 @@
 <td><em>list of string</em></td>
 </tr>
 <tr>
-<td><strong>getDataSources(databaseType)</strong></td>
-<td>Returns the list of the available data-sources in this instance for the given <em>databaseType</em>. In case the <em>databaseType</em> is not present, the data-sources of the default database type are listed</td>
+<td><strong>getDataSources()</strong></td>
+<td>Returns the list of the available data-sources in this instance. The data-sources of the default database type are listed</td>
 <td><em>list of string</em></td>
 </tr>
 <tr>
@@ -2371,12 +2371,12 @@
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>getMetadata(databaseType, datasourceName)</strong></td>
-<td>Returns the metadata of the selected <em>databaseType</em> and <em>datasourceName</em>. In case the <em>datasourceName</em> parameter is omitted, then the default data-source for the selected database is taken. In case the <em>databaseType</em> is omitted, then the default data-source of the default database type is taken</td>
+<td><strong>getMetadata(datasourceName)</strong></td>
+<td>Returns the metadata of the selected <em>datasourceName</em>. In case the <em>datasourceName</em> parameter is omitted, then the default data-source for the selected database is taken.</td>
 <td><em>metadata object</em></td>
 </tr>
 <tr>
-<td><strong>getConnection(databaseType, datasourceName)</strong></td>
+<td><strong>getConnection(datasourceName)</strong></td>
 <td>Establishes a connection to the selected data-source. Both parameters are optional</td>
 <td><em>Connection</em></td>
 </tr>

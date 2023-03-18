@@ -2274,15 +2274,13 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>db/v4/dao</code></li>
-<li>Alias: <code>db/dao</code></li>
+<li>Module: <code>db/dao</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/84">https://github.com/eclipse/dirigible/issues/84</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-db/blob/master/db/v4/dao.js">/db/v4/dao.js</a></li>
-<li>Facade: none</li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/dao.js">/db/dao.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/dao&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/dao&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">//create a DAO from configuration</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
@@ -2351,8 +2349,8 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>create(oConfiguration, loggerName?)</strong></td>
-<td>Creates new DAO instances from oConfiguraiton JS object, which can be either standard ORM definition or a standard dirigible table definition</td>
+<td><strong>create(configuration, loggerName?)</strong></td>
+<td>Creates new DAO instances from <code>configuraiton</code> JS object, which can be either standard ORM definition or a standard dirigible table definition</td>
 <td>DAO</td>
 </tr>
 </tbody>
@@ -2375,7 +2373,7 @@
 <td>any</td>
 </tr>
 <tr>
-<td><strong>list(oQuerySettings?)</strong></td>
+<td><strong>list(querySettings?)</strong></td>
 <td>lists entities optionally constrained with the supplied query settings</td>
 <td>Array</td>
 </tr>
