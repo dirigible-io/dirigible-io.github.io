@@ -9,18 +9,16 @@ Globals
 Globals object is used to store and manage properties in the global store.
 
 === "Overview"
-- Module: `core/v4/globals`
-- Alias: `core/globals`
+- Module: `core/globals`
 - Definition: [https://github.com/eclipse/dirigible/issues/30](https://github.com/eclipse/dirigible/issues/30)
-- Source: [/core/v4/globals.js](https://github.com/dirigiblelabs/api-core/blob/master/core/v4/globals.js)
-- Facade: [GlobalsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/GlobalsFacade.java)
+- Source: [/core/globals.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/globals.js)
 - Status: `stable`
 
 ### Basic Usage
 
 ```javascript
-var globals = require("core/v4/globals");
-var response = require("http/v4/response");
+var globals = require("core/globals");
+var response = require("http/response");
 
 globals.set("attr1", "value1");
 var attr = globals.get("attr1");
