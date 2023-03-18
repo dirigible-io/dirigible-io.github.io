@@ -2,7 +2,7 @@
 title: Client
 ---
 
-Client
+etcd Client
 ===
 
 The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value storage.
