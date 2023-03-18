@@ -8,21 +8,21 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/api/logging/">
+        <link rel="canonical" href="https://www.dirigible.io/api/etcd/client/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Logging - Eclipse Dirigible API</title>
+        <title>Etcd Client API - Eclipse Dirigible API</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -39,11 +39,11 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/custom.css">
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
     
-      <link rel="stylesheet" href="../stylesheets/homepage.css">
+      <link rel="stylesheet" href="../../stylesheets/homepage.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -64,11 +64,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Logging - Eclipse Dirigible API" >
+        <meta  property="og:title"  content="Etcd Client API - Eclipse Dirigible API" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://www.dirigible.io/api/assets/images/social/logging.png" >
+        <meta  property="og:image"  content="https://www.dirigible.io/api/assets/images/social/etcd/client.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -76,15 +76,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://www.dirigible.io/api/logging/" >
+        <meta  property="og:url"  content="https://www.dirigible.io/api/etcd/client/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Logging - Eclipse Dirigible API" >
+        <meta  name="twitter:title"  content="Etcd Client API - Eclipse Dirigible API" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://www.dirigible.io/api/assets/images/social/logging.png" >
+        <meta  name="twitter:image"  content="https://www.dirigible.io/api/assets/images/social/etcd/client.png" >
       
     
     
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#logging" class="md-skip">
+        <a href="#etcd-client-api" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.dirigible.io" title="Eclipse Dirigible API" class="md-header__button md-logo" aria-label="Eclipse Dirigible API" data-md-component="logo">
       
-  <img src="../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Logging
+              Etcd Client API
             
           </span>
         </div>
@@ -225,7 +225,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.dirigible.io" title="Eclipse Dirigible API" class="md-nav__button md-logo" aria-label="Eclipse Dirigible API" data-md-component="logo">
       
-  <img src="../img/logo/dirigible-logo.png" alt="logo">
+  <img src="../../img/logo/dirigible-logo.png" alt="logo">
 
     </a>
     Eclipse Dirigible API
@@ -253,7 +253,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -268,8 +268,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../etcd/" class="md-nav__link">
-        Etcd Client API
+      <a href="../../mail/" class="md-nav__link">
+        Mail
       </a>
     </li>
   
@@ -279,6 +279,554 @@
       
       
 
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Bpm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bpm" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Bpm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bpm/process/" class="md-nav__link">
+        Business Process
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Builtin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Builtin" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Builtin
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../builtin/console/" class="md-nav__link">
+        Console
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Cms
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cms" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Cms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cms/cmis/" class="md-nav__link">
+        CMIS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Core
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Core" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/configurations/" class="md-nav__link">
+        Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/context/" class="md-nav__link">
+        Context
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/destinations/" class="md-nav__link">
+        Destinations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/env/" class="md-nav__link">
+        Env
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/exec/" class="md-nav__link">
+        Exec
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/extensions/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/globals/" class="md-nav__link">
+        Globals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/threads/" class="md-nav__link">
+        Thread
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../database/">Database</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Database" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/dao/" class="md-nav__link">
+        DAO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/procedure/" class="md-nav__link">
+        Procedure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/query/" class="md-nav__link">
+        Query
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/sequence/" class="md-nav__link">
+        Sequence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/sql/" class="md-nav__link">
+        SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Documents
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Documents" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Documents
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/pdf/" class="md-nav__link">
+        PDF
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Etcd
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Etcd" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Etcd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
   
   
     
@@ -293,12 +841,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Logging
+          Etcd Client API
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Logging
+        Etcd Client API
       </a>
       
         
@@ -339,8 +887,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#logger" class="md-nav__link">
-    Logger
+  <a href="#client" class="md-nav__link">
+    Client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
   </a>
   
 </li>
@@ -354,478 +909,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mail/" class="md-nav__link">
-        Mail
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          Bpm
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Bpm" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Bpm
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bpm/process/" class="md-nav__link">
-        Business Process
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          Builtin
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Builtin" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Builtin
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../builtin/console/" class="md-nav__link">
-        Console
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_7">
-          Cms
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Cms" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Cms
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cms/cmis/" class="md-nav__link">
-        CMIS
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_8">
-          Core
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Core" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Core
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/configurations/" class="md-nav__link">
-        Configurations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/context/" class="md-nav__link">
-        Context
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/destinations/" class="md-nav__link">
-        Destinations
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/env/" class="md-nav__link">
-        Env
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/exec/" class="md-nav__link">
-        Exec
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/extensions/" class="md-nav__link">
-        Extensions
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/globals/" class="md-nav__link">
-        Globals
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../core/threads/" class="md-nav__link">
-        Thread
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../database/">Database</a>
-          
-            <label for="__nav_9">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Database" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Database
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/dao/" class="md-nav__link">
-        DAO
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/procedure/" class="md-nav__link">
-        Procedure
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/query/" class="md-nav__link">
-        Query
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/sequence/" class="md-nav__link">
-        Sequence
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/sql/" class="md-nav__link">
-        SQL
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/update/" class="md-nav__link">
-        Update
-      </a>
     </li>
   
 
@@ -858,14 +941,14 @@
       
       
         <label class="md-nav__link" for="__nav_10">
-          Documents
+          Git
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Documents" data-md-level="1">
+      <nav class="md-nav" aria-label="Git" data-md-level="1">
         <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
-          Documents
+          Git
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -875,8 +958,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../documents/pdf/" class="md-nav__link">
-        PDF
+      <a href="../../git/client/" class="md-nav__link">
+        Git Client
       </a>
     </li>
   
@@ -907,17 +990,31 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_11">
-          Git
+          Http
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Git" data-md-level="1">
+      <nav class="md-nav" aria-label="Http" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
-          Git
+          Http
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -927,8 +1024,106 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/client/" class="md-nav__link">
-        Git Client
+      <a href="../../http/client-async/" class="md-nav__link">
+        Client Async
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/client/" class="md-nav__link">
+        Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/request/" class="md-nav__link">
+        Request
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/response/" class="md-nav__link">
+        Response
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/rs-data/" class="md-nav__link">
+        RS-Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/rs/" class="md-nav__link">
+        RS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/session/" class="md-nav__link">
+        Session
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/upload/" class="md-nav__link">
+        Upload
       </a>
     </li>
   
@@ -961,29 +1156,17 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_12">
-          Http
+          Indexing
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Http" data-md-level="1">
+      <nav class="md-nav" aria-label="Indexing" data-md-level="1">
         <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
-          Http
+          Indexing
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -993,8 +1176,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../http/client-async/" class="md-nav__link">
-        Client Async
+      <a href="../../indexing/searcher/" class="md-nav__link">
+        Indexing Searcher
       </a>
     </li>
   
@@ -1007,92 +1190,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../http/client/" class="md-nav__link">
-        Client
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/request/" class="md-nav__link">
-        Request
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/response/" class="md-nav__link">
-        Response
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/rs-data/" class="md-nav__link">
-        RS-Data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/rs/" class="md-nav__link">
-        RS
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/session/" class="md-nav__link">
-        Session
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../http/upload/" class="md-nav__link">
-        Upload
+      <a href="../../indexing/writer/" class="md-nav__link">
+        Indexing Writer
       </a>
     </li>
   
@@ -1125,17 +1224,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_13">
-          Indexing
+          Io
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Indexing" data-md-level="1">
+      <nav class="md-nav" aria-label="Io" data-md-level="1">
         <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
-          Indexing
+          Io
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1145,8 +1250,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../indexing/searcher/" class="md-nav__link">
-        Indexing Searcher
+      <a href="../../io/bytes/" class="md-nav__link">
+        Bytes
       </a>
     </li>
   
@@ -1159,8 +1264,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../indexing/writer/" class="md-nav__link">
-        Indexing Writer
+      <a href="../../io/files/" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io/ftp/" class="md-nav__link">
+        FTP Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io/streams/" class="md-nav__link">
+        Streams
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../io/zip/" class="md-nav__link">
+        Zip
       </a>
     </li>
   
@@ -1191,25 +1338,17 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_14">
-          Io
+          Job
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Io" data-md-level="1">
+      <nav class="md-nav" aria-label="Job" data-md-level="1">
         <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
-          Io
+          Job
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1219,64 +1358,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../io/bytes/" class="md-nav__link">
-        Bytes
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io/files/" class="md-nav__link">
-        Files
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io/ftp/" class="md-nav__link">
-        FTP Client
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io/streams/" class="md-nav__link">
-        Streams
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io/zip/" class="md-nav__link">
-        Zip
+      <a href="../../job/scheduler/" class="md-nav__link">
+        Job Scheduler
       </a>
     </li>
   
@@ -1307,17 +1390,19 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_15">
-          Job
+          Kafka
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Job" data-md-level="1">
+      <nav class="md-nav" aria-label="Kafka" data-md-level="1">
         <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
-          Job
+          Kafka
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1327,8 +1412,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../job/scheduler/" class="md-nav__link">
-        Job Scheduler
+      <a href="../../kafka/consumer/" class="md-nav__link">
+        Kafka Consumer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kafka/producer/" class="md-nav__link">
+        Kafka Producer
       </a>
     </li>
   
@@ -1359,19 +1458,17 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_16">
-          Kafka
+          Log
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Kafka" data-md-level="1">
+      <nav class="md-nav" aria-label="Log" data-md-level="1">
         <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
-          Kafka
+          Log
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1381,22 +1478,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../kafka/consumer/" class="md-nav__link">
-        Kafka Consumer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../kafka/producer/" class="md-nav__link">
-        Kafka Producer
+      <a href="../../log/logging/" class="md-nav__link">
+        Logging
       </a>
     </li>
   
@@ -1449,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/consumer/" class="md-nav__link">
+      <a href="../../messaging/consumer/" class="md-nav__link">
         Message Consumer
       </a>
     </li>
@@ -1463,7 +1546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/producer/" class="md-nav__link">
+      <a href="../../messaging/producer/" class="md-nav__link">
         Message Producer
       </a>
     </li>
@@ -1517,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mongodb/client/" class="md-nav__link">
+      <a href="../../mongodb/client/" class="md-nav__link">
         MongoDB Client API
       </a>
     </li>
@@ -1531,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mongodb/dao/" class="md-nav__link">
+      <a href="../../mongodb/dao/" class="md-nav__link">
         MongoDB DAO API
       </a>
     </li>
@@ -1585,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../net/soap/" class="md-nav__link">
+      <a href="../../net/soap/" class="md-nav__link">
         SOAP
       </a>
     </li>
@@ -1599,7 +1682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../net/websocket/" class="md-nav__link">
+      <a href="../../net/websocket/" class="md-nav__link">
         WebSocket
       </a>
     </li>
@@ -1661,7 +1744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/engines/" class="md-nav__link">
+      <a href="../../platform/engines/" class="md-nav__link">
         Engines
       </a>
     </li>
@@ -1675,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/lifecycle/" class="md-nav__link">
+      <a href="../../platform/lifecycle/" class="md-nav__link">
         Lifecycle
       </a>
     </li>
@@ -1689,7 +1772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/registry/" class="md-nav__link">
+      <a href="../../platform/registry/" class="md-nav__link">
         Registry
       </a>
     </li>
@@ -1703,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/repository/" class="md-nav__link">
+      <a href="../../platform/repository/" class="md-nav__link">
         Repository
       </a>
     </li>
@@ -1717,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/template-engines/" class="md-nav__link">
+      <a href="../../platform/template-engines/" class="md-nav__link">
         Template Engines
       </a>
     </li>
@@ -1731,7 +1814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../platform/workspace/" class="md-nav__link">
+      <a href="../../platform/workspace/" class="md-nav__link">
         Workspace
       </a>
     </li>
@@ -1785,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/oauth/" class="md-nav__link">
+      <a href="../../security/oauth/" class="md-nav__link">
         OAuth
       </a>
     </li>
@@ -1799,7 +1882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/user/" class="md-nav__link">
+      <a href="../../security/user/" class="md-nav__link">
         User
       </a>
     </li>
@@ -1865,7 +1948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/base64/" class="md-nav__link">
+      <a href="../../utils/base64/" class="md-nav__link">
         Base64
       </a>
     </li>
@@ -1879,7 +1962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/digest/" class="md-nav__link">
+      <a href="../../utils/digest/" class="md-nav__link">
         Digest
       </a>
     </li>
@@ -1893,7 +1976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/escape/" class="md-nav__link">
+      <a href="../../utils/escape/" class="md-nav__link">
         Escape
       </a>
     </li>
@@ -1907,7 +1990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/hex/" class="md-nav__link">
+      <a href="../../utils/hex/" class="md-nav__link">
         Hex
       </a>
     </li>
@@ -1921,7 +2004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/qrcode/" class="md-nav__link">
+      <a href="../../utils/qrcode/" class="md-nav__link">
         QR Code
       </a>
     </li>
@@ -1935,7 +2018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/url/" class="md-nav__link">
+      <a href="../../utils/url/" class="md-nav__link">
         Url
       </a>
     </li>
@@ -1949,7 +2032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/uuid/" class="md-nav__link">
+      <a href="../../utils/uuid/" class="md-nav__link">
         UUID
       </a>
     </li>
@@ -1963,7 +2046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utils/xml/" class="md-nav__link">
+      <a href="../../utils/xml/" class="md-nav__link">
         XML
       </a>
     </li>
@@ -2026,8 +2109,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#logger" class="md-nav__link">
-    Logger
+  <a href="#client" class="md-nav__link">
+    Client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#header" class="md-nav__link">
+    Header
   </a>
   
 </li>
@@ -2051,33 +2141,47 @@
                 
                   
 
-  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-api/docs/logging.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-api/docs/etcd/client.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="logging">Logging</h1>
-<p>Logging API using high-performance underlying framework - <a href="https://logback.qos.ch/">logback</a>.</p>
+<h1 id="etcd-client-api">Etcd Client API</h1>
+<p>The Etcd Client is giving an access to an <a href="https://etcd.io/">etcd</a> key-value storage.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
 <ul>
-<li>Module: <code>log/v4/logging</code></li>
-<li>Alias: <code>log/logging</code></li>
-<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/121">https://github.com/eclipse/dirigible/issues/121</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-log/blob/master/log/v4/logging.js">/log/v4/logging.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-log/src/main/java/org/eclipse/dirigible/api/v3/log/LogFacade.java">LogFacade</a></li>
-<li>Status: <code>stable</code></li>
+<li>Module: <code>etcd/client</code></li>
+<li>Definition: <a href="https://github.com/eclipse/dirigible/issues/675">https://github.com/eclipse/dirigible/issues/675</a></li>
+<li>Source: <a href="https://github.com/dirigiblelabs/ext-etcd/blob/master/etcd/client.js">/etcd/client.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/ext/ext-api/api-etcd/src/main/java/org/eclipse/dirigible/api/etcd/EtcdFacade.java">EtcdFacade</a></li>
+<li>Status: <code>alpha</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">logging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;log/v4/logging&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// Load the etcd client module.</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;etcd/client&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">logging</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">&quot;org.eclipse.dirigible.mylogger&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">logger</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Hello from {} {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;My&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Logger&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Oops&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Something wrong&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="c1">// Initialize the etcd client.</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">etcdClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">etcd</span><span class="p">.</span><span class="nx">getClient</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">// Put key-value pair where the value is a string.</span><span class="w"></span>
+<span class="nx">etcdClient</span><span class="p">.</span><span class="nx">putStringValue</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Get key-value pair where value will be returned as a string.</span><span class="w"></span>
+<span class="nx">etcdClient</span><span class="p">.</span><span class="nx">getKvsStringValue</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; { &quot;foo&quot;: &quot;bar&quot; }</span><span class="w"></span>
+
+<span class="c1">// Put key-value pair where the value is a byte array.</span><span class="w"></span>
+<span class="nx">etcdClient</span><span class="p">.</span><span class="nx">putByteArrayValue</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">98</span><span class="p">,</span><span class="w"> </span><span class="mf">97</span><span class="p">,</span><span class="w"> </span><span class="mf">114</span><span class="p">]);</span><span class="w"></span>
+
+<span class="c1">// Get key-value pair where value will be returned as a byte array.</span><span class="w"></span>
+<span class="nx">etcdClient</span><span class="p">.</span><span class="nx">getKvsByteArrayValue</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; { &quot;foo&quot;: [98, 97, 114] }</span><span class="w"></span>
+
+<span class="c1">// Delete key-value pair.</span><span class="w"></span>
+<span class="nx">etcdClient</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
@@ -2091,15 +2195,15 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>getLogger(name)</strong></td>
-<td>Returns the Logger object by this name</td>
-<td><em>Logger</em></td>
+<td><strong>getClient()</strong></td>
+<td>Returns an object representing an Etcd Client</td>
+<td><em>Client</em></td>
 </tr>
 </tbody>
 </table>
 <h3 id="objects">Objects</h3>
 <hr />
-<h4 id="logger">Logger</h4>
+<h4 id="client">Client</h4>
 <table>
 <thead>
 <tr>
@@ -2110,64 +2214,71 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>info(message, args?)</strong></td>
-<td>Logs the <em>message</em> with the INFO log level</td>
-<td>-</td>
+<td><strong>putStringValue(key, value)</strong></td>
+<td>Puts a key-value pair to the etcd storage where the value should be a string</td>
+<td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>warn(message, args?)</strong></td>
-<td>Logs the <em>message</em> with the WARN log level</td>
-<td>-</td>
+<td><strong>putByteArrayValue(key, value)</strong></td>
+<td>Puts a key-value pair to the etcd storage where the value should be a byte array</td>
+<td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>error(message, args?)</strong></td>
-<td>Logs the <em>message</em> with the ERROR log level</td>
-<td>-</td>
+<td><strong>getHeader(key)</strong></td>
+<td>Returns an object representing an Etcd Header</td>
+<td><em>Header</em></td>
 </tr>
 <tr>
-<td><strong>debug(message, args?)</strong></td>
-<td>Logs the <em>message</em> with the DEBUG log level</td>
-<td>-</td>
+<td><strong>getKvsStringValue(key)</strong></td>
+<td>Returns a key-value object with string value</td>
+<td><em>js object</em></td>
 </tr>
 <tr>
-<td><strong>trace(message, args?)</strong></td>
-<td>Logs the <em>message</em> with the TRACE log level</td>
-<td>-</td>
+<td><strong>getKvsByteArrayValue(key)</strong></td>
+<td>Returns a key-value object with byte array value</td>
+<td><em>js object</em></td>
 </tr>
 <tr>
-<td><strong>log(message, level, args?)</strong></td>
-<td>Logs the <em>message</em> with the provided log <em>level</em> and optional message parameters</td>
-<td>-</td>
+<td><strong>getCount(key)</strong></td>
+<td>Returns the number of keys if the get method is for range</td>
+<td><em>integer</em></td>
 </tr>
 <tr>
-<td><strong>infoError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the INFO log level</td>
-<td>-</td>
+<td><strong>delete(key)</strong></td>
+<td>Deletes a key-value pair</td>
+<td><em>-</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="header">Header</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getRevision()</strong></td>
+<td>Returns the revision of the header</td>
+<td><em>integer</em></td>
 </tr>
 <tr>
-<td><strong>warnError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the WARN log level</td>
-<td>-</td>
+<td><strong>getClusterId()</strong></td>
+<td>Returns the cluster id of the header</td>
+<td><em>integer</em></td>
 </tr>
 <tr>
-<td><strong>errorError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the ERROR log level</td>
-<td>-</td>
+<td><strong>getMemberId()</strong></td>
+<td>Returns the member id of the header</td>
+<td><em>integer</em></td>
 </tr>
 <tr>
-<td><strong>debugError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the DEBUG log level</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>traceError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the TRACE log level</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>setLevel(level)</strong></td>
-<td>Sets the log level ('INFO', 'WARN', 'ERROR', 'DEBUG', 'TRACE')</td>
-<td>-</td>
+<td><strong>getRaftTerm()</strong></td>
+<td>Returns the raft term of the header</td>
+<td><em>integer</em></td>
 </tr>
 </tbody>
 </table>
@@ -2197,7 +2308,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../etcd/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../documents/pdf/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -2206,19 +2317,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Etcd Client API			
+							PDF			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../mail/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../git/client/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Mail
+							Git Client
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
@@ -2326,10 +2437,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.top", "navigation.indexes", "navigation.tracking", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.indexes", "navigation.tracking", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
     
     

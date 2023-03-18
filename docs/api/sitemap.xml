@@ -6,16 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/etcd/</loc>
-         <lastmod>2023-03-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/api/logging/</loc>
-         <lastmod>2023-03-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/mail/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
@@ -116,6 +106,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/etcd/client/</loc>
+         <lastmod>2023-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/git/client/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
@@ -207,6 +202,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/api/kafka/producer/</loc>
+         <lastmod>2023-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/log/logging/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
