@@ -8,19 +8,17 @@ SQL
 Type-safe SQL builders with multi-dialect support.
 
 === "Overview"
-- Module: `db/v4/sql`
-- Alias: `db/sql`
+- Module: `db/sql`
 - Definition: [https://github.com/eclipse/dirigible/issues/125](https://github.com/eclipse/dirigible/issues/125)
-- Source: [/db/v4/sql.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/sql.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Source: [/db/sql.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/sql.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var sql = require("db/v4/sql");
-var response = require("http/v4/response");
+var sql = require("db/sql");
+var response = require("http/response");
 
 var script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
 
