@@ -11,7 +11,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 === "Overview"
 - Module: `cms/cmis`
 - Definition: [https://github.com/eclipse/dirigible/issues/178](https://github.com/eclipse/dirigible/issues/178)
-- Source: [/cms/cmis.js](https://github.com/eclipse/dirigible/tree/master/components/api-cms)
+- Source: [/cms/cmis.js](https://github.com/eclipse/dirigible/blob/master/components/api-cms/src/main/resources/META-INF/dirigible/cms/cmis.js)
 - Status: `stable`
 
 
