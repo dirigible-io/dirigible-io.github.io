@@ -8,11 +8,9 @@ Upload
 HTTP Upload is used to consume files posted as multipart request.
 
 === "Overview"
-- Module: `http/v4/upload`
-- Alias: `http/upload`
+- Module: `http/upload`
 - Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
-- Source: [/http/v4/upload.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/upload.js)
-- Facade: [HttpUploadFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java)
+- Source: [/http/upload.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/upload.js)
 - Status: `stable`
 
 
@@ -20,11 +18,9 @@ HTTP Upload is used to consume files posted as multipart request.
 ### Basic Usage
 
 ```javascript
-/* eslint-env node, dirigible */
-
-var upload = require("http/v4/upload");
-var request = require("http/v4/request");
-var response = require("http/v4/response");
+var upload = require("http/upload");
+var request = require("http/request");
+var response = require("http/response");
 
 if (request.getMethod() === "POST") {
     if (upload.isMultipartContent()) {
