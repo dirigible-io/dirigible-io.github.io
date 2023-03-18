@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#request" class="md-skip">
+        <a href="#http-request" class="md-skip">
           Skip to content
         </a>
       
@@ -807,7 +807,7 @@
   
     <li class="md-nav__item">
       <a href="../../etcd/client/" class="md-nav__link">
-        Etcd Client
+        Client
       </a>
     </li>
   
@@ -963,7 +963,7 @@
   
     <li class="md-nav__item">
       <a href="../../git/client/" class="md-nav__link">
-        Git Client
+        Client
       </a>
     </li>
   
@@ -2280,7 +2280,7 @@
   </a>
 
 
-<h1 id="request">Request</h1>
+<h1 id="http-request">HTTP Request</h1>
 <p>HTTP Request object provided to the scripting services implementation. It contains the headers and parameters coming as input from the HTTP call.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
@@ -2288,16 +2288,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>http/v4/request</code></li>
-<li>Alias: <code>http/request</code></li>
+<li>Module: <code>http/request</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/12">https://github.com/eclipse/dirigible/issues/12</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/request.js">/http/v4/request.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpRequestFacade.java">HttpRequestFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/request.js">/http/request.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">();</span><span class="w"></span>
 
