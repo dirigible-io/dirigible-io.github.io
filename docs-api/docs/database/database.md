@@ -20,17 +20,17 @@ Standard access to the registered relational data sources.
 var database = require("db/database");
 var response = require("http/response");
 
-var connection = database.getConnection("local", "SystemDB");
+var connection = database.getConnection("SystemDB");
 try {
     var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
     var resultSet = statement.executeQuery();
     while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("EXTENSION_LOCATION"));
+        response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
     }
     resultSet.close();
     statement.close();
-} catch(e) {
-    console.trace(e);
+} catch (e) {
+    console.error(e);
     response.println(e.message);
 } finally {
     connection.close();
