@@ -2234,19 +2234,17 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>db/v4/query</code></li>
-<li>Alias: <code>db/query</code></li>
+<li>Module: <code>db/query</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/48">https://github.com/eclipse/dirigible/issues/48</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-db/blob/master/db/v4/query.js">/db/v4/query.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java">DatabaseFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/query.js">/db/query.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/query&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/query&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ide-editor&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ide-editor&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">));</span><span class="w"></span>
 
