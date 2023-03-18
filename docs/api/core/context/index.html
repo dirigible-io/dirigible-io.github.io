@@ -2138,16 +2138,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>core/v4/context</code></li>
-<li>Alias: <code>core/context</code></li>
+<li>Module: <code>core/context</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/31">https://github.com/eclipse/dirigible/issues/31</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/context.js">/core/v4/context.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/ContextFacade.java">ContextFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/context.js">/core/context.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;core/v4/context&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;core/context&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">context</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">);</span><span class="w"></span>

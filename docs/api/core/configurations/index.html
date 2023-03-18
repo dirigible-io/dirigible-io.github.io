@@ -2137,16 +2137,13 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>core/v4/configurations</code></li>
-<li>Alias: <code>core/configurations</code></li>
-<li>Definition: N/A</li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-core/blob/master/core/v4/configurations.js">/core/v4/configurations.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/modules/commons/commons-config/src/main/java/org/eclipse/dirigible/commons/config/Configuration.java">ConfigurationFacade</a></li>
+<li>Module: <code>core/configurations</code></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/configurations.js">/core/configurations.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/rs&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">configurations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/configurations&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/rs&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">configurations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/configurations&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"></span>
