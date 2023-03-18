@@ -41,12 +41,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/database/</loc>
+         <loc>https://www.dirigible.io/api/database/dao/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/database/dao/</loc>
+         <loc>https://www.dirigible.io/api/database/database/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
