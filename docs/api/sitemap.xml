@@ -6,16 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/cmis/</loc>
-         <lastmod>2023-03-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/api/console/</loc>
-         <lastmod>2023-03-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/etcd/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
@@ -32,6 +22,16 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/api/bpm/process/</loc>
+         <lastmod>2023-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/builtin/console/</loc>
+         <lastmod>2023-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/cms/cmis/</loc>
          <lastmod>2023-03-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
