@@ -1,5 +1,5 @@
 ---
-title: Git Client
+title: Client
 ---
 
 Git Client
