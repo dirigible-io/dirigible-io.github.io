@@ -9,11 +9,9 @@ Procedure
 Simplified procedure functionality, accepts SQL script and query parameters and returns the result-set as a JSON object.
 
 === "Overview"
-- Module: `db/v4/procedure`
-- Alias: `db/procedure`
+- Module: `db/procedure`
 - Definition: [https://github.com/eclipse/dirigible/issues/773](https://github.com/eclipse/dirigible/issues/773)
-- Source: [/db/v4/update.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/procedure.js)
-- Facade: none
+- Source: [/db/procedure.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/procedure.js)
 - Status: `stable`
 
 
@@ -22,8 +20,8 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 Create Procedure:
 
 ```javascript
-var response = require("http/v4/response");
-var procedure = require("db/v4/procedure");
+var response = require("http/response");
+var procedure = require("db/procedure");
 
 let sql = " \
 CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \
@@ -44,8 +42,8 @@ response.close();
 Call Procedure:
 
 ```javascript
-var response = require("http/v4/response");
-var procedure = require("db/v4/procedure");
+var response = require("http/response");
+var procedure = require("db/procedure");
 
 let sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
 let result = procedure.execute(sql, ["api-modules"]);
@@ -61,8 +59,8 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**create(sql, databaseType?, datasourceName?)**   | Creates a SQL Stored Procedure in the selected *databaseType* and *datasourceName*, throws Error, if issue occur | *-*
-**execute(sql, parameters?, databaseType?, datasourceName?)**   | Execute SQL Stored Procedure in the selected *databaseType* and *datasourceName* with the provided parameters and returns the result, if any | *array of arrays*
+**create(sql, datasourceName?)**   | Creates a SQL Stored Procedure in the selected *datasourceName*, throws Error, if issue occur | *-*
+**execute(sql, parameters?, datasourceName?)**   | Execute SQL Stored Procedure in the selected *datasourceName* with the provided parameters and returns the result, if any | *array of arrays*
 
 Sample Parameters Array:
 
