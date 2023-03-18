@@ -8,19 +8,17 @@ Sequence
 Functionality for manipulating the database sequence objects.
 
 === "Overview"
-- Module: `db/v4/sequence`
-- Alias: `db/sequence`
+- Module: `db/sequence`
 - Definition: [https://github.com/eclipse/dirigible/issues/124](https://github.com/eclipse/dirigible/issues/124)
-- Source: [/db/v4/sequence.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/sequence.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Source: [/db/sequence.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/sequence.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var sequence = require("db/v4/sequence");
-var response = require("http/v4/response");
+var sequence = require("db/sequence");
+var response = require("http/response");
 
 var value = sequence.nextval("MYSEQUENCE");
 
