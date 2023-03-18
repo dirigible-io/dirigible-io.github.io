@@ -2218,16 +2218,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>http/v4/session</code></li>
-<li>Alias: <code>http/session</code></li>
+<li>Module: <code>http/session</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/14">https://github.com/eclipse/dirigible/issues/14</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/session.js">/http/v4/session.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java">HttpSessionFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/session.js">/http/session.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/session&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/session&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">session</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&quot;attr1&quot;</span><span class="p">);</span><span class="w"></span>

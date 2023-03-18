@@ -2300,15 +2300,13 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>http/v4/rs</code></li>
-<li>Alias: <code>http/rs</code></li>
+<li>Module: <code>http/rs</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/85">https://github.com/eclipse/dirigible/issues/85</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/rs.js">/http/v4/rs.js</a></li>
-<li>Facade: none</li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/rs.js">/http/rs.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/rs&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/rs&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">rs</span><span class="p">.</span><span class="nx">service</span><span class="p">()</span><span class="w"></span>
 <span class="w">    </span><span class="p">.</span><span class="nx">resource</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"></span>
@@ -2329,7 +2327,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>service(oMappings?)</strong></td>
+<td><strong>service(mappings?)</strong></td>
 <td>Creates an HttpController instance, optionally initialized with a JS configuration or ResourceMappings object</td>
 <td><em>HttpController</em></td>
 </tr>
@@ -2348,7 +2346,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>execute(oRequest?, oResponse?)</strong></td>
+<td><strong>execute(request?, response?)</strong></td>
 <td>processes HTTP requests, to match path, method and constraints to resource mappings and invoke callback handler functions accordingly and generate response.</td>
 <td><em>---</em></td>
 </tr>
@@ -2370,7 +2368,7 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>resource(oConfiguration?)</strong></td>
+<td><strong>resource(configuration?)</strong></td>
 <td>Returns the <em>resource</em> configuration object optionally initialized with oConfiguration</td>
 <td><em>Resource</em></td>
 </tr>
@@ -2385,17 +2383,17 @@
 <td><em>ResourceMappings</em></td>
 </tr>
 <tr>
-<td><strong>disable(sPath, sVerb, arrConsumes, arrProduces)</strong></td>
-<td>Disables the handling of requests sent to path sPath with HTTP method sVerb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
+<td><strong>disable(sPath, verb, arrConsumes, arrProduces)</strong></td>
+<td>Disables the handling of requests sent to path path with HTTP method verb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
 <td><em>ResourceMappings</em></td>
 </tr>
 <tr>
-<td><strong>find(sPath, sVerb, arrConsumes, arrProduces)</strong></td>
-<td>Finds a request handler for requests sent to path sPath with HTTP method sVerb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
+<td><strong>find(path, verb, arrConsumes, arrProduces)</strong></td>
+<td>Finds a request handler for requests sent to path path with HTTP method verb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>execute(oRequest?, oResponse?)</strong></td>
+<td><strong>execute(request?, response?)</strong></td>
 <td>Executes the service</td>
 <td><em>----</em></td>
 </tr>
@@ -2412,33 +2410,33 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>get(fServeCallback?)</strong></td>
-<td>Returns the <em>get</em> method configuration object, optionally configured with fServeCallback for serving requests</td>
+<td><strong>get(serveCallback?)</strong></td>
+<td>Returns the <em>get</em> method configuration object, optionally configured with serveCallback for serving requests</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>post(fServeCallback?)</strong></td>
-<td>Returns the <em>post</em> method configuration object, optionally configured with fServeCallback for serving requests</td>
+<td><strong>post(serveCallback?)</strong></td>
+<td>Returns the <em>post</em> method configuration object, optionally configured with serveCallback for serving requests</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>put(fServeCallback?)</strong></td>
-<td>Returns the <em>put</em> method configuration object, optionally configured with fServeCallback for serving requests</td>
+<td><strong>put(serveCallback?)</strong></td>
+<td>Returns the <em>put</em> method configuration object, optionally configured with serveCallback for serving requests</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>delete(fServeCallback?)</strong></td>
-<td>Returns the <em>delete</em> method configuration object, optionally configured with fServeCallback for serving requests</td>
+<td><strong>delete(serveCallback?)</strong></td>
+<td>Returns the <em>delete</em> method configuration object, optionally configured with serveCallback for serving requests</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>remove(fServeCallback?)</strong></td>
+<td><strong>remove(serveCallback?)</strong></td>
 <td>Same as delete()</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>method(sHttpVerb, oConfiguration?)</strong></td>
-<td>Returns the a method configuration object for the sHttpVerb HTTP method name and optionally initialized with oConfiguration object</td>
+<td><strong>method(httpVerb, configuration?)</strong></td>
+<td>Returns the a method configuration object for the sHttpVerb HTTP method name and optionally initialized with configuration object</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
@@ -2452,17 +2450,17 @@
 <td><em>ResourceMappings</em></td>
 </tr>
 <tr>
-<td><strong>disable(sVerb, arrConsumes, arrProduces)</strong></td>
+<td><strong>disable(verb, arrConsumes, arrProduces)</strong></td>
 <td>Disables the handling of requests sent to this resource path with HTTP method sVerb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
 <td><em>ResourceMappings</em></td>
 </tr>
 <tr>
-<td><strong>find(sVerb, arrConsumes, arrProduces)</strong></td>
+<td><strong>find(verb, arrConsumes, arrProduces)</strong></td>
 <td>Finds a request handler for requests sent to this resource path with HTTP method sVerb and with consumes media type arrConsumes and produces media type arrProduces media type constraints</td>
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>execute(oRequest?, oResponse?)</strong></td>
+<td><strong>execute(request?, response?)</strong></td>
 <td>Executes the service</td>
 <td><em>----</em></td>
 </tr>
@@ -2514,7 +2512,7 @@
 <td><em>ResourceMethod</em></td>
 </tr>
 <tr>
-<td><strong>execute(oRequest?, oResponse?)</strong></td>
+<td><strong>execute(request?, response?)</strong></td>
 <td>Executes the service</td>
 <td><em>----</em></td>
 </tr>

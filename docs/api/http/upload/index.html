@@ -2298,19 +2298,15 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>http/v4/upload</code></li>
-<li>Alias: <code>http/upload</code></li>
+<li>Module: <code>http/upload</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/16">https://github.com/eclipse/dirigible/issues/16</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-http/blob/master/http/v4/upload.js">/http/v4/upload.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpUploadFacade.java">HttpUploadFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/upload.js">/http/upload.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="cm">/* eslint-env node, dirigible */</span><span class="w"></span>
-
-<span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/upload&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/request&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/upload&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
