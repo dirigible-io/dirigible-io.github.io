@@ -9,22 +9,20 @@ Query
 Simplified query functionality, accepts SQL script and query parameters and returns the result-set as a JSON object.
 
 === "Overview"
-- Module: `db/v4/query`
-- Alias: `db/query`
+- Module: `db/query`
 - Definition: [https://github.com/eclipse/dirigible/issues/48](https://github.com/eclipse/dirigible/issues/48)
-- Source: [/db/v4/query.js](https://github.com/dirigiblelabs/api-db/blob/master/db/v4/query.js)
-- Facade: [DatabaseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-database/src/main/java/org/eclipse/dirigible/api/v3/db/DatabaseFacade.java)
+- Source: [/db/query.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/query.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var query = require("db/v4/query");
-var response = require("http/v4/response");
+var query = require("db/query");
+var response = require("http/response");
 
 var sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-var resultset = query.execute(sql, ["ide-editor"], "local", "SystemDB");
+var resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
 response.println(JSON.stringify(resultset));
 
