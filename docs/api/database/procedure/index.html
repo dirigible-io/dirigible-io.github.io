@@ -2234,17 +2234,15 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>db/v4/procedure</code></li>
-<li>Alias: <code>db/procedure</code></li>
+<li>Module: <code>db/procedure</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/773">https://github.com/eclipse/dirigible/issues/773</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-db/blob/master/db/v4/procedure.js">/db/v4/update.js</a></li>
-<li>Facade: none</li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/procedure.js">/db/procedure.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Create Procedure:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
 <span class="s2">CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \</span>
@@ -2262,8 +2260,8 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>Call Procedure:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/v4/procedure&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName =&gt; ?, extensions =&gt; ?, extensionPoints =&gt; ?)&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">procedure</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;api-modules&quot;</span><span class="p">]);</span><span class="w"></span>
@@ -2284,13 +2282,13 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>create(sql, databaseType?, datasourceName?)</strong></td>
-<td>Creates a SQL Stored Procedure in the selected <em>databaseType</em> and <em>datasourceName</em>, throws Error, if issue occur</td>
+<td><strong>create(sql, datasourceName?)</strong></td>
+<td>Creates a SQL Stored Procedure in the selected <em>datasourceName</em>, throws Error, if issue occur</td>
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>execute(sql, parameters?, databaseType?, datasourceName?)</strong></td>
-<td>Execute SQL Stored Procedure in the selected <em>databaseType</em> and <em>datasourceName</em> with the provided parameters and returns the result, if any</td>
+<td><strong>execute(sql, parameters?, datasourceName?)</strong></td>
+<td>Execute SQL Stored Procedure in the selected <em>datasourceName</em> with the provided parameters and returns the result, if any</td>
 <td><em>array of arrays</em></td>
 </tr>
 </tbody>
