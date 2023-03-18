@@ -1668,12 +1668,12 @@
 <h1 id="base64-encode">Base64 - Encode</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <code>utils-base64</code>.</li>
+<li>Create a project <code>sample-api-utils-base64</code>.</li>
 <li>Create a JavaScript service with the name <code>base64-encode.js</code>.</li>
 <li>Enter the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">base64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/base64&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">base64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/base64&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">61</span><span class="p">,</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span><span class="w"> </span><span class="mf">63</span><span class="p">];</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">base64</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span><span class="w"></span>
