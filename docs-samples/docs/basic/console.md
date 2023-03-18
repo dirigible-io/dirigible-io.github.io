@@ -8,16 +8,22 @@ hide:
 
 ### Steps
 
-1. Create a project `console`.
-2. Then create a JavaScript service named `console-test.js`.
+1. Create a project `sample-core-console`.
+2. Then create a JavaScript service named `sample.js`.
 3. Within the service code, enter the following content:
 
 ```javascript
-console.info("Info message: %s", "Hello World!");
+// Info
+console.info("Info message.");
+// Error
 console.error("Error message.");
+// Warning
 console.warn("Warning message.");
-console.log("Log message.");
-console.trace("Trace.");
+
+// Arguments
+var firstName = "John";
+var lastName = "Smith";
+console.log(`First name: ${firstName}, last name: ${lastName}`);
 ```
 
 ---
