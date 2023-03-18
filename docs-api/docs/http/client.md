@@ -2,25 +2,23 @@
 title: Client
 ---
 
-Client
+HTTP Client
 ===
 
 Client is used by scripting services to call external services via HTTP.
 
 === "Overview"
-- Module: `http/v4/client`
-- Alias: `http/client`
+- Module: `http/client`
 - Definition: [https://github.com/eclipse/dirigible/issues/15](https://github.com/eclipse/dirigible/issues/15)
-- Source: [/http/v4/client.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/client.js)
-- Facade: [HttpClientFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpClientFacade.java)
+- Source: [/http/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/client.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var httpClient = require("http/v4/client");
-var response = require("http/v4/response");
+var httpClient = require("http/client");
+var response = require("http/response");
 
 var httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
 
