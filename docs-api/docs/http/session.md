@@ -8,11 +8,9 @@ Session
 HTTP Session object provided to the scripting services implementation to hold session attributes for multiple client requests.
 
 === "Overview"
-- Module: `http/v4/session`
-- Alias: `http/session`
+- Module: `http/session`
 - Definition: [https://github.com/eclipse/dirigible/issues/14](https://github.com/eclipse/dirigible/issues/14)
-- Source: [/http/v4/session.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/session.js)
-- Facade: [HttpSessionFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpSessionFacade.java)
+- Source: [/http/session.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/session.js)
 - Status: `stable`
 
 
@@ -20,8 +18,8 @@ HTTP Session object provided to the scripting services implementation to hold se
 
 
 ```javascript
-var session = require("http/v4/session");
-var response = require("http/v4/response");
+var session = require("http/session");
+var response = require("http/response");
 
 session.setAttribute("attr1", "value1");
 var attr = session.getAttribute("attr1");
