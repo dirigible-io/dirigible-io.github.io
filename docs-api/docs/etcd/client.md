@@ -1,8 +1,8 @@
 ---
-title: Etcd Client API
+title: Etcd Client
 ---
 
-Etcd Client API
+Etcd Client
 ===
 
 The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value storage.
@@ -12,7 +12,7 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 - Definition: [https://github.com/eclipse/dirigible/issues/675](https://github.com/eclipse/dirigible/issues/675)
 - Source: [/etcd/client.js](https://github.com/dirigiblelabs/ext-etcd/blob/master/etcd/client.js)
 - Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/ext/ext-api/api-etcd/src/main/java/org/eclipse/dirigible/api/etcd/EtcdFacade.java)
-- Status: `alpha`
+- Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
