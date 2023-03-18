@@ -8,19 +8,17 @@ Client Async
 Client Async is used by scripting services to call asynchronously external services via HTTP.
 
 === "Overview"
-- Module: `http/v4/clientAsync`
-- Alias: `http/clientAsync`
+- Module: `http/clientAsync`
 - Definition: [https://github.com/eclipse/dirigible/issues/388](https://github.com/eclipse/dirigible/issues/388)
-- Source: [/http/v4/clientAsync.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/clientAsync.js)
-- Facade: [HttpClientAsync](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-javascript-rhino/src/main/java/org/eclipse/dirigible/engine/js/rhino/api/v3/http/HttpClientAsync.java)
+- Source: [/http/clientAsync.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/client-async.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var httpClient = require("http/v4/client");
-var httpClientAsync = require("http/v4/clientAsync");
+var httpClient = require("http/client");
+var httpClientAsync = require("http/clientAsync");
 var clientAsync = httpClientAsync.getInstnace();
 
 var api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
