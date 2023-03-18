@@ -2,24 +2,22 @@
 title: Response
 ---
 
-Response
+HTTP Response
 ===
 
 HTTP Response object provided to the scripting services implementation to create the result, which will be sent back to the client.
 
 === "Overview"
-- Module: `http/v4/response`
-- Alias: `http/response`
+- Module: `http/response`
 - Definition: [https://github.com/eclipse/dirigible/issues/13](https://github.com/eclipse/dirigible/issues/13)
-- Source: [/http/v4/response.js](https://github.com/dirigiblelabs/api-http/blob/master/http/v4/response.js)
-- Facade: [HttpResponseFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-http/src/main/java/org/eclipse/dirigible/api/v3/http/HttpResponseFacade.java)
+- Source: [/http/response.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/response.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
+var response = require("http/response");
 
 response.println("Hello World!");
 response.flush();
