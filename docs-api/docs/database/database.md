@@ -47,7 +47,7 @@ response.close();
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**getDatabaseTypes()**   | Returns the list of the available databases in this instance | *list of string*
+**getDatabaseTypes()**   | DEPRECATED | *list of string*
 **getDataSources()**    | Returns the list of the available data-sources in this instance. The data-sources of the default database type are listed  | *list of string*
 **createDataSource(name, driver, url, username, password, properties)**   | Creates a named dynamic datasource based on the provided parameters | *-*
 **getMetadata(datasourceName)**   | Returns the metadata of the selected *datasourceName*. In case the *datasourceName* parameter is omitted, then the default data-source for the selected database is taken. | *metadata object*
