@@ -13,7 +13,7 @@ API for generating a PDF files.
 - Definition: [https://github.com/eclipse/dirigible/issues/763](https://github.com/eclipse/dirigible/issues/763)
 - Source: [/documents/v4/pdf.js](https://github.com/dirigiblelabs/api-documents/blob/master/documents/v4/pdf.js)
 - Facade: [PDFFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-documents/src/main/java/org/eclipse/dirigible/api/v3/documents/PDFFacade.java)
-- Status: `stable`
+- Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
