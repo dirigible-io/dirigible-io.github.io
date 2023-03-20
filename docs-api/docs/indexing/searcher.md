@@ -8,19 +8,18 @@ Indexing Searcher
 The Indexing Searcher is the object used for free-text or exact periods searches over the added documents with the [Indexing Writer](../writer). This version is backed by the [Apache Lucene](http://lucene.apache.org/).
 
 === "Overview"
-- Module: `indexing/v4/searcher`
+- Module: `indexing/searcher`
 - Alias: `indexing/searcher`
 - Definition: [https://github.com/eclipse/dirigible/issues/110](https://github.com/eclipse/dirigible/issues/110)
-- Source: [/indexing/v4/searcher.js](https://github.com/dirigiblelabs/api-indexing/blob/master/indexing/v4/searcher.js)
-- Facade: [IndexingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java)
+- Source: [/indexing/searcher.js](https://github.com/eclipse/dirigible/blob/master/components/api-indexing/src/main/resources/META-INF/dirigible/indexing/searcher.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var writer = require("indexing/v4/writer");
-var searcher = require("indexing/v4/searcher");
+var writer = require("indexing/writer");
+var searcher = require("indexing/searcher");
 
 writer.add("index2", "file1", "apache lucene", new Date(123));
 writer.add("index2", "file2", "lucene - the search engine", new Date(234), {"name2":"value2"});
