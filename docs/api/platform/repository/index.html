@@ -2286,19 +2286,17 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>platform/v4/repository</code></li>
-<li>Alias: <code>platform/repository</code></li>
+<li>Module: <code>platform/repository</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/377">https://github.com/eclipse/dirigible/issues/377</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/repository.js">/platform/v4/repository.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-repository/src/main/java/org/eclipse/dirigible/api/v3/repository/RepositoryFacade.java">RepositoryFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/repository.js">/platform/repository.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>The service which list the available workspaces:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">repositoryManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/v4/repository&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">repositoryManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/repository&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">repositoryManager</span><span class="p">.</span><span class="nx">getResource</span><span class="p">(</span><span class="s2">&quot;/registry/public/platform/v4/repository.js&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">resource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">repositoryManager</span><span class="p">.</span><span class="nx">getResource</span><span class="p">(</span><span class="s2">&quot;/registry/public/platform/repository.js&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Exists: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">resource</span><span class="p">.</span><span class="nx">exists</span><span class="p">());</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>

@@ -2342,17 +2342,15 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>platform/v4/workspace</code></li>
-<li>Alias: <code>platform/workspace</code></li>
+<li>Module: <code>platform/workspace</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/230">https://github.com/eclipse/dirigible/issues/230</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/workspace.js">/platform/v4/workspace.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/WorkspaceFacade.java">WorkspaceFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/workspace.js">/platform/workspace.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>The service which list the available workspaces:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">workspaceManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/v4/workspace&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">workspaceManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/workspace&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">workspacesNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">workspaceManager</span><span class="p">.</span><span class="nx">getWorkspacesNames</span><span class="p">();</span><span class="w"></span>
 
