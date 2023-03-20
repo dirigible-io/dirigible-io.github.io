@@ -8,18 +8,16 @@ Message Consumer
 The Messaging Consumer is an object which can send text messages to a Queue or Topic destination in the built-in Message Broker. This version is backed by the full fledged messaging broker [Apache ActiveMQ](http://activemq.apache.org/).
 
 === "Overview"
-- Module: `messaging/v4/consumer`
-- Alias: `messaging/consumer`
+- Module: `messaging/consumer`
 - Definition: [https://github.com/eclipse/dirigible/issues/92](https://github.com/eclipse/dirigible/issues/92)
-- Source: [/messaging/v4/consumer.js](https://github.com/dirigiblelabs/api-messaging/blob/master/messaging/v4/consumer.js)
-- Facade: [MessagingFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java)
+- Source: [/messaging/consumer.js](https://github.com/eclipse/dirigible/blob/master/components/api-messaging/src/main/resources/META-INF/dirigible/messaging/consumer.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var consumer = require("messaging/v4/consumer");
+var consumer = require("messaging/consumer");
 var message = consumer.queue("queue1").receive(1000);
 ```
 
