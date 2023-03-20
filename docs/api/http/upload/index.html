@@ -1150,6 +1150,19 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-html-page" class="md-nav__link">
+    Sample HTML Page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2221,6 +2234,19 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-html-page" class="md-nav__link">
+    Sample HTML Page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2304,33 +2330,19 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/upload&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/upload&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/request&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="w"></span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">isFormField</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="c1">// Getting the file name and bytes</span><span class="w"></span>
 <span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
 <span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Bytes (as text): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">()));</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="c1">// Getting the headers</span><span class="w"></span>
-<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItemHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getHeaders</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItemHeaderNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItemHeaders</span><span class="p">.</span><span class="nx">getHeaderNames</span><span class="p">();</span><span class="w"></span>
-
-<span class="w">                </span><span class="kd">var</span><span class="w"> </span><span class="nx">fieldHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">&lt;</span><span class="nx">fileItemHeaderNames</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                  </span><span class="kd">var</span><span class="w"> </span><span class="nx">headerName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItemHeaderNames</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span><span class="w"></span>
-<span class="w">                  </span><span class="kd">var</span><span class="w"> </span><span class="nx">headerValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItemHeaders</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="nx">headerName</span><span class="p">);</span><span class="w"></span>
-<span class="w">                  </span><span class="nx">fieldHeaders</span><span class="p">[</span><span class="nx">headerName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">headerValue</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Headers: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">fieldHeaders</span><span class="p">));</span><span class="w"></span>
-
-<span class="w">                </span><span class="c1">// Getting the field name and value</span><span class="w"></span>
 <span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">());</span><span class="w"></span>
 <span class="w">                </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Text: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span><span class="w"></span>
 <span class="w">            </span><span class="p">}</span><span class="w"></span>
@@ -2344,6 +2356,19 @@
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h5 id="sample-html-page">Sample HTML Page</h5>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/services/js/http-tests/upload/upload.js&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;file&quot;</span><span class="p">&gt;</span>Filename:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">multiple</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Submit&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
 <hr />
