@@ -8,18 +8,16 @@ Engines
 Engines object is used for executing a scripting service programmatically.
 
 === "Overview"
-- Module: `platform/v4/engines`
-- Alias: `platform/engines`
+- Module: `platform/engines`
 - Definition: [https://github.com/eclipse/dirigible/issues/234](https://github.com/eclipse/dirigible/issues/234)
-- Source: [/platform/v4/engines.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/engines.js)
-- Facade: [ScriptEngineExecutorsManager](https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-api/src/main/java/org/eclipse/dirigible/engine/api/script/ScriptEngineExecutorsManager.java)
+- Source: [/platform/engines.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/engines.js)
 - Status: `stable`
 
 ### Basic Usage
 
 ```javascript
-var engines = require("platform/v4/engines");
-var response = require("http/v4/response");
+var engines = require("platform/engines");
+var response = require("http/response");
 
 var result = engines.getEngine("javascript").execute("project1/hello", {});
 
