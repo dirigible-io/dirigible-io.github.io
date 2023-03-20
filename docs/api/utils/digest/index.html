@@ -2218,16 +2218,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>utils/v4/digest</code></li>
-<li>Alias: <code>utils/digest</code></li>
+<li>Module: <code>utils/digest</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/24">https://github.com/eclipse/dirigible/issues/24</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/digest.js">/utils/v4/digest.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/DigestFacade.java">DigestFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/digest.js">/utils/digest.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">digest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/digest&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">digest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/digest&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">digest</span><span class="p">.</span><span class="nx">sha256</span><span class="p">(</span><span class="s2">&quot;admin:admin&quot;</span><span class="p">));</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">digest</span><span class="p">.</span><span class="nx">sha512</span><span class="p">(</span><span class="s2">&quot;YWRtaW46YWRtaW4=&quot;</span><span class="p">));</span><span class="w"></span>

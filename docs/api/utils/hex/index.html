@@ -2218,16 +2218,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>utils/v4/hex</code></li>
-<li>Alias: <code>utils/hex</code></li>
+<li>Module: <code>utils/hex</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/23">https://github.com/eclipse/dirigible/issues/23</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/hex.js">/utils/v4/hex.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/HexFacade.java">HexFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/hex.js">/utils/hex.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/hex&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">hex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/hex&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s2">&quot;Hex Encoded&quot;</span><span class="p">));</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">hex</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s2">&quot;48657820456e636f646564&quot;</span><span class="p">));</span><span class="w"></span>

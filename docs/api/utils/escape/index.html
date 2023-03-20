@@ -2218,16 +2218,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>utils/v4/escape</code></li>
-<li>Alias: <code>utils/escape</code></li>
+<li>Module: <code>utils/escape</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/26">https://github.com/eclipse/dirigible/issues/26</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/escape.js">/utils/v4/escape.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/EscapeFacade.java">EscapeFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/escape.js">/utils/escape.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">escape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;utils/v4/escape&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">escape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;utils/escape&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;script type=&#39;text/javascript&#39;&gt;alert(&#39;evil script&#39;)&lt;/script&gt;&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">escape</span><span class="p">.</span><span class="nx">escapeJavascript</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span><span class="w"></span>
