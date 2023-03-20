@@ -8,17 +8,15 @@ QR Code
 QRCode object is used to generate a JavaScript byte array based on an input string.
 
 === "Overview"
-- Module: `utils/v4/qrcode`
-- Alias : `utils/qrcode`
-- Source: [/utils/v4/qrcode.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/qrcode.js)
-- Facade: [QRCodeFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/QRCodeFacade.java)
+- Module: `utils/qrcode`
+- Source: [/utils/qrcode.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/qrcode.js)
 - Status: `stable`
 
 ### Basic Usage
 
 ```javascript
-var qrCodeGenerator = require("utils/v4/qrcode");
-var response = require("http/v4/response");
+var qrCodeGenerator = require("utils/qrcode");
+var response = require("http/response");
 
 let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
 
