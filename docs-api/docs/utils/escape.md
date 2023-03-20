@@ -8,19 +8,17 @@ Escape
 Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, Java, JSON and XML format.
 
 === "Overview"
-- Module: `utils/v4/escape`
-- Alias: `utils/escape`
+- Module: `utils/escape`
 - Definition: [https://github.com/eclipse/dirigible/issues/26](https://github.com/eclipse/dirigible/issues/26)
-- Source: [/utils/v4/escape.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/escape.js)
-- Facade: [EscapeFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/EscapeFacade.java)
+- Source: [/utils/escape.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/escape.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var escape = require('utils/v4/escape');
-var response = require('http/v4/response');
+var escape = require('utils/escape');
+var response = require('http/response');
 
 var input = "<script type='text/javascript'>alert('evil script')</script>";
 var result = escape.escapeJavascript(input);
