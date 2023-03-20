@@ -8,11 +8,9 @@ WebSocket
 WebSocket API provides access to the Session object for management of the bi-directional communication based on Websockets specification.
 
 === "Overview"
-- Module: `net/v4/websockets`
-- Alias: `net/websockets`
+- Module: `net/websockets`
 - Definition: [https://github.com/eclipse/dirigible/issues/391](https://github.com/eclipse/dirigible/issues/391)
-- Source: [/net/v4/websockets.js](https://github.com/dirigiblelabs/api-net/blob/master/net/v4/websockets.js)
-- Facade: [WebsocketsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-net/src/main/java/org/eclipse/dirigible/api/v4/websockets/WebsocketsFacade.java)
+- Source: [/net/websockets.js](https://github.com/eclipse/dirigible/blob/master/components/api-net/src/main/resources/META-INF/dirigible/net/websockets.js)
 - Status: `stable`
 
 
@@ -21,7 +19,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
 #### Client
 
 ```javascript
-var websockets = require("net/v4/websockets");
+var websockets = require("net/websockets");
 var uri = "ws://echo.websocket.org:80/";
 var handler = "my-project/ws-handler"
 
@@ -39,20 +37,12 @@ websockets.getClientByHandler(handler).close();
 The handler:
 
 ```javascript
-exports.onOpen = function()  {
-  console.log("Connection openned.");
-}
-
 exports.onMessage = function(message) {
   console.log("Message received: " + message);
 }
 
 exports.onError = function(error) {
   console.error("Error: " + error);
-}
-
-exports.onClose = function() {
-  console.warn("Connection closed.");
 }
 ```
 
