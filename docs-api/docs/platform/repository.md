@@ -8,11 +8,9 @@ Repository
 Repository object gives access to the repository. It can be used for creating artifacts such as services and web pages programmatically.
 
 === "Overview"
-- Module: `platform/v4/repository`
-- Alias: `platform/repository`
+- Module: `platform/repository`
 - Definition: [https://github.com/eclipse/dirigible/issues/377](https://github.com/eclipse/dirigible/issues/377)
-- Source: [/platform/v4/repository.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/repository.js)
-- Facade: [RepositoryFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-repository/src/main/java/org/eclipse/dirigible/api/v3/repository/RepositoryFacade.java)
+- Source: [/platform/repository.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/repository.js)
 - Status: `stable`
 
 
@@ -22,10 +20,10 @@ The service which list the available workspaces:
 
 ```javascript
 
-var response = require("http/v4/response");
-var repositoryManager = require("platform/v4/repository");
+var response = require("http/response");
+var repositoryManager = require("platform/repository");
 
-var resource = repositoryManager.getResource("/registry/public/platform/v4/repository.js");
+var resource = repositoryManager.getResource("/registry/public/platform/repository.js");
 
 response.println("Exists: " + resource.exists());
 response.flush();
