@@ -18,46 +18,48 @@ HTTP Upload is used to consume files posted as multipart request.
 ### Basic Usage
 
 ```javascript
-var upload = require("http/upload");
-var request = require("http/request");
-var response = require("http/response");
+var upload = require('http/upload');
+var request = require('http/request');
+var response = require('http/response');
 
 if (request.getMethod() === "POST") {
-    if (upload.isMultipartContent()) {
-        var fileItems = upload.parseRequest();
-        for (i = 0; i < fileItems.size(); i++) {
-            var fileItem = fileItems.get(i);
-            if (!fileItem.isFormField()) {
-                // Getting the file name and bytes
-                response.println("File Name: " + fileItem.getName());
-                response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
-            } else {
-                // Getting the headers
-                var fileItemHeaders = fileItem.getHeaders();
-                var fileItemHeaderNames = fileItemHeaders.getHeaderNames();
-
-                var fieldHeaders = {};
-                for (j=0; j<fileItemHeaderNames.size(); j++) {
-                  var headerName = fileItemHeaderNames.get(j);
-                  var headerValue = fileItemHeaders.getHeader(headerName);
-                  fieldHeaders[headerName] = headerValue;
-                }
-                response.println("Field Headers: " + JSON.stringify(fieldHeaders));
-                
-                // Getting the field name and value
-                response.println("Field Name: " + fileItem.getFieldName());
-                response.println("Field Text: " + fileItem.getText());
-            }
-        }
-    } else {
-        response.println("The request's content must be 'multipart'");
-    }
+	if (upload.isMultipartContent()) {
+		var fileItems = upload.parseRequest();
+		for (i=0; i<fileItems.size(); i++) {
+			var fileItem = fileItems.get(i);
+			if (!fileItem.isFormField()) {
+				response.println("File Name: " + fileItem.getName());
+				response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
+			} else {
+				response.println("Field Name: " + fileItem.getFieldName());
+				response.println("Field Text: " + fileItem.getText());
+			}
+		}
+	} else {
+		response.println("The request's content must be 'multipart'");
+	}
 } else if (request.getMethod() === "GET") {
-    response.println("Use POST request.");
+	response.println("Use POST request.");
 }
 
 response.flush();
 response.close();
+```
+
+##### Sample HTML Page
+
+```html
+<!DOCTYPE html>
+<html>
+	<body>
+		<form action="/services/js/http-tests/upload/upload.js" method="post" enctype="multipart/form-data">
+			<label for="file">Filename:</label>
+			<input type="file" name="file" id="file" multiple>
+			<br>
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</body>
+</html>
 ```
 
 
