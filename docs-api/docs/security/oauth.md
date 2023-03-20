@@ -8,19 +8,17 @@ OAuth
 OAuth gives the JWT information about the currently logged in user, if any.
 
 === "Overview"
-- Module: `security/v4/oauth`
-- Alias: `security/oauth`
+- Module: `security/oauth`
 - Definition: [https://github.com/eclipse/dirigible/issues/745](https://github.com/eclipse/dirigible/issues/745)
-- Source: [/security/v4/oauth.js](https://github.com/dirigiblelabs/api-security/blob/master/security/v4/oauth.js)
-- Facade: [JwtUtils](https://github.com/eclipse/dirigible/blob/master/modules/security/security-oauth/src/main/java/org/eclipse/dirigible/oauth/utils/JwtUtils.java)
+- Source: [/security/oauth.js](https://github.com/eclipse/dirigible/blob/master/components/api-security/src/main/resources/META-INF/dirigible/security/oauth.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
-var oauth = require("security/v4/oauth");
+var response = require("http/response");
+var oauth = require("security/oauth");
  
 response.println("Email: " + oauth.getEmail());
 response.println("Username: " + oauth.getUsername());
