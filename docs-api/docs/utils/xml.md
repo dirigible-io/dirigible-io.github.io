@@ -8,19 +8,17 @@ XML
 XML object is used to transfrom from JSON to XML and vice versa.
 
 === "Overview"
-- Module: `utils/v4/xml`
-- Alias: `utils/xml`
+- Module: `utils/xml`
 - Definition: [https://github.com/eclipse/dirigible/issues/28](https://github.com/eclipse/dirigible/issues/28)
-- Source: [/utils/v4/xml.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/xml.js)
-- Facade: [Xml2JsonFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/Xml2JsonFacade.java)
+- Source: [/utils/xml.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/xml.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var xml = require("utils/v4/xml");
-var response = require("http/v4/response");
+var xml = require("utils/xml");
+var response = require("http/response");
 
 var jsonInput = {
     firstName: "John",
