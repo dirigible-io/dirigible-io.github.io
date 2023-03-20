@@ -8,19 +8,17 @@ Zip
 Zip modules provides functionality for creating zip archive from files.
 
 === "Overview"
-- Module: `io/v4/zip`
-- Alias: `io/zip`
+- Module: `io/zip`
 - Definition: [https://github.com/eclipse/dirigible/issues/20](https://github.com/eclipse/dirigible/issues/20)
-- Source: [/io/v4/zip.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/zip.js)
-- Facade: [ZipFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java)
+- Source: [/io/zip.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/zip.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var zip = require("io/v4/zip");
-var files = require("io/v4/files");
+var zip = require("io/zip");
+var files = require("io/files");
 
 var inputStream = files.createInputStream("test.zip");
 if (inputStream.isValid()) {
@@ -41,8 +39,8 @@ if (inputStream.isValid()) {
 ```
 
 ```javascript
-var zip = require("io/v4/zip");
-var files = require("io/v4/files");
+var zip = require("io/zip");
+var files = require("io/files");
 
 var outputStream = files.createOutputStream("test.zip");
 if (outputStream.isValid()) {
