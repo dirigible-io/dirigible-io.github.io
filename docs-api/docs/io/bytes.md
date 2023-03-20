@@ -8,18 +8,16 @@ Bytes
 Bytes module provides utility functions for working with bytes.
 
 === "Overview"
-- Module: `io/v4/bytes`
-- Alias: `io/bytes`
+- Module: `io/bytes`
 - Definition: n/a
-- Source: [/io/v4/bytes.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/bytes.js)
-- Facade: n/a
+- Source: [/io/bytes.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/bytes.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var bytes = require("io/v4/bytes");
+var bytes = require("io/bytes");
 
 console.log(bytes.textToByteArray("Hello World"));
 console.log(bytes.byteArrayToText([72,101,108,108,111,32,87,111,114,108,100]));
