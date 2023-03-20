@@ -2272,15 +2272,13 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>messaging/v4/producer</code></li>
-<li>Alias: <code>messaging/producer</code></li>
+<li>Module: <code>messaging/producer</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/91">https://github.com/eclipse/dirigible/issues/91</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-messaging/blob/master/messaging/v4/producer.js">/messaging/v4/producer.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-messaging/src/main/java/org/eclipse/dirigible/api/v3/messaging/MessagingFacade.java">MessagingFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-messaging/src/main/resources/META-INF/dirigible/messaging/producer.js">/messaging/producer.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;messaging/v4/producer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;messaging/producer&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">producer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Text Message&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
