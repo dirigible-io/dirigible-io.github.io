@@ -13,7 +13,7 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 - Definition: [https://github.com/eclipse/dirigible/issues/641](https://github.com/eclipse/dirigible/issues/641)
 - Source: [/kafka/consumer.js](https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/consumer.js)
 - Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java)
-- Status: `stable`
+- Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
