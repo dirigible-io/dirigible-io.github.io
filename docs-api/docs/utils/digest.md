@@ -8,19 +8,17 @@ Digest
 Digest object is used to encript binary/text with algorithms like md5, sha256 and sha512.
 
 === "Overview"
-- Module: `utils/v4/digest`
-- Alias: `utils/digest`
+- Module: `utils/digest`
 - Definition: [https://github.com/eclipse/dirigible/issues/24](https://github.com/eclipse/dirigible/issues/24)
-- Source: [/utils/v4/digest.js](https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/digest.js)
-- Facade: [DigestFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/DigestFacade.java)
+- Source: [/utils/digest.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/digest.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var digest = require("utils/v4/digest");
-var response = require("http/v4/response");
+var digest = require("utils/digest");
+var response = require("http/response");
 
 response.println("" + digest.sha256("admin:admin"));
 response.println("" + digest.sha512("YWRtaW46YWRtaW4="));
