@@ -13,7 +13,7 @@ The MongoDB Client is giving an access to a [MongoDB](https://www.mongodb.com/) 
 - Definition: [https://github.com/eclipse/dirigible/issues/668](https://github.com/eclipse/dirigible/issues/668)
 - Source: [/mongodb/client.js](https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/client.js)
 - Facade: [MongoDBFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java)
-- Status: `alpha`
+- Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
