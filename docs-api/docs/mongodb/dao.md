@@ -13,7 +13,7 @@ The MongoDB DAO simplified database access objects utility.
 - Definition: [https://github.com/eclipse/dirigible/issues/671](https://github.com/eclipse/dirigible/issues/671)
 - Source: [/mongodb/dao.js](https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/dao.js)
 - Facade: [MongoDBFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java)
-- Status: `alpha`
+- Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
