@@ -8,18 +8,16 @@ SOAP
 SOAP utility exposes web services frameowrk for manipulating SOAP messages, making calls to external end-points and creating simple web services
 
 === "Overview"
-- Module: `net/v4/soap`
-- Alias: `net/soap`
+- Module: `net/soap`
 - Definition: [https://github.com/eclipse/dirigible/issues/390](https://github.com/eclipse/dirigible/issues/390)
-- Source: [/net/v4/soap.js](https://github.com/dirigiblelabs/api-net/blob/master/net/v4/soap.js)
-- Facade: none
+- Source: [/net/soap.js](https://github.com/eclipse/dirigible/blob/master/components/api-net/src/main/resources/META-INF/dirigible/net/soap.js)
 - Status: `stable`
 
 ### Basic Usage
 
 ```javascript
-var soap = require("net/v4/soap");
-var response = require('http/v4/response');
+var soap = require("net/soap");
+var response = require('http/response');
 
 response.setContentType("text/plain; charset=UTF-8");
 
