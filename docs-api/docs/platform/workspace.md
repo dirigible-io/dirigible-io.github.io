@@ -11,11 +11,9 @@ Workspace
 Workspace object gives access to the user's workspaces. It can be used for creating artifacts such as services and web pages programmatically.
 
 === "Overview"
-- Module: `platform/v4/workspace`
-- Alias: `platform/workspace`
+- Module: `platform/workspace`
 - Definition: [https://github.com/eclipse/dirigible/issues/230](https://github.com/eclipse/dirigible/issues/230)
-- Source: [/platform/v4/workspace.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/workspace.js)
-- Facade: [WorkspaceFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/WorkspaceFacade.java)
+- Source: [/platform/workspace.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/workspace.js)
 - Status: `stable`
 
 
@@ -24,8 +22,8 @@ Workspace object gives access to the user's workspaces. It can be used for creat
 The service which list the available workspaces:
 
 ```javascript
-var workspaceManager = require("platform/v4/workspace");
-var response = require("http/v4/response");
+var workspaceManager = require("platform/workspace");
+var response = require("http/response");
 
 var workspacesNames = workspaceManager.getWorkspacesNames();
 
