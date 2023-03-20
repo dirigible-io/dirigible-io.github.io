@@ -2286,14 +2286,12 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>job/v4/scheduler</code></li>
-<li>Alias: <code>job/scheduler</code></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-job/blob/master/job/v4/scheduler.js">/job/v4/scheduler.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-job/src/main/java/org/eclipse/dirigible/api/v3/job/JobFacade.java">JobFacade</a></li>
+<li>Module: <code>job/scheduler</code></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-job/src/main/resources/META-INF/dirigible/job/scheduler.js">/job/scheduler.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;job/v4/scheduler&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;job/scheduler&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">scheduler</span><span class="p">.</span><span class="nx">getJob</span><span class="p">(</span><span class="s2">&quot;/sample-job/myjob.job&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">job</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s2">&quot;myParam&quot;</span><span class="p">);</span><span class="w"></span>

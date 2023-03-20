@@ -2218,15 +2218,13 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>io/v4/files</code></li>
-<li>Alias: <code>io/files</code></li>
+<li>Module: <code>io/files</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/19">https://github.com/eclipse/dirigible/issues/19</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/files.js">/io/v4/files.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java">FilesFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/files.js">/io/files.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">tempFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createTempFile</span><span class="p">(</span><span class="s2">&quot;dirigible&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.txt&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Temp file: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">tempFile</span><span class="p">);</span><span class="w"></span>

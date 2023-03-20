@@ -2286,16 +2286,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>io/v4/zip</code></li>
-<li>Alias: <code>io/zip</code></li>
+<li>Module: <code>io/zip</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/20">https://github.com/eclipse/dirigible/issues/20</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-io/blob/master/io/v4/zip.js">/io/v4/zip.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/ZipFacade.java">ZipFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/zip.js">/io/zip.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2314,8 +2312,8 @@
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No such file&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/v4/files&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createOutputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
