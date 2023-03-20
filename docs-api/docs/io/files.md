@@ -8,18 +8,16 @@ Files
 Files module provides an access to the underlying File System, where the Dirigible server is deployed on.
 
 === "Overview"
-- Module: `io/v4/files`
-- Alias: `io/files`
+- Module: `io/files`
 - Definition: [https://github.com/eclipse/dirigible/issues/19](https://github.com/eclipse/dirigible/issues/19)
-- Source: [/io/v4/files.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/files.js)
-- Facade: [FilesFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/FilesFacade.java)
+- Source: [/io/files.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/files.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var files = require("io/v4/files");
+var files = require("io/files");
 
 var tempFile = files.createTempFile("dirigible", ".txt");
 console.log("Temp file: " + tempFile);
