@@ -8,19 +8,17 @@ Streams
 Streams module provides classes and utilities for working with streams.
 
 === "Overview"
-- Module: `io/v4/streams`
-- Alias: `io/streams`
+- Module: `io/streams`
 - Definition: [https://github.com/eclipse/dirigible/issues/51](https://github.com/eclipse/dirigible/issues/51)
-- Source: [/io/v4/streams.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/streams.js)
-- Facade: [StreamsFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-io/src/main/java/org/eclipse/dirigible/api/v3/io/StreamsFacade.java)
+- Source: [/io/streams.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/streams.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var streams = require("io/v4/streams");
-var response = require("http/v4/response");
+var streams = require("io/streams");
+var response = require("http/response");
 
 var outputStream = streams.createByteArrayOutputStream();
 
