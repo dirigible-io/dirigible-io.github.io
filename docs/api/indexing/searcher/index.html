@@ -2218,16 +2218,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>indexing/v4/searcher</code></li>
-<li>Alias: <code>indexing/searcher</code></li>
+<li>Module: <code>indexing/searcher</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/110">https://github.com/eclipse/dirigible/issues/110</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-indexing/blob/master/indexing/v4/searcher.js">/indexing/v4/searcher.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-indexing/src/main/java/org/eclipse/dirigible/api/v3/indexing/IndexingFacade.java">IndexingFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-indexing/src/main/resources/META-INF/dirigible/indexing/searcher.js">/indexing/searcher.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/writer&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">searcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/v4/searcher&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">writer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/writer&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">searcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;indexing/searcher&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;file1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;apache lucene&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">123</span><span class="p">));</span><span class="w"></span>
 <span class="nx">writer</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;file2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lucene - the search engine&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="mf">234</span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;name2&quot;</span><span class="o">:</span><span class="s2">&quot;value2&quot;</span><span class="p">});</span><span class="w"></span>
