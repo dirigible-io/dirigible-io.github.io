@@ -8,19 +8,17 @@ FTP Client
 FTP Client API provides utility functions for working with FTP servers.
 
 === "Overview"
-- Module: `io/v4/ftp`
-- Alias: `io/ftp`
+- Module: `io/ftp`
 - Definition: n/a
-- Source: [/io/v4/ftp.js](https://github.com/dirigiblelabs/api-io/blob/master/io/v4/ftp.js)
-- Facade: n/a
+- Source: [/io/ftp.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/ftp.js)
 - Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
-var ftp = require("io/v4/ftp");
+var response = require("http/response");
+var ftp = require("io/ftp");
 
 var host = "test.rebex.net";
 var port = 21;
