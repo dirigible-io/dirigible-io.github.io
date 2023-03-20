@@ -8,11 +8,9 @@ Registry
 Registry object gives access to the content in the repository and also the pre-delivered content
 
 === "Overview"
-- Module: `platform/v4/registry`
-- Alias: `platform/registry`
+- Module: `platform/registry`
 - Definition: [https://github.com/eclipse/dirigible/issues/508](https://github.com/eclipse/dirigible/issues/508)
-- Source: [/platform/v4/registry.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/registry.js)
-- Facade: [RegistryFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-platform/src/main/java/org/eclipse/dirigible/api/v3/platform/RegistryFacade.java)
+- Source: [/platform/registry.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/registry.js)
 - Status: `stable`
 
 
@@ -20,10 +18,10 @@ Registry object gives access to the content in the repository and also the pre-d
 
 ```javascript
 
-var response = require("http/v4/response");
-var registry = require("platform/v4/registry");
+var response = require("http/response");
+var registry = require("platform/registry");
 
-var text = registry.getText("platform/v4/registry.js");
+var text = registry.getText("platform/registry.js");
 
 response.println(text);
 response.flush();
