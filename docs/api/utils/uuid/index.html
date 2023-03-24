@@ -2230,16 +2230,14 @@
 </div>
 </div>
 <ul>
-<li>Module: <code>utils/v4/uuid</code></li>
-<li>Alias: <code>utils/uuid</code></li>
+<li>Module: <code>utils/uuid</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/27">https://github.com/eclipse/dirigible/issues/27</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/api-utils/blob/master/utils/v4/uuid.js">/utils/v4/uuid.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-utils/src/main/java/org/eclipse/dirigible/api/v3/utils/UuidFacade.java">UuidFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/uuid.js">/utils/uuid.js</a></li>
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/v4/uuid&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/uuid&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nx">random</span><span class="p">());</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nx">validate</span><span class="p">(</span><span class="s2">&quot;14a3ddce-f86d-4f51-a2e0-6e497b94bbe5&quot;</span><span class="p">));</span><span class="w"></span>
