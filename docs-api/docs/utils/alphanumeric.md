@@ -9,7 +9,7 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 
 === "Overview"
 - Module: `utils/alphanumeric`
-- Definition: [https://github.com/eclipse/dirigible/issues/22](https://github.com/eclipse/dirigible/issues/22)
+- Definition: N/A
 - Source: [/utils/alphanumeric.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/alphanumeric.js)
 - Status: `stable`
 
