@@ -1,25 +1,23 @@
 ---
-title: MongoDB Client API
+title: MongoDB Client
 ---
 
-MongoDB Client API
+MongoDB Client
 ===
 
 The MongoDB Client is giving an access to a [MongoDB](https://www.mongodb.com/) noSQL server.
 
 === "Overview"
 - Module: `mongodb/client`
-- Alias: `mongodb/client`
 - Definition: [https://github.com/eclipse/dirigible/issues/668](https://github.com/eclipse/dirigible/issues/668)
-- Source: [/mongodb/client.js](https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/client.js)
-- Facade: [MongoDBFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java)
-- Status: `NOT YET MIGRATED`
+- Source: [/mongodb/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-mongodb/src/main/resources/META-INF/dirigible/mongodb/client.js)
+- Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
+var response = require("http/response");
 var mongodb = require("mongodb/client");
 
 var mongoClient = mongodb.getClient();
