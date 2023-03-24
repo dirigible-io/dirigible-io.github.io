@@ -91,11 +91,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/exec/command/</loc>
-         <lastmod>2023-03-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/extensions/extensions/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
@@ -227,6 +222,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/api/net/websocket/</loc>
+         <lastmod>2023-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/platform/command/</loc>
          <lastmod>2023-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
