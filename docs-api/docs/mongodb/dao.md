@@ -1,48 +1,47 @@
 ---
-title: MongoDB DAO API
+title: MongoDB DAO
 ---
 
-MongoDB DAO API
+MongoDB DAO
 ===
 
 The MongoDB DAO simplified database access objects utility.
 
 === "Overview"
 - Module: `mongodb/dao`
-- Alias: `mongodb/dao`
 - Definition: [https://github.com/eclipse/dirigible/issues/671](https://github.com/eclipse/dirigible/issues/671)
-- Source: [/mongodb/dao.js](https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/dao.js)
-- Facade: [MongoDBFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java)
-- Status: `NOT YET MIGRATED`
+- Source: [/mongodb/dao.js](https://github.com/eclipse/dirigible/blob/master/components/api-mongodb/src/main/resources/META-INF/dirigible/mongodb/dao.js)
+- Status: `stable`
 
 
 ### Basic Usage
 
 ```javascript
 var dao = require("mongodb/dao");
+var response = require("http/response");
 
 //create a DAO from configuration
 var customers = dao.create({
     table: "CUSTOMERS",
     properties: [{
         name: "id",
-	      column: "ID",
-	      type: "BIGINT",
-	      id: true
+        column: "ID",
+        type: "BIGINT",
+        id: true
     }, {
         name: "orgName",
-	      column: "ORG_NAME",
-	      type: "VARCHAR",
-	      required: true
+        column: "ORG_NAME",
+        type: "VARCHAR",
+        required: true
     }, {
         name: "employeesNumber",
-	      column: "ORG_EMP_NUM",
-	      type: "INTEGER",
-	      required: true
+        column: "ORG_EMP_NUM",
+        type: "INTEGER",
+        required: true
     }, {
         name: "orgDescription",
-	      column: "ORG_DESCR",
-	      type: "VARCHAR",
+        column: "ORG_DESCR",
+        type: "VARCHAR",
         required: false
     }]
 });
@@ -53,11 +52,13 @@ var customerId = customers.insert({
     employeesNumber: 1000
 });
 
+response.println("Id: " + customerId);
+
 //List all customer entities
-var customersList = customers.list(); 
+var customersList = customers.list();
 
 //Get a particular customer entity by its id
-var customer = customers.find(customerId); 
+var customer = customers.find(customerId);
 
 //Update a customer entity property
 customer.orgDescription = "ACME is a company";
@@ -90,5 +91,3 @@ Function     | Description | Returns
 **update(entity)** | updates a persistent entity and returns for its dao chaining  |  DAO
 **remove(?id)** | delete entity by id, or array of ids, or delete all (if not argument is provided). |  ---
 **count()** | returns the number of persisted entities |  Number
-**createTable()** | Kept for compatibility  |  ---
-**dropTable()** | Kept for compatibility  |  ---
