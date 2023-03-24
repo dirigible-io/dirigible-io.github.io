@@ -15,7 +15,7 @@
     
     
       
-        <title>MongoDB Client API - Eclipse Dirigible API</title>
+        <title>MongoDB Client - Eclipse Dirigible API</title>
       
     
     
@@ -64,7 +64,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="MongoDB Client API - Eclipse Dirigible API" >
+        <meta  property="og:title"  content="MongoDB Client - Eclipse Dirigible API" >
       
         <meta  property="og:description"  content="None" >
       
@@ -80,7 +80,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="MongoDB Client API - Eclipse Dirigible API" >
+        <meta  name="twitter:title"  content="MongoDB Client - Eclipse Dirigible API" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -106,7 +106,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mongodb-client-api" class="md-skip">
+        <a href="#mongodb-client" class="md-skip">
           Skip to content
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MongoDB Client API
+              MongoDB Client
             
           </span>
         </div>
@@ -1600,12 +1600,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          MongoDB Client API
+          MongoDB Client
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        MongoDB Client API
+        MongoDB Client
       </a>
       
         
@@ -2270,7 +2270,7 @@
   </a>
 
 
-<h1 id="mongodb-client-api">MongoDB Client API</h1>
+<h1 id="mongodb-client">MongoDB Client</h1>
 <p>The MongoDB Client is giving an access to a <a href="https://www.mongodb.com/">MongoDB</a> noSQL server.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
@@ -2279,14 +2279,12 @@
 </div>
 <ul>
 <li>Module: <code>mongodb/client</code></li>
-<li>Alias: <code>mongodb/client</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/668">https://github.com/eclipse/dirigible/issues/668</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/ext-mongodb/blob/master/mongodb/client.js">/mongodb/client.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-mongodb/src/main/java/org/eclipse/dirigible/api/mongodb/MongoDBFacade.java">MongoDBFacade</a></li>
-<li>Status: <code>NOT YET MIGRATED</code></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-mongodb/src/main/resources/META-INF/dirigible/mongodb/client.js">/mongodb/client.js</a></li>
+<li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">mongodb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongodb/client&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">mongoClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mongodb</span><span class="p">.</span><span class="nx">getClient</span><span class="p">();</span><span class="w"></span>
