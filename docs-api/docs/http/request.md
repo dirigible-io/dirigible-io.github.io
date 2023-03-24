@@ -17,6 +17,21 @@ HTTP Request object provided to the scripting services implementation. It contai
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { request } from "@dirigible/http";
+import { response } from "@dirigible/http";
+
+let method = request.getMethod();
+
+response.println("[Method]: " + method);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var request = require("http/request");
 var response = require("http/response");
