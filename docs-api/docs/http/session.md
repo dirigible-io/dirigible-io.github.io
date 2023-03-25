@@ -16,6 +16,20 @@ HTTP Session object provided to the scripting services implementation to hold se
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { session, response } from "@dirigible/http";
+
+session.setAttribute("attr1", "value1");
+let attr = session.getAttribute("attr1");
+
+response.println("[Attribute]: " + attr);
+response.flush();
+response.close();
+```
+
+#### Require
 
 ```javascript
 var session = require("http/session");

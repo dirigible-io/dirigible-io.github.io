@@ -16,6 +16,21 @@ HTTP RESTful services framework.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { rs } from "@dirigible/http";
+
+rs.service()
+    .resource("")
+    .get(function (_ctx, _request, response) {
+        response.println("Hello there!");
+    })
+    .execute();
+```
+
+#### Require
+
 ```javascript
 var rs = require("http/rs");
 

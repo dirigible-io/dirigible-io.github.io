@@ -20,8 +20,7 @@ HTTP Request object provided to the scripting services implementation. It contai
 #### ECMA6
 
 ```javascript
-import { request } from "@dirigible/http";
-import { response } from "@dirigible/http";
+import { request, response } from "@dirigible/http";
 
 let method = request.getMethod();
 

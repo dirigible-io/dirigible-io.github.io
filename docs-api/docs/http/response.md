@@ -16,6 +16,18 @@ HTTP Response object provided to the scripting services implementation to create
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { response } from "@dirigible/http";
+
+response.println("Hello World!");
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var response = require("http/response");
 
