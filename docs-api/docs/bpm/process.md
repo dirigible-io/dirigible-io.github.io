@@ -18,14 +18,26 @@ Business Process object is used to access and manage the business processes from
 
 The service which starts the process:
 
+#### ECMA6
+
+```javascript
+import { process } from "@dirigible/bpm"
+
+process.start("hello", {
+    variable1: "value1"
+});
+
+```
+
+#### Require
+
 ```javascript
 var process = require("bpm/process");
 process.start("hello", {
     variable1: "value1"
 });
 ```
-
-The process definition:
+Create a new `Business Process Model` file, open it with `Code Editor` and paste the process definiton: 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -71,7 +83,7 @@ The process definition:
 </definitions>
 ```
 
-The delegate 'hello.js':
+In a new project called `bpmFlows` add the following delegate `hello.js`
 
 ```javascript
 // Hello from the Enterprise Javascript delegate
@@ -84,8 +96,13 @@ process.setVariable(execution.getId(), "variable2", "value2");
 try {
     console.info("variable1: " + process.getVariable(execution.getId(), "variable1"));
     console.info("variable2: " + process.getVariable(execution.getId(), "variable2"));
-} catch(e) {
-    console.error(e.message);
+} catch (e) {
+    if (e instanceof Error) {
+        console.error(e.message);
+    } else {
+        console.error("Something went wrong", e)
+    }
+
 }
 ```
 
