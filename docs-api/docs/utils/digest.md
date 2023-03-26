@@ -16,6 +16,21 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { digest } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+response.println("" + digest.sha256("admin:admin"));
+response.println("" + digest.sha512("YWRtaW46YWRtaW4="));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var digest = require("utils/digest");
 var response = require("http/response");

@@ -16,6 +16,21 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { hex } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+response.println(hex.encode("Hex Encoded"));
+response.println(hex.decode("48657820456e636f646564"));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var hex = require("utils/hex");
 var response = require("http/response");

@@ -14,6 +14,23 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { qrcode } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+let qrCodeBytes = qrcode.generateQRCode("https://www.dirigible.io");
+
+console.log("QR Code Bytes: " + qrCodeBytes);
+
+response.write(qrCodeBytes);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var qrCodeGenerator = require("utils/qrcode");
 var response = require("http/response");

@@ -15,6 +15,20 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { alphanumeric } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+response.println(alphanumeric.toAlphanumeric("@mystring123!#="));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var alphanumeric = require("utils/alphanumeric");
 var response = require("http/response");

@@ -15,6 +15,21 @@ UUID object is used to generate random universally unique identifiers.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { uuid } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+response.println(uuid.random());
+response.println(JSON.stringify(uuid.validate("14a3ddce-f86d-4f51-a2e0-6e497b94bbe5")));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var uuid = require("utils/uuid");
 var response = require("http/response");

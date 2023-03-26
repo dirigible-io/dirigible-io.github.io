@@ -16,6 +16,40 @@ XML object is used to transfrom from JSON to XML and vice versa.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { xml } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+let jsonInput = {
+    firstName: "John",
+    lastName: "Doe",
+    bio: {
+        age: 24,
+        sex: "male"
+    }
+};
+
+let xmlInput =
+    "<person>" +
+    "<firstName>John</firstName>" +
+    "<lastName>Doe</lastName>" +
+    "<bio>" +
+    "<age>24</age>" +
+    "<sex>male</sex>" +
+    "</bio>" +
+    "</person>";
+
+response.println(xml.fromJson(JSON.stringify(jsonInput)));
+response.println(xml.toJson(xmlInput));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var xml = require("utils/xml");
 var response = require("http/response");
@@ -29,15 +63,15 @@ var jsonInput = {
     }
 };
 
-var xmlInput = 
-"<person>" +
+var xmlInput =
+    "<person>" +
     "<firstName>John</firstName>" +
-    "<lastName>Doe</lastName>" + 
-    "<bio>" + 
-        "<age>24</age>" +
-        "<sex>male</sex>" +
+    "<lastName>Doe</lastName>" +
+    "<bio>" +
+    "<age>24</age>" +
+    "<sex>male</sex>" +
     "</bio>" +
-"</person>";
+    "</person>";
 
 response.println(xml.fromJson(JSON.stringify(jsonInput)));
 response.println(xml.toJson(xmlInput));

@@ -16,6 +16,23 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { escape } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+let input = "<script type='text/javascript'>alert('evil script')</script>";
+let result = escape.escapeJavascript(input);
+
+response.println(result);
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var escape = require('utils/escape');
 var response = require('http/response');

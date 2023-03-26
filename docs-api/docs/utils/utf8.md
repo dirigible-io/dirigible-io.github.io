@@ -15,11 +15,25 @@ UTF8 object is used to encode/decode strings in UTF8.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { utf8 } from "@dirigible/utils";
+import { response } from "@dirigible/http";
+
+response.println(JSON.stringify(utf8.encode("mystring")));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var utf8 = require("utils/utf8");
 var response = require("http/response");
 
-response.println(JSON.stringify(utf8.encode("mystring", "UTF8")));
+response.println(JSON.stringify(utf8.encode("mystring")));
 
 response.flush();
 response.close();
@@ -32,5 +46,5 @@ response.close();
 Function     | Description | Returns
 ------------ | ----------- | --------
 **encode(input, charset)**   | Encode an input string to UTF8 | *string*
-**decode(input)**   | Escape an input string as UTF8 | *string*
+**decode(input)**   | Decode an input string as UTF8 | *string*
 **bytesToString(bytes, offset, length)**   | Translate bytes to string in UTF8 | *string*
