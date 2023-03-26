@@ -2268,6 +2268,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2365,6 +2385,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2408,11 +2448,22 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/utils&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;&lt;![CDATA[&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=javascript:document.vulnerable=true;&quot;&gt;]]&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/url&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;&lt;![CDATA[&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=javascript:document.vulnerable=true;&quot;&gt;]]&gt;&#39;</span><span class="p">));</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;&lt;![CDATA[&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=javascript:document.vulnerable=true;&quot;&gt;]]&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
@@ -2429,13 +2480,13 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>decode(input)</strong></td>
-<td>Decode an input string from application/x-www-form-urlencoded format</td>
+<td><strong>encode(input)</strong></td>
+<td>Encode an input string to application/x-www-form-urlencoded format</td>
 <td><em>string</em></td>
 </tr>
 <tr>
-<td><strong>encode(input)</strong></td>
-<td>Encode an input string to application/x-www-form-urlencoded format</td>
+<td><strong>decode(input)</strong></td>
+<td>Decode an input string from application/x-www-form-urlencoded format</td>
 <td><em>string</em></td>
 </tr>
 <tr>
