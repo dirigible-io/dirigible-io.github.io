@@ -5,7 +5,7 @@ title: SOAP
 SOAP
 ===
 
-SOAP utility exposes web services frameowrk for manipulating SOAP messages, making calls to external end-points and creating simple web services
+SOAP utility exposes web services framework for manipulating SOAP messages, making calls to external end-points and creating simple web services
 
 === "Overview"
 - Module: `net/soap`
@@ -14,6 +14,41 @@ SOAP utility exposes web services frameowrk for manipulating SOAP messages, maki
 - Status: `stable`
 
 ### Basic Usage
+
+#### ECMA6
+
+```javascript
+import { soap } from "@dirigible/net";
+import { response } from "@dirigible/http";
+
+response.setContentType("text/plain; charset=UTF-8");
+
+let requestMessage = soap.createMessage();
+let part = requestMessage.getPart();
+let envelope = part.getEnvelope();
+envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
+let body = envelope.getBody();
+let resolveIPElement = body.addChildElement("ResolveIP", "ws");
+let ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
+ipAddressElement.addTextNode("213.239.203.158");
+let licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
+licenseKeyElement.addTextNode("");
+
+let mimeHeaders = requestMessage.getMimeHeaders();
+mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
+
+requestMessage.save();
+response.println("Request: " + requestMessage.getText());
+
+let responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
+
+response.println("Response: " + responseMessage.getText());
+
+response.flush();
+response.close();
+```
+
+#### Require
 
 ```javascript
 var soap = require("net/soap");
