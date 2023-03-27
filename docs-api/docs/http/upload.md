@@ -77,7 +77,7 @@ response.flush();
 response.close();
 ```
 
-##### Sample HTML Page
+#### Sample HTML Page
 
 ```html
 <!DOCTYPE html>
