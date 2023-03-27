@@ -16,6 +16,20 @@ User gives the information about the currently logged in user, if any.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { user } from "@dirigible/security";
+import { response } from "@dirigible/http";
+
+response.println("[UserName]: " + user.getName());
+response.println("[Is in Role]: " + user.isInRole("Developer"));
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var user = require("security/user");
 var response = require("http/response");
