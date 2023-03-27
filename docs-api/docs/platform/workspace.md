@@ -21,6 +21,22 @@ Workspace object gives access to the user's workspaces. It can be used for creat
 
 The service which list the available workspaces:
 
+#### ECMA6
+
+```javascript
+import { workspace } from "@dirigible/platform";
+import { response } from "@dirigible/http";
+
+let workspacesNames = workspace.getWorkspacesNames();
+
+response.println("Workspaces: " + workspacesNames);
+response.flush();
+response.close();
+
+```
+
+#### Require
+
 ```javascript
 var workspaceManager = require("platform/workspace");
 var response = require("http/response");
@@ -30,7 +46,6 @@ var workspacesNames = workspaceManager.getWorkspacesNames();
 response.println("Workspaces: " + workspacesNames);
 response.flush();
 response.close();
-
 ```
 
 ### Functions

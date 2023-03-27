@@ -14,11 +14,27 @@ Command object is used to execute shell commands.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { command } from "@dirigible/platform";
+import { response } from "@dirigible/http";
+
+let result = command.execute("echo 'hello dirigible!'");
+
+response.println("[Result]: " + result);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var command = require('platform/command');
 var response = require('http/response');
 
 var result = command.execute("echo 'hello dirigible!'");
+
 response.println("[Result]: " + result);
 response.flush();
 response.close();
