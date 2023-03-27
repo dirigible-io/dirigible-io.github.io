@@ -1696,6 +1696,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2434,6 +2454,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2533,7 +2573,7 @@
 
 
 <h1 id="soap">SOAP</h1>
-<p>SOAP utility exposes web services frameowrk for manipulating SOAP messages, making calls to external end-points and creating simple web services</p>
+<p>SOAP utility exposes web services framework for manipulating SOAP messages, making calls to external end-points and creating simple web services</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -2546,6 +2586,37 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">soap</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/net&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">requestMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">soap</span><span class="p">.</span><span class="nx">createMessage</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">part</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestMessage</span><span class="p">.</span><span class="nx">getPart</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">envelope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">part</span><span class="p">.</span><span class="nx">getEnvelope</span><span class="p">();</span><span class="w"></span>
+<span class="nx">envelope</span><span class="p">.</span><span class="nx">addNamespaceDeclaration</span><span class="p">(</span><span class="s2">&quot;ws&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://ws.cdyne.com/&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">envelope</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">resolveIPElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">body</span><span class="p">.</span><span class="nx">addChildElement</span><span class="p">(</span><span class="s2">&quot;ResolveIP&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ws&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">ipAddressElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resolveIPElement</span><span class="p">.</span><span class="nx">addChildElement</span><span class="p">(</span><span class="s2">&quot;ipAddress&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ws&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">ipAddressElement</span><span class="p">.</span><span class="nx">addTextNode</span><span class="p">(</span><span class="s2">&quot;213.239.203.158&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">licenseKeyElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resolveIPElement</span><span class="p">.</span><span class="nx">addChildElement</span><span class="p">(</span><span class="s2">&quot;licenseKey&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ws&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">licenseKeyElement</span><span class="p">.</span><span class="nx">addTextNode</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">mimeHeaders</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">requestMessage</span><span class="p">.</span><span class="nx">getMimeHeaders</span><span class="p">();</span><span class="w"></span>
+<span class="nx">mimeHeaders</span><span class="p">.</span><span class="nx">addHeader</span><span class="p">(</span><span class="s2">&quot;SOAPAction&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://ws.cdyne.com/ResolveIP&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">requestMessage</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Request: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">requestMessage</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">responseMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">soap</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">requestMessage</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;http://ws.cdyne.com/ip2geo/ip2geo.asmx&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Response: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">responseMessage</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">soap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/soap&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/response&#39;</span><span class="p">);</span><span class="w"></span>
 
