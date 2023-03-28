@@ -15,6 +15,22 @@ Context object is used to store and manage properties for a single execution flo
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { context } from "@dirigible/core";
+import { response } from "@dirigible/http";
+
+context.set("attr1", "value1");
+let attr = context.get("attr1");
+
+response.println("[Attribute]: " + attr);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var context = require('core/context');
 var response = require('http/response');

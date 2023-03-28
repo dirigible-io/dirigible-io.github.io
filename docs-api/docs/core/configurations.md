@@ -12,6 +12,32 @@ Configurations
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { rs } from "@dirigible/http";
+import { configurations } from "@dirigible/core";
+
+rs.service()
+    .resource("")
+    .get(function (_ctx, _request, response) {
+        let credentials = {
+            envVar1: configurations.get("ENV_VAR_1"),
+            envVar2: configurations.get("ENV_VAR_2")
+        };
+        response.println(JSON.stringify(credentials));
+    })
+    .put(function (_ctx, request, _response) {
+        let credentials = request.getJSON();
+        configurations.set("ENV_VAR_1", credentials.envVar1);
+        configurations.set("ENV_VAR_2", credentials.envVar2);
+    })
+    .execute();
+
+```
+
+#### Require
+
 ```javascript
 var rs = require("http/rs");
 var configurations = require("core/configurations");
@@ -19,14 +45,14 @@ var configurations = require("core/configurations");
 rs.service()
     .resource("")
         .get(function(ctx, request, response) {
-            let credentials = {
+            var credentials = {
                 envVar1: configurations.get("ENV_VAR_1"),
                 envVar2: configurations.get("ENV_VAR_2")
             };
             response.println(JSON.stringify(credentials));
         })
         .put(function(ctx, request, response) {
-            let credentials = request.getJSON();
+            var credentials = request.getJSON();
             configurations.set("ENV_VAR_1", credentials.envVar1);
             configurations.set("ENV_VAR_2", credentials.envVar2);
         })

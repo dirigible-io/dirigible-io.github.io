@@ -16,6 +16,23 @@ Globals object is used to store and manage properties in the global store.
 
 ### Basic Usage
 
+#### ECM6
+
+```javascript
+import { globals } from "@dirigible/core";
+import { response } from "@dirigible/http";
+
+
+globals.set("attr1", "value1");
+let attr = globals.get("attr1");
+
+response.println("[Attribute]: " + attr);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var globals = require("core/globals");
 var response = require("http/response");
