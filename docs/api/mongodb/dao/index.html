@@ -1642,6 +1642,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2385,6 +2405,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2448,6 +2488,58 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mongodb&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">//create a DAO from configuration</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">table</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CUSTOMERS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BIGINT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;orgName&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_NAME&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;employeesNumber&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_EMP_NUM&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;orgDescription&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_DESCR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">}]</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="c1">//Create a new customer entity</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">customerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">orgName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ACME&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">employeesNumber</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Id: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//List all customer entities</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">customersList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span><span class="w"></span>
+
+<span class="c1">//Get a particular customer entity by its id</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//Update a customer entity property</span><span class="w"></span>
+<span class="nx">customer</span><span class="p">.</span><span class="nx">orgDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ACME is a company&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">customers</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">customer</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">//Delete a customer entity</span><span class="w"></span>
+<span class="nx">customers</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongodb/dao&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
