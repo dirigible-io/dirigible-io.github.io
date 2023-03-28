@@ -16,6 +16,62 @@ The MongoDB DAO simplified database access objects utility.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { dao } from "@dirigible/mongodb";
+import { response } from "@dirigible/http";
+
+//create a DAO from configuration
+var customers = dao.create({
+    table: "CUSTOMERS",
+    properties: [{
+        name: "id",
+        column: "ID",
+        type: "BIGINT",
+        id: true
+    }, {
+        name: "orgName",
+        column: "ORG_NAME",
+        type: "VARCHAR",
+        required: true
+    }, {
+        name: "employeesNumber",
+        column: "ORG_EMP_NUM",
+        type: "INTEGER",
+        required: true
+    }, {
+        name: "orgDescription",
+        column: "ORG_DESCR",
+        type: "VARCHAR",
+        required: false
+    }]
+});
+
+//Create a new customer entity
+var customerId = customers.insert({
+    orgName: "ACME",
+    employeesNumber: 1000
+});
+
+response.println("Id: " + customerId);
+
+//List all customer entities
+var customersList = customers.list();
+
+//Get a particular customer entity by its id
+var customer = customers.find(customerId);
+
+//Update a customer entity property
+customer.orgDescription = "ACME is a company";
+customers.update(customer);
+
+//Delete a customer entity
+customers.remove(customerId);
+```
+
+#### Require
+
 ```javascript
 var dao = require("mongodb/dao");
 var response = require("http/response");

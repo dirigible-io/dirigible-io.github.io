@@ -16,6 +16,36 @@ The MongoDB Client is giving an access to a [MongoDB](https://www.mongodb.com/) 
 
 ### Basic Usage
 
+Start your MongoDB server with default settings and use the following example:
+
+#### ECMA6
+
+```javascript
+import { client } from "@dirigible/mongodb";
+import { response } from "@dirigible/http";
+
+let mongoClient = client.getClient();
+
+let collection = mongoClient.getDB("db").getCollection("people");
+
+let person = client.createBasicDBObject()
+    .append("_id", "jo")
+    .append("name", "Jo Bloggs");
+// or directly create an Object:
+// let person = {"_id": "jo", "name": "Jo Bloggs"};
+collection.insert(person);
+
+var query = client.createBasicDBObject().append("_id", "jo");
+let cursor = collection.find(query)
+let result = cursor.one();
+
+response.println("Result: " + result._id);
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var response = require("http/response");
 var mongodb = require("mongodb/client");
