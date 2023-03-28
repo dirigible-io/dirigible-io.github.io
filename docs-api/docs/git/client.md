@@ -15,6 +15,27 @@ Git Client is used by scripting services to call git commands
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { client } from "@dirigible/git"
+
+const user = "dirigible";
+const email = "dirigible@eclipse.org";
+const workspaceName = "workspace";
+const projectName = "project";
+const repositoryName = projectName;
+const initialCommitMessage = "Initial commit";
+const commitMessage = "Second commit";
+const add = true;
+
+client.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
+
+client.commit(user, email, workspaceName, repositoryName, commitMessage, add);
+```
+
+#### Require
+
 ```javascript
 const git = require("git/client");
 
