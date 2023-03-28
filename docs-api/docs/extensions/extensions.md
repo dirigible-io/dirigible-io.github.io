@@ -13,6 +13,26 @@ Extensions
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { extensions } from "@dirigible/extensions";
+import { response } from "@dirigible/http";
+
+let mainmenu = [];
+let menuExtensions = extensions.getExtensions("ide-menu");
+for (let i = 0; i < menuExtensions.length; i++) {
+    let module = menuExtensions[i];
+    menuExtension = require(module);
+    let menu = menuExtension.getMenu();
+    mainmenu.push(menu);
+}
+
+response.println(JSON.stringify(mainmenu));
+```
+
+#### Require
+
 ```javascript
 var extensions = require("core/extensions");
 var response = require("http/response");
@@ -25,8 +45,8 @@ for (var i = 0; i < menuExtensions.length; i++) {
     var menu = menuExtension.getMenu();
     mainmenu.push(menu);
 }
-response.println(JSON.stringify(mainmenu));
 
+response.println(JSON.stringify(mainmenu));
 ```
 
 
