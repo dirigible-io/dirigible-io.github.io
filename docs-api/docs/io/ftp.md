@@ -16,6 +16,25 @@ FTP Client API provides utility functions for working with FTP servers.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { ftp } from "@dirigible/io";
+import { response } from "@dirigible/http";
+
+let host = "test.rebex.net";
+let port = 21;
+let userName = "demo";
+let password = "password";
+
+let ftpClient = ftp.getClient(host, port, userName, password);
+let file = ftpClient.getFileText("/", "readme.txt");
+
+response.println(file);
+```
+
+#### Require
+
 ```javascript
 var response = require("http/response");
 var ftp = require("io/ftp");

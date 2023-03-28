@@ -16,27 +16,29 @@ Zip modules provides functionality for creating zip archive from files.
 
 ### Basic Usage
 
-```javascript
-var zip = require("io/zip");
-var files = require("io/files");
+To test the API first create a zip file using the following snippet:
 
-var inputStream = files.createInputStream("test.zip");
-if (inputStream.isValid()) {
+#### ECMA6
+
+```javascript
+import { zip, files } from "@dirigible/io";
+
+let outputStream = files.createOutputStream("test.zip");
+let zipOutputStream = zip.createZipOutputStream(outputStream);
+
+if (outputStream.isValid()) {
     try {
-        var zipInputStream = zip.createZipInputStream(inputStream);
-        var zipEntry = zipInputStream.getNextEntry();
-        while (zipEntry.isValid()) {
-            console.error(zipEntry.getName());
-            console.log(zipInputStream.read());
-            zipEntry = zipInputStream.getNextEntry();
-        }
+        zipOutputStream.createZipEntry("test1.txt");
+        zipOutputStream.writeText("some text");
+        zipOutputStream.createZipEntry("test2.bin");
+        zipOutputStream.write([60, 61, 62, 63]);
     } finally {
-        zipInputStream.close();
+        zipOutputStream.close();
     }
-} else {
-    console.log('No such file');
 }
 ```
+
+#### Require
 
 ```javascript
 var zip = require("io/zip");
@@ -53,6 +55,57 @@ if (outputStream.isValid()) {
         } finally {
             zipOutputStream.close();
         }
+}
+```
+
+Then you can read the contents of the zip file:
+
+#### ECMA6
+
+```javascript
+import { zip, files } from "@dirigible/io";
+
+let inputStream = files.createInputStream("test.zip");
+let zipInputStream = zip.createZipInputStream(inputStream);
+
+if (inputStream.isValid()) {
+    try {
+        let zipEntry = zipInputStream.getNextEntry();
+        while (zipEntry.isValid()) {
+            console.log(zipEntry.getName());
+            console.log(zipInputStream.read());
+            zipEntry = zipInputStream.getNextEntry();
+        }
+    }
+    finally {
+        zipInputStream.close();
+    }
+} else {
+    console.log('No such file');
+}
+```
+
+#### Require
+
+```javascript
+var zip = require("io/zip");
+var files = require("io/files");
+
+var inputStream = files.createInputStream("test.zip");
+if (inputStream.isValid()) {
+    try {
+        var zipInputStream = zip.createZipInputStream(inputStream);
+        var zipEntry = zipInputStream.getNextEntry();
+        while (zipEntry.isValid()) {
+            console.log(zipEntry.getName());
+            console.log(zipInputStream.read());
+            zipEntry = zipInputStream.getNextEntry();
+        }
+    } finally {
+        zipInputStream.close();
+    }
+} else {
+    console.log('No such file');
 }
 ```
 
