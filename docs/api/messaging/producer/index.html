@@ -1574,6 +1574,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2392,6 +2412,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2462,7 +2502,14 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/messaging&quot;</span><span class="w"></span>
+
+<span class="nx">producer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Text Message&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;messaging/producer&quot;</span><span class="p">);</span><span class="w"></span>
+
 <span class="nx">producer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Text Message&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
