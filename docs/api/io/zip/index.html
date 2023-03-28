@@ -1282,6 +1282,40 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2399,6 +2433,40 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2476,26 +2544,25 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
+<p>To test the API first create a zip file using the following snippet:</p>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createOutputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">zipOutputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipOutputStream</span><span class="p">(</span><span class="nx">outputStream</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipInputStream</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
-<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span><span class="w"></span>
-<span class="w">            </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test1.txt&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="s2">&quot;some text&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test2.bin&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">write</span><span class="p">([</span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">61</span><span class="p">,</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span><span class="w"> </span><span class="mf">63</span><span class="p">]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No such file&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -2510,6 +2577,50 @@
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 <span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Then you can read the contents of the zip file:</p>
+<h4 id="ecma6_1">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipInputStream</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No such file&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require_1">Require</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">inputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipInputStream</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipEntry</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">read</span><span class="p">());</span><span class="w"></span>
+<span class="w">            </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">getNextEntry</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">zipInputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;No such file&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h3 id="functions">Functions</h3>
