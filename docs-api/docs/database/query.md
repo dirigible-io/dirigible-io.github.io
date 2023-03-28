@@ -17,6 +17,23 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { query } from "@dirigible/db";
+import { response } from "@dirigible/http";
+
+let sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
+let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
+
+response.println(JSON.stringify(resultset));
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var query = require("db/query");
 var response = require("http/response");

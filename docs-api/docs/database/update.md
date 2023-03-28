@@ -17,6 +17,19 @@ Simplified update functionality, accepts SQL script and query parameters and ret
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { update } from "@dirigible/db";
+
+update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))");
+update.execute("INSERT INTO MY_TABLE VALUES (1, 'ABC')");
+update.execute("INSERT INTO MY_TABLE VALUES (2, 'DEF')");
+update.execute("DROP TABLE MY_TABLE");
+```
+
+#### Require
+
 ```javascript
 var update = require("db/update");
 

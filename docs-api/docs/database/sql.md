@@ -16,6 +16,22 @@ Type-safe SQL builders with multi-dialect support.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { sql } from "@dirigible/db";
+import { response } from "@dirigible/http";
+
+let script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
+
+response.println(script);
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var sql = require("db/sql");
 var response = require("http/response");

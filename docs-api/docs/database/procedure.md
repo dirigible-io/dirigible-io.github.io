@@ -19,6 +19,30 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 
 Create Procedure:
 
+#### ECMA6
+
+```javascript
+import { procedure } from "@dirigible/db";
+import { response } from "@dirigible/http";
+
+let sql = " \
+CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \
+AS \
+  BEGIN \
+    extensions = SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :extensionName; \
+    extensionPoints = SELECT * FROM DIRIGIBLE_EXTENSION_POINTS WHERE  EXTENSIONPOINT_NAME = :extensionName; \
+  END; \
+";
+
+procedure.create(sql);
+
+response.println("Procedure created");
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var response = require("http/response");
 var procedure = require("db/procedure");
@@ -41,12 +65,29 @@ response.close();
 
 Call Procedure:
 
+#### ECMA6
+
+```javascript
+import { procedure } from "@dirigible/db";
+import { response } from "@dirigible/http";
+
+let sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
+let result = procedure.execute(sql, ["api-modules"]);
+
+response.println(JSON.stringify(result));
+response.flush();
+response.close();
+
+```
+
+#### Require
+
 ```javascript
 var response = require("http/response");
 var procedure = require("db/procedure");
 
-let sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
-let result = procedure.execute(sql, ["api-modules"]);
+var sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
+var result = procedure.execute(sql, ["api-modules"]);
 
 response.println(JSON.stringify(result));
 response.flush();

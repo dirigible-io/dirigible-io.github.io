@@ -16,6 +16,38 @@ Standard access to the registered relational data sources.
 
 ### Basic Usage
 
+#### ECMA6
+
+```javascript
+import { database } from "@dirigible/db";
+import { response } from "@dirigible/http";
+
+let connection = database.getConnection("SystemDB");
+try {
+    let statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
+    let resultSet = statement.executeQuery();
+    while (resultSet.next()) {
+        response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
+    }
+    resultSet.close();
+    statement.close();
+} catch (e) {
+    if (e instanceof Error) {
+        console.error(e);
+        response.println(e.message);
+    } else {
+        console.error("Something went wrong", e);
+    }
+} finally {
+    connection.close();
+}
+
+response.flush();
+response.close();
+```
+
+#### Require
+
 ```javascript
 var database = require("db/database");
 var response = require("http/response");
@@ -30,8 +62,12 @@ try {
     resultSet.close();
     statement.close();
 } catch (e) {
-    console.error(e);
-    response.println(e.message);
+    if (e instanceof Error) {
+        console.error(e);
+        response.println(e.message);
+    } else {
+        console.error("Something went wrong", e);
+    }
 } finally {
     connection.close();
 }
