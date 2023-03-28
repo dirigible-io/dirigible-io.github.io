@@ -634,6 +634,40 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2365,6 +2399,40 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2409,6 +2477,26 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Create Procedure:</p>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
+<span class="s2">CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \</span>
+<span class="s2">AS \</span>
+<span class="s2">  BEGIN \</span>
+<span class="s2">    extensions = SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :extensionName; \</span>
+<span class="s2">    extensionPoints = SELECT * FROM DIRIGIBLE_EXTENSION_POINTS WHERE  EXTENSIONPOINT_NAME = :extensionName; \</span>
+<span class="s2">  END; \</span>
+<span class="s2">&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">procedure</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">sql</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Procedure created&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -2428,11 +2516,23 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <p>Call Procedure:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
+<h4 id="ecma6_1">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName =&gt; ?, extensions =&gt; ?, extensionPoints =&gt; ?)&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">procedure</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;api-modules&quot;</span><span class="p">]);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require_1">Require</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName =&gt; ?, extensions =&gt; ?, extensionPoints =&gt; ?)&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">procedure</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;api-modules&quot;</span><span class="p">]);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>

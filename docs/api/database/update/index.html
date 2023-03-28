@@ -690,6 +690,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2365,6 +2385,26 @@
     Basic Usage
   </a>
   
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2408,6 +2448,15 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">update</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO MY_TABLE VALUES (1, &#39;ABC&#39;)&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO MY_TABLE VALUES (2, &#39;DEF&#39;)&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE MY_TABLE&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">update</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/update&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))&quot;</span><span class="p">);</span><span class="w"></span>
