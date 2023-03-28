@@ -1510,8 +1510,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#advance-usage" class="md-nav__link">
     Advance Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
   </a>
   
 </li>
@@ -2416,8 +2444,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ecma6" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require" class="md-nav__link">
+    Require
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#advance-usage" class="md-nav__link">
     Advance Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecma6_1" class="md-nav__link">
+    ECMA6
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#require_1" class="md-nav__link">
+    Require
   </a>
   
 </li>
@@ -2502,20 +2558,65 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="ecma6">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mail&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">client</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">mail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/client&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
+<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <h4 id="advance-usage">Advance Usage</h4>
+<h4 id="ecma6_1">ECMA6</h4>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mail&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">mailConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.user&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;your-user&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.password&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;your-password&gt;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.transport.protocol&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;smtps&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.smtps.host&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.smtps.port&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;465&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;mail.smtps.auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">mailClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">recipients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">cc</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example1@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example2@sap.com&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">bcc</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example3@sap.com&quot;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">recipients</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<h4 id="require_1">Require</h4>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">mail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/client&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -2530,7 +2631,7 @@
 
 <span class="kd">var</span><span class="w"> </span><span class="nx">mailClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mail</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">recipients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">cc</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example1@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example2@sap.com&quot;</span><span class="p">],</span><span class="w"></span>
@@ -2540,7 +2641,7 @@
 <span class="kd">var</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">recipients</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
+<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">recipients</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
