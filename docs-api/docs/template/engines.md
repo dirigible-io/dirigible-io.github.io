@@ -15,12 +15,29 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
 
 ### Basic Usage
 
+#### ECMA6
+
 ```javascript
-let engines = require("template/engines");
-let response = require("http/response");
+import { engines } from "@dirigible/template"
+import { response } from "@dirigible/http";
 
 let mustache = engines.getMustacheEngine();
 let generated = mustache.generate('Hello {{name}}', [['name', 'John Smith']]);
+
+response.println(generated);
+
+response.flush();
+response.close();
+```
+
+#### Require
+
+```javascript
+var engines = require("template/engines");
+var response = require("http/response");
+
+var mustache = engines.getMustacheEngine();
+var generated = mustache.generate('Hello {{name}}', [['name', 'John Smith']]);
 
 response.println(generated);
 
