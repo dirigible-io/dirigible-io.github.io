@@ -17,6 +17,12 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 
 ### Basic Usage
 
+> **_NOTE:_** To use procedures you need to add database that supports them(default DB is H2 that does not support procedures)
+
+1. Open `Database` perspective and click on `Databases` at the bottom
+2. Click `New` and add you database information
+3. Use you newly added database in most methods as `databaseType`
+
 Create Procedure:
 
 #### ECMA6
@@ -26,15 +32,14 @@ import { procedure } from "@dirigible/db";
 import { response } from "@dirigible/http";
 
 let sql = " \
-CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \
-AS \
-  BEGIN \
-    extensions = SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :extensionName; \
-    extensionPoints = SELECT * FROM DIRIGIBLE_EXTENSION_POINTS WHERE  EXTENSIONPOINT_NAME = :extensionName; \
-  END; \
-";
+CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id integer, c_name text, c_country text) \
+LANGUAGE SQL \
+AS $$ \
+  INSERT INTO CUSTOMERS(id, name, country) values (c_id, c_name, c_country); \
+$$; \
+"
 
-procedure.create(sql);
+procedure.create(sql, "psql",);
 
 response.println("Procedure created");
 response.flush();
@@ -47,14 +52,13 @@ response.close();
 var response = require("http/response");
 var procedure = require("db/procedure");
 
-let sql = " \
-CREATE PROCEDURE GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME (in extensionName varchar(255), out extensions DIRIGIBLE_EXTENSIONS, out extensionPoints DIRIGIBLE_EXTENSION_POINTS) \
-AS \
-  BEGIN \
-    extensions = SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :extensionName; \
-    extensionPoints = SELECT * FROM DIRIGIBLE_EXTENSION_POINTS WHERE  EXTENSIONPOINT_NAME = :extensionName; \
-  END; \
-";
+var sql = " \
+CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id integer, c_name text, c_country text) \
+LANGUAGE SQL \
+AS $$ \
+  INSERT INTO CUSTOMERS(id, name, country) values (c_id, c_name, c_country); \
+$$; \
+"
 
 procedure.create(sql);
 
@@ -68,16 +72,20 @@ Call Procedure:
 #### ECMA6
 
 ```javascript
-import { procedure } from "@dirigible/db";
+import { query, procedure } from "@dirigible/db";
 import { response } from "@dirigible/http";
 
-let sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
-let result = procedure.execute(sql, ["api-modules"]);
+let sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
 
-response.println(JSON.stringify(result));
-response.flush();
-response.close();
+try {
+    procedure.execute(sql, [6, "IBM", "USA"], "psql");
+} finally {
+    let result = query.execute("SELECT * FROM CUSTOMERS", [], "psql");
 
+    response.println(JSON.stringify(result));
+    response.flush();
+    response.close();
+}
 ```
 
 #### Require
@@ -85,13 +93,18 @@ response.close();
 ```javascript
 var response = require("http/response");
 var procedure = require("db/procedure");
+var query = require("db/query");
 
-var sql = "CALL GET_DIRIGIBLE_EXTENSIONS_BY_EXTENSIONPOINT_NAME(extensionName => ?, extensions => ?, extensionPoints => ?)";
-var result = procedure.execute(sql, ["api-modules"]);
+var sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
+try {
+    procedure.execute(sql, [6, "IBM", "USA"], "psql");
+} finally {
+    var result = query.execute("SELECT * FROM CUSTOMERS", [], "psql");
 
-response.println(JSON.stringify(result));
-response.flush();
-response.close();
+    response.println(JSON.stringify(result));
+    response.flush();
+    response.close();
+}
 ```
 
 ### Functions
