@@ -20,7 +20,7 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 > **_NOTE:_** To use procedures you need to add database that supports them(default DB is H2 that does not support procedures)
 
 1. Open `Database` perspective and click on `Databases` at the bottom
-2. Click `New` and add you database information
+2. Click `New` and add your database information
 3. Use you newly added database in most methods as `databaseType`
 
 Create Procedure:
