@@ -39,7 +39,7 @@ AS $$ \
 $$; \
 "
 
-procedure.create(sql, "psql",);
+procedure.create(sql, "psql");
 
 response.println("Procedure created");
 response.flush();
@@ -60,7 +60,7 @@ AS $$ \
 $$; \
 "
 
-procedure.create(sql);
+procedure.create(sql, "psql");
 
 response.println("Procedure created");
 response.flush();
