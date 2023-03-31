@@ -16,25 +16,25 @@ HTTP Response object provided to the scripting services implementation to create
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { response } from "@dirigible/http";
+    ```javascript
+    import { response } from "@dirigible/http";
 
-response.println("Hello World!");
-response.flush();
-response.close();
-```
+    response.println("Hello World!");
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
+    ```javascript
+    var response = require("http/response");
 
-response.println("Hello World!");
-response.flush();
-response.close();
-```
+    response.println("Hello World!");
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

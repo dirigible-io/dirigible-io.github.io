@@ -15,31 +15,31 @@ Env object is used for access of the environment variables.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { env } from "@dirigible/core";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { env } from "@dirigible/core";
+    import { response } from "@dirigible/http";
 
-let os = env.get("os.name");
-response.println("[OS]: " + os);
+    let os = env.get("os.name");
+    response.println("[OS]: " + os);
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var env = require("core/env");
-var response = require("http/response");
+    ```javascript
+    var env = require("core/env");
+    var response = require("http/response");
 
-var os = env.get("os.name");
-response.println("[OS]: " + os);
+    var os = env.get("os.name");
+    response.println("[OS]: " + os);
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

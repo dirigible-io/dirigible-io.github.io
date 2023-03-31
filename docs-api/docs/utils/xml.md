@@ -16,69 +16,69 @@ XML object is used to transfrom from JSON to XML and vice versa.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { xml } from "@dirigible/utils";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { xml } from "@dirigible/utils";
+    import { response } from "@dirigible/http";
 
-let jsonInput = {
-    firstName: "John",
-    lastName: "Doe",
-    bio: {
-        age: 24,
-        sex: "male"
-    }
-};
+    let jsonInput = {
+        firstName: "John",
+        lastName: "Doe",
+        bio: {
+            age: 24,
+            sex: "male"
+        }
+    };
 
-let xmlInput =
-    "<person>" +
-    "<firstName>John</firstName>" +
-    "<lastName>Doe</lastName>" +
-    "<bio>" +
-    "<age>24</age>" +
-    "<sex>male</sex>" +
-    "</bio>" +
-    "</person>";
+    let xmlInput =
+        "<person>" +
+        "<firstName>John</firstName>" +
+        "<lastName>Doe</lastName>" +
+        "<bio>" +
+        "<age>24</age>" +
+        "<sex>male</sex>" +
+        "</bio>" +
+        "</person>";
 
-response.println(xml.fromJson(JSON.stringify(jsonInput)));
-response.println(xml.toJson(xmlInput));
+    response.println(xml.fromJson(JSON.stringify(jsonInput)));
+    response.println(xml.toJson(xmlInput));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var xml = require("utils/xml");
-var response = require("http/response");
+    ```javascript
+    var xml = require("utils/xml");
+    var response = require("http/response");
 
-var jsonInput = {
-    firstName: "John",
-    lastName: "Doe",
-    bio: {
-        age: 24,
-        sex: "male"
-    }
-};
+    var jsonInput = {
+        firstName: "John",
+        lastName: "Doe",
+        bio: {
+            age: 24,
+            sex: "male"
+        }
+    };
 
-var xmlInput =
-    "<person>" +
-    "<firstName>John</firstName>" +
-    "<lastName>Doe</lastName>" +
-    "<bio>" +
-    "<age>24</age>" +
-    "<sex>male</sex>" +
-    "</bio>" +
-    "</person>";
+    var xmlInput =
+        "<person>" +
+        "<firstName>John</firstName>" +
+        "<lastName>Doe</lastName>" +
+        "<bio>" +
+        "<age>24</age>" +
+        "<sex>male</sex>" +
+        "</bio>" +
+        "</person>";
 
-response.println(xml.fromJson(JSON.stringify(jsonInput)));
-response.println(xml.toJson(xmlInput));
+    response.println(xml.fromJson(JSON.stringify(jsonInput)));
+    response.println(xml.toJson(xmlInput));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

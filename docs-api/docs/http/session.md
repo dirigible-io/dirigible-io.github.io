@@ -16,33 +16,32 @@ HTTP Session object provided to the scripting services implementation to hold se
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { session, response } from "@dirigible/http";
+    ```javascript
+    import { session, response } from "@dirigible/http";
 
-session.setAttribute("attr1", "value1");
-let attr = session.getAttribute("attr1");
+    session.setAttribute("attr1", "value1");
+    let attr = session.getAttribute("attr1");
 
-response.println("[Attribute]: " + attr);
-response.flush();
-response.close();
-```
+    response.println("[Attribute]: " + attr);
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var session = require("http/session");
-var response = require("http/response");
+    ```javascript
+    var session = require("http/session");
+    var response = require("http/response");
 
-session.setAttribute("attr1", "value1");
-var attr = session.getAttribute("attr1");
+    session.setAttribute("attr1", "value1");
+    var attr = session.getAttribute("attr1");
 
-response.println("[Attribute]: " + attr);
-response.flush();
-response.close();
-```
-
+    response.println("[Attribute]: " + attr);
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

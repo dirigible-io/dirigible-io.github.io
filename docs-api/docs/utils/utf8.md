@@ -15,29 +15,29 @@ UTF8 object is used to encode/decode strings in UTF8.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { utf8 } from "@dirigible/utils";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { utf8 } from "@dirigible/utils";
+    import { response } from "@dirigible/http";
 
-response.println(JSON.stringify(utf8.encode("mystring")));
+    response.println(JSON.stringify(utf8.encode("mystring")));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var utf8 = require("utils/utf8");
-var response = require("http/response");
+    ```javascript
+    var utf8 = require("utils/utf8");
+    var response = require("http/response");
 
-response.println(JSON.stringify(utf8.encode("mystring")));
+    response.println(JSON.stringify(utf8.encode("mystring")));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

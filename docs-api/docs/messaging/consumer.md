@@ -16,25 +16,26 @@ The Messaging Consumer is an object which can send text messages to a Queue or T
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { consumer } from "@dirigible/messaging";
+    ```javascript
+    import { consumer } from "@dirigible/messaging";
 
-let message = consumer.queue("queue1").receive(1000);
+    let message = consumer.queue("queue1").receive(1000);
 
-console.log(message)
-```
+    console.log(message)
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var consumer = require("messaging/consumer");
+    ```javascript
+    var consumer = require("messaging/consumer");
 
-var message = consumer.queue("queue1").receive(1000);
+    var message = consumer.queue("queue1").receive(1000);
 
-console.log(message)
-```
+    console.log(message)
+    ```
+
 
 ### Functions
 

@@ -18,33 +18,55 @@ WebSocket API provides access to the Session object for management of the bi-dir
 
 #### Client
 
-```javascript
-var websockets = require("net/websockets");
-var uri = "ws://echo.websocket.org:80/";
-var handler = "my-project/ws-handler"
+=== "ECMA6"
 
-function initialize() {
-    console.log("Connect to: " + uri);
-    var websocket = websockets.createWebsocket(uri, handler);
-    websocket.send("hello");
-}
+    ```javascript
+    import { websockets } from "@dirigible/net"
 
-initialize();
+    const uri = "ws://echo.websocket.org:80/";
+    const handler = "my-project/ws-handler"
 
-websockets.getClientByHandler(handler).close();
-```
+    function initialize() {
+        console.log("Connect to: " + uri);
+        var websocket = websockets.createWebsocket(uri, handler);
+        websocket.send("hello");
+    }
 
-The handler:
+    initialize();
 
-```javascript
-exports.onMessage = function(message) {
-  console.log("Message received: " + message);
-}
+    websockets.getClientByHandler(handler).close();
+    ```
 
-exports.onError = function(error) {
-  console.error("Error: " + error);
-}
-```
+=== "Require
+
+    ```javascript
+    const websockets = require("net/websockets");
+
+    const uri = "ws://echo.websocket.org:80/";
+    const handler = "my-project/ws-handler"
+
+    function initialize() {
+        console.log("Connect to: " + uri);
+        let websocket = websockets.createWebsocket(uri, handler);
+        websocket.send("hello");
+    }
+
+    initialize();
+
+    websockets.getClientByHandler(handler).close();
+    ```
+
+    The handler:
+
+    ```javascript
+    exports.onMessage = function(message) {
+      console.log("Message received: " + message);
+    }
+
+    exports.onError = function(error) {
+      console.error("Error: " + error);
+    }
+    ```
 
 #### Server
 

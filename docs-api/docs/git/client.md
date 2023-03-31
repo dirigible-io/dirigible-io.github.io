@@ -15,43 +15,43 @@ Git Client is used by scripting services to call git commands
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { client } from "@dirigible/git"
+    ```javascript
+    import { client } from "@dirigible/git"
 
-const user = "dirigible";
-const email = "dirigible@eclipse.org";
-const workspaceName = "workspace";
-const projectName = "project";
-const repositoryName = projectName;
-const initialCommitMessage = "Initial commit";
-const commitMessage = "Second commit";
-const add = true;
+    const user = "dirigible";
+    const email = "dirigible@eclipse.org";
+    const workspaceName = "workspace";
+    const projectName = "project";
+    const repositoryName = projectName;
+    const initialCommitMessage = "Initial commit";
+    const commitMessage = "Second commit";
+    const add = true;
 
-client.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
+    client.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
 
-client.commit(user, email, workspaceName, repositoryName, commitMessage, add);
-```
+    client.commit(user, email, workspaceName, repositoryName, commitMessage, add);
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-const git = require("git/client");
+    ```javascript
+    const git = require("git/client");
 
-const user = "dirigible";
-const email = "dirigible@eclipse.org";
-const workspaceName = "workspace";
-const projectName = "project";
-const repositoryName = projectName;
-const initialCommitMessage = "Initial commit";
-const commitMessage = "Second commit";
-const add = true;
+    const user = "dirigible";
+    const email = "dirigible@eclipse.org";
+    const workspaceName = "workspace";
+    const projectName = "project";
+    const repositoryName = projectName;
+    const initialCommitMessage = "Initial commit";
+    const commitMessage = "Second commit";
+    const add = true;
 
-git.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
+    git.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
 
-git.commit(user, email, workspaceName, repositoryName, commitMessage, add);
-```
+    git.commit(user, email, workspaceName, repositoryName, commitMessage, add);
+    ```
 
 ### Functions
 

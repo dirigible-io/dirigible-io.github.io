@@ -16,21 +16,22 @@ The Messaging Producer is an object which can send text messages to a Queue or T
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { producer } from "@dirigible/messaging"
+    ```javascript
+    import { producer } from "@dirigible/messaging"
 
-producer.queue("queue1").send("Text Message");
-```
+    producer.queue("queue1").send("Text Message");
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var producer = require("messaging/producer");
+    ```javascript
+    var producer = require("messaging/producer");
 
-producer.queue("queue1").send("Text Message");
-```
+    producer.queue("queue1").send("Text Message");
+    ```
+
 
 ### Functions
 

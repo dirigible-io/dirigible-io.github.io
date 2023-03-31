@@ -32,6 +32,7 @@ The service which starts the process:
 
     ```javascript
     var process = require("bpm/process");
+    
     process.start("hello", {
       variable1: "value1"
     });

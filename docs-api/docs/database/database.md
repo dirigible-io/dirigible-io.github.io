@@ -16,65 +16,65 @@ Standard access to the registered relational data sources.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { database } from "@dirigible/db";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { database } from "@dirigible/db";
+    import { response } from "@dirigible/http";
 
-let connection = database.getConnection("SystemDB");
-try {
-    let statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
-    let resultSet = statement.executeQuery();
-    while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
+    let connection = database.getConnection("SystemDB");
+    try {
+        let statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
+        let resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
+        }
+        resultSet.close();
+        statement.close();
+    } catch (e) {
+        if (e instanceof Error) {
+            console.error(e);
+            response.println(e.message);
+        } else {
+            console.error("Something went wrong", e);
+        }
+    } finally {
+        connection.close();
     }
-    resultSet.close();
-    statement.close();
-} catch (e) {
-    if (e instanceof Error) {
-        console.error(e);
-        response.println(e.message);
-    } else {
-        console.error("Something went wrong", e);
+
+    response.flush();
+    response.close();
+    ```
+
+=== "Require"
+
+    ```javascript
+    var database = require("db/database");
+    var response = require("http/response");
+
+    var connection = database.getConnection("SystemDB");
+    try {
+        var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
+        var resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
+        }
+        resultSet.close();
+        statement.close();
+    } catch (e) {
+        if (e instanceof Error) {
+            console.error(e);
+            response.println(e.message);
+        } else {
+            console.error("Something went wrong", e);
+        }
+    } finally {
+        connection.close();
     }
-} finally {
-    connection.close();
-}
 
-response.flush();
-response.close();
-```
-
-#### Require
-
-```javascript
-var database = require("db/database");
-var response = require("http/response");
-
-var connection = database.getConnection("SystemDB");
-try {
-    var statement = connection.prepareStatement("select * from DIRIGIBLE_EXTENSIONS");
-    var resultSet = statement.executeQuery();
-    while (resultSet.next()) {
-        response.println("[path]: " + resultSet.getString("ARTEFACT_LOCATION"));
-    }
-    resultSet.close();
-    statement.close();
-} catch (e) {
-    if (e instanceof Error) {
-        console.error(e);
-        response.println(e.message);
-    } else {
-        console.error("Something went wrong", e);
-    }
-} finally {
-    connection.close();
-}
-
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

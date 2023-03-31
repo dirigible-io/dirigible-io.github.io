@@ -15,71 +15,71 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { soap } from "@dirigible/net";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { soap } from "@dirigible/net";
+    import { response } from "@dirigible/http";
 
-response.setContentType("text/plain; charset=UTF-8");
+    response.setContentType("text/plain; charset=UTF-8");
 
-let requestMessage = soap.createMessage();
-let part = requestMessage.getPart();
-let envelope = part.getEnvelope();
-envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
-let body = envelope.getBody();
-let resolveIPElement = body.addChildElement("ResolveIP", "ws");
-let ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
-ipAddressElement.addTextNode("213.239.203.158");
-let licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
-licenseKeyElement.addTextNode("");
+    let requestMessage = soap.createMessage();
+    let part = requestMessage.getPart();
+    let envelope = part.getEnvelope();
+    envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
+    let body = envelope.getBody();
+    let resolveIPElement = body.addChildElement("ResolveIP", "ws");
+    let ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
+    ipAddressElement.addTextNode("213.239.203.158");
+    let licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
+    licenseKeyElement.addTextNode("");
 
-let mimeHeaders = requestMessage.getMimeHeaders();
-mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
+    let mimeHeaders = requestMessage.getMimeHeaders();
+    mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
 
-requestMessage.save();
-response.println("Request: " + requestMessage.getText());
+    requestMessage.save();
+    response.println("Request: " + requestMessage.getText());
 
-let responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
+    let responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
 
-response.println("Response: " + responseMessage.getText());
+    response.println("Response: " + responseMessage.getText());
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var soap = require("net/soap");
-var response = require('http/response');
+    ```javascript
+    var soap = require("net/soap");
+    var response = require('http/response');
 
-response.setContentType("text/plain; charset=UTF-8");
+    response.setContentType("text/plain; charset=UTF-8");
 
-var requestMessage = soap.createMessage();
-var part = requestMessage.getPart();
-var envelope = part.getEnvelope();
-envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
-var body = envelope.getBody();
-var resolveIPElement = body.addChildElement("ResolveIP", "ws");
-var ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
-ipAddressElement.addTextNode("213.239.203.158");
-var licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
-licenseKeyElement.addTextNode("");
+    var requestMessage = soap.createMessage();
+    var part = requestMessage.getPart();
+    var envelope = part.getEnvelope();
+    envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
+    var body = envelope.getBody();
+    var resolveIPElement = body.addChildElement("ResolveIP", "ws");
+    var ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
+    ipAddressElement.addTextNode("213.239.203.158");
+    var licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
+    licenseKeyElement.addTextNode("");
 
-var mimeHeaders = requestMessage.getMimeHeaders();
-mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
+    var mimeHeaders = requestMessage.getMimeHeaders();
+    mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
 
-requestMessage.save();
-response.println("Request: " + requestMessage.getText());
+    requestMessage.save();
+    response.println("Request: " + requestMessage.getText());
 
-var responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
+    var responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
 
-response.println("Response: " + responseMessage.getText());
+    response.println("Response: " + responseMessage.getText());
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

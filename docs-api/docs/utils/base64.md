@@ -15,31 +15,31 @@ Base64 object is used to encode/decode in base64.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { base64 } from "@dirigible/utils";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { base64 } from "@dirigible/utils";
+    import { response } from "@dirigible/http";
 
-response.println(base64.encode("admin:admin"));
-response.println(base64.decode("YWRtaW46YWRtaW4="));
+    response.println(base64.encode("admin:admin"));
+    response.println(base64.decode("YWRtaW46YWRtaW4="));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var base64 = require("utils/base64");
-var response = require("http/response");
+    ```javascript
+    var base64 = require("utils/base64");
+    var response = require("http/response");
 
-response.println(base64.encode("admin:admin"));
-response.println(base64.decode("YWRtaW46YWRtaW4="));
+    response.println(base64.encode("admin:admin"));
+    response.println(base64.decode("YWRtaW46YWRtaW4="));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

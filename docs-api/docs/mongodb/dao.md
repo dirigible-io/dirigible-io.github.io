@@ -16,113 +16,113 @@ The MongoDB DAO simplified database access objects utility.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { dao } from "@dirigible/mongodb";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { dao } from "@dirigible/mongodb";
+    import { response } from "@dirigible/http";
 
-//create a DAO from configuration
-var customers = dao.create({
-    table: "CUSTOMERS",
-    properties: [{
-        name: "id",
-        column: "ID",
-        type: "BIGINT",
-        id: true
-    }, {
-        name: "orgName",
-        column: "ORG_NAME",
-        type: "VARCHAR",
-        required: true
-    }, {
-        name: "employeesNumber",
-        column: "ORG_EMP_NUM",
-        type: "INTEGER",
-        required: true
-    }, {
-        name: "orgDescription",
-        column: "ORG_DESCR",
-        type: "VARCHAR",
-        required: false
-    }]
-});
+    //create a DAO from configuration
+    let customers = dao.create({
+        table: "CUSTOMERS",
+        properties: [{
+            name: "id",
+            column: "ID",
+            type: "BIGINT",
+            id: true
+        }, {
+            name: "orgName",
+            column: "ORG_NAME",
+            type: "VARCHAR",
+            required: true
+        }, {
+            name: "employeesNumber",
+            column: "ORG_EMP_NUM",
+            type: "INTEGER",
+            required: true
+        }, {
+            name: "orgDescription",
+            column: "ORG_DESCR",
+            type: "VARCHAR",
+            required: false
+        }]
+    });
 
-//Create a new customer entity
-var customerId = customers.insert({
-    orgName: "ACME",
-    employeesNumber: 1000
-});
+    //Create a new customer entity
+    let customerId = customers.insert({
+        orgName: "ACME",
+        employeesNumber: 1000
+    });
 
-response.println("Id: " + customerId);
+    response.println("Id: " + customerId);
 
-//List all customer entities
-var customersList = customers.list();
+    //List all customer entities
+    let customersList = customers.list();
 
-//Get a particular customer entity by its id
-var customer = customers.find(customerId);
+    //Get a particular customer entity by its id
+    let customer = customers.find(customerId);
 
-//Update a customer entity property
-customer.orgDescription = "ACME is a company";
-customers.update(customer);
+    //Update a customer entity property
+    customer.orgDescription = "ACME is a company";
+    customers.update(customer);
 
-//Delete a customer entity
-customers.remove(customerId);
-```
+    //Delete a customer entity
+    customers.remove(customerId);
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var dao = require("mongodb/dao");
-var response = require("http/response");
+    ```javascript
+    var dao = require("mongodb/dao");
+    var response = require("http/response");
 
-//create a DAO from configuration
-var customers = dao.create({
-    table: "CUSTOMERS",
-    properties: [{
-        name: "id",
-        column: "ID",
-        type: "BIGINT",
-        id: true
-    }, {
-        name: "orgName",
-        column: "ORG_NAME",
-        type: "VARCHAR",
-        required: true
-    }, {
-        name: "employeesNumber",
-        column: "ORG_EMP_NUM",
-        type: "INTEGER",
-        required: true
-    }, {
-        name: "orgDescription",
-        column: "ORG_DESCR",
-        type: "VARCHAR",
-        required: false
-    }]
-});
+    //create a DAO from configuration
+    var customers = dao.create({
+        table: "CUSTOMERS",
+        properties: [{
+            name: "id",
+            column: "ID",
+            type: "BIGINT",
+            id: true
+        }, {
+            name: "orgName",
+            column: "ORG_NAME",
+            type: "VARCHAR",
+            required: true
+        }, {
+            name: "employeesNumber",
+            column: "ORG_EMP_NUM",
+            type: "INTEGER",
+            required: true
+        }, {
+            name: "orgDescription",
+            column: "ORG_DESCR",
+            type: "VARCHAR",
+            required: false
+        }]
+    });
 
-//Create a new customer entity
-var customerId = customers.insert({
-    orgName: "ACME",
-    employeesNumber: 1000
-});
+    //Create a new customer entity
+    var customerId = customers.insert({
+        orgName: "ACME",
+        employeesNumber: 1000
+    });
 
-response.println("Id: " + customerId);
+    response.println("Id: " + customerId);
 
-//List all customer entities
-var customersList = customers.list();
+    //List all customer entities
+    var customersList = customers.list();
 
-//Get a particular customer entity by its id
-var customer = customers.find(customerId);
+    //Get a particular customer entity by its id
+    var customer = customers.find(customerId);
 
-//Update a customer entity property
-customer.orgDescription = "ACME is a company";
-customers.update(customer);
+    //Update a customer entity property
+    customer.orgDescription = "ACME is a company";
+    customers.update(customer);
 
-//Delete a customer entity
-customers.remove(customerId);
-```
+    //Delete a customer entity
+    customers.remove(customerId);
+    ```
 
 ### Functions
 

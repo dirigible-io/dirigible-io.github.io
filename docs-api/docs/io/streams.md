@@ -16,59 +16,59 @@ Streams module provides classes and utilities for working with streams.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { streams } from "@dirigible/io";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { streams } from "@dirigible/io";
+    import { response } from "@dirigible/http";
 
-let outputStream = streams.createByteArrayOutputStream();
+    let outputStream = streams.createByteArrayOutputStream();
 
-outputStream.writeText("Some text content");
+    outputStream.writeText("Some text content");
 
-let bytes = outputStream.getBytes();
-response.println("[Stream Content as Bytes]: " + bytes);
+    let bytes = outputStream.getBytes();
+    response.println("[Stream Content as Bytes]: " + bytes);
 
-let text = String.fromCharCode.apply(String, bytes);
-response.println("[Stream Content as Text]: " + text);
+    let text = String.fromCharCode.apply(String, bytes);
+    response.println("[Stream Content as Text]: " + text);
 
-let inputStream = streams.createByteArrayInputStream(bytes);
-let outputStreamCopy = streams.createByteArrayOutputStream();
-streams.copy(inputStream, outputStreamCopy);
-let copiedBytes = outputStreamCopy.getBytes();
-let copiedText = String.fromCharCode.apply(String, copiedBytes);
-response.println("[Stream Copied Content as Text]: " + copiedText);
+    let inputStream = streams.createByteArrayInputStream(bytes);
+    let outputStreamCopy = streams.createByteArrayOutputStream();
+    streams.copy(inputStream, outputStreamCopy);
+    let copiedBytes = outputStreamCopy.getBytes();
+    let copiedText = String.fromCharCode.apply(String, copiedBytes);
+    response.println("[Stream Copied Content as Text]: " + copiedText);
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var streams = require("io/streams");
-var response = require("http/response");
+    ```javascript
+    var streams = require("io/streams");
+    var response = require("http/response");
 
-var outputStream = streams.createByteArrayOutputStream();
+    var outputStream = streams.createByteArrayOutputStream();
 
-outputStream.writeText("Some text content");
+    outputStream.writeText("Some text content");
 
-var bytes = outputStream.getBytes();
-response.println("[Stream Content as Bytes]: " + bytes);
+    var bytes = outputStream.getBytes();
+    response.println("[Stream Content as Bytes]: " + bytes);
 
-var text = String.fromCharCode.apply(String, bytes);
-response.println("[Stream Content as Text]: " + text);
+    var text = String.fromCharCode.apply(String, bytes);
+    response.println("[Stream Content as Text]: " + text);
 
-var inputStream = streams.createByteArrayInputStream(bytes);
-var outputStreamCopy = streams.createByteArrayOutputStream();
-streams.copy(inputStream, outputStreamCopy);
-var copiedBytes = outputStreamCopy.getBytes();
-var copiedText = String.fromCharCode.apply(String, copiedBytes);
-response.println("[Stream Copied Content as Text]: " + copiedText);
+    var inputStream = streams.createByteArrayInputStream(bytes);
+    var outputStreamCopy = streams.createByteArrayOutputStream();
+    streams.copy(inputStream, outputStreamCopy);
+    var copiedBytes = outputStreamCopy.getBytes();
+    var copiedText = String.fromCharCode.apply(String, copiedBytes);
+    response.println("[Stream Copied Content as Text]: " + copiedText);
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

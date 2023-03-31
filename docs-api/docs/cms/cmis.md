@@ -17,149 +17,148 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { cmis } from "@dirigible/cms";
-import { response } from "@dirigible/http";
-import { streams } from "@dirigible/io";
+    ```javascript
+    import { cmis } from "@dirigible/cms";
+    import { response } from "@dirigible/http";
+    import { streams } from "@dirigible/io";
 
 
-let cmisSession = cmis.getSession();
+    let cmisSession = cmis.getSession();
 
-let rootFolder = cmisSession.getRootFolder();
+    let rootFolder = cmisSession.getRootFolder();
 
-let children = rootFolder.getChildren();
-response.println("Listing the children of the root folder:");
-for (let i in children) {
-    response.println("Object ID: " + children[i].getId());
-    response.println("Object Name: " + children[i].getName());
-}
+    let children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder:");
+    for (let i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+    }
 
-let textFileName = "test.txt";
-response.println("Creating a simple text file, " + textFileName);
+    let textFileName = "test.txt";
+    response.println("Creating a simple text file, " + textFileName);
 
-let mimetype = "text/plain; charset=UTF-8";
-let content = "This is some test content.";
-let filename = textFileName;
+    let mimetype = "text/plain; charset=UTF-8";
+    let content = "This is some test content.";
+    let filename = textFileName;
 
-let outputStream = streams.createByteArrayOutputStream();
-outputStream.writeText(content);
-let bytes = outputStream.getBytes();
-let inputStream = streams.createByteArrayInputStream(bytes);
+    let outputStream = streams.createByteArrayOutputStream();
+    outputStream.writeText(content);
+    let bytes = outputStream.getBytes();
+    let inputStream = streams.createByteArrayInputStream(bytes);
 
-let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
+    let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-let properties = {};
-properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
-properties[cmis.NAME] = filename;
-let newDocument;
-try {
-    newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
-} catch (e) {
-    response.println("Error: " + e);
-}
-let documentId = newDocument.getId();
-response.println("Document ID: " + documentId);
+    let properties = {};
+    properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
+    properties[cmis.NAME] = filename;
+    let newDocument;
+    try {
+        newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
+    } catch (e) {
+        response.println("Error: " + e);
+    }
+    let documentId = newDocument.getId();
+    response.println("Document ID: " + documentId);
 
-children = rootFolder.getChildren();
-response.println("Listing the children of the root folder again:");
-for (let i in children) {
-    response.println("Object ID: " + children[i].getId());
-    response.println("Object Name: " + children[i].getName());
-    response.println("Object Type: " + children[i].getType());
-}
+    children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder again:");
+    for (let i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+        response.println("Object Type: " + children[i].getType());
+    }
 
-// Get the contents of the file
-let doc = cmisSession.getObject(documentId);
-contentStream = doc.getContentStream(); // returns null if the document has no content
-if (contentStream !== null) {
-    content = contentStream.getStream().readText();
-    response.println("Contents of " + filename + " are: " + content);
-} else {
-    response.println("No content.");
-}
+    // Get the contents of the file
+    let doc = cmisSession.getObject(documentId);
+    contentStream = doc.getContentStream(); // returns null if the document has no content
+    if (contentStream !== null) {
+        content = contentStream.getStream().readText();
+        response.println("Contents of " + filename + " are: " + content);
+    } else {
+        response.println("No content.");
+    }
 
-response.println("Deleting the newly created document");
-if (newDocument) {
-    newDocument.delete();
-}
+    response.println("Deleting the newly created document");
+    if (newDocument) {
+        newDocument.delete();
+    }
 
-response.flush();
-response.close();
+    response.flush();
+    response.close();
+    ```
 
-```
+=== "Require"
 
-#### Require
+    ```javascript
+    var cmis = require("cms/cmis");
+    var response = require("http/response");
+    var streams = require("io/streams");
 
-```javascript
-var cmis = require("cms/cmis");
-var response = require("http/response");
-var streams = require("io/streams");
+    var cmisSession = cmis.getSession();
 
-var cmisSession = cmis.getSession();
+    var rootFolder = cmisSession.getRootFolder();
 
-var rootFolder = cmisSession.getRootFolder();
+    var children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder:");
+    for (var i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+    }
 
-var children = rootFolder.getChildren();
-response.println("Listing the children of the root folder:");
-for (var i in children) {
-    response.println("Object ID: " + children[i].getId());
-    response.println("Object Name: " + children[i].getName());
-}
+    var textFileName = "test.txt";
+    response.println("Creating a simple text file, " + textFileName);
 
-var textFileName = "test.txt";
-response.println("Creating a simple text file, " + textFileName);
+    var mimetype = "text/plain; charset=UTF-8";
+    var content = "This is some test content.";
+    var filename = textFileName;
 
-var mimetype = "text/plain; charset=UTF-8";
-var content = "This is some test content.";
-var filename = textFileName;
+    var outputStream = streams.createByteArrayOutputStream();
+    outputStream.writeText(content);
+    var bytes = outputStream.getBytes();
+    var inputStream = streams.createByteArrayInputStream(bytes);
 
-var outputStream = streams.createByteArrayOutputStream();
-outputStream.writeText(content);
-var bytes = outputStream.getBytes();
-var inputStream = streams.createByteArrayInputStream(bytes);
+    var contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-var contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
+    var properties = {};
+    properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
+    properties[cmis.NAME] = filename;
+    var newDocument;
+    try {
+        newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
+    } catch(e) {
+        response.println("Error: " + e);	
+    }
+    var documentId = newDocument.getId();
+    response.println("Document ID: " + documentId);
 
-var properties = {};
-properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
-properties[cmis.NAME] = filename;
-var newDocument;
-try {
-    newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
-} catch(e) {
-    response.println("Error: " + e);	
-}
-var documentId = newDocument.getId();
-response.println("Document ID: " + documentId);
+    children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder again:");
+    for (var i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+        response.println("Object Type: " + children[i].getType());
+    }
 
-children = rootFolder.getChildren();
-response.println("Listing the children of the root folder again:");
-for (var i in children) {
-    response.println("Object ID: " + children[i].getId());
-    response.println("Object Name: " + children[i].getName());
-    response.println("Object Type: " + children[i].getType());
-}
+    // Get the contents of the file
+    var doc = cmisSession.getObject(documentId);
+    contentStream = doc.getContentStream(); // returns null if the document has no content
+    if (contentStream !== null) {
+        content = contentStream.getStream().readText();
+        response.println("Contents of " + filename + " are: " + content);
+    } else {
+        response.println("No content.");
+    }
 
-// Get the contents of the file
-var doc = cmisSession.getObject(documentId);
-contentStream = doc.getContentStream(); // returns null if the document has no content
-if (contentStream !== null) {
-    content = contentStream.getStream().readText();
-    response.println("Contents of " + filename + " are: " + content);
-} else {
-    response.println("No content.");
-}
+    response.println("Deleting the newly created document");
+    if (newDocument) {
+        newDocument.delete();
+    }
 
-response.println("Deleting the newly created document");
-if (newDocument) {
-    newDocument.delete();
-}
-
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

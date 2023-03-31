@@ -15,27 +15,28 @@ Job Scheduler provides convenient API for managing Job state and execution.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { scheduler } from "@dirigible/job";
+    ```javascript
+    import { scheduler } from "@dirigible/job";
 
-let job = scheduler.getJob("/sample-job/myjob.job");
-let param = job.getParameter("myParam");
+    let job = scheduler.getJob("/sample-job/myjob.job");
+    let param = job.getParameter("myParam");
 
-console.log('Param is: ' + param);
-```
+    console.log('Param is: ' + param);
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var scheduler = require("job/scheduler");
+    ```javascript
+    var scheduler = require("job/scheduler");
 
-var job = scheduler.getJob("/sample-job/myjob.job");
-var param = job.getParameter("myParam");
+    var job = scheduler.getJob("/sample-job/myjob.job");
+    var param = job.getParameter("myParam");
 
-console.log('Param is: ' + param);
-```
+    console.log('Param is: ' + param);
+    ```
+
 
 ### Functions
 

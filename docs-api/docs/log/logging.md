@@ -16,28 +16,27 @@ Logging API using high-performance underlying framework - [logback](https://logb
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { logging } from "@dirigible/log";
+    ```javascript
+    import { logging } from "@dirigible/log";
 
-let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
+    let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
-logger.debug("Hello from {} {}!", "MyLogger");
-logger.error("Oops", new Error("Something wrong happened"));
+    logger.debug("Hello from {} {}!", "MyLogger");
+    logger.error("Oops", new Error("Something wrong happened"));
+    ```
 
-```
+=== "Require"
 
-#### Require
+    ```javascript
+    var logging = require("log/logging");
 
-```javascript
-var logging = require("log/logging");
+    var logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
-var logger = logging.getLogger("org.eclipse.dirigible.mylogger");
-
-logger.debug("Hello from {} {}!", "MyLogger");
-logger.error("Oops", new Error("Something wrong happened"));
-```
+    logger.debug("Hello from {} {}!", "MyLogger");
+    logger.error("Oops", new Error("Something wrong happened"));
+    ```
 
 
 ### Functions

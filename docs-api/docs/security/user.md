@@ -16,29 +16,29 @@ User gives the information about the currently logged in user, if any.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { user } from "@dirigible/security";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { user } from "@dirigible/security";
+    import { response } from "@dirigible/http";
 
-response.println("[UserName]: " + user.getName());
-response.println("[Is in Role]: " + user.isInRole("Developer"));
-response.flush();
-response.close();
-```
+    response.println("[UserName]: " + user.getName());
+    response.println("[Is in Role]: " + user.isInRole("Developer"));
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var user = require("security/user");
-var response = require("http/response");
+    ```javascript
+    var user = require("security/user");
+    var response = require("http/response");
 
-response.println("[UserName]: " + user.getName());
-response.println("[Is in Role]: " + user.isInRole("Developer"));
-response.flush();
-response.close();
-```
+    response.println("[UserName]: " + user.getName());
+    response.println("[Is in Role]: " + user.isInRole("Developer"));
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

@@ -17,30 +17,30 @@ HTTP Request object provided to the scripting services implementation. It contai
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { request, response } from "@dirigible/http";
+    ```javascript
+    import { request, response } from "@dirigible/http";
 
-let method = request.getMethod();
+    let method = request.getMethod();
 
-response.println("[Method]: " + method);
-response.flush();
-response.close();
-```
+    response.println("[Method]: " + method);
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var request = require("http/request");
-var response = require("http/response");
+    ```javascript
+    var request = require("http/request");
+    var response = require("http/response");
 
-var method = request.getMethod();
+    var method = request.getMethod();
 
-response.println("[Method]: " + method);
-response.flush();
-response.close();
-```
+    response.println("[Method]: " + method);
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

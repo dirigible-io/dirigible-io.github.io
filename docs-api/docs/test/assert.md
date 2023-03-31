@@ -15,29 +15,29 @@ Assert object is used in unit tests.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { base64 } from "@dirigible/utils";
-import { assert } from "@dirigible/test";
+    ```javascript
+    import { base64 } from "@dirigible/utils";
+    import { assert } from "@dirigible/test";
 
-let input = "test"
-let result = base64.encode(input);
+    let input = "test"
+    let result = base64.encode(input);
 
-assert.assertEquals(result, 'dGVzdA==', "check if match");
-```
+    assert.assertEquals(result, 'dGVzdA==', "check if match");
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var base64 = require('utils/base64');
-var assertEquals = require('test/assert').assertEquals;
+    ```javascript
+    var base64 = require('utils/base64');
+    var assertEquals = require('test/assert').assertEquals;
 
-var input = "test"
-var result = base64.encode(input);
+    var input = "test"
+    var result = base64.encode(input);
 
-assertEquals(result, 'dGVzdA==', "check if match");
-```
+    assertEquals(result, 'dGVzdA==', "check if match");
+    ```
 
 ### Functions
 

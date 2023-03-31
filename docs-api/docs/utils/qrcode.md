@@ -14,35 +14,35 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { qrcode } from "@dirigible/utils";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { qrcode } from "@dirigible/utils";
+    import { response } from "@dirigible/http";
 
-let qrCodeBytes = qrcode.generateQRCode("https://www.dirigible.io");
+    let qrCodeBytes = qrcode.generateQRCode("https://www.dirigible.io");
 
-console.log("QR Code Bytes: " + qrCodeBytes);
+    console.log("QR Code Bytes: " + qrCodeBytes);
 
-response.write(qrCodeBytes);
-response.flush();
-response.close();
-```
+    response.write(qrCodeBytes);
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var qrCodeGenerator = require("utils/qrcode");
-var response = require("http/response");
+    ```javascript
+    var qrCodeGenerator = require("utils/qrcode");
+    var response = require("http/response");
 
-let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
+    let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
 
-console.log("QR Code Bytes: " + qrCodeBytes);
+    console.log("QR Code Bytes: " + qrCodeBytes);
 
-response.write(qrCodeBytes);
-response.flush();
-response.close();
-```
+    response.write(qrCodeBytes);
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

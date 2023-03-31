@@ -18,57 +18,57 @@ The MongoDB Client is giving an access to a [MongoDB](https://www.mongodb.com/) 
 
 Start your MongoDB server with default settings and use the following example:
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { client } from "@dirigible/mongodb";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { client } from "@dirigible/mongodb";
+    import { response } from "@dirigible/http";
 
-let mongoClient = client.getClient();
+    let mongoClient = client.getClient();
 
-let collection = mongoClient.getDB("db").getCollection("people");
+    let collection = mongoClient.getDB("db").getCollection("people");
 
-let person = client.createBasicDBObject()
-    .append("_id", "jo")
-    .append("name", "Jo Bloggs");
-// or directly create an Object:
-// let person = {"_id": "jo", "name": "Jo Bloggs"};
-collection.insert(person);
+    let person = client.createBasicDBObject()
+        .append("_id", "jo")
+        .append("name", "Jo Bloggs");
+    // or directly create an Object:
+    // let person = {"_id": "jo", "name": "Jo Bloggs"};
+    collection.insert(person);
 
-var query = client.createBasicDBObject().append("_id", "jo");
-let cursor = collection.find(query)
-let result = cursor.one();
+    var query = client.createBasicDBObject().append("_id", "jo");
+    let cursor = collection.find(query)
+    let result = cursor.one();
 
-response.println("Result: " + result._id);
-response.flush();
-response.close();
-```
+    response.println("Result: " + result._id);
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
-var mongodb = require("mongodb/client");
+    ```javascript
+    var response = require("http/response");
+    var mongodb = require("mongodb/client");
 
-var mongoClient = mongodb.getClient();
+    var mongoClient = mongodb.getClient();
 
-var collection = mongoClient.getDB("db").getCollection("people");
+    var collection = mongoClient.getDB("db").getCollection("people");
 
-var person = mongodb.createBasicDBObject()
-    .append("_id", "jo")
-    .append("name", "Jo Bloggs");
-// or directly create an Object:
-// var person = {"_id": "jo", "name": "Jo Bloggs"};
-collection.insert(person);
+    var person = mongodb.createBasicDBObject()
+        .append("_id", "jo")
+        .append("name", "Jo Bloggs");
+    // or directly create an Object:
+    // var person = {"_id": "jo", "name": "Jo Bloggs"};
+    collection.insert(person);
 
-var query = mongodb.createBasicDBObject().append("_id", "jo");
-var cursor = collection.find(query);
-var result = cursor.one();
+    var query = mongodb.createBasicDBObject().append("_id", "jo");
+    var cursor = collection.find(query);
+    var result = cursor.one();
 
-response.println("Result: " + result._id);
-response.flush();
-response.close();
-```
+    response.println("Result: " + result._id);
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

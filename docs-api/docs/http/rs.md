@@ -16,31 +16,31 @@ HTTP RESTful services framework.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { rs } from "@dirigible/http";
+    ```javascript
+    import { rs } from "@dirigible/http";
 
-rs.service()
-    .resource("")
-    .get(function (_ctx, _request, response) {
-        response.println("Hello there!");
-    })
-    .execute();
-```
-
-#### Require
-
-```javascript
-var rs = require("http/rs");
-
-rs.service()
-    .resource("")
-        .get(function(ctx, request, response){
+    rs.service()
+        .resource("")
+        .get(function (_ctx, _request, response) {
             response.println("Hello there!");
         })
-.execute();
-```
+        .execute();
+    ```
+
+=== "Require"
+
+    ```javascript
+    var rs = require("http/rs");
+
+    rs.service()
+        .resource("")
+            .get(function(ctx, request, response){
+                response.println("Hello there!");
+            })
+    .execute();
+    ```
 
 
 ### Functions

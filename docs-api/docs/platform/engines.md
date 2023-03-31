@@ -15,16 +15,31 @@ Engines object is used for executing a scripting service programmatically.
 
 ### Basic Usage
 
-```javascript
-var engines = require("platform/engines");
-var response = require("http/response");
+=== "ECMA6"
 
-var result = engines.getEngine("javascript").execute("project1/hello", {});
+    ```javascript
+    import { engines } from "@dirigible/platform";
+    import { response } from "@dirigible/http";
 
-response.println(result);
-response.flush();
-response.close();
-```
+    let result = engines.getEngine("javascript").execute("project1/hello", {});
+
+    response.println(JSON.stringify(result));
+    response.flush();
+    response.close();
+    ```
+
+=== "Require"
+
+    ```javascript
+    var engines = require("platform/engines");
+    var response = require("http/response");
+
+    let result = engines.getEngine("javascript").execute("project1/hello", {});
+
+    response.println(JSON.stringify(result));
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

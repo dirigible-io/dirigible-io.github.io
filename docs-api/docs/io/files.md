@@ -16,31 +16,31 @@ Files module provides an access to the underlying File System, where the Dirigib
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { files } from "@dirigible/io";
+    ```javascript
+    import { files } from "@dirigible/io";
 
-let tempFile = files.createTempFile("dirigible", ".txt");
+    let tempFile = files.createTempFile("dirigible", ".txt");
 
-console.log("Temp file: " + tempFile);
+    console.log("Temp file: " + tempFile);
 
-files.writeText(tempFile, "Eclipse Dirigible");
-files.deleteFile(tempFile);
-```
+    files.writeText(tempFile, "Eclipse Dirigible");
+    files.deleteFile(tempFile);
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var files = require("io/files");
+    ```javascript
+    var files = require("io/files");
 
-var tempFile = files.createTempFile("dirigible", ".txt");
+    var tempFile = files.createTempFile("dirigible", ".txt");
 
-console.log("Temp file: " + tempFile);
+    console.log("Temp file: " + tempFile);
 
-files.writeText(tempFile, "Eclipse Dirigible");
-files.deleteFile(tempFile);
-```
+    files.writeText(tempFile, "Eclipse Dirigible");
+    files.deleteFile(tempFile);
+    ```
 
 ### Functions
 

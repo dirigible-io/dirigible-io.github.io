@@ -15,32 +15,32 @@ The Indexing Writer is an object which can store a text content with additional 
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { writer, searcher } from "@dirigible/indexing";
+    ```javascript
+    import { writer, searcher } from "@dirigible/indexing";
 
-writer.add("index1", "file1", "apache lucene", new Date(), { "name1": "value1" });
-writer.add("index1", "file2", "lucene - the search engine", new Date(), { "name2": "value2" });
+    writer.add("index1", "file1", "apache lucene", new Date(), { "name1": "value1" });
+    writer.add("index1", "file2", "lucene - the search engine", new Date(), { "name2": "value2" });
 
-let found = searcher.search("index1", "lucene");
+    let found = searcher.search("index1", "lucene");
 
-console.log(JSON.stringify(found))
-```
+    console.log(JSON.stringify(found))
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var writer = require("indexing/writer");
-var searcher = require("indexing/searcher");
+    ```javascript
+    var writer = require("indexing/writer");
+    var searcher = require("indexing/searcher");
 
-writer.add("index1", "file1", "apache lucene", new Date(), {"name1":"value1"});
-writer.add("index1", "file2", "lucene - the search engine", new Date(), {"name2":"value2"});
+    writer.add("index1", "file1", "apache lucene", new Date(), {"name1":"value1"});
+    writer.add("index1", "file2", "lucene - the search engine", new Date(), {"name2":"value2"});
 
-var found = searcher.search("index1", "lucene");
+    var found = searcher.search("index1", "lucene");
 
-console.log(JSON.stringify(found))
-```
+    console.log(JSON.stringify(found))
+    ```
 
 ### Functions
 

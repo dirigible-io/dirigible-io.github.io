@@ -16,50 +16,50 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { bytes } from "@dirigible/io";
-import { user } from "@dirigible/security";
-import { workspace, lifecycle } from "@dirigible/platform";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { bytes } from "@dirigible/io";
+    import { user } from "@dirigible/security";
+    import { workspace, lifecycle } from "@dirigible/platform";
+    import { response } from "@dirigible/http";
 
-let currentUser = user.getName();
-let workspaceName = "workspace";
-let projectName = "project";
+    let currentUser = user.getName();
+    let workspaceName = "workspace";
+    let projectName = "project";
 
-let myWorkspace = workspace.createWorkspace(workspaceName);
-let myProject = myWorkspace.createProject(projectName);
-let myFile = myProject.createFile("file.js");
-myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
+    let myWorkspace = workspace.createWorkspace(workspaceName);
+    let myProject = myWorkspace.createProject(projectName);
+    let myFile = myProject.createFile("file.js");
+    myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
 
-let publishResult = lifecycle.publish(currentUser, workspaceName, projectName);
+    let publishResult = lifecycle.publish(currentUser, workspaceName, projectName);
 
-response.println("publishResult: " + publishResult)
-```
+    response.println("publishResult: " + publishResult)
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
-var user = require("security/user");
-var workspace = require("workspace/manager");
-var lifecycle = require("platform/lifecycle");
-var bytes = require("io/bytes");
+    ```javascript
+    var response = require("http/response");
+    var user = require("security/user");
+    var workspace = require("workspace/manager");
+    var lifecycle = require("platform/lifecycle");
+    var bytes = require("io/bytes");
 
-var user = user.getName();
-var workspaceName = "workspace";
-var projectName = "project";
+    var user = user.getName();
+    var workspaceName = "workspace";
+    var projectName = "project";
 
-var myWorkspace = workspace.createWorkspace(workspaceName);
-var myProject = myWorkspace.createProject(projectName);
-var myFile = myProject.createFile("file.js");
-myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
+    var myWorkspace = workspace.createWorkspace(workspaceName);
+    var myProject = myWorkspace.createProject(projectName);
+    var myFile = myProject.createFile("file.js");
+    myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
 
-var publishResult = lifecycle.publish(user, workspaceName, projectName);
+    var publishResult = lifecycle.publish(user, workspaceName, projectName);
 
-response.println("publishResult: " + publishResult)
-```
+    response.println("publishResult: " + publishResult)
+    ```
 
 
 ### Functions

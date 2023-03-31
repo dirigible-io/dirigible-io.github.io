@@ -17,35 +17,35 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { query } from "@dirigible/db";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { query } from "@dirigible/db";
+    import { response } from "@dirigible/http";
 
-let sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
+    let sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
+    let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
-response.println(JSON.stringify(resultset));
+    response.println(JSON.stringify(resultset));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var query = require("db/query");
-var response = require("http/response");
+    ```javascript
+    var query = require("db/query");
+    var response = require("http/response");
 
-var sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-var resultset = query.execute(sql, ["ide-editor"], "SystemDB");
+    var sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
+    var resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
-response.println(JSON.stringify(resultset));
+    response.println(JSON.stringify(resultset));
 
-response.flush();
-response.close();
-```
+    response.flush();
+    response.close();
+    ```
 
 
 ### Functions

@@ -16,39 +16,39 @@ FTP Client API provides utility functions for working with FTP servers.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { ftp } from "@dirigible/io";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { ftp } from "@dirigible/io";
+    import { response } from "@dirigible/http";
 
-let host = "test.rebex.net";
-let port = 21;
-let userName = "demo";
-let password = "password";
+    let host = "test.rebex.net";
+    let port = 21;
+    let userName = "demo";
+    let password = "password";
 
-let ftpClient = ftp.getClient(host, port, userName, password);
-let file = ftpClient.getFileText("/", "readme.txt");
+    let ftpClient = ftp.getClient(host, port, userName, password);
+    let file = ftpClient.getFileText("/", "readme.txt");
 
-response.println(file);
-```
+    response.println(file);
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
-var ftp = require("io/ftp");
+    ```javascript
+    var response = require("http/response");
+    var ftp = require("io/ftp");
 
-var host = "test.rebex.net";
-var port = 21;
-var userName = "demo";
-var password = "password";
+    var host = "test.rebex.net";
+    var port = 21;
+    var userName = "demo";
+    var password = "password";
 
-var ftpClient = ftp.getClient(host, port, userName, password);
-var file = ftpClient.getFileText("/", "readme.txt");
+    var ftpClient = ftp.getClient(host, port, userName, password);
+    var file = ftpClient.getFileText("/", "readme.txt");
 
-response.println(file);
-```
+    response.println(file);
+    ```
 
 ### Functions
 

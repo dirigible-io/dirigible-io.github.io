@@ -13,7 +13,7 @@ Extensions
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
 ```javascript
 import { extensions } from "@dirigible/extensions";
@@ -31,7 +31,7 @@ for (let i = 0; i < menuExtensions.length; i++) {
 response.println(JSON.stringify(mainmenu));
 ```
 
-#### Require
+=== "Require"
 
 ```javascript
 var extensions = require("core/extensions");

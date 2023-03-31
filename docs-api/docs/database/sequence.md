@@ -16,31 +16,31 @@ Functionality for manipulating the database sequence objects.
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { sequence } from "@dirigible/db";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { sequence } from "@dirigible/db";
+    import { response } from "@dirigible/http";
 
-let value = sequence.nextval("MYSEQUENCE");
+    let value = sequence.nextval("MYSEQUENCE");
 
-response.println(value.toString());
-response.flush();
-response.close();
-```
+    response.println(value.toString());
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var sequence = require("db/sequence");
-var response = require("http/response");
+    ```javascript
+    var sequence = require("db/sequence");
+    var response = require("http/response");
 
-var value = sequence.nextval("MYSEQUENCE");
+    var value = sequence.nextval("MYSEQUENCE");
 
-response.println(value.toString());
-response.flush();
-response.close();
-```
+    response.println(value.toString());
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

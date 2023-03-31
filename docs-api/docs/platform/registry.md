@@ -16,31 +16,31 @@ Registry object gives access to the content in the repository and also the pre-d
 
 ### Basic Usage
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { registry } from "@dirigible/platform";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { registry } from "@dirigible/platform";
+    import { response } from "@dirigible/http";
 
-let text = registry.getText("platform/registry.js");
+    let text = registry.getText("platform/registry.js");
 
-response.println(text);
-response.flush();
-response.close();
-```
+    response.println(text);
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
-var registry = require("platform/registry");
+    ```javascript
+    var response = require("http/response");
+    var registry = require("platform/registry");
 
-var text = registry.getText("platform/registry.js");
+    var text = registry.getText("platform/registry.js");
 
-response.println(text);
-response.flush();
-response.close();
-```
+    response.println(text);
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 

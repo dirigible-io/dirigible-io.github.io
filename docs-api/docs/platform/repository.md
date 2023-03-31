@@ -18,31 +18,31 @@ Repository object gives access to the repository. It can be used for creating ar
 
 The service which list the available workspaces:
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { repository } from "@dirigible/platform";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { repository } from "@dirigible/platform";
+    import { response } from "@dirigible/http";
 
-let resource = repository.getResource("/registry/public/platform/repository.js");
+    let resource = repository.getResource("/registry/public/platform/repository.js");
 
-response.println("Exists: " + resource.exists());
-response.flush();
-response.close();
-```
+    response.println("Exists: " + resource.exists());
+    response.flush();
+    response.close();
+    ```
 
-#### Require
+=== "Require"
 
-```javascript
-var response = require("http/response");
-var repositoryManager = require("platform/repository");
+    ```javascript
+    var response = require("http/response");
+    var repositoryManager = require("platform/repository");
 
-var resource = repositoryManager.getResource("/registry/public/platform/repository.js");
+    var resource = repositoryManager.getResource("/registry/public/platform/repository.js");
 
-response.println("Exists: " + resource.exists());
-response.flush();
-response.close();
-```
+    response.println("Exists: " + resource.exists());
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 
