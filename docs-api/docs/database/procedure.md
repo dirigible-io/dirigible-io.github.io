@@ -46,7 +46,7 @@ Create Procedure:
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");
@@ -88,7 +88,7 @@ Call Procedure:
     }
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

@@ -32,7 +32,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var query = require("db/query");

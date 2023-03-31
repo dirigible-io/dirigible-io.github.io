@@ -28,7 +28,7 @@ UUID object is used to generate random universally unique identifiers.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var uuid = require("utils/uuid");

@@ -30,7 +30,7 @@ The Indexing Searcher is the object used for free-text or exact periods searches
     console.log(JSON.stringify(found))
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var writer = require("indexing/writer");

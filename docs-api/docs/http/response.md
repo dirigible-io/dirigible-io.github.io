@@ -26,7 +26,7 @@ HTTP Response object provided to the scripting services implementation to create
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

@@ -89,7 +89,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var cmis = require("cms/cmis");

@@ -38,7 +38,7 @@ To test the API first create a zip file using the following snippet:
     }
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var zip = require("io/zip");
@@ -85,7 +85,7 @@ Then you can read the contents of the zip file:
     }
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var zip = require("io/zip");

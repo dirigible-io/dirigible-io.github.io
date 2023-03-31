@@ -43,7 +43,7 @@ Streams module provides classes and utilities for working with streams.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var streams = require("io/streams");

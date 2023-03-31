@@ -28,7 +28,7 @@ Simplified update functionality, accepts SQL script and query parameters and ret
     update.execute("DROP TABLE MY_TABLE");
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var update = require("db/update");

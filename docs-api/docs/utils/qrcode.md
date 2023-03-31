@@ -29,7 +29,7 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var qrCodeGenerator = require("utils/qrcode");

@@ -27,7 +27,7 @@ Assert object is used in unit tests.
     assert.assertEquals(result, 'dGVzdA==', "check if match");
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var base64 = require('utils/base64');

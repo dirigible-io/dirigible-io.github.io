@@ -29,7 +29,7 @@ Registry object gives access to the content in the repository and also the pre-d
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

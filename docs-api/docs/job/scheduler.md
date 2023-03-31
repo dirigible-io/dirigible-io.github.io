@@ -26,7 +26,7 @@ Job Scheduler provides convenient API for managing Job state and execution.
     console.log('Param is: ' + param);
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var scheduler = require("job/scheduler");

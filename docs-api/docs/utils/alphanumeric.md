@@ -27,7 +27,7 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var alphanumeric = require("utils/alphanumeric");

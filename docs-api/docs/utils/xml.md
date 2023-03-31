@@ -48,7 +48,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var xml = require("utils/xml");

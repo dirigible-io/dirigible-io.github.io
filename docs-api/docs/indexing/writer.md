@@ -28,7 +28,7 @@ The Indexing Writer is an object which can store a text content with additional 
     console.log(JSON.stringify(found))
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var writer = require("indexing/writer");

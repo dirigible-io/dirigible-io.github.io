@@ -38,7 +38,7 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
     response.println("publishResult: " + publishResult)
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

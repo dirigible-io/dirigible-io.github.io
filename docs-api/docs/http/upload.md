@@ -46,7 +46,7 @@ HTTP Upload is used to consume files posted as multipart request.
 	response.close();
 	```
 
-=== "Require"
+=== "CommonJS"
 
 	```javascript
 	var upload = require('http/upload');

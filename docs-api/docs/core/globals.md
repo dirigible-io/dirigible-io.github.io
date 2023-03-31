@@ -31,7 +31,7 @@ Globals object is used to store and manage properties in the global store.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var globals = require("core/globals");

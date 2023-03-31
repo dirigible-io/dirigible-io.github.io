@@ -29,7 +29,7 @@ HTTP Session object provided to the scripting services implementation to hold se
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var session = require("http/session");

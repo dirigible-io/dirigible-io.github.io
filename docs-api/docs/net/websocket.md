@@ -37,7 +37,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
     websockets.getClientByHandler(handler).close();
     ```
 
-=== "Require
+=== "CommonJS
 
     ```javascript
     const websockets = require("net/websockets");

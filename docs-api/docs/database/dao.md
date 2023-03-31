@@ -77,7 +77,7 @@ Simplified database access objects utility.
     }
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var dao = require("db/dao");

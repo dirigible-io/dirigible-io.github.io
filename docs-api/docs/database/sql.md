@@ -30,7 +30,7 @@ Type-safe SQL builders with multi-dialect support.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var sql = require("db/sql");

@@ -28,7 +28,7 @@ Base64 object is used to encode/decode in base64.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var base64 = require("utils/base64");

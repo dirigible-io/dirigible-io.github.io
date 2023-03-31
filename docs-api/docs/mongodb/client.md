@@ -44,7 +44,7 @@ Start your MongoDB server with default settings and use the following example:
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

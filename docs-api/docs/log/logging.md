@@ -27,7 +27,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
     logger.error("Oops", new Error("Something wrong happened"));
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var logging = require("log/logging");

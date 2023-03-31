@@ -28,7 +28,7 @@ User gives the information about the currently logged in user, if any.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var user = require("security/user");

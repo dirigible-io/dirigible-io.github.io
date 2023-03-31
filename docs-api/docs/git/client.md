@@ -34,7 +34,7 @@ Git Client is used by scripting services to call git commands
     client.commit(user, email, workspaceName, repositoryName, commitMessage, add);
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     const git = require("git/client");

@@ -30,7 +30,7 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var engines = require("template/engines");

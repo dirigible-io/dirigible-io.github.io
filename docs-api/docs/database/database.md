@@ -46,7 +46,7 @@ Standard access to the registered relational data sources.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var database = require("db/database");

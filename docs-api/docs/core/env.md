@@ -28,7 +28,7 @@ Env object is used for access of the environment variables.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var env = require("core/env");

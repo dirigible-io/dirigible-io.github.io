@@ -33,7 +33,7 @@ FTP Client API provides utility functions for working with FTP servers.
     response.println(file);
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

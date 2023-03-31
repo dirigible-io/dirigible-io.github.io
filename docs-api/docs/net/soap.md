@@ -48,7 +48,7 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var soap = require("net/soap");

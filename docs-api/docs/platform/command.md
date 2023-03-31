@@ -27,7 +27,7 @@ Command object is used to execute shell commands.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var command = require('platform/command');

@@ -28,11 +28,11 @@ The service which starts the process:
     });
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var process = require("bpm/process");
-    
+
     process.start("hello", {
       variable1: "value1"
     });

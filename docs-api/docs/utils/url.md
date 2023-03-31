@@ -29,7 +29,7 @@ Url object is used to encode/decode text in the `application/x-www-form-urlencod
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var url = require("utils/url");

@@ -35,7 +35,7 @@ Configurations
         .execute();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var rs = require("http/rs");

@@ -29,7 +29,7 @@ Context object is used to store and manage properties for a single execution flo
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var context = require('core/context');

@@ -29,7 +29,7 @@ Files module provides an access to the underlying File System, where the Dirigib
     files.deleteFile(tempFile);
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var files = require("io/files");

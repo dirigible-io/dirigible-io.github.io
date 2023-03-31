@@ -29,7 +29,7 @@ HTTP Request object provided to the scripting services implementation. It contai
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var request = require("http/request");

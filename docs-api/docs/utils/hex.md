@@ -29,7 +29,7 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var hex = require("utils/hex");

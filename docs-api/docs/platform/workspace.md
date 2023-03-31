@@ -34,7 +34,7 @@ The service which list the available workspaces:
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var workspaceManager = require("platform/workspace");

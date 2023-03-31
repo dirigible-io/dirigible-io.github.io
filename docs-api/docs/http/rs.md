@@ -29,7 +29,7 @@ HTTP RESTful services framework.
         .execute();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var rs = require("http/rs");

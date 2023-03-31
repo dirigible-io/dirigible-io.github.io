@@ -15,39 +15,39 @@ Extensions
 
 === "ECMA6"
 
-```javascript
-import { extensions } from "@dirigible/extensions";
-import { response } from "@dirigible/http";
+    ```javascript
+    import { extensions } from "@dirigible/extensions";
+    import { response } from "@dirigible/http";
 
-let mainmenu = [];
-let menuExtensions = extensions.getExtensions("ide-menu");
-for (let i = 0; i < menuExtensions.length; i++) {
-    let module = menuExtensions[i];
-    menuExtension = require(module);
-    let menu = menuExtension.getMenu();
-    mainmenu.push(menu);
-}
+    let mainmenu = [];
+    let menuExtensions = extensions.getExtensions("ide-menu");
+    for (let i = 0; i < menuExtensions.length; i++) {
+        let module = menuExtensions[i];
+        menuExtension = require(module);
+        let menu = menuExtension.getMenu();
+        mainmenu.push(menu);
+    }
 
-response.println(JSON.stringify(mainmenu));
-```
+    response.println(JSON.stringify(mainmenu));
+    ```
 
-=== "Require"
+=== "CommonJS"
 
-```javascript
-var extensions = require("core/extensions");
-var response = require("http/response");
+    ```javascript
+    var extensions = require("core/extensions");
+    var response = require("http/response");
 
-var mainmenu = [];
-var menuExtensions = extensions.getExtensions("ide-menu");
-for (var i = 0; i < menuExtensions.length; i++) {
-    var module = menuExtensions[i];
-    menuExtension = require(module);
-    var menu = menuExtension.getMenu();
-    mainmenu.push(menu);
-}
+    var mainmenu = [];
+    var menuExtensions = extensions.getExtensions("ide-menu");
+    for (var i = 0; i < menuExtensions.length; i++) {
+        var module = menuExtensions[i];
+        menuExtension = require(module);
+        var menu = menuExtension.getMenu();
+        mainmenu.push(menu);
+    }
 
-response.println(JSON.stringify(mainmenu));
-```
+    response.println(JSON.stringify(mainmenu));
+    ```
 
 
 ### Functions

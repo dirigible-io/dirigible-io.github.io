@@ -44,7 +44,7 @@ Client Async is used by scripting services to call asynchronously external servi
     clientAsyncInstance.execute();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var httpClient = require("http/client");

@@ -27,7 +27,7 @@ UTF8 object is used to encode/decode strings in UTF8.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var utf8 = require("utils/utf8");

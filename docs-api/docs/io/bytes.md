@@ -25,7 +25,7 @@ Bytes module provides utility functions for working with bytes.
     console.log(bytes.byteArrayToText([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]));
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var bytes = require("io/bytes");

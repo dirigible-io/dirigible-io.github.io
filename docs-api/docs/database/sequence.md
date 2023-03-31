@@ -29,7 +29,7 @@ Functionality for manipulating the database sequence objects.
     response.close();
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var sequence = require("db/sequence");

@@ -32,7 +32,7 @@ Mail object is used to send e-mails through the mail service.
     response.println("Mail sent");
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");
@@ -83,7 +83,7 @@ Mail object is used to send e-mails through the mail service.
     response.println("Mail sent");
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var response = require("http/response");

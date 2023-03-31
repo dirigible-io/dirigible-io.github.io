@@ -70,7 +70,7 @@ The MongoDB DAO simplified database access objects utility.
     customers.remove(customerId);
     ```
 
-=== "Require"
+=== "CommonJS"
 
     ```javascript
     var dao = require("mongodb/dao");
