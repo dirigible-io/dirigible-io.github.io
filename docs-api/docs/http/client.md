@@ -16,7 +16,7 @@ Client is used by scripting services to call external services via HTTP.
 
 ### Basic Usage
 
-#### ECMA6
+=== ECMA6
 
 ```javascript
 import { client, response } from "@dirigible/http";
@@ -29,7 +29,7 @@ response.flush();
 response.close();
 ```
 
-#### Require
+=== Require
 
 ```javascript
 var httpClient = require("http/client");
