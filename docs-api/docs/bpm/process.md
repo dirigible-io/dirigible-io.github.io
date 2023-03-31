@@ -18,25 +18,24 @@ Business Process object is used to access and manage the business processes from
 
 The service which starts the process:
 
-#### ECMA6
+=== "ECMA6"
 
-```javascript
-import { process } from "@dirigible/bpm"
+    ```javascript
+    import { process } from "@dirigible/bpm"
+    
+    process.start("hello", {
+        variable1: "value1"
+    });
+    ```
 
-process.start("hello", {
-    variable1: "value1"
-});
+=== "Require"
 
-```
-
-#### Require
-
-```javascript
-var process = require("bpm/process");
-process.start("hello", {
-    variable1: "value1"
-});
-```
+    ```javascript
+    var process = require("bpm/process");
+    process.start("hello", {
+      variable1: "value1"
+    });
+    ```
 Create a new `Business Process Model` file, open it with `Code Editor` and paste the process definiton: 
 
 ```xml
