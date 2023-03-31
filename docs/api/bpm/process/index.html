@@ -338,26 +338,6 @@
     Basic Usage
   </a>
   
-    <nav class="md-nav" aria-label="Basic Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecma6" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2412,26 +2392,6 @@
     Basic Usage
   </a>
   
-    <nav class="md-nav" aria-label="Basic Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecma6" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2503,20 +2463,26 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>The service which starts the process:</p>
-<h4 id="ecma6">ECMA6</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">Require</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/bpm&quot;</span><span class="w"></span>
 
 <span class="nx">process</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">variable1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<h4 id="require">Require</h4>
-<p><div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/process&quot;</span><span class="p">);</span><span class="w"></span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/process&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">process</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">variable1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nx">variable1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-Create a new <code>Business Process Model</code> file, open it with <code>Code Editor</code> and paste the process definiton: </p>
+</div>
+</div>
+</div>
+<p>Create a new <code>Business Process Model</code> file, open it with <code>Code Editor</code> and paste the process definiton: </p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?&gt;</span>
 <span class="nt">&lt;definitions</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.omg.org/spec/BPMN/20100524/MODEL&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">xmlns:flowable=</span><span class="s">&quot;http://flowable.org/bpmn&quot;</span> <span class="na">xmlns:bpmndi=</span><span class="s">&quot;http://www.omg.org/spec/BPMN/20100524/DI&quot;</span> <span class="na">xmlns:omgdc=</span><span class="s">&quot;http://www.omg.org/spec/DD/20100524/DC&quot;</span> <span class="na">xmlns:omgdi=</span><span class="s">&quot;http://www.omg.org/spec/DD/20100524/DI&quot;</span> <span class="na">typeLanguage=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span> <span class="na">expressionLanguage=</span><span class="s">&quot;http://www.w3.org/1999/XPath&quot;</span> <span class="na">targetNamespace=</span><span class="s">&quot;http://www.flowable.org/processdef&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;process</span> <span class="na">id=</span><span class="s">&quot;hello&quot;</span> <span class="na">name=</span><span class="s">&quot;hello&quot;</span> <span class="na">isExecutable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
