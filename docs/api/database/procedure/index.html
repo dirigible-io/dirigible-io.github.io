@@ -634,40 +634,6 @@
     Basic Usage
   </a>
   
-    <nav class="md-nav" aria-label="Basic Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecma6" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ecma6_1" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require_1" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2399,40 +2365,6 @@
     Basic Usage
   </a>
   
-    <nav class="md-nav" aria-label="Basic Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ecma6" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ecma6_1" class="md-nav__link">
-    ECMA6
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require_1" class="md-nav__link">
-    Require
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2476,16 +2408,15 @@
 <li>Status: <code>stable</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<blockquote>
-<p><strong><em>NOTE:</em></strong> To use procedures you need to add database that supports them(default DB is H2 that does not support procedures)</p>
-</blockquote>
-<ol>
-<li>Open <code>Database</code> perspective and click on <code>Databases</code> at the bottom</li>
-<li>Click <code>New</code> and add your database information</li>
-<li>Use you newly added database in most methods as <code>databaseType</code></li>
-</ol>
+<p>!!!
+  To use procedures you need to add database that supports them(default DB is H2 that does not support procedures)
+  1. Open <code>Database</code> perspective and click on <code>Databases</code> at the bottom
+  2. Click <code>New</code> and add your database information
+  3. Use you newly added database in most methods as <code>databaseType</code></p>
 <p>Create Procedure:</p>
-<h4 id="ecma6">ECMA6</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">Require</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
@@ -2503,7 +2434,8 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
-<h4 id="require">Require</h4>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -2521,8 +2453,13 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <p>Call Procedure:</p>
-<h4 id="ecma6_1">ECMA6</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">Require</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">query</span><span class="p">,</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
@@ -2538,7 +2475,8 @@
 <span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h4 id="require_1">Require</h4>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">procedure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/procedure&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;db/query&quot;</span><span class="p">);</span><span class="w"></span>
@@ -2554,6 +2492,9 @@
 <span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
