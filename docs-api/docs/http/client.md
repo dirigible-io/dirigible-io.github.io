@@ -17,29 +17,31 @@ Client is used by scripting services to call external services via HTTP.
 ### Basic Usage
 
 === "ECMA6"
-```javascript
-import { client, response } from "@dirigible/http";
 
-let httpResponse = client.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+    ```javascript
+    import { client, response } from "@dirigible/http";
 
-response.println(httpResponse.statusMessage);
-response.println(httpResponse.text);
-response.flush();
-response.close();
-```
+    let httpResponse = client.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+
+    response.println(httpResponse.statusMessage);
+    response.println(httpResponse.text);
+    response.flush();
+    response.close();
+    ```
 
 === "Require"
-```javascript
-var httpClient = require("http/client");
-var response = require("http/response");
 
-var httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+    ```javascript
+    var httpClient = require("http/client");
+    var response = require("http/response");
 
-response.println(httpResponse.statusMessage);
-response.println(httpResponse.text);
-response.flush();
-response.close();
-```
+    var httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+
+    response.println(httpResponse.statusMessage);
+    response.println(httpResponse.text);
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 
