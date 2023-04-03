@@ -2474,7 +2474,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/process&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/process&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">process</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nx">variable1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="w"></span>
@@ -2526,15 +2526,15 @@
   <span class="nt">&lt;/bpmndi:BPMNDiagram&gt;</span>
 <span class="nt">&lt;/definitions&gt;</span>
 </code></pre></div>
-<p>In a new project called <code>bpmFlows</code> add the following delegate <code>hello.js</code></p>
+<p>In a new project called <code>bpmFlows</code> add the following delegate <code>hello.mjs</code> or <code>hello.js</code> respectively </p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">CommonJS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1">// Hello from the Enterprise Javascript delegate</span><span class="w"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Hello from the Javascript Engine!&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// manipulating process variables throughout the execution context</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// manipulating process variables throughout the execution context</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/bpm&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Hello from the Enterprise Javascript delegate</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Hello from the Javascript Engine!&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">getExecutionContext</span><span class="p">();</span><span class="w"></span>
 
@@ -2553,11 +2553,11 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1">// Hello from the Enterprise Javascript delegate</span><span class="w"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Hello from the Javascript Engine!&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// manipulating process variables throughout the execution context</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// manipulating process variables throughout the execution context</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">process</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;bpm/process&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="c1">// Hello from the Enterprise Javascript delegate</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;Hello from the Javascript Engine!&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">getExecutionContext</span><span class="p">();</span><span class="w"></span>
 

@@ -2414,7 +2414,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">xml</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/utils&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">jsonInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">jsonInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">firstName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">lastName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">bio</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2423,7 +2423,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">xmlInput</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">xmlInput</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;person&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;firstName&gt;John&lt;/firstName&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;lastName&gt;Doe&lt;/lastName&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
@@ -2441,10 +2441,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/xml&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">xml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/xml&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">jsonInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">jsonInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">firstName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;John&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">lastName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Doe&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">bio</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2453,7 +2453,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">xmlInput</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">xmlInput</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;person&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;firstName&gt;John&lt;/firstName&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;&lt;lastName&gt;Doe&lt;/lastName&gt;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
