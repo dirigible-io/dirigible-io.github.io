@@ -31,8 +31,8 @@ User gives the information about the currently logged in user, if any.
 === "CommonJS"
 
     ```javascript
-    var user = require("security/user");
-    var response = require("http/response");
+    const user = require("security/user");
+    const response = require("http/response");
 
     response.println("[UserName]: " + user.getName());
     response.println("[Is in Role]: " + user.isInRole("Developer"));

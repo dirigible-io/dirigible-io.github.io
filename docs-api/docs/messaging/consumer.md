@@ -29,9 +29,9 @@ The Messaging Consumer is an object which can send text messages to a Queue or T
 === "CommonJS"
 
     ```javascript
-    var consumer = require("messaging/consumer");
+    const consumer = require("messaging/consumer");
 
-    var message = consumer.queue("queue1").receive(1000);
+    let message = consumer.queue("queue1").receive(1000);
 
     console.log(message)
     ```

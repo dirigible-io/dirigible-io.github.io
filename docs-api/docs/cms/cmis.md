@@ -36,11 +36,11 @@ CMIS object is used for access of the underlying Content Management System (CMS)
         response.println("Object Name: " + children[i].getName());
     }
 
-    let textFileName = "test.txt";
+    const textFileName = "test.txt";
     response.println("Creating a simple text file, " + textFileName);
 
-    let mimetype = "text/plain; charset=UTF-8";
-    let content = "This is some test content.";
+    const mimetype = "text/plain; charset=UTF-8";
+    const content = "This is some test content.";
     let filename = textFileName;
 
     let outputStream = streams.createByteArrayOutputStream();
@@ -92,57 +92,57 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 === "CommonJS"
 
     ```javascript
-    var cmis = require("cms/cmis");
-    var response = require("http/response");
-    var streams = require("io/streams");
+    const cmis = require("cms/cmis");
+    const response = require("http/response");
+    const streams = require("io/streams");
 
-    var cmisSession = cmis.getSession();
+    let cmisSession = cmis.getSession();
 
-    var rootFolder = cmisSession.getRootFolder();
+    let rootFolder = cmisSession.getRootFolder();
 
-    var children = rootFolder.getChildren();
+    let children = rootFolder.getChildren();
     response.println("Listing the children of the root folder:");
-    for (var i in children) {
+    for (let i in children) {
         response.println("Object ID: " + children[i].getId());
         response.println("Object Name: " + children[i].getName());
     }
 
-    var textFileName = "test.txt";
+    const textFileName = "test.txt";
     response.println("Creating a simple text file, " + textFileName);
 
-    var mimetype = "text/plain; charset=UTF-8";
-    var content = "This is some test content.";
-    var filename = textFileName;
+    const mimetype = "text/plain; charset=UTF-8";
+    const content = "This is some test content.";
+    let filename = textFileName;
 
-    var outputStream = streams.createByteArrayOutputStream();
+    let outputStream = streams.createByteArrayOutputStream();
     outputStream.writeText(content);
-    var bytes = outputStream.getBytes();
-    var inputStream = streams.createByteArrayInputStream(bytes);
+    let bytes = outputStream.getBytes();
+    let inputStream = streams.createByteArrayInputStream(bytes);
 
-    var contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
+    let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-    var properties = {};
+    let properties = {};
     properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
     properties[cmis.NAME] = filename;
-    var newDocument;
+    let newDocument;
     try {
         newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
     } catch(e) {
         response.println("Error: " + e);	
     }
-    var documentId = newDocument.getId();
+    let documentId = newDocument.getId();
     response.println("Document ID: " + documentId);
 
     children = rootFolder.getChildren();
     response.println("Listing the children of the root folder again:");
-    for (var i in children) {
+    for (let i in children) {
         response.println("Object ID: " + children[i].getId());
         response.println("Object Name: " + children[i].getName());
         response.println("Object Type: " + children[i].getType());
     }
 
     // Get the contents of the file
-    var doc = cmisSession.getObject(documentId);
+    let doc = cmisSession.getObject(documentId);
     contentStream = doc.getContentStream(); // returns null if the document has no content
     if (contentStream !== null) {
         content = contentStream.getStream().readText();

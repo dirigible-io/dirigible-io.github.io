@@ -15,7 +15,7 @@ Console object is used to write messages to the default logging output. It has s
 
 
 ```javascript
-let text = "Hello World!";
+const text = "Hello World!";
 console.info(`Info message ${text}.`);
 console.error(`Error message ${text}.`);
 console.warn(`Warning message ${text}.`);

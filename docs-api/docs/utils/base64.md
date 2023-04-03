@@ -31,8 +31,8 @@ Base64 object is used to encode/decode in base64.
 === "CommonJS"
 
     ```javascript
-    var base64 = require("utils/base64");
-    var response = require("http/response");
+    const base64 = require("utils/base64");
+    const response = require("http/response");
 
     response.println(base64.encode("admin:admin"));
     response.println(base64.decode("YWRtaW46YWRtaW4="));

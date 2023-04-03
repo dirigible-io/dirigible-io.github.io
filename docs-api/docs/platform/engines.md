@@ -31,8 +31,8 @@ Engines object is used for executing a scripting service programmatically.
 === "CommonJS"
 
     ```javascript
-    var engines = require("platform/engines");
-    var response = require("http/response");
+    const engines = require("platform/engines");
+    const response = require("http/response");
 
     let result = engines.getEngine("javascript").execute("project1/hello", {});
 

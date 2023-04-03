@@ -22,10 +22,10 @@ FTP Client API provides utility functions for working with FTP servers.
     import { ftp } from "@dirigible/io";
     import { response } from "@dirigible/http";
 
-    let host = "test.rebex.net";
-    let port = 21;
-    let userName = "demo";
-    let password = "password";
+    const host = "test.rebex.net";
+    const port = 21;
+    const userName = "demo";
+    const password = "password";
 
     let ftpClient = ftp.getClient(host, port, userName, password);
     let file = ftpClient.getFileText("/", "readme.txt");
@@ -36,16 +36,16 @@ FTP Client API provides utility functions for working with FTP servers.
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var ftp = require("io/ftp");
+    const response = require("http/response");
+    const ftp = require("io/ftp");
 
-    var host = "test.rebex.net";
-    var port = 21;
-    var userName = "demo";
-    var password = "password";
+    const host = "test.rebex.net";
+    const port = 21;
+    const userName = "demo";
+    const password = "password";
 
-    var ftpClient = ftp.getClient(host, port, userName, password);
-    var file = ftpClient.getFileText("/", "readme.txt");
+    let ftpClient = ftp.getClient(host, port, userName, password);
+    let file = ftpClient.getFileText("/", "readme.txt");
 
     response.println(file);
     ```

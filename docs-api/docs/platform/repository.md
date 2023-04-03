@@ -34,10 +34,10 @@ The service which list the available workspaces:
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var repositoryManager = require("platform/repository");
+    const response = require("http/response");
+    const repositoryManager = require("platform/repository");
 
-    var resource = repositoryManager.getResource("/registry/public/platform/repository.js");
+    let resource = repositoryManager.getResource("/registry/public/platform/repository.js");
 
     response.println("Exists: " + resource.exists());
     response.flush();

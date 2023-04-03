@@ -49,15 +49,15 @@ HTTP Upload is used to consume files posted as multipart request.
 === "CommonJS"
 
 	```javascript
-	var upload = require('http/upload');
-	var request = require('http/request');
-	var response = require('http/response');
+	const upload = require('http/upload');
+	const request = require('http/request');
+	const response = require('http/response');
 
 	if (request.getMethod() === "POST") {
 		if (upload.isMultipartContent()) {
-			var fileItems = upload.parseRequest();
+			let fileItems = upload.parseRequest();
 			for (i=0; i<fileItems.size(); i++) {
-				var fileItem = fileItems.get(i);
+				let fileItem = fileItems.get(i);
 				if (!fileItem.isFormField()) {
 					response.println("File Name: " + fileItem.getName());
 					response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));

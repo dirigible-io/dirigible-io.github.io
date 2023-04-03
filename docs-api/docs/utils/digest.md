@@ -32,8 +32,8 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 === "CommonJS"
 
     ```javascript
-    var digest = require("utils/digest");
-    var response = require("http/response");
+    const digest = require("utils/digest");
+    const response = require("http/response");
 
     response.println("" + digest.sha256("admin:admin"));
     response.println("" + digest.sha512("YWRtaW46YWRtaW4="));

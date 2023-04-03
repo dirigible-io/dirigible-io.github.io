@@ -31,10 +31,10 @@ Env object is used for access of the environment variables.
 === "CommonJS"
 
     ```javascript
-    var env = require("core/env");
-    var response = require("http/response");
+    const env = require("core/env");
+    const response = require("http/response");
 
-    var os = env.get("os.name");
+    let os = env.get("os.name");
     response.println("[OS]: " + os);
 
     response.flush();

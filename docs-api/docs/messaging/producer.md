@@ -27,7 +27,7 @@ The Messaging Producer is an object which can send text messages to a Queue or T
 === "CommonJS"
 
     ```javascript
-    var producer = require("messaging/producer");
+    const producer = require("messaging/producer");
 
     producer.queue("queue1").send("Text Message");
     ```

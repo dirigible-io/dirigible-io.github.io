@@ -32,10 +32,10 @@ HTTP Request object provided to the scripting services implementation. It contai
 === "CommonJS"
 
     ```javascript
-    var request = require("http/request");
-    var response = require("http/response");
+    const request = require("http/request");
+    const response = require("http/response");
 
-    var method = request.getMethod();
+    let method = request.getMethod();
 
     response.println("[Method]: " + method);
     response.flush();

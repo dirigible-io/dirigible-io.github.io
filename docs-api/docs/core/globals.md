@@ -34,11 +34,11 @@ Globals object is used to store and manage properties in the global store.
 === "CommonJS"
 
     ```javascript
-    var globals = require("core/globals");
-    var response = require("http/response");
+    const globals = require("core/globals");
+    const response = require("http/response");
 
     globals.set("attr1", "value1");
-    var attr = globals.get("attr1");
+    let attr = globals.get("attr1");
 
     response.println("[Attribute]: " + attr);
     response.flush();

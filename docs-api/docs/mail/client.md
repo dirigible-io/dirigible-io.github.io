@@ -86,10 +86,10 @@ Mail object is used to send e-mails through the mail service.
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var mail = require("mail/client");
+    const response = require("http/response");
+    const mail = require("mail/client");
 
-    var mailConfig = {
+    const mailConfig = {
         "mail.user": "<your-user>",
         "mail.password": "<your-password>",
         "mail.transport.protocol": "smtps",
@@ -98,17 +98,17 @@ Mail object is used to send e-mails through the mail service.
         "mail.smtps.auth": "true"
     };
 
-    var mailClient = mail.getClient(mailConfig);
+    let mailClient = mail.getClient(mailConfig);
 
-    var sender = "dirigible@gmail.com";
-    var recipients = {
+    const sender = "dirigible@gmail.com";
+    const recipients = {
         to: "example@gmail.com",
         cc: ["example1@gmail.com", "example2@sap.com"],
         bcc: "example3@sap.com"
     };
-    var subject = "Subject";
-    var content = "<h1>Content</h1>";
-    var subType = "html";
+    const subject = "Subject";
+    const content = "<h1>Content</h1>";
+    const subType = "html";
 
     mailClient.send(sender, recipients, subject, content, subType);
 

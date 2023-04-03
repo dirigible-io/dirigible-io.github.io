@@ -38,8 +38,8 @@ Configurations
 === "CommonJS"
 
     ```javascript
-    var rs = require("http/rs");
-    var configurations = require("core/configurations");
+    const rs = require("http/rs");
+    const configurations = require("core/configurations");
 
     rs.service()
         .resource("")

@@ -31,8 +31,8 @@ UUID object is used to generate random universally unique identifiers.
 === "CommonJS"
 
     ```javascript
-    var uuid = require("utils/uuid");
-    var response = require("http/response");
+    const uuid = require("utils/uuid");
+    const response = require("http/response");
 
     response.println(uuid.random());
     response.println(uuid.validate("14a3ddce-f86d-4f51-a2e0-6e497b94bbe5"));

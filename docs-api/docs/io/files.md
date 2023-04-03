@@ -32,9 +32,9 @@ Files module provides an access to the underlying File System, where the Dirigib
 === "CommonJS"
 
     ```javascript
-    var files = require("io/files");
+    const files = require("io/files");
 
-    var tempFile = files.createTempFile("dirigible", ".txt");
+    let tempFile = files.createTempFile("dirigible", ".txt");
 
     console.log("Temp file: " + tempFile);
 

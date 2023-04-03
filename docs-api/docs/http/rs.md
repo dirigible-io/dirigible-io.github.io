@@ -32,7 +32,7 @@ HTTP RESTful services framework.
 === "CommonJS"
 
     ```javascript
-    var rs = require("http/rs");
+    const rs = require("http/rs");
 
     rs.service()
         .resource("")

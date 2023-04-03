@@ -16,7 +16,7 @@ QUnit object is used in unit tests.
 ### Basic Usage
 
 ```javascript
-var qunit = require("qunit/qunit");
+const qunit = require("qunit/qunit");
 
 qunit.module('Module 1:');
 

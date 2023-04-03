@@ -47,23 +47,23 @@ Start your MongoDB server with default settings and use the following example:
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var mongodb = require("mongodb/client");
+    const response = require("http/response");
+    const mongodb = require("mongodb/client");
 
-    var mongoClient = mongodb.getClient();
+    let mongoClient = mongodb.getClient();
 
-    var collection = mongoClient.getDB("db").getCollection("people");
+    let collection = mongoClient.getDB("db").getCollection("people");
 
-    var person = mongodb.createBasicDBObject()
+    let person = mongodb.createBasicDBObject()
         .append("_id", "jo")
         .append("name", "Jo Bloggs");
     // or directly create an Object:
     // var person = {"_id": "jo", "name": "Jo Bloggs"};
     collection.insert(person);
 
-    var query = mongodb.createBasicDBObject().append("_id", "jo");
-    var cursor = collection.find(query);
-    var result = cursor.one();
+    let query = mongodb.createBasicDBObject().append("_id", "jo");
+    let cursor = collection.find(query);
+    let result = cursor.one();
 
     response.println("Result: " + result._id);
     response.flush();

@@ -46,24 +46,24 @@ Streams module provides classes and utilities for working with streams.
 === "CommonJS"
 
     ```javascript
-    var streams = require("io/streams");
-    var response = require("http/response");
+    const streams = require("io/streams");
+    const response = require("http/response");
 
-    var outputStream = streams.createByteArrayOutputStream();
+    let outputStream = streams.createByteArrayOutputStream();
 
     outputStream.writeText("Some text content");
 
-    var bytes = outputStream.getBytes();
+    let bytes = outputStream.getBytes();
     response.println("[Stream Content as Bytes]: " + bytes);
 
-    var text = String.fromCharCode.apply(String, bytes);
+    let text = String.fromCharCode.apply(String, bytes);
     response.println("[Stream Content as Text]: " + text);
 
-    var inputStream = streams.createByteArrayInputStream(bytes);
-    var outputStreamCopy = streams.createByteArrayOutputStream();
+    let inputStream = streams.createByteArrayInputStream(bytes);
+    let outputStreamCopy = streams.createByteArrayOutputStream();
     streams.copy(inputStream, outputStreamCopy);
-    var copiedBytes = outputStreamCopy.getBytes();
-    var copiedText = String.fromCharCode.apply(String, copiedBytes);
+    let copiedBytes = outputStreamCopy.getBytes();
+    let copiedText = String.fromCharCode.apply(String, copiedBytes);
     response.println("[Stream Copied Content as Text]: " + copiedText);
 
     response.flush();

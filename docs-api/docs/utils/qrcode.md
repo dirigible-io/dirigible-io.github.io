@@ -32,10 +32,10 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 === "CommonJS"
 
     ```javascript
-    var qrCodeGenerator = require("utils/qrcode");
-    var response = require("http/response");
+    const qrCodeGenerator = require("utils/qrcode");
+    const response = require("http/response");
 
-    let qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
+    const qrCodeBytes = qrCodeGenerator.generateQRCode("https://www.dirigible.io");
 
     console.log("QR Code Bytes: " + qrCodeBytes);
 

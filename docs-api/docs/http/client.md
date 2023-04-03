@@ -21,7 +21,7 @@ Client is used by scripting services to call external services via HTTP.
     ```javascript
     import { client, response } from "@dirigible/http";
 
-    let httpResponse = client.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+    const httpResponse = client.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
 
     response.println(httpResponse.statusMessage);
     response.println(httpResponse.text);
@@ -32,10 +32,10 @@ Client is used by scripting services to call external services via HTTP.
 === "Require"
 
     ```javascript
-    var httpClient = require("http/client");
-    var response = require("http/response");
+    const httpClient = require("http/client");
+    const response = require("http/response");
 
-    var httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
+    const httpResponse = httpClient.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
 
     response.println(httpResponse.statusMessage);
     response.println(httpResponse.text);

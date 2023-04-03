@@ -30,8 +30,8 @@ UTF8 object is used to encode/decode strings in UTF8.
 === "CommonJS"
 
     ```javascript
-    var utf8 = require("utils/utf8");
-    var response = require("http/response");
+    const utf8 = require("utils/utf8");
+    const response = require("http/response");
 
     response.println(JSON.stringify(utf8.encode("mystring")));
 

@@ -73,11 +73,11 @@ The MongoDB DAO simplified database access objects utility.
 === "CommonJS"
 
     ```javascript
-    var dao = require("mongodb/dao");
-    var response = require("http/response");
+    const dao = require("mongodb/dao");
+    const response = require("http/response");
 
     //create a DAO from configuration
-    var customers = dao.create({
+    let customers = dao.create({
         table: "CUSTOMERS",
         properties: [{
             name: "id",
@@ -103,7 +103,7 @@ The MongoDB DAO simplified database access objects utility.
     });
 
     //Create a new customer entity
-    var customerId = customers.insert({
+    let customerId = customers.insert({
         orgName: "ACME",
         employeesNumber: 1000
     });
@@ -111,10 +111,10 @@ The MongoDB DAO simplified database access objects utility.
     response.println("Id: " + customerId);
 
     //List all customer entities
-    var customersList = customers.list();
+    let customersList = customers.list();
 
     //Get a particular customer entity by its id
-    var customer = customers.find(customerId);
+    let customer = customers.find(customerId);
 
     //Update a customer entity property
     customer.orgDescription = "ACME is a company";

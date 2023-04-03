@@ -37,10 +37,10 @@ The service which list the available workspaces:
 === "CommonJS"
 
     ```javascript
-    var workspaceManager = require("platform/workspace");
-    var response = require("http/response");
+    const workspaceManager = require("platform/workspace");
+    const response = require("http/response");
 
-    var workspacesNames = workspaceManager.getWorkspacesNames();
+    let workspacesNames = workspaceManager.getWorkspacesNames();
 
     response.println("Workspaces: " + workspacesNames);
     response.flush();

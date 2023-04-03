@@ -30,10 +30,10 @@ Command object is used to execute shell commands.
 === "CommonJS"
 
     ```javascript
-    var command = require('platform/command');
-    var response = require('http/response');
+    const command = require('platform/command');
+    const response = require('http/response');
 
-    var result = command.execute("echo 'hello dirigible!'");
+    let result = command.execute("echo 'hello dirigible!'");
 
     response.println("[Result]: " + result);
     response.flush();

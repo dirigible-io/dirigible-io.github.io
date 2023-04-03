@@ -33,14 +33,14 @@ The Indexing Searcher is the object used for free-text or exact periods searches
 === "CommonJS"
 
     ```javascript
-    var writer = require("indexing/writer");
-    var searcher = require("indexing/searcher");
+    const writer = require("indexing/writer");
+    const searcher = require("indexing/searcher");
 
     writer.add("index2", "file1", "apache lucene", new Date(123));
     writer.add("index2", "file2", "lucene - the search engine", new Date(234), {"name2":"value2"});
     writer.add("index2", "file3", "search engine", new Date(345), {"name2":"value2"});
 
-    var found = searcher.between("index2", new Date(124), new Date(344));
+    let found = searcher.between("index2", new Date(124), new Date(344));
 
     console.log(JSON.stringify(found))
     ```

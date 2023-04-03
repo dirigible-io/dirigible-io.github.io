@@ -32,11 +32,11 @@ Context object is used to store and manage properties for a single execution flo
 === "CommonJS"
 
     ```javascript
-    var context = require('core/context');
-    var response = require('http/response');
+    const context = require('core/context');
+    const response = require('http/response');
 
     context.set("attr1", "value1");
-    var attr = context.get("attr1");
+    let attr = context.get("attr1");
 
     response.println("[Attribute]: " + attr);
     response.flush();

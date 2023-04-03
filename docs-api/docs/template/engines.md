@@ -33,11 +33,11 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
 === "CommonJS"
 
     ```javascript
-    var engines = require("template/engines");
-    var response = require("http/response");
+    const engines = require("template/engines");
+    const response = require("http/response");
 
-    var mustache = engines.getMustacheEngine();
-    var generated = mustache.generate('Hello {{name}}', [['name', 'John Smith']]);
+    let mustache = engines.getMustacheEngine();
+    let generated = mustache.generate('Hello {{name}}', [['name', 'John Smith']]);
 
     response.println(generated);
 

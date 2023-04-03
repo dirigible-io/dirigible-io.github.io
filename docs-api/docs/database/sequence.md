@@ -32,10 +32,10 @@ Functionality for manipulating the database sequence objects.
 === "CommonJS"
 
     ```javascript
-    var sequence = require("db/sequence");
-    var response = require("http/response");
+    const sequence = require("db/sequence");
+    const response = require("http/response");
 
-    var value = sequence.nextval("MYSEQUENCE");
+    let value = sequence.nextval("MYSEQUENCE");
 
     response.println(value.toString());
     response.flush();

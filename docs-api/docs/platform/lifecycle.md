@@ -24,9 +24,9 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
     import { workspace, lifecycle } from "@dirigible/platform";
     import { response } from "@dirigible/http";
 
-    let currentUser = user.getName();
-    let workspaceName = "workspace";
-    let projectName = "project";
+    const currentUser = user.getName();
+    const workspaceName = "workspace";
+    const projectName = "project";
 
     let myWorkspace = workspace.createWorkspace(workspaceName);
     let myProject = myWorkspace.createProject(projectName);
@@ -41,22 +41,22 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var user = require("security/user");
-    var workspace = require("workspace/manager");
-    var lifecycle = require("platform/lifecycle");
-    var bytes = require("io/bytes");
+    const response = require("http/response");
+    const user = require("security/user");
+    const workspace = require("workspace/manager");
+    const lifecycle = require("platform/lifecycle");
+    const bytes = require("io/bytes");
 
-    var user = user.getName();
-    var workspaceName = "workspace";
-    var projectName = "project";
+    const user = user.getName();
+    const workspaceName = "workspace";
+    const projectName = "project";
 
-    var myWorkspace = workspace.createWorkspace(workspaceName);
-    var myProject = myWorkspace.createProject(projectName);
-    var myFile = myProject.createFile("file.js");
+    let myWorkspace = workspace.createWorkspace(workspaceName);
+    let myProject = myWorkspace.createProject(projectName);
+    let myFile = myProject.createFile("file.js");
     myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
 
-    var publishResult = lifecycle.publish(user, workspaceName, projectName);
+    let publishResult = lifecycle.publish(user, workspaceName, projectName);
 
     response.println("publishResult: " + publishResult)
     ```

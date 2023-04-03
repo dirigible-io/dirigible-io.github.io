@@ -30,8 +30,8 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 === "CommonJS"
 
     ```javascript
-    var alphanumeric = require("utils/alphanumeric");
-    var response = require("http/response");
+    const alphanumeric = require("utils/alphanumeric");
+    const response = require("http/response");
 
     response.println(alphanumeric.toAlphanumeric("@mystring123!#="));
 

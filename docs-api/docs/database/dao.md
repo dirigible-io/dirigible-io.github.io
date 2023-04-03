@@ -22,7 +22,7 @@ Simplified database access objects utility.
     import { dao } from "@dirigible/db";
 
     //create a DAO from configuration
-    var customers = dao.create({
+    const customers = dao.create({
       table: "CUSTOMERS",
       properties: [{
         name: "id",
@@ -53,16 +53,16 @@ Simplified database access objects utility.
     try {
 
       //Create a new customer entity
-      var customerId = customers.insert({
+      let customerId = customers.insert({
         orgName: "ACME",
         employeesNumber: 1000
       });
 
       //List all customer entities
-      var customersList = customers.list();
+      let customersList = customers.list();
 
       //Get a particular customer entity by its id
-      var customer = customers.find(customerId);
+      let customer = customers.find(customerId);
 
       //Update a customer entity property
       customer.orgDescription = "ACME is a company";
@@ -80,10 +80,10 @@ Simplified database access objects utility.
 === "CommonJS"
 
     ```javascript
-    var dao = require("db/dao");
+    const dao = require("db/dao");
 
     //create a DAO from configuration
-    var customers = dao.create({
+    const customers = dao.create({
         table: "CUSTOMERS",
         properties: [{
             name: "id",
@@ -114,16 +114,16 @@ Simplified database access objects utility.
     try {
       
         //Create a new customer entity
-        var customerId = customers.insert({
+        let customerId = customers.insert({
             orgName: "ACME",
             employeesNumber: 1000
         });
         
         //List all customer entities
-        var customersList = customers.list(); 
+        let customersList = customers.list(); 
       
         //Get a particular customer entity by its id
-        var customer = customers.find(customerId); 
+        let customer = customers.find(customerId); 
       
         //Update a customer entity property
         customer.orgDescription = "ACME is a company";

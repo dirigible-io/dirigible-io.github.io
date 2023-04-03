@@ -51,29 +51,29 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
 === "CommonJS"
 
     ```javascript
-    var soap = require("net/soap");
-    var response = require('http/response');
+    const soap = require("net/soap");
+    const response = require('http/response');
 
     response.setContentType("text/plain; charset=UTF-8");
 
-    var requestMessage = soap.createMessage();
-    var part = requestMessage.getPart();
-    var envelope = part.getEnvelope();
+    let requestMessage = soap.createMessage();
+    let part = requestMessage.getPart();
+    let envelope = part.getEnvelope();
     envelope.addNamespaceDeclaration("ws", "http://ws.cdyne.com/");
-    var body = envelope.getBody();
-    var resolveIPElement = body.addChildElement("ResolveIP", "ws");
-    var ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
+    let body = envelope.getBody();
+    let resolveIPElement = body.addChildElement("ResolveIP", "ws");
+    let ipAddressElement = resolveIPElement.addChildElement("ipAddress", "ws");
     ipAddressElement.addTextNode("213.239.203.158");
-    var licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
+    let licenseKeyElement = resolveIPElement.addChildElement("licenseKey", "ws");
     licenseKeyElement.addTextNode("");
 
-    var mimeHeaders = requestMessage.getMimeHeaders();
+    let mimeHeaders = requestMessage.getMimeHeaders();
     mimeHeaders.addHeader("SOAPAction", "http://ws.cdyne.com/ResolveIP");
 
     requestMessage.save();
     response.println("Request: " + requestMessage.getText());
 
-    var responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
+    let responseMessage = soap.call(requestMessage, "http://ws.cdyne.com/ip2geo/ip2geo.asmx");
 
     response.println("Response: " + responseMessage.getText());
 

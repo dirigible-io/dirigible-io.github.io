@@ -21,8 +21,8 @@ Assert object is used in unit tests.
     import { base64 } from "@dirigible/utils";
     import { assert } from "@dirigible/test";
 
-    let input = "test"
-    let result = base64.encode(input);
+    const input = "test"
+    const result = base64.encode(input);
 
     assert.assertEquals(result, 'dGVzdA==', "check if match");
     ```
@@ -30,11 +30,11 @@ Assert object is used in unit tests.
 === "CommonJS"
 
     ```javascript
-    var base64 = require('utils/base64');
-    var assertEquals = require('test/assert').assertEquals;
+    const base64 = require('utils/base64');
+    const assertEquals = require('test/assert').assertEquals;
 
-    var input = "test"
-    var result = base64.encode(input);
+    const input = "test"
+    const result = base64.encode(input);
 
     assertEquals(result, 'dGVzdA==', "check if match");
     ```

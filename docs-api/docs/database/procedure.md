@@ -31,7 +31,7 @@ Create Procedure:
     import { procedure } from "@dirigible/db";
     import { response } from "@dirigible/http";
 
-    let sql = " \
+    const sql = " \
     CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id integer, c_name text, c_country text) \
     LANGUAGE SQL \
     AS $$ \
@@ -49,10 +49,10 @@ Create Procedure:
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var procedure = require("db/procedure");
+    const response = require("http/response");
+    const procedure = require("db/procedure");
 
-    var sql = " \
+    const sql = " \
     CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id integer, c_name text, c_country text) \
     LANGUAGE SQL \
     AS $$ \

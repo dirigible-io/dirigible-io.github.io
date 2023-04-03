@@ -32,8 +32,8 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 === "CommonJS"
 
     ```javascript
-    var hex = require("utils/hex");
-    var response = require("http/response");
+    const hex = require("utils/hex");
+    const response = require("http/response");
 
     response.println(hex.encode("Hex Encoded"));
     response.println(hex.decode("48657820456e636f646564"));

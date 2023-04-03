@@ -17,8 +17,8 @@ OAuth gives the JWT information about the currently logged in user, if any.
 ### Basic Usage
 
 ```javascript
-var response = require("http/response");
-var oauth = require("security/oauth");
+const response = require("http/response");
+const oauth = require("security/oauth");
  
 response.println("Email: " + oauth.getEmail());
 response.println("Username: " + oauth.getUsername());

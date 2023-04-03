@@ -29,7 +29,7 @@ HTTP Response object provided to the scripting services implementation to create
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
+    const response = require("http/response");
 
     response.println("Hello World!");
     response.flush();

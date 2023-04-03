@@ -22,7 +22,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
     import { xml } from "@dirigible/utils";
     import { response } from "@dirigible/http";
 
-    let jsonInput = {
+    const jsonInput = {
         firstName: "John",
         lastName: "Doe",
         bio: {
@@ -31,7 +31,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
         }
     };
 
-    let xmlInput =
+    const xmlInput =
         "<person>" +
         "<firstName>John</firstName>" +
         "<lastName>Doe</lastName>" +
@@ -51,10 +51,10 @@ XML object is used to transfrom from JSON to XML and vice versa.
 === "CommonJS"
 
     ```javascript
-    var xml = require("utils/xml");
-    var response = require("http/response");
+    const xml = require("utils/xml");
+    const response = require("http/response");
 
-    var jsonInput = {
+    const jsonInput = {
         firstName: "John",
         lastName: "Doe",
         bio: {
@@ -63,7 +63,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
         }
     };
 
-    var xmlInput =
+    const xmlInput =
         "<person>" +
         "<firstName>John</firstName>" +
         "<lastName>Doe</lastName>" +

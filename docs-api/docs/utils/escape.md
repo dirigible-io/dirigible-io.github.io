@@ -22,8 +22,8 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
     import { escape } from "@dirigible/utils";
     import { response } from "@dirigible/http";
 
-    let input = "<script type='text/javascript'>alert('evil script')</script>";
-    let result = escape.escapeJavascript(input);
+    const input = "<script type='text/javascript'>alert('evil script')</script>";
+    const result = escape.escapeJavascript(input);
 
     response.println(result);
 
@@ -34,11 +34,11 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
 === "CommonJS"
 
     ```javascript
-    var escape = require('utils/escape');
-    var response = require('http/response');
+    const escape = require('utils/escape');
+    const response = require('http/response');
 
-    var input = "<script type='text/javascript'>alert('evil script')</script>";
-    var result = escape.escapeJavascript(input);
+    const input = "<script type='text/javascript'>alert('evil script')</script>";
+    const result = escape.escapeJavascript(input);
 
     response.println(result);
 

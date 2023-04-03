@@ -32,11 +32,11 @@ HTTP Session object provided to the scripting services implementation to hold se
 === "CommonJS"
 
     ```javascript
-    var session = require("http/session");
-    var response = require("http/response");
+    const session = require("http/session");
+    const response = require("http/response");
 
     session.setAttribute("attr1", "value1");
-    var attr = session.getAttribute("attr1");
+    let attr = session.getAttribute("attr1");
 
     response.println("[Attribute]: " + attr);
     response.flush();

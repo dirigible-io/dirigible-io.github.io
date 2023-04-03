@@ -30,9 +30,9 @@ Logging API using high-performance underlying framework - [logback](https://logb
 === "CommonJS"
 
     ```javascript
-    var logging = require("log/logging");
+    const logging = require("log/logging");
 
-    var logger = logging.getLogger("org.eclipse.dirigible.mylogger");
+    let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
     logger.debug("Hello from {} {}!", "MyLogger");
     logger.error("Oops", new Error("Something wrong happened"));

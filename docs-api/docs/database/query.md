@@ -23,7 +23,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     import { query } from "@dirigible/db";
     import { response } from "@dirigible/http";
 
-    let sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
+    const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
     let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
     response.println(JSON.stringify(resultset));
@@ -35,11 +35,11 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 === "CommonJS"
 
     ```javascript
-    var query = require("db/query");
-    var response = require("http/response");
+    const query = require("db/query");
+    const response = require("http/response");
 
-    var sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-    var resultset = query.execute(sql, ["ide-editor"], "SystemDB");
+    const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
+    let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
     response.println(JSON.stringify(resultset));
 

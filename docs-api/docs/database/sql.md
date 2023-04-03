@@ -33,10 +33,10 @@ Type-safe SQL builders with multi-dialect support.
 === "CommonJS"
 
     ```javascript
-    var sql = require("db/sql");
-    var response = require("http/response");
+    const sql = require("db/sql");
+    const response = require("http/response");
 
-    var script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
+    let script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
 
     response.println(script);
 

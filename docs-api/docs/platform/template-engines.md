@@ -18,17 +18,17 @@ The object is used for processing of templates
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
-var templateEngines = require("platform/v4/template-engines");
+const response = require("http/v4/response");
+const templateEngines = require("platform/v4/template-engines");
 
-var template = 
+const template = 
     "Dear ${name},\n\n"
     + "You have the following bills:\n"
     + "#foreach($next in $bills)"
     + "- ${next.name}: ${next.currencySymbol}${next.value}\n"
     + "#end";
 
-var parameters = {
+const parameters = {
     name: "John Doe",
     bills: [{
         name: "Electricity",
@@ -45,7 +45,7 @@ var parameters = {
     }]
 };
 
-var result = templateEngines.generate(template, parameters);
+let result = templateEngines.generate(template, parameters);
 
 response.println(result);
 ```

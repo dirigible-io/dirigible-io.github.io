@@ -31,7 +31,7 @@ The service which starts the process:
 === "CommonJS"
 
     ```javascript
-    var process = require("bpm/process");
+    const process = require("bpm/process");
 
     process.start("hello", {
       variable1: "value1"
@@ -83,16 +83,16 @@ Create a new `Business Process Model` file, open it with `Code Editor` and paste
 </definitions>
 ```
 
-In a new project called `bpmFlows` add the following delegate `hello.js`
+In a new project called `bpmFlows` add the following delegate `hello.mjs` or `hello.js` respectively 
 
 === "ECMA6"
 
     ```javascript
-    // Hello from the Enterprise Javascript delegate
-    console.info("Hello from the Javascript Engine!");
-
     // manipulating process variables throughout the execution context
     import { process } from "@dirigible/bpm";
+
+    // Hello from the Enterprise Javascript delegate
+    console.info("Hello from the Javascript Engine!");
 
     let execution = process.getExecutionContext();
 
@@ -113,11 +113,11 @@ In a new project called `bpmFlows` add the following delegate `hello.js`
 === "CommonJS"
 
     ```javascript
-    // Hello from the Enterprise Javascript delegate
-    console.info("Hello from the Javascript Engine!");
-
     // manipulating process variables throughout the execution context
     const process = require("bpm/process");
+
+    // Hello from the Enterprise Javascript delegate
+    console.info("Hello from the Javascript Engine!");
 
     const execution = process.getExecutionContext();
 

@@ -29,10 +29,10 @@ Job Scheduler provides convenient API for managing Job state and execution.
 === "CommonJS"
 
     ```javascript
-    var scheduler = require("job/scheduler");
+    const scheduler = require("job/scheduler");
 
-    var job = scheduler.getJob("/sample-job/myjob.job");
-    var param = job.getParameter("myParam");
+    let job = scheduler.getJob("/sample-job/myjob.job");
+    let param = job.getParameter("myParam");
 
     console.log('Param is: ' + param);
     ```

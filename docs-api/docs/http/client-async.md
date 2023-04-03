@@ -47,24 +47,24 @@ Client Async is used by scripting services to call asynchronously external servi
 === "CommonJS"
 
     ```javascript
-    var httpClient = require("http/client");
-    var httpClientAsync = require("http/clientAsync");
-    var clientAsync = httpClientAsync.getInstnace();
+    const httpClient = require("http/client");
+    const httpClientAsync = require("http/clientAsync");
+    const clientAsync = httpClientAsync.getInstnace();
 
-    var api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
-    var northWindResponse = httpClient.get(api, {
+    const api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
+    let northWindResponse = httpClient.get(api, {
         params: [{
             name: "$format",
         value: "json"
         }]
     });
 
-    var northWindEntities = JSON.parse(northWindResponse.text);
+    let northWindEntities = JSON.parse(northWindResponse.text);
 
-    for (var i = 0; i < northWindEntities.value.length; i ++) {
+    for (let i = 0; i < northWindEntities.value.length; i ++) {
         clientAsync.getAsync(api + northWindEntities.value[i].url, {
             success: function(response) {
-            var entity = JSON.parse(response.text);
+            let entity = JSON.parse(response.text);
             console.error(entity["@odata.context"] + " : " + entity.value.length);
         }
         });

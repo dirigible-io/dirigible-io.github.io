@@ -23,7 +23,7 @@ Extensions
     let menuExtensions = extensions.getExtensions("ide-menu");
     for (let i = 0; i < menuExtensions.length; i++) {
         let module = menuExtensions[i];
-        menuExtension = require(module);
+        let menuExtension = require(module);
         let menu = menuExtension.getMenu();
         mainmenu.push(menu);
     }
@@ -34,15 +34,15 @@ Extensions
 === "CommonJS"
 
     ```javascript
-    var extensions = require("core/extensions");
-    var response = require("http/response");
+    const extensions = require("core/extensions");
+    const response = require("http/response");
 
-    var mainmenu = [];
-    var menuExtensions = extensions.getExtensions("ide-menu");
-    for (var i = 0; i < menuExtensions.length; i++) {
-        var module = menuExtensions[i];
-        menuExtension = require(module);
-        var menu = menuExtension.getMenu();
+    let mainmenu = [];
+    let menuExtensions = extensions.getExtensions("ide-menu");
+    for (let i = 0; i < menuExtensions.length; i++) {
+        let module = menuExtensions[i];
+        let menuExtension = require(module);
+        let menu = menuExtension.getMenu();
         mainmenu.push(menu);
     }
 

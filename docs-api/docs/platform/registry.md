@@ -32,10 +32,10 @@ Registry object gives access to the content in the repository and also the pre-d
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var registry = require("platform/registry");
+    const response = require("http/response");
+    const registry = require("platform/registry");
 
-    var text = registry.getText("platform/registry.js");
+    let text = registry.getText("platform/registry.js");
 
     response.println(text);
     response.flush();
