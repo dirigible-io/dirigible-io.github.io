@@ -85,26 +85,55 @@ Create a new `Business Process Model` file, open it with `Code Editor` and paste
 
 In a new project called `bpmFlows` add the following delegate `hello.js`
 
-```javascript
-// Hello from the Enterprise Javascript delegate
-console.info("Hello from the Javascript Engine!");
+=== "ECMA6"
 
-// manipulating process variables throughout the execution context
-var process = require("bpm/process");
-var execution = process.getExecutionContext();
-process.setVariable(execution.getId(), "variable2", "value2");
-try {
-    console.info("variable1: " + process.getVariable(execution.getId(), "variable1"));
-    console.info("variable2: " + process.getVariable(execution.getId(), "variable2"));
-} catch (e) {
-    if (e instanceof Error) {
-        console.error(e.message);
-    } else {
-        console.error("Something went wrong", e)
+    ```javascript
+    // Hello from the Enterprise Javascript delegate
+    console.info("Hello from the Javascript Engine!");
+
+    // manipulating process variables throughout the execution context
+    import { process } from "@dirigible/bpm";
+
+    let execution = process.getExecutionContext();
+
+    process.setVariable(execution.getId(), "variable2", "value2");
+    try {
+        console.info("variable1: " + process.getVariable(execution.getId(), "variable1"));
+        console.info("variable2: " + process.getVariable(execution.getId(), "variable2"));
+    } catch (e) {
+        if (e instanceof Error) {
+            console.error(e.message);
+        } else {
+            console.error("Something went wrong", e)
+        }
+
     }
+    ```
 
-}
-```
+=== "CommonJS"
+
+    ```javascript
+    // Hello from the Enterprise Javascript delegate
+    console.info("Hello from the Javascript Engine!");
+
+    // manipulating process variables throughout the execution context
+    const process = require("bpm/process");
+
+    const execution = process.getExecutionContext();
+
+    process.setVariable(execution.getId(), "variable2", "value2");
+    try {
+        console.info("variable1: " + process.getVariable(execution.getId(), "variable1"));
+        console.info("variable2: " + process.getVariable(execution.getId(), "variable2"));
+    } catch (e) {
+        if (e instanceof Error) {
+            console.error(e.message);
+        } else {
+            console.error("Something went wrong", e)
+        }
+
+    }
+    ```
 
 
 ### Delegate parameters:
