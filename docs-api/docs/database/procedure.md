@@ -75,7 +75,7 @@ Call Procedure:
     import { query, procedure } from "@dirigible/db";
     import { response } from "@dirigible/http";
 
-    let sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
+    const sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
 
     try {
         procedure.execute(sql, [6, "IBM", "USA"], "psql");
@@ -91,15 +91,15 @@ Call Procedure:
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var procedure = require("db/procedure");
-    var query = require("db/query");
+    const response = require("http/response");
+    const procedure = require("db/procedure");
+    const query = require("db/query");
 
-    var sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
+    const sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
     try {
         procedure.execute(sql, [6, "IBM", "USA"], "psql");
     } finally {
-        var result = query.execute("SELECT * FROM CUSTOMERS", [], "psql");
+        let result = query.execute("SELECT * FROM CUSTOMERS", [], "psql");
 
         response.println(JSON.stringify(result));
         response.flush();

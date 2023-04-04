@@ -19,10 +19,10 @@ API for generating a PDF files.
 ### Basic Usage
 
 ```javascript
-var response = require("http/v4/response");
-var pdfDocuments = require("documents/v4/pdf");
+const response = require("http/v4/response");
+const pdfDocuments = require("documents/v4/pdf");
 
-var data = {
+const data = {
     title: "Lorem Ipsum",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.",
     columns: [{
@@ -61,7 +61,7 @@ var data = {
     }]
 };
 
-var pdf = pdfDocuments.generateTable(data);
+let pdf = pdfDocuments.generateTable(data);
 
 response.setContentType("application/pdf");
 response.setHeader('Content-Disposition', 'filename="data.pdf"');

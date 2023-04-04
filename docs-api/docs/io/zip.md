@@ -41,14 +41,14 @@ To test the API first create a zip file using the following snippet:
 === "CommonJS"
 
     ```javascript
-    var zip = require("io/zip");
-    var files = require("io/files");
+    const zip = require("io/zip");
+    const files = require("io/files");
 
-    var outputStream = files.createOutputStream("test.zip");
+    let outputStream = files.createOutputStream("test.zip");
     if (outputStream.isValid()) {
             try {
-                var zipOutputStream = zip.createZipOutputStream(outputStream);
-                var zipEntry = zipOutputStream.createZipEntry("test1.txt");
+                let zipOutputStream = zip.createZipOutputStream(outputStream);
+                let zipEntry = zipOutputStream.createZipEntry("test1.txt");
                 zipOutputStream.writeText("some text");
                 zipOutputStream.createZipEntry("test2.bin");
                 zipOutputStream.write([60, 61, 62, 63]);
@@ -88,14 +88,14 @@ Then you can read the contents of the zip file:
 === "CommonJS"
 
     ```javascript
-    var zip = require("io/zip");
-    var files = require("io/files");
+    const zip = require("io/zip");
+    const files = require("io/files");
 
-    var inputStream = files.createInputStream("test.zip");
+    let inputStream = files.createInputStream("test.zip");
     if (inputStream.isValid()) {
         try {
-            var zipInputStream = zip.createZipInputStream(inputStream);
-            var zipEntry = zipInputStream.getNextEntry();
+            let zipInputStream = zip.createZipInputStream(inputStream);
+            let zipEntry = zipInputStream.getNextEntry();
             while (zipEntry.isValid()) {
                 console.log(zipEntry.getName());
                 console.log(zipInputStream.read());

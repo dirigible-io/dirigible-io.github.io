@@ -21,11 +21,11 @@ Mail object is used to send e-mails through the mail service.
     import { client } from "@dirigible/mail";
     import { response } from "@dirigible/http";
 
-    let sender = "dirigible@eclipse.org";
-    let to = "example@gmail.com";
-    let subject = "Subject";
-    let content = "<h1>Content<h1>";
-    let subType = "html";
+    const sender = "dirigible@eclipse.org";
+    const to = "example@gmail.com";
+    const subject = "Subject";
+    const content = "<h1>Content<h1>";
+    const subType = "html";
 
     client.send(sender, to, subject, content, subType);
 
@@ -35,14 +35,14 @@ Mail object is used to send e-mails through the mail service.
 === "CommonJS"
 
     ```javascript
-    var response = require("http/response");
-    var mail = require("mail/client");
+    const response = require("http/response");
+    const mail = require("mail/client");
 
-    var sender = "dirigible@eclipse.org";
-    var to = "example@gmail.com";
-    var subject = "Subject";
-    var content = "<h1>Content<h1>";
-    var subType = "html";
+    const sender = "dirigible@eclipse.org";
+    const to = "example@gmail.com";
+    const subject = "Subject";
+    const content = "<h1>Content<h1>";
+    const subType = "html";
 
     mail.send(sender, to, subject, content, subType);
 

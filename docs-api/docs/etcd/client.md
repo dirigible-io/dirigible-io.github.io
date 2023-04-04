@@ -19,10 +19,10 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 
 ```javascript
 // Load the etcd client module.
-var etcd = require("etcd/client");
+const etcd = require("etcd/client");
 
 // Initialize the etcd client.
-var etcdClient = etcd.getClient();
+let etcdClient = etcd.getClient();
 
 // Put key-value pair where the value is a string.
 etcdClient.putStringValue("foo", "bar");

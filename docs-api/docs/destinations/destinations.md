@@ -19,12 +19,12 @@ Destinations object is used to access properties usually stored and managed by e
 ### Basic Usage
 
 ```javascript
-var destinations = require("core/v4/destinations");
+const destinations = require("core/v4/destinations");
 
-var destination = {};
+let destination = {};
 destination.name1 = "value1";
 destinations.set("destination1", destination);
-var result = destinations.get("destination1");
+let result = destinations.get("destination1");
 
 result.name1 === "value1";
 ```

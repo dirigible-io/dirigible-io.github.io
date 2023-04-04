@@ -17,7 +17,7 @@ Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent informat
 1. Save the changes.
 1. See the result in the `Preview` tab.
 ```javascript
-var response = require("http/response");
+const response = require("http/response");
 
 response.println("Hello World!");
 ```

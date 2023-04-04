@@ -21,13 +21,13 @@ The Kafka Producer is sending message records to a Topic destination to a [Kafka
 Send record to a given topic _(implicitly create producer if needed)_:
 
 ```javascript
-var producer = require("kafka/producer");
+const producer = require("kafka/producer");
 producer.topic("topic1", "{}").send("key1", "value1");
 ```
 
 Close the producer:
 ```javascript
-var producer = require("kafka/producer");
+const producer = require("kafka/producer");
 producer.close("{}");
 ```
 

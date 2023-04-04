@@ -32,10 +32,10 @@ Start your MongoDB server with default settings and use the following example:
         .append("_id", "jo")
         .append("name", "Jo Bloggs");
     // or directly create an Object:
-    // let person = {"_id": "jo", "name": "Jo Bloggs"};
+    // const person = {"_id": "jo", "name": "Jo Bloggs"};
     collection.insert(person);
 
-    var query = client.createBasicDBObject().append("_id", "jo");
+    let query = client.createBasicDBObject().append("_id", "jo");
     let cursor = collection.find(query)
     let result = cursor.one();
 
@@ -58,7 +58,7 @@ Start your MongoDB server with default settings and use the following example:
         .append("_id", "jo")
         .append("name", "Jo Bloggs");
     // or directly create an Object:
-    // var person = {"_id": "jo", "name": "Jo Bloggs"};
+    // const person = {"_id": "jo", "name": "Jo Bloggs"};
     collection.insert(person);
 
     let query = mongodb.createBasicDBObject().append("_id", "jo");

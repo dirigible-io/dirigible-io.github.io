@@ -28,7 +28,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
 
     function initialize() {
         console.log("Connect to: " + uri);
-        var websocket = websockets.createWebsocket(uri, handler);
+        let websocket = websockets.createWebsocket(uri, handler);
         websocket.send("hello");
     }
 
@@ -83,7 +83,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
 then you can call from a browser:
 
 ```
-var ws = new WebSocket("ws://localhost:8080/websockets/v4/service/my-endpoint");
+let ws = new WebSocket("ws://localhost:8080/websockets/v4/service/my-endpoint");
 ws.send('hello');
 ```
 
