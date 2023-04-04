@@ -161,6 +161,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/io/image/</loc>
+         <lastmod>2023-04-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/io/streams/</loc>
          <lastmod>2023-04-04</lastmod>
          <changefreq>daily</changefreq>
