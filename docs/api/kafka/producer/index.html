@@ -2451,11 +2451,11 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Send record to a given topic <em>(implicitly create producer if needed)</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">producer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 <p>Close the producer:
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">producer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="s2">&quot;{}&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></p>
 <h3 id="functions">Functions</h3>

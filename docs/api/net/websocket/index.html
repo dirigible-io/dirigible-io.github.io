@@ -2499,7 +2499,7 @@
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">initialize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connect to: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">uri</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">websocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">websockets</span><span class="p">.</span><span class="nx">createWebsocket</span><span class="p">(</span><span class="nx">uri</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">websocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">websockets</span><span class="p">.</span><span class="nx">createWebsocket</span><span class="p">(</span><span class="nx">uri</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
@@ -2551,7 +2551,7 @@ exports.onError = function(error) {
 }
 </code></pre></div>
 <p>then you can call from a browser:</p>
-<div class="highlight"><pre><span></span><code>var ws = new WebSocket(&quot;ws://localhost:8080/websockets/v4/service/my-endpoint&quot;);
+<div class="highlight"><pre><span></span><code>let ws = new WebSocket(&quot;ws://localhost:8080/websockets/v4/service/my-endpoint&quot;);
 ws.send(&#39;hello&#39;);
 </code></pre></div>
 <h3 id="functions">Functions</h3>

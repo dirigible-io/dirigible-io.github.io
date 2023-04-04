@@ -2492,10 +2492,10 @@
 <li>Status: <code>NOT YET MIGRATED</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;documents/v4/pdf&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Lorem Ipsum&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">columns</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
@@ -2534,7 +2534,7 @@
 <span class="w">    </span><span class="p">}]</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">pdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">pdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pdfDocuments</span><span class="p">.</span><span class="nx">generateTable</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;filename=&quot;data.pdf&quot;&#39;</span><span class="p">);</span><span class="w"></span>

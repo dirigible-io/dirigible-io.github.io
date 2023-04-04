@@ -2464,10 +2464,10 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// Load the etcd client module.</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;etcd/client&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">etcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;etcd/client&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Initialize the etcd client.</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">etcdClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">etcd</span><span class="p">.</span><span class="nx">getClient</span><span class="p">();</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">etcdClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">etcd</span><span class="p">.</span><span class="nx">getClient</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// Put key-value pair where the value is a string.</span><span class="w"></span>
 <span class="nx">etcdClient</span><span class="p">.</span><span class="nx">putStringValue</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="p">);</span><span class="w"></span>

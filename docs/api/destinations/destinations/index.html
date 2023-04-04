@@ -2410,12 +2410,12 @@
 <li>Status: <code>NOT YET MIGRATED</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">destinations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/destinations&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">destinations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;core/v4/destinations&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">destination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 <span class="nx">destination</span><span class="p">.</span><span class="nx">name1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="nx">destinations</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;destination1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">destination</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">destinations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;destination1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">destinations</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;destination1&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="nx">result</span><span class="p">.</span><span class="nx">name1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
