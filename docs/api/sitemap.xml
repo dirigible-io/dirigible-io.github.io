@@ -81,11 +81,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/destinations/destinations/</loc>
-         <lastmod>2023-04-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/documents/pdf/</loc>
          <lastmod>2023-04-05</lastmod>
          <changefreq>daily</changefreq>
