@@ -5,10 +5,12 @@ title: Destinations
 Destinations
 ===
 
+Destinations object is used to access properties usually stored and managed by external service. 
+
 === "Overview"
 - Module: `core/destinations`
 - Source: [/core/destinations.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/destinations.js)
-- Status: `stable`
+- Status: `NOT YET MIGRATED`
 
 ### Basic Usage
 
