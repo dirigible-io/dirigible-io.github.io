@@ -11,8 +11,8 @@ The Kafka Producer is sending message records to a Topic destination to a [Kafka
 - Module: `kafka/producer`
 - Alias: `kafka/producer`
 - Definition: [https://github.com/eclipse/dirigible/issues/640](https://github.com/eclipse/dirigible/issues/640)
-- Source: [/kafka/producer.js](https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/producer.js)
-- Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java)
+- Source: [/kafka/producer.js](https://github.com/eclipse/dirigible/tree/master/components/api-kafka/src/main/resources/META-INF/dirigible/kafka/producer.js)
+- Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/components/api-kafka/src/main/java/org/eclipse/dirigible/components/api/kafka/KafkaFacade.java)
 - Status: `NOT YET MIGRATED`
 
 
@@ -20,18 +20,36 @@ The Kafka Producer is sending message records to a Topic destination to a [Kafka
 
 Send record to a given topic _(implicitly create producer if needed)_:
 
-```javascript
-const producer = require("kafka/producer");
-producer.topic("topic1", "{}").send("key1", "value1");
-```
+=== "ECMA6"
+
+    ```javascript
+    import { producer } from "@dirigible/producer";
+    producer.topic("topic1", "{}").send("key1", "value1");
+    ```
+
+=== "CommonJS"
+
+    ```javascript
+    const producer = require("kafka/producer");
+    producer.topic("topic1", "{}").send("key1", "value1");
+    ```
 
 Close the producer:
-```javascript
-const producer = require("kafka/producer");
-producer.close("{}");
-```
 
+=== "ECMA6"
 
+    ```javascript
+    import { producer } from "@dirigible/producer";
+    producer.close("{}");
+    ```
+
+=== "CommonJS"
+
+    ```javascript
+    const producer = require("kafka/producer");
+    producer.close("{}");
+    ```
+    
 
 ### Functions
 

@@ -11,8 +11,8 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 - Module: `kafka/consumer`
 - Alias: `kafka/consumer`
 - Definition: [https://github.com/eclipse/dirigible/issues/641](https://github.com/eclipse/dirigible/issues/641)
-- Source: [/kafka/consumer.js](https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/consumer.js)
-- Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java)
+- Source: [/kafka/consumer.js](https://github.com/eclipse/dirigible/tree/master/components/api-kafka/src/main/resources/META-INF/dirigible/kafka/consumer.js)
+- Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/components/api-kafka/src/main/java/org/eclipse/dirigible/components/api/kafka/KafkaFacade.java)
 - Status: `NOT YET MIGRATED`
 
 
@@ -20,10 +20,19 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 
 #### Start listening on a topic
 
-```javascript
-const consumer = require("kafka/consumer");
-consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
-```
+=== "ECMA6"
+
+	```javascript
+	import { consumer } from "@dirigible/kafka";
+	consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
+	```
+
+=== "CommonJS"
+
+	```javascript
+	const consumer = require("kafka/consumer");
+	consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
+	```
 
 File: `<kafka-project>/<kafka-handler.js>`
 ```javascript
@@ -37,11 +46,20 @@ exports.onError = function(error) {
 ```
 
 #### Stop listening on a topic
-```javascript
-const consumer = require("kafka/consumer");
-consumer.topic("topic1", "{}").stopListening();
-```
 
+=== "ECMA6"
+
+	```javascript
+	import { consumer } from "@dirigible/kafka";
+	consumer.topic("topic1", "{}").stopListening();
+	```
+
+=== "CommonJS"
+
+	```javascript
+	const consumer = require("kafka/consumer");
+	consumer.topic("topic1", "{}").stopListening();
+	```
 
 ### Functions
 
