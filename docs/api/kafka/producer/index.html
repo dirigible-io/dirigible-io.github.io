@@ -2509,19 +2509,41 @@
 <li>Module: <code>kafka/producer</code></li>
 <li>Alias: <code>kafka/producer</code></li>
 <li>Definition: <a href="https://github.com/eclipse/dirigible/issues/640">https://github.com/eclipse/dirigible/issues/640</a></li>
-<li>Source: <a href="https://github.com/dirigiblelabs/ext-kafka/blob/master/kafka/producer.js">/kafka/producer.js</a></li>
-<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-kafka/src/main/java/org/eclipse/dirigible/api/kafka/KafkaFacade.java">KafkaFacade</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/tree/master/components/api-kafka/src/main/resources/META-INF/dirigible/kafka/producer.js">/kafka/producer.js</a></li>
+<li>Facade: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-kafka/src/main/java/org/eclipse/dirigible/components/api/kafka/KafkaFacade.java">KafkaFacade</a></li>
 <li>Status: <code>NOT YET MIGRATED</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>Send record to a given topic <em>(implicitly create producer if needed)</em>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/producer&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">producer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
-<p>Close the producer:
+</div>
+</div>
+</div>
+<p>Close the producer:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/producer&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="nx">producer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="s2">&quot;{}&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">producer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/producer&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">producer</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span><span class="s2">&quot;{}&quot;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div></p>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
