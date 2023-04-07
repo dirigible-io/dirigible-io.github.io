@@ -10,35 +10,62 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 === "Overview"
 - Module: `etcd/client`
 - Definition: [https://github.com/eclipse/dirigible/issues/675](https://github.com/eclipse/dirigible/issues/675)
-- Source: [/etcd/client.js](https://github.com/dirigiblelabs/ext-etcd/blob/master/etcd/client.js)
-- Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/ext/ext-api/api-etcd/src/main/java/org/eclipse/dirigible/api/etcd/EtcdFacade.java)
+- Source: [/etcd/client.js](https://github.com/eclipse/dirigible/tree/master/components/api-etcd/src/main/resources/META-INF/dirigible/rabbitmq/etcd.js)
+- Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/components/api-etcd/src/main/java/org/eclipse/dirigible/components/api/etcd/EtcdFacade.java)
 - Status: `NOT YET MIGRATED`
 
 
 ### Basic Usage
 
-```javascript
-// Load the etcd client module.
-const etcd = require("etcd/client");
+=== "ECMA6"
 
-// Initialize the etcd client.
-let etcdClient = etcd.getClient();
+    ```javascript
+    // Load the etcd client module.
+    const etcd = require("etcd/client");
 
-// Put key-value pair where the value is a string.
-etcdClient.putStringValue("foo", "bar");
+    // Initialize the etcd client.
+    let etcdClient = etcd.getClient();
 
-// Get key-value pair where value will be returned as a string.
-etcdClient.getKvsStringValue("foo"); // => { "foo": "bar" }
+    // Put key-value pair where the value is a string.
+    etcdClient.putStringValue("foo", "bar");
 
-// Put key-value pair where the value is a byte array.
-etcdClient.putByteArrayValue("foo", [98, 97, 114]);
+    // Get key-value pair where value will be returned as a string.
+    etcdClient.getKvsStringValue("foo"); // => { "foo": "bar" }
 
-// Get key-value pair where value will be returned as a byte array.
-etcdClient.getKvsByteArrayValue("foo"); // => { "foo": [98, 97, 114] }
+    // Put key-value pair where the value is a byte array.
+    etcdClient.putByteArrayValue("foo", [98, 97, 114]);
 
-// Delete key-value pair.
-etcdClient.delete("foo");
-```
+    // Get key-value pair where value will be returned as a byte array.
+    etcdClient.getKvsByteArrayValue("foo"); // => { "foo": [98, 97, 114] }
+
+    // Delete key-value pair.
+    etcdClient.delete("foo");
+    ```
+    
+=== "CommonJS"
+
+    ```javascript
+    // Load the etcd client module.
+    const etcd = require("etcd/client");
+
+    // Initialize the etcd client.
+    let etcdClient = etcd.getClient();
+
+    // Put key-value pair where the value is a string.
+    etcdClient.putStringValue("foo", "bar");
+
+    // Get key-value pair where value will be returned as a string.
+    etcdClient.getKvsStringValue("foo"); // => { "foo": "bar" }
+
+    // Put key-value pair where the value is a byte array.
+    etcdClient.putByteArrayValue("foo", [98, 97, 114]);
+
+    // Get key-value pair where value will be returned as a byte array.
+    etcdClient.getKvsByteArrayValue("foo"); // => { "foo": [98, 97, 114] }
+
+    // Delete key-value pair.
+    etcdClient.delete("foo");
+    ```
 
 
 ### Functions
