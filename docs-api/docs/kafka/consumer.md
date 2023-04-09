@@ -14,6 +14,7 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 - Source: [/kafka/consumer.js](https://github.com/eclipse/dirigible/tree/master/components/api-kafka/src/main/resources/META-INF/dirigible/kafka/consumer.js)
 - Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/components/api-kafka/src/main/java/org/eclipse/dirigible/components/api/kafka/KafkaFacade.java)
 - Status: `NOT YET MIGRATED`
+- Group: `ext`
 
 
 ### Basic Usage
