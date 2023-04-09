@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/database/store/</loc>
+         <lastmod>2023-04-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/database/update/</loc>
          <lastmod>2023-04-09</lastmod>
          <changefreq>daily</changefreq>
