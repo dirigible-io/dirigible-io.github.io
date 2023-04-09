@@ -12,6 +12,7 @@ HTTP Session object provided to the scripting services implementation to hold se
 - Definition: [https://github.com/eclipse/dirigible/issues/14](https://github.com/eclipse/dirigible/issues/14)
 - Source: [/http/session.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/session.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
