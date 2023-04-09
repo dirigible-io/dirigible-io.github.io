@@ -12,6 +12,7 @@ Url object is used to encode/decode text in the `application/x-www-form-urlencod
 - Definition: [https://github.com/eclipse/dirigible/issues/25](https://github.com/eclipse/dirigible/issues/25)
 - Source: [/utils/url.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/url.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
