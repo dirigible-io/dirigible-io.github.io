@@ -12,6 +12,7 @@ Env object is used for access of the environment variables.
 - Definition: [https://github.com/eclipse/dirigible/issues/29](https://github.com/eclipse/dirigible/issues/29)
 - Source: [/core/env.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/env.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
