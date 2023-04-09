@@ -12,6 +12,7 @@ Type-safe SQL builders with multi-dialect support.
 - Definition: [https://github.com/eclipse/dirigible/issues/125](https://github.com/eclipse/dirigible/issues/125)
 - Source: [/db/sql.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/sql.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
