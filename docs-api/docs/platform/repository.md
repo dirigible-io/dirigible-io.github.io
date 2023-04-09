@@ -12,6 +12,7 @@ Repository object gives access to the repository. It can be used for creating ar
 - Definition: [https://github.com/eclipse/dirigible/issues/377](https://github.com/eclipse/dirigible/issues/377)
 - Source: [/platform/repository.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/repository.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
