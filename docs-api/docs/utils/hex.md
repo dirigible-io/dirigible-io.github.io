@@ -12,6 +12,7 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 - Definition: [https://github.com/eclipse/dirigible/issues/23](https://github.com/eclipse/dirigible/issues/23)
 - Source: [/utils/hex.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/hex.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
