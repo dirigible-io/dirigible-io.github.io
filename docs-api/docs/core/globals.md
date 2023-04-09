@@ -13,6 +13,7 @@ Globals object is used to store and manage properties in the global store.
 - Definition: [https://github.com/eclipse/dirigible/issues/30](https://github.com/eclipse/dirigible/issues/30)
 - Source: [/core/globals.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/globals.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
