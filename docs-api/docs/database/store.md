@@ -83,4 +83,3 @@ Function     | Description | Returns
 **get(name, id)**   | Get the entry from the collection with `name` by its `id` | *Object*
 **delete(name, id)**   | Delete the entry from the collection with `name` by its `id` | *-*
 
-> parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]
