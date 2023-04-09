@@ -12,6 +12,7 @@ Standard access to the registered relational data sources.
 - Definition: [https://github.com/eclipse/dirigible/issues/21](https://github.com/eclipse/dirigible/issues/21)
 - Source: [/db/database.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/database.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
