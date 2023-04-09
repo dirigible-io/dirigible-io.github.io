@@ -12,6 +12,7 @@ Simplified database access objects utility.
 - Definition: [https://github.com/eclipse/dirigible/issues/84](https://github.com/eclipse/dirigible/issues/84)
 - Source: [/db/dao.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/dao.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
