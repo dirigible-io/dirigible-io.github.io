@@ -13,6 +13,7 @@ Simplified update functionality, accepts SQL script and query parameters and ret
 - Definition: [https://github.com/eclipse/dirigible/issues/49](https://github.com/eclipse/dirigible/issues/49)
 - Source: [/db/update.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/update.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
