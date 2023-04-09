@@ -12,6 +12,7 @@ Problems module provides utility functions for managing and logging problems/iss
 - Definition: https://github.com/eclipse/dirigible/issues/1021
 - Source: [/platform/problems.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/problems.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
