@@ -12,6 +12,7 @@ The MongoDB Client is giving an access to a [MongoDB](https://www.mongodb.com/) 
 - Definition: [https://github.com/eclipse/dirigible/issues/668](https://github.com/eclipse/dirigible/issues/668)
 - Source: [/mongodb/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-mongodb/src/main/resources/META-INF/dirigible/mongodb/client.js)
 - Status: `stable`
+- Group: `ext`
 
 
 ### Basic Usage
