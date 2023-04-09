@@ -256,11 +256,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/platform/template-engines/</loc>
-         <lastmod>2023-04-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/platform/workspace/</loc>
          <lastmod>2023-04-09</lastmod>
          <changefreq>daily</changefreq>
