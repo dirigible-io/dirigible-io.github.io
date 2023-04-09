@@ -12,6 +12,7 @@ Bytes module provides utility functions for working with bytes.
 - Definition: n/a
 - Source: [/io/bytes.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/bytes.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
