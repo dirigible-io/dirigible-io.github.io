@@ -12,6 +12,7 @@ UUID object is used to generate random universally unique identifiers.
 - Definition: [https://github.com/eclipse/dirigible/issues/27](https://github.com/eclipse/dirigible/issues/27)
 - Source: [/utils/uuid.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/uuid.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
