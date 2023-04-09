@@ -13,6 +13,7 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 - Definition: [https://github.com/eclipse/dirigible/issues/773](https://github.com/eclipse/dirigible/issues/773)
 - Source: [/db/procedure.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/procedure.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
