@@ -9,8 +9,9 @@ Command object is used to execute shell commands.
 
 === "Overview"
 - Module: `platform/command`
-- Source: [/core/exec.js]([https://github.com/dirigiblelabs/api-core/blob/master/core/v4/exec.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/command.js))
+- Source: [/platform/command.js]([https://github.com/dirigiblelabs/api-core/blob/master/core/v4/exec.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/command.js))
 - Status: `stable`
+- Group: `platform`
 
 ### Basic Usage
 
