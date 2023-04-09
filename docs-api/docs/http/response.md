@@ -12,6 +12,7 @@ HTTP Response object provided to the scripting services implementation to create
 - Definition: [https://github.com/eclipse/dirigible/issues/13](https://github.com/eclipse/dirigible/issues/13)
 - Source: [/http/response.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/response.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
