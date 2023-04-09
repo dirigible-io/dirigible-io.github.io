@@ -12,6 +12,7 @@ Business Process object is used to access and manage the business processes from
 - Definition: [https://github.com/eclipse/dirigible/issues/227](https://github.com/eclipse/dirigible/issues/227)
 - Source: [/bpm/process.js](https://github.com/eclipse/dirigible/blob/master/components/api-bpm/src/main/resources/META-INF/dirigible/bpm/process.js)
 - Status: `stable`
+- Group: `bpm`
 
 
 ### Basic Usage
