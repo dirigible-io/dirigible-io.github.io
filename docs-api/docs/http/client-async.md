@@ -12,6 +12,7 @@ Client Async is used by scripting services to call asynchronously external servi
 - Definition: [https://github.com/eclipse/dirigible/issues/388](https://github.com/eclipse/dirigible/issues/388)
 - Source: [/http/clientAsync.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/client-async.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
