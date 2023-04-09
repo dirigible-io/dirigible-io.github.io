@@ -11,6 +11,7 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 - Module: `utils/qrcode`
 - Source: [/utils/qrcode.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/qrcode.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
