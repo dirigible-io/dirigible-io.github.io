@@ -12,6 +12,7 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 - Definition: N/A
 - Source: [/utils/alphanumeric.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/alphanumeric.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
