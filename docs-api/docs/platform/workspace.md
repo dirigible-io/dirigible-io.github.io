@@ -15,6 +15,7 @@ Workspace object gives access to the user's workspaces. It can be used for creat
 - Definition: [https://github.com/eclipse/dirigible/issues/230](https://github.com/eclipse/dirigible/issues/230)
 - Source: [/platform/workspace.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/workspace.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
