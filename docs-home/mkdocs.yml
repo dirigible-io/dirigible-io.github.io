@@ -5,7 +5,6 @@ nav:
     - Home: 'index.md'
     - Documentation: '/help/'
     - API: '/api/'
-    - Samples: '/samples/'
     - Blogs: '/blogs/'
     - News: '/news/'
     - Releases: '/releases/'
