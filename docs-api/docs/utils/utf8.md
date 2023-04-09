@@ -12,6 +12,7 @@ UTF8 object is used to encode/decode strings in UTF8.
 - Definition: N/A
 - Source: [/utils/utf8.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/utf8.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
