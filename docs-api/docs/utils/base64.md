@@ -12,6 +12,7 @@ Base64 object is used to encode/decode in base64.
 - Definition: [https://github.com/eclipse/dirigible/issues/22](https://github.com/eclipse/dirigible/issues/22)
 - Source: [/utils/base64.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/base64.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
