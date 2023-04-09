@@ -9,6 +9,7 @@ Configurations
 - Module: `core/configurations`
 - Source: [/core/configurations.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/configurations.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
