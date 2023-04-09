@@ -12,6 +12,7 @@ QUnit object is used in unit tests.
 - Definition: N/A
 - Source: [/qunit/qunit.js](https://github.com/eclipse/dirigible/blob/master/components/api-qunit/src/main/resources/META-INF/dirigible/qunit/qunit.js)
 - Status: `stable`
+- Group: `platform`
 
 ### Basic Usage
 
