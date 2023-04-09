@@ -12,6 +12,7 @@ HTTP Upload is used to consume files posted as multipart request.
 - Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
 - Source: [/http/upload.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/upload.js)
 - Status: `stable`
+- Group: `core`
 
 
 
