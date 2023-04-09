@@ -12,6 +12,7 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
 - Definition: [https://github.com/eclipse/dirigible/issues/390](https://github.com/eclipse/dirigible/issues/390)
 - Source: [/net/soap.js](https://github.com/eclipse/dirigible/blob/master/components/api-net/src/main/resources/META-INF/dirigible/net/soap.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
