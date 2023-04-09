@@ -12,6 +12,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
 - Definition: [https://github.com/eclipse/dirigible/issues/28](https://github.com/eclipse/dirigible/issues/28)
 - Source: [/utils/xml.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/xml.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
