@@ -12,6 +12,7 @@ Mail object is used to send e-mails through the mail service.
 - Definition: [https://github.com/eclipse/dirigible/issues/108](https://github.com/eclipse/dirigible/issues/108)
 - Source: [/mail/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-mail/src/main/resources/META-INF/dirigible/mail/client.js)
 - Status: `stable`
+- Group: `platform`
 
 ### Basic Usage
 
