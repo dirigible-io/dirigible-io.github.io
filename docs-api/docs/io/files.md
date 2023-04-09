@@ -12,6 +12,7 @@ Files module provides an access to the underlying File System, where the Dirigib
 - Definition: [https://github.com/eclipse/dirigible/issues/19](https://github.com/eclipse/dirigible/issues/19)
 - Source: [/io/files.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/files.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
