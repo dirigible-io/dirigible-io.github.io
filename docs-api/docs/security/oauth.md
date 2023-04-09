@@ -12,6 +12,7 @@ OAuth gives the JWT information about the currently logged in user, if any.
 - Definition: [https://github.com/eclipse/dirigible/issues/745](https://github.com/eclipse/dirigible/issues/745)
 - Source: [/security/oauth.js](https://github.com/eclipse/dirigible/blob/master/components/api-security/src/main/resources/META-INF/dirigible/security/oauth.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
