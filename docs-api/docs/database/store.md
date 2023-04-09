@@ -51,25 +51,62 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ```
 
-The `Entity` description in the Hibernate `xml` format (e.g. Customer.hbm.xml)
+The `Entity` description in the Hibernate `xml` or `json` format (e.g. Customer.hbm.xml as XML or Customer.entity as JSON)
 
-```xml
-<hibernate-mapping>
+=== "XML"
 
-    <class entity-name="Customer">
+    ```xml
+    <hibernate-mapping>
 
-        <id name="id" type="long" column="ID">
-            <generator class="sequence" />
-        </id>
+        <class entity-name="Customer">
 
-        <property name="name" column="NAME" type="string" />
+            <id name="id" type="long" column="ID">
+                <generator class="sequence" />
+            </id>
 
-        <property name="address" column="ADDRESS" type="string" />
+            <property name="name" column="NAME" type="string" />
 
-    </class>
+            <property name="address" column="ADDRESS" type="string" />
 
-</hibernate-mapping>
-```
+        </class>
+
+    </hibernate-mapping>
+    ```
+    
+=== "JSON"
+
+    ```json
+    {
+      "hibernate-mapping": {
+        "class": {
+          "-entity-name": "Customer",
+          "id": {
+            "-column": "ID",
+            "-name": "id",
+            "-type": "long",
+            "generator": {
+              "-class": "sequence"
+            }
+          },
+          "property": [
+            {
+              "-column": "NAME",
+              "-name": "name",
+              "-type": "string"
+            },
+            {
+              "-column": "ADDRESS",
+              "-name": "address",
+              "-type": "string"
+            }
+          ]
+        }
+      }
+    }
+    ```
+    
+
+
 
 ### Functions
 
