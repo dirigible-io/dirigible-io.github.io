@@ -12,6 +12,7 @@ Assert object is used in unit tests.
 - Definition: N/A
 - Source: [/test/assert.js](https://github.com/eclipse/dirigible/blob/master/components/api-test/src/main/resources/META-INF/dirigible/test/assert.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
