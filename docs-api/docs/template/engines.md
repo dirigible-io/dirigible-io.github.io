@@ -12,6 +12,7 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
 - Definition: N/A
 - Source: [/template/engines.js](https://github.com/eclipse/dirigible/blob/master/components/api-template/src/main/resources/META-INF/dirigible/template/engines.js)
 - Status: `stable`
+- Group: `platform`
 
 ### Basic Usage
 
