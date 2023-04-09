@@ -12,7 +12,7 @@ The RabbitMQ Producer is sending message records to a Queue destination to a [Ra
 - Alias: `rabbitmq/producer`
 - Definition: [https://github.com/eclipse/dirigible/issues/722](https://github.com/eclipse/dirigible/issues/722)
 - Source: [/rabbitmq/producer.js](https://github.com/eclipse/dirigible/tree/master/components/api-rabbitmq/src/main/resources/META-INF/dirigible/rabbitmq/producer.js)
-- Status: `NOT YET MIGRATED`
+- Status: `beta`
 - Group: `ext`
 
 
