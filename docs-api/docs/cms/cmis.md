@@ -13,6 +13,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 - Definition: [https://github.com/eclipse/dirigible/issues/178](https://github.com/eclipse/dirigible/issues/178)
 - Source: [/cms/cmis.js](https://github.com/eclipse/dirigible/blob/master/components/api-cms/src/main/resources/META-INF/dirigible/cms/cmis.js)
 - Status: `stable`
+- Group: `cms`
 
 
 ### Basic Usage
