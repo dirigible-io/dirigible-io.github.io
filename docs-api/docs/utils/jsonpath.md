@@ -12,6 +12,7 @@ JSONPath utility adapted for Dirigible.
 - Definition: N/A
 - Source: [/utils/jsonpath.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/jsonpath.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
