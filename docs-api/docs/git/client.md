@@ -11,7 +11,7 @@ Git Client is used by scripting services to call git commands
 - Module: `git/client`
 - Source: [/git/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-git/src/main/resources/META-INF/dirigible/git/client.js)
 - Status: `stable`
-- Group: `core`
+- Group: `platform`
 
 
 ### Basic Usage
