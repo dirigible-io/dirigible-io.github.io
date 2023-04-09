@@ -12,7 +12,7 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 - Definition: [https://github.com/eclipse/dirigible/issues/675](https://github.com/eclipse/dirigible/issues/675)
 - Source: [/etcd/client.js](https://github.com/eclipse/dirigible/tree/master/components/api-etcd/src/main/resources/META-INF/dirigible/rabbitmq/etcd.js)
 - Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/components/api-etcd/src/main/java/org/eclipse/dirigible/components/api/etcd/EtcdFacade.java)
-- Status: `NOT YET MIGRATED`
+- Status: `beta`
 - Group: `ext`
 
 
