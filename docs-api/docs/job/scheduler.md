@@ -11,6 +11,7 @@ Job Scheduler provides convenient API for managing Job state and execution.
 - Module: `job/scheduler`
 - Source: [/job/scheduler.js](https://github.com/eclipse/dirigible/blob/master/components/api-job/src/main/resources/META-INF/dirigible/job/scheduler.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
