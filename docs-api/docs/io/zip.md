@@ -12,6 +12,7 @@ Zip modules provides functionality for creating zip archive from files.
 - Definition: [https://github.com/eclipse/dirigible/issues/20](https://github.com/eclipse/dirigible/issues/20)
 - Source: [/io/zip.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/zip.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
