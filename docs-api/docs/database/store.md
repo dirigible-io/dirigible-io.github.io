@@ -5,8 +5,7 @@ title: Store
 Store
 ===
 
-
-Simplified Data Store functionality based on [Hibernate](https://hibernate.org/) framework.
+Simple Data Store functionality based on [Hibernate](https://hibernate.org/) framework.
 
 === "Overview"
 - Module: `db/store`
