@@ -12,7 +12,7 @@ The RabbitMQ is listening on a Queue destination to a [RabbitMQ](https://www.rab
 - Alias: `rabbitmq/consumer`
 - Definition: [https://github.com/eclipse/dirigible/issues/722](https://github.com/eclipse/dirigible/issues/722)
 - Source: [/rabbitmq/consumer.js](https://github.com/eclipse/dirigible/tree/master/components/api-rabbitmq/src/main/resources/META-INF/dirigible/rabbitmq/consumer.js)
-- Status: `NOT YET MIGRATED`
+- Status: `beta`
 - Group: `ext`
 
 ### Getting Started
