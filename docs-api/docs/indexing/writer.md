@@ -12,6 +12,7 @@ The Indexing Writer is an object which can store a text content with additional 
 - Definition: [https://github.com/eclipse/dirigible/issues/110](https://github.com/eclipse/dirigible/issues/110)
 - Source: [/indexing/writer.js](https://github.com/eclipse/dirigible/blob/master/components/api-indexing/src/main/resources/META-INF/dirigible/indexing/writer.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
