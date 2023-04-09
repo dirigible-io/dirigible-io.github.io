@@ -13,6 +13,7 @@ HTTP Request object provided to the scripting services implementation. It contai
 - Definition: [https://github.com/eclipse/dirigible/issues/12](https://github.com/eclipse/dirigible/issues/12)
 - Source: [/http/request.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/request.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
