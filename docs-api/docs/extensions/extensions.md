@@ -8,7 +8,7 @@ Extensions
 === "Overview"
 - Module: `extensions/extensions`
 - Definition: [https://github.com/eclipse/dirigible/issues/18](https://github.com/eclipse/dirigible/issues/18)
-- Source: [/core/extensions.js](https://github.com/eclipse/dirigible/blob/master/components/api-extensions/src/main/resources/META-INF/dirigible/extensions/extensions.js)
+- Source: [/extensions/extensions.js](https://github.com/eclipse/dirigible/blob/master/components/api-extensions/src/main/resources/META-INF/dirigible/extensions/extensions.js)
 - Status: `stable`
 - Group: `core`
 
