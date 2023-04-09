@@ -12,7 +12,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
 - Definition: [https://github.com/eclipse/dirigible/issues/391](https://github.com/eclipse/dirigible/issues/391)
 - Source: [/net/websockets.js](https://github.com/eclipse/dirigible/blob/master/components/api-net/src/main/resources/META-INF/dirigible/net/websockets.js)
 - Status: `stable`
-- Group: `core`
+- Group: `platform`
 
 
 ### Basic Usage
