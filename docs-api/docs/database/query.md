@@ -13,6 +13,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 - Definition: [https://github.com/eclipse/dirigible/issues/48](https://github.com/eclipse/dirigible/issues/48)
 - Source: [/db/query.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/query.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
