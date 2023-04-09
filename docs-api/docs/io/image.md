@@ -12,6 +12,7 @@ Image API provides utility functionlity for working with images.
 - Definition: n/a
 - Source: [/io/image.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/image.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
