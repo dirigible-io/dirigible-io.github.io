@@ -10,6 +10,7 @@ Console object is used to write messages to the default logging output. It has s
 === "Overview"
 - Module: `built-in`
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
