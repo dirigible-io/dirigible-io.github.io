@@ -12,6 +12,7 @@ FTP Client API provides utility functions for working with FTP servers.
 - Definition: n/a
 - Source: [/io/ftp.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/ftp.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
