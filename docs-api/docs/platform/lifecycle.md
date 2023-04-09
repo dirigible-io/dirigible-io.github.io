@@ -12,6 +12,7 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
 - Definition: https://github.com/eclipse/dirigible/issues/233
 - Source: [/platform/lifecycle.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/lifecycle.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
