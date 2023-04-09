@@ -12,6 +12,7 @@ The Messaging Producer is an object which can send text messages to a Queue or T
 - Definition: [https://github.com/eclipse/dirigible/issues/91](https://github.com/eclipse/dirigible/issues/91)
 - Source: [/messaging/producer.js](https://github.com/eclipse/dirigible/blob/master/components/api-messaging/src/main/resources/META-INF/dirigible/messaging/producer.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
