@@ -13,7 +13,8 @@ The object is used for processing of templates
 - Definition: [https://github.com/eclipse/dirigible/issues/507](https://github.com/eclipse/dirigible/issues/507)
 - Source: [/platform/v4/template-engines.js](https://github.com/dirigiblelabs/api-platform/blob/master/platform/v4/template-engines.js)
 - Facade: [TemplateEngineFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-core/src/main/java/org/eclipse/dirigible/api/v3/core/TemplateEngineFacade.java)
-- Status: `stable`
+- Status: `NOT YET MIGRATED`
+- Group: `platform`
 
 ### Basic Usage
 
