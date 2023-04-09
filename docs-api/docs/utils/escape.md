@@ -12,6 +12,7 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
 - Definition: [https://github.com/eclipse/dirigible/issues/26](https://github.com/eclipse/dirigible/issues/26)
 - Source: [/utils/escape.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/escape.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
