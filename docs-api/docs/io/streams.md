@@ -12,6 +12,7 @@ Streams module provides classes and utilities for working with streams.
 - Definition: [https://github.com/eclipse/dirigible/issues/51](https://github.com/eclipse/dirigible/issues/51)
 - Source: [/io/streams.js](https://github.com/eclipse/dirigible/blob/master/components/api-io/src/main/resources/META-INF/dirigible/io/streams.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
