@@ -12,6 +12,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
 - Definition: [https://github.com/eclipse/dirigible/issues/121](https://github.com/eclipse/dirigible/issues/121)
 - Source: [/log/logging.js](https://github.com/eclipse/dirigible/blob/master/components/api-log/src/main/resources/META-INF/dirigible/log/logging.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
