@@ -12,6 +12,7 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 - Definition: [https://github.com/eclipse/dirigible/issues/24](https://github.com/eclipse/dirigible/issues/24)
 - Source: [/utils/digest.js](https://github.com/eclipse/dirigible/blob/master/components/api-utils/src/main/resources/META-INF/dirigible/utils/digest.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
