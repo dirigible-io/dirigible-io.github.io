@@ -12,6 +12,7 @@ User gives the information about the currently logged in user, if any.
 - Definition: [https://github.com/eclipse/dirigible/issues/17](https://github.com/eclipse/dirigible/issues/17)
 - Source: [/security/user.js](https://github.com/eclipse/dirigible/blob/master/components/api-security/src/main/resources/META-INF/dirigible/security/user.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
