@@ -12,7 +12,7 @@ The Indexing Searcher is the object used for free-text or exact periods searches
 - Definition: [https://github.com/eclipse/dirigible/issues/110](https://github.com/eclipse/dirigible/issues/110)
 - Source: [/indexing/searcher.js](https://github.com/eclipse/dirigible/blob/master/components/api-indexing/src/main/resources/META-INF/dirigible/indexing/searcher.js)
 - Status: `stable`
-- Group: `core`
+- Group: `platform`
 
 
 ### Basic Usage
