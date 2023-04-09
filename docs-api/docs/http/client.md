@@ -12,6 +12,7 @@ Client is used by scripting services to call external services via HTTP.
 - Definition: [https://github.com/eclipse/dirigible/issues/15](https://github.com/eclipse/dirigible/issues/15)
 - Source: [/http/client.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/client.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
