@@ -12,6 +12,7 @@ Registry object gives access to the content in the repository and also the pre-d
 - Definition: [https://github.com/eclipse/dirigible/issues/508](https://github.com/eclipse/dirigible/issues/508)
 - Source: [/platform/registry.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/registry.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
