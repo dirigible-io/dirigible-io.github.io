@@ -12,6 +12,7 @@ Runner object is used execute a tests suite and generate report.
 - Definition: [https://github.com/eclipse/dirigible/issues/122](https://github.com/eclipse/dirigible/issues/122)
 - Source: [/test/runner.js](https://github.com/eclipse/dirigible/blob/master/components/api-test/src/main/resources/META-INF/dirigible/test/runner.js)
 - Status: `stable`
+- Group: `core`
 
 ### Basic Usage
 
