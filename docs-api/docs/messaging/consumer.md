@@ -12,6 +12,7 @@ The Messaging Consumer is an object which can send text messages to a Queue or T
 - Definition: [https://github.com/eclipse/dirigible/issues/92](https://github.com/eclipse/dirigible/issues/92)
 - Source: [/messaging/consumer.js](https://github.com/eclipse/dirigible/blob/master/components/api-messaging/src/main/resources/META-INF/dirigible/messaging/consumer.js)
 - Status: `stable`
+- Group: `platform`
 
 
 ### Basic Usage
