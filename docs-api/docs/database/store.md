@@ -37,7 +37,7 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
 === "CommonJS"
 
     ```javascript
-    const query = require("db/store");
+    const store = require("db/store");
     const response = require("http/response");
 
     let entry = { 'name': 'John', 'address': 'Sofia, Bulgaria' };
