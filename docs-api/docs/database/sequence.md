@@ -12,6 +12,7 @@ Functionality for manipulating the database sequence objects.
 - Definition: [https://github.com/eclipse/dirigible/issues/124](https://github.com/eclipse/dirigible/issues/124)
 - Source: [/db/sequence.js](https://github.com/eclipse/dirigible/blob/master/components/api-database/src/main/resources/META-INF/dirigible/db/sequence.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
