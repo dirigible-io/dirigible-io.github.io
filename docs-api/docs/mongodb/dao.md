@@ -12,6 +12,7 @@ The MongoDB DAO simplified database access objects utility.
 - Definition: [https://github.com/eclipse/dirigible/issues/671](https://github.com/eclipse/dirigible/issues/671)
 - Source: [/mongodb/dao.js](https://github.com/eclipse/dirigible/blob/master/components/api-mongodb/src/main/resources/META-INF/dirigible/mongodb/dao.js)
 - Status: `stable`
+- Group: `ext`
 
 
 ### Basic Usage
