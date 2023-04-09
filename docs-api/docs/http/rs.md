@@ -12,6 +12,7 @@ HTTP RESTful services framework.
 - Definition: [https://github.com/eclipse/dirigible/issues/85](https://github.com/eclipse/dirigible/issues/85)
 - Source: [/http/rs.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/rs.js)
 - Status: `stable`
+- Group: `core`
 
 
 ### Basic Usage
