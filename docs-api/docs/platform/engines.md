@@ -12,6 +12,7 @@ Engines object is used for executing a scripting service programmatically.
 - Definition: [https://github.com/eclipse/dirigible/issues/234](https://github.com/eclipse/dirigible/issues/234)
 - Source: [/platform/engines.js](https://github.com/eclipse/dirigible/blob/master/components/api-platform/src/main/resources/META-INF/dirigible/platform/engines.js)
 - Status: `stable`
+- Group: `platform`
 
 ### Basic Usage
 
