@@ -2509,8 +2509,109 @@
 <li>Group: <code>core</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="highlight"><pre><span></span><code><span class="nx">TBD</span><span class="w"></span>
+<p>=== "ECMA6</p>
+<div class="highlight"><pre><span></span><code>```javascript
+import { jsonpath } from &quot;@dirigible/utils&quot;;
+
+const json = {
+    &quot;store&quot;: {
+        &quot;book&quot;: [
+            {
+                &quot;category&quot;: &quot;reference&quot;,
+                &quot;author&quot;: &quot;Nigel Rees&quot;,
+                &quot;title&quot;: &quot;Sayings of the Century&quot;,
+                &quot;price&quot;: 8.95
+            },
+            {
+                &quot;category&quot;: &quot;fiction&quot;,
+                &quot;author&quot;: &quot;Evelyn Waugh&quot;,
+                &quot;title&quot;: &quot;Sword of Honour&quot;,
+                &quot;price&quot;: 12.99
+            },
+            {
+                &quot;category&quot;: &quot;fiction&quot;,
+                &quot;author&quot;: &quot;Herman Melville&quot;,
+                &quot;title&quot;: &quot;Moby Dick&quot;,
+                &quot;isbn&quot;: &quot;0-553-21311-3&quot;,
+                &quot;price&quot;: 8.99
+            },
+            {
+                &quot;category&quot;: &quot;fiction&quot;,
+                &quot;author&quot;: &quot;J. R. R. Tolkien&quot;,
+                &quot;title&quot;: &quot;The Lord of the Rings&quot;,
+                &quot;isbn&quot;: &quot;0-395-19395-8&quot;,
+                &quot;price&quot;: 22.99
+            }
+        ],
+        &quot;bicycle&quot;: {
+            &quot;color&quot;: &quot;red&quot;,
+            &quot;price&quot;: 19.95
+        }
+    },
+    &quot;expensive&quot;: 10
+}
+
+const actual = jsonpath({
+    &quot;path&quot;: &quot;$.store..price&quot;,
+    &quot;json&quot;: json
+});
+
+console.log(actual)
+```
 </code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">jsonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;utils/jsonpath&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;store&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;book&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;category&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;reference&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;author&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Nigel Rees&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Sayings of the Century&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8.95</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;category&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fiction&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;author&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Evelyn Waugh&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Sword of Honour&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">12.99</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;category&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fiction&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;author&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Herman Melville&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Moby Dick&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;isbn&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0-553-21311-3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">8.99</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;category&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fiction&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;author&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;J. R. R. Tolkien&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The Lord of the Rings&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;isbn&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0-395-19395-8&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">22.99</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;bicycle&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;price&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">19.95</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;expensive&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jsonpath</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;path&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$.store..price&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;json&quot;</span><span class="o">:</span><span class="w"> </span><span class="nx">json</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">actual</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -2523,8 +2624,8 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>TBD(input)</strong></td>
-<td>Encode an input string to Base64</td>
+<td><strong>jsonpath(object)</strong></td>
+<td>Evaluate JSONPath from given expression and json object</td>
 <td><em>string</em></td>
 </tr>
 </tbody>
