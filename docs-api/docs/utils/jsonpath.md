@@ -16,7 +16,7 @@ JSONPath utility adapted for Dirigible.
 
 ### Basic Usage
 
-=== "ECMA6
+=== "ECMA6"
 
     ```javascript
     import { jsonpath } from "@dirigible/utils";
