@@ -72,38 +72,7 @@ The `Entity` description in the Hibernate `xml` or `json` format (e.g. Customer.
 
     </hibernate-mapping>
     ```
-    
-=== "JSON"
 
-    ```json
-    {
-      "hibernate-mapping": {
-        "class": {
-          "-entity-name": "Customer",
-          "id": {
-            "-column": "ID",
-            "-name": "id",
-            "-type": "long",
-            "generator": {
-              "-class": "sequence"
-            }
-          },
-          "property": [
-            {
-              "-column": "NAME",
-              "-name": "name",
-              "-type": "string"
-            },
-            {
-              "-column": "ADDRESS",
-              "-name": "address",
-              "-type": "string"
-            }
-          ]
-        }
-      }
-    }
-    ```
     
 
 
