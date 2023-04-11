@@ -54,10 +54,6 @@ region = your_region
     const QLDBRepository = require("qldb/QLDBRepository");
     
     const qldb = new QLDBRepository("myLedger", "testTable").createTable();
-
-    qldb.insert({ "foo": "bar" })
-
-    console.log(qldb.getAll())
     ```
 
     ```javascript
