@@ -13,7 +13,7 @@ The Kafka Producer is sending message records to a Topic destination to a [Kafka
 - Definition: [https://github.com/eclipse/dirigible/issues/640](https://github.com/eclipse/dirigible/issues/640)
 - Source: [/kafka/producer.js](https://github.com/eclipse/dirigible/tree/master/components/api-kafka/src/main/resources/META-INF/dirigible/kafka/producer.js)
 - Facade: [KafkaFacade](https://github.com/eclipse/dirigible/blob/master/components/api-kafka/src/main/java/org/eclipse/dirigible/components/api/kafka/KafkaFacade.java)
-- Status: `NOT YET MIGRATED`
+- Status: `beta`
 - Group: `ext`
 
 
