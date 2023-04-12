@@ -14,6 +14,7 @@ Files module provides an access to the underlying File System, where the Dirigib
 - Status: `stable`
 - Group: `core`
 
+**Note that the parameter `path` takes either an absolute path or relative path from your working instance of Dirigible**
 
 ### Basic Usage
 
