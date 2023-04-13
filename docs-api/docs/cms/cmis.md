@@ -51,7 +51,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
     let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-    let properties = {};
+    let properties = [];
     properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
     properties[cmis.NAME] = filename;
     let newDocument;
@@ -122,7 +122,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
     let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-    let properties = {};
+    let properties = [];
     properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
     properties[cmis.NAME] = filename;
     let newDocument;
