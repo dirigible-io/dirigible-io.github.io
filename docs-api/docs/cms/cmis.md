@@ -41,7 +41,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     response.println("Creating a simple text file, " + textFileName);
 
     const mimetype = "text/plain; charset=UTF-8";
-    const content = "This is some test content.";
+    let content = "This is some test content.";
     let filename = textFileName;
 
     let outputStream = streams.createByteArrayOutputStream();
