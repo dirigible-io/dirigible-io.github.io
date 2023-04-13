@@ -16,18 +16,35 @@ QUnit object is used in unit tests.
 
 ### Basic Usage
 
-```javascript
-const qunit = require("qunit/qunit");
+=== "ECMA6"
 
-qunit.module('Module 1:');
+	```javascript
+	import { qunit, runner } from "@dirigible/qunit"
 
-qunit.test("Test 1", function(assert) {
-	assert.ok(true, 'Passing assertion');
-	assert.ok(false, 'Failing assertion');
-});
+	qunit.module('Module 1:');
 
-require("qunit/runner").run();
-```
+	qunit.test("Test 1", function (assert) {
+	    assert.ok(true, 'Passing assertion');
+	    assert.ok(false, 'Failing assertion');
+	});
+
+	runner.run();
+	```
+
+=== "CommonJS"
+
+	```javascript
+	const qunit = require("qunit/qunit");
+
+	qunit.module('Module 1:');
+
+	qunit.test("Test 1", function(assert) {
+		assert.ok(true, 'Passing assertion');
+		assert.ok(false, 'Failing assertion');
+	});
+
+	require("qunit/runner").run();
+	```
 
 ### Functions
 
