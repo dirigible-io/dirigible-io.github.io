@@ -977,13 +977,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anonymous-access" class="md-nav__link">
-    Anonymous Access
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#branding" class="md-nav__link">
     Branding
   </a>
@@ -1047,13 +1040,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#database-repository" class="md-nav__link">
-    Database Repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#local-repository" class="md-nav__link">
     Local Repository
   </a>
@@ -1086,20 +1072,6 @@
   
     <nav class="md-nav" aria-label="Database">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#database-custom" class="md-nav__link">
-    Database - Custom
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-derby" class="md-nav__link">
-    Database Derby
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#database-h2" class="md-nav__link">
@@ -1321,20 +1293,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#destinations" class="md-nav__link">
-    Destinations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connectivity" class="md-nav__link">
-    Connectivity
-  </a>
   
 </li>
         
@@ -2889,13 +2847,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#anonymous-access" class="md-nav__link">
-    Anonymous Access
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#branding" class="md-nav__link">
     Branding
   </a>
@@ -2959,13 +2910,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#database-repository" class="md-nav__link">
-    Database Repository
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#local-repository" class="md-nav__link">
     Local Repository
   </a>
@@ -2998,20 +2942,6 @@
   
     <nav class="md-nav" aria-label="Database">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#database-custom" class="md-nav__link">
-    Database - Custom
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-derby" class="md-nav__link">
-    Database Derby
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#database-h2" class="md-nav__link">
@@ -3237,20 +3167,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#destinations" class="md-nav__link">
-    Destinations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connectivity" class="md-nav__link">
-    Connectivity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#terminal" class="md-nav__link">
     Terminal
   </a>
@@ -3323,24 +3239,6 @@
 </div>
 <p>All applied configuration values could be found under the <a href="https://www.dirigible.io/help/development/ide/views/configurations/">Configurations View</a>.</p>
 <h2 id="configuration-parameters">Configuration Parameters</h2>
-<h3 id="anonymous-access">Anonymous Access</h3>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME</strong></td>
-<td>The name of the property, that will be used to retrieve the anonymous user name <em>(e.g. MY_USER_VARIABLE)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-</tbody>
-</table>
 <h3 id="branding">Branding</h3>
 <hr />
 <table>
@@ -3434,6 +3332,16 @@
 <td><strong>DIRIGIBLE_BASIC_ENABLED</strong></td>
 <td>Whether the Basic authentication is enabled</td>
 <td><em><code>true</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BASIC_USERNAME</strong></td>
+<td>The name of the property, which will be used as user name for basic authentication</td>
+<td><em><code>admin</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BASIC_PASSWORD</strong></td>
+<td>The name of the property, which will be used as password for basic authentication</td>
+<td><em><code>admin</code></em></td>
 </tr>
 </tbody>
 </table>
@@ -3638,23 +3546,6 @@ To find more details about the Keycloak configuration go to <a href="https://www
 </tr>
 </tbody>
 </table>
-<h4 id="database-repository">Database Repository</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_REPOSITORY_DATABASE_DATASOURCE_NAME</strong></td>
-<td>The name of the data source, which will be used to store the repository artifacts</td>
-<td><em><code>DefaultDB</code></em></td>
-</tr>
-</tbody>
-</table>
 <h4 id="local-repository">Local Repository</h4>
 <table>
 <thead>
@@ -3799,64 +3690,6 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE</strong></td>
 <td>The batch size used during the data transfer</td>
 <td><em><code>1000</code></em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="database-custom">Database - Custom</h4>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace <code>CUSTOM_NAME</code> with the actual name set by <code>DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES</code> e.g. <strong><code>POSTGRES_DRIVER</code></strong></p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>CUSTOM_NAME_DRIVER</strong></td>
-<td>The <em><code>Driver</code></em> name of the custom datasource <em>(e.g. <code>org.postgresql.Driver</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>CUSTOM_NAME_URL</strong></td>
-<td>The <em><code>URL</code></em> of the custom datasource <em>(e.g. <code>jdbc:postgresql://localhost:5432/&lt;database-name&gt;</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>CUSTOM_NAME_USERNAME</strong></td>
-<td>The <em><code>User Name</code></em> of the custom datasource</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>CUSTOM_NAME_PASSWORD</strong></td>
-<td>The <em><code>Password</code></em> of the custom datasource</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>CUSTOM_NAME_CONNECTION_PROPERTIES</strong></td>
-<td>The additional connection properties if any</td>
-<td><em>-</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="database-derby">Database Derby</h4>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_DATABASE_DERBY_ROOT_FOLDER_DEFAULT</strong></td>
-<td>The location used by Derby database</td>
-<td><em><code>./target/dirigible/derby</code></em></td>
 </tr>
 </tbody>
 </table>
@@ -4604,117 +4437,6 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_THEME_DEFAULT</strong></td>
 <td>The name of the default name</td>
 <td><em><code>Default</code></em></td>
-</tr>
-</tbody>
-</table>
-<h3 id="destinations">Destinations</h3>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATIONS_PROVIDER</strong></td>
-<td>The name of the Destinations Service provider used in this instance</td>
-<td><em><code>local</code> or <code>managed</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER</strong></td>
-<td>The location of the Destinations internal repository</td>
-<td><em><code>target</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
-<td>Whether the root folder parameter is absolute or not</td>
-<td><em><code>false</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATION_CLIENT_ID</strong></td>
-<td>The Destination Service instance client id</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATION_CLIENT_SECRET</strong></td>
-<td>The Destination Service instance client secret</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATION_URL</strong></td>
-<td>The Destination Service instance url</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATION_URI</strong></td>
-<td>The Destination Service instance uri</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DESTINATIONS_PROXY_ENABLED</strong></td>
-<td>Whether the Destinations Proxy is enabled</td>
-<td><em><code>false</code></em></td>
-</tr>
-</tbody>
-</table>
-<h3 id="connectivity">Connectivity</h3>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_CLIENT_ID</strong></td>
-<td>The Connectivity Service instance client id</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_CLIENT_SECRET</strong></td>
-<td>The Connectivity Service instance client secret</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_URL</strong></td>
-<td>The Connectivity Service instance url</td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HOST</strong></td>
-<td>The Connectivity Service instance onpremise proxy host</td>
-<td><code>-</code></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HTTP_PORT</strong></td>
-<td>The Connectivity Service instance onpremise proxy http port</td>
-<td><code>-</code></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_LDAP_PORT</strong></td>
-<td>The Connectivity Service instance onpremise proxy ldap port</td>
-<td><code>-</code></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_PORT</strong></td>
-<td>The Connectivity Service instance onpremise proxy port</td>
-<td><code>-</code></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_RFC_PORT</strong></td>
-<td>The Connectivity Service instance onpremise proxy rfc port</td>
-<td><code>-</code></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_CONNECTIVITY_ONPREMISE_SOCKS5_PROXY_PORT</strong></td>
-<td>The Connectivity Service instance onpremise socks5 proxy port</td>
-<td><code>-</code></td>
 </tr>
 </tbody>
 </table>
