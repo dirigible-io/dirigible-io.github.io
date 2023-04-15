@@ -45,13 +45,6 @@ All applied configuration values could be found under the [Configurations View](
 
 ## Configuration Parameters
 
-### Anonymous Access
----
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_ANONYMOUS_USER_NAME_PROPERTY_NAME**   | The name of the property, that will be used to retrieve the anonymous user name *(e.g. MY_USER_VARIABLE)* | _`-`_
-
 ### Branding
 ---
 
@@ -81,6 +74,8 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_BASIC_ENABLED** | Whether the Basic authentication is enabled | _`true`_
+**DIRIGIBLE_BASIC_USERNAME**   | The name of the property, which will be used as user name for basic authentication | _`admin`_
+**DIRIGIBLE_BASIC_PASSWORD**   | The name of the property, which will be used as password for basic authentication | _`admin`_
 
 ### OAuth
 
@@ -144,12 +139,6 @@ Parameter     | Description | Default*
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | _`local` or `database`_
 **DIRIGIBLE_REPOSITORY_CACHE_ENABLED**   | Enable the usage of the repository cache | _`true`_
 
-#### Database Repository
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_REPOSITORY_DATABASE_DATASOURCE_NAME**   | The name of the data source, which will be used to store the repository artifacts | _`DefaultDB`_
-
 #### Local Repository
 
 Parameter     | Description | Default*
@@ -192,26 +181,6 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance | _`SystemDB`_
 **DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive | _`false`_
 **DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer | _`1000`_
-
-
-#### Database - Custom
-
-!!! Note
-	Replace `CUSTOM_NAME` with the actual name set by `DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES` e.g. **`POSTGRES_DRIVER`**
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**CUSTOM_NAME_DRIVER**   | The _`Driver`_ name of the custom datasource _(e.g. `org.postgresql.Driver`)_| _`-`_
-**CUSTOM_NAME_URL**   | The _`URL`_ of the custom datasource _(e.g. `jdbc:postgresql://localhost:5432/<database-name>`)_| _`-`_
-**CUSTOM_NAME_USERNAME**   | The _`User Name`_ of the custom datasource | _`-`_
-**CUSTOM_NAME_PASSWORD**   | The _`Password`_ of the custom datasource | _`-`_
-**CUSTOM_NAME_CONNECTION_PROPERTIES** | The additional connection properties if any | *-*
-
-#### Database Derby
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_DATABASE_DERBY_ROOT_FOLDER_DEFAULT**   | The location used by Derby database | _`./target/dirigible/derby`_
 
 #### Database H2
 
@@ -449,35 +418,6 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_THEME_DEFAULT**   | The name of the default name | _`Default`_
-
-### Destinations
----
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_DESTINATIONS_PROVIDER**   | The name of the Destinations Service provider used in this instance | _`local` or `managed`_
-**DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER**   | The location of the Destinations internal repository | _`target`_
-**DIRIGIBLE_DESTINATIONS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
-**DIRIGIBLE_DESTINATION_CLIENT_ID**  | The Destination Service instance client id | _`-`_
-**DIRIGIBLE_DESTINATION_CLIENT_SECRET** | The Destination Service instance client secret | _`-`_
-**DIRIGIBLE_DESTINATION_URL**  | The Destination Service instance url | _`-`_
-**DIRIGIBLE_DESTINATION_URI**  | The Destination Service instance uri | _`-`_
-**DIRIGIBLE_DESTINATIONS_PROXY_ENABLED**  | Whether the Destinations Proxy is enabled | _`false`_
-
-### Connectivity
----
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_CONNECTIVITY_CLIENT_ID**  | The Connectivity Service instance client id | _`-`_
-**DIRIGIBLE_CONNECTIVITY_CLIENT_SECRET** | The Connectivity Service instance client secret | _`-`_
-**DIRIGIBLE_CONNECTIVITY_URL**  | The Connectivity Service instance url | _`-`_
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HOST** | The Connectivity Service instance onpremise proxy host | `-`
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_HTTP_PORT** | The Connectivity Service instance onpremise proxy http port | `-`
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_LDAP_PORT** | The Connectivity Service instance onpremise proxy ldap port | `-`
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_PORT** | The Connectivity Service instance onpremise proxy port | `-`
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_PROXY_RFC_PORT** | The Connectivity Service instance onpremise proxy rfc port | `-`
-**DIRIGIBLE_CONNECTIVITY_ONPREMISE_SOCKS5_PROXY_PORT** | The Connectivity Service instance onpremise socks5 proxy port | `-`
 
 ### Terminal
 ---
