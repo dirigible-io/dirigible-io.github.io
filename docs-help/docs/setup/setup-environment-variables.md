@@ -74,8 +74,8 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_BASIC_ENABLED** | Whether the Basic authentication is enabled | _`true`_
-**DIRIGIBLE_BASIC_USERNAME**   | The name of the property, which will be used as user name for basic authentication | _`admin`_
-**DIRIGIBLE_BASIC_PASSWORD**   | The name of the property, which will be used as password for basic authentication | _`admin`_
+**DIRIGIBLE_BASIC_USERNAME**   | Base64 encoded property, which will be used as user name for basic authentication | _`admin`_
+**DIRIGIBLE_BASIC_PASSWORD**   | Base64 encoded property, which will be used as password for basic authentication | _`admin`_
 
 ### OAuth
 
