@@ -51,7 +51,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
     let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-    let properties = [];
+    let properties = { "cmis:name": "", "cmis:objectTypeId": "" };
     properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
     properties[cmis.NAME] = filename;
     let newDocument;
@@ -60,7 +60,8 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     } catch (e) {
         response.println("Error: " + e);
     }
-    let documentId = newDocument.getId();
+    let documentId = newDocument?.getId();
+
     response.println("Document ID: " + documentId);
 
     children = rootFolder.getChildren();
@@ -68,12 +69,19 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     for (let i in children) {
         response.println("Object ID: " + children[i].getId());
         response.println("Object Name: " + children[i].getName());
-        response.println("Object Type: " + children[i].getType());
+        response.println("Object Type: " + JSON.stringify(children[i].getType().getId().toString()));
     }
 
     // Get the contents of the file
-    let doc = cmisSession.getObject(documentId);
-    contentStream = doc.getContentStream(); // returns null if the document has no content
+    let doc;
+    if (documentId !== undefined) {
+        doc = cmisSession.getObject(documentId);
+    } else {
+        response.println("No content");
+    }
+
+    contentStream = doc?.getContentStream(); // returns null if the document has no content
+    console.log(typeof contentStream);
     if (contentStream !== null) {
         content = contentStream.getStream().readText();
         response.println("Contents of " + filename + " are: " + content);
@@ -122,7 +130,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
     let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
 
-    let properties = [];
+    let properties = { "cmis:name": "", "cmis:objectTypeId": "" };
     properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
     properties[cmis.NAME] = filename;
     let newDocument;
