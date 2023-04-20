@@ -81,7 +81,6 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     }
 
     contentStream = doc?.getContentStream(); // returns null if the document has no content
-    console.log(typeof contentStream);
     if (contentStream !== null) {
         content = contentStream.getStream().readText();
         response.println("Contents of " + filename + " are: " + content);
