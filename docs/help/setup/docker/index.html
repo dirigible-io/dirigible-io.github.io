@@ -2529,7 +2529,7 @@
 <ol>
 <li>
 <p>Pull the Dirigible Docker image:</p>
-<div class="highlight"><pre><span></span><code>docker pull dirigiblelabs/dirigible-all:latest
+<div class="highlight"><pre><span></span><code>docker pull dirigiblelabs/dirigible:latest
 </code></pre></div>
 </li>
 <li>
@@ -2539,14 +2539,14 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>docker run --name dirigible \
 --rm -p 8080:8080 -p 8081:8081 \
-dirigiblelabs/dirigible-all:latest
+dirigiblelabs/dirigible:latest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>docker run --name dirigible \
 -v &lt;your-local-directory&gt;:/usr/local/tomcat/target \
 --rm -p 8080:8080 -p 8081:8081 \
-dirigiblelabs/dirigible-all:latest
+dirigiblelabs/dirigible:latest
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2556,7 +2556,7 @@ dirigiblelabs/dirigible-all:latest
 -e DIRIGIBLE_BRANDING_BRAND_URL=&quot;https://www.eclipse.org&quot; \
 -e DIRIGIBLE_THEME_DEFAULT=&quot;fiori&quot; \
 --rm -p 8080:8080 -p 8081:8081 \
-dirigiblelabs/dirigible-all:latest
+dirigiblelabs/dirigible:latest
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2568,7 +2568,7 @@ dirigiblelabs/dirigible-all:latest
 -e JPDA_ADDRESS=0.0.0.0:8000 \
 -e JPDA_TRANSPORT=dt_socket \
 --rm -p 8000:8000 -p 8080:8080 -p 8081:8081 \
-dirigiblelabs/dirigible-all:latest
+dirigiblelabs/dirigible:latest
 </code></pre></div>
 </div>
 </div>
