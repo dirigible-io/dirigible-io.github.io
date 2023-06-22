@@ -18,7 +18,7 @@ Deploy Eclipse Dirigible in Docker.
 1. Pull the Dirigible Docker image:
 
     ```
-    docker pull dirigiblelabs/dirigible-all:latest
+    docker pull dirigiblelabs/dirigible:latest
     ```
 
 1. Start the container:
@@ -28,7 +28,7 @@ Deploy Eclipse Dirigible in Docker.
         ```
         docker run --name dirigible \
         --rm -p 8080:8080 -p 8081:8081 \
-        dirigiblelabs/dirigible-all:latest
+        dirigiblelabs/dirigible:latest
         ```
 
     === "with Mounted Volume"
@@ -37,7 +37,7 @@ Deploy Eclipse Dirigible in Docker.
         docker run --name dirigible \
         -v <your-local-directory>:/usr/local/tomcat/target \
         --rm -p 8080:8080 -p 8081:8081 \
-        dirigiblelabs/dirigible-all:latest
+        dirigiblelabs/dirigible:latest
         ```
 
     === "with Environment Configurations"
@@ -49,7 +49,7 @@ Deploy Eclipse Dirigible in Docker.
         -e DIRIGIBLE_BRANDING_BRAND_URL="https://www.eclipse.org" \
         -e DIRIGIBLE_THEME_DEFAULT="fiori" \
         --rm -p 8080:8080 -p 8081:8081 \
-        dirigiblelabs/dirigible-all:latest
+        dirigiblelabs/dirigible:latest
         ```
 
         !!! note
@@ -62,7 +62,7 @@ Deploy Eclipse Dirigible in Docker.
         -e JPDA_ADDRESS=0.0.0.0:8000 \
         -e JPDA_TRANSPORT=dt_socket \
         --rm -p 8000:8000 -p 8080:8080 -p 8081:8081 \
-        dirigiblelabs/dirigible-all:latest
+        dirigiblelabs/dirigible:latest
         ```
 
     !!! tip "Eclipse Dirigible versions"
