@@ -20,12 +20,20 @@ Extensions
     import { extensions } from "@dirigible/extensions";
     import { response } from "@dirigible/http";
 
-    let mainmenu = [];
-    let menuExtensions = extensions.getExtensions("ide-menu");
+    const mainmenu = [];
+    const menuExtensions = extensions.getExtensions("ide-menu");
     for (let i = 0; i < menuExtensions.length; i++) {
-        let module = menuExtensions[i];
-        let menuExtension = require(module);
-        let menu = menuExtension.getMenu();
+        const extensionPath = menuExtensions[i];
+        
+        // To require CommonJS extension
+        // const menuExtension = require(extensionPath);
+        // const menu = menuExtension.getMenu();
+
+
+        // Note: ECMA6 imports are always relative, thus providing the relative path to the project root folder.
+        // In this sample it's assumed that the file is located at "my-project/myFolder/file.mjs"
+        const { getMenu } = await import(`../../${extensionPath}`);
+        const menu = getMenu();
         mainmenu.push(menu);
     }
 
@@ -38,12 +46,12 @@ Extensions
     const extensions = require("core/extensions");
     const response = require("http/response");
 
-    let mainmenu = [];
-    let menuExtensions = extensions.getExtensions("ide-menu");
+    const mainmenu = [];
+    const menuExtensions = extensions.getExtensions("ide-menu");
     for (let i = 0; i < menuExtensions.length; i++) {
-        let module = menuExtensions[i];
-        let menuExtension = require(module);
-        let menu = menuExtension.getMenu();
+        const extensionPath = menuExtensions[i];
+        const menuExtension = require(extensionPath);
+        const menu = menuExtension.getMenu();
         mainmenu.push(menu);
     }
 
