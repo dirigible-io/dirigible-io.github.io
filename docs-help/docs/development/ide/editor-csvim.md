@@ -12,10 +12,10 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
 - [File path](#file-path)
 - [Delimiter](#delimiter)
 - [Quote character](#quote-character)
-- [Keys](#keys)
 - [Header](#header)
 - [Use header names](#use-header-names)
 - [Distinguish empty from null](#distinguish-empty-from-null)
+- [Version](#version)
 
 ### Table
 ---
@@ -68,17 +68,6 @@ The CSVIM editor in the Eclipse Dirigible IDE allows you to open, save, delete, 
 
    **Note:** If you’re trying to use an unsupported character such as "^", "The quote character is not supported!" warning message will pop up. Nevertheless, you will be able to open the CSV file or save the CSVIM file.
 
-### Keys
----
-
-   Here you can add column names and column values by clicking **Add Column Row** and **Add Value**, respectively.
-   
-   The columns and their values in the **Keys** field can contain letters (a-z, A-Z), numbers (0-9), hyphens ("-"), dots ("."), underscores ("_"), and dollar signs ("$").
-
-   **Note:** All column values and all values within a given column row must be **unique**. Otherwise, you won’t be allowed to save the CSVIM file.
-
-There are three additional customization options:
-
 ### Header
 ---
 
@@ -94,6 +83,10 @@ There are three additional customization options:
  
    Select this checkbox if you want to make sure that the table-import process interprets correctly all empty values in the CSV file, which is enclosed with the value selected in the **Quote character** dropdown, for example, as an empty space. This ensures that an empty space is imported "as is" into the target table. If the empty space isn't interpreted correctly, it is imported as null.
 
+### Version
+---
+
+  You can specify the version of the CSVIM so you can better manage your CSV and database data.
 
 
 
