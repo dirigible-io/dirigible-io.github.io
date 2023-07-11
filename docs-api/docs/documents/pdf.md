@@ -18,57 +18,113 @@ API for generating a PDF files.
 
 ### Basic Usage
 
-```javascript
-const response = require("http/v4/response");
-const pdfDocuments = require("documents/v4/pdf");
+=== "ECMA6"
 
-const data = {
-    title: "Lorem Ipsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.",
-    columns: [{
-        name: "Id",
-        key: "id"
-    }, {
-        name: "First Name",
-        key: "firstName",
-    }, {
-        name: "Last Name",
-        key: "lastName"
-    }, {
-        name: "Age",
-        key: "age"
-    }],
-    rows: [{
-        id: 1001,
-        firstName: "John",
-        lastName: "Doe",
-        age: 29
-    }, {
-        id: 1002,
-        firstName: "Jane",
-        lastName: "Doe",
-        age: 26
-    }, {
-        id: 1003,
-        firstName: "Joe",
-        lastName: "Doe",
-        age: 44
-    }, {
-        id: 1004,
-        firstName: "Jill",
-        lastName: "Doe",
-        age: 40
-    }]
-};
+    ```javascript
+    import { response } from "@dirigible/http";
+    import { pdf } from "@dirigible/pdf";
+    
+    const data = {
+        title: "Lorem Ipsum",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.",
+        columns: [{
+            name: "Id",
+            key: "id"
+        }, {
+            name: "First Name",
+            key: "firstName",
+        }, {
+            name: "Last Name",
+            key: "lastName"
+        }, {
+            name: "Age",
+            key: "age"
+        }],
+        rows: [{
+            id: 1001,
+            firstName: "John",
+            lastName: "Doe",
+            age: 29
+        }, {
+            id: 1002,
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 26
+        }, {
+            id: 1003,
+            firstName: "Joe",
+            lastName: "Doe",
+            age: 44
+        }, {
+            id: 1004,
+            firstName: "Jill",
+            lastName: "Doe",
+            age: 40
+        }]
+    };
+    
+    let document = pdf.generateTable(data);
+    
+    response.setContentType("application/pdf");
+    response.setHeader('Content-Disposition', 'filename="data.pdf"');
+    response.write(document);
+    response.flush();
+    response.close();
+    ```
 
-let pdf = pdfDocuments.generateTable(data);
+=== "CommonJS"
 
-response.setContentType("application/pdf");
-response.setHeader('Content-Disposition', 'filename="data.pdf"');
-response.write(pdf);
-response.flush();
-response.close();
-```
+    ```javascript
+    const response = require("http/v4/response");
+    const pdfDocuments = require("documents/v4/pdf");
+    
+    const data = {
+        title: "Lorem Ipsum",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia fermentum magna, sit amet accumsan felis auctor ac.",
+        columns: [{
+            name: "Id",
+            key: "id"
+        }, {
+            name: "First Name",
+            key: "firstName",
+        }, {
+            name: "Last Name",
+            key: "lastName"
+        }, {
+            name: "Age",
+            key: "age"
+        }],
+        rows: [{
+            id: 1001,
+            firstName: "John",
+            lastName: "Doe",
+            age: 29
+        }, {
+            id: 1002,
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 26
+        }, {
+            id: 1003,
+            firstName: "Joe",
+            lastName: "Doe",
+            age: 44
+        }, {
+            id: 1004,
+            firstName: "Jill",
+            lastName: "Doe",
+            age: 40
+        }]
+    };
+    
+    let pdf = pdfDocuments.generateTable(data);
+    
+    response.setContentType("application/pdf");
+    response.setHeader('Content-Disposition', 'filename="data.pdf"');
+    response.write(pdf);
+    response.flush();
+    response.close();
+    ```
 
 ### Functions
 
