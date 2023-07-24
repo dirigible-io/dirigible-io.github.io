@@ -8,12 +8,12 @@ PDF
 API for generating a PDF files.
 
 === "Overview"
-- Module: `documents/v4/pdf`
-- Alias: `documents/pdf`
+- Module: `pdf/pdf`
+- Alias: `pdf/pdf`
 - Definition: [https://github.com/eclipse/dirigible/issues/763](https://github.com/eclipse/dirigible/issues/763)
-- Source: [/documents/v4/pdf.js](https://github.com/dirigiblelabs/api-documents/blob/master/documents/v4/pdf.js)
-- Facade: [PDFFacade](https://github.com/eclipse/dirigible/blob/master/api/api-facade/api-documents/src/main/java/org/eclipse/dirigible/api/v3/documents/PDFFacade.java)
-- Status: `NOT YET MIGRATED`
+- Source: [/documents/v4/pdf.js](https://github.com/eclipse/dirigible/blob/master/components/api-pdf/src/main/resources/META-INF/dirigible/pdf/pdf.js)
+- Facade: [PDFFacade](https://github.com/eclipse/dirigible/blob/master/components/api-pdf/src/main/java/org/eclipse/dirigible/components/api/pdf/PDFFacade.java)
+- Status: `stable`
 
 
 ### Basic Usage
