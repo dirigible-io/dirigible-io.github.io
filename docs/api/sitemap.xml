@@ -81,11 +81,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/documents/pdf/</loc>
-         <lastmod>2023-07-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/api/etcd/client/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
@@ -231,6 +226,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/pdf/pdf/</loc>
+         <lastmod>2023-07-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/platform/command/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
@@ -287,11 +287,6 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/api/redis/client/</loc>
-         <lastmod>2023-07-24</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/api/security/oauth/</loc>
          <lastmod>2023-07-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
