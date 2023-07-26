@@ -32,6 +32,17 @@ hide:
 		</div>
 	</a>
   </div>
+  <div class="column">
+    <a href="overview/architecture">
+		<div class="card">
+			<div class="container">
+			<img src="images/homepage/architecture.svg" alt="Architecture" style="width:200px;height:200px">
+			<div class="overlay">Understand the nuts and bolts.</div>
+			</div>
+		<p><button>Architecture</button></p>
+		</div>
+	</a>
+  </div>
 </div>
 
 ## More helpful information
@@ -67,17 +78,6 @@ hide:
 			<div class="overlay">Review major features.</div>
 			</div>
 		<p><button>Features</button></p>
-		</div>
-	</a>
-  </div> 
-  <div class="column">
-    <a href="overview/architecture">
-		<div class="card">
-			<div class="container">
-			<img src="images/homepage/architecture.svg" alt="Architecture" style="width:200px;height:200px">
-			<div class="overlay">Understand the nuts and bolts.</div>
-			</div>
-		<p><button>Architecture</button></p>
 		</div>
 	</a>
   </div>
