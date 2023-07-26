@@ -32,17 +32,6 @@ hide:
 		</div>
 	</a>
   </div>
-  <div class="column">
-    <a href="../samples/tutorials/contributing-to-ide-modules/">
-		<div class="card">
-			<div class="container">
-			<img src="images/homepage/tutorials.svg" alt="Tutorials" style="width:200px;height:200px">
-			<div class="overlay">Understand how to do things.</div>
-			</div>
-		<p><button>Tutorials</button></p>
-		</div>
-	</a>
-  </div> 
 </div>
 
 ## More helpful information
@@ -100,17 +89,6 @@ hide:
 			<div class="overlay">Learn more about Enterprise JavaScript API availability, versions, and status.</div>
 			</div>
 		<p><button>API</button></p>
-		</div>
-	</a>
-  </div>
-  <div class="column">
-    <a href="https://www.dirigible.io/samples/">
-		<div class="card">
-			<div class="container">
-			<img src="images/homepage/samples.svg" alt="Samples" style="width:200px;height:200px">
-			<div class="overlay">Try out sample apps.</div>
-			</div>
-		<p><button>Samples</button></p>
 		</div>
 	</a>
   </div>
