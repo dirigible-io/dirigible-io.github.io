@@ -400,6 +400,14 @@ Parameter     | Description | Default*
 **DIRIGIBLE_ODATA_HANDLER_EXECUTOR_TYPE**   | The type of the JavaScript engine to be used for event handlers in OData | 
 **DIRIGIBLE_ODATA_HANDLER_EXECUTOR_ON_EVENT**   | The location of the wrapper helper to be used for event handlers in OData | 
 
+#### FTP
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_FTP_USERNAME**   | The FTP server username | _`admin`_
+**DIRIGIBLE_FTP_PASSWORD**   | The FTP server password | _`admin`_
+**DIRIGIBLE_FTP_PORT**   | The location of the wrapper helper to be used for event handlers in OData | _`8022`_
+
 
 ### Operations
 ---
