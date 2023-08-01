@@ -406,7 +406,15 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_FTP_USERNAME**   | The FTP server username | _`admin`_
 **DIRIGIBLE_FTP_PASSWORD**   | The FTP server password | _`admin`_
-**DIRIGIBLE_FTP_PORT**   | The location of the wrapper helper to be used for event handlers in OData | _`8022`_
+**DIRIGIBLE_FTP_PORT**   | The FTP server port | _`8022`_
+
+#### SFTP
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_SFTP_USERNAME**   | The SFTP server username | _`admin`_
+**DIRIGIBLE_SFTP_PASSWORD**   | The SFTP server password | _`admin`_
+**DIRIGIBLE_SFTP_PORT**   | The SFTP server port | _`8022`_
 
 
 ### Operations
