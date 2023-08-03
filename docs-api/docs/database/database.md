@@ -132,6 +132,7 @@ Function     | Description | Returns
 **setClob(index, value)**   | Sets a parameter of type clob | -
 **setBlob(index, value)**   | Sets a parameter of type blob | -
 **setBytes(index, value)**   | Sets a parameter of type bytes | -
+**setBinaryStream(index, inputStreamValue, length?)**   | Sets a parameter of type binary stream | -
 **setDouble(index, value)**   | Sets a parameter of type double | -
 **setFloat(index, value)**   | Sets a parameter of type float | -
 **setInt(index, value)**   | Sets a parameter of type integer | -
