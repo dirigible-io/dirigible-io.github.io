@@ -86,5 +86,5 @@ Function     | Description | Returns
 **save(name, entry)**   | Save the `entry` in the collection with `name` | *-*
 **list(name)**   | List all the entris in the collection with `name` | *Array of Objects*
 **get(name, id)**   | Get the entry from the collection with `name` by its `id` | *Object*
-**delete(name, id)**   | Delete the entry from the collection with `name` by its `id` | *-*
+**deleteEntry(name, id)**   | Delete the entry from the collection with `name` by its `id` | *-*
 
