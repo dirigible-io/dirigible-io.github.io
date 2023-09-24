@@ -27,8 +27,12 @@ response.println("Hello World!");
 
 Explore some of the following core APIs:
 
-- [Console](console)
+- [Console](builtin/console)
 - [HTTP Client](http/client/)
 - [HTTP Request](http/request/)
-- [Database](database/)
+- [HTTP REST Services](http/rs/)
+- [Database](database/database)
+- [Query](database/query)
 - [Base64](utils/base64/)
+- [Files](io/files/)
+
