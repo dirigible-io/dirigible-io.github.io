@@ -2529,16 +2529,16 @@
 
 
 <h1 id="eclipse-dirigible-api">Eclipse Dirigible<sup>&trade;</sup> API</h1>
-<p>Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status. The Guidelines how to develop your own APIs can be found at: <a href="https://github.com/eclipse/dirigible/wiki/api-v4-guidelines">https://github.com/eclipse/dirigible/wiki/api-v4-guidelines</a>.</p>
+<p>Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent information about the Enterprise JavaScript API availability, versions and status.</p>
 <p><img alt="API" src="images/api.svg" /></p>
 <h3 id="hello-world">Hello World</h3>
 <ol>
 <li>Create new project: <code>hello-world</code></li>
-<li>Create new file: <code>hello-world.js</code></li>
+<li>Create new file: <code>hello-world.mjs</code></li>
 <li>Copy and paste the sample code.</li>
 <li>Save the changes.</li>
 <li>See the result in the <code>Preview</code> tab.
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></li>
