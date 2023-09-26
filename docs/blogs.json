@@ -1,10 +1,5 @@
 [
   {
-    "location": "2022/01/14/dirigible-vscode-theia-custom-editors.md",
-    "title": "Eclipse Dirigible vs Visual Studio Code vs Eclipse Theia - Custom Editors",
-    "description": "In this article we are going to focus on the overall design differences between the IDEs. "
-  },
-  {
     "location": "2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md",
     "title": "Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let\\'s Encrypt, PostgreSQL and Keycloak",
     "description": "In this article we are going to setup а custom domain for а Dirigible application in а Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak."
@@ -23,5 +18,10 @@
     "location": "2023/01/16/http-decorators.md",
     "title": "JavaScript Decorators in Eclipse Dirigible",
     "description": "In this article we are going to take a look at the HTTP JS decorators of Eclipse Dirigible"
+  },
+  {
+    "location": "2023/09/26/java-and-graaljs-update.md",
+    "title": "Eclipse Dirigible's Latest Update: Java 21 and GraalJS 23.1.0!",
+    "description": "In the dynamic world of software development, staying up-to-date is key"
   }
 ]
