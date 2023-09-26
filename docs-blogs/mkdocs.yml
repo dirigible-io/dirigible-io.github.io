@@ -5,6 +5,7 @@ nav:
     - 'Blogs': 'index.md'
     - '2023':
       - 'JavaScript Decorators in Eclipse Dirigible': '2023/01/16/http-decorators.md'
+      - 'Java 21 and GraalJS 23.1.0!': '2023/09/26/java-and-graaljs-update.md'
     - '2022':
       - 'Amazon Quantum Ledger Database with Eclipse Dirigible': '2022/09/26/qldb-repository-api-guide.md'
       - 'Connecting Eclipse Dirigible with SendGrid SMTP Relay': '2022/09/12/sendgrid-smtp-relay-setup.md'
