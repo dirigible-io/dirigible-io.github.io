@@ -1,10 +1,5 @@
 [
   {
-    "location": "2022/08/10/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.md",
-    "title": "Custom Domain in Google Kubernetes Engine with GCP Cloud DNS, Cloud SQL, Istio, Let\\'s Encrypt, PostgreSQL and Keycloak",
-    "description": "In this article we are going to setup а custom domain for а Dirigible application in а Google Kubernetes Engine cluster with GCP Cloud DNS, GCP Cloud SQL Postgre, Istio, Let's encrypt and Keycloak."
-  },
-  {
     "location": "2022/09/12/sendgrid-smtp-relay-setup.md",
     "title": "Connecting Eclipse Dirigible with SendGrid SMTP Relay",
     "description": "In this article we are going to setup Twillio SendGrid's SMTP Relay with Eclipse Dirigible."
@@ -23,5 +18,10 @@
     "location": "2023/09/26/java-and-graaljs-update.md",
     "title": "Eclipse Dirigible's Latest Update: Java 21 and GraalJS 23.1.0!",
     "description": "In the dynamic world of software development, staying up-to-date is key"
+  },
+  {
+    "location": "2023/09/27/typescript-support.md",
+    "title": "TypeScript support",
+    "description": "\"In the ever-evolving world of web development, staying on top of the latest technologies is crucial for success\""
   }
 ]
