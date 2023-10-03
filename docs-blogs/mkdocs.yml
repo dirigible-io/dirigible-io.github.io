@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blogs': 'index.md'
     - '2023':
+      - 'TypeScript support': '2023/09/27/typescript-support.md'
       - 'Update to Java 21 and GraalJS 23.1.0': '2023/09/26/java-and-graaljs-update.md'
       - 'JavaScript Decorators in Eclipse Dirigible': '2023/01/16/http-decorators.md'
     - '2022':
