@@ -18,8 +18,8 @@ nav:
           - BPMN Process: 'tutorials/modeling/bpmn-process.md'
         - Customizations:
           - IDE:
-            - View: 'tutorials/customizations/create-view.md'
-            - Perspective: 'tutorials/customizations/create-perspective.md'
+            - View: 'tutorials/customizations/ide/create-view.md'
+            - Perspective: 'tutorials/customizations/ide/create-perspective.md'
           - Custom Stack:
             - 'tutorials/customizations/custom-stack/index.md'
             - Branding: 'tutorials/customizations/custom-stack/branding.md'
