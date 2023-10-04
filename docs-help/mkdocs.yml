@@ -47,10 +47,15 @@ nav:
         - Environment Variables: 'setup/setup-environment-variables.md'
       - Overview: 
         - 'overview/index.md'
+        - Features: 'overview/features.md'
+        - Architecture: 'overview/architecture.md'
         - Artifacts:
           - 'development/artifacts/index.md'
           - Data Files: 'development/artifacts/data-files.md'
           - Database Table: 'development/artifacts/database-table.md'
+        - Editors & Modelers: 'overview/editors-modelers.md'
+        - Engines: 'overview/engines.md'
+        - Runtime Services: 'overview/runtime-services.md'
         - Concepts:
           - 'development/concepts/index.md'
           - Dynamic Applications: 'development/concepts/dynamic-applications.md'
@@ -64,11 +69,6 @@ nav:
           - REST: 'development/concepts/rest.md'
           - Web Content: 'development/concepts/web-content.md'
           - Workspace: 'development/concepts/workspace.md'
-          - Editors & Modelers: 'overview/editors-modelers.md'
-          - Architecture: 'overview/architecture.md'
-          - Engines: 'overview/engines.md'
-          - Features: 'overview/features.md'
-          - Runtime Services: 'overview/runtime-services.md'
       - Extensions:
         - Extensions Overview: 'development/extensions/index.md'
         - Editor: 'development/extensions/editor.md'
@@ -127,11 +127,11 @@ nav:
           - Terminal: 'development/ide/views/terminal.md'
           - Web Sockets: 'development/ide/views/websockets.md'
           - Workspace: 'development/ide/views/workspace.md'
-      - Development & Operations: 'development/devops.md'
       - Developer Resources:
+        - Development & Operations: 'development/devops.md'
+        - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
         - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
         - Cheat Sheet: 'developer-resources/cheat-sheet.md'
-        - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
       - FAQ: 'overview/faq.md'
     - Community:
       - 'community.md'
