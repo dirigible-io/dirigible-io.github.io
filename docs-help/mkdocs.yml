@@ -3,7 +3,12 @@ site_url: https://www.dirigible.io/help/
 
 nav:
     - Welcome: 'index.md'
-    - Getting Started: 'development/index.md'
+    - Getting Started:
+      - 'development/index.md'
+      - Developer Resources:
+        - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
+        - Cheat Sheet: 'developer-resources/cheat-sheet.md'
+        - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
     - Overview: 
       - The Eclipse Dirigible Project: 'overview/index.md'
       - Editors & Modelers: 'overview/editors-modelers.md'
@@ -111,10 +116,6 @@ nav:
           - Terminal: 'development/ide/views/terminal.md'
           - Web Sockets: 'development/ide/views/websockets.md'
           - Workspace: 'development/ide/views/workspace.md'
-    - Developer Resources:
-      - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
-      - Cheat Sheet: 'developer-resources/cheat-sheet.md'
-      - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'
     - Community: 'community.md'  
 
 theme:
