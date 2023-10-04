@@ -5,6 +5,26 @@ nav:
     - Welcome: 'index.md'
     - Getting Started:
       - 'development/index.md'
+      - Setup: 
+        - Tomcat: 'setup/index.md'
+        - Docker: 'setup/docker.md'
+        - Kubernetes:
+          - 'setup/kubernetes/index.md'
+          - Google Kubernetes Engine: 'setup/kubernetes/google-kubernetes-engine.md'
+          - Azure Kubernetes Service: 'setup/kubernetes/azure-kubernetes-service.md'
+          - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
+          - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
+          - Addons:
+            - Keycloak: 'setup/kubernetes/addons/keycloak.md'
+            - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
+            - GCP DNS Zone: 'setup/kubernetes/addons/google-dns-zone.md'
+            - GKE cluster: 'setup/kubernetes/addons/gke-cluster.md'
+            - Azure DNS Zone: 'setup/kubernetes/addons/azure-dns-zone.md'
+            - Letsencrypt: 'setup/kubernetes/addons/letsencrypt.md'
+            - Istio: 'setup/kubernetes/addons/istio.md'
+          - Helm: 'setup/kubernetes/helm.md'
+        - Cloud Foundry: 'setup/cloud-foundry.md'
+        - Environment Variables: 'setup/setup-environment-variables.md'
       - Developer Resources:
         - Java Remote Debugging: 'developer-resources/java-remote-debugging.md'
         - Cheat Sheet: 'developer-resources/cheat-sheet.md'
@@ -19,26 +39,6 @@ nav:
       - FAQ: 'overview/faq.md'
       - License: 'overview/license.md'
       - Credits: 'overview/credits.md'
-    - Setup: 
-      - Tomcat: 'setup/index.md'
-      - Docker: 'setup/docker.md'
-      - Kubernetes:
-        - 'setup/kubernetes/index.md'
-        - Google Kubernetes Engine: 'setup/kubernetes/google-kubernetes-engine.md'
-        - Azure Kubernetes Service: 'setup/kubernetes/azure-kubernetes-service.md'
-        - Red Hat OpenShift: 'setup/kubernetes/red-hat-openshift.md'
-        - SAP BTP Kyma: 'setup/kubernetes/sap-btp-kyma.md'
-        - Addons:
-          - Keycloak: 'setup/kubernetes/addons/keycloak.md'
-          - PostgreSQL: 'setup/kubernetes/addons/postgresql.md'
-          - GCP DNS Zone: 'setup/kubernetes/addons/google-dns-zone.md'
-          - GKE cluster: 'setup/kubernetes/addons/gke-cluster.md'
-          - Azure DNS Zone: 'setup/kubernetes/addons/azure-dns-zone.md'
-          - Letsencrypt: 'setup/kubernetes/addons/letsencrypt.md'
-          - Istio: 'setup/kubernetes/addons/istio.md'
-        - Helm: 'setup/kubernetes/helm.md'
-      - Cloud Foundry: 'setup/cloud-foundry.md'
-      - Environment Variables: 'setup/setup-environment-variables.md'
     - Development:
       - Development & Operations: 'development/devops.md'
       - Artifacts:
