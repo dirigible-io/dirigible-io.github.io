@@ -5,6 +5,26 @@ nav:
     - Welcome: 'index.md'
     - Getting Started:
       - 'development/index.md'
+      - Tutorials:
+        - Development:
+          - Bookstore: 'tutorials/application-development/bookstore.md'
+          - File Upload: 'tutorials/application-development/file-upload.md'
+          - Scheduled Job: 'tutorials/application-development/job-console.md'
+          - Shell Command: 'tutorials/application-development/shell-command.md'
+          - Listener of a Queue: 'tutorials/application-development/listener-queue.md'
+          - Kafka Producer and Consumer: 'tutorials/application-development/kafka.md'
+        - Modeling:
+          - Generate Application from Model: 'tutorials/modeling/generate-application-from-model.md'
+          - BPMN Process: 'tutorials/modeling/bpmn-process.md'
+        - Customizations:
+          - IDE:
+            - View: 'tutorials/customizations/create-view.md'
+            - Perspective: 'tutorials/customizations/create-perspective.md'
+          - Custom Stack:
+            - 'tutorials/customizations/custom-stack/index.md'
+            - Branding: 'tutorials/customizations/custom-stack/branding.md'
+            - Facade: 'tutorials/customizations/custom-stack/facade.md'
+            - Dependency: 'tutorials/customizations/custom-stack/dependency.md'
       - Setup: 
         - Tomcat: 'setup/index.md'
         - Docker: 'setup/docker.md'
