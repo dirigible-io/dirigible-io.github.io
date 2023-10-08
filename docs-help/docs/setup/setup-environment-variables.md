@@ -139,6 +139,13 @@ Parameter     | Description | Default*
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | _`local` or `database`_
 **DIRIGIBLE_REPOSITORY_CACHE_ENABLED**   | Enable the usage of the repository cache | _`true`_
 
+### Lifecycle
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_PUBLISH_DISABLED**   | Disable publishing process in this instance | _`false`_
+
 #### Local Repository
 
 Parameter     | Description | Default*
