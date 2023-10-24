@@ -2923,15 +2923,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-a-hello-worldjs-service" class="md-nav__link">
-    Create a hello-world.js service
+  <a href="#create-a-hello-world-service" class="md-nav__link">
+    Create a Hello World service
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#update-the-hello-worldjs-service" class="md-nav__link">
-    Update the hello-world.js service
+  <a href="#update-the-hello-world-service" class="md-nav__link">
+    Update the Hello World service
   </a>
   
 </li>
@@ -2969,86 +2969,183 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<h3 id="overview">Overview</h3>
-<p>This guide explains how to setup an Eclipse Dirigible instance and how to use it to build your very first <code>hello-world.js</code> service. The references section below points to the documentation with more technical details for the different aspects of the platform and its components and capabilities.</p>
-<h3 id="setup">Setup</h3>
-<p>In case you are using the shared <a href="http://trial.dirigible.io">trial.dirigible.io</a> environment, you can skip this section.</p>
-<h4 id="get-the-binary">Get the binary</h4>
+<h2 id="overview">Overview</h2>
+<p>This guide explains how to setup an Eclipse Dirigible instance and how to use it to build your very first <code>Hello World</code> service. The references section below points to the documentation with more technical details for the different aspects of the platform and its components and capabilities.</p>
+<h2 id="setup">Setup</h2>
+<div class="admonition note">
+<p class="admonition-title">Trial Environment</p>
+<p>In case you are using the shared <a href="https://trial.apps.dirigible.io">https://trial.apps.dirigible.io</a> environment, you can skip this section.</p>
+</div>
+<h3 id="get-the-binary">Get the binary</h3>
 <ul>
 <li>In case you want to use a prebuild package, you can get the one built for your environment from the <a href="http://download.dirigible.io/">downloads</a> section.</li>
 <li>To build Eclipse Dirigible from sources by yourself, just follow the instructions in the <a href="https://github.com/eclipse/dirigible/blob/master/README.md#build">README</a>.</li>
 </ul>
-<h4 id="choose-the-environment">Choose the environment</h4>
+<h3 id="choose-the-environment">Choose the environment</h3>
 <ul>
 <li>You can choose one of the <a href="../setup/">setup options</a> available to get an Eclipse Dirigible instance depending on your target environment.</li>
-<li>A shared trial instance is also available and can be accessed from here:</li>
+<li>A shared trial instance is also available and can be accessed from here: <a href="https://trial.apps.dirigible.io">https://trial.apps.dirigible.io</a></li>
 </ul>
-<p><a href="http://trial.dirigible.io">trial.dirigible.io</a></p>
+<div class="admonition info">
+<p class="admonition-title">Environment Variables</p>
 <p>There are many <a href="../setup/setup-environment-variables/">configuration options</a>, so you can connect to different databases, use different platforms, choose a specific set of plugins, and many more.</p>
-<h4 id="access-the-instance">Access the instance</h4>
-<p>In case of the standard setup on Apache Tomcat on your local machine, you can point your browser to the location:</p>
-<p><a href="http://localhost:8080">http://localhost:8080</a></p>
-<h3 id="hello-world-application">Hello World Application</h3>
-<h4 id="create-a-hello-worldjs-service">Create a <code>hello-world.js</code> service</h4>
+</div>
+<h3 id="access-the-instance">Access the instance</h3>
+<p>In case of the standard setup on Apache Tomcat on your local machine, you can point your browser to the location: <a href="http://localhost:8080">http://localhost:8080</a></p>
+<h2 id="hello-world-application">Hello World Application</h2>
+<h3 id="create-a-hello-world-service">Create a <code>Hello World</code> service</h3>
 <p>Once you have a running Eclipse Dirigible instance, you can start with your project:</p>
 <ol>
+<li>Right-click inside the <code>Projects</code> view.</li>
 <li>
-<p>Choose <strong>File</strong> <strong>&rarr;</strong> <strong>New</strong> <strong>&rarr;</strong> <strong>Project</strong>.</p>
+<p>From the menu select the <strong>New Project</strong> option.</p>
 <p><img alt="New Project" src="../images/getting_started/new-project-hello.png" /></p>
 </li>
 <li>
-<p>Enter a name and create the project. </p>
+<p>Enter <code>hello-world</code> for the name of the project and click the <strong>Create</strong> button. </p>
 <p><img alt="Create Project" src="../images/getting_started/create-project-hello.png" /></p>
 </li>
 <li>
-<p>Right-click on the project icon in the <strong>Workspace</strong> view and choose <strong>New</strong> <strong>&rarr;</strong> <strong>Javascript Service</strong>.</p>
-<p><img alt="Create Javascript Service" src="../images/getting_started/create-javascript.png" /></p>
-</li>
-<li>
-<p>Enter a name for the service.</p>
-</li>
-<li>
-<p>Double-click on the file icon to open the file in the editor on the right. The file already contains the <code>hello world.js</code> service implementation.</p>
-<p><img alt="Service Impletentation" src="../images/getting_started/service-implementation.png" /></p>
-</li>
-<li>
-<p>Right-click on the project icon and choose <strong>Publish</strong>.</p>
-<p><img alt="Publish Project" src="../images/getting_started/publish-project.png" /></p>
-</li>
-<li>
-<p>With the file icon selected in the <strong>Workspace</strong> view, check the result of the execution of our fancy server-side Javascript service in the <strong>Preview</strong> view.</p>
-<p><img alt="Preview Project" src="../images/getting_started/preview-project.png" /></p>
+<p>Right-click on the <code>hello-world</code> project in the <code>Projects</code> view and choose <strong>TypeScript</strong>, <strong>JavaScript ECMA6</strong> or <strong>JavaScript CommonJS</strong> service from the <strong>New</strong> dropdown:</p>
 </li>
 </ol>
-<h4 id="update-the-hello-worldjs-service">Update the <code>hello-world.js</code> service</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript ECMA6</label><label for="__tabbed_1_3">JavaScript CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Select the <strong>New</strong> <strong>&rarr;</strong> <strong>TypeScript Service</strong> option:</li>
+</ul>
+<p><img alt="Create TypeScript Service" src="../images/getting_started/create-typescript.png" /></p>
+<ul>
+<li>Enter <code>service.ts</code> for the name of the <strong>TypeScript Service</strong>:</li>
+</ul>
+<p><img alt="Create TypeScript Service" src="../images/getting_started/new-file-ts.png" /></p>
+<ul>
+<li>Double-click on the <code>service.ts</code> to open the file in the editor on the right.</li>
+</ul>
+<p><img alt="Service Impletentation" src="../images/getting_started/service-implementation-ts.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The file already contains a <code>Hello World</code> service implementation. As it's not specified otherwise, the service can be executed by performing any of the following HTTP methods: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> and <code>PATCH</code>.</p>
+</div>
+<ul>
+<li>Right-click on the <code>hello-world</code> project and choose <strong>Publish</strong> option from the menu:</li>
+</ul>
+<p><img alt="Publish Project" src="../images/getting_started/publish-project.png" /></p>
+<ul>
+<li>With the <code>service.ts</code> selected in the <code>Projects</code> view, check the result of the execution of the server-side <strong>TypeScript Service</strong> in the <code>Preview</code> view:</li>
+</ul>
+<p><img alt="Preview Project" src="../images/getting_started/preview-project-ts.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>TypeScript Service</strong> is published and available at the http://localhost:8080/services/ts/hello-world/service.ts URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Select the <strong>New</strong> <strong>&rarr;</strong> <strong>JavaScript ESM Service</strong> option:</li>
+</ul>
+<p><img alt="Create JavaScript ESM Service" src="../images/getting_started/create-ecma6.png" /></p>
+<ul>
+<li>Enter <code>service.mjs</code> for the name of the <strong>JavaScript ESM Service</strong>:</li>
+</ul>
+<p><img alt="Create JavaScript ESM Service" src="../images/getting_started/new-file-mjs.png" /></p>
+<ul>
+<li>Double-click on the <code>service.mjs</code> to open the file in the editor on the right.</li>
+</ul>
+<p><img alt="Service Impletentation" src="../images/getting_started/service-implementation-mjs.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The file already contains a <code>Hello World</code> service implementation. As it's not specified otherwise, the service can be executed by performing any of the following HTTP methods: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> and <code>PATCH</code>.</p>
+</div>
+<ul>
+<li>Right-click on the <code>hello-world</code> project and choose <strong>Publish</strong> option from the menu:</li>
+</ul>
+<p><img alt="Publish Project" src="../images/getting_started/publish-project.png" /></p>
+<ul>
+<li>With the <code>service.mjs</code> selected in the <code>Projects</code> view, check the result of the execution of the server-side <strong>JavaScript ESM Service</strong> in the <code>Preview</code> view:</li>
+</ul>
+<p><img alt="Preview Project" src="../images/getting_started/preview-project-mjs.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>JavaScript ESM Service</strong> is published and available at the http://localhost:8080/services/js/hello-world/service.mjs URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Select the <strong>New</strong> <strong>&rarr;</strong> <strong>JavaScript CJS Service</strong> option:</li>
+</ul>
+<p><img alt="Create JavaScript CJS Service" src="../images/getting_started/create-commonjs.png" /></p>
+<ul>
+<li>Enter <code>service.js</code> for the name of the <strong>JavaScript CJS Service</strong>:</li>
+</ul>
+<p><img alt="Create JavaScript ESM Service" src="../images/getting_started/new-file-js.png" /></p>
+<ul>
+<li>Double-click on the <code>service.js</code> to open the file in the editor on the right.</li>
+</ul>
+<p><img alt="Service Impletentation" src="../images/getting_started/service-implementation-js.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The file already contains a <code>Hello World</code> service implementation. As it's not specified otherwise, the service can be executed by performing any of the following HTTP methods: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> and <code>PATCH</code>.</p>
+</div>
+<ul>
+<li>Right-click on the <code>hello-world</code> project and choose <strong>Publish</strong> option from the menu:</li>
+</ul>
+<p><img alt="Publish Project" src="../images/getting_started/publish-project.png" /></p>
+<ul>
+<li>With the <code>service.js</code> selected in the <code>Projects</code> view, check the result of the execution of the server-side <strong>JavaScript CJS Service</strong> in the <code>Preview</code> view:</li>
+</ul>
+<p><img alt="Preview Project" src="../images/getting_started/preview-project-js.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>JavaScript CJS Service</strong> is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="update-the-hello-world-service">Update the <code>Hello World</code> service</h3>
 <ol>
-<li>
-<p>Go to line 3 in the editor and change the <code>Hello World!</code> message to <code>Hello Dirigible!</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
+<li>Go to line 3 in the editor and change the <code>Hello World!</code> message to <code>Hello Eclipse Dirigible!</code>.</li>
+</ol>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript ECMA6</label><label for="__tabbed_2_3">JavaScript CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
-</span><span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>Save the file: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span> for Windows, <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> for macOS</p>
-</li>
+<span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<ol>
+<li>Save the file: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span> for Windows, <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> for macOS</li>
 <li>
 <p>The output in the <strong>Preview</strong> view changes immediately.</p>
 <div class="admonition info">
 <p class="admonition-title">Note</p>
-<p>This is due to the default configuration of <code>auto-publish on save</code>. You can find more about this dynamic behavior in <a href="concepts/dynamic-applications">Dynamic Applications</a>.</p>
+<p>This is due to the default configuration of <code>auto-publish on save</code>. You can find more about this dynamic behavior in <a href="/help/development/concepts/dynamic-applications/">Dynamic Applications</a>.</p>
 </div>
 </li>
 </ol>
-<h3 id="references">References</h3>
-<p>So far we saw how easy it is to create and modify a RESTful service, but Dirigible capabilities goes way beyond that:</p>
+<h2 id="references">References</h2>
+<p>So far we saw how easy it is to create and modify a <code>Hello World</code> RESTful service, but Eclipse Dirigible capabilities goes way beyond that:</p>
 <ul>
-<li>You can explore the <a href="../../samples/">samples</a> section for more scenarios.</li>
-<li>If you would like to build complex services, you can go to the <a href="../../api/">API</a> section. </li>
-<li>If you are curious what you can do with Eclipse Dirigible apart from writing server-side JavaScript services, you can have a look at the <a href="../overview/features/">features</a> section.</li>
-<li>In case you are interested in <code>modeling</code> and <code>generation</code> with the <code>Low-Code/No-Code</code> tooling of Eclipse Dirigible, you can read about <a href="concepts/entity-service">entity data models</a> and <a href="concepts/generation">generation</a>.</li>
+<li>You can explore the <a href="/help/tutorials/application-development/bookstore/">Tutorials</a> section for more scenarios.</li>
+<li>If you would like to build complex services, you can go to the <a href="/api/">API</a> section. </li>
+<li>If you are curious what you can do with Eclipse Dirigible apart from writing server-side JavaScript services, you can have a look at the <a href="/help/overview/features/">features</a> section.</li>
+<li>In case you are interested in <code>Modeling</code> and <code>Generation</code> with the <code>Low-Code/No-Code</code> tooling of Eclipse Dirigible, you can read about <a href="/help/development/concepts/entity-service/">Entity Data Models</a> and <a href="/help/development/concepts/generation/">Generation</a>.</li>
 </ul>
 
 
