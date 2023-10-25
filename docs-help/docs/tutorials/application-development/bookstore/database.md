@@ -82,7 +82,7 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 !!! info "Save & Publish"
     
 	Saving the file will trigger a _`Publish`_ action, which will create the database table in the target database schema.
-	Usually this action should take several seconds to complete, after which the database table would be visible in the [Database Perspective](/help/development/ide/perspectives/database/).
+	Usually this action should take several seconds to complete, after which the database table would be visible in the [`Database Perspective`](/help/development/ide/perspectives/database/).
 
 	_**Note:** Manual _`Publish`_ can be performed by right clicking on the artifact and selecting `Publish` from the context menu. The _`Publish`_ action can be performed also on project level._
 
@@ -133,9 +133,17 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 1. Save the changes and close the _`Code Editor`_.
 1. Double click on `books.csvim` to view the definition with the _[`CSVIM Editor`](/help/development/ide/editor-csvim/)_.
 
+![Database](database.png)
+
 !!! info "Save & Publish"
     
 	Once the file is saved a _`Publish`_ action would be triggered, which will result into the data from the CSV file to be imported to the database table.
+
+    _**Note:** Navigate to the [`Database Perspective`](/help/development/ide/perspectives/database/) to check that the `BABYLON_BOOKS` table is created and perform the following SQL query to check that the data from the CSV file is imported._
+
+    ```sql
+    select * from BABYLON_BOOKS;
+    ```
 
 ### Repository
 

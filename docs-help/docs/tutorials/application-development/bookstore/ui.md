@@ -641,9 +641,15 @@ It contains a Books `Perspective`, `View` for displaying the data and `Dialog` f
 ## Publish and Preview
 
 1. _(optional)_ Right click on the `babylon-project` project and select `Publish`.
-1. Select the `index.html` in the `Projects` view
-1. In the `Preview` window you should see the web page for books management.
+1. Select the `babylon-project/ui/index.html` in the `Projects` view
+1. In the `Preview` window you should see the web page for management of Books.
 1. Try to enter a few books to test how it works.
+
+![Application](application.png)
+
+!!! info "Application URL"
+
+    The Bookstore Application is available at: [http://localhost:8080/services/web/babylon-project/ui/](http://localhost:8080/services/web/babylon-project/ui/)
 
 ## Summary
 
