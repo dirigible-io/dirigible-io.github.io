@@ -7,7 +7,11 @@ nav:
       - 'development/index.md'
       - Tutorials:
         - Development:
-          - Bookstore: 'tutorials/application-development/bookstore.md'
+          - Bookstore:
+            - 'tutorials/application-development/bookstore/index.md'
+            - Database: 'tutorials/application-development/bookstore/database.md'
+            - API: 'tutorials/application-development/bookstore/api.md'
+            - User Interface: 'tutorials/application-development/bookstore/ui.md'
           - File Upload: 'tutorials/application-development/file-upload.md'
           - Scheduled Job: 'tutorials/application-development/job-console.md'
           - Shell Command: 'tutorials/application-development/shell-command.md'

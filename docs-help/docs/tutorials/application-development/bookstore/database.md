@@ -242,4 +242,4 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 
     Continue to the [API](api) section to build a REST API for the Book entity.
 
-    > _**Note:** The complete content of the Bookstore tutorial is available at: https://github.com/dirigiblelabs/tutorial-babylon-project_
+    > _**Note:** The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)_

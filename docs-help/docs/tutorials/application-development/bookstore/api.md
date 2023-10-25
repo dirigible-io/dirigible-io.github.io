@@ -111,4 +111,4 @@ It contains a Books `REST API`.
 
     Continue to the [User Interface](ui) section to build a UI for the Book entity.
 
-    > _**Note:** The complete content of the Bookstore tutorial is available at: https://github.com/dirigiblelabs/tutorial-babylon-project_
+    > _**Note:** The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)_

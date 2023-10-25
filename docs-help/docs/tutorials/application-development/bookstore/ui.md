@@ -655,4 +655,4 @@ It contains a Books `Perspective`, `View` for displaying the data and `Dialog` f
     - Books `View` to display the books data.
     - Books `Dialog` for modifing the books data.
 
-    > _**Note:** The complete content of the Bookstore tutorial is available at: https://github.com/dirigiblelabs/tutorial-babylon-project_
+    > _**Note:** The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)_

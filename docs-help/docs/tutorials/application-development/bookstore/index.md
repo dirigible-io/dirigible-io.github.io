@@ -18,4 +18,4 @@ It contains a database table definition, a RESTful service and a web page for ma
 
 !!! note
 
-    The complete content of the Bookstore tutorial is available at: https://github.com/dirigiblelabs/tutorial-babylon-project
+    The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)
