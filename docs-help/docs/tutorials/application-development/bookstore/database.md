@@ -240,6 +240,6 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
     - Initial data imported into the database table.
     - TypeScript repository class to perform basic data operations.
 
-    Continue to the [API](api) section to build a REST API for the Book entity.
+    Continue to the [API](../api/) section to build a REST API for the Book entity.
 
     > _**Note:** The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)_

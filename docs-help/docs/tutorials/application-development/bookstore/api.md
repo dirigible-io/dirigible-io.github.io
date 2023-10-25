@@ -109,6 +109,6 @@ It contains a Books `REST API`.
 
     - REST API and business logic to perform CRUD operations on the Book entity.
 
-    Continue to the [User Interface](ui) section to build a UI for the Book entity.
+    Continue to the [User Interface](../ui/) section to build a UI for the Book entity.
 
     > _**Note:** The complete content of the Bookstore tutorial is available at: [https://github.com/dirigiblelabs/tutorial-babylon-project](https://github.com/dirigiblelabs/tutorial-babylon-project)_
