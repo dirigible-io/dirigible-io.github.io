@@ -3201,7 +3201,7 @@ It contains a database table definition for the <code>BOOKS</code> table, <code>
 <div class="admonition info">
 <p class="admonition-title">Save &amp; Publish</p>
 <p>Saving the file will trigger a <em><code>Publish</code></em> action, which will create the database table in the target database schema.
-Usually this action should take several seconds to complete, after which the database table would be visible in the <a href="/help/development/ide/perspectives/database/">Database Perspective</a>.</p>
+Usually this action should take several seconds to complete, after which the database table would be visible in the <a href="/help/development/ide/perspectives/database/"><code>Database Perspective</code></a>.</p>
 <p><em><strong>Note:</strong> Manual </em><code>Publish</code><em> can be performed by right clicking on the artifact and selecting <code>Publish</code> from the context menu. The </em><code>Publish</code><em> action can be performed also on project level.</em></p>
 </div>
 <h3 id="csv-data">CSV Data</h3>
@@ -3253,9 +3253,13 @@ Usually this action should take several seconds to complete, after which the dat
 </li>
 <li>Double click on <code>books.csvim</code> to view the definition with the <em><a href="/help/development/ide/editor-csvim/"><code>CSVIM Editor</code></a></em>.</li>
 </ol>
+<p><img alt="Database" src="../database.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Save &amp; Publish</p>
 <p>Once the file is saved a <em><code>Publish</code></em> action would be triggered, which will result into the data from the CSV file to be imported to the database table.</p>
+<p><em><strong>Note:</strong> Navigate to the <a href="/help/development/ide/perspectives/database/"><code>Database Perspective</code></a> to check that the <code>BABYLON_BOOKS</code> table is created and perform the following SQL query to check that the data from the CSV file is imported.</em></p>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">BABYLON_BOOKS</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 </div>
 <h3 id="repository">Repository</h3>
 <ol>
