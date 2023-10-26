@@ -590,6 +590,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -3007,6 +3014,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
   </a>
@@ -3041,21 +3055,21 @@
 
 
 <h1 id="file-upload">File Upload</h1>
-<h3 id="steps">Steps</h3>
+<h2 id="overview">Overview</h2>
+<p>This sample shows how to create a simple web application for uploading files.</p>
+<h2 id="steps">Steps</h2>
 <ol>
 <li>Create a project named <code>file-upload-project</code>.</li>
 <li>Right click on the <code>file-upload-project</code> project and select <strong>New &#8594; TypeScript Service</strong>.</li>
 <li>Enter <code>service.ts</code> for the name of the TypeScript Service.</li>
 <li>
 <p>Replace the content with the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/upload&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">upload</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="w"></span>
 <span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">contentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getContentType</span><span class="p">();</span><span class="w"></span>
 <span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Content Type: </span><span class="si">${</span><span class="nx">contentType</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
@@ -3076,11 +3090,16 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">http/upload</p>
+<p>Take a look at the <a href="https://www.dirigible.io/api/http/upload/"><code>http/upload</code></a> documentation for more details about the API.</p>
+</div>
+<ol>
+<li>Right click on the <code>file-upload-project</code> project and select <strong>New &#8594; HTLM5 Page</strong>.</li>
+<li>Enter <code>index.html</code> for the name of the file.</li>
 <li>
-<p>Right click on the <code>file-upload-project</code> project and select <strong>New &#8594; HTLM5 Page</strong>.</p>
-</li>
-<li>
-<p>Enter <code>index.html</code> for the name of the file.</p>
+<p>Replace the content with the following code:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/services/ts/file-upload-project/service.ts&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
@@ -3096,18 +3115,16 @@
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Save &amp; Publish</p>
-<p>Saving the files will trigger a <em><code>Publish</code></em> action, which will build and deploy the <strong>TypeScript Service</strong> and the <strong>HTML5 Page</strong>.</p>
-<p>Select the <code>index.html</code> file and open the <code>Preview</code> view to test the file upload.</p>
+<p>Saving the files will trigger a <em><code>Publish</code></em> action, which will build and deploy the <strong>TypeScript Service</strong> and the <strong>HTML5 Page</strong>. Select the <code>index.html</code> file and open the <code>Preview</code> view to test the file upload.</p>
 </div>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition success">
-<p class="admonition-title">Section Completed</p>
+<p class="admonition-title">Tutorial Completed</p>
 <p>After completing the steps in this tutorial, you would have:</p>
 <ul>
 <li>HTML page to submit the uploaded file to the TypeScript service.</li>
 <li>Backend TypeScript service that would render the uploaded file.</li>
 </ul>
-<p>Continue to the <a href="https://www.dirigible.io/api/http/upload/"><code>http/upload</code></a> page for more details about the API.</p>
 <p><em><strong>Note:</strong> The complete content of the File Upload tutorial is available at: <a href="https://github.com/dirigiblelabs/tutorial-file-upload-project">https://github.com/dirigiblelabs/tutorial-file-upload-project</a></em></p>
 </div>
 
