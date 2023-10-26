@@ -511,11 +511,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/tutorials/application-development/job-console/</loc>
-         <lastmod>2023-10-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/help/tutorials/application-development/kafka/</loc>
          <lastmod>2023-10-26</lastmod>
          <changefreq>daily</changefreq>
@@ -547,6 +542,26 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/help/tutorials/application-development/bookstore/ui/</loc>
+         <lastmod>2023-10-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/tutorials/application-development/scheduled-job/</loc>
+         <lastmod>2023-10-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/tutorials/application-development/scheduled-job/database/</loc>
+         <lastmod>2023-10-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/tutorials/application-development/scheduled-job/handler/</loc>
+         <lastmod>2023-10-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/help/tutorials/application-development/scheduled-job/job/</loc>
          <lastmod>2023-10-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
