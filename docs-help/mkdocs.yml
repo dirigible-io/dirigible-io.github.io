@@ -12,8 +12,12 @@ nav:
             - Database: 'tutorials/application-development/bookstore/database.md'
             - API: 'tutorials/application-development/bookstore/api.md'
             - User Interface: 'tutorials/application-development/bookstore/ui.md'
+          - Scheduled Job:
+            - 'tutorials/application-development/scheduled-job/index.md'
+            - Database: 'tutorials/application-development/scheduled-job/database.md'
+            - Job Handler: 'tutorials/application-development/scheduled-job/handler.md'
+            - Scheduled Job: 'tutorials/application-development/scheduled-job/job.md'
           - File Upload: 'tutorials/application-development/file-upload.md'
-          - Scheduled Job: 'tutorials/application-development/job-console.md'
           - Shell Command: 'tutorials/application-development/shell-command.md'
           - Listener of a Queue: 'tutorials/application-development/listener-queue.md'
           - Kafka Producer and Consumer: 'tutorials/application-development/kafka.md'

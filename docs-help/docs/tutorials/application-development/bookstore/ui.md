@@ -653,9 +653,9 @@ It contains a Books `Perspective`, `View` for displaying the data and `Dialog` f
 
 ## Summary
 
-!!! success "Section Completed"
+!!! success "Tutorial Completed"
 
-    After completing the steps in this tutorial, you would have:
+    After completing all steps in this tutorial, you would have:
 
     - Extendable UI `Perspective` for the book related views.
     - Books `View` to display the books data.

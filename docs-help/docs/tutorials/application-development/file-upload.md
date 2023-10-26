@@ -69,7 +69,7 @@ This sample shows how to create a simple web application for uploading files.
 
     Saving the files will trigger a _`Publish`_ action, which will build and deploy the **TypeScript Service** and the **HTML5 Page**. Select the `index.html` file and open the `Preview` view to test the file upload.
 
-## Next Steps
+## Summary
 
 !!! success "Tutorial Completed"
 
