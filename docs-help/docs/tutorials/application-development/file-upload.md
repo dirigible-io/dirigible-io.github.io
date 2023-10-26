@@ -7,67 +7,71 @@ File Upload
 
 ### Steps
 
+1. Create a project named `file-upload-project`.
+1. Right click on the `file-upload-project` project and select **New &#8594; TypeScript Service**.
+1. Enter `service.ts` for the name of the TypeScript Service.
+1. Replace the content with the following code:
 
-1. Create a project **file_upload_project**
-2. Then create a JavaScript service named **my_file_upload.js**
-3. Replace the service code with the following content:
+    ```javascript
+    const upload = require("http/upload");
+    const request = require("http/request");
+    const response = require("http/response");
 
-#### File Upload Handler
+    if (request.getMethod() === "POST") {
+        if (upload.isMultipartContent()) {
+            const fileItems = upload.parseRequest();
+            for (i = 0; i < fileItems.size(); i++) {
+                const fileItem = fileItems.get(i);
+                const contentType = fileItem.getContentType();
+                console.log(`Content Type: ${contentType}`);
+                console.log(`Filename: ${fileItem.getOriginalFilename()}`);
+                // console.log(`Text: ${fileItem.getText()}`);
 
-```javascript
-
-var upload = require('http/v4/upload');
-var request = require('http/v4/request');
-var response = require('http/v4/response');
-
-if (request.getMethod() === "POST") {
-  if (upload.isMultipartContent()) {
-    var fileItems = upload.parseRequest();
-    for (i=0; i<fileItems.size(); i++) {
-      var fileItem = fileItems.get(i);
-      if (!fileItem.isFormField()) {
-        response.println("File Name: " + fileItem.getName());
-        response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
-      } else {
-        response.println("Field Name: " + fileItem.getFieldName());
-        response.println("Field Text: " + fileItem.getText());
-      }
+                response.setContentType(contentType);
+                response.write(fileItem.getBytesNative());
+            }
+        } else {
+            response.println("The request's content must be 'multipart'");
+        }
+    } else if (request.getMethod() === "GET") {
+        response.println("Use POST request.");
     }
-  } else {
-    response.println("The request's content must be 'multipart'");
-  }
-} else if (request.getMethod() === "GET") {
-  response.println("Use POST request.");
-}
 
-response.flush();
-response.close();
+    response.flush();
+    response.close();
+    ```
 
-```
+1. Right click on the `file-upload-project` project and select **New &#8594; HTLM5 Page**.
+1. Enter `index.html` for the name of the file.
 
-4. Then create a **HTML5** page named **my_upload.html**
-5. Replace the content with the following HTML code:
+    ```html
+    <html>
+      <body>
+        <form action="/services/ts/file-upload-project/service.ts" method="post" enctype="multipart/form-data">
+          <label for="file">Filename:</label>
+          <input type="file" name="file" id="file" multiple>
+          <br>
+          <input type="submit" name="submit" value="Submit">
+        </form>
+      </body>
+    </html>
+    ```
 
-#### File Upload Frontend
+!!! info "Save & Publish"
 
-```html
+    Saving the files will trigger a _`Publish`_ action, which will build and deploy the **TypeScript Service** and the **HTML5 Page**.
 
-<html>
-  <body>
-    <form action="/services/v4/js/file_upload_project/my_file_upload.js" method="post" enctype="multipart/form-data">
-      <label for="file">Filename:</label>
-      <input type="file" name="file" id="file" multiple>
-      <br>
-      <input type="submit" name="submit" value="Submit">
-    </form>
-  </body>
-</html>
+    Select the `index.html` file and open the `Preview` view to test the file upload.
 
-```
+## Next Steps
 
-6. Publish the project
-7. Select the **my_upload.html** file in the *Workspace* view and try to test by uploading a file in the *Preview*
+!!! success "Section Completed"
 
----
+    After completing the steps in this tutorial, you would have:
 
-For more information, see the *[API](../../../api/)* documentation.
+    - HTML page to submit the uploaded file to the TypeScript service.
+    - Backend TypeScript service that would render the uploaded file.
+
+    Continue to the [`http/upload`](https://www.dirigible.io/api/http/upload/) page for more details about the API.
+
+    _**Note:** The complete content of the File Upload tutorial is available at: [https://github.com/dirigiblelabs/tutorial-file-upload-project](https://github.com/dirigiblelabs/tutorial-file-upload-project)_

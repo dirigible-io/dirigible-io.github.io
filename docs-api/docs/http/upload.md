@@ -10,7 +10,7 @@ HTTP Upload is used to consume files posted as multipart request.
 === "Overview"
 - Module: `http/upload`
 - Definition: [https://github.com/eclipse/dirigible/issues/16](https://github.com/eclipse/dirigible/issues/16)
-- Source: [/http/upload.js](https://github.com/eclipse/dirigible/blob/master/components/api-http/src/main/resources/META-INF/dirigible/http/upload.js)
+- Source: [/http/upload.ts](https://github.com/eclipse/dirigible/blob/master/components/api-modules-javascript/src/main/resources/META-INF/dirigible/modules/src/http/upload.ts)
 - Status: `stable`
 - Group: `core`
 
@@ -25,16 +25,16 @@ HTTP Upload is used to consume files posted as multipart request.
 
 	if (request.getMethod() === "POST") {
 		if (upload.isMultipartContent()) {
-			let fileItems = upload.parseRequest();
-			for (i = 0; i < fileItems.size(); i++) {
-				let fileItem = fileItems.get(i);
-				if (!fileItem.isFormField()) {
-					response.println("File Name: " + fileItem.getName());
-					response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
-				} else {
-					response.println("Field Name: " + fileItem.getFieldName());
-					response.println("Field Text: " + fileItem.getText());
-				}
+			const fileItems = upload.parseRequest();
+			for (let i = 0; i < fileItems.size(); i++) {
+				const fileItem = fileItems.get(i);
+				const contentType = fileItem.getContentType();
+				console.log(`Content Type: ${contentType}`);
+				console.log(`Filename: ${fileItem.getOriginalFilename()}`);
+				// console.log(`Text: ${fileItem.getText()}`);
+
+				response.setContentType(contentType);
+				response.write(fileItem.getBytesNative());
 			}
 		} else {
 			response.println("The request's content must be 'multipart'");
@@ -50,22 +50,22 @@ HTTP Upload is used to consume files posted as multipart request.
 === "CommonJS"
 
 	```javascript
-	const upload = require('http/upload');
-	const request = require('http/request');
-	const response = require('http/response');
+	const upload = require("http/upload");
+	const request = require("http/request");
+	const response = require("http/response");
 
 	if (request.getMethod() === "POST") {
 		if (upload.isMultipartContent()) {
-			let fileItems = upload.parseRequest();
-			for (i=0; i<fileItems.size(); i++) {
-				let fileItem = fileItems.get(i);
-				if (!fileItem.isFormField()) {
-					response.println("File Name: " + fileItem.getName());
-					response.println("File Bytes (as text): " + String.fromCharCode.apply(null, fileItem.getBytes()));
-				} else {
-					response.println("Field Name: " + fileItem.getFieldName());
-					response.println("Field Text: " + fileItem.getText());
-				}
+			const fileItems = upload.parseRequest();
+			for (let i = 0; i < fileItems.size(); i++) {
+				const fileItem = fileItems.get(i);
+				const contentType = fileItem.getContentType();
+				console.log(`Content Type: ${contentType}`);
+				console.log(`Filename: ${fileItem.getOriginalFilename()}`);
+				// console.log(`Text: ${fileItem.getText()}`);
+
+				response.setContentType(contentType);
+				response.write(fileItem.getBytesNative());
 			}
 		} else {
 			response.println("The request's content must be 'multipart'");
@@ -125,21 +125,12 @@ Function     | Description | Returns
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**getContentType()**   | The HttpFileItem's data content type | *string*
 **getName()**   | The HttpFileItem's name | *string*
+**getOriginalFilename()**   | The original file name | *string*
+**getContentType()**   | The HttpFileItem's data content type | *string*
+**isEmpty()**   | Returns whether the file is empty | *boolean*
 **getSize()**   | The HttpFileItem's size | *long*
 **getBytes()**   | Return the HttpFileItem's content as byte array | *array of byte*
+**getBytesNative()**   | Return the HttpFileItem's content as Java byte array | *array of Java byte*
 **getText()**   | Return the HttpFileItem's content as string | *string*
 **getInputStream()**   | Return the input stream of the HttpFileItem's content | *streams.InputStream*
-**isFormField()**   | Whether the HttpFileItem represents a form field | *boolean*
-**getFieldName()**   | The HttpFileItem's field name | *string*
-**getHeaders()**   | The HttpFileItem's headers | *array of HttpFileItemHeaders*
-
-
-#### HttpFileItemHeaders
-
-
-Function     | Description | Returns
------------- | ----------- | --------
-**getHeaderNames()**   | The HttpFileItemHeader's names | *array of strings*
-**getHeader(headerName)**   | The HttpFileItemHeader's value for the given header name | *string*
