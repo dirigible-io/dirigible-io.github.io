@@ -111,6 +111,10 @@ It contains a Books `REST API`.
     
 	Saving the file will trigger a _`Publish`_ action, which will build and deploy the **TypeScript Service**. A `GET` to the root path of the REST API request is triggered by selecting the `books.ts` file and open the `Preview` view. The **TypeScript Service** is available at the http://localhost:8080/services/ts/babylon-project/api/books.ts URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`.
 
+!!! tip "https/rs"
+
+    Take a look at the [`http/rs`](https://www.dirigible.io/api/http/rs/) documentation for more details about the API.
+
 ### OpenAPI
 
 1. Right click on the `babylon-project/api` folder and select **New &#8594; File**.

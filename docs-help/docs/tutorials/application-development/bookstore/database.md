@@ -237,6 +237,9 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
     }
     ```
 
+!!! tip "db/dao"
+
+    Take a look at the [`db/dao`](https://www.dirigible.io/api/database/dao/) documentation for more details about the API.
 
 ## Next Steps
 
