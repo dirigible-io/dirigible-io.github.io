@@ -120,7 +120,7 @@ Function     | Description | Returns
 **size()**   | The size of the list of HttpFileItem objects | *HttpFileItem*
 
 
-##### HttpFileItem
+#### HttpFileItem
 
 
 Function     | Description | Returns
