@@ -594,25 +594,12 @@
     Steps
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-upload-handler" class="md-nav__link">
-    File Upload Handler
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#file-upload-frontend" class="md-nav__link">
-    File Upload Frontend
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3024,25 +3011,12 @@
     Steps
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-upload-handler" class="md-nav__link">
-    File Upload Handler
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#file-upload-frontend" class="md-nav__link">
-    File Upload Frontend
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3069,46 +3043,47 @@
 <h1 id="file-upload">File Upload</h1>
 <h3 id="steps">Steps</h3>
 <ol>
-<li>Create a project <strong>file_upload_project</strong></li>
-<li>Then create a JavaScript service named <strong>my_file_upload.js</strong></li>
-<li>Replace the service code with the following content:</li>
-</ol>
-<h4 id="file-upload-handler">File Upload Handler</h4>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/upload&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/request&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http/v4/response&#39;</span><span class="p">);</span><span class="w"></span>
+<li>Create a project named <code>file-upload-project</code>.</li>
+<li>Right click on the <code>file-upload-project</code> project and select <strong>New &#8594; TypeScript Service</strong>.</li>
+<li>Enter <code>service.ts</code> for the name of the TypeScript Service.</li>
+<li>
+<p>Replace the content with the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/upload&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">fileItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">isFormField</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;File Bytes (as text): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">()));</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getFieldName</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Field Text: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getText</span><span class="p">());</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">contentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getContentType</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Content Type: </span><span class="si">${</span><span class="nx">contentType</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Filename: </span><span class="si">${</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getOriginalFilename</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// console.log(`Text: ${fileItem.getText()}`);</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="nx">contentType</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytesNative</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Then create a <strong>HTML5</strong> page named <strong>my_upload.html</strong></li>
-<li>Replace the content with the following HTML code:</li>
-</ol>
-<h4 id="file-upload-frontend">File Upload Frontend</h4>
+</li>
+<li>
+<p>Right click on the <code>file-upload-project</code> project and select <strong>New &#8594; HTLM5 Page</strong>.</p>
+</li>
+<li>
+<p>Enter <code>index.html</code> for the name of the file.</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/services/v4/js/file_upload_project/my_file_upload.js&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/services/ts/file-upload-project/service.ts&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;file&quot;</span><span class="p">&gt;</span>Filename:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">multiple</span><span class="p">&gt;</span>
       <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
@@ -3117,12 +3092,24 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<ol>
-<li>Publish the project</li>
-<li>Select the <strong>my_upload.html</strong> file in the <em>Workspace</em> view and try to test by uploading a file in the <em>Preview</em></li>
+</li>
 </ol>
-<hr />
-<p>For more information, see the <em><a href="../../../api/">API</a></em> documentation.</p>
+<div class="admonition info">
+<p class="admonition-title">Save &amp; Publish</p>
+<p>Saving the files will trigger a <em><code>Publish</code></em> action, which will build and deploy the <strong>TypeScript Service</strong> and the <strong>HTML5 Page</strong>.</p>
+<p>Select the <code>index.html</code> file and open the <code>Preview</code> view to test the file upload.</p>
+</div>
+<h2 id="next-steps">Next Steps</h2>
+<div class="admonition success">
+<p class="admonition-title">Section Completed</p>
+<p>After completing the steps in this tutorial, you would have:</p>
+<ul>
+<li>HTML page to submit the uploaded file to the TypeScript service.</li>
+<li>Backend TypeScript service that would render the uploaded file.</li>
+</ul>
+<p>Continue to the <a href="https://www.dirigible.io/api/http/upload/"><code>http/upload</code></a> page for more details about the API.</p>
+<p><em><strong>Note:</strong> The complete content of the File Upload tutorial is available at: <a href="https://github.com/dirigiblelabs/tutorial-file-upload-project">https://github.com/dirigiblelabs/tutorial-file-upload-project</a></em></p>
+</div>
 
 
   
