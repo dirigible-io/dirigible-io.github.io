@@ -123,178 +123,178 @@ It contains a Books `REST API`.
 
     ```yaml
     openapi: 3.0.3
-
+    
     info:
-    title: Bookstore Application
-    description: Bookstore application based on the following tutorial - [https://www.dirigible.io/help/tutorials/application-development/bookstore/](https://www.dirigible.io/help/tutorials/application-development/bookstore/).
-    contact:
+      title: Bookstore Application
+      description: Bookstore application based on the following tutorial - [https://www.dirigible.io/help/tutorials/application-development/bookstore/](https://www.dirigible.io/help/tutorials/application-development/bookstore/).
+      contact:
         name: Eclipse Dirigible
         url: https://dirigible.io
-    license:
+      license:
         name: Eclipse Public License - v 2.0
         url: https://github.com/dirigiblelabs/tutorial-babylon-project/blob/master/LICENSE
-    version: 1.0.0
-
+      version: 1.0.0
+    
     servers:
-    - url: /services/ts
-
+      - url: /services/ts
+    
     tags:
-    - name: Books
-
+      - name: Books
+    
     paths:
-    /babylon-project/api/books.ts:
+      /babylon-project/api/books.ts:
         get:
-        tags:
+          tags:
             - Books
-        responses:
+          responses:
             200:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     type: array
                     items:
-                    $ref: '#/components/schemas/Book'
+                      $ref: '#/components/schemas/Book'
         post:
-        tags:
+          tags:
             - Books
-        requestBody:
+          requestBody:
             required: true
             content:
-            application/json:
+              application/json:
                 schema:
-                $ref: '#/components/schemas/Book'
-        responses:
+                  $ref: '#/components/schemas/Book'
+          responses:
             201:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Book'
             400:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Error'
-
-    /babylon-project/api/books.ts/{id}:
+    
+      /babylon-project/api/books.ts/{id}:
         get:
-        tags:
+          tags:
             - Books
-        parameters:
+          parameters:
             - name: id
-            in: path
-            required: true
-            schema:
+              in: path
+              required: true
+              schema:
                 type: integer
                 example: 10001
-        responses:
+          responses:
             200:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Book'
             404:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Error'
-                example:
+                  example:
                     code: 404
                     message: Not Found
         put:
-        tags:
+          tags:
             - Books
-        parameters:
+          parameters:
             - name: id
-            in: path
-            required: true
-            schema:
+              in: path
+              required: true
+              schema:
                 type: integer
                 example: 10001
-        requestBody:
+          requestBody:
             required: true
             content:
-            application/json:
+              application/json:
                 schema:
-                $ref: '#/components/schemas/Book'
-        responses:
+                  $ref: '#/components/schemas/Book'
+          responses:
             200:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Book'
             400:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Error'
             404:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Error'
-                example:
+                  example:
                     code: 404
                     message: Not Found
         delete:
-        tags:
+          tags:
             - Books
-        parameters:
+          parameters:
             - name: id
-            in: path
-            required: true
-            schema:
+              in: path
+              required: true
+              schema:
                 type: integer
                 example: 10000
-        responses:
+          responses:
             204:
-            description: The resource was deleted successfully.
+              description: The resource was deleted successfully.
             404:
-            content:
+              content:
                 application/json:
-                schema:
+                  schema:
                     $ref: '#/components/schemas/Error'
-                example:
+                  example:
                     code: 404
                     message: Not Found
     components:
-    schemas:
+      schemas:
         Error:
-        type: object
-        properties:
+          type: object
+          properties:
             code:
-            type: integer
-            example: 400
+              type: integer
+              example: 400
             message:
-            type: string
-            example: Bad Request
-
+              type: string
+              example: Bad Request
+    
         Book:
-        type: object
-        properties:
+          type: object
+          properties:
             id:
-            type: integer
+              type: integer
             isbn:
-            type: string
-            maxLength: 17
-            pattern: ^\d{3}-\d{1}-\d{3}-\d{5}-\d{1}$
-            example: 978-1-599-86977-3
+              type: string
+              maxLength: 17
+              pattern: ^\d{3}-\d{1}-\d{3}-\d{5}-\d{1}$
+              example: 978-1-599-86977-3
             title:
-            type: string
-            maxLength: 120
-            example: The Art of War
+              type: string
+              maxLength: 120
+              example: The Art of War
             publisher:
-            type: string
-            maxLength: 120
-            example: Filiquarian
+              type: string
+              maxLength: 120
+              example: Filiquarian
             date:
-            type: string
-            format: date
-            example: "2006-01-01"
+              type: string
+              format: date
+              example: "2006-01-01"
             price:
-            type: number
-            format: float
-            minimum: 0
-            example: 18.99
+              type: number
+              format: float
+              minimum: 0
+              example: 18.99
     ```
 
 ![OpenAPI](openapi.png)
