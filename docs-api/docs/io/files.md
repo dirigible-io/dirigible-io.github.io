@@ -45,6 +45,14 @@ Files module provides an access to the underlying File System, where the Dirigib
     files.deleteFile(tempFile);
     ```
 
+### Constants
+
+---
+
+Constant     | Description | Returns
+------------ | ----------- | --------
+**separator**   | OS file separator | *string*
+
 ### Functions
 
 ---
