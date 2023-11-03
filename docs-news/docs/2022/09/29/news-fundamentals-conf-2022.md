@@ -25,7 +25,7 @@ On Fundamentals Conf 2022 Stan came with a new revamped and modernized Eclipse D
 * MessageHub
 * Form Controls
 
-[Slides](https://fundamentalconf.com/Stan-Fundamentally%20Changing%20Enterprise%20Web%20IDEs.pdf)
+[Slides](Fundamentally-Changing-Enterprise-Web-IDEs.pdf)
 
 [Recording](https://www.youtube.com/watch?v=ZnXSchQhWT4)
 
