@@ -3112,79 +3112,44 @@
 <h3 id="database">Database</h3>
 <ul>
 <li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.table</a> - a JSON based database table descriptor file. Data structures synchroniser automatically reads all the available *.table files in the repository (including the classpath resources) and creates the underlying database tables into the default database. The definition supports also dependencies which gives the ability to the synchroniser to make a topological sorting before starting the creation of the database artefacts.</p>
+<p><a href="https://github.com/eclipse/dirigible/tree/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/tables">*.table</a> - a JSON based database table descriptor file. Data structures synchroniser automatically reads all the available *.table files in the repository (including the classpath resources) and creates the underlying database tables into the default database. The definition supports also dependencies which gives the ability to the synchroniser to make a topological sorting before starting the creation of the database artefacts.</p>
 </li>
 <li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.view</a> - a JSON based database table descriptor file. The synchroniser reads and creates the database views as defined in the model.</p>
+<p><a href="https://github.com/eclipse/dirigible/tree/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/views">*.view</a> - a JSON based database table descriptor file. The synchroniser reads and creates the database views as defined in the model.</p>
 </li>
 <li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.replace</a> - a data file containing list of records to be imported with 'replace' mode to the corresponding database table.</p>
-</li>
-<li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.append</a> - a data file containing list of records to be imported with 'append' mode to the corresponding database table.</p>
-</li>
-<li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.delete</a> - a data file containing list of records to be deleted from the corresponding database table. For deleting all of the records use '*' symbol.</p>
-</li>
-<li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/database/database-data-structures">*.update</a> - a data file containing list of records to be imported with 'update' mode to the corresponding database table.</p>
-<div class="admonition example">
-<p class="admonition-title">Samples</p>
-<p>Data Structures and Data Files samples could be found here:</p>
-<ul>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.table">Database Table <em><code>(*.table)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.view">Database View <em><code>(*.view)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.replace">Data Replace <em><code>(*.replace)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.append">Data Append <em><code>(*.append)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.delete">Data Delete <em><code>(*.delete)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-data-structures/src/test/resources/orders.update">Data Update <em><code>(*.update)</code></em></a>.</li>
-</ul>
-</div>
+<p><a href="https://github.com/eclipse/dirigible/tree/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/csvim">*.csvim</a> - a JSON based descriptor file containing, pointing to a CSV file to be imported to the configured database table.</p>
 </li>
 </ul>
 <h3 id="security">Security</h3>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.access</a> - security constraints file. It defines the access permissions for the given endpoints.</li>
-<li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/core/core-security">*.roles</a> - roles definition file.</p>
-<div class="admonition example">
-<p class="admonition-title">Samples</p>
-<p>Security Files samples could be found here:</p>
-<ul>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.access">Security Access <em><code>(*.access)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/core/core-security/src/test/resources/META-INF/dirigible/access/test.roles">Security Roles <em><code>(*.roles)</code></em></a>.</li>
-</ul>
-</div>
-</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/engine/engine-security/src/test/resources/META-INF/dirigible/test/test.access">*.access</a> - security constraints file. It defines the access permissions for the given endpoints.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/engine/engine-security/src/test/resources/META-INF/dirigible/test/test.role">*.role</a> - roles definition file.</li>
 </ul>
 <h3 id="flows">Flows</h3>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-listener">*.listener</a> - listener definition describing the link between the message queue or topic and the corresponding handler.</li>
-<li>
-<p><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-job">*.job</a> - job definition describing the period in which the scheduled handler will be executed.</p>
-<div class="admonition example">
-<p class="admonition-title">Samples</p>
-<p>Flows Files samples could be found here:</p>
-<ul>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-listener/src/test/resources/META-INF/dirigible/control/control.listener">Listener <em><code>(*.listener)</code></em></a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/blob/master/modules/engines/engine-job/src/test/resources/META-INF/dirigible/control/control.job">Job <em><code>(*.job)</code></em></a>.</li>
-</ul>
-</div>
-</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/listeners/test.listener">*.listener</a> - listener definition describing the link between the message queue or topic and the corresponding handler.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/jobs/test.job">*.job</a> - job definition describing the period in which the scheduled handler will be executed.</li>
 </ul>
 <h3 id="scripting">Scripting</h3>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm">*.js</a> - a Javascript file supposed to be executed either server side by the supported engine (GraalJS) or at the client side by the browser's built-in engine.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki">*.md</a> - a Markdown Wiki file.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-command">*.command</a> - a Shell Command service</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/datastore/student.mjs">*.js</a> - a JavaScript file supposed to be executed either server-side by the supported engine (GraalJS) or at the client-side by the browser's built-in engine.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/command/uname.command">*.command</a> - a Shell Command service</li>
+<li>
+<p><a href="https://raw.githubusercontent.com/eclipse/dirigible/master/README.md">*.md</a> - a Markdown Wiki file.</p>
+<div class="admonition note">
+<p class="admonition-title">ES6 and TypeScript</p>
+<p>Starting from version <code>8.x</code> of Eclipse Dirigible, it's possible to use also <code>*.mjs</code> <em>(ES6 modules)</em> and <code>*.ts</code> <em>(TypeScript)</em> for the development of server-side services.</p>
+</div>
+</li>
 </ul>
 <h3 id="modeling">Modeling</h3>
 <ul>
-<li><code>*.dsm</code> - an internal XML based format file containing a database schema model diagram.</li>
-<li><code>*.schema</code> - a JSON descriptor for a database schema layout produced by the Database Schema Modeler </li>
-<li><code>*.edm</code> - an internal XML based format file containing an entity data model diagram.</li>
-<li><code>*.model</code> - a JSON descriptor for an entity data model produced by the Entity Data Modeler</li>
-<li><code>*.bpmn</code> - a BPMN 2.0 XML file containing a definition of a business process.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/engine/engine-odata/src/test/resources/cars/Cars.dsm">*.dsm</a> - an internal XML based format file containing a database schema model diagram.</li>
+<li><a href="https://github.com/eclipse/dirigible/blob/master/components/test-project/src/main/resources/META-INF/dirigible/test-project/schemas/test.schema">*.schema</a> - a JSON descriptor for a database schema layout produced by the Database Schema Modeler </li>
+<li><a href="https://github.com/dirigiblelabs/demo-eclipsecon2018-edm-bookshop-admin/blob/master/bookshop-admin/bookshop.edm">*.edm</a> - an internal XML based format file containing an entity data model diagram.</li>
+<li><a href="https://github.com/dirigiblelabs/demo-eclipsecon2018-edm-bookshop-admin/blob/master/bookshop-admin/bookshop.model">*.model</a> - a JSON descriptor for an entity data model produced by the Entity Data Modeler</li>
+<li><a href="https://github.com/dirigiblelabs/sample-bpm/blob/master/sample-bpm/time-entry-request.bpmn">*.bpmn</a> - a BPMN 2.0 XML file containing a definition of a business process.</li>
 </ul>
 
 
