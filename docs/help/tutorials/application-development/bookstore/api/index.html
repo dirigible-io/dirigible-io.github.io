@@ -3279,7 +3279,12 @@ It contains a Books <code>REST API</code>. </p>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Save &amp; Publish</p>
-<p>Saving the file will trigger a <em><code>Publish</code></em> action, which will build and deploy the <strong>TypeScript Service</strong>. A <code>GET</code> to the root path of the REST API request is triggered by selecting the <code>books.ts</code> file and open the <code>Preview</code> view. The <strong>TypeScript Service</strong> is available at the http://localhost:8080/services/ts/babylon-project/api/books.ts URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
+<p>After saving the file right click on the project and select <strong>Publish</strong> in order to run the compilation and the deployment of the <strong>TypeScript Service</strong>.</p>
+</div>
+<p>The <code>tsconfig.json</code> and <code>project.json</code> files should be present at the project root in order to run the compilation <em>(they can be found in the <a href="https://www.dirigible.io/help/tutorials/application-development/bookstore/database/#repository">Bookstore Application - Database</a> tutorial)</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">REST API Execution</p>
+<p>A <code>GET</code> to the root path of the REST API request is triggered by selecting the <code>books.ts</code> file and open the <code>Preview</code> view. The <strong>TypeScript Service</strong> is available at the http://localhost:8080/services/ts/babylon-project/api/books.ts URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">https/rs</p>
