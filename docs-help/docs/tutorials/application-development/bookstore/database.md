@@ -147,6 +147,50 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 
 ### Repository
 
+1. Right click on the `babylon-project/data` folder and select **New &#8594; File**.
+1. Enter `tsconfig.json` for the name of the File.
+1. Replace the content with the following:
+
+    ```json
+    {
+        "compilerOptions": {
+            "module": "ESNext"
+        }
+    }
+    ```
+
+1. Right click on the `babylon-project/data` folder and select **New &#8594; File**.
+1. Enter `project.json` for the name of the File.
+1. Replace the content with the following:
+
+    ```json
+    {
+        "guid": "babylon-project",
+        "actions": [
+            {
+                "name": "Build TypeScript",
+                "commands": [
+                    {
+                        "os": "unix",
+                        "command": "tsc"
+                    },
+                    {
+                        "os": "windows",
+                        "command": "cmd /c tsc"
+                    }
+                ],
+                "registry": "true"
+            }
+        ]
+    }
+    ```
+
+!!! note "TypeScript Compilation"
+
+    The `tsconfig.json` and `project.json` files are needed for the compilation of the TypeScript files.
+    In order to run the compilation a _`Publish`_ action should be performed on the _`Project`_ level _(right click on the project and select **Publish**)_.
+
+
 1. Right click on the `babylon-project/data` folder and select **New &#8594; TypeScript Service**.
 1. Enter `BookRepository.ts` for the name of the TypeScript Service.
 1. Replace the content with the following code:
@@ -236,6 +280,10 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
         }
     }
     ```
+
+!!! info "Save & Publish"
+    
+	In order to run the compilation of _`TypeScript`_ files a _`Publish`_ action should be performed on the _`Project`_ level _(right click on the project and select **Publish**)_.
 
 !!! tip "db/dao"
 
