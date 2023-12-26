@@ -185,10 +185,10 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
     }
     ```
 
-!!! note "TypeScript Compilation"
+    !!! note "TypeScript Compilation"
 
-    The `tsconfig.json` and `project.json` files are needed for the compilation of the TypeScript files.
-    In order to run the compilation a _`Publish`_ action should be performed on the _`Project`_ level _(right click on the project and select **Publish**)_.
+        The `tsconfig.json` and `project.json` files are needed for the compilation of the TypeScript files.
+        In order to run the compilation a _`Publish`_ action should be performed on the _`Project`_ level _(right click on the project and select **Publish**)_.
 
 
 1. Right click on the `babylon-project/data` folder and select **New &#8594; TypeScript Service**.
