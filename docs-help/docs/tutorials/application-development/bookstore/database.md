@@ -147,7 +147,7 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 
 ### Repository
 
-1. Right click on the `babylon-project/data` folder and select **New &#8594; File**.
+1. Right click on the `babylon-project` project and select **New &#8594; File**.
 1. Enter `tsconfig.json` for the name of the File.
 1. Replace the content with the following:
 
@@ -159,7 +159,7 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
     }
     ```
 
-1. Right click on the `babylon-project/data` folder and select **New &#8594; File**.
+1. Right click on the `babylon-project` project and select **New &#8594; File**.
 1. Enter `project.json` for the name of the File.
 1. Replace the content with the following:
 
