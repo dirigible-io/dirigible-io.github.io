@@ -62,27 +62,38 @@ This sample shows how to create a simple web application for uploading files.
 
     ```ts
     import { upload, request, response } from "@dirigible/http";
-
+    import { cmis } from "@dirigible/cms";
+    import { streams } from "@dirigible/io";
+    
     if (request.getMethod() === "POST") {
         if (upload.isMultipartContent()) {
             const fileItems = upload.parseRequest();
             for (let i = 0; i < fileItems.size(); i++) {
                 const fileItem = fileItems.get(i);
+    
+                const fileName = fileItem.getName();
                 const contentType = fileItem.getContentType();
-                console.log(`Content Type: ${contentType}`);
-                console.log(`Filename: ${fileItem.getName()}`);
-                // console.log(`Text: ${fileItem.getText()}`);
-
-                response.setContentType(contentType);
-                response.write(fileItem.getBytesNative());
+                const bytes = fileItem.getBytes();
+    
+                const inputStream = streams.createByteArrayInputStream(bytes);
+    
+                const cmisSession = cmis.getSession();
+                const contentStream = cmisSession.getObjectFactory().createContentStream(fileName, bytes.length, contentType,     inputStream);
+    
+                cmisSession.createDocument("file-upload-project/uploads", {
+                    [cmis.OBJECT_TYPE_ID]: cmis.OBJECT_TYPE_DOCUMENT,
+                    [cmis.NAME]: fileName
+                }, contentStream, cmis.VERSIONING_STATE_MAJOR);
+    
             }
+            response.sendRedirect("/services/web/ide-documents/");
         } else {
             response.println("The request's content must be 'multipart'");
         }
-    } else if (request.getMethod() === "GET") {
+    } else {
         response.println("Use POST request.");
     }
-
+    
     response.flush();
     response.close();
     ```
@@ -100,16 +111,23 @@ This sample shows how to create a simple web application for uploading files.
 1. Replace the content with the following code:
 
     ```html
-    <html>
-      <body>
-        <form action="/services/ts/file-upload-project/service.ts" method="post" enctype="multipart/form-data">
-          <label for="file">Filename:</label>
-          <input type="file" name="file" id="file" multiple>
-          <br>
-          <input type="submit" name="submit" value="Submit">
-        </form>
-      </body>
-    </html>
+     <!DOCTYPE html>
+     <html>
+     
+         <body>
+             <form action="/services/ts/file-upload-project/service.ts" method="post" enctype="multipart/form-data">
+                 <label for="file">Filename:</label>
+                 <input type="file" name="file" id="file" multiple>
+                 <br>
+                 <input type="submit" name="submit" value="Submit">
+             </form>
+             <p><b>Note:</b> After successful upload you'll be redirected to the <a
+                     href="/services/web/ide-documents/">Documents</a> perspective where the file can be found under the
+                 <b>file-upload-project/uploads</b> folder.
+             </p>
+         </body>
+     
+     </html>
     ```
 
 !!! info "Save & Publish"
