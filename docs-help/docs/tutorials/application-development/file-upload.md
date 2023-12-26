@@ -70,7 +70,7 @@ This sample shows how to create a simple web application for uploading files.
                 const fileItem = fileItems.get(i);
                 const contentType = fileItem.getContentType();
                 console.log(`Content Type: ${contentType}`);
-                console.log(`Filename: ${fileItem.getOriginalFilename()}`);
+                console.log(`Filename: ${fileItem.getName()}`);
                 // console.log(`Text: ${fileItem.getText()}`);
 
                 response.setContentType(contentType);
