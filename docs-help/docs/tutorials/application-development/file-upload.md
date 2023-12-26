@@ -31,7 +31,7 @@ This sample shows how to create a simple web application for uploading files.
 
     ```json
     {
-        "guid": "babylon-project",
+        "guid": "file-upload-project",
         "actions": [
             {
                 "name": "Build TypeScript",
@@ -87,9 +87,13 @@ This sample shows how to create a simple web application for uploading files.
     response.close();
     ```
 
-!!! tip "http/upload"
+    !!! info "Save & Publish"
+    
+	    In order to run the compilation of _`TypeScript`_ files a _`Publish`_ action should be performed on the _`Project`_ level _(right click on the project and select **Publish**)_.
 
-    Take a look at the [`http/upload`](https://www.dirigible.io/api/http/upload/) documentation for more details about the API.
+    !!! tip "http/upload"
+
+        Take a look at the [`http/upload`](https://www.dirigible.io/api/http/upload/) documentation for more details about the API.
 
 1. Right click on the `file-upload-project` project and select **New &#8594; HTLM5 Page**.
 1. Enter `index.html` for the name of the file.
