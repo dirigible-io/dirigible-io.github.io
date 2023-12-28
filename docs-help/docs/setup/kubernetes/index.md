@@ -5,7 +5,7 @@ title: Kubernetes
 Setup in Kubernetes
 ===
 
-You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible-all`, in a Kubernetes cluster.
+You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docker images, for example `dirigiblelabs/dirigible`, in a Kubernetes cluster.
 
 !!! info "Prerequisites"
     - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -42,7 +42,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
         spec:
           containers:
             - name: dirigible
-              image: dirigiblelabs/dirigible-all:latest
+              image: dirigiblelabs/dirigible:latest
               imagePullPolicy: Always
               ports:
                 - name: http
@@ -68,7 +68,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-all:latest
+                  image: dirigiblelabs/dirigible:latest
                   imagePullPolicy: Always
                   resources:
                     requests:
@@ -106,7 +106,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
             spec:
               containers:
                 - name: dirigible
-                  image: dirigiblelabs/dirigible-all:latest
+                  image: dirigiblelabs/dirigible:latest
                   imagePullPolicy: Always
                   resources:
                     requests:
@@ -257,7 +257,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
 
     !!! Note
         - Replace `<kubernetes-ingress-host>` with your Ingress host.
-        - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible-all](https://hub.docker.com/r/dirigiblelabs/dirigible-all/tags))_ used above.
+        - Login with user **`dirigible`** and password **`dirigible`**, which are set by default in the Docker image _([dirigiblelabs/dirigible](https://hub.docker.com/r/dirigiblelabs/dirigible/tags))_ used above.
 
 ## Maintenance
 ---
@@ -269,7 +269,7 @@ To update the Eclipse Dirigible version either use the **kubectl** or update the
 === "with kubectl"
 
     ```
-    kubectl set image deployment/dirigible dirigible=dirigiblelabs/dirigible-all:<dirigible-version>
+    kubectl set image deployment/dirigible dirigible=dirigiblelabs/dirigible:<dirigible-version>
     ```
 
 === "with Deployment YAML"
@@ -278,7 +278,7 @@ To update the Eclipse Dirigible version either use the **kubectl** or update the
     spec:
       containers:
       - name: dirigible
-        image: dirigiblelabs/dirigible-all:<dirigible-version>
+        image: dirigiblelabs/dirigible:<dirigible-version>
         imagePullPolicy: Always
     ```
 
@@ -336,7 +336,7 @@ To debug the Eclipse Dirigible engine via **Remote Java Debugging** execute the 
     ```yaml hl_lines="5 6"
     containers:
       - name: dirigible
-        image: dirigiblelabs/dirigible-all:latest
+        image: dirigiblelabs/dirigible:latest
         imagePullPolicy: Always
         command: ["/bin/sh"]
         args: ["/usr/local/tomcat/bin/catalina.sh", "jpda", "run"]
