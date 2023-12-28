@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/releases/
 nav:
     - 'Releases': 'index.md'
     - '2023':
+      - 'Release 9.0': '2023/12/19/news-new-release-9-0.md'
       - 'Release 8.0': '2023/03/31/news-new-release-8-0.md'
     - '2022':
       - 'Release 6.2': '2022/02/13/news-new-release-6-2.md'
