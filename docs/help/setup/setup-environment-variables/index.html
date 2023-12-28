@@ -1575,6 +1575,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cms-s3" class="md-nav__link">
+    CMS - S3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cms-managed" class="md-nav__link">
     CMS - Managed
   </a>
@@ -3642,6 +3649,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cms-s3" class="md-nav__link">
+    CMS - S3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cms-managed" class="md-nav__link">
     CMS - Managed
   </a>
@@ -4680,7 +4694,7 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <tbody>
 <tr>
 <td><strong>DIRIGIBLE_CMS_PROVIDER</strong></td>
-<td>The type of the CMS provider used in this instance <em>(e.g. <code>internal</code>, <code>managed</code> or <code>database</code>)</em></td>
+<td>The type of the CMS provider used in this instance <em>(e.g. <code>cms-provider-internal</code>, <code>cms-provider-s3</code>, <code>managed</code> or <code>database</code>)</em></td>
 <td><em><code>internal</code></em></td>
 </tr>
 <tr>
@@ -4709,6 +4723,43 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
 <td>Whether the root folder parameter is absolute or not</td>
 <td><em><code>false</code></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cms-s3">CMS - S3</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS_ACCESS_KEY_ID</strong></td>
+<td>The AWS access key used for authentication</td>
+<td><em><code>target</code></em></td>
+</tr>
+<tr>
+<td><strong>AWS_SECRET_ACCESS_KEY</strong></td>
+<td>The AWS secret key used for authentication</td>
+<td><em><code>target</code></em></td>
+</tr>
+<tr>
+<td><strong>AWS_DEFAULT_REGION</strong></td>
+<td>The region where the bucket is stored</td>
+<td><em><code>eu-central-1</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_S3_BUCKET</strong></td>
+<td>The bucket to be used for content management. Will be created if the provided one does not exist</td>
+<td><em><code>target</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_S3_PROVIDER</strong></td>
+<td>The provider to be used for S3. For local testing an option with <code>localstack</code> is available</td>
+<td><em><code>aws</code></em></td>
 </tr>
 </tbody>
 </table>
