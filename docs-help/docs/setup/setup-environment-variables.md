@@ -298,7 +298,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance _(e.g. `internal`, `managed` or `database`)_| _`internal`_
+**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance _(e.g. `cms-provider-internal`, `cms-provider-s3`, `managed` or `database`)_| _`internal`_
 **DIRIGIBLE_CMS_ROLES_ENABLED** | Whether the RBAC over the CMS content to be enabled | _`true`_
 
 #### CMS - Internal
@@ -307,6 +307,16 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER**   | The location of the CMS internal repository | _`target`_
 **DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
+
+#### CMS - S3
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**AWS_ACCESS_KEY_ID**   | The AWS access key used for authentication | _`target`_
+**AWS_SECRET_ACCESS_KEY**   | The AWS secret key used for authentication | _`target`_
+**AWS_DEFAULT_REGION**   | The region where the bucket is stored | _`eu-central-1`_
+**DIRIGIBLE_S3_BUCKET**   | The bucket to be used for content management. Will be created if the provided one does not exist | _`target`_
+**DIRIGIBLE_S3_PROVIDER**   | The provider to be used for S3. For local testing an option with `localstack` is available | _`aws`_
 
 #### CMS - Managed
 
