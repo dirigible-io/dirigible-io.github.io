@@ -3101,7 +3101,7 @@
 
 
 <h1 id="setup-in-kubernetes">Setup in Kubernetes</h1>
-<p>You can deploy <a href="https://hub.docker.com/r/dirigiblelabs">Eclipse Dirigible</a> Docker images, for example <code>dirigiblelabs/dirigible-all</code>, in a Kubernetes cluster.</p>
+<p>You can deploy <a href="https://hub.docker.com/r/dirigiblelabs">Eclipse Dirigible</a> Docker images, for example <code>dirigiblelabs/dirigible</code>, in a Kubernetes cluster.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <ul>
@@ -3141,7 +3141,7 @@
 <span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible:latest</span><span class="w"></span>
 <span class="w">      </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="w">      </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span><span class="w"></span>
@@ -3165,7 +3165,7 @@
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible:latest</span><span class="w"></span>
 <span class="w">          </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
@@ -3201,7 +3201,7 @@
 <span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible:latest</span><span class="w"></span>
 <span class="w">          </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="w">          </span><span class="nt">resources</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="nt">requests</span><span class="p">:</span><span class="w"></span>
@@ -3356,7 +3356,7 @@ kubectl apply -f service.yml
 <p class="admonition-title">Note</p>
 <ul>
 <li>Replace <code>&lt;kubernetes-ingress-host&gt;</code> with your Ingress host.</li>
-<li>Login with user <strong><code>dirigible</code></strong> and password <strong><code>dirigible</code></strong>, which are set by default in the Docker image <em>(<a href="https://hub.docker.com/r/dirigiblelabs/dirigible-all/tags">dirigiblelabs/dirigible-all</a>)</em> used above.</li>
+<li>Login with user <strong><code>dirigible</code></strong> and password <strong><code>dirigible</code></strong>, which are set by default in the Docker image <em>(<a href="https://hub.docker.com/r/dirigiblelabs/dirigible/tags">dirigiblelabs/dirigible</a>)</em> used above.</li>
 </ul>
 </div>
 </li>
@@ -3368,14 +3368,14 @@ kubectl apply -f service.yml
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">with kubectl</label><label for="__tabbed_3_2">with Deployment YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>kubectl set image deployment/dirigible dirigible=dirigiblelabs/dirigible-all:&lt;dirigible-version&gt;
+<div class="highlight"><pre><span></span><code>kubectl set image deployment/dirigible dirigible=dirigiblelabs/dirigible:&lt;dirigible-version&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:&lt;dirigible-version&gt;</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible:&lt;dirigible-version&gt;</span><span class="w"></span>
 </span><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 </code></pre></div>
 </div>
@@ -3427,7 +3427,7 @@ kubectl set env deployment/dirigible -e JPDA_TRANSPORT=dt_socket
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nt">containers</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigible</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible-all:latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dirigiblelabs/dirigible:latest</span><span class="w"></span>
 <span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Always</span><span class="w"></span>
 <span class="hll"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
 </span><span class="hll"><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;/usr/local/tomcat/bin/catalina.sh&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;jpda&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;run&quot;</span><span class="p p-Indicator">]</span><span class="w"></span>
