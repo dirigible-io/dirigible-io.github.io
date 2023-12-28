@@ -1,9 +1,5 @@
 [
   {
-    "location": "2021/09/29/news-new-release-6-0.md",
-    "title": "Release 6.0"
-  },
-  {
     "location": "2021/10/07/news-new-release-6-1.md",
     "title": "Release 6.1"
   },
@@ -18,5 +14,9 @@
   {
     "location": "2023/03/31/news-new-release-8-0.md",
     "title": "Release 8.0"
+  },
+  {
+    "location": "2023/12/19/news-new-release-9-0.md",
+    "title": "Release 9.0"
   }
 ]
