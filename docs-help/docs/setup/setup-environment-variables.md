@@ -69,6 +69,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER**   | (Optional) The order of the custom help item | _`0`_
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER**   | (Optional) Whether to set divider after the custom help item | _`false`_
 
+### Server
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_SERVER_PORT** | The port that Eclipse Dirigible will start on | _`8080`_
+
 ### Basic
 
 Parameter     | Description | Default*
@@ -199,6 +205,14 @@ Parameter     | Description | Default*
 **DIRIGIBLE_DATABASE_H2_URL**   | The URL used by H2 database | _`jdbc:h2:./target/dirigible/h2`_
 **DIRIGIBLE_DATABASE_H2_USERNAME**   | The Username used by H2 database | _`sa`_
 **DIRIGIBLE_DATABASE_H2_PASSWORD**   | The Password used by H2 database | _`-`_
+
+#### Database Snowflake
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**SNOWFLAKE_DATABASE**   | The database used by Snowflake | _`-`_
+**SNOWFLAKE_SCHEMA**   | The schema used by Snowflake | _`-`_
+**SNOWFLAKE_WAREHOUSE**   | The warehouse used by Snowflake | _`-`_
 
 #### Persistence
 
