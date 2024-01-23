@@ -1408,6 +1408,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#basic" class="md-nav__link">
     Basic
   </a>
@@ -1494,6 +1501,13 @@
           <li class="md-nav__item">
   <a href="#database-h2" class="md-nav__link">
     Database H2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-snowflake" class="md-nav__link">
+    Database Snowflake
   </a>
   
 </li>
@@ -3482,6 +3496,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#basic" class="md-nav__link">
     Basic
   </a>
@@ -3568,6 +3589,13 @@
           <li class="md-nav__item">
   <a href="#database-h2" class="md-nav__link">
     Database H2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-snowflake" class="md-nav__link">
+    Database Snowflake
   </a>
   
 </li>
@@ -3958,6 +3986,23 @@
 <td><strong>DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER</strong></td>
 <td>(Optional) Whether to set divider after the custom help item</td>
 <td><em><code>false</code></em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="server">Server</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_SERVER_PORT</strong></td>
+<td>The port that Eclipse Dirigible will start on</td>
+<td><em><code>8080</code></em></td>
 </tr>
 </tbody>
 </table>
@@ -4392,6 +4437,33 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <tr>
 <td><strong>DIRIGIBLE_DATABASE_H2_PASSWORD</strong></td>
 <td>The Password used by H2 database</td>
+<td><em><code>-</code></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="database-snowflake">Database Snowflake</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SNOWFLAKE_DATABASE</strong></td>
+<td>The database used by Snowflake</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>SNOWFLAKE_SCHEMA</strong></td>
+<td>The schema used by Snowflake</td>
+<td><em><code>-</code></em></td>
+</tr>
+<tr>
+<td><strong>SNOWFLAKE_WAREHOUSE</strong></td>
+<td>The warehouse used by Snowflake</td>
 <td><em><code>-</code></em></td>
 </tr>
 </tbody>
