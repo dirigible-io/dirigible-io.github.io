@@ -1454,14 +1454,7 @@
     Repository
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    Lifecycle
-  </a>
-  
-    <nav class="md-nav" aria-label="Lifecycle">
+    <nav class="md-nav" aria-label="Repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1481,6 +1474,13 @@
           <li class="md-nav__item">
   <a href="#repository-search" class="md-nav__link">
     Repository Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-versioning" class="md-nav__link">
+    Repository Versioning
   </a>
   
 </li>
@@ -1528,6 +1528,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    Lifecycle
+  </a>
   
 </li>
         
@@ -3542,14 +3549,7 @@
     Repository
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lifecycle" class="md-nav__link">
-    Lifecycle
-  </a>
-  
-    <nav class="md-nav" aria-label="Lifecycle">
+    <nav class="md-nav" aria-label="Repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3569,6 +3569,13 @@
           <li class="md-nav__item">
   <a href="#repository-search" class="md-nav__link">
     Repository Search
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-versioning" class="md-nav__link">
+    Repository Versioning
   </a>
   
 </li>
@@ -3616,6 +3623,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    Lifecycle
+  </a>
   
 </li>
         
@@ -4234,24 +4248,6 @@ To find more details about the Keycloak configuration go to <a href="https://www
 </tr>
 </tbody>
 </table>
-<h3 id="lifecycle">Lifecycle</h3>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Default*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>DIRIGIBLE_PUBLISH_DISABLED</strong></td>
-<td>Disable publishing process in this instance</td>
-<td><em><code>false</code></em></td>
-</tr>
-</tbody>
-</table>
 <h4 id="local-repository">Local Repository</h4>
 <table>
 <thead>
@@ -4334,6 +4330,23 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_REPOSITORY_SEARCH_INDEX_LOCATION</strong></td>
 <td>The sub-folder under the root folder where the index files will be stored</td>
 <td><em><code>dirigible/repository/index</code></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="repository-versioning">Repository Versioning</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_REPOSITORY_VERSIONING_ENABLED</strong></td>
+<td>The flag whether versioning for repository is enabled</td>
+<td><em><code>false</code></em></td>
 </tr>
 </tbody>
 </table>
@@ -4504,6 +4517,24 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_MONGODB_DATABASE_DEFAULT</strong></td>
 <td>The default database name</td>
 <td><em><code>db</code></em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lifecycle">Lifecycle</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_PUBLISH_DISABLED</strong></td>
+<td>Disable publishing process in this instance</td>
+<td><em><code>false</code></em></td>
 </tr>
 </tbody>
 </table>
@@ -4794,6 +4825,11 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <tr>
 <td><strong>DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE</strong></td>
 <td>Whether the root folder parameter is absolute or not</td>
+<td><em><code>false</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_CMS_INTERNAL_VERSIONING_ENABLED</strong></td>
+<td>Whether the versioning of the files is enabled or not</td>
 <td><em><code>false</code></em></td>
 </tr>
 </tbody>
