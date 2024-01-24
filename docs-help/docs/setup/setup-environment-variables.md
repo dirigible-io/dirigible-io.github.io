@@ -145,13 +145,6 @@ Parameter     | Description | Default*
 **DIRIGIBLE_REPOSITORY_PROVIDER**   | The name of the repository provider used in this instance | _`local` or `database`_
 **DIRIGIBLE_REPOSITORY_CACHE_ENABLED**   | Enable the usage of the repository cache | _`true`_
 
-### Lifecycle
----
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_PUBLISH_DISABLED**   | Disable publishing process in this instance | _`false`_
-
 #### Local Repository
 
 Parameter     | Description | Default*
@@ -179,6 +172,11 @@ Parameter     | Description | Default*
 **DIRIGIBLE_REPOSITORY_SEARCH_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the location of the root folder is absolute or context dependent | _`false`_
 **DIRIGIBLE_REPOSITORY_SEARCH_INDEX_LOCATION**   | The sub-folder under the root folder where the index files will be stored | _`dirigible/repository/index`_
 
+#### Repository Versioning
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_REPOSITORY_VERSIONING_ENABLED**   | The flag whether versioning for repository is enabled | _`false`_
 
 ### Database
 
@@ -226,6 +224,13 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_MONGODB_CLIENT_URI**   | The location used by MongoDB server | _`mongodb://localhost:27017`_
 **DIRIGIBLE_MONGODB_DATABASE_DEFAULT**   | The default database name | _`db`_
+
+### Lifecycle
+---
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_PUBLISH_DISABLED**   | Disable publishing process in this instance | _`false`_
 
 ### Scheduler
 
@@ -321,6 +326,7 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER**   | The location of the CMS internal repository | _`target`_
 **DIRIGIBLE_CMS_INTERNAL_ROOT_FOLDER_IS_ABSOLUTE**   | Whether the root folder parameter is absolute or not | _`false`_
+**DIRIGIBLE_CMS_INTERNAL_VERSIONING_ENABLED**   | Whether the versioning of the files is enabled or not | _`false`_
 
 #### CMS - S3
 
