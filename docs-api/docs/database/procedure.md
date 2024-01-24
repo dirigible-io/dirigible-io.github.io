@@ -18,7 +18,7 @@ Simplified procedure functionality, accepts SQL script and query parameters and 
 
 ### Basic Usage
 
-!!!
+!!! note
 
     To use procedures you need to add database that supports them (default DB is H2 that does not support procedures):
 
