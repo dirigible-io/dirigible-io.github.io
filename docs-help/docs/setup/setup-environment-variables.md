@@ -180,19 +180,23 @@ Parameter     | Description | Default*
 
 ### Database
 
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance _(`local`, `managed` or `custom`)_| _`local`_
-**DIRIGIBLE_DATABASE_DEFAULT_SET_AUTO_COMMIT**   | The _`AUTO_COMMIT`_ data source parameter | _`true`_
-**DIRIGIBLE_DATABASE_DEFAULT_MAX_CONNECTIONS_COUNT**   | The _`MAX_CONNECTIONS_COUNT`_ data source parameter | _`8`_
-**DIRIGIBLE_DATABASE_DEFAULT_WAIT_TIMEOUT**   | The _`WAIT_TIMEOUT`_ data source parameter | _`500`_
-**DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The _`WAIT_COUNT`_ data source parameter | _`5`_
-**DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance | ` `
-**DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance | _`DefaultDB`_
-**DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance | _`SystemDB`_
-**DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive | _`false`_
-**DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer | _`1000`_
-**DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT**	| The batch size used during quering data from the database | _`1000`_
+Parameter     | Description                                                                                              | Default*
+------------ |----------------------------------------------------------------------------------------------------------| --------
+**DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance _(`local`, `managed` or `custom`)_ | _`local`_
+**DIRIGIBLE_DATABASE_DEFAULT_SET_AUTO_COMMIT**   | The _`AUTO_COMMIT`_ data source parameter                                                                | _`true`_
+**DIRIGIBLE_DATABASE_DEFAULT_MAX_CONNECTIONS_COUNT**   | The _`MAX_CONNECTIONS_COUNT`_ data source parameter                                                      | _`8`_
+**DIRIGIBLE_DATABASE_DEFAULT_WAIT_TIMEOUT**   | The _`WAIT_TIMEOUT`_ data source parameter                                                               | _`500`_
+**DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The _`WAIT_COUNT`_ data source parameter                                                                 | _`5`_
+**DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance                                          | ` `
+**DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance                                                | _`DefaultDB`_
+**DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance                                                 | _`SystemDB`_
+**DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive                            | _`false`_
+**DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer                                                             | _`1000`_
+**DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT**	| The batch size used during quering data from the database                                                | _`1000`_
+**DIRIGIBLE_DATABASE_SYSTEM_DRIVER**	| The driver used for the SystemDB database connection                                                     | _`org.h2.Driver`_
+**DIRIGIBLE_DATABASE_SYSTEM_URL**	| The JDBC url used for the SystemDB database connection                                                   | _`jdbc:h2:file:./target/dirigible/h2/SystemDB`_
+**DIRIGIBLE_DATABASE_SYSTEM_USERNAME**	| The username used for the SystemDB database connection                                                   | _`sa`_
+**DIRIGIBLE_DATABASE_SYSTEM_PASSWORD**	| The password used for the SystemDB database connection                                                   | _(empty)_
 
 #### Database H2
 
