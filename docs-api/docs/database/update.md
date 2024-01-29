@@ -21,23 +21,50 @@ Simplified update functionality, accepts SQL script and query parameters and ret
 === "ECMA6"
 
     ```javascript
-    import { update } from "@dirigible/db";
-
-    update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))");
-    update.execute("INSERT INTO MY_TABLE VALUES (1, 'ABC')");
-    update.execute("INSERT INTO MY_TABLE VALUES (2, 'DEF')");
-    update.execute("DROP TABLE MY_TABLE");
+    import { query, update } from "@dirigible/db";
+    import { response } from "@dirigible/http";
+    
+    update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT)", [], "DefaultDB");
+    
+    update.execute("INSERT INTO MY_TABLE VALUES (1)", [], "DefaultDB");
+    
+    let resultSetBefore = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
+    response.println("Value before update: " + JSON.stringify(resultSetBefore));
+    
+    update.execute("UPDATE MY_TABLE SET COLUMN_A = 2", [], "DefaultDB");
+    
+    let resultSetAfter = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
+    response.println("Value after update: " + JSON.stringify(resultSetAfter));
+    
+    update.execute("DROP TABLE MY_TABLE", [], "DefaultDB");
+    
+    response.flush();
+    response.close();
     ```
 
 === "CommonJS"
 
     ```javascript
     const update = require("db/update");
+    const query = require("db/query");
+    const response = require("http/response");
 
-    update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT, COLUMN_B VARCHAR(10))");
-    update.execute("INSERT INTO MY_TABLE VALUES (1, 'ABC')");
-    update.execute("INSERT INTO MY_TABLE VALUES (2, 'DEF')");
-    update.execute("DROP TABLE MY_TABLE");
+    update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT)", [], "DefaultDB");
+    
+    update.execute("INSERT INTO MY_TABLE VALUES (1)", [], "DefaultDB");
+    
+    let resultSetBefore = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
+    response.println("Value before update: " + JSON.stringify(resultSetBefore));
+    
+    update.execute("UPDATE MY_TABLE SET COLUMN_A = 2", [], "DefaultDB");
+    
+    let resultSetAfter = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
+    response.println("Value after update: " + JSON.stringify(resultSetAfter));
+    
+    update.execute("DROP TABLE MY_TABLE", [], "DefaultDB");
+    
+    response.flush();
+    response.close();
     ```
 
 
