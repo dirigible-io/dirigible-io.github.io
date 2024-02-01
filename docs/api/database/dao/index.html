@@ -611,6 +611,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#advance-usage" class="md-nav__link">
+    Advance Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -2540,6 +2547,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#advance-usage" class="md-nav__link">
+    Advance Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -2601,7 +2615,7 @@
 <li>Group: <code>core</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label><label for="__tabbed_2_3">List - $filter</label><label for="__tabbed_2_4">List - $select</label><label for="__tabbed_2_5">List - $limit and $offset</label><label for="__tabbed_2_6">List - $sort and $order</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/db&quot;</span><span class="p">;</span><span class="w"></span>
@@ -2721,8 +2735,13 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
+</div>
+</div>
+<h3 id="advance-usage">Advance Usage</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Filter</label><label for="__tabbed_3_2">Select</label><label for="__tabbed_3_3">Limit and Offset</label><label for="__tabbed_3_4">Sort and Order</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
-<p>The following filter options are available:</p>
+<p>To apply filter use the <code>$filter</code> property with the followin options:</p>
 <ul>
 <li><code>equals</code> - exact match of the given value(s) <em>(single value or array of values)</em>.</li>
 <li><code>notEquals</code> - exclude for the given value(s) from the result <em>(single value or array of values)</em>.</li>
