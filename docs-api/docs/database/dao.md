@@ -139,10 +139,11 @@ Simplified database access objects utility.
     }
     ```
 
+### Advance Usage
 
-=== "List - $filter"
+=== "Filter"
 
-    The following filter options are available:
+    To apply filter use the `$filter` property with the followin options:
 
     - `equals` - exact match of the given value(s) _(single value or array of values)_.
     - `notEquals` - exclude for the given value(s) from the result _(single value or array of values)_.
@@ -268,7 +269,7 @@ Simplified database access objects utility.
         AND ("EMPLOYEE_VACATION" <= ?)
     ```
 
-=== "List - $select"
+=== "Select"
 
     The `$select` property can be used to select only a set of properties/columns from the DAO query.
 
@@ -357,7 +358,7 @@ Simplified database access objects utility.
     SELECT "EMPLOYEE_NAME", "EMPLOYEE_COUNTRY", "EMPLOYEE_COMPANY" FROM "SAMPLE_EMPLOYEE"
     ```
 
-=== "List - $limit and $offset"
+=== "Limit and Offset"
 
     The `$limit` and `$offset` properties can be used together to achieve pagination of large data sets.
 
@@ -447,7 +448,7 @@ Simplified database access objects utility.
     SELECT * FROM "SAMPLE_EMPLOYEE" LIMIT 50 OFFSET 0
     ```
 
-=== "List - $sort and $order"
+=== "Sort and Order"
 
     The `$sort` and `$order` properties can be used together to sort the returned data.
 
