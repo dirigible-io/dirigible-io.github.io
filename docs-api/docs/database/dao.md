@@ -24,28 +24,28 @@ Simplified database access objects utility.
 
     //create a DAO from configuration
     const customers = dao.create({
-      table: "CUSTOMERS",
-      properties: [{
-        name: "id",
-        column: "ID",
-        type: "BIGINT",
-        id: true
-      }, {
-        name: "orgName",
-        column: "ORG_NAME",
-        type: "VARCHAR",
-        required: true
-      }, {
-        name: "employeesNumber",
-        column: "ORG_EMP_NUM",
-        type: "INTEGER",
-        required: true
-      }, {
-        name: "orgDescription",
-        column: "ORG_DESCR",
-        type: "VARCHAR",
-        required: false
-      }]
+        table: "CUSTOMERS",
+        properties: [{
+            name: "id",
+            column: "ID",
+            type: "BIGINT",
+            id: true
+        }, {
+            name: "orgName",
+            column: "ORG_NAME",
+            type: "VARCHAR",
+            required: true
+        }, {
+            name: "employeesNumber",
+            column: "ORG_EMP_NUM",
+            type: "INTEGER",
+            required: true
+        }, {
+            name: "orgDescription",
+            column: "ORG_DESCR",
+            type: "VARCHAR",
+            required: false
+        }]
     });
 
     //Create CUSTOMERS table
@@ -53,28 +53,28 @@ Simplified database access objects utility.
 
     try {
 
-      //Create a new customer entity
-      let customerId = customers.insert({
-        orgName: "ACME",
-        employeesNumber: 1000
-      });
+        //Create a new customer entity
+        let customerId = customers.insert({
+            orgName: "ACME",
+            employeesNumber: 1000
+        });
 
-      //List all customer entities
-      let customersList = customers.list();
+        //List all customer entities
+        let customersList = customers.list();
 
-      //Get a particular customer entity by its id
-      let customer = customers.find(customerId);
+        //Get a particular customer entity by its id
+        let customer = customers.find(customerId);
 
-      //Update a customer entity property
-      customer.orgDescription = "ACME is a company";
-      customers.update(customer);
+        //Update a customer entity property
+        customer.orgDescription = "ACME is a company";
+        customers.update(customer);
 
-      //Delete a customer entity
-      customers.remove(customerId);
+        //Delete a customer entity
+        customers.remove(customerId);
 
     } finally {
-      //Drop CUSTOMERS table
-      customers.dropTable();
+        //Drop CUSTOMERS table
+        customers.dropTable();
     }
     ```
 
@@ -137,6 +137,405 @@ Simplified database access objects utility.
         //Drop CUSTOMERS table
         customers.dropTable();
     }
+    ```
+
+
+=== "List - $filter"
+
+    The following filter options are available:
+
+    - `equals` - exact match of the given value(s) _(single value or array of values)_.
+    - `notEquals` - exclude for the given value(s) from the result _(single value or array of values)_.
+    - `contains` - performs `LIKE %...%` operation _(case sensitive)_.
+    - `greaterThan` - performs comparison operation _(`>`)_.
+    - `lessThan` - performs comparison operation _(`<`)_.
+    - `greaterThanOrEqual` - performs comparison operation _(`>=`)_.
+    - `lessThanOrEqual` - performs comparison operation _(`<=`)_.
+
+    !!! note
+
+        The "key" (e.g. `Team`, `Country`, etc.) should match a property in the DAO definition.
+
+    ??? info "DAO Definition"
+
+        ```js
+        import { dao as daoApi } from "@dirigible/db";
+
+        const dao = daoApi.create({
+          table: "SAMPLE_EMPLOYEE",
+          properties: [
+            {
+              name: "Id",
+              column: "EMPLOYEE_ID",
+              type: "INTEGER",
+              id: true,
+              autoIncrement: true,
+            },
+            {
+              name: "Name",
+              column: "EMPLOYEE_NAME",
+              type: "VARCHAR",
+            },
+            {
+              name: "Email",
+              column: "EMPLOYEE_EMAIL",
+              type: "VARCHAR",
+            },
+            {
+              name: "Phone",
+              column: "EMPLOYEE_PHONE",
+              type: "VARCHAR",
+            },
+            {
+              name: "Address",
+              column: "EMPLOYEE_ADDRESS",
+              type: "VARCHAR",
+            },
+            {
+              name: "PostCode",
+              column: "EMPLOYEE_POSTCODE",
+              type: "VARCHAR",
+            },
+            {
+              name: "City",
+              column: "EMPLOYEE_CITY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Country",
+              column: "EMPLOYEE_COUNTRY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Team",
+              column: "EMPLOYEE_TEAM",
+              type: "INTEGER",
+            },
+            {
+              name: "Company",
+              column: "EMPLOYEE_COMPANY",
+              type: "INTEGER",
+            },
+            {
+              name: "Vacation",
+              column: "EMPLOYEE_VACATION",
+              type: "INTEGER",
+            }
+          ]
+        });
+        ```
+
+    ```js
+    const data = dao.list({
+        $filter: {
+            equals: {
+                Team: [11, 12, 18]
+            },
+            notEquals: {
+                Country: ["Indonesia", "Chile"],
+                Company: 4
+            },
+            contains: {
+                Address: "Cedar St",
+                City: "town"
+            },
+            greaterThan: {
+                Vacation: 20
+            },
+            // lessThan: {
+            //     Vacation: 35
+            // },
+            // greaterThanOrEqual: {
+            //     Vacation: 20
+            // },
+            lessThanOrEqual: {
+                Vacation: 35
+            }
+        }
+    });
+    ```
+
+    The following SQL is being executed:
+
+    ```sql
+    SELECT * FROM "SAMPLE_EMPLOYEE"
+    WHERE ("EMPLOYEE_TEAM" IN (?, ?, ?))
+        AND ("EMPLOYEE_COUNTRY" NOT IN (?, ?))
+        AND ("EMPLOYEE_COMPANY" != ?)
+        AND ("EMPLOYEE_ADDRESS" LIKE ?)
+        AND ("EMPLOYEE_CITY" LIKE ?)
+        AND ("EMPLOYEE_VACATION" > ?)
+        AND ("EMPLOYEE_VACATION" <= ?)
+    ```
+
+=== "List - $select"
+
+    The `$select` property can be used to select only a set of properties/columns from the DAO query.
+
+    !!! note
+
+        The selected "key" (e.g. `Name`, `Country`, etc.) should match a property in the DAO definition.
+
+    ??? info "DAO Definition"
+
+        ```js
+        import { dao as daoApi } from "@dirigible/db";
+        
+        const dao = daoApi.create({
+          table: "SAMPLE_EMPLOYEE",
+          properties: [
+            {
+              name: "Id",
+              column: "EMPLOYEE_ID",
+              type: "INTEGER",
+              id: true,
+              autoIncrement: true,
+            },
+            {
+              name: "Name",
+              column: "EMPLOYEE_NAME",
+              type: "VARCHAR",
+            },
+            {
+              name: "Email",
+              column: "EMPLOYEE_EMAIL",
+              type: "VARCHAR",
+            },
+            {
+              name: "Phone",
+              column: "EMPLOYEE_PHONE",
+              type: "VARCHAR",
+            },
+            {
+              name: "Address",
+              column: "EMPLOYEE_ADDRESS",
+              type: "VARCHAR",
+            },
+            {
+              name: "PostCode",
+              column: "EMPLOYEE_POSTCODE",
+              type: "VARCHAR",
+            },
+            {
+              name: "City",
+              column: "EMPLOYEE_CITY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Country",
+              column: "EMPLOYEE_COUNTRY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Team",
+              column: "EMPLOYEE_TEAM",
+              type: "INTEGER",
+            },
+            {
+              name: "Company",
+              column: "EMPLOYEE_COMPANY",
+              type: "INTEGER",
+            },
+            {
+              name: "Vacation",
+              column: "EMPLOYEE_VACATION",
+              type: "INTEGER",
+            }
+          ]
+        });
+        ```
+
+    ```js
+    const data = dao.list({
+        $select: ["Name", "Country", "Company"]
+    });
+    ```
+
+    The following SQL is being executed:
+
+    ```sql
+    SELECT "EMPLOYEE_NAME", "EMPLOYEE_COUNTRY", "EMPLOYEE_COMPANY" FROM "SAMPLE_EMPLOYEE"
+    ```
+
+=== "List - $limit and $offset"
+
+    The `$limit` and `$offset` properties can be used together to achieve pagination of large data sets.
+
+    !!! note
+
+        Values for both `$limit` and `$offset` should be provided.
+
+    ??? info "DAO Definition"
+
+        ```js
+        import { dao as daoApi } from "@dirigible/db";
+        
+        const dao = daoApi.create({
+          table: "SAMPLE_EMPLOYEE",
+          properties: [
+            {
+              name: "Id",
+              column: "EMPLOYEE_ID",
+              type: "INTEGER",
+              id: true,
+              autoIncrement: true,
+            },
+            {
+              name: "Name",
+              column: "EMPLOYEE_NAME",
+              type: "VARCHAR",
+            },
+            {
+              name: "Email",
+              column: "EMPLOYEE_EMAIL",
+              type: "VARCHAR",
+            },
+            {
+              name: "Phone",
+              column: "EMPLOYEE_PHONE",
+              type: "VARCHAR",
+            },
+            {
+              name: "Address",
+              column: "EMPLOYEE_ADDRESS",
+              type: "VARCHAR",
+            },
+            {
+              name: "PostCode",
+              column: "EMPLOYEE_POSTCODE",
+              type: "VARCHAR",
+            },
+            {
+              name: "City",
+              column: "EMPLOYEE_CITY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Country",
+              column: "EMPLOYEE_COUNTRY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Team",
+              column: "EMPLOYEE_TEAM",
+              type: "INTEGER",
+            },
+            {
+              name: "Company",
+              column: "EMPLOYEE_COMPANY",
+              type: "INTEGER",
+            },
+            {
+              name: "Vacation",
+              column: "EMPLOYEE_VACATION",
+              type: "INTEGER",
+            }
+          ]
+        });
+        ```
+
+    ```js
+    const data = dao.list({
+        $limit: 50,
+        $offset: 0,
+    });
+    ```
+
+    The following SQL is being executed:
+
+    ```sql
+    SELECT * FROM "SAMPLE_EMPLOYEE" LIMIT 50 OFFSET 0
+    ```
+
+=== "List - $sort and $order"
+
+    The `$sort` and `$order` properties can be used together to sort the returned data.
+
+    !!! note
+
+        - `$sort` - comma separated list of "keys" matching properties in the DAO definition _(e.g. `Country,City`)_.
+        - `$order` - either `asc` or `desc` _(the default order is `asc`)_.
+
+    ??? info "DAO Definition"
+
+        ```js
+        import { dao as daoApi } from "@dirigible/db";
+        
+        const dao = daoApi.create({
+          table: "SAMPLE_EMPLOYEE",
+          properties: [
+            {
+              name: "Id",
+              column: "EMPLOYEE_ID",
+              type: "INTEGER",
+              id: true,
+              autoIncrement: true,
+            },
+            {
+              name: "Name",
+              column: "EMPLOYEE_NAME",
+              type: "VARCHAR",
+            },
+            {
+              name: "Email",
+              column: "EMPLOYEE_EMAIL",
+              type: "VARCHAR",
+            },
+            {
+              name: "Phone",
+              column: "EMPLOYEE_PHONE",
+              type: "VARCHAR",
+            },
+            {
+              name: "Address",
+              column: "EMPLOYEE_ADDRESS",
+              type: "VARCHAR",
+            },
+            {
+              name: "PostCode",
+              column: "EMPLOYEE_POSTCODE",
+              type: "VARCHAR",
+            },
+            {
+              name: "City",
+              column: "EMPLOYEE_CITY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Country",
+              column: "EMPLOYEE_COUNTRY",
+              type: "VARCHAR",
+            },
+            {
+              name: "Team",
+              column: "EMPLOYEE_TEAM",
+              type: "INTEGER",
+            },
+            {
+              name: "Company",
+              column: "EMPLOYEE_COMPANY",
+              type: "INTEGER",
+            },
+            {
+              name: "Vacation",
+              column: "EMPLOYEE_VACATION",
+              type: "INTEGER",
+            }
+          ]
+        });
+        ```
+
+    ```js
+    const data = dao.list({
+        $sort: "Country,City",
+        $order: "desc",
+    });
+    ```
+
+    The following SQL is being executed:
+
+    ```sql
+    SELECT * FROM "SAMPLE_EMPLOYEE" ORDER BY "EMPLOYEE_COUNTRY" DESC, "EMPLOYEE_CITY" DESC
     ```
 
 ### Functions
