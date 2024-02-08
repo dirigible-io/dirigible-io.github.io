@@ -21,8 +21,8 @@ The Redis Client is giving an access to a [redis](https://redis.io//) in-memory 
 === "ECMA6"
 
     ```javascript
-    import { client } from "@dirigible/redis";
-    import { response } from "@dirigible/http";
+    import { client } from "sdk/redis";
+    import { response } from "sdk/http";
 
     const redisClient = client.getClient();
 
@@ -33,7 +33,7 @@ The Redis Client is giving an access to a [redis](https://redis.io//) in-memory 
     response.println(data);
     ```
     
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const client = require("redis/client");
@@ -46,7 +46,7 @@ The Redis Client is giving an access to a [redis](https://redis.io//) in-memory 
     const data = redisClient.get("foo");
 
     response.println(data);
-    ```
+    ``` -->
 
 
 ### Functions

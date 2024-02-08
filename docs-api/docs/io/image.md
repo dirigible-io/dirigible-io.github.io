@@ -24,13 +24,6 @@ Image API provides utility functionlity for working with images.
 
     ```
 
-=== "CommonJS"
-
-    TODO
-    ```javascript
-
-    ```
-
 ### Functions
 
 ---

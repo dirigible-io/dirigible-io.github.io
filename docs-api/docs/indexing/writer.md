@@ -19,7 +19,7 @@ The Indexing Writer is an object which can store a text content with additional 
 === "ECMA6"
 
     ```javascript
-    import { writer, searcher } from "@dirigible/indexing";
+    import { writer, searcher } from "sdk/indexing";
 
     writer.add("index1", "file1", "apache lucene", new Date(), { "name1": "value1" });
     writer.add("index1", "file2", "lucene - the search engine", new Date(), { "name2": "value2" });
@@ -29,7 +29,7 @@ The Indexing Writer is an object which can store a text content with additional 
     console.log(JSON.stringify(found))
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const writer = require("indexing/writer");
@@ -41,7 +41,7 @@ The Indexing Writer is an object which can store a text content with additional 
     let found = searcher.search("index1", "lucene");
 
     console.log(JSON.stringify(found))
-    ```
+    ``` -->
 
 ### Functions
 

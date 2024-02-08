@@ -22,7 +22,7 @@ To test the API first create a zip file using the following snippet:
 === "ECMA6"
 
     ```javascript
-    import { zip, files } from "@dirigible/io";
+    import { zip, files } from "sdk/io";
 
     let outputStream = files.createOutputStream("test.zip");
     let zipOutputStream = zip.createZipOutputStream(outputStream);
@@ -39,7 +39,7 @@ To test the API first create a zip file using the following snippet:
     }
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const zip = require("io/zip");
@@ -57,14 +57,14 @@ To test the API first create a zip file using the following snippet:
                 zipOutputStream.close();
             }
     }
-    ```
+    ``` -->
 
 Then you can read the contents of the zip file:
 
 === "ECMA6"
 
     ```javascript
-    import { zip, files } from "@dirigible/io";
+    import { zip, files } from "sdk/io";
 
     let inputStream = files.createInputStream("test.zip");
     let zipInputStream = zip.createZipInputStream(inputStream);

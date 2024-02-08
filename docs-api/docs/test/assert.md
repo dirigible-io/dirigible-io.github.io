@@ -19,8 +19,8 @@ Assert object is used in unit tests.
 === "ECMA6"
 
     ```javascript
-    import { base64 } from "@dirigible/utils";
-    import { assert } from "@dirigible/test";
+    import { base64 } from "sdk/utils";
+    import { assert } from "sdk/test";
 
     const input = "test"
     const result = base64.encode(input);
@@ -28,7 +28,7 @@ Assert object is used in unit tests.
     assert.assertEquals(result, 'dGVzdA==', "check if match");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const base64 = require('utils/base64');
@@ -38,7 +38,7 @@ Assert object is used in unit tests.
     const result = base64.encode(input);
 
     assertEquals(result, 'dGVzdA==', "check if match");
-    ```
+    ``` -->
 
 ### Functions
 

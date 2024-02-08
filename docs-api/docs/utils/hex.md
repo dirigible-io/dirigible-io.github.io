@@ -20,8 +20,8 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 === "ECMA6"
 
     ```javascript
-    import { hex } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { hex } from "sdk/utils";
+    import { response } from "sdk/http";
 
     response.println(hex.encode("Hex Encoded"));
     response.println(hex.decode("48657820456e636f646564"));
@@ -30,7 +30,7 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const hex = require("utils/hex");
@@ -41,7 +41,7 @@ Hex object is used to encode/decode text/binary in hexadecimal format.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

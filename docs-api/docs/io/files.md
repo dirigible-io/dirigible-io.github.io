@@ -22,7 +22,7 @@ Files module provides an access to the underlying File System, where the Dirigib
 === "ECMA6"
 
     ```javascript
-    import { files } from "@dirigible/io";
+    import { files } from "sdk/io";
 
     let tempFile = files.createTempFile("dirigible", ".txt");
 
@@ -32,7 +32,7 @@ Files module provides an access to the underlying File System, where the Dirigib
     files.deleteFile(tempFile);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const files = require("io/files");
@@ -43,7 +43,7 @@ Files module provides an access to the underlying File System, where the Dirigib
 
     files.writeText(tempFile, "Eclipse Dirigible");
     files.deleteFile(tempFile);
-    ```
+    ``` -->
 
 ### Constants
 

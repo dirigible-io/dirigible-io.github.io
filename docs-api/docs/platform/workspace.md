@@ -25,8 +25,8 @@ The service which list the available workspaces:
 === "ECMA6"
 
     ```javascript
-    import { workspace } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { workspace } from "sdk/platform";
+    import { response } from "sdk/http";
 
     let workspacesNames = workspace.getWorkspacesNames();
 
@@ -35,7 +35,7 @@ The service which list the available workspaces:
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const workspaceManager = require("platform/workspace");
@@ -46,7 +46,7 @@ The service which list the available workspaces:
     response.println("Workspaces: " + workspacesNames);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

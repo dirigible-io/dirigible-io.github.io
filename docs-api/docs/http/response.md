@@ -20,14 +20,14 @@ HTTP Response object provided to the scripting services implementation to create
 === "ECMA6"
 
     ```javascript
-    import { response } from "@dirigible/http";
+    import { response } from "sdk/http";
 
     response.println("Hello World!");
     response.flush();
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -35,7 +35,7 @@ HTTP Response object provided to the scripting services implementation to create
     response.println("Hello World!");
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

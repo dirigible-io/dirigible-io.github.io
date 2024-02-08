@@ -21,8 +21,8 @@ API for generating a PDF files.
 === "ECMA6"
 
     ```javascript
-    import { response } from "@dirigible/http";
-    import { pdf } from "@dirigible/pdf";
+    import { response } from "sdk/http";
+    import { pdf } from "sdk/pdf";
     
     const data = {
         title: "Lorem Ipsum",
@@ -72,7 +72,7 @@ API for generating a PDF files.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/v4/response");
@@ -124,7 +124,7 @@ API for generating a PDF files.
     response.write(pdf);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

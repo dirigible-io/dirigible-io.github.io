@@ -20,8 +20,8 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
 === "ECMA6"
 
     ```javascript
-    import { escape } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { escape } from "sdk/utils";
+    import { response } from "sdk/http";
 
     const input = "<script type='text/javascript'>alert('evil script')</script>";
     const result = escape.escapeJavascript(input);
@@ -32,7 +32,7 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const escape = require('utils/escape');
@@ -45,7 +45,7 @@ Escape object is used to escape/unescape text in CSV, HTML3, HTML4, Javascript, 
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

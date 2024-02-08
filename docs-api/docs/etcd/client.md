@@ -22,7 +22,7 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 
     ```javascript
     // Load the etcd client module.
-    const etcd = require("etcd/client");
+    import { etcd } from "sdk/etcd";
 
     // Initialize the etcd client.
     let etcdClient = etcd.getClient();
@@ -43,7 +43,7 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
     etcdClient.delete("foo");
     ```
     
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     // Load the etcd client module.
@@ -66,7 +66,7 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 
     // Delete key-value pair.
     etcdClient.delete("foo");
-    ```
+    ``` -->
 
 
 ### Functions

@@ -18,7 +18,7 @@ OS object is used to get OS details.
 === "ECMA6"
 
     ```javascript
-    import { os } from "@dirigible/platform";
+    import { os } from "sdk/platform";
 
     if (os.isWindows()) {
         // Windows logic here
@@ -32,7 +32,7 @@ OS object is used to get OS details.
     console.log("OS is: " + osName);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const os = require('platform/os');
@@ -47,7 +47,7 @@ OS object is used to get OS details.
 
     const osName = os.name;
     console.log("OS is: " + osName);
-    ```
+    ``` -->
 
 ### Constants
 

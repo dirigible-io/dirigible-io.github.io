@@ -20,7 +20,7 @@ Features
 ## Scripting Services
 
 * Support of JavaScript language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
-* Support of CommonJS based modularization of JavaScript services (`*.js`).
+* Support for Typescript services (`*.ts`).
 * Support of strictly defined enterprise [ API](../../../api/) for JavaScript to be used by the business application developers.
 
 ## Web Content

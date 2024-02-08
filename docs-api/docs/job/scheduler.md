@@ -19,7 +19,7 @@ Job Scheduler provides convenient API for managing Job state and execution.
 === "ECMA6"
 
     ```javascript
-    import { scheduler } from "@dirigible/job";
+    import { scheduler } from "sdk/job";
 
     let job = scheduler.getJob("/sample-job/myjob.job");
     let param = job.getParameter("myParam");
@@ -27,7 +27,7 @@ Job Scheduler provides convenient API for managing Job state and execution.
     console.log('Param is: ' + param);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const scheduler = require("job/scheduler");
@@ -36,7 +36,7 @@ Job Scheduler provides convenient API for managing Job state and execution.
     let param = job.getParameter("myParam");
 
     console.log('Param is: ' + param);
-    ```
+    ``` -->
 
 
 ### Functions

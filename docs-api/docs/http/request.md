@@ -21,7 +21,7 @@ HTTP Request object provided to the scripting services implementation. It contai
 === "ECMA6"
 
     ```javascript
-    import { request, response } from "@dirigible/http";
+    import { request, response } from "sdk/http";
 
     let method = request.getMethod();
 
@@ -30,7 +30,7 @@ HTTP Request object provided to the scripting services implementation. It contai
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const request = require("http/request");
@@ -41,7 +41,7 @@ HTTP Request object provided to the scripting services implementation. It contai
     response.println("[Method]: " + method);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

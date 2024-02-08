@@ -20,8 +20,8 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
 === "ECMA6"
 
     ```javascript
-    import { store } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { store } from "sdk/db";
+    import { response } from "sdk/http";
 
     let entry = { 'name': 'John', 'address': 'Sofia, Bulgaria' };
 
@@ -34,7 +34,7 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const store = require("db/store");
@@ -49,7 +49,7 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.println(JSON.stringify(list));
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 The `Entity` description in the Hibernate `xml` or `json` format (e.g. Customer.hbm.xml as XML or Customer.entity as JSON)
 

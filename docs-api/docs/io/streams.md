@@ -20,8 +20,8 @@ Streams module provides classes and utilities for working with streams.
 === "ECMA6"
 
     ```javascript
-    import { streams } from "@dirigible/io";
-    import { response } from "@dirigible/http";
+    import { streams } from "sdk/io";
+    import { response } from "sdk/http";
 
     let outputStream = streams.createByteArrayOutputStream();
 
@@ -44,7 +44,7 @@ Streams module provides classes and utilities for working with streams.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const streams = require("io/streams");
@@ -69,7 +69,7 @@ Streams module provides classes and utilities for working with streams.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

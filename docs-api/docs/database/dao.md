@@ -20,7 +20,7 @@ Simplified database access objects utility.
 === "ECMA6"
 
     ```javascript
-    import { dao } from "@dirigible/db";
+    import { dao } from "sdk/db";
 
     //create a DAO from configuration
     const customers = dao.create({
@@ -78,7 +78,7 @@ Simplified database access objects utility.
     }
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const dao = require("db/dao");
@@ -137,7 +137,7 @@ Simplified database access objects utility.
         //Drop CUSTOMERS table
         customers.dropTable();
     }
-    ```
+    ``` -->
 
 ### Advance Usage
 
@@ -160,7 +160,7 @@ Simplified database access objects utility.
     ??? info "DAO Definition"
 
         ```js
-        import { dao as daoApi } from "@dirigible/db";
+        import { dao as daoApi } from "sdk/db";
 
         const dao = daoApi.create({
           table: "SAMPLE_EMPLOYEE",
@@ -280,7 +280,7 @@ Simplified database access objects utility.
     ??? info "DAO Definition"
 
         ```js
-        import { dao as daoApi } from "@dirigible/db";
+        import { dao as daoApi } from "sdk/db";
         
         const dao = daoApi.create({
           table: "SAMPLE_EMPLOYEE",
@@ -369,7 +369,7 @@ Simplified database access objects utility.
     ??? info "DAO Definition"
 
         ```js
-        import { dao as daoApi } from "@dirigible/db";
+        import { dao as daoApi } from "sdk/db";
         
         const dao = daoApi.create({
           table: "SAMPLE_EMPLOYEE",
@@ -460,7 +460,7 @@ Simplified database access objects utility.
     ??? info "DAO Definition"
 
         ```js
-        import { dao as daoApi } from "@dirigible/db";
+        import { dao as daoApi } from "sdk/db";
         
         const dao = daoApi.create({
           table: "SAMPLE_EMPLOYEE",

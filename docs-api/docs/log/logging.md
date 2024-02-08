@@ -20,7 +20,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
 === "ECMA6"
 
     ```javascript
-    import { logging } from "@dirigible/log";
+    import { logging } from "sdk/log";
 
     let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
@@ -28,7 +28,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
     logger.error("Oops", new Error("Something wrong happened"));
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const logging = require("log/logging");
@@ -37,7 +37,7 @@ Logging API using high-performance underlying framework - [logback](https://logb
 
     logger.debug("Hello from {} {}!", "MyLogger");
     logger.error("Oops", new Error("Something wrong happened"));
-    ```
+    ``` -->
 
 
 ### Functions

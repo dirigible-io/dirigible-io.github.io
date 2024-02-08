@@ -19,7 +19,7 @@ QUnit object is used in unit tests.
 === "ECMA6"
 
 	```javascript
-	import { qunit, runner } from "@dirigible/qunit"
+	import { qunit, runner } from "sdk/qunit"
 
 	qunit.module('Module 1:');
 
@@ -31,7 +31,7 @@ QUnit object is used in unit tests.
 	runner.run();
 	```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
 	```javascript
 	const qunit = require("qunit/qunit");
@@ -44,7 +44,7 @@ QUnit object is used in unit tests.
 	});
 
 	require("qunit/runner").run();
-	```
+	``` -->
 
 ### Functions
 

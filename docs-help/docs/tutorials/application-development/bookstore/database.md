@@ -196,7 +196,7 @@ It contains a database table definition for the `BOOKS` table, `CSV` data, `CSVI
 1. Replace the content with the following code:
 
     ```ts
-    import { dao as daoApi } from "@dirigible/db"
+    import { dao as daoApi } from "sdk/db"
 
     export interface Book {
         readonly id?: number;

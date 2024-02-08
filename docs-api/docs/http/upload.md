@@ -21,7 +21,7 @@ HTTP Upload is used to consume files posted as multipart request.
 === "ECMA6"
 
 	```javascript
-	import { upload, request, response } from "@dirigible/http";
+	import { upload, request, response } from "sdk/http";
 
 	if (request.getMethod() === "POST") {
 		if (upload.isMultipartContent()) {
@@ -47,7 +47,7 @@ HTTP Upload is used to consume files posted as multipart request.
 	response.close();
 	```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
 	```javascript
 	const upload = require("http/upload");
@@ -76,7 +76,7 @@ HTTP Upload is used to consume files posted as multipart request.
 
 	response.flush();
 	response.close();
-	```
+	``` -->
 
 #### Sample HTML Page
 

@@ -22,7 +22,7 @@ The service which starts the process:
 === "ECMA6"
 
     ```javascript
-    import { process } from "@dirigible/bpm"
+    import { process } from "sdk/bpm"
     
     process.start("hello", {
         variable1: "value1"
@@ -90,7 +90,7 @@ In a new project called `bpmFlows` add the following delegate `hello.mjs` or `he
 
     ```javascript
     // manipulating process variables throughout the execution context
-    import { process } from "@dirigible/bpm";
+    import { process } from "sdk/bpm";
 
     // Hello from the Enterprise Javascript delegate
     console.info("Hello from the Javascript Engine!");
@@ -111,7 +111,7 @@ In a new project called `bpmFlows` add the following delegate `hello.mjs` or `he
     }
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     // manipulating process variables throughout the execution context
@@ -134,7 +134,7 @@ In a new project called `bpmFlows` add the following delegate `hello.mjs` or `he
         }
 
     }
-    ```
+    ``` -->
 
 
 ### Delegate parameters:

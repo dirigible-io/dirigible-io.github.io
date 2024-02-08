@@ -20,20 +20,20 @@ Bytes module provides utility functions for working with bytes.
 === "ECMA6"
 
     ```javascript
-    import { bytes } from "@dirigible/io"
+    import { bytes } from "sdk/io"
 
     console.log(bytes.textToByteArray("Hello World"));
     console.log(bytes.byteArrayToText([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100]));
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const bytes = require("io/bytes");
 
     console.log(bytes.textToByteArray("Hello World"));
     console.log(bytes.byteArrayToText([72,101,108,108,111,32,87,111,114,108,100]));
-    ```
+    ``` -->
 
 ### Functions
 

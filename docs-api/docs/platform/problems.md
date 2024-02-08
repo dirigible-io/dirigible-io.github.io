@@ -20,8 +20,8 @@ Problems module provides utility functions for managing and logging problems/iss
 === "ECMA6"
 
     ```javascript
-    import { problems } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { problems } from "sdk/platform";
+    import { response } from "sdk/http";
 
     problems.save("/my-project/my-file", problems.ACTIVE, "line: 4", "row: 10", "", "Some problem / at line 4", "Expected end of line ;", "ProblemsModule", "my-file.mjs", "my-file.mjs");
 
@@ -32,7 +32,7 @@ Problems module provides utility functions for managing and logging problems/iss
     problems.clearAllProblems();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const problems = require("platform/problems");
@@ -45,7 +45,7 @@ Problems module provides utility functions for managing and logging problems/iss
     response.println(myProblems);
 
     problems.clearAllProblems();
-    ```
+    ``` -->
 
 
 ### Functions

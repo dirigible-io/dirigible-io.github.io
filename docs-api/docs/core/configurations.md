@@ -16,8 +16,8 @@ Configurations
 === "ECMA6"
 
     ```javascript
-    import { response } from "@dirigible/http";
-    import { configurations } from "@dirigible/core";
+    import { response } from "sdk/http";
+    import { configurations } from "sdk/core";
 
     configurations.set("ENV_VAR_1", "ENV_VAR_1");
     configurations.set("ENV_VAR_2", "ENV_VAR_2");
@@ -30,7 +30,7 @@ Configurations
     response.println(JSON.stringify(credentials));
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -45,7 +45,7 @@ Configurations
     };
 
     response.println(JSON.stringify(credentials));
-    ```
+    ``` -->
 
 
 ### Functions

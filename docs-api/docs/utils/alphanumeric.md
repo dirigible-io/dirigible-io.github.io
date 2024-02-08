@@ -19,8 +19,8 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 === "ECMA6"
 
     ```javascript
-    import { alphanumeric } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { alphanumeric } from "sdk/utils";
+    import { response } from "sdk/http";
 
     response.println(alphanumeric.toAlphanumeric("@mystring123!#="));
 
@@ -28,7 +28,7 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const alphanumeric = require("utils/alphanumeric");
@@ -38,7 +38,7 @@ Alphanumeric object is used to check whether a given string is alpha-numeric and
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

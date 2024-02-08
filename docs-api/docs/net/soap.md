@@ -19,8 +19,8 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
 === "ECMA6"
 
     ```javascript
-    import { soap } from "@dirigible/net";
-    import { response } from "@dirigible/http";
+    import { soap } from "sdk/net";
+    import { response } from "sdk/http";
 
     response.setContentType("text/plain; charset=UTF-8");
 
@@ -49,7 +49,7 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const soap = require("net/soap");
@@ -80,7 +80,7 @@ SOAP utility exposes web services framework for manipulating SOAP messages, maki
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

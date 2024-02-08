@@ -21,8 +21,8 @@ Simplified update functionality, accepts SQL script and query parameters and ret
 === "ECMA6"
 
     ```javascript
-    import { query, update } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { query, update } from "sdk/db";
+    import { response } from "sdk/http";
     
     update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT)", [], "DefaultDB");
     
@@ -42,7 +42,7 @@ Simplified update functionality, accepts SQL script and query parameters and ret
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const update = require("db/update");
@@ -65,7 +65,7 @@ Simplified update functionality, accepts SQL script and query parameters and ret
     
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

@@ -17,7 +17,7 @@ Although decorators support is something new in Dirigible yet to be documented, 
 For some time now, we have been thinking of an easier-to-code and easier-to-read solution for writing REST APIs. The current way of writing RESTful services is via [the rs module](https://www.dirigible.io/api/http/rs/). At a first glance, this is pretty similar to the plain old NodeJS Express. We have a router and we define some routes:
 
 ```javascript
-import { rs } from "@dirigible/http"
+import { rs } from "sdk/http"
 // or if you use the CJS modules support
 // const rs = require("http/v4/rs");
 
@@ -31,7 +31,7 @@ This approach has been working well but we've been hearing more and more about p
 When the new GraalJS version supporting decorators was released, we decided to create a PoC for decorator-based APIs. The first thing we tried out was something like the following:
 
 ```javascript
-import { Controller, Get } from "@dirigible/http"
+import { Controller, Get } from "sdk/http"
 // or if you use the CJS modules support
 // const { Controller, Get } = require("http/v4/rs/decorators");
 
@@ -48,7 +48,7 @@ class MyApi {
 While this was good enough for a PoC, it was still a bit more verbose than necessary for simple APIs. From what we have seen, people most often write an API that receives some request data and respond with some other data. So, we changed our design to the following:
 
 ```javascript
-import { Controller, Get, Post } from "@dirigible/http"
+import { Controller, Get, Post } from "sdk/http"
 // or if you use the CJS modules support
 // const { Controller, Get, Post } = require("http/v4/rs/decorators");
 

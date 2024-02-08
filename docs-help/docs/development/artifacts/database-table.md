@@ -73,7 +73,7 @@ The activation of the table descriptor is the process of creating a database tab
 ## Scripting Services
 
 * Support of JavaScript language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
-* Support of CommonJS based modularization of JavaScript services (`*.js`).
+<!-- * Support of CommonJS based modularization of JavaScript services (`*.js`). -->
 * Support of strictly defined enterprise [ API](../../../api/) for JavaScript to be used by the business application developers.
 
 ## Web Content

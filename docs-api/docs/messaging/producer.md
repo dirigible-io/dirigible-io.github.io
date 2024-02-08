@@ -20,18 +20,18 @@ The Messaging Producer is an object which can send text messages to a Queue or T
 === "ECMA6"
 
     ```javascript
-    import { producer } from "@dirigible/messaging"
+    import { producer } from "sdk/messaging"
 
     producer.queue("queue1").send("Text Message");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const producer = require("messaging/producer");
 
     producer.queue("queue1").send("Text Message");
-    ```
+    ``` -->
 
 
 ### Functions

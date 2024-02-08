@@ -61,9 +61,9 @@ This sample shows how to create a simple web application for uploading files.
 1. Replace the content with the following code:
 
     ```ts
-    import { upload, request, response } from "@dirigible/http";
-    import { cmis } from "@dirigible/cms";
-    import { streams } from "@dirigible/io";
+    import { upload, request, response } from "sdk/http";
+    import { cmis } from "sdk/cms";
+    import { streams } from "sdk/io";
     
     if (request.getMethod() === "POST") {
         if (upload.isMultipartContent()) {

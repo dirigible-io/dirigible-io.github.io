@@ -19,8 +19,8 @@ Context object is used to store and manage properties for a single execution flo
 === "ECMA6"
 
     ```javascript
-    import { context } from "@dirigible/core";
-    import { response } from "@dirigible/http";
+    import { context } from "sdk/core";
+    import { response } from "sdk/http";
 
     context.set("attr1", "value1");
     let attr = context.get("attr1");
@@ -30,7 +30,7 @@ Context object is used to store and manage properties for a single execution flo
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const context = require('core/context');
@@ -42,7 +42,7 @@ Context object is used to store and manage properties for a single execution flo
     response.println("[Attribute]: " + attr);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

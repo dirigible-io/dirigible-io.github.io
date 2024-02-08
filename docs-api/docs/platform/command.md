@@ -18,8 +18,8 @@ Command object is used to execute shell commands.
 === "ECMA6"
 
     ```javascript
-    import { command } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { command } from "sdk/platform";
+    import { response } from "sdk/http";
 
     let result = command.execute("echo 'hello dirigible!'");
 
@@ -28,7 +28,7 @@ Command object is used to execute shell commands.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const command = require('platform/command');
@@ -39,7 +39,7 @@ Command object is used to execute shell commands.
     response.println("[Result]: " + result);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

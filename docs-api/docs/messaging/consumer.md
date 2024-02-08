@@ -20,14 +20,14 @@ The Messaging Consumer is an object which can send text messages to a Queue or T
 === "ECMA6"
 
     ```javascript
-    import { consumer } from "@dirigible/messaging";
+    import { consumer } from "sdk/messaging";
 
     let message = consumer.queue("queue1").receive(1000);
 
     console.log(message)
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const consumer = require("messaging/consumer");
@@ -35,7 +35,7 @@ The Messaging Consumer is an object which can send text messages to a Queue or T
     let message = consumer.queue("queue1").receive(1000);
 
     console.log(message)
-    ```
+    ``` -->
 
 
 ### Functions
