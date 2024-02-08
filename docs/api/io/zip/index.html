@@ -2630,10 +2630,10 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <p>To test the API first create a zip file using the following snippet:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/io&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createOutputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">zipOutputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipOutputStream</span><span class="p">(</span><span class="nx">outputStream</span><span class="p">);</span><span class="w"></span>
@@ -2650,31 +2650,33 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">zip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/files&quot;</span><span class="p">);</span><span class="w"></span>
+</div>
+</div>
+<!-- === "CommonJS"
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createOutputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">isValid</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">zipOutputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipOutputStream</span><span class="p">(</span><span class="nx">outputStream</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">zipEntry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test1.txt&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="s2">&quot;some text&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">createZipEntry</span><span class="p">(</span><span class="s2">&quot;test2.bin&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">write</span><span class="p">([</span><span class="mf">60</span><span class="p">,</span><span class="w"> </span><span class="mf">61</span><span class="p">,</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span><span class="w"> </span><span class="mf">63</span><span class="p">]);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">zipOutputStream</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div>
-</div>
-</div>
+    ```javascript
+    const zip = require("io/zip");
+    const files = require("io/files");
+
+    let outputStream = files.createOutputStream("test.zip");
+    if (outputStream.isValid()) {
+            try {
+                let zipOutputStream = zip.createZipOutputStream(outputStream);
+                let zipEntry = zipOutputStream.createZipEntry("test1.txt");
+                zipOutputStream.writeText("some text");
+                zipOutputStream.createZipEntry("test2.bin");
+                zipOutputStream.write([60, 61, 62, 63]);
+            } finally {
+                zipOutputStream.close();
+            }
+    }
+    ``` -->
+
 <p>Then you can read the contents of the zip file:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">CommonJS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">zip</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/io&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">files</span><span class="p">.</span><span class="nx">createInputStream</span><span class="p">(</span><span class="s2">&quot;test.zip&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">zipInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">zip</span><span class="p">.</span><span class="nx">createZipInputStream</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">);</span><span class="w"></span>

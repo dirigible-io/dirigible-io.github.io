@@ -2684,10 +2684,10 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/git&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/git&quot;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
@@ -2703,25 +2703,27 @@
 <span class="nx">client</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">workspaceName</span><span class="p">,</span><span class="w"> </span><span class="nx">repositoryName</span><span class="p">,</span><span class="w"> </span><span class="nx">commitMessage</span><span class="p">,</span><span class="w"> </span><span class="nx">add</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;git/client&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">workspaceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;workspace&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">projectName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;project&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">repositoryName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">projectName</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">initialCommitMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Initial commit&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">commitMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Second commit&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
-
-<span class="nx">git</span><span class="p">.</span><span class="nx">initRepository</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">workspaceName</span><span class="p">,</span><span class="w"> </span><span class="nx">projectName</span><span class="p">,</span><span class="w"> </span><span class="nx">repositoryName</span><span class="p">,</span><span class="w"> </span><span class="nx">initialCommitMessage</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">git</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">email</span><span class="p">,</span><span class="w"> </span><span class="nx">workspaceName</span><span class="p">,</span><span class="w"> </span><span class="nx">repositoryName</span><span class="p">,</span><span class="w"> </span><span class="nx">commitMessage</span><span class="p">,</span><span class="w"> </span><span class="nx">add</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const git = require("git/client");
+
+    const user = "dirigible";
+    const email = "dirigible@eclipse.org";
+    const workspaceName = "workspace";
+    const projectName = "project";
+    const repositoryName = projectName;
+    const initialCommitMessage = "Initial commit";
+    const commitMessage = "Second commit";
+    const add = true;
+
+    git.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
+
+    git.commit(user, email, workspaceName, repositoryName, commitMessage, add);
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

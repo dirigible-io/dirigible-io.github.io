@@ -2645,7 +2645,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">websockets</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/net&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">websockets</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/net&quot;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ws://echo.websocket.org:80/&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-project/ws-handler&quot;</span><span class="w"></span>
@@ -2663,36 +2663,36 @@
 </div>
 </div>
 </div>
-<p>=== "CommonJS</p>
-<div class="highlight"><pre><span></span><code>```javascript
-const websockets = require(&quot;net/websockets&quot;);
+<!-- === "CommonJS
 
-const uri = &quot;ws://echo.websocket.org:80/&quot;;
-const handler = &quot;my-project/ws-handler&quot;
+    <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">websockets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;net/websockets&quot;</span><span class="p">);</span><span class="w"></span>
 
-function initialize() {
-    console.log(&quot;Connect to: &quot; + uri);
-    let websocket = websockets.createWebsocket(uri, handler);
-    websocket.send(&quot;hello&quot;);
-}
+<span class="kd">const</span><span class="w"> </span><span class="nx">uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ws://echo.websocket.org:80/&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-project/ws-handler&quot;</span><span class="w"></span>
 
-initialize();
+<span class="kd">function</span><span class="w"> </span><span class="nx">initialize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connect to: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">uri</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">websocket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">websockets</span><span class="p">.</span><span class="nx">createWebsocket</span><span class="p">(</span><span class="nx">uri</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">websocket</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-websockets.getClientByHandler(handler).close();
-```
+<span class="nx">initialize</span><span class="p">();</span><span class="w"></span>
 
-The handler:
-
-```javascript
-exports.onMessage = function(message) {
-  console.log(&quot;Message received: &quot; + message);
-}
-
-exports.onError = function(error) {
-  console.error(&quot;Error: &quot; + error);
-}
-```
+<span class="nx">websockets</span><span class="p">.</span><span class="nx">getClientByHandler</span><span class="p">(</span><span class="nx">handler</span><span class="p">).</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
+
+    The handler:
+
+    ```javascript
+    exports.onMessage = function(message) {
+      console.log("Message received: " + message);
+    }
+
+    exports.onError = function(error) {
+      console.error("Error: " + error);
+    }
+    ``` -->
+
 <h4 id="server">Server</h4>
 <blockquote>
 <p>For example: <code>my-endpoint.websocket</code> is using the same <strong>handler</strong> from above</p>

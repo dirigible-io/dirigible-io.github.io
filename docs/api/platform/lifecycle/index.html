@@ -2561,13 +2561,13 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/security&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">workspace</span><span class="p">,</span><span class="w"> </span><span class="nx">lifecycle</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/platform&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/io&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/security&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">workspace</span><span class="p">,</span><span class="w"> </span><span class="nx">lifecycle</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/platform&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">currentUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">workspaceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;workspace&quot;</span><span class="p">;</span><span class="w"></span>
@@ -2583,29 +2583,31 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;publishResult: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">publishResult</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;security/user&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;workspace/manager&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">lifecycle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;platform/lifecycle&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/bytes&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">workspaceName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;workspace&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">projectName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;project&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">myWorkspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">workspace</span><span class="p">.</span><span class="nx">createWorkspace</span><span class="p">(</span><span class="nx">workspaceName</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">myProject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myWorkspace</span><span class="p">.</span><span class="nx">createProject</span><span class="p">(</span><span class="nx">projectName</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">myFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myProject</span><span class="p">.</span><span class="nx">createFile</span><span class="p">(</span><span class="s2">&quot;file.js&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="nx">myFile</span><span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">textToByteArray</span><span class="p">(</span><span class="s2">&quot;console.log(&#39;Hello World!&#39;);&quot;</span><span class="p">));</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">publishResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">lifecycle</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">workspaceName</span><span class="p">,</span><span class="w"> </span><span class="nx">projectName</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;publishResult: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">publishResult</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const response = require("http/response");
+    const user = require("security/user");
+    const workspace = require("workspace/manager");
+    const lifecycle = require("platform/lifecycle");
+    const bytes = require("io/bytes");
+
+    const user = user.getName();
+    const workspaceName = "workspace";
+    const projectName = "project";
+
+    let myWorkspace = workspace.createWorkspace(workspaceName);
+    let myProject = myWorkspace.createProject(projectName);
+    let myFile = myProject.createFile("file.js");
+    myFile.setContent(bytes.textToByteArray("console.log('Hello World!');"));
+
+    let publishResult = lifecycle.publish(user, workspaceName, projectName);
+
+    response.println("publishResult: " + publishResult)
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

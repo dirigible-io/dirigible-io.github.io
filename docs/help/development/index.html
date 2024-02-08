@@ -3172,8 +3172,8 @@
 <p><img alt="Create Project" src="../images/getting_started/create-project-hello.png" /></p>
 </li>
 <li>
-<p>Right-click on the <code>hello-world</code> project in the <code>Projects</code> view and choose <strong>TypeScript</strong>, <strong>JavaScript ECMA6</strong> or <strong>JavaScript CommonJS</strong> service from the <strong>New</strong> dropdown:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript ECMA6</label><label for="__tabbed_1_3">JavaScript CommonJS</label></div>
+<p>Right-click on the <code>hello-world</code> project in the <code>Projects</code> view and choose <strong>TypeScript</strong> or <strong>JavaScript ECMA6</strong> service from the <strong>New</strong> dropdown:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
@@ -3243,70 +3243,66 @@
 <p>The <strong>JavaScript ESM Service</strong> is published and available at the http://localhost:8080/services/js/hello-world/service.mjs URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
 </div>
 </div>
-<div class="tabbed-block">
-<ul>
-<li>
-<p>Select the <strong>New</strong> <strong>&rarr;</strong> <strong>JavaScript CJS Service</strong> option:</p>
-<p><img alt="Create JavaScript CJS Service" src="../images/getting_started/create-commonjs.png" /></p>
-</li>
-<li>
-<p>Enter <code>service.js</code> for the name of the <strong>JavaScript CJS Service</strong>:</p>
-<p><img alt="Create JavaScript ESM Service" src="../images/getting_started/new-file-js.png" /></p>
-</li>
-<li>
-<p>Double-click on the <code>service.js</code> to open the file in the editor on the right.</p>
-<p><img alt="Service Impletentation" src="../images/getting_started/service-implementation-js.png" /></p>
-</li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The file already contains a <code>Hello World</code> service implementation. As it's not specified otherwise, the service can be executed by performing any of the following HTTP methods: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code> and <code>PATCH</code>.</p>
-</div>
-<ul>
-<li>
-<p>Right-click on the <code>hello-world</code> project and choose <strong>Publish</strong> option from the menu:</p>
-<p><img alt="Publish Project" src="../images/getting_started/publish-project.png" /></p>
-</li>
-<li>
-<p>With the <code>service.js</code> selected in the <code>Projects</code> view, check the result of the execution of the server-side <strong>JavaScript CJS Service</strong> in the <code>Preview</code> view:</p>
-<p><img alt="Preview Project" src="../images/getting_started/preview-project-js.png" /></p>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <strong>JavaScript CJS Service</strong> is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like <code>Postman</code> or <code>cURL</code>.</p>
 </div>
 </div>
-</div>
-</div>
+<p>&lt;!-- === "JavaScript CommonJS"</p>
+<div class="highlight"><pre><span></span><code>- Select the **New** **&amp;rarr;** **JavaScript CJS Service** option:
+
+    ![Create JavaScript CJS Service](../images/getting_started/create-commonjs.png)
+
+- Enter `service.js` for the name of the **JavaScript CJS Service**:
+
+    ![Create JavaScript ESM Service](../images/getting_started/new-file-js.png)
+
+- Double-click on the `service.js` to open the file in the editor on the right.
+
+    ![Service Impletentation](../images/getting_started/service-implementation-js.png)
+
+!!! info
+
+    The file already contains a `Hello World` service implementation. As it&#39;s not specified otherwise, the service can be executed by performing any of the following HTTP methods: `GET`, `POST`, `PUT`, `DELETE` and `PATCH`.
+
+- Right-click on the `hello-world` project and choose **Publish** option from the menu:
+
+    ![Publish Project](../images/getting_started/publish-project.png)
+
+- With the `service.js` selected in the `Projects` view, check the result of the execution of the server-side **JavaScript CJS Service** in the `Preview` view:
+
+    ![Preview Project](../images/getting_started/preview-project-js.png)
+
+!!! note
+
+    The **JavaScript CJS Service** is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`. --&gt;
+</code></pre></div>
 </li>
 </ol>
 <h3 id="update-the-hello-world-service">Update the <code>Hello World</code> service</h3>
 <ol>
 <li>
 <p>Go to line 3 in the editor and change the <code>Hello World!</code> message to <code>Hello Eclipse Dirigible!</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript ECMA6</label><label for="__tabbed_2_3">JavaScript CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label><label for="__tabbed_2_2">JavaScript ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="hll"><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Hello Eclipse Dirigible!&quot;</span><span class="p">);</span><span class="w"></span>
 </span></code></pre></div>
 </div>
 </div>
 </div>
+<p>&lt;!-- === "JavaScript CommonJS"</p>
+<div class="highlight"><pre><span></span><code>```js hl_lines=&quot;3&quot;
+const response = require(&quot;http/response&quot;);
+
+response.println(&quot;Hello Eclipse Dirigible!&quot;);
+``` --&gt;
+</code></pre></div>
 </li>
 <li>
 <p>Save the file: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span> for Windows, <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> for macOS</p>

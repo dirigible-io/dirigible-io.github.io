@@ -2317,7 +2317,7 @@ aws_secret_access_key = &lt;your_secret_access_key&gt;
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qldb&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/qldb&quot;</span><span class="w"></span>
 <span class="c1">// 1. Create a repository for the ledger &#39;myTestLedger&#39; that works with a table &#39;tableName&#39;</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myTestLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tableName&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// 2. [OPTIONAL] Create the table as it doesn&#39;t exist in your ledger, </span><span class="w"></span>

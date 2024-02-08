@@ -2641,39 +2641,10 @@
 <li>Group: <code>core</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">upload</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">upload</span><span class="p">.</span><span class="nx">parseRequest</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItems</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">contentType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getContentType</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Content Type: </span><span class="si">${</span><span class="nx">contentType</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Filename: </span><span class="si">${</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getOriginalFilename</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// console.log(`Text: ${fileItem.getText()}`);</span><span class="w"></span>
-
-<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="nx">contentType</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">fileItem</span><span class="p">.</span><span class="nx">getBytesNative</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;The request&#39;s content must be &#39;multipart&#39;&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Use POST request.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">upload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/upload&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/request&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">upload</span><span class="p">,</span><span class="w"> </span><span class="nx">request</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getMethod</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">upload</span><span class="p">.</span><span class="nx">isMultipartContent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2701,6 +2672,37 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const upload = require("http/upload");
+    const request = require("http/request");
+    const response = require("http/response");
+
+    if (request.getMethod() === "POST") {
+        if (upload.isMultipartContent()) {
+            const fileItems = upload.parseRequest();
+            for (let i = 0; i < fileItems.size(); i++) {
+                const fileItem = fileItems.get(i);
+                const contentType = fileItem.getContentType();
+                console.log(`Content Type: ${contentType}`);
+                console.log(`Filename: ${fileItem.getOriginalFilename()}`);
+                // console.log(`Text: ${fileItem.getText()}`);
+
+                response.setContentType(contentType);
+                response.write(fileItem.getBytesNative());
+            }
+        } else {
+            response.println("The request's content must be 'multipart'");
+        }
+    } else if (request.getMethod() === "GET") {
+        response.println("Use POST request.");
+    }
+
+    response.flush();
+    response.close();
+    ``` -->
+
 <h4 id="sample-html-page">Sample HTML Page</h4>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>

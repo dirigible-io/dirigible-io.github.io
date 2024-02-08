@@ -2561,22 +2561,11 @@
 <li>Group: <code>core</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/utils&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;&lt;![CDATA[&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=javascript:document.vulnerable=true;&quot;&gt;]]&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;utils/url&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/utils&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="s1">&#39;&lt;![CDATA[&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=javascript:document.vulnerable=true;&quot;&gt;]]&gt;&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s1">&#39;%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UTF8&#39;</span><span class="p">));</span><span class="w"></span>
@@ -2587,6 +2576,19 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const url = require("utils/url");
+    const response = require("http/response");
+
+    response.println(url.encode('<![CDATA[<meta http-equiv="refresh" content="0;url=javascript:document.vulnerable=true;">]]>', 'UTF8'));
+    response.println(url.decode('%3C%21%5BCDATA%5B%3Cmeta+http-equiv%3D%22refresh%22+content%3D%220%3Burl%3Djavascript%3Adocument.vulnerable%3Dtrue%3B%22%3E%5D%5D%3E', 'UTF8'));
+
+    response.flush();
+    response.close();
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

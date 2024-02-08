@@ -2615,18 +2615,10 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/messaging&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">consumer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">receive</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;messaging/consumer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/messaging&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">consumer</span><span class="p">.</span><span class="nx">queue</span><span class="p">(</span><span class="s2">&quot;queue1&quot;</span><span class="p">).</span><span class="nx">receive</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
 
@@ -2635,6 +2627,16 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const consumer = require("messaging/consumer");
+
+    let message = consumer.queue("queue1").receive(1000);
+
+    console.log(message)
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

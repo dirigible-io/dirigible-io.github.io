@@ -2561,10 +2561,10 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">qunit</span><span class="p">,</span><span class="w"> </span><span class="nx">runner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qunit&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">qunit</span><span class="p">,</span><span class="w"> </span><span class="nx">runner</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/qunit&quot;</span><span class="w"></span>
 
 <span class="nx">qunit</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Module 1:&#39;</span><span class="p">);</span><span class="w"></span>
 
@@ -2576,21 +2576,23 @@
 <span class="nx">runner</span><span class="p">.</span><span class="nx">run</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">qunit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;qunit/qunit&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">qunit</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;Module 1:&#39;</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">qunit</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s2">&quot;Test 1&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">assert</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Passing assertion&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nx">assert</span><span class="p">.</span><span class="nx">ok</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Failing assertion&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">require</span><span class="p">(</span><span class="s2">&quot;qunit/runner&quot;</span><span class="p">).</span><span class="nx">run</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const qunit = require("qunit/qunit");
+
+    qunit.module('Module 1:');
+
+    qunit.test("Test 1", function(assert) {
+        assert.ok(true, 'Passing assertion');
+        assert.ok(false, 'Failing assertion');
+    });
+
+    require("qunit/runner").run();
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

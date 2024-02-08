@@ -2644,20 +2644,22 @@
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
 <h4 id="start-listening-on-a-topic">Start listening on a topic</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/kafka&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">startListening</span><span class="p">(</span><span class="s2">&quot;&lt;kafka-project&gt;/&lt;kafka-handler&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/kafka&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">startListening</span><span class="p">(</span><span class="s2">&quot;&lt;kafka-project&gt;/&lt;kafka-handler&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const consumer = require("kafka/consumer");
+    consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
+    ``` -->
+
 <p>File: <code>&lt;kafka-project&gt;/&lt;kafka-handler.js&gt;</code>
 <div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">onMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello from My Kafka Listener! Message: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
@@ -2668,20 +2670,22 @@
 <span class="p">};</span><span class="w"></span>
 </code></pre></div></p>
 <h4 id="stop-listening-on-a-topic">Stop listening on a topic</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/kafka&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">stopListening</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;kafka/consumer&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">consumer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/kafka&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="nx">consumer</span><span class="p">.</span><span class="nx">topic</span><span class="p">(</span><span class="s2">&quot;topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">).</span><span class="nx">stopListening</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const consumer = require("kafka/consumer");
+    consumer.topic("topic1", "{}").stopListening();
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

@@ -2601,63 +2601,11 @@
 <li>Group: <code>ext</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mongodb&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">//create a DAO from configuration</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">table</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CUSTOMERS&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">properties</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;BIGINT&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;orgName&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_NAME&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;employeesNumber&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_EMP_NUM&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;orgDescription&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">column</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ORG_DESCR&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">required</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">}]</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="c1">//Create a new customer entity</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">customerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"></span>
-<span class="w">    </span><span class="nx">orgName</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ACME&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">employeesNumber</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Id: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">//List all customer entities</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">customersList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span><span class="w"></span>
-
-<span class="c1">//Get a particular customer entity by its id</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">customer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">customers</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">//Update a customer entity property</span><span class="w"></span>
-<span class="nx">customer</span><span class="p">.</span><span class="nx">orgDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ACME is a company&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">customers</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">customer</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">//Delete a customer entity</span><span class="w"></span>
-<span class="nx">customers</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">customerId</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mongodb/dao&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/mongodb&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">//create a DAO from configuration</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">customers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dao</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="w"></span>
@@ -2709,6 +2657,60 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const dao = require("mongodb/dao");
+    const response = require("http/response");
+
+    //create a DAO from configuration
+    let customers = dao.create({
+        table: "CUSTOMERS",
+        properties: [{
+            name: "id",
+            column: "ID",
+            type: "BIGINT",
+            id: true
+        }, {
+            name: "orgName",
+            column: "ORG_NAME",
+            type: "VARCHAR",
+            required: true
+        }, {
+            name: "employeesNumber",
+            column: "ORG_EMP_NUM",
+            type: "INTEGER",
+            required: true
+        }, {
+            name: "orgDescription",
+            column: "ORG_DESCR",
+            type: "VARCHAR",
+            required: false
+        }]
+    });
+
+    //Create a new customer entity
+    let customerId = customers.insert({
+        orgName: "ACME",
+        employeesNumber: 1000
+    });
+
+    response.println("Id: " + customerId);
+
+    //List all customer entities
+    let customersList = customers.list();
+
+    //Get a particular customer entity by its id
+    let customer = customers.find(customerId);
+
+    //Update a customer entity property
+    customer.orgDescription = "ACME is a company";
+    customers.update(customer);
+
+    //Delete a customer entity
+    customers.remove(customerId);
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

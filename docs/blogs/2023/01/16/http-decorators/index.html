@@ -1994,7 +1994,7 @@
 <p>Although decorators support is something new in Dirigible yet to be documented, we have plans to use them more and more. You may ask, how did we add support for them? Well, the secret ingredient is that internally GraalJS is used for executing JavaScript. If you have read <a href="https://vmutafov.com/graaljs-decorators">my blog post</a> about decorators you should have a basic idea of how we've done it.</p>
 <h2 id="what-do-we-use-javascript-decorators-for">What do we use JavaScript decorators for?</h2>
 <p>For some time now, we have been thinking of an easier-to-code and easier-to-read solution for writing REST APIs. The current way of writing RESTful services is via <a href="https://www.dirigible.io/api/http/rs/">the rs module</a>. At a first glance, this is pretty similar to the plain old NodeJS Express. We have a router and we define some routes:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">rs</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="w"></span>
 <span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
 <span class="c1">// const rs = require(&quot;http/v4/rs&quot;);</span><span class="w"></span>
 
@@ -2004,7 +2004,7 @@
 </code></pre></div>
 <p>This approach has been working well but we've been hearing more and more about people wanting to write APIs in a way similar to Java Spring's and NestJS's annotation/decorator definitions.</p>
 <p>When the new GraalJS version supporting decorators was released, we decided to create a PoC for decorator-based APIs. The first thing we tried out was something like the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="w"></span>
 <span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
 <span class="c1">// const { Controller, Get } = require(&quot;http/v4/rs/decorators&quot;);</span><span class="w"></span>
 
@@ -2018,7 +2018,7 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>While this was good enough for a PoC, it was still a bit more verbose than necessary for simple APIs. From what we have seen, people most often write an API that receives some request data and respond with some other data. So, we changed our design to the following:</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="p">,</span><span class="w"> </span><span class="nx">Post</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Controller</span><span class="p">,</span><span class="w"> </span><span class="nx">Get</span><span class="p">,</span><span class="w"> </span><span class="nx">Post</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="w"></span>
 <span class="c1">// or if you use the CJS modules support</span><span class="w"></span>
 <span class="c1">// const { Controller, Get, Post } = require(&quot;http/v4/rs/decorators&quot;);</span><span class="w"></span>
 

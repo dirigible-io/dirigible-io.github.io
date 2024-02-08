@@ -2655,11 +2655,11 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mail&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/mail&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
@@ -2672,29 +2672,31 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">mail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/client&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@eclipse.org&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="nx">mail</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const response = require("http/response");
+    const mail = require("mail/client");
+
+    const sender = "dirigible@eclipse.org";
+    const to = "example@gmail.com";
+    const subject = "Subject";
+    const content = "<h1>Content<h1>";
+    const subType = "html";
+
+    mail.send(sender, to, subject, content, subType);
+
+    response.println("Mail sent");
+    ``` -->
+
 <h4 id="advance-usage">Advance Usage</h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label><label for="__tabbed_3_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/mail&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/mail&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">mailConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="s2">&quot;mail.user&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;your-user&gt;&quot;</span><span class="p">,</span><span class="w"></span>
@@ -2722,38 +2724,40 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">mail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;mail/client&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">mailConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.user&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;your-user&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.password&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;your-password&gt;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.transport.protocol&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;smtps&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.smtps.host&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;smtp.gmail.com&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.smtps.port&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;465&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mail.smtps.auth&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">mailClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mail</span><span class="p">.</span><span class="nx">getClient</span><span class="p">(</span><span class="nx">mailConfig</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dirigible@gmail.com&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">recipients</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example@gmail.com&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">cc</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example1@gmail.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;example2@sap.com&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">bcc</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example3@sap.com&quot;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Subject&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Content&lt;/h1&gt;&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">subType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="nx">mailClient</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">sender</span><span class="p">,</span><span class="w"> </span><span class="nx">recipients</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">subType</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Mail sent&quot;</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const response = require("http/response");
+    const mail = require("mail/client");
+
+    const mailConfig = {
+        "mail.user": "<your-user>",
+        "mail.password": "<your-password>",
+        "mail.transport.protocol": "smtps",
+        "mail.smtps.host": "smtp.gmail.com",
+        "mail.smtps.port": "465",
+        "mail.smtps.auth": "true"
+    };
+
+    let mailClient = mail.getClient(mailConfig);
+
+    const sender = "dirigible@gmail.com";
+    const recipients = {
+        to: "example@gmail.com",
+        cc: ["example1@gmail.com", "example2@sap.com"],
+        bcc: "example3@sap.com"
+    };
+    const subject = "Subject";
+    const content = "<h1>Content</h1>";
+    const subType = "html";
+
+    mailClient.send(sender, recipients, subject, content, subType);
+
+    response.println("Mail sent");
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

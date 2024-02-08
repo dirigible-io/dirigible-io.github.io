@@ -2628,19 +2628,10 @@
 <li>Group: <code>platform</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/job&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">scheduler</span><span class="p">.</span><span class="nx">getJob</span><span class="p">(</span><span class="s2">&quot;/sample-job/myjob.job&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">job</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s2">&quot;myParam&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Param is: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">param</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;job/scheduler&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/job&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">scheduler</span><span class="p">.</span><span class="nx">getJob</span><span class="p">(</span><span class="s2">&quot;/sample-job/myjob.job&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="kd">let</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">job</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s2">&quot;myParam&quot;</span><span class="p">);</span><span class="w"></span>
@@ -2650,6 +2641,17 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const scheduler = require("job/scheduler");
+
+    let job = scheduler.getJob("/sample-job/myjob.job");
+    let param = job.getParameter("myParam");
+
+    console.log('Param is: ' + param);
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

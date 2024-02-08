@@ -2595,32 +2595,16 @@ aws_secret_access_key = your_secret_access_key
 region = your_region
 </code></pre></div></li>
 </ol>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1">//first we need to create a table</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qldb&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/qldb&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;testTable&quot;</span><span class="p">).</span><span class="nx">createTable</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">//use the newly created object to interact with qldb</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/qldb&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;testTable&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">qldb</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">qldb</span><span class="p">.</span><span class="nx">getAll</span><span class="p">())</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1">//first we need to create a table</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;qldb/QLDBRepository&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;testTable&quot;</span><span class="p">).</span><span class="nx">createTable</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">//use the newly created object to interact with qldb</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;qldb/QLDBRepository&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/qldb&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;testTable&quot;</span><span class="p">);</span><span class="w"></span>
 
@@ -2631,6 +2615,25 @@ region = your_region
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    <div class="highlight"><pre><span></span><code><span class="c1">//first we need to create a table</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;qldb/QLDBRepository&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">qldb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">QLDBRepository</span><span class="p">(</span><span class="s2">&quot;myLedger&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;testTable&quot;</span><span class="p">).</span><span class="nx">createTable</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+
+    ```javascript
+    //use the newly created object to interact with qldb
+    const QLDBRepository = require("qldb/QLDBRepository");
+
+    const qldb = new QLDBRepository("myLedger", "testTable");
+
+    qldb.insert({ "foo": "bar" })
+
+    console.log(qldb.getAll())
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

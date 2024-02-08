@@ -2643,36 +2643,11 @@
 <li>Group: <code>core</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span><span class="w"></span>
-
-<span class="nx">outputStream</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="s2">&quot;Some text content&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Content as Bytes]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">bytes</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">bytes</span><span class="p">);</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Content as Text]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">text</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayInputStream</span><span class="p">(</span><span class="nx">bytes</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">outputStreamCopy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span><span class="w"></span>
-<span class="nx">streams</span><span class="p">.</span><span class="nx">copy</span><span class="p">(</span><span class="nx">inputStream</span><span class="p">,</span><span class="w"> </span><span class="nx">outputStreamCopy</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">copiedBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outputStreamCopy</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">();</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">copiedText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="nx">copiedBytes</span><span class="p">);</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;[Stream Copied Content as Text]: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">copiedText</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/streams&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/io&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span><span class="w"></span>
 
@@ -2697,6 +2672,33 @@
 </div>
 </div>
 </div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const streams = require("io/streams");
+    const response = require("http/response");
+
+    let outputStream = streams.createByteArrayOutputStream();
+
+    outputStream.writeText("Some text content");
+
+    let bytes = outputStream.getBytes();
+    response.println("[Stream Content as Bytes]: " + bytes);
+
+    let text = String.fromCharCode.apply(String, bytes);
+    response.println("[Stream Content as Text]: " + text);
+
+    let inputStream = streams.createByteArrayInputStream(bytes);
+    let outputStreamCopy = streams.createByteArrayOutputStream();
+    streams.copy(inputStream, outputStreamCopy);
+    let copiedBytes = outputStreamCopy.getBytes();
+    let copiedText = String.fromCharCode.apply(String, copiedBytes);
+    response.println("[Stream Copied Content as Text]: " + copiedText);
+
+    response.flush();
+    response.close();
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>

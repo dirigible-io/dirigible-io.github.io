@@ -2809,12 +2809,12 @@
 <li>Group: <code>cms</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label><label for="__tabbed_2_2">CommonJS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cmis</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/cms&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/http&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@dirigible/io&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cmis</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/cms&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/io&quot;</span><span class="p">;</span><span class="w"></span>
 
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">cmisSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmis</span><span class="p">.</span><span class="nx">getSession</span><span class="p">();</span><span class="w"></span>
@@ -2888,77 +2888,79 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">cmis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;cms/cmis&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">streams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;io/streams&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">cmisSession</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmis</span><span class="p">.</span><span class="nx">getSession</span><span class="p">();</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">rootFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmisSession</span><span class="p">.</span><span class="nx">getRootFolder</span><span class="p">();</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rootFolder</span><span class="p">.</span><span class="nx">getChildren</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Listing the children of the root folder:&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Object ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getId</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Object Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">textFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;test.txt&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Creating a simple text file, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">textFileName</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">const</span><span class="w"> </span><span class="nx">mimetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;text/plain; charset=UTF-8&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;This is some test content.&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">textFileName</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayOutputStream</span><span class="p">();</span><span class="w"></span>
-<span class="nx">outputStream</span><span class="p">.</span><span class="nx">writeText</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">outputStream</span><span class="p">.</span><span class="nx">getBytes</span><span class="p">();</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">streams</span><span class="p">.</span><span class="nx">createByteArrayInputStream</span><span class="p">(</span><span class="nx">bytes</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">contentStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmisSession</span><span class="p">.</span><span class="nx">getObjectFactory</span><span class="p">().</span><span class="nx">createContentStream</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="nx">bytes</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nx">mimetype</span><span class="p">,</span><span class="w"> </span><span class="nx">inputStream</span><span class="p">);</span><span class="w"></span>
-
-<span class="kd">let</span><span class="w"> </span><span class="nx">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;cmis:name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cmis:objectTypeId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
-<span class="nx">properties</span><span class="p">[</span><span class="nx">cmis</span><span class="p">.</span><span class="nx">OBJECT_TYPE_ID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmis</span><span class="p">.</span><span class="nx">OBJECT_TYPE_DOCUMENT</span><span class="p">;</span><span class="w"></span>
-<span class="nx">properties</span><span class="p">[</span><span class="nx">cmis</span><span class="p">.</span><span class="nx">NAME</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filename</span><span class="p">;</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">newDocument</span><span class="p">;</span><span class="w"></span>
-<span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">newDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rootFolder</span><span class="p">.</span><span class="nx">createDocument</span><span class="p">(</span><span class="nx">properties</span><span class="p">,</span><span class="w"> </span><span class="nx">contentStream</span><span class="p">,</span><span class="w"> </span><span class="nx">cmis</span><span class="p">.</span><span class="nx">VERSIONING_STATE_MAJOR</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span><span class="w">    </span>
-<span class="p">}</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">documentId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newDocument</span><span class="p">.</span><span class="nx">getId</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Document ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">documentId</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">children</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rootFolder</span><span class="p">.</span><span class="nx">getChildren</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Listing the children of the root folder again:&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">children</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Object ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getId</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Object Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getName</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Object Type: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getType</span><span class="p">());</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1">// Get the contents of the file</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cmisSession</span><span class="p">.</span><span class="nx">getObject</span><span class="p">(</span><span class="nx">documentId</span><span class="p">);</span><span class="w"></span>
-<span class="nx">contentStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">getContentStream</span><span class="p">();</span><span class="w"> </span><span class="c1">// returns null if the document has no content</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">contentStream</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">contentStream</span><span class="p">.</span><span class="nx">getStream</span><span class="p">().</span><span class="nx">readText</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Contents of &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot; are: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">content</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;No content.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Deleting the newly created document&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">newDocument</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">newDocument</span><span class="p">.</span><span class="ow">delete</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
-</code></pre></div>
 </div>
 </div>
-</div>
+<!-- === "CommonJS"
+
+    ```javascript
+    const cmis = require("cms/cmis");
+    const response = require("http/response");
+    const streams = require("io/streams");
+
+    let cmisSession = cmis.getSession();
+
+    let rootFolder = cmisSession.getRootFolder();
+
+    let children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder:");
+    for (let i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+    }
+
+    const textFileName = "test.txt";
+    response.println("Creating a simple text file, " + textFileName);
+
+    const mimetype = "text/plain; charset=UTF-8";
+    const content = "This is some test content.";
+    let filename = textFileName;
+
+    let outputStream = streams.createByteArrayOutputStream();
+    outputStream.writeText(content);
+    let bytes = outputStream.getBytes();
+    let inputStream = streams.createByteArrayInputStream(bytes);
+
+    let contentStream = cmisSession.getObjectFactory().createContentStream(filename, bytes.length, mimetype, inputStream);
+
+    let properties = { "cmis:name": "", "cmis:objectTypeId": "" };
+    properties[cmis.OBJECT_TYPE_ID] = cmis.OBJECT_TYPE_DOCUMENT;
+    properties[cmis.NAME] = filename;
+    let newDocument;
+    try {
+        newDocument = rootFolder.createDocument(properties, contentStream, cmis.VERSIONING_STATE_MAJOR);
+    } catch(e) {
+        response.println("Error: " + e);    
+    }
+    let documentId = newDocument.getId();
+    response.println("Document ID: " + documentId);
+
+    children = rootFolder.getChildren();
+    response.println("Listing the children of the root folder again:");
+    for (let i in children) {
+        response.println("Object ID: " + children[i].getId());
+        response.println("Object Name: " + children[i].getName());
+        response.println("Object Type: " + children[i].getType());
+    }
+
+    // Get the contents of the file
+    let doc = cmisSession.getObject(documentId);
+    contentStream = doc.getContentStream(); // returns null if the document has no content
+    if (contentStream !== null) {
+        content = contentStream.getStream().readText();
+        response.println("Contents of " + filename + " are: " + content);
+    } else {
+        response.println("No content.");
+    }
+
+    response.println("Deleting the newly created document");
+    if (newDocument) {
+        newDocument.delete();
+    }
+
+    response.flush();
+    response.close();
+    ``` -->
+
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
