@@ -24,16 +24,16 @@ The Kafka Consumer is listening on a Topic destination to a [Kafka](http://kafka
 === "ECMA6"
 
 	```javascript
-	import { consumer } from "@dirigible/kafka";
+	import { consumer } from "sdk/kafka";
 	consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
 	```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
 	```javascript
 	const consumer = require("kafka/consumer");
 	consumer.topic("topic1", "{}").startListening("<kafka-project>/<kafka-handler>", 1000);
-	```
+	``` -->
 
 File: `<kafka-project>/<kafka-handler.js>`
 ```javascript
@@ -51,16 +51,16 @@ exports.onError = function(error) {
 === "ECMA6"
 
 	```javascript
-	import { consumer } from "@dirigible/kafka";
+	import { consumer } from "sdk/kafka";
 	consumer.topic("topic1", "{}").stopListening();
 	```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
 	```javascript
 	const consumer = require("kafka/consumer");
 	consumer.topic("topic1", "{}").stopListening();
-	```
+	``` -->
 
 ### Functions
 

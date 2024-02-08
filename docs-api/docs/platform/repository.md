@@ -22,8 +22,8 @@ The service which list the available workspaces:
 === "ECMA6"
 
     ```javascript
-    import { repository } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { repository } from "sdk/platform";
+    import { response } from "sdk/http";
 
     let resource = repository.getResource("/registry/public/platform/repository.js");
 
@@ -32,7 +32,7 @@ The service which list the available workspaces:
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -43,7 +43,7 @@ The service which list the available workspaces:
     response.println("Exists: " + resource.exists());
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

@@ -19,8 +19,8 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
 === "ECMA6"
 
     ```javascript
-    import { engines } from "@dirigible/template"
-    import { response } from "@dirigible/http";
+    import { engines } from "sdk/template"
+    import { response } from "sdk/http";
 
     let mustache = engines.getMustacheEngine();
     let generated = mustache.generate('Hello {{name}}', [['name', 'John Smith']]);
@@ -31,7 +31,7 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const engines = require("template/engines");
@@ -44,7 +44,7 @@ Template Engines group creates instances for Velocity, Mustache and JavaScript t
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

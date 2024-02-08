@@ -21,7 +21,7 @@ It contains a Books `REST API`.
 1. Replace the content the following code:
 
     ```ts
-    import { rs } from "@dirigible/http";
+    import { rs } from "sdk/http";
     import { BookRepository, Book } from '../data/BookRepository';
 
     const repository = new BookRepository();

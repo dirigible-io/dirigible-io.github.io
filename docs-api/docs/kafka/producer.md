@@ -24,32 +24,32 @@ Send record to a given topic _(implicitly create producer if needed)_:
 === "ECMA6"
 
     ```javascript
-    import { producer } from "@dirigible/producer";
+    import { producer } from "sdk/producer";
     producer.topic("topic1", "{}").send("key1", "value1");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const producer = require("kafka/producer");
     producer.topic("topic1", "{}").send("key1", "value1");
-    ```
+    ``` -->
 
 Close the producer:
 
 === "ECMA6"
 
     ```javascript
-    import { producer } from "@dirigible/producer";
+    import { producer } from "sdk/producer";
     producer.close("{}");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const producer = require("kafka/producer");
     producer.close("{}");
-    ```
+    ``` -->
     
 
 ### Functions

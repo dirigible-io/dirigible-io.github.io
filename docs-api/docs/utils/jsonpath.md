@@ -19,7 +19,7 @@ JSONPath utility adapted for Dirigible.
 === "ECMA6"
 
     ```javascript
-    import { jsonpath } from "@dirigible/utils";
+    import { jsonpath } from "sdk/utils";
 
     const json = {
         "store": {
@@ -67,7 +67,7 @@ JSONPath utility adapted for Dirigible.
     console.log(actual)
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const jsonpath = require('utils/jsonpath');
@@ -116,7 +116,7 @@ JSONPath utility adapted for Dirigible.
     });
 
     console.log(actual)
-    ```
+    ``` -->
 
 ### Functions
 

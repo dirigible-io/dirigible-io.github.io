@@ -19,7 +19,7 @@ Git Client is used by scripting services to call git commands
 === "ECMA6"
 
     ```javascript
-    import { client } from "@dirigible/git"
+    import { client } from "sdk/git"
 
     const user = "dirigible";
     const email = "dirigible@eclipse.org";
@@ -35,7 +35,7 @@ Git Client is used by scripting services to call git commands
     client.commit(user, email, workspaceName, repositoryName, commitMessage, add);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const git = require("git/client");
@@ -52,7 +52,7 @@ Git Client is used by scripting services to call git commands
     git.initRepository(user, email, workspaceName, projectName, repositoryName, initialCommitMessage);
 
     git.commit(user, email, workspaceName, repositoryName, commitMessage, add);
-    ```
+    ``` -->
 
 ### Functions
 

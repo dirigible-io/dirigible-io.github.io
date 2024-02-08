@@ -20,7 +20,7 @@ Client Async is used by scripting services to call asynchronously external servi
 === "ECMA6"
 
     ```javascript
-    import { client, clientAsync } from "@dirigible/http";
+    import { client, clientAsync } from "sdk/http";
 
     let clientAsyncInstance = clientAsync.getInstance();
     let api = 'https://services.odata.org/V4/Northwind/Northwind.svc/';
@@ -45,7 +45,7 @@ Client Async is used by scripting services to call asynchronously external servi
     clientAsyncInstance.execute();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const httpClient = require("http/client");
@@ -71,7 +71,7 @@ Client Async is used by scripting services to call asynchronously external servi
         });
     }
     clientAsync.execute();
-    ```
+    ``` -->
 
 ### Functions
 

@@ -20,8 +20,8 @@ The MongoDB DAO simplified database access objects utility.
 === "ECMA6"
 
     ```javascript
-    import { dao } from "@dirigible/mongodb";
-    import { response } from "@dirigible/http";
+    import { dao } from "sdk/mongodb";
+    import { response } from "sdk/http";
 
     //create a DAO from configuration
     let customers = dao.create({
@@ -71,7 +71,7 @@ The MongoDB DAO simplified database access objects utility.
     customers.remove(customerId);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const dao = require("mongodb/dao");
@@ -123,7 +123,7 @@ The MongoDB DAO simplified database access objects utility.
 
     //Delete a customer entity
     customers.remove(customerId);
-    ```
+    ``` -->
 
 ### Functions
 

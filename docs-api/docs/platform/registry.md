@@ -20,8 +20,8 @@ Registry object gives access to the content in the repository and also the pre-d
 === "ECMA6"
 
     ```javascript
-    import { registry } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { registry } from "sdk/platform";
+    import { response } from "sdk/http";
 
     let text = registry.getText("platform/registry.js");
 
@@ -30,7 +30,7 @@ Registry object gives access to the content in the repository and also the pre-d
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -41,7 +41,7 @@ Registry object gives access to the content in the repository and also the pre-d
     response.println(text);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

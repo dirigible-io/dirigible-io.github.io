@@ -52,7 +52,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
     ![Create Project](../images/getting_started/create-project-hello.png)
 
-1. Right-click on the `hello-world` project in the `Projects` view and choose **TypeScript**, **JavaScript ECMA6** or **JavaScript CommonJS** service from the **New** dropdown:
+1. Right-click on the `hello-world` project in the `Projects` view and choose **TypeScript** or **JavaScript ECMA6** service from the **New** dropdown:
 
     === "TypeScript"
 
@@ -114,7 +114,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
             The **JavaScript ESM Service** is published and available at the http://localhost:8080/services/js/hello-world/service.mjs URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`.
 
-    === "JavaScript CommonJS"
+    <!-- === "JavaScript CommonJS"
 
         - Select the **New** **&rarr;** **JavaScript CJS Service** option:
 
@@ -142,7 +142,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
         !!! note
 
-            The **JavaScript CJS Service** is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`.
+            The **JavaScript CJS Service** is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`. -->
 
 ### Update the `Hello World` service
 
@@ -151,7 +151,7 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
     === "TypeScript"
 
         ```ts hl_lines="3"
-        import { response } from "@dirigible/http";
+        import { response } from "sdk/http";
 
         response.println("Hello Eclipse Dirigible!");
         ```
@@ -159,18 +159,18 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
     === "JavaScript ECMA6"
 
         ```js hl_lines="3"
-        import { response } from "@dirigible/http";
+        import { response } from "sdk/http";
 
         response.println("Hello Eclipse Dirigible!");
         ```
 
-    === "JavaScript CommonJS"
+    <!-- === "JavaScript CommonJS"
 
         ```js hl_lines="3"
         const response = require("http/response");
 
         response.println("Hello Eclipse Dirigible!");
-        ```
+        ``` -->
 
 1. Save the file: ++ctrl+s++ for Windows, ++cmd+s++ for macOS
 1. The output in the **Preview** view changes immediately.

@@ -70,7 +70,7 @@ title: FAQ
     Why [GraalJS](https://www.graalvm.org/reference-manual/js/)? What about Rhino, Nashorn and V8?
 
     - Mature engine with the best performance.
-    - Supports [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) for dynamic loading of modules.
+    <!-- - Supports [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) for dynamic loading of modules. -->
     - Built-in debugger with simple API.
     - Possibility to invoke standard Java objects directly, which is not recommended of course.
 

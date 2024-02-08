@@ -19,8 +19,8 @@ Mail object is used to send e-mails through the mail service.
 === "ECMA6"
 
     ```javascript
-    import { client } from "@dirigible/mail";
-    import { response } from "@dirigible/http";
+    import { client } from "sdk/mail";
+    import { response } from "sdk/http";
 
     const sender = "dirigible@eclipse.org";
     const to = "example@gmail.com";
@@ -33,7 +33,7 @@ Mail object is used to send e-mails through the mail service.
     response.println("Mail sent");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -48,15 +48,15 @@ Mail object is used to send e-mails through the mail service.
     mail.send(sender, to, subject, content, subType);
 
     response.println("Mail sent");
-    ```
+    ``` -->
 
 #### Advance Usage
 
 === "ECMA6"
 
     ```javascript
-    import { client } from "@dirigible/mail";
-    import { response } from "@dirigible/http";
+    import { client } from "sdk/mail";
+    import { response } from "sdk/http";
 
     let mailConfig = {
         "mail.user": "<your-user>",
@@ -84,7 +84,7 @@ Mail object is used to send e-mails through the mail service.
     response.println("Mail sent");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -114,7 +114,7 @@ Mail object is used to send e-mails through the mail service.
     mailClient.send(sender, recipients, subject, content, subType);
 
     response.println("Mail sent");
-    ```
+    ``` -->
 
 ### Functions
 

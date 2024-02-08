@@ -19,8 +19,8 @@ Engines object is used for executing a scripting service programmatically.
 === "ECMA6"
 
     ```javascript
-    import { engines } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { engines } from "sdk/platform";
+    import { response } from "sdk/http";
 
     let result = engines.getEngine("javascript").execute("project1/hello", {});
 
@@ -29,7 +29,7 @@ Engines object is used for executing a scripting service programmatically.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const engines = require("platform/engines");
@@ -40,7 +40,7 @@ Engines object is used for executing a scripting service programmatically.
     response.println(JSON.stringify(result));
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

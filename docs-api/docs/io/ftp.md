@@ -20,8 +20,8 @@ FTP Client API provides utility functions for working with FTP servers.
 === "ECMA6"
 
     ```javascript
-    import { ftp } from "@dirigible/io";
-    import { response } from "@dirigible/http";
+    import { ftp } from "sdk/io";
+    import { response } from "sdk/http";
 
     const host = "test.rebex.net";
     const port = 21;
@@ -34,7 +34,7 @@ FTP Client API provides utility functions for working with FTP servers.
     response.println(file);
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -49,7 +49,7 @@ FTP Client API provides utility functions for working with FTP servers.
     let file = ftpClient.getFileText("/", "readme.txt");
 
     response.println(file);
-    ```
+    ``` -->
 
 ### Functions
 

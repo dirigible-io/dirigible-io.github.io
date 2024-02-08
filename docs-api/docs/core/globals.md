@@ -20,8 +20,8 @@ Globals object is used to store and manage properties in the global store.
 === "ECMA6"
 
     ```javascript
-    import { globals } from "@dirigible/core";
-    import { response } from "@dirigible/http";
+    import { globals } from "sdk/core";
+    import { response } from "sdk/http";
 
 
     globals.set("attr1", "value1");
@@ -32,7 +32,7 @@ Globals object is used to store and manage properties in the global store.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const globals = require("core/globals");
@@ -44,7 +44,7 @@ Globals object is used to store and manage properties in the global store.
     response.println("[Attribute]: " + attr);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

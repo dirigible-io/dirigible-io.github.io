@@ -20,7 +20,7 @@ The Indexing Searcher is the object used for free-text or exact periods searches
 === "ECMA6"
 
     ```javascript
-    import { writer, searcher } from "@dirigible/indexing";
+    import { writer, searcher } from "sdk/indexing";
 
     writer.add("index2", "file1", "apache lucene", new Date(123));
     writer.add("index2", "file2", "lucene - the search engine", new Date(234), { "name2": "value2" });
@@ -31,7 +31,7 @@ The Indexing Searcher is the object used for free-text or exact periods searches
     console.log(JSON.stringify(found))
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const writer = require("indexing/writer");
@@ -44,7 +44,7 @@ The Indexing Searcher is the object used for free-text or exact periods searches
     let found = searcher.between("index2", new Date(124), new Date(344));
 
     console.log(JSON.stringify(found))
-    ```
+    ``` -->
 
 ### Functions
 

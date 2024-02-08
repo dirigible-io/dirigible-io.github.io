@@ -19,8 +19,8 @@ UTF8 object is used to encode/decode strings in UTF8.
 === "ECMA6"
 
     ```javascript
-    import { utf8 } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { utf8 } from "sdk/utils";
+    import { response } from "sdk/http";
 
     response.println(JSON.stringify(utf8.encode("mystring")));
 
@@ -28,7 +28,7 @@ UTF8 object is used to encode/decode strings in UTF8.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const utf8 = require("utils/utf8");
@@ -38,7 +38,7 @@ UTF8 object is used to encode/decode strings in UTF8.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

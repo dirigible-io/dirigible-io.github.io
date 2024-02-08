@@ -271,7 +271,7 @@ To create a **Custom Stack** follow the steps here [Custom Stack documentation](
 === "qldb-sample.mjs"
 
     ```javascript
-    import { QLDBRepository } from "@dirigible/qldb"
+    import { QLDBRepository } from "sdk/qldb"
     // 1. Create a repository for the ledger 'myTestLedger' that works with a table 'tableName'
     const qldb = new QLDBRepository("myTestLedger", "tableName");
     // 2. [OPTIONAL] Create the table as it doesn't exist in your ledger, 

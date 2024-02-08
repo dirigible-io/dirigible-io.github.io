@@ -20,8 +20,8 @@ Type-safe SQL builders with multi-dialect support.
 === "ECMA6"
 
     ```javascript
-    import { sql } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { sql } from "sdk/db";
+    import { response } from "sdk/http";
 
     let script = sql.getDialect().select().column("FIRST_NAME").column("LAST_NAME").from("CUSTOMERS").build();
 
@@ -31,7 +31,7 @@ Type-safe SQL builders with multi-dialect support.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const sql = require("db/sql");
@@ -43,7 +43,7 @@ Type-safe SQL builders with multi-dialect support.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

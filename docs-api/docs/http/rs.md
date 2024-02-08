@@ -20,7 +20,7 @@ HTTP RESTful services framework.
 === "ECMA6"
 
     ```javascript
-    import { rs } from "@dirigible/http";
+    import { rs } from "sdk/http";
 
     rs.service()
         .resource("")
@@ -30,7 +30,7 @@ HTTP RESTful services framework.
         .execute();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const rs = require("http/rs");
@@ -41,7 +41,7 @@ HTTP RESTful services framework.
                 response.println("Hello there!");
             })
     .execute();
-    ```
+    ``` -->
 
 
 ### Functions

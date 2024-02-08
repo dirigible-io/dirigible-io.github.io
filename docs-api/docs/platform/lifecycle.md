@@ -20,10 +20,10 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
 === "ECMA6"
 
     ```javascript
-    import { bytes } from "@dirigible/io";
-    import { user } from "@dirigible/security";
-    import { workspace, lifecycle } from "@dirigible/platform";
-    import { response } from "@dirigible/http";
+    import { bytes } from "sdk/io";
+    import { user } from "sdk/security";
+    import { workspace, lifecycle } from "sdk/platform";
+    import { response } from "sdk/http";
 
     const currentUser = user.getName();
     const workspaceName = "workspace";
@@ -39,7 +39,7 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
     response.println("publishResult: " + publishResult)
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -60,7 +60,7 @@ Lifecycle module provides utility functions for managing the lifecycle of the pr
     let publishResult = lifecycle.publish(user, workspaceName, projectName);
 
     response.println("publishResult: " + publishResult)
-    ```
+    ``` -->
 
 
 ### Functions

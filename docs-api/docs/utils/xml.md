@@ -20,8 +20,8 @@ XML object is used to transfrom from JSON to XML and vice versa.
 === "ECMA6"
 
     ```javascript
-    import { xml } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { xml } from "sdk/utils";
+    import { response } from "sdk/http";
 
     const jsonInput = {
         firstName: "John",
@@ -49,7 +49,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const xml = require("utils/xml");
@@ -79,7 +79,7 @@ XML object is used to transfrom from JSON to XML and vice versa.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

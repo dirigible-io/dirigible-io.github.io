@@ -20,8 +20,8 @@ Functionality for manipulating the database sequence objects.
 === "ECMA6"
 
     ```javascript
-    import { sequence } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { sequence } from "sdk/db";
+    import { response } from "sdk/http";
 
     let value = sequence.nextval("MYSEQUENCE");
 
@@ -30,7 +30,7 @@ Functionality for manipulating the database sequence objects.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const sequence = require("db/sequence");
@@ -41,7 +41,7 @@ Functionality for manipulating the database sequence objects.
     response.println(value.toString());
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

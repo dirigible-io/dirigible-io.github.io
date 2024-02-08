@@ -21,8 +21,8 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 === "ECMA6"
 
     ```javascript
-    import { query } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { query } from "sdk/db";
+    import { response } from "sdk/http";
 
     const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
     let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
@@ -33,7 +33,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const query = require("db/query");
@@ -46,7 +46,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

@@ -34,7 +34,7 @@ To start writing TypeScript in Eclipse Dirigible, follow these simple steps:
 
 2. **Create a TypeScript Service**: Inside your project, create a new `TypeScript Service` using our predefined template. You should now have a file with the following content:
 ```TypeScript
-import { response } from "@dirigible/http";
+import { response } from "sdk/http";
 
 response.println("Hello World!");
 ```

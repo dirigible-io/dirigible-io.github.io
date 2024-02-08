@@ -20,8 +20,8 @@ Standard access to the registered relational data sources.
 === "ECMA6"
 
     ```javascript
-    import { database } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { database } from "sdk/db";
+    import { response } from "sdk/http";
 
     let connection = database.getConnection("SystemDB");
     try {
@@ -47,7 +47,7 @@ Standard access to the registered relational data sources.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const database = require("db/database");
@@ -75,7 +75,7 @@ Standard access to the registered relational data sources.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

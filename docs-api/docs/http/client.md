@@ -20,7 +20,7 @@ Client is used by scripting services to call external services via HTTP.
 === "ECMA6"
 
     ```javascript
-    import { client, response } from "@dirigible/http";
+    import { client, response } from "sdk/http";
 
     const httpResponse = client.get("https://services.odata.org/V4/Northwind/Northwind.svc/");
 
@@ -30,7 +30,7 @@ Client is used by scripting services to call external services via HTTP.
     response.close();
     ```
 
-=== "Require"
+<!-- === "CommonJS"
 
     ```javascript
     const httpClient = require("http/client");
@@ -42,7 +42,7 @@ Client is used by scripting services to call external services via HTTP.
     response.println(httpResponse.text);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

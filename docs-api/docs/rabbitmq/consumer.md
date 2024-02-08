@@ -30,16 +30,16 @@ You will need RabbitMQ installed on your machine. You can find all relevant info
 === "ECMA6"
 
     ```javascript
-    import { consumer } from "@dirigible/rabbitmq";
+    import { consumer } from "sdk/rabbitmq";
     consumer.startListening("rabbitmq-queue", "<rabbitmq-project>/<rabbitmq-handler>");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const consumer = require("rabbitmq/consumer");
     consumer.startListening("rabbitmq-queue", "<rabbitmq-project>/<rabbitmq-handler>");
-    ```
+    ``` -->
 
 File: `<rabbitmq-project>/<rabbitmq-handler>`
 
@@ -58,16 +58,16 @@ exports.onError = function(error) {
 === "ECMA6"
 
     ```javascript
-    import { consumer } from "@dirigible/rabbitmq";
+    import { consumer } from "sdk/rabbitmq";
     consumer.stopListening("rabbitmq-queue", "<rabbitmq-project>/<rabbitmq-handler>");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const consumer = require("rabbitmq/consumer");
     consumer.stopListening("rabbitmq-queue", "<rabbitmq-project>/<rabbitmq-handler>");
-    ```
+    ``` -->
 
 
 ### Functions

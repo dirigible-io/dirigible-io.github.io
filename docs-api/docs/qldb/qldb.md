@@ -30,7 +30,7 @@ region = your_region
 
     ```javascript
     //first we need to create a table
-    import { QLDBRepository } from "@dirigible/qldb";
+    import { QLDBRepository } from "sdk/qldb";
 
     const qldb = new QLDBRepository("myLedger", "testTable").createTable();
     ```
@@ -38,7 +38,7 @@ region = your_region
 
     ```javascript
     //use the newly created object to interact with qldb
-    import { QLDBRepository } from "@dirigible/qldb";
+    import { QLDBRepository } from "sdk/qldb";
 
     const qldb = new QLDBRepository("myLedger", "testTable");
 
@@ -47,7 +47,7 @@ region = your_region
     console.log(qldb.getAll())
     ```
     
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     //first we need to create a table
@@ -65,7 +65,7 @@ region = your_region
     qldb.insert({ "foo": "bar" })
 
     console.log(qldb.getAll())
-    ```
+    ``` -->
 
 
 ### Functions

@@ -17,7 +17,7 @@ Eclipse Dirigible<sup>&trade;</sup> API Portal provides the most recent informat
 1. Save the changes.
 1. See the result in the `Preview` tab.
 ```javascript
-import { response } from "@dirigible/http";
+import { response } from "sdk/http";
 
 response.println("Hello World!");
 ```

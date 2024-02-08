@@ -19,8 +19,8 @@ UUID object is used to generate random universally unique identifiers.
 === "ECMA6"
 
     ```javascript
-    import { uuid } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { uuid } from "sdk/utils";
+    import { response } from "sdk/http";
 
     response.println(uuid.random());
     response.println(JSON.stringify(uuid.validate("14a3ddce-f86d-4f51-a2e0-6e497b94bbe5")));
@@ -29,7 +29,7 @@ UUID object is used to generate random universally unique identifiers.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const uuid = require("utils/uuid");
@@ -40,7 +40,7 @@ UUID object is used to generate random universally unique identifiers.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

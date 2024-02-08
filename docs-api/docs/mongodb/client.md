@@ -22,8 +22,8 @@ Start your MongoDB server with default settings and use the following example:
 === "ECMA6"
 
     ```javascript
-    import { client } from "@dirigible/mongodb";
-    import { response } from "@dirigible/http";
+    import { client } from "sdk/mongodb";
+    import { response } from "sdk/http";
 
     let mongoClient = client.getClient();
 
@@ -45,7 +45,7 @@ Start your MongoDB server with default settings and use the following example:
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -69,7 +69,7 @@ Start your MongoDB server with default settings and use the following example:
     response.println("Result: " + result._id);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

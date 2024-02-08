@@ -22,7 +22,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
 === "ECMA6"
 
     ```javascript
-    import { websockets } from "@dirigible/net"
+    import { websockets } from "sdk/net"
 
     const uri = "ws://echo.websocket.org:80/";
     const handler = "my-project/ws-handler"
@@ -38,7 +38,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
     websockets.getClientByHandler(handler).close();
     ```
 
-=== "CommonJS
+<!-- === "CommonJS
 
     ```javascript
     const websockets = require("net/websockets");
@@ -67,7 +67,7 @@ WebSocket API provides access to the Session object for management of the bi-dir
     exports.onError = function(error) {
       console.error("Error: " + error);
     }
-    ```
+    ``` -->
 
 #### Server
 

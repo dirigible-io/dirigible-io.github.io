@@ -18,7 +18,7 @@ This section shows how to create helper `Logger` class to create log events and 
 1. Replace the content with the following code:
 
     ```ts
-    import { update } from "@dirigible/db";
+    import { update } from "sdk/db";
 
     export enum LogDataSeverity {
         INFO = 'Info',

@@ -31,8 +31,8 @@ Create Procedure:
 === "ECMA6"
 
     ```javascript
-    import { procedure } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { procedure } from "sdk/db";
+    import { response } from "sdk/http";
 
     const sql = " \
     CREATE PROCEDURE CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id integer, c_name text, c_country text) \
@@ -49,7 +49,7 @@ Create Procedure:
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -68,15 +68,15 @@ Create Procedure:
     response.println("Procedure created");
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 Call Procedure:
 
 === "ECMA6"
 
     ```javascript
-    import { query, procedure } from "@dirigible/db";
-    import { response } from "@dirigible/http";
+    import { query, procedure } from "sdk/db";
+    import { response } from "sdk/http";
 
     const sql = "CALL CUSTOMERS_BY_COUNTRY_AND_ALL_CUSTOMERS(c_id => ?, c_name => ?, c_country => ?)";
 
@@ -91,7 +91,7 @@ Call Procedure:
     }
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const response = require("http/response");
@@ -108,7 +108,7 @@ Call Procedure:
         response.flush();
         response.close();
     }
-    ```
+    ``` -->
 
 ### Functions
 

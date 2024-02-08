@@ -68,7 +68,7 @@ Recent changes in **Gmail**'s policies allows **Eclipse Dirigible** users to sen
 1. Use the following sinippet to send emails:
 
     ```javascript
-    import { client as mail } from "@dirigible/mail";
+    import { client as mail } from "sdk/mail";
     
     const from = "<YOUR_VERIFIED_SENDER_EMAIL_HERE>";
     const to = "<YOUR_RECIPIENT_EMAIL_HERE>";

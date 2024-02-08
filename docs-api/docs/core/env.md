@@ -19,8 +19,8 @@ Env object is used for access of the environment variables.
 === "ECMA6"
 
     ```javascript
-    import { env } from "@dirigible/core";
-    import { response } from "@dirigible/http";
+    import { env } from "sdk/core";
+    import { response } from "sdk/http";
 
     let os = env.get("os.name");
     response.println("[OS]: " + os);
@@ -29,7 +29,7 @@ Env object is used for access of the environment variables.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const env = require("core/env");
@@ -40,7 +40,7 @@ Env object is used for access of the environment variables.
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

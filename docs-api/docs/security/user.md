@@ -20,8 +20,8 @@ User gives the information about the currently logged in user, if any.
 === "ECMA6"
 
     ```javascript
-    import { user } from "@dirigible/security";
-    import { response } from "@dirigible/http";
+    import { user } from "sdk/security";
+    import { response } from "sdk/http";
 
     response.println("[UserName]: " + user.getName());
     response.println("[Is in Role]: " + user.isInRole("Developer"));
@@ -29,7 +29,7 @@ User gives the information about the currently logged in user, if any.
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const user = require("security/user");
@@ -39,7 +39,7 @@ User gives the information about the currently logged in user, if any.
     response.println("[Is in Role]: " + user.isInRole("Developer"));
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

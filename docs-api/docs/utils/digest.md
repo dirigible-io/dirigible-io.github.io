@@ -20,8 +20,8 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 === "ECMA6"
 
     ```javascript
-    import { digest } from "@dirigible/utils";
-    import { response } from "@dirigible/http";
+    import { digest } from "sdk/utils";
+    import { response } from "sdk/http";
 
     response.println("" + digest.sha256("admin:admin"));
     response.println("" + digest.sha512("YWRtaW46YWRtaW4="));
@@ -30,7 +30,7 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const digest = require("utils/digest");
@@ -41,7 +41,7 @@ Digest object is used to encript binary/text with algorithms like md5, sha256 an
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 ### Functions
 

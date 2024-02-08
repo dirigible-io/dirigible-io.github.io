@@ -17,8 +17,8 @@ Extensions
 === "ECMA6"
 
     ```javascript
-    import { extensions } from "@dirigible/extensions";
-    import { response } from "@dirigible/http";
+    import { extensions } from "sdk/extensions";
+    import { response } from "sdk/http";
 
     const mainmenu = [];
     const menuExtensions = extensions.getExtensions("ide-menu");
@@ -40,7 +40,7 @@ Extensions
     response.println(JSON.stringify(mainmenu));
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const extensions = require("core/extensions");
@@ -56,7 +56,7 @@ Extensions
     }
 
     response.println(JSON.stringify(mainmenu));
-    ```
+    ``` -->
 
 
 ### Functions

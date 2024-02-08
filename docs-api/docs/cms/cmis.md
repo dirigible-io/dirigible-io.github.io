@@ -21,9 +21,9 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 === "ECMA6"
 
     ```javascript
-    import { cmis } from "@dirigible/cms";
-    import { response } from "@dirigible/http";
-    import { streams } from "@dirigible/io";
+    import { cmis } from "sdk/cms";
+    import { response } from "sdk/http";
+    import { streams } from "sdk/io";
 
 
     let cmisSession = cmis.getSession();
@@ -97,7 +97,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const cmis = require("cms/cmis");
@@ -166,7 +166,7 @@ CMIS object is used for access of the underlying Content Management System (CMS)
 
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

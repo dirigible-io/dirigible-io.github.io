@@ -20,7 +20,7 @@ HTTP Session object provided to the scripting services implementation to hold se
 === "ECMA6"
 
     ```javascript
-    import { session, response } from "@dirigible/http";
+    import { session, response } from "sdk/http";
 
     session.setAttribute("attr1", "value1");
     let attr = session.getAttribute("attr1");
@@ -30,7 +30,7 @@ HTTP Session object provided to the scripting services implementation to hold se
     response.close();
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const session = require("http/session");
@@ -42,7 +42,7 @@ HTTP Session object provided to the scripting services implementation to hold se
     response.println("[Attribute]: " + attr);
     response.flush();
     response.close();
-    ```
+    ``` -->
 
 
 ### Functions

@@ -23,16 +23,16 @@ Send record to a given topic
 === "ECMA6"
 
     ```javascript
-    import { producer } from "@dirigible/rabbitmq";
+    import { producer } from "sdk/rabbitmq";
     producer.send("rabbitmq-queue", "My RabbitMQ message");
     ```
 
-=== "CommonJS"
+<!-- === "CommonJS"
 
     ```javascript
     const producer = require("rabbitmq/producer");
     producer.send("rabbitmq-queue", "My RabbitMQ message");
-    ```
+    ``` -->
 
 
 ### Functions
