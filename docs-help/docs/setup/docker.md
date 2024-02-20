@@ -75,7 +75,7 @@ Deploy Eclipse Dirigible in Docker.
 1. Open a web browser and go to: [http://localhost:8080/](http://localhost:8080/)
 
     !!! Note
-        The default user name and password are **`dirigible/dirigible`**
+        The default user name and password are **`admin/admin`**
 
 1. Stop the container:
 
