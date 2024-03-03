@@ -26,9 +26,7 @@ Deploy Eclipse Dirigible in Docker.
     === "Run"
 
         ```
-        docker run --name dirigible \
-        --rm -p 8080:8080 -p 8081:8081 \
-        dirigiblelabs/dirigible:latest
+        docker run --name dirigible --rm -p 8080:8080 -p 8081:8081 dirigiblelabs/dirigible:latest
         ```
 
     === "with Mounted Volume"
