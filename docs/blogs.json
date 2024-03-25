@@ -1,10 +1,5 @@
 [
   {
-    "location": "2022/09/12/sendgrid-smtp-relay-setup.md",
-    "title": "Connecting Eclipse Dirigible with SendGrid SMTP Relay",
-    "description": "In this article we are going to setup Twillio SendGrid's SMTP Relay with Eclipse Dirigible."
-  },
-  {
     "location": "2022/09/26/qldb-repository-api-guide.md",
     "title": "Amazon Quantum Ledger Database with Eclipse Dirigible",
     "description": "In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API."
@@ -23,5 +18,10 @@
     "location": "2023/09/27/typescript-support.md",
     "title": "TypeScript support",
     "description": "\"In the ever-evolving world of web development, staying on top of the latest technologies is crucial for success\""
+  },
+  {
+    "location": "2024/03/26/multitenancy.md",
+    "title": "Multitenant applications with zero effort",
+    "description": "\"Multitenancy with zero effort using Eclipse Dirigible\""
   }
 ]
