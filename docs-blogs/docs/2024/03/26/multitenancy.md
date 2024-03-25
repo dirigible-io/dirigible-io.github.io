@@ -108,4 +108,5 @@ Using Eclipse Dirigible you can achieve multitenancy **without any additional ef
 
 ### Resources
 - [Dirigible API documentation](https://www.dirigible.io/api/)
-- []
+- [Dirigible repository](https://github.com/eclipse/dirigible)
+- [Multitenancy wikipedia](https://en.wikipedia.org/wiki/Multitenancy)
