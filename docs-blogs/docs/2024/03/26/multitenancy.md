@@ -14,17 +14,17 @@ Recently, we added multitenancy support in Eclipse Dirigible which helps you to 
 Since version [10.2.0](https://github.com/eclipse/dirigible/releases/tag/v10.2.0), Eclipse Dirigible is **multitenant by default**. 
 
 We made all the essential application resources multitenant. 
-This includes the following resources:
-- tables (`*.table`)
-- views (`*.view`)
-- schemas (`*.schema`)
-- CSVIMs (`*.csvim`)
-- datasources (`*.datasource`)
-- jobs (`*.job`)
-- [Messaging API](https://www.dirigible.io/api/messaging/consumer/)
-- listeners (`*.listener`)
-- [Documents API (CMS)](https://www.dirigible.io/api/cms/cmis/)
-- OData (`*.odata`)
+This includes the following resources:<br>
+- tables (`*.table`)<br>
+- views (`*.view`)<br>
+- schemas (`*.schema`)<br>
+- CSVIMs (`*.csvim`)<br>
+- datasources (`*.datasource`)<br>
+- jobs (`*.job`)<br>
+- [Messaging API](https://www.dirigible.io/api/messaging/consumer/)<br>
+- listeners (`*.listener`)<br>
+- [Documents API (CMS)](https://www.dirigible.io/api/cms/cmis/)<br>
+- OData (`*.odata`)<br>
 
 If your existing applications use the above resources, they are **already multitenant**.<br>
 All other resources are not multitenant and must be carefully used in multitenant scenarios. If you need some other resource type to become a multitenant, please create [a new feature request](https://github.com/eclipse/dirigible/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) in Eclipse Dirigible project.
@@ -33,7 +33,7 @@ All other resources are not multitenant and must be carefully used in multitenan
 Eclipse Dirigible determines the current tenant based on the used subdomain. For example, if your application's host is `my-application.com` and you open it via `mytenant1.my-application.com`, the current tenant which is resolved is the one which is registered for subdomain `mytenant1`. If the tenant subdomain cannot be determined, the request is considered to be executed in the context of the default tenant. By default, the regex which is used to get the subdomain is `^([^\.]+)\..+$`. If you have more complex host, you can configure the regex using the dedicated configuration `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX`.
 
 ### Tenant provisioning
-Registered tenants are stored in the Dirigible's system database. To register a new tenant, you simply have to insert a new entry in the corresponding table. An automated provisioning job will execute all the necessary work to provision the newly added tenant. You may need to wait a few minutes until the job is executed since it is executed regularly. Currently, it is configured to execute with initial delay of `30 seconds` after start of the application and after that, it will execute at `15 minutes` intervals.<Br>
+Registered tenants are stored in the Dirigible's system database. To register a new tenant, you simply have to insert a new entry in the corresponding table. An automated provisioning job will execute all the necessary work to provision the newly added tenant. You may need to wait a few minutes until the job is executed since it is executed regularly. Currently, it is configured to execute with initial delay of `30 seconds` after start of the application and after that, it will execute at `15 minutes` intervals.<br>
 As part of the automated provisioning process, a dedicated default database random user, schema and datasource will be created for each tenant.<br>
 ![defualt-db](../../../images/multitenancy/default-db.png)<br>
 To register a new tenant, follow the steps bellow:
@@ -101,8 +101,7 @@ If a code is executed in non-tenant context, `background` is used in the logs fo
 ![logs-background](../../../images/multitenancy/logs-background.png)
 
 ### Conclusion
-Using Eclipse Dirigible, you can achieve multitenancy **without any additional effort** from your side. It costs **zero effort** from your side.
-
+Using Eclipse Dirigible, you can achieve multitenancy with **zero effort** from your side.<br>
 **Enjoy low-code development using Eclipse Dirigible like never before!**
 
 ### Resources
