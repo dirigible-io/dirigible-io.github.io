@@ -2255,23 +2255,23 @@
 Recently, we added multitenancy support in Eclipse Dirigible which helps you to achieve secure and reliable multitenancy with <strong>zero effort</strong> from your side.</p>
 <p>Since version <a href="https://github.com/eclipse/dirigible/releases/tag/v10.2.0">10.2.0</a>, Eclipse Dirigible is <strong>multitenant by default</strong>. </p>
 <p>We made all the essential application resources multitenant. 
-This includes the following resources:
-- tables (<code>*.table</code>)
-- views (<code>*.view</code>)
-- schemas (<code>*.schema</code>)
-- CSVIMs (<code>*.csvim</code>)
-- datasources (<code>*.datasource</code>)
-- jobs (<code>*.job</code>)
-- <a href="https://www.dirigible.io/api/messaging/consumer/">Messaging API</a>
-- listeners (<code>*.listener</code>)
-- <a href="https://www.dirigible.io/api/cms/cmis/">Documents API (CMS)</a>
-- OData (<code>*.odata</code>)</p>
+This includes the following resources:<br>
+- tables (<code>*.table</code>)<br>
+- views (<code>*.view</code>)<br>
+- schemas (<code>*.schema</code>)<br>
+- CSVIMs (<code>*.csvim</code>)<br>
+- datasources (<code>*.datasource</code>)<br>
+- jobs (<code>*.job</code>)<br>
+- <a href="https://www.dirigible.io/api/messaging/consumer/">Messaging API</a><br>
+- listeners (<code>*.listener</code>)<br>
+- <a href="https://www.dirigible.io/api/cms/cmis/">Documents API (CMS)</a><br>
+- OData (<code>*.odata</code>)<br></p>
 <p>If your existing applications use the above resources, they are <strong>already multitenant</strong>.<br>
 All other resources are not multitenant and must be carefully used in multitenant scenarios. If you need some other resource type to become a multitenant, please create <a href="https://github.com/eclipse/dirigible/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=">a new feature request</a> in Eclipse Dirigible project.</p>
 <h3 id="current-tenant-determination">Current tenant determination</h3>
 <p>Eclipse Dirigible determines the current tenant based on the used subdomain. For example, if your application's host is <code>my-application.com</code> and you open it via <code>mytenant1.my-application.com</code>, the current tenant which is resolved is the one which is registered for subdomain <code>mytenant1</code>. If the tenant subdomain cannot be determined, the request is considered to be executed in the context of the default tenant. By default, the regex which is used to get the subdomain is <code>^([^\.]+)\..+$</code>. If you have more complex host, you can configure the regex using the dedicated configuration <code>DIRIGIBLE_TENANT_SUBDOMAIN_REGEX</code>.</p>
 <h3 id="tenant-provisioning">Tenant provisioning</h3>
-<p>Registered tenants are stored in the Dirigible's system database. To register a new tenant, you simply have to insert a new entry in the corresponding table. An automated provisioning job will execute all the necessary work to provision the newly added tenant. You may need to wait a few minutes until the job is executed since it is executed regularly. Currently, it is configured to execute with initial delay of <code>30 seconds</code> after start of the application and after that, it will execute at <code>15 minutes</code> intervals.<Br>
+<p>Registered tenants are stored in the Dirigible's system database. To register a new tenant, you simply have to insert a new entry in the corresponding table. An automated provisioning job will execute all the necessary work to provision the newly added tenant. You may need to wait a few minutes until the job is executed since it is executed regularly. Currently, it is configured to execute with initial delay of <code>30 seconds</code> after start of the application and after that, it will execute at <code>15 minutes</code> intervals.<br>
 As part of the automated provisioning process, a dedicated default database random user, schema and datasource will be created for each tenant.<br>
 <img alt="defualt-db" src="../../../../images/multitenancy/default-db.png" /><br>
 To register a new tenant, follow the steps bellow:</p>
@@ -2328,8 +2328,8 @@ In the Amazon S3 scenario, a separate folder for each tenant is created in the c
 If a code is executed in non-tenant context, <code>background</code> is used in the logs for tenant id.
 <img alt="logs-background" src="../../../../images/multitenancy/logs-background.png" /></p>
 <h3 id="conclusion">Conclusion</h3>
-<p>Using Eclipse Dirigible, you can achieve multitenancy <strong>without any additional effort</strong> from your side. It costs <strong>zero effort</strong> from your side.</p>
-<p><strong>Enjoy low-code development using Eclipse Dirigible like never before!</strong></p>
+<p>Using Eclipse Dirigible, you can achieve multitenancy with <strong>zero effort</strong> from your side.<br>
+<strong>Enjoy low-code development using Eclipse Dirigible like never before!</strong></p>
 <h3 id="resources">Resources</h3>
 <ul>
 <li><a href="https://www.dirigible.io/api/">Dirigible API documentation</a></li>
