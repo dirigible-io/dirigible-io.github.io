@@ -11,7 +11,7 @@ publish_date: March 26, 2024
 Multitenancy is becoming increasingly essential in cloud-based applications, enabling multiple users or organizations (tenants) to securely share the same resources while maintaining isolation. Usually, it takes a lot of time and effort to achieve multitenancy in your application. You must be really careful when you design and implement your application to ensure proper isolation between the tenants.  
 Recently, we added multitenancy support in Eclipse Dirigible which helps you to achieve secure and reliable multitenancy with **zero effort** from your side.
 
-Since version **10.1.4**, Eclipse Dirigible is **multitenant by default**. 
+Since version [10.2.0](https://github.com/eclipse/dirigible/releases/tag/v10.2.0), Eclipse Dirigible is **multitenant by default**. 
 
 We made all the essential application resources multitenant. 
 This includes the following resources:
