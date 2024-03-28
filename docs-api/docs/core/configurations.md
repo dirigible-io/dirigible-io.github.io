@@ -7,7 +7,7 @@ Configurations
 
 === "Overview"
 - Module: `core/configurations`
-- Source: [/core/configurations.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/configurations.js)
+- Source: [/core/configurations.ts](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-javascript/src/main/resources/META-INF/dirigible/modules/src/core/configurations.ts)
 - Status: `stable`
 - Group: `core`
 
