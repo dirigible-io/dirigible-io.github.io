@@ -10,7 +10,7 @@ Context object is used to store and manage properties for a single execution flo
 === "Overview"
 - Module: `core/context`
 - Definition: [https://github.com/eclipse/dirigible/issues/31](https://github.com/eclipse/dirigible/issues/31)
-- Source: [/core/context.js](https://github.com/eclipse/dirigible/blob/master/components/api-core/src/main/resources/META-INF/dirigible/core/context.js)
+- Source: [/core/context.ts](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-javascript/src/main/resources/META-INF/dirigible/modules/src/core/context.ts)
 - Status: `stable`
 - Group: `core`
 
