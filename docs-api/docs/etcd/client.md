@@ -10,8 +10,8 @@ The Etcd Client is giving an access to an [etcd](https://etcd.io/) key-value sto
 === "Overview"
 - Module: `etcd/client`
 - Definition: [https://github.com/eclipse/dirigible/issues/675](https://github.com/eclipse/dirigible/issues/675)
-- Source: [/etcd/client.js](https://github.com/eclipse/dirigible/tree/master/components/api-etcd/src/main/resources/META-INF/dirigible/etcd/client.js)
-- Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/components/api-etcd/src/main/java/org/eclipse/dirigible/components/api/etcd/EtcdFacade.java)
+- Source: [/etcd/client.js](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-javascript/src/main/resources/META-INF/dirigible/modules/src/etcd/client.ts)
+- Facade: [EtcdFacade](https://github.com/eclipse/dirigible/blob/master/components/api/api-etcd/src/main/java/org/eclipse/dirigible/components/api/etcd/EtcdFacade.java)
 - Status: `beta`
 - Group: `ext`
 
