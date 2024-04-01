@@ -3235,35 +3235,6 @@
 </div>
 </div>
 </div>
-<p>&lt;!-- === "JavaScript CommonJS"</p>
-<div class="highlight"><pre><span></span><code>- Select the **New** **&amp;rarr;** **JavaScript CJS Service** option:
-
-    ![Create JavaScript CJS Service](../images/getting_started/create-commonjs.png)
-
-- Enter `service.js` for the name of the **JavaScript CJS Service**:
-
-    ![Create JavaScript ESM Service](../images/getting_started/new-file-js.png)
-
-- Double-click on the `service.js` to open the file in the editor on the right.
-
-    ![Service Impletentation](../images/getting_started/service-implementation-js.png)
-
-!!! info
-
-    The file already contains a `Hello World` service implementation. As it&#39;s not specified otherwise, the service can be executed by performing any of the following HTTP methods: `GET`, `POST`, `PUT`, `DELETE` and `PATCH`.
-
-- Right-click on the `hello-world` project and choose **Publish** option from the menu:
-
-    ![Publish Project](../images/getting_started/publish-project.png)
-
-- With the `service.js` selected in the `Projects` view, check the result of the execution of the server-side **JavaScript CJS Service** in the `Preview` view:
-
-    ![Preview Project](../images/getting_started/preview-project-js.png)
-
-!!! note
-
-    The **JavaScript CJS Service** is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`. --&gt;
-</code></pre></div>
 </li>
 </ol>
 <h3 id="update-the-hello-world-service">Update the <code>Hello World</code> service</h3>
@@ -3286,13 +3257,6 @@
 </div>
 </div>
 </div>
-<p>&lt;!-- === "JavaScript CommonJS"</p>
-<div class="highlight"><pre><span></span><code>```js hl_lines=&quot;3&quot;
-const response = require(&quot;http/response&quot;);
-
-response.println(&quot;Hello Eclipse Dirigible!&quot;);
-``` --&gt;
-</code></pre></div>
 </li>
 <li>
 <p>Save the file: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-s">S</kbd></span> for Windows, <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-s">S</kbd></span> for macOS</p>
