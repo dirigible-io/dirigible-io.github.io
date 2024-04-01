@@ -69,8 +69,8 @@ extra:
     - icon: fontawesome/brands/slack
       link: https://slack.dirigible.io
 
-plugins:
-  - social:
-      cards_color:
-        fill: "#FECC04"
-        text: "#2D2D2D"
+# plugins:
+#   - social:
+#       cards_color:
+#         fill: "#FECC04"
+#         text: "#2D2D2D"

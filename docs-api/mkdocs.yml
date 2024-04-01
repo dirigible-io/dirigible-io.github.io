@@ -55,8 +55,8 @@ extra:
       link: https://join.slack.com/t/eclipse-dirigible/shared_invite/zt-w9fvn5cj-zsnxN5dCGZ6fzCH~kH0cvg
 
 plugins:
-  - social:
-      cards_color:
-        fill: "#FECC04"
-        text: "#2D2D2D"
+  # - social:
+  #     cards_color:
+  #       fill: "#FECC04"
+  #       text: "#2D2D2D"
   - search
