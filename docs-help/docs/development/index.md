@@ -114,36 +114,6 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
             The **JavaScript ESM Service** is published and available at the http://localhost:8080/services/js/hello-world/service.mjs URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`.
 
-    <!-- === "JavaScript CommonJS"
-
-        - Select the **New** **&rarr;** **JavaScript CJS Service** option:
-
-            ![Create JavaScript CJS Service](../images/getting_started/create-commonjs.png)
-        
-        - Enter `service.js` for the name of the **JavaScript CJS Service**:
-
-            ![Create JavaScript ESM Service](../images/getting_started/new-file-js.png)
-        
-        - Double-click on the `service.js` to open the file in the editor on the right.
-        
-            ![Service Impletentation](../images/getting_started/service-implementation-js.png)
-
-        !!! info
-        
-            The file already contains a `Hello World` service implementation. As it's not specified otherwise, the service can be executed by performing any of the following HTTP methods: `GET`, `POST`, `PUT`, `DELETE` and `PATCH`.
-
-        - Right-click on the `hello-world` project and choose **Publish** option from the menu:
-
-            ![Publish Project](../images/getting_started/publish-project.png)
-        
-        - With the `service.js` selected in the `Projects` view, check the result of the execution of the server-side **JavaScript CJS Service** in the `Preview` view:
-
-            ![Preview Project](../images/getting_started/preview-project-js.png)
-
-        !!! note
-
-            The **JavaScript CJS Service** is published and available at the http://localhost:8080/services/js/hello-world/service.js URL. It can be accessed in a separate browser tab, consumed by a third-party application or API tools like `Postman` or `cURL`. -->
-
 ### Update the `Hello World` service
 
 1. Go to line 3 in the editor and change the `Hello World!` message to `Hello Eclipse Dirigible!`.
@@ -163,14 +133,6 @@ Once you have a running Eclipse Dirigible instance, you can start with your proj
 
         response.println("Hello Eclipse Dirigible!");
         ```
-
-    <!-- === "JavaScript CommonJS"
-
-        ```js hl_lines="3"
-        const response = require("http/response");
-
-        response.println("Hello Eclipse Dirigible!");
-        ``` -->
 
 1. Save the file: ++ctrl+s++ for Windows, ++cmd+s++ for macOS
 1. The output in the **Preview** view changes immediately.
