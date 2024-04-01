@@ -23,6 +23,7 @@ nav:
           - Kafka Producer and Consumer: 'tutorials/application-development/kafka.md'
         - Modeling:
           - Generate Application from Model: 'tutorials/modeling/generate-application-from-model.md'
+          - Generate Application from Datasource: 'tutorials/modeling/generate-application-from-datasource.md'
           - BPMN Process: 'tutorials/modeling/bpmn-process.md'
         - Customizations:
           - IDE:
