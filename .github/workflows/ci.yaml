@@ -17,7 +17,7 @@ jobs:
         node-version: '14'
     - run: npm install -g bats
     - name: Set MkDocs Material Version
-      run: echo MKDOCS_MATERIAL_VERSION=8.5.11 >> $GITHUB_ENV
+      run: echo MKDOCS_MATERIAL_VERSION=latest >> $GITHUB_ENV
 
     - name: Build the site with squidfunk/mkdocs-material container
       run: |
