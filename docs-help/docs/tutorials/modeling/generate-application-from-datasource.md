@@ -5,7 +5,7 @@ title: Generate Application from Datasource
 Generate Application from Datasource
 ===
 
-This tutorial will guide you through the creation of an entity data model and generation of a full-stack Dirigible application from datasource. We will be using MySQL for that purpose but Eclipse Dirigible supports other database as well.
+This tutorial will guide you through the creation of an entity data model and the generation of a full-stack Dirigible application from datasource. We will be using MySQL for that purpose but Eclipse Dirigible supports other databases as well.
 
 ### Prerequisites
 - Access to the latest version of Eclipse Dirigible (10.2.1+)
@@ -36,7 +36,7 @@ This tutorial will guide you through the creation of an entity data model and ge
 
     Without environment variables
     ```
-    docker run --env-file ./my_env.list --name dirigible --rm -p 8080:8080 -p 8081:8081 dirigiblelabs/dirigible:latest
+    docker run --name dirigible --rm -p 8080:8080 -p 8081:8081 dirigiblelabs/dirigible:latest
     ```
 
 
@@ -89,6 +89,10 @@ Once the datasource is added, proceed with the following steps to generate the a
 
 6. Navigate in the _**gen**_ folder in the _**TUTORIAL**_ project, select the _**index.html**_ and in the _**Preview**_ section below you can fetch
 your link and start using your application
+
+    ![full-app-dashboard](generate-application-from-datasource/full-app-dashboard.png)
+
+    ![full-app-students](generate-application-from-datasource/full-app-students.png)
 
 ### Conclusion
 By following the steps outlined above, you can seamlessly generate an application in Eclipse Dirigible using a datasource. Ensure to set up the datasource correctly and choose the appropriate method based on your requirements.
