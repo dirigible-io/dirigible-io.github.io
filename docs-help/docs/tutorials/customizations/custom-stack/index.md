@@ -405,6 +405,9 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 							</goals>
 						</execution>
 					</executions>
+					<configuration>
+						<dotGitDirectory>../.git</dotGitDirectory>
+					</configuration>
 				</plugin>
 				-->
 				```
@@ -638,22 +641,20 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/resources/dirigible.properties` file.
 		1. Paste the following content:
 
-		??? abstract "application/src/main/resources/dirigible.properties"
-
-			```
-			# General
-			DIRIGIBLE_PRODUCT_NAME=${project.title}
-			DIRIGIBLE_PRODUCT_VERSION=${project.version}
-			DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
-			DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
-			DIRIGIBLE_PRODUCT_TYPE=all
-			DIRIGIBLE_INSTANCE_NAME=custom-stack
-			DIRIGIBLE_DATABASE_PROVIDER=local
-			DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
-			DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
-			DIRIGIBLE_HOME_URL=services/web/ide/
-			DIRIGIBLE_FTP_PORT=22
-			```
+		```
+		# General
+		DIRIGIBLE_PRODUCT_NAME=${project.title}
+		DIRIGIBLE_PRODUCT_VERSION=${project.version}
+		DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
+		DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
+		DIRIGIBLE_PRODUCT_TYPE=all
+		DIRIGIBLE_INSTANCE_NAME=custom-stack
+		DIRIGIBLE_DATABASE_PROVIDER=local
+		DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
+		DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
+		DIRIGIBLE_HOME_URL=services/web/ide/
+		DIRIGIBLE_FTP_PORT=22
+		```
 
 		!!! info "Environment Variables"
 
@@ -662,7 +663,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
     === "static/index.html"
 
 		1. Create `static` folder and navigate to it.
-		1. Create `releng/src/main/resources/static/index.html` file.
+		1. Create `application/src/main/resources/static/index.html` file.
 		1. Paste the following content:
 
 		```html
