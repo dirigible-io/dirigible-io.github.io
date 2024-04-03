@@ -3113,9 +3113,7 @@
     <span class="nt">&lt;/scm&gt;</span>
 
     <span class="nt">&lt;modules&gt;</span>
-        <span class="nt">&lt;module&gt;</span>apis<span class="nt">&lt;/module&gt;</span>
         <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
-        <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
     <span class="nt">&lt;/modules&gt;</span>
 
     <span class="nt">&lt;dependencies&gt;</span>
@@ -3312,10 +3310,10 @@
 
         <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
 
-<span class="hll">        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
-</span>
-        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
-        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
+
+<span class="hll">        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
+</span>        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
         <span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
 
         <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.3.0<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
@@ -3703,6 +3701,8 @@
 <li>Create <code>application/src/main/resources/dirigible.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>application/src/main/resources/dirigible.properties</summary>
 <div class="highlight"><pre><span></span><code># General
 DIRIGIBLE_PRODUCT_NAME=${project.title}
 DIRIGIBLE_PRODUCT_VERSION=${project.version}
@@ -3716,6 +3716,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 DIRIGIBLE_HOME_URL=services/web/ide/
 DIRIGIBLE_FTP_PORT=22
 </code></pre></div>
+</details>
 <div class="admonition info">
 <p class="admonition-title">Environment Variables</p>
 <p>The properties file will be packaged inside the <em>Custom Stack</em>, and the above environment variables will be set by default. These environment variables could be overridden during <em><code>Deployment</code></em> or at <em><code>Runtime</code></em>. To learn more about the supported configurations go to <a href="https://www.dirigible.io/help/setup/setup-environment-variables/">Environment Variables</a>.</p>
@@ -3727,6 +3728,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/static/index.html</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>application/src/main/resources/static/index.html</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en-US&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
@@ -3739,6 +3742,7 @@ DIRIGIBLE_FTP_PORT=22
     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/home&quot;</span><span class="p">&gt;</span>Click here if you are not redirected.<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <ol>
@@ -3746,6 +3750,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/static/index-busy.html</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>application/src/main/resources/static/index-busy.html</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;busyPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;BusyController&quot;</span><span class="p">&gt;</span>
 
@@ -3824,6 +3830,7 @@ DIRIGIBLE_FTP_PORT=22
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -3842,6 +3849,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/public/error/error.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
+<details class="abstract">
+<summary>application/src/main/resources/public/error/error.html</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
 
@@ -3901,6 +3910,7 @@ DIRIGIBLE_FTP_PORT=22
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -3908,6 +3918,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/error/403.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
+<details class="abstract">
+<summary>application/src/main/resources/error/403.html</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
 
@@ -3948,6 +3960,7 @@ DIRIGIBLE_FTP_PORT=22
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <ul>
@@ -3955,6 +3968,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/error/404.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
+<details class="abstract">
+<summary>application/src/main/resources/error/404.html</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
 
@@ -4013,6 +4028,7 @@ DIRIGIBLE_FTP_PORT=22
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -4021,9 +4037,9 @@ DIRIGIBLE_FTP_PORT=22
 <p>Create Spring Boot files:</p>
 <ul>
 <li>Navigate to the <code>application</code> folder.</li>
-<li>Create <code>application.properties</code>, <code>application-keycloak.properties</code> and <code>CustomStackApplication.java</code> files.</li>
+<li>Create <code>application.properties</code>, <code>quartz.properties</code> and <code>CustomStackApplication.java</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">application.properties</label><label for="__tabbed_4_2">application-keycloak.properties</label><label for="__tabbed_4_3">CustomStackApplication.java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">application.properties</label><label for="__tabbed_4_2">quartz.properties</label><label for="__tabbed_4_3">CustomStackApplication.java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -4031,6 +4047,8 @@ DIRIGIBLE_FTP_PORT=22
 <li>Create <code>application/src/main/resources/application.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>application/src/main/resources/application.properties</summary>
 <div class="highlight"><pre><span></span><code>server.port=8080
 
 spring.main.allow-bean-definition-overriding=true
@@ -4079,25 +4097,39 @@ cxf.path=/odata/v2
 spring.quartz.job-store-type=jdbc
 spring.quartz.jdbc.initialize-schema=always
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>Navigate to the <code>src/main/resources/</code> folder.</li>
-<li>Create <code>application/src/main/resources/application.properties</code> file.</li>
+<li>Create <code>application/src/main/resources/quartz.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>basic.enabled=false
-
-# example https://keycloak.apps.dirigible.io/auth/realms/dirigible
-spring.security.oauth2.client.provider.keycloak.issuer-uri=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL}
-
-spring.security.oauth2.client.registration.keycloak.provider=keycloak
-spring.security.oauth2.client.registration.keycloak.client-id=${DIRIGIBLE_KEYCLOAK_CLIENT_ID}
-spring.security.oauth2.client.registration.keycloak.scope=openid,profile,roles,microprofile-jwt,email,phone,web-origins,address,offline_access
-spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
-
-spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
-</code></pre></div>
+<details class="abstract">
+<summary>application/src/main/resources/quartz.properties</summary>
+<p>```</p>
+<h1 id="thread-pool">thread-pool</h1>
+<p>org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount=2
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true</p>
+<h1 id="job-store">job-store</h1>
+<h1 id="enable-this-property-for-ramjobstore">Enable this property for RAMJobStore</h1>
+<p>org.quartz.jobStore.class=org.quartz.simpl.RAMJobStore</p>
+<h1 id="enable-these-properties-for-a-jdbcjobstore-using-jobstoretx">Enable these properties for a JDBCJobStore using JobStoreTX</h1>
+<h1 id="orgquartzjobstoreclassorgquartzimpljdbcjobstorejobstoretx">org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX</h1>
+<h1 id="orgquartzjobstoredriverdelegateclassorgquartzimpljdbcjobstorestdjdbcdelegate">org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate</h1>
+<h1 id="orgquartzjobstoredatasourcequartzdatasource">org.quartz.jobStore.dataSource=quartzDataSource</h1>
+<h1 id="enable-this-property-for-jobstorecmt">Enable this property for JobStoreCMT</h1>
+<h1 id="orgquartzjobstorenonmanagedtxdatasourcequartzdatasource">org.quartz.jobStore.nonManagedTXDataSource=quartzDataSource</h1>
+<h1 id="h2-database">H2 database</h1>
+<h1 id="use-an-in-memory-database-initialise-quartz-using-their-standard-sql-script">use an in-memory database &amp; initialise Quartz using their standard SQL script</h1>
+<h1 id="orgquartzdatasourcequartzdatasourceurljdbch2memspring-quartzinitrunscript-from-classpathorgquartzimpljdbcjobstoretables_h2sql">org.quartz.dataSource.quartzDataSource.URL=jdbc:h2:mem:spring-quartz;INIT=RUNSCRIPT FROM 'classpath:/org/quartz/impl/jdbcjobstore/tables_h2.sql'</h1>
+<h1 id="orgquartzdatasourcequartzdatasourcedriverorgh2driver">org.quartz.dataSource.quartzDataSource.driver=org.h2.Driver</h1>
+<h1 id="orgquartzdatasourcequartzdatasourceusersa">org.quartz.dataSource.quartzDataSource.user=sa</h1>
+<h1 id="orgquartzdatasourcequartzdatasourcepassword">org.quartz.dataSource.quartzDataSource.password=</h1>
+<h1 id="orgquartzjdbcinitialize-schemanever">org.quartz.jdbc.initialize-schema=never</h1>
+<p>``</p>
+</details>
 </div>
 <div class="tabbed-block">
 <ol>
@@ -4106,6 +4138,8 @@ spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_us
 <li>Create <code>application/src/main/java/io/dirigible/samples/CustomStackApplication.java</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>application/src/main/java/io/dirigible/samples/CustomStackApplication.java</summary>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.samples</span><span class="p">;</span><span class="w"></span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span><span class="w"></span>
@@ -4132,6 +4166,7 @@ spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_us
 
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
