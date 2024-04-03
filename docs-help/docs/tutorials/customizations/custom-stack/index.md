@@ -56,9 +56,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 				</scm>
 
 				<modules>
-					<module>apis</module>
 					<module>application</module>
-					<module>branding</module>
 				</modules>
 
 				<dependencies>
@@ -641,20 +639,22 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/resources/dirigible.properties` file.
 		1. Paste the following content:
 
-		```
-		# General
-		DIRIGIBLE_PRODUCT_NAME=${project.title}
-		DIRIGIBLE_PRODUCT_VERSION=${project.version}
-		DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
-		DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
-		DIRIGIBLE_PRODUCT_TYPE=all
-		DIRIGIBLE_INSTANCE_NAME=custom-stack
-		DIRIGIBLE_DATABASE_PROVIDER=local
-		DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
-		DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
-		DIRIGIBLE_HOME_URL=services/web/ide/
-		DIRIGIBLE_FTP_PORT=22
-		```
+		??? abstract "application/src/main/resources/dirigible.properties"
+
+			```
+			# General
+			DIRIGIBLE_PRODUCT_NAME=${project.title}
+			DIRIGIBLE_PRODUCT_VERSION=${project.version}
+			DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
+			DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
+			DIRIGIBLE_PRODUCT_TYPE=all
+			DIRIGIBLE_INSTANCE_NAME=custom-stack
+			DIRIGIBLE_DATABASE_PROVIDER=local
+			DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
+			DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
+			DIRIGIBLE_HOME_URL=services/web/ide/
+			DIRIGIBLE_FTP_PORT=22
+			```
 
 		!!! info "Environment Variables"
 
@@ -666,19 +666,21 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/resources/static/index.html` file.
 		1. Paste the following content:
 
-		```html
-		<!DOCTYPE html>
-		<html lang="en-US">
-		    <meta charset="utf-8">
-		    <title>Redirecting&hellip;</title>
-		    <link rel="canonical" href="/home">
-		    <script>location="/home"</script>
-		    <meta http-equiv="refresh" content="0; url=/home">
-		    <meta name="robots" content="noindex">
-		    <h1>Redirecting&hellip;</h1>
-		    <a href="/home">Click here if you are not redirected.</a>
-		</html>
-		```
+		??? abstract "application/src/main/resources/static/index.html"
+
+			```html
+			<!DOCTYPE html>
+			<html lang="en-US">
+				<meta charset="utf-8">
+				<title>Redirecting&hellip;</title>
+				<link rel="canonical" href="/home">
+				<script>location="/home"</script>
+				<meta http-equiv="refresh" content="0; url=/home">
+				<meta name="robots" content="noindex">
+				<h1>Redirecting&hellip;</h1>
+				<a href="/home">Click here if you are not redirected.</a>
+			</html>
+			```
 
     === "static/index-busy.html"
 
@@ -686,85 +688,87 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/resources/static/index-busy.html` file.
 		1. Paste the following content:
 
-		```html
-		<!DOCTYPE HTML>
-		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="busyPage" ng-controller="BusyController">
+		??? abstract "application/src/main/resources/static/index-busy.html"
 
-			<head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="/services/web/resources/images/favicon.ico" />
-				<title>Loading ...</title>
-				<theme></theme>
-				<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-				</script>
-				<link type="text/css" rel="stylesheet"
-					href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-			</head>
+			```html
+			<!DOCTYPE HTML>
+			<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="busyPage" ng-controller="BusyController">
 
-			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
+				<head>
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<link rel="icon" href="/services/web/resources/images/favicon.ico" />
+					<title>Loading ...</title>
+					<theme></theme>
+					<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
+					</script>
+					<link type="text/css" rel="stylesheet"
+						href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+				</head>
 
-				<div style="padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;">
-					<div class="fd-panel fd-panel--fixed">
-						<div class="fd-panel__header">
-							<h4 class="fd-panel__title">Preparing Custom Stack Instance</h4>
+				<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
+
+					<div style="padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;">
+						<div class="fd-panel fd-panel--fixed">
+							<div class="fd-panel__header">
+								<h4 class="fd-panel__title">Preparing Custom Stack Instance</h4>
+							</div>
 						</div>
+						<fd-list>
+							<fd-list-item ng-repeat="job in jobs">
+								<span fd-object-status status="{{job.status}}" glyph="{{job.statusIcon}}"
+									text="{{job.name}}"></span>
+							</fd-list-item>
+						</fd-list>
+						<fd-busy-indicator style="margin-top: 3rem;" dg-size="l"></fd-busy-indicator>
 					</div>
-					<fd-list>
-						<fd-list-item ng-repeat="job in jobs">
-							<span fd-object-status status="{{job.status}}" glyph="{{job.statusIcon}}"
-								text="{{job.name}}"></span>
-						</fd-list-item>
-					</fd-list>
-					<fd-busy-indicator style="margin-top: 3rem;" dg-size="l"></fd-busy-indicator>
-				</div>
 
-				<script>
-					let busyPage = angular.module('busyPage', ['ideUI', 'ideView']);
+					<script>
+						let busyPage = angular.module('busyPage', ['ideUI', 'ideView']);
 
-					busyPage.controller('BusyController', ['$scope', '$http', 'theming', function ($scope, $http, theming) {
+						busyPage.controller('BusyController', ['$scope', '$http', 'theming', function ($scope, $http, theming) {
 
-						setInterval(function() {
+							setInterval(function() {
 
-							$http({
-								method: 'GET',
-								url: '/services/healthcheck'
-							}).then(function(healthStatus){
-								if (healthStatus.data.status === "Ready") {
-									window.location='/home';
-								}
-								let jobs = [];
-								for (const [key, value] of Object.entries(healthStatus.data.jobs.statuses)) {
-									let job = new Object();
-									job.name = key;
-									switch(value) {
-										case "Succeeded":
-											job.status = "positive";
-											job.statusIcon = "sap-icon--message-success"
-											break;
-										case "Failed":
-											job.status = "negative";
-											job.statusIcon = "sap-icon--message-error";
-										default:
-											job.status = "informative";
-											job.statusIcon = "sap-icon--message-information"
-											break;
+								$http({
+									method: 'GET',
+									url: '/services/healthcheck'
+								}).then(function(healthStatus){
+									if (healthStatus.data.status === "Ready") {
+										window.location='/home';
 									}
-									jobs.push(job);
-								}
-								$scope.jobs = jobs.sort((x, y) => x.name > y.name ? 1 : -1);
-							}), (function(e){
-								console.error("Error retreiving the health status", e);
-							});
+									let jobs = [];
+									for (const [key, value] of Object.entries(healthStatus.data.jobs.statuses)) {
+										let job = new Object();
+										job.name = key;
+										switch(value) {
+											case "Succeeded":
+												job.status = "positive";
+												job.statusIcon = "sap-icon--message-success"
+												break;
+											case "Failed":
+												job.status = "negative";
+												job.statusIcon = "sap-icon--message-error";
+											default:
+												job.status = "informative";
+												job.statusIcon = "sap-icon--message-information"
+												break;
+										}
+										jobs.push(job);
+									}
+									$scope.jobs = jobs.sort((x, y) => x.name > y.name ? 1 : -1);
+								}), (function(e){
+									console.error("Error retreiving the health status", e);
+								});
 
-						}, 1000);
-					}]);
-				</script>
-			</body>
+							}, 1000);
+						}]);
+					</script>
+				</body>
 
-		</html>
-		```
+			</html>
+			```
 
 1. _(optional)_ Create Eclipse Dirigible error resources:
 
@@ -777,66 +781,68 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 	    - Create `application/src/main/resources/public/error/error.html` file.
 		- Paste the following content:
 
-		```html
-		<!DOCTYPE HTML>
-		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
+		??? abstract "application/src/main/resources/public/error/error.html"
 
-			<head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="/services/web/resources/images/favicon.ico" />
-				<title>Custom Stack | Unexpected Error Occurred</title>
-				<theme></theme>
-				<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-				</script>
-				<link type="text/css" rel="stylesheet"
-					href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-			</head>
+			```html
+			<!DOCTYPE HTML>
+			<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
+				<head>
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<link rel="icon" href="/services/web/resources/images/favicon.ico" />
+					<title>Custom Stack | Unexpected Error Occurred</title>
+					<theme></theme>
+					<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
+					</script>
+					<link type="text/css" rel="stylesheet"
+						href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+				</head>
 
-				<div style="height: 600px; width: 100%;">
-					<fd-message-page glyph="sap-icon--error">
-						<fd-message-page-title>Unexpected Error Occurred</fd-message-page-title>
-						<fd-message-page-subtitle>
-							<b>There was a problem serving the requested page</b>.
-							<br>
-							Usually this means that an enexpected error
-							happened while processing your request. Here's what you can try next:
-							<br>
-							<br>
-							<i><b>Reload the page</b>, the problem may be temporary. If the problem persists, <b>contact us</b>
-								and we'll
-								help get you on your way.</i>
-						</fd-message-page-subtitle>
-						<fd-message-page-actions>
-							<fd-button compact="true" dg-label="Reload Page" dg-type="emphasized" style="margin: 0 0.25rem;"
-								ng-click="reloadPage()">
-							</fd-button>
-							<fd-button compact="true" dg-label="Contact Support" ng-click="contactSupport()"></fd-button>
-						</fd-message-page-actions>
-					</fd-message-page>
-				</div>
+				<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-				<script>
-					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+					<div style="height: 600px; width: 100%;">
+						<fd-message-page glyph="sap-icon--error">
+							<fd-message-page-title>Unexpected Error Occurred</fd-message-page-title>
+							<fd-message-page-subtitle>
+								<b>There was a problem serving the requested page</b>.
+								<br>
+								Usually this means that an enexpected error
+								happened while processing your request. Here's what you can try next:
+								<br>
+								<br>
+								<i><b>Reload the page</b>, the problem may be temporary. If the problem persists, <b>contact us</b>
+									and we'll
+									help get you on your way.</i>
+							</fd-message-page-subtitle>
+							<fd-message-page-actions>
+								<fd-button compact="true" dg-label="Reload Page" dg-type="emphasized" style="margin: 0 0.25rem;"
+									ng-click="reloadPage()">
+								</fd-button>
+								<fd-button compact="true" dg-label="Contact Support" ng-click="contactSupport()"></fd-button>
+							</fd-message-page-actions>
+						</fd-message-page>
+					</div>
 
-					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+					<script>
+						let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
 
-						$scope.reloadPage = function() {
-							location.reload();
-						};
+						errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
 
-						$scope.contactSupport = function() {
-							window.open("https://bugs.dirigible.io", "_blank");
-						};
-					}]);
-				</script>
-			</body>
+							$scope.reloadPage = function() {
+								location.reload();
+							};
 
-		</html>
-		```
+							$scope.contactSupport = function() {
+								window.open("https://bugs.dirigible.io", "_blank");
+							};
+						}]);
+					</script>
+				</body>
+
+			</html>
+			```
 
     === "403.html"
 
@@ -844,47 +850,49 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		- Create `application/src/main/resources/error/403.html` file.
 		- Paste the following content:
 
-		```html
-		<!DOCTYPE HTML>
-		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
+		??? abstract "application/src/main/resources/error/403.html"
 
-			<head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="/services/web/resources/images/favicon.ico" />
-				<title>Custom Stack | Access Denied</title>
-				<theme></theme>
-				<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-				</script>
-				<link type="text/css" rel="stylesheet"
-					href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-			</head>
+			```html
+			<!DOCTYPE HTML>
+			<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
+				<head>
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<link rel="icon" href="/services/web/resources/images/favicon.ico" />
+					<title>Custom Stack | Access Denied</title>
+					<theme></theme>
+					<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
+					</script>
+					<link type="text/css" rel="stylesheet"
+						href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+				</head>
 
-				<div style="height: 600px; width: 100%;">
-					<fd-message-page glyph="sap-icon--alert">
-						<fd-message-page-title>Access Denied</fd-message-page-title>
-						<fd-message-page-subtitle>
-							<b>The page you're trying to access has resctricted access</b>.
-							<br>
-							Pleace contact your system administrator for more details.
-						</fd-message-page-subtitle>
-					</fd-message-page>
-				</div>
+				<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-				<script>
-					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+					<div style="height: 600px; width: 100%;">
+						<fd-message-page glyph="sap-icon--alert">
+							<fd-message-page-title>Access Denied</fd-message-page-title>
+							<fd-message-page-subtitle>
+								<b>The page you're trying to access has resctricted access</b>.
+								<br>
+								Pleace contact your system administrator for more details.
+							</fd-message-page-subtitle>
+						</fd-message-page>
+					</div>
 
-					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+					<script>
+						let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
 
-					}]);
-				</script>
-			</body>
+						errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
 
-		</html>
-		```
+						}]);
+					</script>
+				</body>
+
+			</html>
+			```
 
     === "404.html"
 
@@ -892,70 +900,72 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		- Create `application/src/main/resources/error/404.html` file.
 		- Paste the following content:
 
-		```html
-		<!DOCTYPE HTML>
-		<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
+		??? abstract "application/src/main/resources/error/404.html"
 
-			<head>
-				<meta charset="utf-8">
-				<meta http-equiv="X-UA-Compatible" content="IE=edge">
-				<meta name="viewport" content="width=device-width, initial-scale=1">
-				<link rel="icon" href="/services/web/resources/images/favicon.ico" />
-				<title>Custom Stack | Page Not Found</title>
-				<theme></theme>
-				<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-				</script>
-				<link type="text/css" rel="stylesheet"
-					href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-			</head>
+			```html
+			<!DOCTYPE HTML>
+			<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="errorPage" ng-controller="ErrorPageController">
 
-			<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
+				<head>
+					<meta charset="utf-8">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge">
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<link rel="icon" href="/services/web/resources/images/favicon.ico" />
+					<title>Custom Stack | Page Not Found</title>
+					<theme></theme>
+					<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
+					</script>
+					<link type="text/css" rel="stylesheet"
+						href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+				</head>
 
-				<div style="height: 600px; width: 100%;">
-					<fd-message-page glyph="sap-icon--documents">
-						<fd-message-page-title>Page Not Found</fd-message-page-title>
-						<fd-message-page-subtitle>
-							<b>It looks like you've reached a URL that doesn't exist</b>.
-							<br>
-							The page you are looking for is no longer here, or never existed in the first place.
-							<br>
-							<br>
-							<i>You can go to the <b>previous page</b>, or start over from the <b>home page</b>.</i>
-						</fd-message-page-subtitle>
-						<fd-message-page-actions>
-							<fd-button compact="true" dg-label="Go Back" dg-type="emphasized" style="margin: 0 0.25rem;"
-								ng-click="goBack()">
-							</fd-button>
-							<fd-button compact="true" dg-label="Take Me Home" ng-click="goHome()" ng-click="goHome()">
-							</fd-button>
-						</fd-message-page-actions>
-					</fd-message-page>
-				</div>
+				<body class="fd-scrollbar" dg-contextmenu="contextMenuContent">
 
-				<script>
-					let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
+					<div style="height: 600px; width: 100%;">
+						<fd-message-page glyph="sap-icon--documents">
+							<fd-message-page-title>Page Not Found</fd-message-page-title>
+							<fd-message-page-subtitle>
+								<b>It looks like you've reached a URL that doesn't exist</b>.
+								<br>
+								The page you are looking for is no longer here, or never existed in the first place.
+								<br>
+								<br>
+								<i>You can go to the <b>previous page</b>, or start over from the <b>home page</b>.</i>
+							</fd-message-page-subtitle>
+							<fd-message-page-actions>
+								<fd-button compact="true" dg-label="Go Back" dg-type="emphasized" style="margin: 0 0.25rem;"
+									ng-click="goBack()">
+								</fd-button>
+								<fd-button compact="true" dg-label="Take Me Home" ng-click="goHome()" ng-click="goHome()">
+								</fd-button>
+							</fd-message-page-actions>
+						</fd-message-page>
+					</div>
 
-					errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
+					<script>
+						let errorPage = angular.module('errorPage', ['ideUI', 'ideView']);
 
-						$scope.goBack = function() {
-							history.back();
-						};
+						errorPage.controller('ErrorPageController', ['$scope', 'theming', function ($scope, theming) {
 
-						$scope.goHome = function() {
-							window.location = "/home";
-						};
+							$scope.goBack = function() {
+								history.back();
+							};
 
-					}]);
-				</script>
-			</body>
+							$scope.goHome = function() {
+								window.location = "/home";
+							};
 
-		</html>
-		```
+						}]);
+					</script>
+				</body>
+
+			</html>
+			```
 
 1. Create Spring Boot files:
 
     - Navigate to the `application` folder.
-	- Create `application.properties`, `application-keycloak.properties` and `CustomStackApplication.java` files.
+	- Create `application.properties`, `quartz.properties` and `CustomStackApplication.java` files.
 
     === "application.properties"
 
@@ -963,75 +973,91 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/resources/application.properties` file.
 		1. Paste the following content:
 
-		```
-		server.port=8080
+		??? abstract "application/src/main/resources/application.properties"
 
-		spring.main.allow-bean-definition-overriding=true
-		server.error.include-message=always
+			```
+			server.port=8080
 
-		spring.servlet.multipart.enabled=true
-		spring.servlet.multipart.file-size-threshold=2KB
-		spring.servlet.multipart.max-file-size=1GB
-		spring.servlet.multipart.max-request-size=1GB
-		spring.servlet.multipart.max-file-size=200MB
-		spring.servlet.multipart.max-request-size=215MB
-		spring.servlet.multipart.location=${java.io.tmpdir}
+			spring.main.allow-bean-definition-overriding=true
+			server.error.include-message=always
 
-		spring.datasource.hikari.connectionTimeout=3600000
-		spring.mvc.async.request-timeout=3600000
+			spring.servlet.multipart.enabled=true
+			spring.servlet.multipart.file-size-threshold=2KB
+			spring.servlet.multipart.max-file-size=1GB
+			spring.servlet.multipart.max-request-size=1GB
+			spring.servlet.multipart.max-file-size=200MB
+			spring.servlet.multipart.max-request-size=215MB
+			spring.servlet.multipart.location=${java.io.tmpdir}
 
-		basic.enabled=${DIRIGIBLE_BASIC_ENABLED:true}
+			spring.datasource.hikari.connectionTimeout=3600000
+			spring.mvc.async.request-timeout=3600000
 
-		terminal.enabled=${DIRIGIBLE_TERMINAL_ENABLED:false}
+			basic.enabled=${DIRIGIBLE_BASIC_ENABLED:true}
 
-		keycloak.enabled=${DIRIGIBLE_KEYCLOAK_ENABLED:false}
-		keycloak.realm=${DIRIGIBLE_KEYCLOAK_REALM:null}
-		keycloak.auth-server-url=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL:null}
-		keycloak.ssl-required=${DIRIGIBLE_KEYCLOAK_SSL_REQUIRED:external}
-		keycloak.resource=${DIRIGIBLE_KEYCLOAK_CLIENT_ID:null}
-		keycloak.public-client=true
-		keycloak.principal-attribute=preferred_username
-		keycloak.confidential-port=${DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT:443}
-		keycloak.use-resource-role-mappings=true
+			terminal.enabled=${DIRIGIBLE_TERMINAL_ENABLED:false}
 
-		management.metrics.mongo.command.enabled=false
-		management.metrics.mongo.connectionpool.enabled=false
+			keycloak.enabled=${DIRIGIBLE_KEYCLOAK_ENABLED:false}
+			keycloak.realm=${DIRIGIBLE_KEYCLOAK_REALM:null}
+			keycloak.auth-server-url=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL:null}
+			keycloak.ssl-required=${DIRIGIBLE_KEYCLOAK_SSL_REQUIRED:external}
+			keycloak.resource=${DIRIGIBLE_KEYCLOAK_CLIENT_ID:null}
+			keycloak.public-client=true
+			keycloak.principal-attribute=preferred_username
+			keycloak.confidential-port=${DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT:443}
+			keycloak.use-resource-role-mappings=true
 
-		management.endpoints.jmx.exposure.include=*
-		management.endpoints.jmx.exposure.exclude=
-		management.endpoints.web.exposure.include=*
-		management.endpoints.web.exposure.exclude=
-		management.endpoint.health.show-details=always
+			management.metrics.mongo.command.enabled=false
+			management.metrics.mongo.connectionpool.enabled=false
 
-		springdoc.api-docs.path=/api-docs
+			management.endpoints.jmx.exposure.include=*
+			management.endpoints.jmx.exposure.exclude=
+			management.endpoints.web.exposure.include=*
+			management.endpoints.web.exposure.exclude=
+			management.endpoint.health.show-details=always
 
-		cxf.path=/odata/v2
+			springdoc.api-docs.path=/api-docs
 
-		# the following are used to force the Spring to create QUARTZ tables
-		# quartz properties are manged in quartz.properties don't try to add them here
-		spring.quartz.job-store-type=jdbc
-		spring.quartz.jdbc.initialize-schema=always
-		```
+			cxf.path=/odata/v2
 
-    === "application-keycloak.properties"
+			# the following are used to force the Spring to create QUARTZ tables
+			# quartz properties are manged in quartz.properties don't try to add them here
+			spring.quartz.job-store-type=jdbc
+			spring.quartz.jdbc.initialize-schema=always
+			```
+
+    === "quartz.properties"
 
 		1. Navigate to the `src/main/resources/` folder.
-		1. Create `application/src/main/resources/application.properties` file.
+		1. Create `application/src/main/resources/quartz.properties` file.
 		1. Paste the following content:
 
-		```
-		basic.enabled=false
+		??? abstract "application/src/main/resources/quartz.properties"
 
-		# example https://keycloak.apps.dirigible.io/auth/realms/dirigible
-		spring.security.oauth2.client.provider.keycloak.issuer-uri=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL}
+			```
+			# thread-pool
+			org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
+			org.quartz.threadPool.threadCount=2
+			org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true
 
-		spring.security.oauth2.client.registration.keycloak.provider=keycloak
-		spring.security.oauth2.client.registration.keycloak.client-id=${DIRIGIBLE_KEYCLOAK_CLIENT_ID}
-		spring.security.oauth2.client.registration.keycloak.scope=openid,profile,roles,microprofile-jwt,email,phone,web-origins,address,offline_access
-		spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
+			# job-store
+			# Enable this property for RAMJobStore
+			org.quartz.jobStore.class=org.quartz.simpl.RAMJobStore
 
-		spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
-		```
+			# Enable these properties for a JDBCJobStore using JobStoreTX
+			#org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+			#org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+			#org.quartz.jobStore.dataSource=quartzDataSource
+			# Enable this property for JobStoreCMT
+			#org.quartz.jobStore.nonManagedTXDataSource=quartzDataSource
+
+			# H2 database
+			# use an in-memory database & initialise Quartz using their standard SQL script
+			#org.quartz.dataSource.quartzDataSource.URL=jdbc:h2:mem:spring-quartz;INIT=RUNSCRIPT FROM 'classpath:/org/quartz/impl/jdbcjobstore/tables_h2.sql'
+			#org.quartz.dataSource.quartzDataSource.driver=org.h2.Driver
+			#org.quartz.dataSource.quartzDataSource.user=sa
+			#org.quartz.dataSource.quartzDataSource.password=
+			#org.quartz.jdbc.initialize-schema=never
+			``
 
     === "CustomStackApplication.java"
 
@@ -1040,33 +1066,35 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 		1. Create `application/src/main/java/io/dirigible/samples/CustomStackApplication.java` file.
 		1. Paste the following content:
 
-		```java
-		package io.dirigible.samples;
+		??? abstract "application/src/main/java/io/dirigible/samples/CustomStackApplication.java"
 
-		import org.springframework.boot.SpringApplication;
-		import org.springframework.boot.autoconfigure.SpringBootApplication;
-		import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-		import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-		import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
-		import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-		import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-		import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-		import org.springframework.scheduling.annotation.EnableScheduling;
+			```java
+			package io.dirigible.samples;
 
-		@EnableJpaAuditing
-		@EnableJpaRepositories
-		@SpringBootApplication(scanBasePackages = {"io.dirigible.samples", "org.eclipse.dirigible.components"},
-			exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
-				HibernateJpaAutoConfiguration.class, JdbcTemplateAutoConfiguration.class})
-		@EnableScheduling
-		public class CustomStackApplication {
-			
-			public static void main(String[] args) {
-				SpringApplication.run(CustomStackApplication.class, args);
+			import org.springframework.boot.SpringApplication;
+			import org.springframework.boot.autoconfigure.SpringBootApplication;
+			import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+			import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
+			import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
+			import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+			import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+			import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+			import org.springframework.scheduling.annotation.EnableScheduling;
+
+			@EnableJpaAuditing
+			@EnableJpaRepositories
+			@SpringBootApplication(scanBasePackages = {"io.dirigible.samples", "org.eclipse.dirigible.components"},
+				exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class,
+					HibernateJpaAutoConfiguration.class, JdbcTemplateAutoConfiguration.class})
+			@EnableScheduling
+			public class CustomStackApplication {
+				
+				public static void main(String[] args) {
+					SpringApplication.run(CustomStackApplication.class, args);
+				}
+
 			}
-
-		}
-		```
+			```
 
 1. Build the _Custom Stack_.
 
