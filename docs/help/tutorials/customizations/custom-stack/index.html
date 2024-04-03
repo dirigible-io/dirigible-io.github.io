@@ -4107,28 +4107,30 @@ spring.quartz.jdbc.initialize-schema=always
 </ol>
 <details class="abstract">
 <summary>application/src/main/resources/quartz.properties</summary>
-<p>```</p>
-<h1 id="thread-pool">thread-pool</h1>
-<p>org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
+<div class="highlight"><pre><span></span><code># thread-pool
+org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
 org.quartz.threadPool.threadCount=2
-org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true</p>
-<h1 id="job-store">job-store</h1>
-<h1 id="enable-this-property-for-ramjobstore">Enable this property for RAMJobStore</h1>
-<p>org.quartz.jobStore.class=org.quartz.simpl.RAMJobStore</p>
-<h1 id="enable-these-properties-for-a-jdbcjobstore-using-jobstoretx">Enable these properties for a JDBCJobStore using JobStoreTX</h1>
-<h1 id="orgquartzjobstoreclassorgquartzimpljdbcjobstorejobstoretx">org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX</h1>
-<h1 id="orgquartzjobstoredriverdelegateclassorgquartzimpljdbcjobstorestdjdbcdelegate">org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate</h1>
-<h1 id="orgquartzjobstoredatasourcequartzdatasource">org.quartz.jobStore.dataSource=quartzDataSource</h1>
-<h1 id="enable-this-property-for-jobstorecmt">Enable this property for JobStoreCMT</h1>
-<h1 id="orgquartzjobstorenonmanagedtxdatasourcequartzdatasource">org.quartz.jobStore.nonManagedTXDataSource=quartzDataSource</h1>
-<h1 id="h2-database">H2 database</h1>
-<h1 id="use-an-in-memory-database-initialise-quartz-using-their-standard-sql-script">use an in-memory database &amp; initialise Quartz using their standard SQL script</h1>
-<h1 id="orgquartzdatasourcequartzdatasourceurljdbch2memspring-quartzinitrunscript-from-classpathorgquartzimpljdbcjobstoretables_h2sql">org.quartz.dataSource.quartzDataSource.URL=jdbc:h2:mem:spring-quartz;INIT=RUNSCRIPT FROM 'classpath:/org/quartz/impl/jdbcjobstore/tables_h2.sql'</h1>
-<h1 id="orgquartzdatasourcequartzdatasourcedriverorgh2driver">org.quartz.dataSource.quartzDataSource.driver=org.h2.Driver</h1>
-<h1 id="orgquartzdatasourcequartzdatasourceusersa">org.quartz.dataSource.quartzDataSource.user=sa</h1>
-<h1 id="orgquartzdatasourcequartzdatasourcepassword">org.quartz.dataSource.quartzDataSource.password=</h1>
-<h1 id="orgquartzjdbcinitialize-schemanever">org.quartz.jdbc.initialize-schema=never</h1>
-<p>``</p>
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true
+
+# job-store
+# Enable this property for RAMJobStore
+org.quartz.jobStore.class=org.quartz.simpl.RAMJobStore
+
+# Enable these properties for a JDBCJobStore using JobStoreTX
+#org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+#org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#org.quartz.jobStore.dataSource=quartzDataSource
+# Enable this property for JobStoreCMT
+#org.quartz.jobStore.nonManagedTXDataSource=quartzDataSource
+
+# H2 database
+# use an in-memory database &amp; initialise Quartz using their standard SQL script
+#org.quartz.dataSource.quartzDataSource.URL=jdbc:h2:mem:spring-quartz;INIT=RUNSCRIPT FROM &#39;classpath:/org/quartz/impl/jdbcjobstore/tables_h2.sql&#39;
+#org.quartz.dataSource.quartzDataSource.driver=org.h2.Driver
+#org.quartz.dataSource.quartzDataSource.user=sa
+#org.quartz.dataSource.quartzDataSource.password=
+#org.quartz.jdbc.initialize-schema=never
+</code></pre></div>
 </details>
 </div>
 <div class="tabbed-block">
