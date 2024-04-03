@@ -1057,7 +1057,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 			#org.quartz.dataSource.quartzDataSource.user=sa
 			#org.quartz.dataSource.quartzDataSource.password=
 			#org.quartz.jdbc.initialize-schema=never
-			``
+			```
 
     === "CustomStackApplication.java"
 
