@@ -3461,6 +3461,9 @@
 <span class="cm">            &lt;/goals&gt;</span>
 <span class="cm">        &lt;/execution&gt;</span>
 <span class="cm">    &lt;/executions&gt;</span>
+<span class="cm">    &lt;configuration&gt;</span>
+<span class="cm">        &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">    &lt;/configuration&gt;</span>
 <span class="cm">&lt;/plugin&gt;</span>
 <span class="cm">--&gt;</span>
 </code></pre></div>
@@ -3700,8 +3703,6 @@
 <li>Create <code>application/src/main/resources/dirigible.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<details class="abstract">
-<summary>application/src/main/resources/dirigible.properties</summary>
 <div class="highlight"><pre><span></span><code># General
 DIRIGIBLE_PRODUCT_NAME=${project.title}
 DIRIGIBLE_PRODUCT_VERSION=${project.version}
@@ -3715,7 +3716,6 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 DIRIGIBLE_HOME_URL=services/web/ide/
 DIRIGIBLE_FTP_PORT=22
 </code></pre></div>
-</details>
 <div class="admonition info">
 <p class="admonition-title">Environment Variables</p>
 <p>The properties file will be packaged inside the <em>Custom Stack</em>, and the above environment variables will be set by default. These environment variables could be overridden during <em><code>Deployment</code></em> or at <em><code>Runtime</code></em>. To learn more about the supported configurations go to <a href="https://www.dirigible.io/help/setup/setup-environment-variables/">Environment Variables</a>.</p>
@@ -3724,7 +3724,7 @@ DIRIGIBLE_FTP_PORT=22
 <div class="tabbed-block">
 <ol>
 <li>Create <code>static</code> folder and navigate to it.</li>
-<li>Create <code>releng/src/main/resources/static/index.html</code> file.</li>
+<li>Create <code>application/src/main/resources/static/index.html</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
