@@ -3063,7 +3063,7 @@
 <div class="admonition note">
 <p class="admonition-title">Prerequisites</p>
 <ul>
-<li>JDK 11+ - OpenJDK versions can be found <a href="https://adoptopenjdk.net/">here</a>.</li>
+<li>JDK 21+ - OpenJDK versions can be found <a href="https://adoptopenjdk.net/">here</a>.</li>
 <li>Maven 3.5+ - Maven version 3.5.3 can be found <a href="https://maven.apache.org/docs/3.5.3/release-notes.html">here</a>.</li>
 </ul>
 </div>
@@ -3073,16 +3073,19 @@
 <p>Create Maven <code>pom.xml</code> files:</p>
 <ul>
 <li>Create new folder on your machine, for the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
-<li>Create <code>pom.xml</code> and <code>releng/pom.xml</code> files.</li>
+<li>Create <code>pom.xml</code> and <code>application/pom.xml</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">releng/pom.xml</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">application/pom.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>Create new <code>pom.xml</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<details class="abstract">
+<summary>pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
@@ -3091,16 +3094,171 @@
         <span class="nt">&lt;version&gt;</span>7<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Parent<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;description&gt;</span>Custom Stack<span class="nt">&lt;/description&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;name&gt;</span>custom - stack - parent<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Custom Stack - Sample<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
 
+    <span class="nt">&lt;inceptionYear&gt;</span>2024<span class="nt">&lt;/inceptionYear&gt;</span>
+
+    <span class="nt">&lt;url&gt;</span>https://www.dirigible.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;organization&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Eclipse Foundation<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://www.eclipse.org<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/organization&gt;</span>
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/dirigiblelabs/sample-custom-stack<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
     <span class="nt">&lt;modules&gt;</span>
-        <span class="nt">&lt;module&gt;</span>releng<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>apis<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
     <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+
+        <span class="cm">&lt;!-- Platform --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Commons --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-commons-config<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Spring Boot --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>log4j-to-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-websocket<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+            <span class="nt">&lt;exclusion&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/exclusion&gt;</span>
+        <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Date Type Utils --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-joda<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Swagger --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springdoc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springdoc-openapi-ui<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${org.springdoc.openapi.ui.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data Access --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- WebJars --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>webjars-locator<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${webjars-locator}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Olingo --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.olingo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>olingo-odata2-lib<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${olingo.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.google.code.gson<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>gson<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>dirigible-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
 
     <span class="nt">&lt;profiles&gt;</span>
         <span class="nt">&lt;profile&gt;</span>
@@ -3110,6 +3268,29 @@
             <span class="nt">&lt;/activation&gt;</span>
             <span class="nt">&lt;build&gt;</span>
                 <span class="nt">&lt;plugins&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${jacoco.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>prepare-agent<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;rules&gt;</span>
+                                <span class="nt">&lt;rule&gt;</span>
+                                    <span class="nt">&lt;element&gt;</span>SOURCEFILE<span class="nt">&lt;/element&gt;</span>
+                                    <span class="nt">&lt;excludes&gt;</span>
+                                        <span class="nt">&lt;exclude&gt;</span>*src/test/*<span class="nt">&lt;/exclude&gt;</span>
+                                    <span class="nt">&lt;/excludes&gt;</span>
+                                <span class="nt">&lt;/rule&gt;</span>
+                            <span class="nt">&lt;/rules&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
                     <span class="nt">&lt;plugin&gt;</span>
                         <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
                         <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
@@ -3121,53 +3302,145 @@
                             <span class="nt">&lt;debuglevel&gt;</span>lines,vars,source<span class="nt">&lt;/debuglevel&gt;</span>
                         <span class="nt">&lt;/configuration&gt;</span>
                     <span class="nt">&lt;/plugin&gt;</span>
-                    <span class="cm">&lt;!-- </span>
-<span class="cm">                        Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
-<span class="cm">                        This is needed for the info in the &quot;About&quot; view.</span>
-<span class="cm">                    --&gt;</span>
-                    <span class="cm">&lt;!--</span>
-<span class="cm">                    &lt;plugin&gt;</span>
-<span class="cm">                        &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
-<span class="cm">                        &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
-<span class="cm">                        &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
-<span class="cm">                        &lt;executions&gt;</span>
-<span class="cm">                            &lt;execution&gt;</span>
-<span class="cm">                                &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
-<span class="cm">                                &lt;goals&gt;</span>
-<span class="cm">                                    &lt;goal&gt;revision&lt;/goal&gt;</span>
-<span class="cm">                                &lt;/goals&gt;</span>
-<span class="cm">                            &lt;/execution&gt;</span>
-<span class="cm">                        &lt;/executions&gt;</span>
-<span class="cm">                    &lt;/plugin&gt;</span>
-<span class="cm">                    --&gt;</span>
                 <span class="nt">&lt;/plugins&gt;</span>
             <span class="nt">&lt;/build&gt;</span>
         <span class="nt">&lt;/profile&gt;</span>
     <span class="nt">&lt;/profiles&gt;</span>
 
     <span class="nt">&lt;properties&gt;</span>
-<span class="hll">        <span class="nt">&lt;dirigible.version&gt;</span>6.3.24<span class="nt">&lt;/dirigible.version&gt;</span>
+        <span class="nt">&lt;project.title&gt;</span>custom stack<span class="nt">&lt;/project.title&gt;</span>
+
+        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+
+<span class="hll">        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
 </span>
-        <span class="nt">&lt;java.version&gt;</span>11<span class="nt">&lt;/java.version&gt;</span>
+        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
 
-        <span class="nt">&lt;spring.boot.version&gt;</span>2.7.2<span class="nt">&lt;/spring.boot.version&gt;</span>
-
-        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>3.10.1<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
-        <span class="nt">&lt;maven.compiler.source&gt;</span>11<span class="nt">&lt;/maven.compiler.source&gt;</span>
-        <span class="nt">&lt;maven.compiler.target&gt;</span>11<span class="nt">&lt;/maven.compiler.target&gt;</span>
-
-        <span class="nt">&lt;slf4j.version&gt;</span>1.7.36<span class="nt">&lt;/slf4j.version&gt;</span>
-        <span class="nt">&lt;logback.version&gt;</span>1.2.11<span class="nt">&lt;/logback.version&gt;</span>
+        <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.3.0<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.version&gt;</span>3.2.0<span class="nt">&lt;/maven.clean.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.directory&gt;</span>src/main/resources/META-INF/dirigible<span class="nt">&lt;/maven.clean.plugin.directory&gt;</span>
+        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>3.13.0<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
+        <span class="nt">&lt;maven-surefire-plugin.version&gt;</span>2.22.2<span class="nt">&lt;/maven-surefire-plugin.version&gt;</span>
+        <span class="nt">&lt;maven.scm.plugin.version&gt;</span>1.13.0<span class="nt">&lt;/maven.scm.plugin.version&gt;</span>
+        <span class="nt">&lt;scmVersionType&gt;</span>branch<span class="nt">&lt;/scmVersionType&gt;</span>
+        <span class="nt">&lt;commons.io&gt;</span>2.11.0<span class="nt">&lt;/commons.io&gt;</span>
+        <span class="nt">&lt;commons.codec&gt;</span>1.15<span class="nt">&lt;/commons.codec&gt;</span>
         <span class="nt">&lt;commons.lang3&gt;</span>3.12.0<span class="nt">&lt;/commons.lang3&gt;</span>
+        <span class="nt">&lt;commons.exec&gt;</span>1.3<span class="nt">&lt;/commons.exec&gt;</span>
+        <span class="nt">&lt;commons.text&gt;</span>1.10.0<span class="nt">&lt;/commons.text&gt;</span>
+        <span class="nt">&lt;gson.version&gt;</span>2.10.1<span class="nt">&lt;/gson.version&gt;</span>
+        <span class="nt">&lt;mockito.version&gt;</span>4.11.0<span class="nt">&lt;/mockito.version&gt;</span>
+        <span class="nt">&lt;hamcrest.all.version&gt;</span>1.3<span class="nt">&lt;/hamcrest.all.version&gt;</span>
+        <span class="nt">&lt;retrofit.version&gt;</span>1.8.0<span class="nt">&lt;/retrofit.version&gt;</span>
+        <span class="nt">&lt;okhttp3.version&gt;</span>4.10.0<span class="nt">&lt;/okhttp3.version&gt;</span>
+        <span class="nt">&lt;slf4j.version&gt;</span>1.7.36<span class="nt">&lt;/slf4j.version&gt;</span>
+        <span class="nt">&lt;slf4j.simple.version&gt;</span>1.7.12<span class="nt">&lt;/slf4j.simple.version&gt;</span>
+        <span class="nt">&lt;logback.version&gt;</span>1.4.5<span class="nt">&lt;/logback.version&gt;</span>
+        <span class="nt">&lt;commons-dbcp2.version&gt;</span>2.9.0<span class="nt">&lt;/commons-dbcp2.version&gt;</span>
 
+        <span class="nt">&lt;postgresql.version&gt;</span>42.7.0<span class="nt">&lt;/postgresql.version&gt;</span>
+        <span class="nt">&lt;ngdbc.version&gt;</span>2.20.11<span class="nt">&lt;/ngdbc.version&gt;</span>
+        <span class="nt">&lt;snowflake.version&gt;</span>3.15.0<span class="nt">&lt;/snowflake.version&gt;</span>
+
+        <span class="nt">&lt;activemq.version&gt;</span>5.17.3<span class="nt">&lt;/activemq.version&gt;</span>
+        <span class="nt">&lt;jsr250-api.version&gt;</span>1.0<span class="nt">&lt;/jsr250-api.version&gt;</span>
+        <span class="nt">&lt;jetty.version&gt;</span>9.4.48.v20220622<span class="nt">&lt;/jetty.version&gt;</span>
+        <span class="nt">&lt;lucene.version&gt;</span>9.4.2<span class="nt">&lt;/lucene.version&gt;</span>
+        <span class="nt">&lt;chemistry.version&gt;</span>1.1.0<span class="nt">&lt;/chemistry.version&gt;</span>
+        <span class="nt">&lt;flowable.version&gt;</span>6.8.0<span class="nt">&lt;/flowable.version&gt;</span>
+        <span class="nt">&lt;jaxb.version&gt;</span>2.3.0<span class="nt">&lt;/jaxb.version&gt;</span>
+        <span class="nt">&lt;jaxws.version&gt;</span>2.3.3<span class="nt">&lt;/jaxws.version&gt;</span>
+        <span class="nt">&lt;jakarta.ws.rs-api.version&gt;</span>2.1.5<span class="nt">&lt;/jakarta.ws.rs-api.version&gt;</span>
+        <span class="nt">&lt;license-maven-plugin.version&gt;</span>4.3<span class="nt">&lt;/license-maven-plugin.version&gt;</span>
+        <span class="nt">&lt;persistence.api.version&gt;</span>2.2.3<span class="nt">&lt;/persistence.api.version&gt;</span>
+        <span class="nt">&lt;jgit.version&gt;</span>6.4.0.202211300538-r<span class="nt">&lt;/jgit.version&gt;</span>
+        <span class="nt">&lt;javax.mail.api.version&gt;</span>1.6.4<span class="nt">&lt;/javax.mail.api.version&gt;</span>
+        <span class="nt">&lt;olingo.version&gt;</span>2.0.13<span class="nt">&lt;/olingo.version&gt;</span>
+        <span class="nt">&lt;kafka.version&gt;</span>3.3.1<span class="nt">&lt;/kafka.version&gt;</span>
         <span class="nt">&lt;git-commit-id-plugin.version&gt;</span>4.9.10<span class="nt">&lt;/git-commit-id-plugin.version&gt;</span>
+        <span class="nt">&lt;mongodb.version&gt;</span>3.12.11<span class="nt">&lt;/mongodb.version&gt;</span>
+        <span class="nt">&lt;caffeine.version&gt;</span>3.1.2<span class="nt">&lt;/caffeine.version&gt;</span>
+        <span class="nt">&lt;liquibase-core.version&gt;</span>4.16.1<span class="nt">&lt;/liquibase-core.version&gt;</span>
+        <span class="nt">&lt;commons-csv.version&gt;</span>1.9.0<span class="nt">&lt;/commons-csv.version&gt;</span>
+        <span class="nt">&lt;jquery-ui.version&gt;</span>1.13.0<span class="nt">&lt;/jquery-ui.version&gt;</span>
+        <span class="nt">&lt;sap-theming__theming-base-content.version&gt;</span>11.1.42<span class="nt">&lt;/sap-theming__theming-base-content.version&gt;</span>
+        <span class="nt">&lt;fundamental-styles.version&gt;</span>0.24.4<span class="nt">&lt;/fundamental-styles.version&gt;</span>
+        <span class="nt">&lt;angular-aria.version&gt;</span>1.8.2<span class="nt">&lt;/angular-aria.version&gt;</span>
+        <span class="nt">&lt;split.js.version&gt;</span>1.6.5<span class="nt">&lt;/split.js.version&gt;</span>
+        <span class="nt">&lt;diff.version&gt;</span>5.1.0<span class="nt">&lt;/diff.version&gt;</span>
+        <span class="nt">&lt;monaco-editor.version&gt;</span>0.33.0<span class="nt">&lt;/monaco-editor.version&gt;</span>
+        <span class="nt">&lt;requirejs.version&gt;</span>2.3.6<span class="nt">&lt;/requirejs.version&gt;</span>
+        <span class="nt">&lt;jstree.version&gt;</span>3.3.12<span class="nt">&lt;/jstree.version&gt;</span>
+        <span class="nt">&lt;jquery.version&gt;</span>3.6.0<span class="nt">&lt;/jquery.version&gt;</span>
+        <span class="nt">&lt;jqplot.version&gt;</span>1.0.8r1250<span class="nt">&lt;/jqplot.version&gt;</span>
+        <span class="nt">&lt;bootstrap.version&gt;</span>3.3.7<span class="nt">&lt;/bootstrap.version&gt;</span>
+        <span class="nt">&lt;es5-shim.version&gt;</span>4.6.7<span class="nt">&lt;/es5-shim.version&gt;</span>
+        <span class="nt">&lt;angular-file-upload.version&gt;</span>2.6.1<span class="nt">&lt;/angular-file-upload.version&gt;</span>
+        <span class="nt">&lt;angularjs.version&gt;</span>1.8.2<span class="nt">&lt;/angularjs.version&gt;</span>
+        <span class="nt">&lt;fontawesome.version&gt;</span>4.7.0<span class="nt">&lt;/fontawesome.version&gt;</span>
+        <span class="nt">&lt;classgraph.version&gt;</span>4.8.154<span class="nt">&lt;/classgraph.version&gt;</span>
+        <span class="nt">&lt;commons-compress.version&gt;</span>1.22<span class="nt">&lt;/commons-compress.version&gt;</span>
+        <span class="nt">&lt;testcontainers.elasticsearch.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.elasticsearch.version&gt;</span>
+        <span class="nt">&lt;testcontainers.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.version&gt;</span>
+        <span class="nt">&lt;testcontainers.rabbitmq.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.rabbitmq.version&gt;</span>
+        <span class="nt">&lt;amqp.client.version&gt;</span>5.16.0<span class="nt">&lt;/amqp.client.version&gt;</span>
+        <span class="nt">&lt;elasticsearch.client.version&gt;</span>7.7.1<span class="nt">&lt;/elasticsearch.client.version&gt;</span>
+        <span class="nt">&lt;jetcd.core.version&gt;</span>0.7.5<span class="nt">&lt;/jetcd.core.version&gt;</span>
+        <span class="nt">&lt;jetcd.test.version&gt;</span>0.5.4<span class="nt">&lt;/jetcd.test.version&gt;</span>
+        <span class="nt">&lt;logcaptor.version&gt;</span>2.7.10<span class="nt">&lt;/logcaptor.version&gt;</span>
+        <span class="nt">&lt;exec.maven.plugin&gt;</span>3.0.0<span class="nt">&lt;/exec.maven.plugin&gt;</span>
+
+        <span class="nt">&lt;spring-context-support.version&gt;</span>5.3.24<span class="nt">&lt;/spring-context-support.version&gt;</span>
+        <span class="nt">&lt;webjars-locator&gt;</span>0.51<span class="nt">&lt;/webjars-locator&gt;</span>
+
+        <span class="nt">&lt;keycloak-adapter-bom.version&gt;</span>20.0.2<span class="nt">&lt;/keycloak-adapter-bom.version&gt;</span>
+        <span class="nt">&lt;hikaricp.version&gt;</span>5.0.1<span class="nt">&lt;/hikaricp.version&gt;</span>
+        <span class="nt">&lt;validator.version&gt;</span>1.7<span class="nt">&lt;/validator.version&gt;</span>
+        <span class="nt">&lt;quartz.version&gt;</span>2.3.2<span class="nt">&lt;/quartz.version&gt;</span>
+        <span class="nt">&lt;c3p0.version&gt;</span>0.9.5.5<span class="nt">&lt;/c3p0.version&gt;</span>
+        <span class="nt">&lt;graalvm.version&gt;</span>22.3.1<span class="nt">&lt;/graalvm.version&gt;</span>
+        <span class="nt">&lt;guava.version&gt;</span>31.1-jre<span class="nt">&lt;/guava.version&gt;</span>
+        <span class="nt">&lt;icu4j.version&gt;</span>72.1<span class="nt">&lt;/icu4j.version&gt;</span>
+        <span class="nt">&lt;commons-collections.version&gt;</span>3.2.2<span class="nt">&lt;/commons-collections.version&gt;</span>
+        <span class="nt">&lt;commons-collections4.version&gt;</span>4.4<span class="nt">&lt;/commons-collections4.version&gt;</span>
+        <span class="nt">&lt;velocity.version&gt;</span>2.3<span class="nt">&lt;/velocity.version&gt;</span>
+        <span class="nt">&lt;wikitext.version&gt;</span>3.0.45.202211090110<span class="nt">&lt;/wikitext.version&gt;</span>
+        <span class="nt">&lt;flexmark.version&gt;</span>0.64.0<span class="nt">&lt;/flexmark.version&gt;</span>
+        <span class="nt">&lt;qldb.driver.version&gt;</span>2.3.1<span class="nt">&lt;/qldb.driver.version&gt;</span>
+        <span class="nt">&lt;qldb.sdk.version&gt;</span>1.12.386<span class="nt">&lt;/qldb.sdk.version&gt;</span>
+        <span class="nt">&lt;cassandra.version&gt;</span>1.17.6<span class="nt">&lt;/cassandra.version&gt;</span>
+        <span class="nt">&lt;cassandra.driver.version&gt;</span>3.11.3<span class="nt">&lt;/cassandra.driver.version&gt;</span>
+        <span class="nt">&lt;jedis.version&gt;</span>4.3.1<span class="nt">&lt;/jedis.version&gt;</span>
+        <span class="nt">&lt;spark.version&gt;</span>3.3.1<span class="nt">&lt;/spark.version&gt;</span>
+        <span class="nt">&lt;path-to-regexp.version&gt;</span>6.2.1<span class="nt">&lt;/path-to-regexp.version&gt;</span>
+        <span class="nt">&lt;javax.websocket-api.version&gt;</span>1.1<span class="nt">&lt;/javax.websocket-api.version&gt;</span>
+        <span class="nt">&lt;jacoco.version&gt;</span>0.8.11<span class="nt">&lt;/jacoco.version&gt;</span>
+
+        <span class="nt">&lt;jakarta.validation.version&gt;</span>3.0.2<span class="nt">&lt;/jakarta.validation.version&gt;</span>
+        <span class="nt">&lt;org.springdoc.openapi.ui.version&gt;</span>1.7.0<span class="nt">&lt;/org.springdoc.openapi.ui.version&gt;</span>
+        <span class="nt">&lt;swagger-annotations.version&gt;</span>1.6.9<span class="nt">&lt;/swagger-annotations.version&gt;</span>
+
+        <span class="nt">&lt;profile.content.phase&gt;</span>none<span class="nt">&lt;/profile.content.phase&gt;</span>
+
     <span class="nt">&lt;/properties&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
+</details>
 <div class="admonition tip">
 <p class="admonition-title">Eclipse Dirigible version</p>
-<p>The tutorial is using Eclipse Dirigible version <code>6.3.24</code> as highlighted on line <strong>65</strong>. To check for a more recent and stable version go to <a href="https://github.com/eclipse/dirigible/releases/">Eclipse Dirigible Releases</a>.</p>
+<p>The tutorial is using Eclipse Dirigible version <code>10.2.7</code> as highlighted on line <strong>229</strong>. To check for a more recent and stable version go to <a href="https://github.com/eclipse/dirigible/releases/">Eclipse Dirigible Releases</a>.</p>
 </div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create new folder <code>application</code> and navigate to it.</li>
+<li>Create new <code>application/pom.xml</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/pom.xml</summary>
 <div class="admonition info">
 <p class="admonition-title">Git Repository</p>
 <p>For git repositories uncomment the following lines, in order to receive the <code>Commit Id</code> information in the <strong>About</strong> view:</p>
@@ -3192,36 +3465,180 @@
 <span class="cm">--&gt;</span>
 </code></pre></div>
 </div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Create new folder <code>releng</code> and navigate to it.</li>
-<li>Create new <code>releng/pom.xml</code> file.</li>
-<li>Paste the following content:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Releng - Spring Boot<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-spring-boot<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;name&gt;</span>custom - stack - application<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-application<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-apis<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Core --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>com.zaxxer<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>HikariCP-java7<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Security --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-basic<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-keycloak<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-database<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Engine --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-engines<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.validation<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>validation-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>cxf-rt-frontend-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>
+                        cxf-spring-boot-starter-jaxrs
+                    <span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-engine-command<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- IDE --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-ide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>dirigible-components-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- API --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Resources --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-resources<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-oauth2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Templates --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-templates<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.codeborne<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>selenide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>7.2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Drivers --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-database-mongodb-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.sap.cloud.db.jdbc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>ngdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${ngdbc.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>net.snowflake<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>snowflake-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${snowflake.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-tests-framework<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
 
     <span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;plugins&gt;</span>
             <span class="nt">&lt;plugin&gt;</span>
                 <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
                 <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>${spring.boot.version}<span class="nt">&lt;/version&gt;</span>
                 <span class="nt">&lt;configuration&gt;</span>
-                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.custom.platform.CustomPlatformApplication<span class="nt">&lt;/mainClass&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.samples.CustomStackApplication<span class="nt">&lt;/mainClass&gt;</span>
                 <span class="nt">&lt;/configuration&gt;</span>
                 <span class="nt">&lt;executions&gt;</span>
                     <span class="nt">&lt;execution&gt;</span>
@@ -3231,6 +3648,28 @@
                     <span class="nt">&lt;/execution&gt;</span>
                 <span class="nt">&lt;/executions&gt;</span>
             <span class="nt">&lt;/plugin&gt;</span>
+            <span class="cm">&lt;!-- </span>
+<span class="cm">                Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
+<span class="cm">                This is needed for the info in the &quot;About&quot; view.</span>
+<span class="cm">            --&gt;</span>
+            <span class="cm">&lt;!--</span>
+<span class="cm">            &lt;plugin&gt;</span>
+<span class="cm">                &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
+<span class="cm">                &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
+<span class="cm">                &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
+<span class="cm">                &lt;executions&gt;</span>
+<span class="cm">                    &lt;execution&gt;</span>
+<span class="cm">                        &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
+<span class="cm">                        &lt;goals&gt;</span>
+<span class="cm">                            &lt;goal&gt;revision&lt;/goal&gt;</span>
+<span class="cm">                        &lt;/goals&gt;</span>
+<span class="cm">                    &lt;/execution&gt;</span>
+<span class="cm">                &lt;/executions&gt;</span>
+<span class="cm">                &lt;configuration&gt;</span>
+<span class="cm">                    &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">                &lt;/configuration&gt;</span>
+<span class="cm">            &lt;/plugin&gt;</span>
+<span class="cm">            --&gt;</span>
         <span class="nt">&lt;/plugins&gt;</span>
         <span class="nt">&lt;resources&gt;</span>
             <span class="nt">&lt;resource&gt;</span>
@@ -3240,45 +3679,9 @@
         <span class="nt">&lt;/resources&gt;</span>
     <span class="nt">&lt;/build&gt;</span>
 
-    <span class="nt">&lt;dependencies&gt;</span>
-
-        <span class="cm">&lt;!-- Dirigible --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>dirigible-server-spring<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-
-        <span class="cm">&lt;!-- Platform --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${slf4j.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${logback.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${logback.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${spring.boot.version}<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-
-    <span class="nt">&lt;/dependencies&gt;</span>
-
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -3286,7 +3689,7 @@
 <li>
 <p>Create Eclipse Dirigible resources:</p>
 <ul>
-<li>Navigate to the <code>releng</code> folder.</li>
+<li>Navigate to the <code>application</code> folder.</li>
 <li>Create <code>src/main/resources/</code> folder structure and navigate to it.</li>
 <li>Create <code>dirigible.properties</code>, <code>index.html</code> and <code>index-busy.html</code> files.</li>
 </ul>
@@ -3294,19 +3697,25 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Create <code>releng/src/main/resources/dirigible.properties</code> file.</li>
+<li>Create <code>application/src/main/resources/dirigible.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>DIRIGIBLE_PRODUCT_NAME=Custom Platform
+<details class="abstract">
+<summary>application/src/main/resources/dirigible.properties</summary>
+<div class="highlight"><pre><span></span><code># General
+DIRIGIBLE_PRODUCT_NAME=${project.title}
 DIRIGIBLE_PRODUCT_VERSION=${project.version}
 DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
-DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/eclipse/dirigible
-DIRIGIBLE_PRODUCT_TYPE=custom
-DIRIGIBLE_INSTANCE_NAME=custom-platform-spring-boot
+DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
+DIRIGIBLE_PRODUCT_TYPE=all
+DIRIGIBLE_INSTANCE_NAME=custom-stack
 DIRIGIBLE_DATABASE_PROVIDER=local
 DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
 DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
+DIRIGIBLE_HOME_URL=services/web/ide/
+DIRIGIBLE_FTP_PORT=22
 </code></pre></div>
+</details>
 <div class="admonition info">
 <p class="admonition-title">Environment Variables</p>
 <p>The properties file will be packaged inside the <em>Custom Stack</em>, and the above environment variables will be set by default. These environment variables could be overridden during <em><code>Deployment</code></em> or at <em><code>Runtime</code></em>. To learn more about the supported configurations go to <a href="https://www.dirigible.io/help/setup/setup-environment-variables/">Environment Variables</a>.</p>
@@ -3334,7 +3743,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <div class="tabbed-block">
 <ol>
 <li>Create <code>static</code> folder and navigate to it.</li>
-<li>Create <code>releng/src/main/resources/static/index-busy.html</code> file.</li>
+<li>Create <code>application/src/main/resources/static/index-busy.html</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
@@ -3344,13 +3753,13 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
         <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Loading ...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
@@ -3358,7 +3767,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;&quot;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel fd-panel--fixed&quot;</span><span class="p">&gt;</span>
                 <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__header&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__title&quot;</span><span class="p">&gt;</span>Preparing your Custom Platform environment<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__title&quot;</span><span class="p">&gt;</span>Preparing Custom Stack Instance<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
                 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">fd-list</span><span class="p">&gt;</span>
@@ -3379,7 +3788,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 
 <span class="w">                    </span><span class="nx">$http</span><span class="p">({</span><span class="w"></span>
 <span class="w">                        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/v4/healthcheck&#39;</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/healthcheck&#39;</span><span class="w"></span>
 <span class="w">                    </span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">){</span><span class="w"></span>
 <span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Ready&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                            </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">&#39;/home&#39;</span><span class="p">;</span><span class="w"></span>
@@ -3422,7 +3831,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <li>
 <p><em>(optional)</em> Create Eclipse Dirigible error resources:</p>
 <ul>
-<li>Navigate to the <code>releng/src/main/resources</code> folder.</li>
+<li>Navigate to the <code>application/src/main/resources</code> folder.</li>
 <li>Create <code>public</code> folder and navigate to it.</li>
 <li>Create <code>error.html</code>, <code>403.html</code> and <code>404.html</code> files.</li>
 </ul>
@@ -3430,7 +3839,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ul>
-<li>Create <code>releng/src/main/resources/public/error/error.html</code> file.</li>
+<li>Create <code>application/src/main/resources/public/error/error.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
@@ -3440,13 +3849,13 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Platform | Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
@@ -3496,7 +3905,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <div class="tabbed-block">
 <ul>
 <li>Create <code>error</code> folder and navigate to it. </li>
-<li>Create <code>releng/src/main/resources/error/403.html</code> file.</li>
+<li>Create <code>application/src/main/resources/error/403.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
@@ -3506,13 +3915,13 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Platform | Access Denied<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Access Denied<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
@@ -3543,7 +3952,7 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <div class="tabbed-block">
 <ul>
 <li>Create <code>error</code> folder and navigate to it. </li>
-<li>Create <code>releng/src/main/resources/error/404.html</code> file.</li>
+<li>Create <code>application/src/main/resources/error/404.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
@@ -3553,13 +3962,13 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Platform | Page Not Found<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Page Not Found<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
@@ -3611,83 +4020,114 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 <li>
 <p>Create Spring Boot files:</p>
 <ul>
-<li>Navigate to the <code>releng</code> folder.</li>
-<li>Create <code>application.yaml</code> and <code>CustomPlatformApplication.java</code> files.</li>
+<li>Navigate to the <code>application</code> folder.</li>
+<li>Create <code>application.properties</code>, <code>application-keycloak.properties</code> and <code>CustomStackApplication.java</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">application.yaml</label><label for="__tabbed_4_2">CustomPlatformApplication.java</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">application.properties</label><label for="__tabbed_4_2">application-keycloak.properties</label><label for="__tabbed_4_3">CustomStackApplication.java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>Navigate to the <code>src/main/resources/</code> folder.</li>
-<li>Create <code>releng/src/main/resources/application.yaml</code> file.</li>
+<li>Create <code>application/src/main/resources/application.properties</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nt">cxf</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/services/v4</span><span class="w"></span>
-<span class="w">  </span><span class="nt">jaxrs</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">client</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">headers</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">accept</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text/plain</span><span class="w"></span>
-<span class="w">      </span><span class="nt">classes-scan-packages</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">org.eclipse.dirigible</span><span class="w"></span>
-<span class="w">      </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8080/services/v4</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>server.port=8080
 
-<span class="nt">keycloak</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_ENABLED:false}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">realm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_REALM}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">auth-server-url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ssl-required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_SSL_REQUIRED:external}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_CLIENT_ID}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">public-client</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">principal-attribute</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;preferred_username&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">confidential-port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT:443}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">use-resource-role-mappings</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">  </span><span class="nt">securityConstraints</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Landing Page</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/home</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/index.html</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">authRoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Everyone</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Themes</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/services/v4/core/theme/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/services/v4/web/resources/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Public Engine Services</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/public/v4/web/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/public/v4/js/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/public/v4/wiki/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/public/v4/command/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IDE Services</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/services/v4/ide/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/websockets/v4/ide/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">authRoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Developer</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Core Services</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/services/v4/core/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/websockets/v4/core/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">authRoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Operator</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Operations Services</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/services/v4/ops/*</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">/websockets/v4/ops/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">authRoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Operator</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">securityCollections</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Transport Services</span><span class="w"></span>
-<span class="w">        </span><span class="nt">patterns</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">/services/v4/transport/*</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">      </span><span class="nt">authRoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">Operator</span><span class="p p-Indicator">]</span><span class="w"></span>
+spring.main.allow-bean-definition-overriding=true
+server.error.include-message=always
+
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.file-size-threshold=2KB
+spring.servlet.multipart.max-file-size=1GB
+spring.servlet.multipart.max-request-size=1GB
+spring.servlet.multipart.max-file-size=200MB
+spring.servlet.multipart.max-request-size=215MB
+spring.servlet.multipart.location=${java.io.tmpdir}
+
+spring.datasource.hikari.connectionTimeout=3600000
+spring.mvc.async.request-timeout=3600000
+
+basic.enabled=${DIRIGIBLE_BASIC_ENABLED:true}
+
+terminal.enabled=${DIRIGIBLE_TERMINAL_ENABLED:false}
+
+keycloak.enabled=${DIRIGIBLE_KEYCLOAK_ENABLED:false}
+keycloak.realm=${DIRIGIBLE_KEYCLOAK_REALM:null}
+keycloak.auth-server-url=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL:null}
+keycloak.ssl-required=${DIRIGIBLE_KEYCLOAK_SSL_REQUIRED:external}
+keycloak.resource=${DIRIGIBLE_KEYCLOAK_CLIENT_ID:null}
+keycloak.public-client=true
+keycloak.principal-attribute=preferred_username
+keycloak.confidential-port=${DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT:443}
+keycloak.use-resource-role-mappings=true
+
+management.metrics.mongo.command.enabled=false
+management.metrics.mongo.connectionpool.enabled=false
+
+management.endpoints.jmx.exposure.include=*
+management.endpoints.jmx.exposure.exclude=
+management.endpoints.web.exposure.include=*
+management.endpoints.web.exposure.exclude=
+management.endpoint.health.show-details=always
+
+springdoc.api-docs.path=/api-docs
+
+cxf.path=/odata/v2
+
+# the following are used to force the Spring to create QUARTZ tables
+# quartz properties are manged in quartz.properties don&#39;t try to add them here
+spring.quartz.job-store-type=jdbc
+spring.quartz.jdbc.initialize-schema=always
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>src/main/resources/</code> folder.</li>
+<li>Create <code>application/src/main/resources/application.properties</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>basic.enabled=false
+
+# example https://keycloak.apps.dirigible.io/auth/realms/dirigible
+spring.security.oauth2.client.provider.keycloak.issuer-uri=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL}
+
+spring.security.oauth2.client.registration.keycloak.provider=keycloak
+spring.security.oauth2.client.registration.keycloak.client-id=${DIRIGIBLE_KEYCLOAK_CLIENT_ID}
+spring.security.oauth2.client.registration.keycloak.scope=openid,profile,roles,microprofile-jwt,email,phone,web-origins,address,offline_access
+spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
+
+spring.security.oauth2.client.provider.keycloak.user-name-attribute=preferred_username
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>Navigate to the <code>src/main</code> folder.</li>
-<li>Create <code>java/io/dirigible/custom/platform/</code> and navigate to it.</li>
-<li>Create <code>releng/src/main/java/io/dirigible/custom/platform/CustomPlatformApplication.java</code> file.</li>
+<li>Create <code>java/io/dirigible/samples/</code> and navigate to it.</li>
+<li>Create <code>application/src/main/java/io/dirigible/samples/CustomStackApplication.java</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.custom.platform</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.samples</span><span class="p">;</span><span class="w"></span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.eclipse.dirigible.DirigibleSpringConfiguration</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span><span class="w"></span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.config.EnableJpaAuditing</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.config.EnableJpaRepositories</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.scheduling.annotation.EnableScheduling</span><span class="p">;</span><span class="w"></span>
 
-<span class="nd">@SpringBootApplication</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomPlatformApplication</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">DirigibleSpringConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nd">@EnableJpaAuditing</span><span class="w"></span>
+<span class="nd">@EnableJpaRepositories</span><span class="w"></span>
+<span class="nd">@SpringBootApplication</span><span class="p">(</span><span class="n">scanBasePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;io.dirigible.samples&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;org.eclipse.dirigible.components&quot;</span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">DataSourceAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">DataSourceTransactionManagerAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">HibernateJpaAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">JdbcTemplateAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">})</span><span class="w"></span>
+<span class="nd">@EnableScheduling</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomStackApplication</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">CustomPlatformApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">CustomStackApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="p">}</span><span class="w"></span>
@@ -3697,28 +4137,28 @@ DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
 </div>
 </li>
 <li>
-<p>Build the <em>Custom Platform</em>.</p>
+<p>Build the <em>Custom Stack</em>.</p>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
-<p>Open the <strong>Terminal</strong> and execute the following command to build the <em>Custom Platform</em>:</p>
+<p>Open the <strong>Terminal</strong> and execute the following command to build the <em>Custom Stack</em>:</p>
 <div class="highlight"><pre><span></span><code>mvn clean install
 </code></pre></div>
 </li>
 </ul>
 </li>
 <li>
-<p>Run the <em>Custom Platform</em>.</p>
+<p>Run the <em>Custom Stack</em>.</p>
 <ul>
-<li>Navigate to the <code>releng/target</code> folder.</li>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
-<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Platform</em>:</p>
-<div class="highlight"><pre><span></span><code>java -jar custom-stack-spring-boot-*.jar
+<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Debugging</p>
 <p>To run in debug mode, execute the following command:</p>
-<div class="highlight"><pre><span></span><code>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar custom-stack-spring-boot-*.jar
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
 </div>
 </li>
