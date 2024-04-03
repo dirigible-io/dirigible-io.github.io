@@ -9,7 +9,7 @@ This tutorial will guide you through the creation of an Entity Data Model (EDM) 
 
 !!! info "Prerequisites"
 
-    - Access to the latest version of Eclipse Dirigible (10.2.1+)
+    - Access to the latest version of Eclipse Dirigible (10.2.7+)
     - Docker Image setup (follow the steps below)
 
 ### Steps
