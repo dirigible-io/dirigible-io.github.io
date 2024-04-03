@@ -215,6 +215,7 @@ Parameter     | Description | Default*
 **SNOWFLAKE_DATABASE**   | The database used by Snowflake | _`-`_
 **SNOWFLAKE_SCHEMA**   | The schema used by Snowflake | _`-`_
 **SNOWFLAKE_WAREHOUSE**   | The warehouse used by Snowflake | _`-`_
+**SNOWFLAKE_DEFAULT_TABLE_TYPE** | Default table type for create table statements | _HYBRID_
 
 #### Persistence
 
