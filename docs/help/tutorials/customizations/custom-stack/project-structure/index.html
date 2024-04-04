@@ -1,0 +1,4564 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/project-structure/">
+      
+      <link rel="icon" href="/img/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Custom Stack - Project Structure - Eclipse Dirigible Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/homepage.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-49027147-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#custom-stack-project-structure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Documentation" class="md-header__button md-logo" aria-label="Eclipse Dirigible Documentation" data-md-component="logo">
+      
+  <img src="../../../../img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eclipse Dirigible Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Custom Stack - Project Structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Welcome
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../development/" class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../community/" class="md-tabs__link">
+        Community
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.dirigible.io" title="Eclipse Dirigible Documentation" class="md-nav__button md-logo" aria-label="Eclipse Dirigible Documentation" data-md-component="logo">
+      
+  <img src="../../../../img/logo/dirigible-logo.png" alt="logo">
+
+    </a>
+    Eclipse Dirigible Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eclipse/dirigible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eclipse/dirigible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../development/">Getting Started</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_1" type="checkbox" id="__nav_2_2_1_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../application-development/bookstore/">Bookstore</a>
+          
+            <label for="__nav_2_2_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Bookstore" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bookstore
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/bookstore/database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/bookstore/api/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/bookstore/ui/" class="md-nav__link">
+        User Interface
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_2" type="checkbox" id="__nav_2_2_1_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../application-development/scheduled-job/">Scheduled Job</a>
+          
+            <label for="__nav_2_2_1_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Scheduled Job" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scheduled Job
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/scheduled-job/database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/scheduled-job/handler/" class="md-nav__link">
+        Job Handler
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/scheduled-job/job/" class="md-nav__link">
+        Scheduled Job
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/file-upload/" class="md-nav__link">
+        File Upload
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/shell-command/" class="md-nav__link">
+        Shell Command
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/listener-queue/" class="md-nav__link">
+        Listener of a Queue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../application-development/kafka/" class="md-nav__link">
+        Kafka Producer and Consumer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modeling" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modeling/generate-application-from-model/" class="md-nav__link">
+        Generate Application from Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modeling/generate-application-from-datasource/" class="md-nav__link">
+        Generate Application from Datasource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../modeling/bpmn-process/" class="md-nav__link">
+        BPMN Process
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Customizations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Customizations" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Customizations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_1" type="checkbox" id="__nav_2_2_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3_1">
+          IDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ide/create-view/" class="md-nav__link">
+        View
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ide/create-perspective/" class="md-nav__link">
+        Perspective
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3_2" type="checkbox" id="__nav_2_2_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Custom Stack</a>
+          
+            <label for="__nav_2_2_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Custom Stack" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Custom Stack
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Project Structure
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Project Structure
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-maven-project" class="md-nav__link">
+    Create Maven Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-eclipse-dirigible-resources" class="md-nav__link">
+    Create Eclipse Dirigible Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-create-eclipse-dirigible-rrror-resources" class="md-nav__link">
+    (optional) Create Eclipse Dirigible Rrror Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-spring-boot-resources" class="md-nav__link">
+    Create Spring Boot Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-stack" class="md-nav__link">
+    Build the Custom Stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-stack" class="md-nav__link">
+    Run the Custom Stack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../facade/" class="md-nav__link">
+        Facade
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dependency/" class="md-nav__link">
+        Dependency
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../setup/">Setup</a>
+          
+            <label for="__nav_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" type="checkbox" id="__nav_2_3_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../setup/kubernetes/">Kubernetes</a>
+          
+            <label for="__nav_2_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/google-kubernetes-engine/" class="md-nav__link">
+        Google Kubernetes Engine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/azure-kubernetes-service/" class="md-nav__link">
+        Azure Kubernetes Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/red-hat-openshift/" class="md-nav__link">
+        Red Hat OpenShift
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/sap-btp-kyma/" class="md-nav__link">
+        SAP BTP Kyma
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3_6" type="checkbox" id="__nav_2_3_3_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_3_6">
+          Addons
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Addons" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_3_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Addons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/keycloak/" class="md-nav__link">
+        Keycloak
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/postgresql/" class="md-nav__link">
+        PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/google-dns-zone/" class="md-nav__link">
+        GCP DNS Zone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/gke-cluster/" class="md-nav__link">
+        GKE cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/azure-dns-zone/" class="md-nav__link">
+        Azure DNS Zone
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/letsencrypt/" class="md-nav__link">
+        Letsencrypt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/addons/istio/" class="md-nav__link">
+        Istio
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/kubernetes/helm/" class="md-nav__link">
+        Helm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/cloud-foundry/" class="md-nav__link">
+        Cloud Foundry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../setup/setup-environment-variables/" class="md-nav__link">
+        Environment Variables
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../overview/">Overview</a>
+          
+            <label for="__nav_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Overview" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_4" type="checkbox" id="__nav_2_4_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../development/artifacts/">Artifacts</a>
+          
+            <label for="__nav_2_4_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Artifacts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Artifacts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/artifacts/data-files/" class="md-nav__link">
+        Data Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/artifacts/database-table/" class="md-nav__link">
+        Database Table
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/editors-modelers/" class="md-nav__link">
+        Editors & Modelers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/engines/" class="md-nav__link">
+        Engines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/runtime-services/" class="md-nav__link">
+        Runtime Services
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_8" type="checkbox" id="__nav_2_4_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../development/concepts/">Concepts</a>
+          
+            <label for="__nav_2_4_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Concepts" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_8">
+          <span class="md-nav__icon md-icon"></span>
+          Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/dynamic-applications/" class="md-nav__link">
+        Dynamic Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/entity-service/" class="md-nav__link">
+        Entity Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/extensions/" class="md-nav__link">
+        Extension Definitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/generation/" class="md-nav__link">
+        Generation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/mobile-apps/" class="md-nav__link">
+        Mobile Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/publishing/" class="md-nav__link">
+        Publishing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/repository/" class="md-nav__link">
+        Repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/rest/" class="md-nav__link">
+        REST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/web-content/" class="md-nav__link">
+        Web Content
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/concepts/workspace/" class="md-nav__link">
+        Workspace
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../development/extensions/">Extensions</a>
+          
+            <label for="__nav_2_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Extensions" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Extensions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/extensions/editor/" class="md-nav__link">
+        Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/extensions/perspective/" class="md-nav__link">
+        Perspective
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/extensions/template/" class="md-nav__link">
+        Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/extensions/view/" class="md-nav__link">
+        View
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../development/ide/">IDE</a>
+          
+            <label for="__nav_2_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="IDE" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          IDE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/editor-access/" class="md-nav__link">
+        Access Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/editor-csv/" class="md-nav__link">
+        CSV Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/editor-csvim/" class="md-nav__link">
+        CSVIM Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/editor-monaco/" class="md-nav__link">
+        Monaco Editor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_7" type="checkbox" id="__nav_2_6_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_7">
+          Modelers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modelers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_7">
+          <span class="md-nav__icon md-icon"></span>
+          Modelers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/modelers/bpmn/" class="md-nav__link">
+        BPMN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/modelers/database-schema/" class="md-nav__link">
+        Database Schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/modelers/entity-data/" class="md-nav__link">
+        Entity Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/modelers/form-designer/" class="md-nav__link">
+        Form Designer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_8" type="checkbox" id="__nav_2_6_8" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_8">
+          Perspectives
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Perspectives" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_8">
+          <span class="md-nav__icon md-icon"></span>
+          Perspectives
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/debugger/" class="md-nav__link">
+        Debugger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/documents/" class="md-nav__link">
+        Documents
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/operations/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/repository/" class="md-nav__link">
+        Repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/terminal/" class="md-nav__link">
+        Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/perspectives/workbench/" class="md-nav__link">
+        Workbench
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_9" type="checkbox" id="__nav_2_6_9" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_6_9">
+          Views
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Views" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_6_9">
+          <span class="md-nav__icon md-icon"></span>
+          Views
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/access/" class="md-nav__link">
+        Access
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/configurations/" class="md-nav__link">
+        Configurations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/console/" class="md-nav__link">
+        Console
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/constraints/" class="md-nav__link">
+        Constraints
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/database/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/datastructures/" class="md-nav__link">
+        Data Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/debugger/" class="md-nav__link">
+        Debugger
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/discussions/" class="md-nav__link">
+        Discussions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/documents/" class="md-nav__link">
+        Documents
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/extensions/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/import/" class="md-nav__link">
+        Import
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/jobs/" class="md-nav__link">
+        Jobs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/listeners/" class="md-nav__link">
+        Listeners
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/logs/" class="md-nav__link">
+        Logs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/preview/" class="md-nav__link">
+        Previews
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/repository/" class="md-nav__link">
+        Repository
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/resultview/" class="md-nav__link">
+        Result
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/roles/" class="md-nav__link">
+        Roles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/snapshot/" class="md-nav__link">
+        Snapshot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/sql/" class="md-nav__link">
+        SQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/staging/" class="md-nav__link">
+        Staging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/terminal/" class="md-nav__link">
+        Terminal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/websockets/" class="md-nav__link">
+        Web Sockets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/ide/views/workspace/" class="md-nav__link">
+        Workspace
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          Developer Resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer Resources" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../development/devops/" class="md-nav__link">
+        Development & Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer-resources/keyboard-shortcuts/" class="md-nav__link">
+        Keyboard Shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer-resources/java-remote-debugging/" class="md-nav__link">
+        Java Remote Debugging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer-resources/cheat-sheet/" class="md-nav__link">
+        Cheat Sheet
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/faq/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Community
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/" class="md-nav__link">
+        Community
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/credits/" class="md-nav__link">
+        Credits
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/license/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-maven-project" class="md-nav__link">
+    Create Maven Project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-eclipse-dirigible-resources" class="md-nav__link">
+    Create Eclipse Dirigible Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-create-eclipse-dirigible-rrror-resources" class="md-nav__link">
+    (optional) Create Eclipse Dirigible Rrror Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-spring-boot-resources" class="md-nav__link">
+    Create Spring Boot Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-stack" class="md-nav__link">
+    Build the Custom Stack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-stack" class="md-nav__link">
+    Run the Custom Stack
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-help/docs/tutorials/customizations/custom-stack/project-structure.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="custom-stack-project-structure">Custom Stack - Project Structure</h1>
+<h2 id="overview">Overview</h2>
+<p>This section shows how to create the project structure of the Custom Stack.
+It contains the creation of several Maven <code>pom.xml</code> files, static content resources, <code>application.properties</code> configuration files and a <code>Spring Boot</code> Java class.</p>
+<div class="admonition note">
+<p class="admonition-title">Prerequisites</p>
+<ul>
+<li>JDK 21+ - OpenJDK versions can be found <a href="https://adoptopenjdk.net/">here</a>.</li>
+<li>Maven 3.5+ - Maven version 3.5.3 can be found <a href="https://maven.apache.org/docs/3.5.3/release-notes.html">here</a>.</li>
+</ul>
+</div>
+<h3 id="steps">Steps</h3>
+<h4 id="create-maven-project">Create Maven Project</h4>
+<ul>
+<li>Create new folder on your machine, for the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
+<li>Create <code>pom.xml</code> and <code>application/pom.xml</code> files.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">application/pom.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Create new <code>pom.xml</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.sonatype.oss<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>oss-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>7<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>custom - stack - parent<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Custom Stack - Sample<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;inceptionYear&gt;</span>2024<span class="nt">&lt;/inceptionYear&gt;</span>
+
+    <span class="nt">&lt;url&gt;</span>https://www.dirigible.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;organization&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Eclipse Foundation<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://www.eclipse.org<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/organization&gt;</span>
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/dirigiblelabs/sample-custom-stack<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+
+        <span class="cm">&lt;!-- Platform --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Commons --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-commons-config<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Spring Boot --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>log4j-to-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-websocket<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+            <span class="nt">&lt;exclusion&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/exclusion&gt;</span>
+        <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Date Type Utils --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-joda<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Swagger --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springdoc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springdoc-openapi-ui<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${org.springdoc.openapi.ui.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data Access --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- WebJars --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>webjars-locator<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${webjars-locator}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Olingo --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.olingo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>olingo-odata2-lib<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${olingo.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.google.code.gson<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>gson<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>dirigible-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
+
+    <span class="nt">&lt;profiles&gt;</span>
+        <span class="nt">&lt;profile&gt;</span>
+            <span class="nt">&lt;id&gt;</span>default<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;activation&gt;</span>
+                <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+            <span class="nt">&lt;/activation&gt;</span>
+            <span class="nt">&lt;build&gt;</span>
+                <span class="nt">&lt;plugins&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${jacoco.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>prepare-agent<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;rules&gt;</span>
+                                <span class="nt">&lt;rule&gt;</span>
+                                    <span class="nt">&lt;element&gt;</span>SOURCEFILE<span class="nt">&lt;/element&gt;</span>
+                                    <span class="nt">&lt;excludes&gt;</span>
+                                        <span class="nt">&lt;exclude&gt;</span>*src/test/*<span class="nt">&lt;/exclude&gt;</span>
+                                    <span class="nt">&lt;/excludes&gt;</span>
+                                <span class="nt">&lt;/rule&gt;</span>
+                            <span class="nt">&lt;/rules&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${maven.compiler.plugin.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;source&gt;</span>${maven.compiler.source}<span class="nt">&lt;/source&gt;</span>
+                            <span class="nt">&lt;target&gt;</span>${maven.compiler.target}<span class="nt">&lt;/target&gt;</span>
+                            <span class="nt">&lt;debug&gt;</span>true<span class="nt">&lt;/debug&gt;</span>
+                            <span class="nt">&lt;debuglevel&gt;</span>lines,vars,source<span class="nt">&lt;/debuglevel&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                <span class="nt">&lt;/plugins&gt;</span>
+            <span class="nt">&lt;/build&gt;</span>
+        <span class="nt">&lt;/profile&gt;</span>
+    <span class="nt">&lt;/profiles&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;project.title&gt;</span>custom stack<span class="nt">&lt;/project.title&gt;</span>
+
+        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+
+        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
+
+<span class="hll">        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
+</span>        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
+
+        <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.3.0<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.version&gt;</span>3.2.0<span class="nt">&lt;/maven.clean.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.directory&gt;</span>src/main/resources/META-INF/dirigible<span class="nt">&lt;/maven.clean.plugin.directory&gt;</span>
+        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>3.13.0<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
+        <span class="nt">&lt;maven-surefire-plugin.version&gt;</span>2.22.2<span class="nt">&lt;/maven-surefire-plugin.version&gt;</span>
+        <span class="nt">&lt;maven.scm.plugin.version&gt;</span>1.13.0<span class="nt">&lt;/maven.scm.plugin.version&gt;</span>
+        <span class="nt">&lt;scmVersionType&gt;</span>branch<span class="nt">&lt;/scmVersionType&gt;</span>
+        <span class="nt">&lt;commons.io&gt;</span>2.11.0<span class="nt">&lt;/commons.io&gt;</span>
+        <span class="nt">&lt;commons.codec&gt;</span>1.15<span class="nt">&lt;/commons.codec&gt;</span>
+        <span class="nt">&lt;commons.lang3&gt;</span>3.12.0<span class="nt">&lt;/commons.lang3&gt;</span>
+        <span class="nt">&lt;commons.exec&gt;</span>1.3<span class="nt">&lt;/commons.exec&gt;</span>
+        <span class="nt">&lt;commons.text&gt;</span>1.10.0<span class="nt">&lt;/commons.text&gt;</span>
+        <span class="nt">&lt;gson.version&gt;</span>2.10.1<span class="nt">&lt;/gson.version&gt;</span>
+        <span class="nt">&lt;mockito.version&gt;</span>4.11.0<span class="nt">&lt;/mockito.version&gt;</span>
+        <span class="nt">&lt;hamcrest.all.version&gt;</span>1.3<span class="nt">&lt;/hamcrest.all.version&gt;</span>
+        <span class="nt">&lt;retrofit.version&gt;</span>1.8.0<span class="nt">&lt;/retrofit.version&gt;</span>
+        <span class="nt">&lt;okhttp3.version&gt;</span>4.10.0<span class="nt">&lt;/okhttp3.version&gt;</span>
+        <span class="nt">&lt;slf4j.version&gt;</span>1.7.36<span class="nt">&lt;/slf4j.version&gt;</span>
+        <span class="nt">&lt;slf4j.simple.version&gt;</span>1.7.12<span class="nt">&lt;/slf4j.simple.version&gt;</span>
+        <span class="nt">&lt;logback.version&gt;</span>1.4.5<span class="nt">&lt;/logback.version&gt;</span>
+        <span class="nt">&lt;commons-dbcp2.version&gt;</span>2.9.0<span class="nt">&lt;/commons-dbcp2.version&gt;</span>
+
+        <span class="nt">&lt;postgresql.version&gt;</span>42.7.0<span class="nt">&lt;/postgresql.version&gt;</span>
+        <span class="nt">&lt;ngdbc.version&gt;</span>2.20.11<span class="nt">&lt;/ngdbc.version&gt;</span>
+        <span class="nt">&lt;snowflake.version&gt;</span>3.15.0<span class="nt">&lt;/snowflake.version&gt;</span>
+
+        <span class="nt">&lt;activemq.version&gt;</span>5.17.3<span class="nt">&lt;/activemq.version&gt;</span>
+        <span class="nt">&lt;jsr250-api.version&gt;</span>1.0<span class="nt">&lt;/jsr250-api.version&gt;</span>
+        <span class="nt">&lt;jetty.version&gt;</span>9.4.48.v20220622<span class="nt">&lt;/jetty.version&gt;</span>
+        <span class="nt">&lt;lucene.version&gt;</span>9.4.2<span class="nt">&lt;/lucene.version&gt;</span>
+        <span class="nt">&lt;chemistry.version&gt;</span>1.1.0<span class="nt">&lt;/chemistry.version&gt;</span>
+        <span class="nt">&lt;flowable.version&gt;</span>6.8.0<span class="nt">&lt;/flowable.version&gt;</span>
+        <span class="nt">&lt;jaxb.version&gt;</span>2.3.0<span class="nt">&lt;/jaxb.version&gt;</span>
+        <span class="nt">&lt;jaxws.version&gt;</span>2.3.3<span class="nt">&lt;/jaxws.version&gt;</span>
+        <span class="nt">&lt;jakarta.ws.rs-api.version&gt;</span>2.1.5<span class="nt">&lt;/jakarta.ws.rs-api.version&gt;</span>
+        <span class="nt">&lt;license-maven-plugin.version&gt;</span>4.3<span class="nt">&lt;/license-maven-plugin.version&gt;</span>
+        <span class="nt">&lt;persistence.api.version&gt;</span>2.2.3<span class="nt">&lt;/persistence.api.version&gt;</span>
+        <span class="nt">&lt;jgit.version&gt;</span>6.4.0.202211300538-r<span class="nt">&lt;/jgit.version&gt;</span>
+        <span class="nt">&lt;javax.mail.api.version&gt;</span>1.6.4<span class="nt">&lt;/javax.mail.api.version&gt;</span>
+        <span class="nt">&lt;olingo.version&gt;</span>2.0.13<span class="nt">&lt;/olingo.version&gt;</span>
+        <span class="nt">&lt;kafka.version&gt;</span>3.3.1<span class="nt">&lt;/kafka.version&gt;</span>
+        <span class="nt">&lt;git-commit-id-plugin.version&gt;</span>4.9.10<span class="nt">&lt;/git-commit-id-plugin.version&gt;</span>
+        <span class="nt">&lt;mongodb.version&gt;</span>3.12.11<span class="nt">&lt;/mongodb.version&gt;</span>
+        <span class="nt">&lt;caffeine.version&gt;</span>3.1.2<span class="nt">&lt;/caffeine.version&gt;</span>
+        <span class="nt">&lt;liquibase-core.version&gt;</span>4.16.1<span class="nt">&lt;/liquibase-core.version&gt;</span>
+        <span class="nt">&lt;commons-csv.version&gt;</span>1.9.0<span class="nt">&lt;/commons-csv.version&gt;</span>
+        <span class="nt">&lt;jquery-ui.version&gt;</span>1.13.0<span class="nt">&lt;/jquery-ui.version&gt;</span>
+        <span class="nt">&lt;sap-theming__theming-base-content.version&gt;</span>11.1.42<span class="nt">&lt;/sap-theming__theming-base-content.version&gt;</span>
+        <span class="nt">&lt;fundamental-styles.version&gt;</span>0.24.4<span class="nt">&lt;/fundamental-styles.version&gt;</span>
+        <span class="nt">&lt;angular-aria.version&gt;</span>1.8.2<span class="nt">&lt;/angular-aria.version&gt;</span>
+        <span class="nt">&lt;split.js.version&gt;</span>1.6.5<span class="nt">&lt;/split.js.version&gt;</span>
+        <span class="nt">&lt;diff.version&gt;</span>5.1.0<span class="nt">&lt;/diff.version&gt;</span>
+        <span class="nt">&lt;monaco-editor.version&gt;</span>0.33.0<span class="nt">&lt;/monaco-editor.version&gt;</span>
+        <span class="nt">&lt;requirejs.version&gt;</span>2.3.6<span class="nt">&lt;/requirejs.version&gt;</span>
+        <span class="nt">&lt;jstree.version&gt;</span>3.3.12<span class="nt">&lt;/jstree.version&gt;</span>
+        <span class="nt">&lt;jquery.version&gt;</span>3.6.0<span class="nt">&lt;/jquery.version&gt;</span>
+        <span class="nt">&lt;jqplot.version&gt;</span>1.0.8r1250<span class="nt">&lt;/jqplot.version&gt;</span>
+        <span class="nt">&lt;bootstrap.version&gt;</span>3.3.7<span class="nt">&lt;/bootstrap.version&gt;</span>
+        <span class="nt">&lt;es5-shim.version&gt;</span>4.6.7<span class="nt">&lt;/es5-shim.version&gt;</span>
+        <span class="nt">&lt;angular-file-upload.version&gt;</span>2.6.1<span class="nt">&lt;/angular-file-upload.version&gt;</span>
+        <span class="nt">&lt;angularjs.version&gt;</span>1.8.2<span class="nt">&lt;/angularjs.version&gt;</span>
+        <span class="nt">&lt;fontawesome.version&gt;</span>4.7.0<span class="nt">&lt;/fontawesome.version&gt;</span>
+        <span class="nt">&lt;classgraph.version&gt;</span>4.8.154<span class="nt">&lt;/classgraph.version&gt;</span>
+        <span class="nt">&lt;commons-compress.version&gt;</span>1.22<span class="nt">&lt;/commons-compress.version&gt;</span>
+        <span class="nt">&lt;testcontainers.elasticsearch.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.elasticsearch.version&gt;</span>
+        <span class="nt">&lt;testcontainers.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.version&gt;</span>
+        <span class="nt">&lt;testcontainers.rabbitmq.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.rabbitmq.version&gt;</span>
+        <span class="nt">&lt;amqp.client.version&gt;</span>5.16.0<span class="nt">&lt;/amqp.client.version&gt;</span>
+        <span class="nt">&lt;elasticsearch.client.version&gt;</span>7.7.1<span class="nt">&lt;/elasticsearch.client.version&gt;</span>
+        <span class="nt">&lt;jetcd.core.version&gt;</span>0.7.5<span class="nt">&lt;/jetcd.core.version&gt;</span>
+        <span class="nt">&lt;jetcd.test.version&gt;</span>0.5.4<span class="nt">&lt;/jetcd.test.version&gt;</span>
+        <span class="nt">&lt;logcaptor.version&gt;</span>2.7.10<span class="nt">&lt;/logcaptor.version&gt;</span>
+        <span class="nt">&lt;exec.maven.plugin&gt;</span>3.0.0<span class="nt">&lt;/exec.maven.plugin&gt;</span>
+
+        <span class="nt">&lt;spring-context-support.version&gt;</span>5.3.24<span class="nt">&lt;/spring-context-support.version&gt;</span>
+        <span class="nt">&lt;webjars-locator&gt;</span>0.51<span class="nt">&lt;/webjars-locator&gt;</span>
+
+        <span class="nt">&lt;keycloak-adapter-bom.version&gt;</span>20.0.2<span class="nt">&lt;/keycloak-adapter-bom.version&gt;</span>
+        <span class="nt">&lt;hikaricp.version&gt;</span>5.0.1<span class="nt">&lt;/hikaricp.version&gt;</span>
+        <span class="nt">&lt;validator.version&gt;</span>1.7<span class="nt">&lt;/validator.version&gt;</span>
+        <span class="nt">&lt;quartz.version&gt;</span>2.3.2<span class="nt">&lt;/quartz.version&gt;</span>
+        <span class="nt">&lt;c3p0.version&gt;</span>0.9.5.5<span class="nt">&lt;/c3p0.version&gt;</span>
+        <span class="nt">&lt;graalvm.version&gt;</span>22.3.1<span class="nt">&lt;/graalvm.version&gt;</span>
+        <span class="nt">&lt;guava.version&gt;</span>31.1-jre<span class="nt">&lt;/guava.version&gt;</span>
+        <span class="nt">&lt;icu4j.version&gt;</span>72.1<span class="nt">&lt;/icu4j.version&gt;</span>
+        <span class="nt">&lt;commons-collections.version&gt;</span>3.2.2<span class="nt">&lt;/commons-collections.version&gt;</span>
+        <span class="nt">&lt;commons-collections4.version&gt;</span>4.4<span class="nt">&lt;/commons-collections4.version&gt;</span>
+        <span class="nt">&lt;velocity.version&gt;</span>2.3<span class="nt">&lt;/velocity.version&gt;</span>
+        <span class="nt">&lt;wikitext.version&gt;</span>3.0.45.202211090110<span class="nt">&lt;/wikitext.version&gt;</span>
+        <span class="nt">&lt;flexmark.version&gt;</span>0.64.0<span class="nt">&lt;/flexmark.version&gt;</span>
+        <span class="nt">&lt;qldb.driver.version&gt;</span>2.3.1<span class="nt">&lt;/qldb.driver.version&gt;</span>
+        <span class="nt">&lt;qldb.sdk.version&gt;</span>1.12.386<span class="nt">&lt;/qldb.sdk.version&gt;</span>
+        <span class="nt">&lt;cassandra.version&gt;</span>1.17.6<span class="nt">&lt;/cassandra.version&gt;</span>
+        <span class="nt">&lt;cassandra.driver.version&gt;</span>3.11.3<span class="nt">&lt;/cassandra.driver.version&gt;</span>
+        <span class="nt">&lt;jedis.version&gt;</span>4.3.1<span class="nt">&lt;/jedis.version&gt;</span>
+        <span class="nt">&lt;spark.version&gt;</span>3.3.1<span class="nt">&lt;/spark.version&gt;</span>
+        <span class="nt">&lt;path-to-regexp.version&gt;</span>6.2.1<span class="nt">&lt;/path-to-regexp.version&gt;</span>
+        <span class="nt">&lt;javax.websocket-api.version&gt;</span>1.1<span class="nt">&lt;/javax.websocket-api.version&gt;</span>
+        <span class="nt">&lt;jacoco.version&gt;</span>0.8.11<span class="nt">&lt;/jacoco.version&gt;</span>
+
+        <span class="nt">&lt;jakarta.validation.version&gt;</span>3.0.2<span class="nt">&lt;/jakarta.validation.version&gt;</span>
+        <span class="nt">&lt;org.springdoc.openapi.ui.version&gt;</span>1.7.0<span class="nt">&lt;/org.springdoc.openapi.ui.version&gt;</span>
+        <span class="nt">&lt;swagger-annotations.version&gt;</span>1.6.9<span class="nt">&lt;/swagger-annotations.version&gt;</span>
+
+        <span class="nt">&lt;profile.content.phase&gt;</span>none<span class="nt">&lt;/profile.content.phase&gt;</span>
+
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Eclipse Dirigible version</p>
+<p>The tutorial is using Eclipse Dirigible version <code>10.2.7</code> as highlighted on line <strong>229</strong>. To check for a more recent and stable version go to <a href="https://github.com/eclipse/dirigible/releases/">Eclipse Dirigible Releases</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create new folder <code>application</code> and navigate to it.</li>
+<li>Create new <code>application/pom.xml</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/pom.xml</summary>
+<div class="admonition info">
+<p class="admonition-title">Git Repository</p>
+<p>For git repositories uncomment the following lines, in order to receive the <code>Commit Id</code> information in the <strong>About</strong> view:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- </span>
+<span class="cm">    Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
+<span class="cm">    This is needed for the info in the &quot;About&quot; view.</span>
+<span class="cm">--&gt;</span>
+<span class="cm">&lt;!--</span>
+<span class="cm">&lt;plugin&gt;</span>
+<span class="cm">    &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
+<span class="cm">    &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
+<span class="cm">    &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
+<span class="cm">    &lt;executions&gt;</span>
+<span class="cm">        &lt;execution&gt;</span>
+<span class="cm">            &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
+<span class="cm">            &lt;goals&gt;</span>
+<span class="cm">                &lt;goal&gt;revision&lt;/goal&gt;</span>
+<span class="cm">            &lt;/goals&gt;</span>
+<span class="cm">        &lt;/execution&gt;</span>
+<span class="cm">    &lt;/executions&gt;</span>
+<span class="cm">    &lt;configuration&gt;</span>
+<span class="cm">        &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">    &lt;/configuration&gt;</span>
+<span class="cm">&lt;/plugin&gt;</span>
+<span class="cm">--&gt;</span>
+</code></pre></div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>custom - stack - application<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-application<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-apis<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Core --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>com.zaxxer<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>HikariCP-java7<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Security --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-basic<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-keycloak<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-database<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Engine --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-engines<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.validation<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>validation-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>cxf-rt-frontend-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>
+                        cxf-spring-boot-starter-jaxrs
+                    <span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-engine-command<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- IDE --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-ide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>dirigible-components-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- API --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Resources --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-resources<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-oauth2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Templates --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-templates<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.codeborne<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>selenide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>7.2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Drivers --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-database-mongodb-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.sap.cloud.db.jdbc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>ngdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${ngdbc.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>net.snowflake<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>snowflake-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${snowflake.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-tests-framework<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.samples.CustomStackApplication<span class="nt">&lt;/mainClass&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>repackage<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="cm">&lt;!-- </span>
+<span class="cm">                Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
+<span class="cm">                This is needed for the info in the &quot;About&quot; view.</span>
+<span class="cm">            --&gt;</span>
+            <span class="cm">&lt;!--</span>
+<span class="cm">            &lt;plugin&gt;</span>
+<span class="cm">                &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
+<span class="cm">                &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
+<span class="cm">                &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
+<span class="cm">                &lt;executions&gt;</span>
+<span class="cm">                    &lt;execution&gt;</span>
+<span class="cm">                        &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
+<span class="cm">                        &lt;goals&gt;</span>
+<span class="cm">                            &lt;goal&gt;revision&lt;/goal&gt;</span>
+<span class="cm">                        &lt;/goals&gt;</span>
+<span class="cm">                    &lt;/execution&gt;</span>
+<span class="cm">                &lt;/executions&gt;</span>
+<span class="cm">                &lt;configuration&gt;</span>
+<span class="cm">                    &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">                &lt;/configuration&gt;</span>
+<span class="cm">            &lt;/plugin&gt;</span>
+<span class="cm">            --&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
+                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+<h4 id="create-eclipse-dirigible-resources">Create Eclipse Dirigible Resources</h4>
+<ul>
+<li>Navigate to the <code>application</code> folder.</li>
+<li>Create <code>src/main/resources/</code> folder structure and navigate to it.</li>
+<li>Create <code>dirigible.properties</code>, <code>index.html</code> and <code>index-busy.html</code> files.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">dirigible.properties</label><label for="__tabbed_2_2">static/index.html</label><label for="__tabbed_2_3">static/index-busy.html</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Create <code>application/src/main/resources/dirigible.properties</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/resources/dirigible.properties</summary>
+<div class="highlight"><pre><span></span><code># General
+DIRIGIBLE_PRODUCT_NAME=${project.title}
+DIRIGIBLE_PRODUCT_VERSION=${project.version}
+DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
+DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
+DIRIGIBLE_PRODUCT_TYPE=all
+DIRIGIBLE_INSTANCE_NAME=custom-stack
+DIRIGIBLE_DATABASE_PROVIDER=local
+DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
+DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
+DIRIGIBLE_HOME_URL=services/web/ide/
+DIRIGIBLE_FTP_PORT=22
+</code></pre></div>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Environment Variables</p>
+<p>The properties file will be packaged inside the <em>Custom Stack</em>, and the above environment variables will be set by default. These environment variables could be overridden during <em><code>Deployment</code></em> or at <em><code>Runtime</code></em>. To learn more about the supported configurations go to <a href="https://www.dirigible.io/help/setup/setup-environment-variables/">Environment Variables</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create <code>static</code> folder and navigate to it.</li>
+<li>Create <code>application/src/main/resources/static/index.html</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/resources/static/index.html</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en-US&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Redirecting<span class="ni">&amp;hellip;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;canonical&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/home&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nx">location</span><span class="o">=</span><span class="s2">&quot;/home&quot;</span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;refresh&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;0; url=/home&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;robots&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;noindex&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Redirecting<span class="ni">&amp;hellip;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/home&quot;</span><span class="p">&gt;</span>Click here if you are not redirected.<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create <code>static</code> folder and navigate to it.</li>
+<li>Create <code>application/src/main/resources/static/index-busy.html</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/resources/static/index-busy.html</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;busyPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;BusyController&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Loading ...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel fd-panel--fixed&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__header&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__title&quot;</span><span class="p">&gt;</span>Preparing Custom Stack Instance<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fd-list</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-list-item</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&quot;job in jobs&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">fd-object-status</span> <span class="na">status</span><span class="o">=</span><span class="s">&quot;{{job.status}}&quot;</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;{{job.statusIcon}}&quot;</span>
+                        <span class="na">text</span><span class="o">=</span><span class="s">&quot;{{job.name}}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">fd-list-item</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fd-list</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fd-busy-indicator</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-top: 3rem;&quot;</span> <span class="na">dg-size</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">fd-busy-indicator</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">busyPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;busyPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">busyPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;BusyController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$http&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">$http</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                    </span><span class="nx">$http</span><span class="p">({</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/healthcheck&#39;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">){</span><span class="w"></span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Ready&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">&#39;/home&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="w">                        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">jobs</span><span class="p">.</span><span class="nx">statuses</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Object</span><span class="p">();</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">key</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                                </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Succeeded&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;positive&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-success&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Failed&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;negative&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-error&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;informative&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-information&quot;</span><span class="w"></span>
+<span class="w">                                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="p">}</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">job</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}),</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="w"></span>
+<span class="w">                        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error retreiving the health status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="p">});</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+<h4 id="optional-create-eclipse-dirigible-rrror-resources"><em>(optional)</em> Create Eclipse Dirigible Rrror Resources</h4>
+<ul>
+<li>Navigate to the <code>application/src/main/resources</code> folder.</li>
+<li>Create <code>public</code> folder and navigate to it.</li>
+<li>Create <code>error.html</code>, <code>403.html</code> and <code>404.html</code> files.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">error.html</label><label for="__tabbed_3_2">403.html</label><label for="__tabbed_3_3">404.html</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Create <code>application/src/main/resources/public/error/error.html</code> file.</li>
+<li>Paste the following content:</li>
+</ul>
+<details class="abstract">
+<summary>application/src/main/resources/public/error/error.html</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--error&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>There was a problem serving the requested page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    Usually this means that an enexpected error
+                    happened while processing your request. Here&#39;s what you can try next:
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Reload the page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, the problem may be temporary. If the problem persists, <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>contact us<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+                        and we&#39;ll
+                        help get you on your way.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Reload Page&quot;</span> <span class="na">dg-type</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin: 0 0.25rem;&quot;</span>
+                        <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;reloadPage()&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Contact Support&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;contactSupport()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">reloadPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">contactSupport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;https://bugs.dirigible.io&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_blank&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">};</span><span class="w"></span>
+<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Create <code>error</code> folder and navigate to it. </li>
+<li>Create <code>application/src/main/resources/error/403.html</code> file.</li>
+<li>Paste the following content:</li>
+</ul>
+<details class="abstract">
+<summary>application/src/main/resources/error/403.html</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Access Denied<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--alert&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Access Denied<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>The page you&#39;re trying to access has resctricted access<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    Pleace contact your system administrator for more details.
+                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>Create <code>error</code> folder and navigate to it. </li>
+<li>Create <code>application/src/main/resources/error/404.html</code> file.</li>
+<li>Paste the following content:</li>
+</ul>
+<details class="abstract">
+<summary>application/src/main/resources/error/404.html</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Page Not Found<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--documents&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Page Not Found<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>It looks like you&#39;ve reached a URL that doesn&#39;t exist<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    The page you are looking for is no longer here, or never existed in the first place.
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>You can go to the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>previous page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, or start over from the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>home page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Go Back&quot;</span> <span class="na">dg-type</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin: 0 0.25rem;&quot;</span>
+                        <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goBack()&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Take Me Home&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goBack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goHome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+<h4 id="create-spring-boot-resources">Create Spring Boot Resources</h4>
+<ul>
+<li>Navigate to the <code>application</code> folder.</li>
+<li>Create <code>application.properties</code>, <code>quartz.properties</code> and <code>CustomStackApplication.java</code> files.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">application.properties</label><label for="__tabbed_4_2">quartz.properties</label><label for="__tabbed_4_3">CustomStackApplication.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>src/main/resources/</code> folder.</li>
+<li>Create <code>application/src/main/resources/application.properties</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/resources/application.properties</summary>
+<div class="highlight"><pre><span></span><code>server.port=8080
+
+spring.main.allow-bean-definition-overriding=true
+server.error.include-message=always
+
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.file-size-threshold=2KB
+spring.servlet.multipart.max-file-size=1GB
+spring.servlet.multipart.max-request-size=1GB
+spring.servlet.multipart.max-file-size=200MB
+spring.servlet.multipart.max-request-size=215MB
+spring.servlet.multipart.location=${java.io.tmpdir}
+
+spring.datasource.hikari.connectionTimeout=3600000
+spring.mvc.async.request-timeout=3600000
+
+basic.enabled=${DIRIGIBLE_BASIC_ENABLED:true}
+
+terminal.enabled=${DIRIGIBLE_TERMINAL_ENABLED:false}
+
+keycloak.enabled=${DIRIGIBLE_KEYCLOAK_ENABLED:false}
+keycloak.realm=${DIRIGIBLE_KEYCLOAK_REALM:null}
+keycloak.auth-server-url=${DIRIGIBLE_KEYCLOAK_AUTH_SERVER_URL:null}
+keycloak.ssl-required=${DIRIGIBLE_KEYCLOAK_SSL_REQUIRED:external}
+keycloak.resource=${DIRIGIBLE_KEYCLOAK_CLIENT_ID:null}
+keycloak.public-client=true
+keycloak.principal-attribute=preferred_username
+keycloak.confidential-port=${DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT:443}
+keycloak.use-resource-role-mappings=true
+
+management.metrics.mongo.command.enabled=false
+management.metrics.mongo.connectionpool.enabled=false
+
+management.endpoints.jmx.exposure.include=*
+management.endpoints.jmx.exposure.exclude=
+management.endpoints.web.exposure.include=*
+management.endpoints.web.exposure.exclude=
+management.endpoint.health.show-details=always
+
+springdoc.api-docs.path=/api-docs
+
+cxf.path=/odata/v2
+
+# the following are used to force the Spring to create QUARTZ tables
+# quartz properties are manged in quartz.properties don&#39;t try to add them here
+spring.quartz.job-store-type=jdbc
+spring.quartz.jdbc.initialize-schema=always
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>src/main/resources/</code> folder.</li>
+<li>Create <code>application/src/main/resources/quartz.properties</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/resources/quartz.properties</summary>
+<div class="highlight"><pre><span></span><code># thread-pool
+org.quartz.threadPool.class=org.quartz.simpl.SimpleThreadPool
+org.quartz.threadPool.threadCount=2
+org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread=true
+
+# job-store
+# Enable this property for RAMJobStore
+org.quartz.jobStore.class=org.quartz.simpl.RAMJobStore
+
+# Enable these properties for a JDBCJobStore using JobStoreTX
+#org.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
+#org.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#org.quartz.jobStore.dataSource=quartzDataSource
+# Enable this property for JobStoreCMT
+#org.quartz.jobStore.nonManagedTXDataSource=quartzDataSource
+
+# H2 database
+# use an in-memory database &amp; initialise Quartz using their standard SQL script
+#org.quartz.dataSource.quartzDataSource.URL=jdbc:h2:mem:spring-quartz;INIT=RUNSCRIPT FROM &#39;classpath:/org/quartz/impl/jdbcjobstore/tables_h2.sql&#39;
+#org.quartz.dataSource.quartzDataSource.driver=org.h2.Driver
+#org.quartz.dataSource.quartzDataSource.user=sa
+#org.quartz.dataSource.quartzDataSource.password=
+#org.quartz.jdbc.initialize-schema=never
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>src/main</code> folder.</li>
+<li>Create <code>java/io/dirigible/samples/</code> and navigate to it.</li>
+<li>Create <code>application/src/main/java/io/dirigible/samples/CustomStackApplication.java</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>application/src/main/java/io/dirigible/samples/CustomStackApplication.java</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.samples</span><span class="p">;</span><span class="w"></span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.SpringApplication</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.config.EnableJpaAuditing</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.data.jpa.repository.config.EnableJpaRepositories</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.scheduling.annotation.EnableScheduling</span><span class="p">;</span><span class="w"></span>
+
+<span class="nd">@EnableJpaAuditing</span><span class="w"></span>
+<span class="nd">@EnableJpaRepositories</span><span class="w"></span>
+<span class="nd">@SpringBootApplication</span><span class="p">(</span><span class="n">scanBasePackages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;io.dirigible.samples&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;org.eclipse.dirigible.components&quot;</span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">DataSourceAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">DataSourceTransactionManagerAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">HibernateJpaAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">JdbcTemplateAutoConfiguration</span><span class="p">.</span><span class="na">class</span><span class="p">})</span><span class="w"></span>
+<span class="nd">@EnableScheduling</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CustomStackApplication</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">SpringApplication</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">CustomStackApplication</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+<h4 id="build-the-custom-stack">Build the Custom Stack</h4>
+<ul>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
+<li>
+<p>Open the <strong>Terminal</strong> and execute the following command to build the <em>Custom Stack</em>:</p>
+<div class="highlight"><pre><span></span><code>mvn clean install
+</code></pre></div>
+</li>
+</ul>
+<h4 id="run-the-custom-stack">Run the Custom Stack</h4>
+<ul>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
+<li>
+<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -jar application/target/custom-stack-application-*.jar
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Debugging</p>
+<p>To run in debug mode, execute the following command:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar application/target/custom-stack-application-*.jar
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
+</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<div class="admonition success">
+<p class="admonition-title">Section Completed</p>
+<p>After completing the steps in this tutorial, you would have:</p>
+<ul>
+<li>Maven project structure.</li>
+<li>Spring Boot application.</li>
+<li>Eclipse Dirigible Stack running at <a href="http://localhost:8080/">http://localhost:8080</a>.</li>
+</ul>
+<p>Continue to the <a href="../branding/">branding</a> section to customize the branding of the Custom Stack.</p>
+<p><em><strong>Note:</strong> The complete content of the Custom Stack tutorial is available at: <a href="https://github.com/dirigiblelabs/sample-custom-stack">https://github.com/dirigiblelabs/sample-custom-stack</a></em></p>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+	
+		<nav class="md-footer__inner md-grid" aria-label="Footer">
+			
+				<a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+					<div class="md-footer__button md-icon">
+					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+					</div>
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Previous
+							</span>
+							Custom Stack			
+						</div>
+					</div>
+				</a>
+    		
+			
+				<a href="../branding/" class="md-footer__link md-footer__link--next" rel="next">
+					<div class="md-footer__title">
+						<div class="md-ellipsis">
+							<span class="md-footer__direction">
+								Next
+							</span>
+							Branding
+						</div>
+					</div>
+					<div class="md-footer__button md-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+					</div>
+				</a>
+			
+		</nav>
+	
+  <div class="md-footer-meta md-typeset">	
+		<div class="md-footer-meta__inner md-grid">
+						<div class="column1">
+							<h3 style="font-size:16px">Project</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io">Home</a></li>
+								<li style="font-size:14px"><a href="http://trial.dirigible.io">Try It Out</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/issues">Issues</a></li>
+								<li style="font-size:14px"><a href="https://github.com/eclipse/dirigible/discussions">Join the Discussion</a></li>
+							</ul>
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Updates</h3>
+							<ul>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">Blogs</a></li>
+								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
+							</ul>						
+						</div>
+						<div class="column1">
+						</div>
+						<div class="column1">
+							<h3 style="font-size:16px">Credits & License</h3>
+								<ul>
+									<li style="font-size:14px"><a href="/help/overview/credits/">Credits</a></li>
+									<li style="font-size:14px"><a href="/help/overview/license/">License</a></li>
+								</ul>						
+						</div>	
+						<div class="md-footer-copyright">
+							
+							<div class="md-footer-copyright__highlight">
+								Copyright © 2010-2021 Eclipse Foundation, Inc. All Rights Reserved. Eclipse is a registered trademark of the Eclipse Foundation, Inc. Dirigible is a trademark of the Eclipse Foundation, Inc.
+							</div>
+							
+							Made with
+							<a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+							  Material for MkDocs
+							</a>
+						</div>
+						<div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/dirigible_io" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/dirigible.io" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/groups/8413366" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/c/dirigibleio" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://slack.dirigible.io" target="_blank" rel="noopener" title="slack.dirigible.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
+  
+</div>
+		</div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
