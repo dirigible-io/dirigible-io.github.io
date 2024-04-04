@@ -430,19 +430,6 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 			<artifactId>custom-stack-application</artifactId>
 			<packaging>jar</packaging>
 
-
-			<dependencies>
-				<dependency>
-					<groupId>io.dirigible.samples</groupId>
-					<artifactId>custom-stack-apis</artifactId>
-					<version>1.0.0-SNAPSHOT</version>
-				</dependency>
-				<dependency>
-					<groupId>io.dirigible.samples</groupId>
-					<artifactId>custom-stack-branding</artifactId>
-					<version>1.0.0-SNAPSHOT</version>
-				</dependency>
-
 				<!-- Core -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
@@ -509,12 +496,6 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 					<groupId>org.eclipse.dirigible</groupId>
 					<artifactId>dirigible-components-group-ide</artifactId>
 					<type>pom</type>
-					<exclusions>
-						<exclusion>
-							<groupId>org.eclipse.dirigible</groupId>
-							<artifactId>dirigible-components-ide-ui-branding</artifactId>
-						</exclusion>
-					</exclusions>
 				</dependency>
 				
 				<!-- API -->
@@ -773,7 +754,7 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 		</html>
 		```
 
-#### _(optional)_ Create Eclipse Dirigible Rrror Resources
+#### _(optional)_ Create Eclipse Dirigible Error Resources
 
 - Navigate to the `application/src/main/resources` folder.
 - Create `public` folder and navigate to it.
@@ -1137,6 +1118,6 @@ It contains the creation of several Maven `pom.xml` files, static content resour
     - Spring Boot application.
     - Eclipse Dirigible Stack running at [http://localhost:8080](http://localhost:8080/).
 
-    Continue to the [branding](../branding/) section to customize the branding of the Custom Stack.
+    Continue to the [Branding](../branding/) section to customize the branding of the Custom Stack.
 
     _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
