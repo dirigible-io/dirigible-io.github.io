@@ -1,8 +1,8 @@
 ---
-title: Branding
+title: Custom Stack - Branding
 ---
 
-Branding
+Custom Stack - Branding
 ===
 
 This tutorial will guide you through the process of rebranding of Eclipse Dirigible Custom Stack.
