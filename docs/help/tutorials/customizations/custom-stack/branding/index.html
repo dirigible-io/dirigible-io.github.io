@@ -968,8 +968,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-maven-module" class="md-nav__link">
+    Create Maven Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-branding-resources" class="md-nav__link">
+    Create Branding Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-branding-dependency" class="md-nav__link">
+    Add Branding Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-platform" class="md-nav__link">
+    Build the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-platform" class="md-nav__link">
+    Run the Custom Platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -3089,8 +3150,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-maven-module" class="md-nav__link">
+    Create Maven Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-branding-resources" class="md-nav__link">
+    Create Branding Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-branding-dependency" class="md-nav__link">
+    Add Branding Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-platform" class="md-nav__link">
+    Build the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-platform" class="md-nav__link">
+    Run the Custom Platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -3116,132 +3238,437 @@
 
 
 <h1 id="custom-stack-branding">Custom Stack - Branding</h1>
-<p>This tutorial will guide you through the process of rebranding of Eclipse Dirigible Custom Stack.</p>
-<div class="admonition note">
-<p class="admonition-title">Prerequisites</p>
-<p>This tutorial is assuming, that you've successfully completed the <a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/">Custom Stack</a> tutorial.</p>
-</div>
+<h2 id="overview">Overview</h2>
+<p>This section will guide you through the process of rebranding of Eclipse Dirigible Custom Stack.</p>
 <h3 id="steps">Steps</h3>
-<ol>
-<li>
-<p>Create Maven Modules:</p>
+<h4 id="create-maven-module">Create Maven Module</h4>
 <ul>
 <li>Navigate to the root folder of the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
-<li>Create <code>modules</code> folder and navigate to it.</li>
-<li>Create <code>pom.xml</code>, <code>all/pom.xml</code> and <code>branding/pom.xml</code> files.</li>
+<li>Create <code>branding</code> folder and navigate to it.</li>
+<li>Create <code>pom.xml</code> file.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">all/pom.xml</label><label for="__tabbed_1_3">branding/pom.xml</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Create new <code>modules/pom.xml</code> file.</li>
+<li>Create new <code>branding/pom.xml</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<details class="abstract">
+<summary>branding/pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - Parent<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;name&gt;</span>custom - stack - branding<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+<ul>
+<li>Navigate to the root folder of the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
+<li>Open the <code>pom.xml</code> file.</li>
+<li>Edit the <code>&lt;modules&gt;</code> section.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">pom.xml</label><label for="__tabbed_2_2">Final pom.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;modules&gt;</span>
+    <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
+<span class="nt">&lt;/modules&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<details class="abstract">
+<summary>pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.sonatype.oss<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>oss-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>7<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>custom - stack - parent<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Custom Stack - Sample<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
 
+    <span class="nt">&lt;inceptionYear&gt;</span>2024<span class="nt">&lt;/inceptionYear&gt;</span>
+
+    <span class="nt">&lt;url&gt;</span>https://www.dirigible.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;organization&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Eclipse Foundation<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://www.eclipse.org<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/organization&gt;</span>
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/dirigiblelabs/sample-custom-stack<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
     <span class="nt">&lt;modules&gt;</span>
-        <span class="nt">&lt;module&gt;</span>all<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
         <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
     <span class="nt">&lt;/modules&gt;</span>
 
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Create new folder <code>all</code> and navigate to it.</li>
-<li>Create new <code>modules/all/pom.xml</code> file.</li>
-<li>Paste the following content:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-    <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
-    <span class="nt">&lt;/parent&gt;</span>
-
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - All<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-all<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-
     <span class="nt">&lt;dependencies&gt;</span>
+
+        <span class="cm">&lt;!-- Platform --&gt;</span>
         <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-branding<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
         <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Commons --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-commons-config<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Spring Boot --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>log4j-to-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-websocket<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+            <span class="nt">&lt;exclusion&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/exclusion&gt;</span>
+        <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Date Type Utils --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-joda<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Swagger --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springdoc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springdoc-openapi-ui<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${org.springdoc.openapi.ui.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data Access --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- WebJars --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>webjars-locator<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${webjars-locator}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Olingo --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.olingo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>olingo-odata2-lib<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${olingo.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.google.code.gson<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>gson<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
     <span class="nt">&lt;/dependencies&gt;</span>
 
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>dirigible-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
+
+    <span class="nt">&lt;profiles&gt;</span>
+        <span class="nt">&lt;profile&gt;</span>
+            <span class="nt">&lt;id&gt;</span>default<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;activation&gt;</span>
+                <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+            <span class="nt">&lt;/activation&gt;</span>
+            <span class="nt">&lt;build&gt;</span>
+                <span class="nt">&lt;plugins&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${jacoco.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>prepare-agent<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;rules&gt;</span>
+                                <span class="nt">&lt;rule&gt;</span>
+                                    <span class="nt">&lt;element&gt;</span>SOURCEFILE<span class="nt">&lt;/element&gt;</span>
+                                    <span class="nt">&lt;excludes&gt;</span>
+                                        <span class="nt">&lt;exclude&gt;</span>*src/test/*<span class="nt">&lt;/exclude&gt;</span>
+                                    <span class="nt">&lt;/excludes&gt;</span>
+                                <span class="nt">&lt;/rule&gt;</span>
+                            <span class="nt">&lt;/rules&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${maven.compiler.plugin.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;source&gt;</span>${maven.compiler.source}<span class="nt">&lt;/source&gt;</span>
+                            <span class="nt">&lt;target&gt;</span>${maven.compiler.target}<span class="nt">&lt;/target&gt;</span>
+                            <span class="nt">&lt;debug&gt;</span>true<span class="nt">&lt;/debug&gt;</span>
+                            <span class="nt">&lt;debuglevel&gt;</span>lines,vars,source<span class="nt">&lt;/debuglevel&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                <span class="nt">&lt;/plugins&gt;</span>
+            <span class="nt">&lt;/build&gt;</span>
+        <span class="nt">&lt;/profile&gt;</span>
+    <span class="nt">&lt;/profiles&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;project.title&gt;</span>custom stack<span class="nt">&lt;/project.title&gt;</span>
+
+        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+
+        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
+
+        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
+
+        <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.3.0<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.version&gt;</span>3.2.0<span class="nt">&lt;/maven.clean.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.directory&gt;</span>src/main/resources/META-INF/dirigible<span class="nt">&lt;/maven.clean.plugin.directory&gt;</span>
+        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>3.13.0<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
+        <span class="nt">&lt;maven-surefire-plugin.version&gt;</span>2.22.2<span class="nt">&lt;/maven-surefire-plugin.version&gt;</span>
+        <span class="nt">&lt;maven.scm.plugin.version&gt;</span>1.13.0<span class="nt">&lt;/maven.scm.plugin.version&gt;</span>
+        <span class="nt">&lt;scmVersionType&gt;</span>branch<span class="nt">&lt;/scmVersionType&gt;</span>
+        <span class="nt">&lt;commons.io&gt;</span>2.11.0<span class="nt">&lt;/commons.io&gt;</span>
+        <span class="nt">&lt;commons.codec&gt;</span>1.15<span class="nt">&lt;/commons.codec&gt;</span>
+        <span class="nt">&lt;commons.lang3&gt;</span>3.12.0<span class="nt">&lt;/commons.lang3&gt;</span>
+        <span class="nt">&lt;commons.exec&gt;</span>1.3<span class="nt">&lt;/commons.exec&gt;</span>
+        <span class="nt">&lt;commons.text&gt;</span>1.10.0<span class="nt">&lt;/commons.text&gt;</span>
+        <span class="nt">&lt;gson.version&gt;</span>2.10.1<span class="nt">&lt;/gson.version&gt;</span>
+        <span class="nt">&lt;mockito.version&gt;</span>4.11.0<span class="nt">&lt;/mockito.version&gt;</span>
+        <span class="nt">&lt;hamcrest.all.version&gt;</span>1.3<span class="nt">&lt;/hamcrest.all.version&gt;</span>
+        <span class="nt">&lt;retrofit.version&gt;</span>1.8.0<span class="nt">&lt;/retrofit.version&gt;</span>
+        <span class="nt">&lt;okhttp3.version&gt;</span>4.10.0<span class="nt">&lt;/okhttp3.version&gt;</span>
+        <span class="nt">&lt;slf4j.version&gt;</span>1.7.36<span class="nt">&lt;/slf4j.version&gt;</span>
+        <span class="nt">&lt;slf4j.simple.version&gt;</span>1.7.12<span class="nt">&lt;/slf4j.simple.version&gt;</span>
+        <span class="nt">&lt;logback.version&gt;</span>1.4.5<span class="nt">&lt;/logback.version&gt;</span>
+        <span class="nt">&lt;commons-dbcp2.version&gt;</span>2.9.0<span class="nt">&lt;/commons-dbcp2.version&gt;</span>
+
+        <span class="nt">&lt;postgresql.version&gt;</span>42.7.0<span class="nt">&lt;/postgresql.version&gt;</span>
+        <span class="nt">&lt;ngdbc.version&gt;</span>2.20.11<span class="nt">&lt;/ngdbc.version&gt;</span>
+        <span class="nt">&lt;snowflake.version&gt;</span>3.15.0<span class="nt">&lt;/snowflake.version&gt;</span>
+
+        <span class="nt">&lt;activemq.version&gt;</span>5.17.3<span class="nt">&lt;/activemq.version&gt;</span>
+        <span class="nt">&lt;jsr250-api.version&gt;</span>1.0<span class="nt">&lt;/jsr250-api.version&gt;</span>
+        <span class="nt">&lt;jetty.version&gt;</span>9.4.48.v20220622<span class="nt">&lt;/jetty.version&gt;</span>
+        <span class="nt">&lt;lucene.version&gt;</span>9.4.2<span class="nt">&lt;/lucene.version&gt;</span>
+        <span class="nt">&lt;chemistry.version&gt;</span>1.1.0<span class="nt">&lt;/chemistry.version&gt;</span>
+        <span class="nt">&lt;flowable.version&gt;</span>6.8.0<span class="nt">&lt;/flowable.version&gt;</span>
+        <span class="nt">&lt;jaxb.version&gt;</span>2.3.0<span class="nt">&lt;/jaxb.version&gt;</span>
+        <span class="nt">&lt;jaxws.version&gt;</span>2.3.3<span class="nt">&lt;/jaxws.version&gt;</span>
+        <span class="nt">&lt;jakarta.ws.rs-api.version&gt;</span>2.1.5<span class="nt">&lt;/jakarta.ws.rs-api.version&gt;</span>
+        <span class="nt">&lt;license-maven-plugin.version&gt;</span>4.3<span class="nt">&lt;/license-maven-plugin.version&gt;</span>
+        <span class="nt">&lt;persistence.api.version&gt;</span>2.2.3<span class="nt">&lt;/persistence.api.version&gt;</span>
+        <span class="nt">&lt;jgit.version&gt;</span>6.4.0.202211300538-r<span class="nt">&lt;/jgit.version&gt;</span>
+        <span class="nt">&lt;javax.mail.api.version&gt;</span>1.6.4<span class="nt">&lt;/javax.mail.api.version&gt;</span>
+        <span class="nt">&lt;olingo.version&gt;</span>2.0.13<span class="nt">&lt;/olingo.version&gt;</span>
+        <span class="nt">&lt;kafka.version&gt;</span>3.3.1<span class="nt">&lt;/kafka.version&gt;</span>
+        <span class="nt">&lt;git-commit-id-plugin.version&gt;</span>4.9.10<span class="nt">&lt;/git-commit-id-plugin.version&gt;</span>
+        <span class="nt">&lt;mongodb.version&gt;</span>3.12.11<span class="nt">&lt;/mongodb.version&gt;</span>
+        <span class="nt">&lt;caffeine.version&gt;</span>3.1.2<span class="nt">&lt;/caffeine.version&gt;</span>
+        <span class="nt">&lt;liquibase-core.version&gt;</span>4.16.1<span class="nt">&lt;/liquibase-core.version&gt;</span>
+        <span class="nt">&lt;commons-csv.version&gt;</span>1.9.0<span class="nt">&lt;/commons-csv.version&gt;</span>
+        <span class="nt">&lt;jquery-ui.version&gt;</span>1.13.0<span class="nt">&lt;/jquery-ui.version&gt;</span>
+        <span class="nt">&lt;sap-theming__theming-base-content.version&gt;</span>11.1.42<span class="nt">&lt;/sap-theming__theming-base-content.version&gt;</span>
+        <span class="nt">&lt;fundamental-styles.version&gt;</span>0.24.4<span class="nt">&lt;/fundamental-styles.version&gt;</span>
+        <span class="nt">&lt;angular-aria.version&gt;</span>1.8.2<span class="nt">&lt;/angular-aria.version&gt;</span>
+        <span class="nt">&lt;split.js.version&gt;</span>1.6.5<span class="nt">&lt;/split.js.version&gt;</span>
+        <span class="nt">&lt;diff.version&gt;</span>5.1.0<span class="nt">&lt;/diff.version&gt;</span>
+        <span class="nt">&lt;monaco-editor.version&gt;</span>0.33.0<span class="nt">&lt;/monaco-editor.version&gt;</span>
+        <span class="nt">&lt;requirejs.version&gt;</span>2.3.6<span class="nt">&lt;/requirejs.version&gt;</span>
+        <span class="nt">&lt;jstree.version&gt;</span>3.3.12<span class="nt">&lt;/jstree.version&gt;</span>
+        <span class="nt">&lt;jquery.version&gt;</span>3.6.0<span class="nt">&lt;/jquery.version&gt;</span>
+        <span class="nt">&lt;jqplot.version&gt;</span>1.0.8r1250<span class="nt">&lt;/jqplot.version&gt;</span>
+        <span class="nt">&lt;bootstrap.version&gt;</span>3.3.7<span class="nt">&lt;/bootstrap.version&gt;</span>
+        <span class="nt">&lt;es5-shim.version&gt;</span>4.6.7<span class="nt">&lt;/es5-shim.version&gt;</span>
+        <span class="nt">&lt;angular-file-upload.version&gt;</span>2.6.1<span class="nt">&lt;/angular-file-upload.version&gt;</span>
+        <span class="nt">&lt;angularjs.version&gt;</span>1.8.2<span class="nt">&lt;/angularjs.version&gt;</span>
+        <span class="nt">&lt;fontawesome.version&gt;</span>4.7.0<span class="nt">&lt;/fontawesome.version&gt;</span>
+        <span class="nt">&lt;classgraph.version&gt;</span>4.8.154<span class="nt">&lt;/classgraph.version&gt;</span>
+        <span class="nt">&lt;commons-compress.version&gt;</span>1.22<span class="nt">&lt;/commons-compress.version&gt;</span>
+        <span class="nt">&lt;testcontainers.elasticsearch.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.elasticsearch.version&gt;</span>
+        <span class="nt">&lt;testcontainers.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.version&gt;</span>
+        <span class="nt">&lt;testcontainers.rabbitmq.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.rabbitmq.version&gt;</span>
+        <span class="nt">&lt;amqp.client.version&gt;</span>5.16.0<span class="nt">&lt;/amqp.client.version&gt;</span>
+        <span class="nt">&lt;elasticsearch.client.version&gt;</span>7.7.1<span class="nt">&lt;/elasticsearch.client.version&gt;</span>
+        <span class="nt">&lt;jetcd.core.version&gt;</span>0.7.5<span class="nt">&lt;/jetcd.core.version&gt;</span>
+        <span class="nt">&lt;jetcd.test.version&gt;</span>0.5.4<span class="nt">&lt;/jetcd.test.version&gt;</span>
+        <span class="nt">&lt;logcaptor.version&gt;</span>2.7.10<span class="nt">&lt;/logcaptor.version&gt;</span>
+        <span class="nt">&lt;exec.maven.plugin&gt;</span>3.0.0<span class="nt">&lt;/exec.maven.plugin&gt;</span>
+
+        <span class="nt">&lt;spring-context-support.version&gt;</span>5.3.24<span class="nt">&lt;/spring-context-support.version&gt;</span>
+        <span class="nt">&lt;webjars-locator&gt;</span>0.51<span class="nt">&lt;/webjars-locator&gt;</span>
+
+        <span class="nt">&lt;keycloak-adapter-bom.version&gt;</span>20.0.2<span class="nt">&lt;/keycloak-adapter-bom.version&gt;</span>
+        <span class="nt">&lt;hikaricp.version&gt;</span>5.0.1<span class="nt">&lt;/hikaricp.version&gt;</span>
+        <span class="nt">&lt;validator.version&gt;</span>1.7<span class="nt">&lt;/validator.version&gt;</span>
+        <span class="nt">&lt;quartz.version&gt;</span>2.3.2<span class="nt">&lt;/quartz.version&gt;</span>
+        <span class="nt">&lt;c3p0.version&gt;</span>0.9.5.5<span class="nt">&lt;/c3p0.version&gt;</span>
+        <span class="nt">&lt;graalvm.version&gt;</span>22.3.1<span class="nt">&lt;/graalvm.version&gt;</span>
+        <span class="nt">&lt;guava.version&gt;</span>31.1-jre<span class="nt">&lt;/guava.version&gt;</span>
+        <span class="nt">&lt;icu4j.version&gt;</span>72.1<span class="nt">&lt;/icu4j.version&gt;</span>
+        <span class="nt">&lt;commons-collections.version&gt;</span>3.2.2<span class="nt">&lt;/commons-collections.version&gt;</span>
+        <span class="nt">&lt;commons-collections4.version&gt;</span>4.4<span class="nt">&lt;/commons-collections4.version&gt;</span>
+        <span class="nt">&lt;velocity.version&gt;</span>2.3<span class="nt">&lt;/velocity.version&gt;</span>
+        <span class="nt">&lt;wikitext.version&gt;</span>3.0.45.202211090110<span class="nt">&lt;/wikitext.version&gt;</span>
+        <span class="nt">&lt;flexmark.version&gt;</span>0.64.0<span class="nt">&lt;/flexmark.version&gt;</span>
+        <span class="nt">&lt;qldb.driver.version&gt;</span>2.3.1<span class="nt">&lt;/qldb.driver.version&gt;</span>
+        <span class="nt">&lt;qldb.sdk.version&gt;</span>1.12.386<span class="nt">&lt;/qldb.sdk.version&gt;</span>
+        <span class="nt">&lt;cassandra.version&gt;</span>1.17.6<span class="nt">&lt;/cassandra.version&gt;</span>
+        <span class="nt">&lt;cassandra.driver.version&gt;</span>3.11.3<span class="nt">&lt;/cassandra.driver.version&gt;</span>
+        <span class="nt">&lt;jedis.version&gt;</span>4.3.1<span class="nt">&lt;/jedis.version&gt;</span>
+        <span class="nt">&lt;spark.version&gt;</span>3.3.1<span class="nt">&lt;/spark.version&gt;</span>
+        <span class="nt">&lt;path-to-regexp.version&gt;</span>6.2.1<span class="nt">&lt;/path-to-regexp.version&gt;</span>
+        <span class="nt">&lt;javax.websocket-api.version&gt;</span>1.1<span class="nt">&lt;/javax.websocket-api.version&gt;</span>
+        <span class="nt">&lt;jacoco.version&gt;</span>0.8.11<span class="nt">&lt;/jacoco.version&gt;</span>
+
+        <span class="nt">&lt;jakarta.validation.version&gt;</span>3.0.2<span class="nt">&lt;/jakarta.validation.version&gt;</span>
+        <span class="nt">&lt;org.springdoc.openapi.ui.version&gt;</span>1.7.0<span class="nt">&lt;/org.springdoc.openapi.ui.version&gt;</span>
+        <span class="nt">&lt;swagger-annotations.version&gt;</span>1.6.9<span class="nt">&lt;/swagger-annotations.version&gt;</span>
+
+        <span class="nt">&lt;profile.content.phase&gt;</span>none<span class="nt">&lt;/profile.content.phase&gt;</span>
+
+    <span class="nt">&lt;/properties&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Create new folder <code>branding</code> and navigate to it.</li>
-<li>Create new <code>modules/branding/pom.xml</code> file.</li>
-<li>Paste the following content:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-    <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
-    <span class="nt">&lt;/parent&gt;</span>
-
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - Branding<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-branding<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div>
+</details>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Create Branding resources:</p>
+<h4 id="create-branding-resources">Create Branding Resources</h4>
 <ul>
 <li>Navigate to the <code>branding</code> folder.</li>
 <li>Create <code>src/main/resources/META-INF/dirigible/ide-branding/</code> folder structure and navigate to it.</li>
 <li>Create <code>branding.js</code> and <code>custom-stack.svg</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">branding.js</label><label for="__tabbed_2_2">custom-stack.svg</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">branding.js</label><label for="__tabbed_3_2">custom-stack.svg</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Create new <code>modules/branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js</code> file.</li>
+<li>Create new <code>branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js</summary>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">brandingInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Custom Stack&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Custom Stack&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">brandUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.dirigible.io&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">brandUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://github.com/dirigiblelabs/sample-custom-stack&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">icons</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">faviconIco</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/v4/web/ide-branding/favicon.ico&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">favicon32</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/v4/web/ide-branding/favicon-32x32.png&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">favicon16</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/v4/web/ide-branding/favicon-16x16.png&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">faviconIco</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/ide-branding/favicon.ico&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">favicon32</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/ide-branding/favicon-32x32.png&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">favicon16</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/ide-branding/favicon-16x16.png&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nx">logo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/v4/web/ide-branding/custom-stack.svg&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nx">logo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/ide-branding/custom-stack.svg&#39;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </code></pre></div>
+</details>
 <div class="admonition warning">
 <p class="admonition-title">Favicons</p>
 <p>For the sake of simplicity, the favicon files were omitted.</p>
@@ -3249,53 +3676,53 @@
 </div>
 <div class="tabbed-block">
 <ol>
-<li>Create new <code>modules/branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg</code> file.</li>
+<li>Create new <code>branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
+<details class="abstract">
+<summary>branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg</summary>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
 <span class="nt">&lt;svg</span> <span class="na">style=</span><span class="s">&quot;filter: invert(100%);&quot;</span>
-   <span class="na">width=</span><span class="s">&quot;24&quot;</span>
-   <span class="na">height=</span><span class="s">&quot;24&quot;</span>
-   <span class="na">viewBox=</span><span class="s">&quot;0 0 6.3499999 6.3500002&quot;</span>
-   <span class="na">version=</span><span class="s">&quot;1.1&quot;</span>
-   <span class="na">id=</span><span class="s">&quot;svg5&quot;</span>
-   <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span>
-   <span class="na">xmlns:svg=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;defs</span>
-     <span class="na">id=</span><span class="s">&quot;defs2&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;g</span>
-     <span class="na">id=</span><span class="s">&quot;layer1&quot;</span>
-     <span class="na">transform=</span><span class="s">&quot;matrix(1.0590909,0,0,1.0590909,-0.18761367,-0.18761367)&quot;</span><span class="nt">&gt;</span>
+    <span class="na">width=</span><span class="s">&quot;24&quot;</span>
+    <span class="na">height=</span><span class="s">&quot;24&quot;</span>
+    <span class="na">viewBox=</span><span class="s">&quot;0 0 6.3499999 6.3500002&quot;</span>
+    <span class="na">version=</span><span class="s">&quot;1.1&quot;</span>
+    <span class="na">id=</span><span class="s">&quot;svg5&quot;</span>
+    <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span>
+    <span class="na">xmlns:svg=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;defs</span>
+        <span class="na">id=</span><span class="s">&quot;defs2&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;g</span>
+        <span class="na">id=</span><span class="s">&quot;layer1&quot;</span>
+        <span class="na">transform=</span><span class="s">&quot;matrix(1.0590909,0,0,1.0590909,-0.18761367,-0.18761367)&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;path</span>
-       <span class="na">id=</span><span class="s">&quot;path1074&quot;</span>
-       <span class="na">style=</span><span class="s">&quot;fill-opacity:1;stroke:none;stroke-width:2.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1&quot;</span>
-       <span class="na">d=</span><span class="s">&quot;M 12,1 A 11,11 0 0 0 1,12 11,11 0 0 0 12,23 11,11 0 0 0 23,12 11,11 0 0 0 12,1 Z m -0.101562,4.3378906 c 0.955078,0 1.796875,0.15625 2.523437,0.4667969 0.732422,0.3046875 1.294922,0.7558594 1.6875,1.3535156 0.392578,0.5976562 0.603516,1.2734376 0.632813,2.0292969 L 15.107422,9.3105469 C 15.019531,8.4960938 14.720703,7.8808594 14.210938,7.4648438 13.707031,7.0488281 12.958984,6.8417969 11.96875,6.8417969 c -1.03125,0 -1.783203,0.1894531 -2.2578125,0.5703125 -0.46875,0.375 -0.703125,0.8300781 -0.703125,1.3632812 0,0.4628906 0.1660156,0.84375 0.5,1.1425782 0.328125,0.2988282 1.1835935,0.6054692 2.5664065,0.9218752 1.388672,0.310547 2.341797,0.583984 2.857422,0.818359 0.75,0.345703 1.302734,0.785156 1.660156,1.318359 0.357422,0.527344 0.537109,1.136719 0.537109,1.828126 0,0.685546 -0.197265,1.332031 -0.589844,1.941406 -0.392578,0.603515 -0.957031,1.074219 -1.695312,1.414062 -0.732422,0.333985 -1.558594,0.501953 -2.478516,0.501953 -1.166015,0 -2.144531,-0.169922 -2.9355465,-0.509765 C 8.6445313,17.8125 8.0253906,17.302734 7.5742188,16.623047 7.1289063,15.9375 6.8945312,15.164062 6.8710938,14.302734 l 1.609375,-0.140625 c 0.076172,0.644532 0.2519531,1.173829 0.5273437,1.589844 0.28125,0.410156 0.7148438,0.744141 1.3007815,1.001953 0.585937,0.251953 1.24414,0.378906 1.976562,0.378906 0.650391,0 1.22461,-0.09766 1.722656,-0.291015 0.498047,-0.193359 0.867188,-0.457031 1.107422,-0.791016 0.246094,-0.339843 0.369141,-0.707031 0.369141,-1.105469 0,-0.404296 -0.117188,-0.755859 -0.351563,-1.054687 C 14.898438,13.585938 14.511719,13.330078 13.972656,13.125 13.626953,12.990234 12.863281,12.783203 11.679688,12.501953 10.496094,12.214844 9.6660156,11.945312 9.1914062,11.693359 8.5761719,11.371094 8.1171875,10.972656 7.8125,10.498047 7.5136719,10.017578 7.3632812,9.4804687 7.3632812,8.8886719 c 10e-8,-0.6503906 0.1855469,-1.2558594 0.5546876,-1.8183594 0.3691406,-0.5683593 0.9082031,-1 1.6171874,-1.2929687 C 10.244141,5.484375 11.03125,5.3378906 11.898438,5.3378906 Z&quot;</span>
-       <span class="na">transform=</span><span class="s">&quot;scale(0.26458334)&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/g&gt;</span>
+        <span class="na">id=</span><span class="s">&quot;path1074&quot;</span>
+        <span class="na">style=</span><span class="s">&quot;fill-opacity:1;stroke:none;stroke-width:2.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1&quot;</span>
+        <span class="na">d=</span><span class="s">&quot;M 12,1 A 11,11 0 0 0 1,12 11,11 0 0 0 12,23 11,11 0 0 0 23,12 11,11 0 0 0 12,1 Z m -0.101562,4.3378906 c 0.955078,0 1.796875,0.15625 2.523437,0.4667969 0.732422,0.3046875 1.294922,0.7558594 1.6875,1.3535156 0.392578,0.5976562 0.603516,1.2734376 0.632813,2.0292969 L 15.107422,9.3105469 C 15.019531,8.4960938 14.720703,7.8808594 14.210938,7.4648438 13.707031,7.0488281 12.958984,6.8417969 11.96875,6.8417969 c -1.03125,0 -1.783203,0.1894531 -2.2578125,0.5703125 -0.46875,0.375 -0.703125,0.8300781 -0.703125,1.3632812 0,0.4628906 0.1660156,0.84375 0.5,1.1425782 0.328125,0.2988282 1.1835935,0.6054692 2.5664065,0.9218752 1.388672,0.310547 2.341797,0.583984 2.857422,0.818359 0.75,0.345703 1.302734,0.785156 1.660156,1.318359 0.357422,0.527344 0.537109,1.136719 0.537109,1.828126 0,0.685546 -0.197265,1.332031 -0.589844,1.941406 -0.392578,0.603515 -0.957031,1.074219 -1.695312,1.414062 -0.732422,0.333985 -1.558594,0.501953 -2.478516,0.501953 -1.166015,0 -2.144531,-0.169922 -2.9355465,-0.509765 C 8.6445313,17.8125 8.0253906,17.302734 7.5742188,16.623047 7.1289063,15.9375 6.8945312,15.164062 6.8710938,14.302734 l 1.609375,-0.140625 c 0.076172,0.644532 0.2519531,1.173829 0.5273437,1.589844 0.28125,0.410156 0.7148438,0.744141 1.3007815,1.001953 0.585937,0.251953 1.24414,0.378906 1.976562,0.378906 0.650391,0 1.22461,-0.09766 1.722656,-0.291015 0.498047,-0.193359 0.867188,-0.457031 1.107422,-0.791016 0.246094,-0.339843 0.369141,-0.707031 0.369141,-1.105469 0,-0.404296 -0.117188,-0.755859 -0.351563,-1.054687 C 14.898438,13.585938 14.511719,13.330078 13.972656,13.125 13.626953,12.990234 12.863281,12.783203 11.679688,12.501953 10.496094,12.214844 9.6660156,11.945312 9.1914062,11.693359 8.5761719,11.371094 8.1171875,10.972656 7.8125,10.498047 7.5136719,10.017578 7.3632812,9.4804687 7.3632812,8.8886719 c 10e-8,-0.6503906 0.1855469,-1.2558594 0.5546876,-1.8183594 0.3691406,-0.5683593 0.9082031,-1 1.6171874,-1.2929687 C 10.244141,5.484375 11.03125,5.3378906 11.898438,5.3378906 Z&quot;</span>
+        <span class="na">transform=</span><span class="s">&quot;scale(0.26458334)&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/g&gt;</span>
 <span class="nt">&lt;/svg&gt;</span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Add Modules Dependency:</p>
+<h4 id="add-branding-dependency">Add Branding Dependency</h4>
 <ul>
-<li>Navigate to the <code>releng</code> folder.</li>
+<li>Navigate to the <code>application</code> folder.</li>
 <li>Open the <code>pom.xml</code> file.</li>
 <li>Make the following changes:</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Add Modules Dependency</label><label for="__tabbed_3_2">Exclude Default Branding</label><label for="__tabbed_3_3">Final pom.xml</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Add Branding Dependency</label><label for="__tabbed_4_2">Exclude Default Branding</label><label for="__tabbed_4_3">Final pom.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>Navigate to the <code>&lt;dependencies&gt;</code> section.</li>
 <li>
 <p>Add the following dependency:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Custom Stack Modules --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-all<span class="nt">&lt;/artifactId&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div>
@@ -3306,16 +3733,16 @@
 <ol>
 <li>Navigate to the <code>&lt;dependencies&gt;</code> section.</li>
 <li>
-<p>Edit the <code>dirigible-server-spring</code> dependency:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Dirigible --&gt;</span>
+<p>Edit the <code>dirigible-components-group-ide</code> dependency:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- IDE --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>dirigible-server-spring<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-ide<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
 <span class="hll">    <span class="nt">&lt;exclusions&gt;</span>
 </span>        <span class="nt">&lt;exclusion&gt;</span>
             <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>dirigible-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;/exclusion&gt;</span>
 <span class="hll">    <span class="nt">&lt;/exclusions&gt;</span>
 </span><span class="nt">&lt;/dependency&gt;</span>
@@ -3324,29 +3751,177 @@
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/    maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+<details class="abstract">
+<summary>application/pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Releng - Spring Boot<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-spring-boot<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;name&gt;</span>custom - stack - application<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-application<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Core --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>com.zaxxer<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>HikariCP-java7<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Security --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-basic<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-keycloak<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-database<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Engine --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-engines<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.validation<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>validation-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>cxf-rt-frontend-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>
+                        cxf-spring-boot-starter-jaxrs
+                    <span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-engine-command<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- IDE --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-ide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>dirigible-components-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- API --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Resources --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-resources<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-oauth2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Templates --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-templates<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.codeborne<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>selenide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>7.2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Drivers --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-database-mongodb-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.sap.cloud.db.jdbc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>ngdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${ngdbc.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>net.snowflake<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>snowflake-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${snowflake.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-tests-framework<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
 
     <span class="nt">&lt;build&gt;</span>
         <span class="nt">&lt;plugins&gt;</span>
             <span class="nt">&lt;plugin&gt;</span>
                 <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
                 <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>${spring.boot.version}<span class="nt">&lt;/version&gt;</span>
                 <span class="nt">&lt;configuration&gt;</span>
-                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.custom.platform.CustomPlatformApplication<span class="nt">&lt;/mainClass&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.samples.CustomStackApplication<span class="nt">&lt;/mainClass&gt;</span>
                 <span class="nt">&lt;/configuration&gt;</span>
                 <span class="nt">&lt;executions&gt;</span>
                     <span class="nt">&lt;execution&gt;</span>
@@ -3355,6 +3930,22 @@
                         <span class="nt">&lt;/goals&gt;</span>
                     <span class="nt">&lt;/execution&gt;</span>
                 <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>pl.project13.maven<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>git-commit-id-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${git-commit-id-plugin.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>get-the-git-infos<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>revision<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;dotGitDirectory&gt;</span>../.git<span class="nt">&lt;/dotGitDirectory&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
             <span class="nt">&lt;/plugin&gt;</span>
         <span class="nt">&lt;/plugins&gt;</span>
         <span class="nt">&lt;resources&gt;</span>
@@ -3365,63 +3956,13 @@
         <span class="nt">&lt;/resources&gt;</span>
     <span class="nt">&lt;/build&gt;</span>
 
-    <span class="nt">&lt;dependencies&gt;</span>
-
-        <span class="cm">&lt;!-- Custom Stack Modules --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-all<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-
-        <span class="cm">&lt;!-- Dirigible --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>dirigible-server-spring<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;exclusions&gt;</span>
-                <span class="nt">&lt;exclusion&gt;</span>
-                    <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
-                    <span class="nt">&lt;artifactId&gt;</span>dirigible-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;/exclusion&gt;</span>
-            <span class="nt">&lt;/exclusions&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-
-        <span class="cm">&lt;!-- Platform --&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${slf4j.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${logback.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${logback.version}<span class="nt">&lt;/version&gt;</span>
-            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
-            <span class="nt">&lt;version&gt;</span>${spring.boot.version}<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
-
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Build the <em>Custom Platform</em>.</p>
+<h4 id="build-the-custom-platform">Build the Custom Platform</h4>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
@@ -3430,28 +3971,29 @@
 </code></pre></div>
 </li>
 </ul>
-</li>
-<li>
-<p>Run the <em>Custom Platform</em>.</p>
+<h4 id="run-the-custom-platform">Run the Custom Platform</h4>
 <ul>
-<li>Navigate to the <code>releng/target</code> folder.</li>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
-<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Platform</em>:</p>
-<div class="highlight"><pre><span></span><code>java -jar custom-stack-spring-boot-*.jar
+<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Debugging</p>
-<p>To run in debug mode, execute the following command:</p>
-<div class="highlight"><pre><span></span><code>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar custom-stack-spring-boot-*.jar
-</code></pre></div>
-</div>
 </li>
 <li>
 <p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
 </li>
 </ul>
-</li>
-</ol>
+<h2 id="next-steps">Next Steps</h2>
+<div class="admonition success">
+<p class="admonition-title">Section Completed</p>
+<p>After completing the steps in this tutorial, you would have:</p>
+<ul>
+<li>Branding Maven Module.</li>
+<li>Eclipse Dirigible Stack wih custom branding running at <a href="http://localhost:8080/">http://localhost:8080</a>.</li>
+</ul>
+<p>Continue to the <a href="../facade/">Facade</a> section to create Java facade and TypeScript API for the Custom Stack.</p>
+<p><em><strong>Note:</strong> The complete content of the Custom Stack tutorial is available at: <a href="https://github.com/dirigiblelabs/sample-custom-stack">https://github.com/dirigiblelabs/sample-custom-stack</a></em></p>
+</div>
 
 
   
