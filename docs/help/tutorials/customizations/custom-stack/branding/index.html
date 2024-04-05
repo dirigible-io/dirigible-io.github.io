@@ -3281,15 +3281,16 @@
 <ul>
 <li>Navigate to the root folder of the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>Open the <code>pom.xml</code> file.</li>
-<li>Edit the <code>&lt;modules&gt;</code> section.</li>
+<li>Navigate to the <code>&lt;modules&gt;</code> section.</li>
+<li>Add the following module:</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">pom.xml</label><label for="__tabbed_2_2">Final pom.xml</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;modules&gt;</span>
     <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
-    <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
-<span class="nt">&lt;/modules&gt;</span>
+<span class="hll">    <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
+</span><span class="nt">&lt;/modules&gt;</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3931,22 +3932,28 @@
                     <span class="nt">&lt;/execution&gt;</span>
                 <span class="nt">&lt;/executions&gt;</span>
             <span class="nt">&lt;/plugin&gt;</span>
-            <span class="nt">&lt;plugin&gt;</span>
-                <span class="nt">&lt;groupId&gt;</span>pl.project13.maven<span class="nt">&lt;/groupId&gt;</span>
-                <span class="nt">&lt;artifactId&gt;</span>git-commit-id-plugin<span class="nt">&lt;/artifactId&gt;</span>
-                <span class="nt">&lt;version&gt;</span>${git-commit-id-plugin.version}<span class="nt">&lt;/version&gt;</span>
-                <span class="nt">&lt;executions&gt;</span>
-                    <span class="nt">&lt;execution&gt;</span>
-                        <span class="nt">&lt;id&gt;</span>get-the-git-infos<span class="nt">&lt;/id&gt;</span>
-                        <span class="nt">&lt;goals&gt;</span>
-                            <span class="nt">&lt;goal&gt;</span>revision<span class="nt">&lt;/goal&gt;</span>
-                        <span class="nt">&lt;/goals&gt;</span>
-                    <span class="nt">&lt;/execution&gt;</span>
-                <span class="nt">&lt;/executions&gt;</span>
-                <span class="nt">&lt;configuration&gt;</span>
-                    <span class="nt">&lt;dotGitDirectory&gt;</span>../.git<span class="nt">&lt;/dotGitDirectory&gt;</span>
-                <span class="nt">&lt;/configuration&gt;</span>
-            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="cm">&lt;!-- </span>
+<span class="cm">                Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
+<span class="cm">                This is needed for the info in the &quot;About&quot; view.</span>
+<span class="cm">            --&gt;</span>
+            <span class="cm">&lt;!--</span>
+<span class="cm">            &lt;plugin&gt;</span>
+<span class="cm">                &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
+<span class="cm">                &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
+<span class="cm">                &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
+<span class="cm">                &lt;executions&gt;</span>
+<span class="cm">                    &lt;execution&gt;</span>
+<span class="cm">                        &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
+<span class="cm">                        &lt;goals&gt;</span>
+<span class="cm">                            &lt;goal&gt;revision&lt;/goal&gt;</span>
+<span class="cm">                        &lt;/goals&gt;</span>
+<span class="cm">                    &lt;/execution&gt;</span>
+<span class="cm">                &lt;/executions&gt;</span>
+<span class="cm">                &lt;configuration&gt;</span>
+<span class="cm">                    &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">                &lt;/configuration&gt;</span>
+<span class="cm">            &lt;/plugin&gt;</span>
+<span class="cm">            --&gt;</span>
         <span class="nt">&lt;/plugins&gt;</span>
         <span class="nt">&lt;resources&gt;</span>
             <span class="nt">&lt;resource&gt;</span>
@@ -3983,6 +3990,10 @@
 <p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
 </li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Reset Theme</p>
+<p>If the branding changes aren't visible, clear the browser cache and reset the theme by selecting <strong>Theme &#8594; Reset</strong> in the top right corner.</p>
+</div>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition success">
 <p class="admonition-title">Section Completed</p>

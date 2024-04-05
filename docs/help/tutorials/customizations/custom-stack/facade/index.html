@@ -15,7 +15,7 @@
     
     
       
-        <title>Facade - Eclipse Dirigible Documentation</title>
+        <title>Custom Stack - Facade - Eclipse Dirigible Documentation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#facade" class="md-skip">
+        <a href="#custom-stack-facade" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Facade
+              Custom Stack - Facade
             
           </span>
         </div>
@@ -982,8 +982,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-apis-module" class="md-nav__link">
+    Create APIs Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-module-dependency" class="md-nav__link">
+    Add Module Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-platform" class="md-nav__link">
+    Build the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-platform" class="md-nav__link">
+    Run the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-typescript-api" class="md-nav__link">
+    Test the TypeScript API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -3089,8 +3150,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-apis-module" class="md-nav__link">
+    Create APIs Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-module-dependency" class="md-nav__link">
+    Add Module Dependency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-custom-platform" class="md-nav__link">
+    Build the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-custom-platform" class="md-nav__link">
+    Run the Custom Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-typescript-api" class="md-nav__link">
+    Test the TypeScript API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -3115,193 +3237,747 @@
   </a>
 
 
-<h1 id="facade">Facade</h1>
-<p>This tutorial will guide you through the creation of Java facade and JavaScript API for the Eclipse Dirigible Custom Stack.</p>
+<h1 id="custom-stack-facade">Custom Stack - Facade</h1>
+<h2 id="overview">Overview</h2>
+<p>This section will guide you through the process of creation of <code>Java Facade</code> and <code>TypeScript API</code> for the Eclipse Dirigible Custom Stack.</p>
 <div class="admonition note">
 <p class="admonition-title">Prerequisites</p>
-<p>This tutorial is assuming, that you've successfully completed the following tutorials:</p>
 <ul>
-<li><a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/">Custom Stack</a>.</li>
-<li><a href="https://www.dirigible.io/samples/tutorials/customizations/custom-stack/branding/">Branding</a>.</li>
+<li>Node.js 18+ - Node.js versions can be found <a href="https://nodejs.org/en/download">here</a></li>
+<li>esbuild 0.19+ - esbuild versions can be found <a href="https://esbuild.github.io/getting-started/#install-esbuild">here</a></li>
+<li>tsc 5.2+ - tsc versions can be found <a href="https://www.typescriptlang.org/download">here</a></li>
 </ul>
 </div>
 <h3 id="steps">Steps</h3>
-<ol>
-<li>
-<p>Create Facade Module:</p>
+<h4 id="create-apis-module">Create APIs Module</h4>
 <ul>
 <li>Navigate to the root folder of the custom stack <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
-<li>Navigate to the <code>modules</code> folder.</li>
-<li>Creatae <code>facade</code> folder and navigate to it.</li>
-<li>Create <code>pom.xml</code>, <code>GreetingsFacade.java</code> and <code>greetings.js</code> files.</li>
+<li>Create <code>apis</code> folder and navigate to it.</li>
+<li>Create <code>pom.xml</code>, <code>MyFacade.java</code>, <code>MyApi.ts</code>, <code>project.json</code> and <code>tsconfig.json</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">GreetingsFacade.java</label><label for="__tabbed_1_3">greetings.js</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pom.xml</label><label for="__tabbed_1_2">MyFacade.java</label><label for="__tabbed_1_3">MyApi.ts</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Create new <code>modules/facade/pom.xml</code> file.</li>
+<li>Create new <code>apis/pom.xml</code> file.</li>
 <li>Paste the following content:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+<details class="abstract">
+<summary>apis/pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
     <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
-    <span class="nt">&lt;/parent&gt;</span>
-
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - Facade<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-facade<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Create <code>src/main/java/io/dirigible/custom/platform/facade/</code> folder stucture and navigate to it.</li>
-<li>Create new <code>modules/facade/src/main/java/io/dirigible/custom/platform/facade/GreetingsFacade.java</code> file.</li>
-<li>Paste the following content:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.custom.platform.facade</span><span class="p">;</span><span class="w"></span>
-
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GreetingsFacade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getGreeting</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Welcome to Eclipse Dirigible!&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Create <code>src/main/resources/META-INF/dirigible/custom-stack/</code> folder stucture and navigate to it.</li>
-<li>Create new <code>modules/facade/src/main/resources/META-INF/dirigible/custom-stack/greetings.js</code> file.</li>
-<li>Paste the following content:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">eclipse</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">v3</span><span class="p">.</span><span class="nx">security</span><span class="p">.</span><span class="nx">UserFacade</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Packages</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nx">dirigible</span><span class="p">.</span><span class="nx">custom</span><span class="p">.</span><span class="nx">platform</span><span class="p">.</span><span class="nx">facade</span><span class="p">.</span><span class="nx">GreetingsFacade</span><span class="p">.</span><span class="nx">getGreeting</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`Hello &#39;</span><span class="si">${</span><span class="nx">username</span><span class="si">}</span><span class="sb">&#39;! </span><span class="si">${</span><span class="nx">greeting</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Access to Packages</p>
-<p>Java classes are accessed by Fully Qualified Name (FQN). For classes that are not packaged in <code>java</code>, <code>com</code> or <code>org</code> packages, the <code>Packages</code> object should be used.</p>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Add Modules Dependency:</p>
-<ul>
-<li>Navigate to the <code>modules</code> folder.</li>
-<li>Open the <code>pom.xml</code> file.</li>
-<li>Make the following changes:</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Add Facade Module</label><label for="__tabbed_2_2">Final pom.xml</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Navigate to the <code>&lt;modules&gt;</code> section.</li>
-<li>
-<p>Add the following module:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;modules&gt;</span>
-    <span class="nt">&lt;module&gt;</span>all<span class="nt">&lt;/module&gt;</span>
-    <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
-<span class="hll">    <span class="nt">&lt;module&gt;</span>facade<span class="nt">&lt;/module&gt;</span>
-</span><span class="nt">&lt;/modules&gt;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-    <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
         <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
         <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
         <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
     <span class="nt">&lt;/parent&gt;</span>
 
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - Parent<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
-
-    <span class="nt">&lt;modules&gt;</span>
-        <span class="nt">&lt;module&gt;</span>all<span class="nt">&lt;/module&gt;</span>
-        <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
-        <span class="nt">&lt;module&gt;</span>facade<span class="nt">&lt;/module&gt;</span>
-    <span class="nt">&lt;/modules&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li>Navigate to the <code>all</code> folder.</li>
-<li>Open the <code>pom.xml</code> file.</li>
-<li>Make the following changes:</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Add Facade Dependency</label><label for="__tabbed_3_2">Final pom.xml</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Navigate to the <code>&lt;dependencies&gt;</code> section.</li>
-<li>
-<p>Add the following dependency:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-facade<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-    <span class="nt">&lt;parent&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-parent<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
-    <span class="nt">&lt;/parent&gt;</span>
-
-    <span class="nt">&lt;name&gt;</span>Custom Stack - Modules - All<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-all<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;name&gt;</span>custom - stack - apis<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-apis<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
 
-    <span class="nt">&lt;dependencies&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-branding<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-        <span class="nt">&lt;dependency&gt;</span>
-            <span class="nt">&lt;groupId&gt;</span>io.dirigible.custom.stack<span class="nt">&lt;/groupId&gt;</span>
-            <span class="nt">&lt;artifactId&gt;</span>custom-stack-modules-facade<span class="nt">&lt;/artifactId&gt;</span>
-            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;/dependencies&gt;</span>
-
 <span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The creation of a Java facade is optional, as the same logic can be wrapped/implemented in the TypeScript API only by using the <code>Java.type()</code> function.</p>
+</div>
+<ol>
+<li>Create <code>src/main/java/io/dirigible/samples/</code> folder stucture and navigate to it.</li>
+<li>Create new <code>apis/src/main/java/io/dirigible/samples/MyFacade.java</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>apis/src/main/java/io/dirigible/samples/MyFacade.java</summary>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.dirigible.samples</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyFacade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello, welcome to my custom Eclipse Dirigible stack!&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">customMethod</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Your custom logic here</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Processed input: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">input</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Create <code>src/main/resources/META-INF/dirigible/custom-api/</code> folder stucture and navigate to it.</li>
+<li>Create new <code>apis/src/main/resources/META-INF/dirigible/custom-api/MyApi.ts</code> file.</li>
+<li>Paste the following content:</li>
+</ol>
+<details class="abstract">
+<summary>apis/src/main/resources/META-INF/dirigible/custom-api/MyApi.ts</summary>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyApi</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">facadeInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyFacade</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">greet</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">MyFacade</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">facadeInstance</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">multiply</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">facadeInstance</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">customMethod</span><span class="p">(</span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">facadeInstance</span><span class="p">.</span><span class="nx">customMethod</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Access to Java Classes</p>
+<p>Java classes can be accessed through the <code>Java.type()</code> function by providing the Fully Qualified Name (FQN) <em>(e.g. <code>io.dirigible.samples.MyFacade</code>)</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>To invoke <code>static</code> method of the <code>MyFacade</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">MyFacade</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<p>To create class instance and call a method:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">facadeInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyFacade</span><span class="p">();</span><span class="w"></span>
+<span class="nx">facadeInstance</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Build the <em>Custom Platform</em>.</p>
+</div>
+<h4 id="add-module-dependency">Add Module Dependency</h4>
+<div class="highlight"><pre><span></span><code>- Navigate to the root folder of the project _(e.g. `&lt;my-custom-stack-path&gt;/custom-stack`)_.
+- Open the `pom.xml` file.
+- Make the following changes:
+
+=== &quot;Add APIs Module&quot;
+
+    1. Navigate to the `&lt;modules&gt;` section.
+    1. Add the following module:
+
+        ```xml hl_lines=&quot;2&quot;
+        &lt;modules&gt;
+            &lt;module&gt;apis&lt;/module&gt;
+            &lt;module&gt;application&lt;/module&gt;
+            &lt;module&gt;branding&lt;/module&gt;
+        &lt;/modules&gt;
+        ```
+
+=== &quot;Final pom.xml&quot;
+
+    ??? abstract &quot;pom.xml&quot;
+
+    ```xml
+    &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+        &lt;parent&gt;
+            &lt;groupId&gt;org.sonatype.oss&lt;/groupId&gt;
+            &lt;artifactId&gt;oss-parent&lt;/artifactId&gt;
+            &lt;version&gt;7&lt;/version&gt;
+        &lt;/parent&gt;
+
+        &lt;name&gt;custom - stack - parent&lt;/name&gt;
+        &lt;description&gt;Custom Stack - Sample&lt;/description&gt;
+        &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
+        &lt;artifactId&gt;custom-stack-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+        &lt;packaging&gt;pom&lt;/packaging&gt;
+
+        &lt;inceptionYear&gt;2024&lt;/inceptionYear&gt;
+
+        &lt;url&gt;https://www.dirigible.io&lt;/url&gt;
+        &lt;organization&gt;
+            &lt;name&gt;Eclipse Foundation&lt;/name&gt;
+            &lt;url&gt;https://www.eclipse.org&lt;/url&gt;
+        &lt;/organization&gt;
+        &lt;scm&gt;
+            &lt;url&gt;https://github.com/dirigiblelabs/sample-custom-stack&lt;/url&gt;
+        &lt;/scm&gt;
+
+        &lt;modules&gt;
+            &lt;module&gt;apis&lt;/module&gt;
+            &lt;module&gt;application&lt;/module&gt;
+            &lt;module&gt;branding&lt;/module&gt;
+        &lt;/modules&gt;
+
+        &lt;dependencies&gt;
+
+            &lt;!-- Platform --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+                &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+                &lt;scope&gt;compile&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+                &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
+                &lt;scope&gt;compile&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+                &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+                &lt;scope&gt;compile&lt;/scope&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Commons --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                &lt;artifactId&gt;dirigible-commons-config&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Spring Boot --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+                &lt;exclusions&gt;
+                    &lt;exclusion&gt;
+                        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+                        &lt;artifactId&gt;log4j-to-slf4j&lt;/artifactId&gt;
+                    &lt;/exclusion&gt;
+                &lt;/exclusions&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-websocket&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-data-jdbc&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+                &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;
+                    &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-security-test&lt;/artifactId&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Date Type Utils --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.fasterxml.jackson.datatype&lt;/groupId&gt;
+                &lt;artifactId&gt;jackson-datatype-joda&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Swagger --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+                &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
+                &lt;version&gt;${org.springdoc.openapi.ui.version}&lt;/version&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Data Access --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+                &lt;artifactId&gt;h2&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- WebJars --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.webjars&lt;/groupId&gt;
+                &lt;artifactId&gt;webjars-locator&lt;/artifactId&gt;
+                &lt;version&gt;${webjars-locator}&lt;/version&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- Olingo --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.apache.olingo&lt;/groupId&gt;
+                &lt;artifactId&gt;olingo-odata2-lib&lt;/artifactId&gt;
+                &lt;version&gt;${olingo.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;exclusions&gt;
+                    &lt;exclusion&gt;
+                        &lt;groupId&gt;javax.ws.rs&lt;/groupId&gt;
+                        &lt;artifactId&gt;javax.ws.rs-api&lt;/artifactId&gt;
+                    &lt;/exclusion&gt;
+                &lt;/exclusions&gt;
+            &lt;/dependency&gt;
+
+            &lt;dependency&gt;
+                &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
+                &lt;artifactId&gt;gson&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+
+        &lt;/dependencies&gt;
+
+        &lt;dependencyManagement&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-dependencies&lt;/artifactId&gt;
+                    &lt;version&gt;${dirigible.version}&lt;/version&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;scope&gt;import&lt;/scope&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/dependencyManagement&gt;
+
+        &lt;profiles&gt;
+            &lt;profile&gt;
+                &lt;id&gt;default&lt;/id&gt;
+                &lt;activation&gt;
+                    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+                &lt;/activation&gt;
+                &lt;build&gt;
+                    &lt;plugins&gt;
+                        &lt;plugin&gt;
+                            &lt;groupId&gt;org.jacoco&lt;/groupId&gt;
+                            &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;
+                            &lt;version&gt;${jacoco.version}&lt;/version&gt;
+                            &lt;executions&gt;
+                                &lt;execution&gt;
+                                    &lt;id&gt;prepare-agent&lt;/id&gt;
+                                    &lt;goals&gt;
+                                        &lt;goal&gt;prepare-agent&lt;/goal&gt;
+                                    &lt;/goals&gt;
+                                &lt;/execution&gt;
+                            &lt;/executions&gt;
+                            &lt;configuration&gt;
+                                &lt;rules&gt;
+                                    &lt;rule&gt;
+                                        &lt;element&gt;SOURCEFILE&lt;/element&gt;
+                                        &lt;excludes&gt;
+                                            &lt;exclude&gt;*src/test/*&lt;/exclude&gt;
+                                        &lt;/excludes&gt;
+                                    &lt;/rule&gt;
+                                &lt;/rules&gt;
+                            &lt;/configuration&gt;
+                        &lt;/plugin&gt;
+                        &lt;plugin&gt;
+                            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                            &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                            &lt;version&gt;${maven.compiler.plugin.version}&lt;/version&gt;
+                            &lt;configuration&gt;
+                                &lt;source&gt;${maven.compiler.source}&lt;/source&gt;
+                                &lt;target&gt;${maven.compiler.target}&lt;/target&gt;
+                                &lt;debug&gt;true&lt;/debug&gt;
+                                &lt;debuglevel&gt;lines,vars,source&lt;/debuglevel&gt;
+                            &lt;/configuration&gt;
+                        &lt;/plugin&gt;
+                    &lt;/plugins&gt;
+                &lt;/build&gt;
+            &lt;/profile&gt;
+        &lt;/profiles&gt;
+
+        &lt;properties&gt;
+            &lt;project.title&gt;custom stack&lt;/project.title&gt;
+
+            &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+
+            &lt;dirigible.version&gt;10.2.7&lt;/dirigible.version&gt;
+
+            &lt;java.version&gt;17&lt;/java.version&gt;
+            &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+            &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+
+            &lt;maven.resource.plugin.version&gt;3.3.0&lt;/maven.resource.plugin.version&gt;
+            &lt;maven.clean.plugin.version&gt;3.2.0&lt;/maven.clean.plugin.version&gt;
+            &lt;maven.clean.plugin.directory&gt;src/main/resources/META-INF/dirigible&lt;/maven.clean.plugin.directory&gt;
+            &lt;maven.compiler.plugin.version&gt;3.13.0&lt;/maven.compiler.plugin.version&gt;
+            &lt;maven-surefire-plugin.version&gt;2.22.2&lt;/maven-surefire-plugin.version&gt;
+            &lt;maven.scm.plugin.version&gt;1.13.0&lt;/maven.scm.plugin.version&gt;
+            &lt;scmVersionType&gt;branch&lt;/scmVersionType&gt;
+            &lt;commons.io&gt;2.11.0&lt;/commons.io&gt;
+            &lt;commons.codec&gt;1.15&lt;/commons.codec&gt;
+            &lt;commons.lang3&gt;3.12.0&lt;/commons.lang3&gt;
+            &lt;commons.exec&gt;1.3&lt;/commons.exec&gt;
+            &lt;commons.text&gt;1.10.0&lt;/commons.text&gt;
+            &lt;gson.version&gt;2.10.1&lt;/gson.version&gt;
+            &lt;mockito.version&gt;4.11.0&lt;/mockito.version&gt;
+            &lt;hamcrest.all.version&gt;1.3&lt;/hamcrest.all.version&gt;
+            &lt;retrofit.version&gt;1.8.0&lt;/retrofit.version&gt;
+            &lt;okhttp3.version&gt;4.10.0&lt;/okhttp3.version&gt;
+            &lt;slf4j.version&gt;1.7.36&lt;/slf4j.version&gt;
+            &lt;slf4j.simple.version&gt;1.7.12&lt;/slf4j.simple.version&gt;
+            &lt;logback.version&gt;1.4.5&lt;/logback.version&gt;
+            &lt;commons-dbcp2.version&gt;2.9.0&lt;/commons-dbcp2.version&gt;
+
+            &lt;postgresql.version&gt;42.7.0&lt;/postgresql.version&gt;
+            &lt;ngdbc.version&gt;2.20.11&lt;/ngdbc.version&gt;
+            &lt;snowflake.version&gt;3.15.0&lt;/snowflake.version&gt;
+
+            &lt;activemq.version&gt;5.17.3&lt;/activemq.version&gt;
+            &lt;jsr250-api.version&gt;1.0&lt;/jsr250-api.version&gt;
+            &lt;jetty.version&gt;9.4.48.v20220622&lt;/jetty.version&gt;
+            &lt;lucene.version&gt;9.4.2&lt;/lucene.version&gt;
+            &lt;chemistry.version&gt;1.1.0&lt;/chemistry.version&gt;
+            &lt;flowable.version&gt;6.8.0&lt;/flowable.version&gt;
+            &lt;jaxb.version&gt;2.3.0&lt;/jaxb.version&gt;
+            &lt;jaxws.version&gt;2.3.3&lt;/jaxws.version&gt;
+            &lt;jakarta.ws.rs-api.version&gt;2.1.5&lt;/jakarta.ws.rs-api.version&gt;
+            &lt;license-maven-plugin.version&gt;4.3&lt;/license-maven-plugin.version&gt;
+            &lt;persistence.api.version&gt;2.2.3&lt;/persistence.api.version&gt;
+            &lt;jgit.version&gt;6.4.0.202211300538-r&lt;/jgit.version&gt;
+            &lt;javax.mail.api.version&gt;1.6.4&lt;/javax.mail.api.version&gt;
+            &lt;olingo.version&gt;2.0.13&lt;/olingo.version&gt;
+            &lt;kafka.version&gt;3.3.1&lt;/kafka.version&gt;
+            &lt;git-commit-id-plugin.version&gt;4.9.10&lt;/git-commit-id-plugin.version&gt;
+            &lt;mongodb.version&gt;3.12.11&lt;/mongodb.version&gt;
+            &lt;caffeine.version&gt;3.1.2&lt;/caffeine.version&gt;
+            &lt;liquibase-core.version&gt;4.16.1&lt;/liquibase-core.version&gt;
+            &lt;commons-csv.version&gt;1.9.0&lt;/commons-csv.version&gt;
+            &lt;jquery-ui.version&gt;1.13.0&lt;/jquery-ui.version&gt;
+            &lt;sap-theming__theming-base-content.version&gt;11.1.42&lt;/sap-theming__theming-base-content.version&gt;
+            &lt;fundamental-styles.version&gt;0.24.4&lt;/fundamental-styles.version&gt;
+            &lt;angular-aria.version&gt;1.8.2&lt;/angular-aria.version&gt;
+            &lt;split.js.version&gt;1.6.5&lt;/split.js.version&gt;
+            &lt;diff.version&gt;5.1.0&lt;/diff.version&gt;
+            &lt;monaco-editor.version&gt;0.33.0&lt;/monaco-editor.version&gt;
+            &lt;requirejs.version&gt;2.3.6&lt;/requirejs.version&gt;
+            &lt;jstree.version&gt;3.3.12&lt;/jstree.version&gt;
+            &lt;jquery.version&gt;3.6.0&lt;/jquery.version&gt;
+            &lt;jqplot.version&gt;1.0.8r1250&lt;/jqplot.version&gt;
+            &lt;bootstrap.version&gt;3.3.7&lt;/bootstrap.version&gt;
+            &lt;es5-shim.version&gt;4.6.7&lt;/es5-shim.version&gt;
+            &lt;angular-file-upload.version&gt;2.6.1&lt;/angular-file-upload.version&gt;
+            &lt;angularjs.version&gt;1.8.2&lt;/angularjs.version&gt;
+            &lt;fontawesome.version&gt;4.7.0&lt;/fontawesome.version&gt;
+            &lt;classgraph.version&gt;4.8.154&lt;/classgraph.version&gt;
+            &lt;commons-compress.version&gt;1.22&lt;/commons-compress.version&gt;
+            &lt;testcontainers.elasticsearch.version&gt;1.17.6&lt;/testcontainers.elasticsearch.version&gt;
+            &lt;testcontainers.version&gt;1.17.6&lt;/testcontainers.version&gt;
+            &lt;testcontainers.rabbitmq.version&gt;1.17.6&lt;/testcontainers.rabbitmq.version&gt;
+            &lt;amqp.client.version&gt;5.16.0&lt;/amqp.client.version&gt;
+            &lt;elasticsearch.client.version&gt;7.7.1&lt;/elasticsearch.client.version&gt;
+            &lt;jetcd.core.version&gt;0.7.5&lt;/jetcd.core.version&gt;
+            &lt;jetcd.test.version&gt;0.5.4&lt;/jetcd.test.version&gt;
+            &lt;logcaptor.version&gt;2.7.10&lt;/logcaptor.version&gt;
+            &lt;exec.maven.plugin&gt;3.0.0&lt;/exec.maven.plugin&gt;
+
+            &lt;spring-context-support.version&gt;5.3.24&lt;/spring-context-support.version&gt;
+            &lt;webjars-locator&gt;0.51&lt;/webjars-locator&gt;
+
+            &lt;keycloak-adapter-bom.version&gt;20.0.2&lt;/keycloak-adapter-bom.version&gt;
+            &lt;hikaricp.version&gt;5.0.1&lt;/hikaricp.version&gt;
+            &lt;validator.version&gt;1.7&lt;/validator.version&gt;
+            &lt;quartz.version&gt;2.3.2&lt;/quartz.version&gt;
+            &lt;c3p0.version&gt;0.9.5.5&lt;/c3p0.version&gt;
+            &lt;graalvm.version&gt;22.3.1&lt;/graalvm.version&gt;
+            &lt;guava.version&gt;31.1-jre&lt;/guava.version&gt;
+            &lt;icu4j.version&gt;72.1&lt;/icu4j.version&gt;
+            &lt;commons-collections.version&gt;3.2.2&lt;/commons-collections.version&gt;
+            &lt;commons-collections4.version&gt;4.4&lt;/commons-collections4.version&gt;
+            &lt;velocity.version&gt;2.3&lt;/velocity.version&gt;
+            &lt;wikitext.version&gt;3.0.45.202211090110&lt;/wikitext.version&gt;
+            &lt;flexmark.version&gt;0.64.0&lt;/flexmark.version&gt;
+            &lt;qldb.driver.version&gt;2.3.1&lt;/qldb.driver.version&gt;
+            &lt;qldb.sdk.version&gt;1.12.386&lt;/qldb.sdk.version&gt;
+            &lt;cassandra.version&gt;1.17.6&lt;/cassandra.version&gt;
+            &lt;cassandra.driver.version&gt;3.11.3&lt;/cassandra.driver.version&gt;
+            &lt;jedis.version&gt;4.3.1&lt;/jedis.version&gt;
+            &lt;spark.version&gt;3.3.1&lt;/spark.version&gt;
+            &lt;path-to-regexp.version&gt;6.2.1&lt;/path-to-regexp.version&gt;
+            &lt;javax.websocket-api.version&gt;1.1&lt;/javax.websocket-api.version&gt;
+            &lt;jacoco.version&gt;0.8.11&lt;/jacoco.version&gt;
+
+            &lt;jakarta.validation.version&gt;3.0.2&lt;/jakarta.validation.version&gt;
+            &lt;org.springdoc.openapi.ui.version&gt;1.7.0&lt;/org.springdoc.openapi.ui.version&gt;
+            &lt;swagger-annotations.version&gt;1.6.9&lt;/swagger-annotations.version&gt;
+
+            &lt;profile.content.phase&gt;none&lt;/profile.content.phase&gt;
+
+        &lt;/properties&gt;
+    &lt;/project&gt;
+    ```
+
+- Navigate to the `application` folder.
+- Open the `pom.xml` file.
+- Make the following changes:
+
+=== &quot;Add APIs Dependency&quot;
+
+    1. Navigate to the `&lt;dependencies&gt;` section.
+    1. Add the following dependency:
+
+        ```xml
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
+            &lt;artifactId&gt;custom-stack-apis&lt;/artifactId&gt;
+            &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+        &lt;/dependency&gt;
+        ```
+
+=== &quot;Final pom.xml&quot;
+
+    ??? abstract &quot;application/pom.xml&quot;
+
+        ```xml
+        &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+                xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+            &lt;parent&gt;
+                &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
+                &lt;artifactId&gt;custom-stack-parent&lt;/artifactId&gt;
+                &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                &lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;
+            &lt;/parent&gt;
+
+            &lt;name&gt;custom - stack - application&lt;/name&gt;
+            &lt;artifactId&gt;custom-stack-application&lt;/artifactId&gt;
+            &lt;packaging&gt;jar&lt;/packaging&gt;
+
+
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
+                    &lt;artifactId&gt;custom-stack-apis&lt;/artifactId&gt;
+                    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
+                    &lt;artifactId&gt;custom-stack-branding&lt;/artifactId&gt;
+                    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Core --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-core&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;exclusions&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;com.zaxxer&lt;/groupId&gt;
+                            &lt;artifactId&gt;HikariCP-java7&lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                    &lt;/exclusions&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Security --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-security-basic&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-security-keycloak&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Data --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-database&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Engine --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-engines&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;exclusions&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;javax.validation&lt;/groupId&gt;
+                            &lt;artifactId&gt;validation-api&lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+                            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+                            &lt;artifactId&gt;cxf-rt-frontend-jaxrs&lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+                            &lt;artifactId&gt;
+                                cxf-spring-boot-starter-jaxrs
+                            &lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                    &lt;/exclusions&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-engine-command&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- IDE --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-ide&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;exclusions&gt;
+                        &lt;exclusion&gt;
+                            &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                            &lt;artifactId&gt;dirigible-components-ide-ui-branding&lt;/artifactId&gt;
+                        &lt;/exclusion&gt;
+                    &lt;/exclusions&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- API --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-api&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Resources --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-resources&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                &lt;/dependency&gt;
+
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-security-oauth2&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Templates --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-components-group-templates&lt;/artifactId&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                &lt;/dependency&gt;
+
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+
+                &lt;dependency&gt;
+                    &lt;groupId&gt;com.codeborne&lt;/groupId&gt;
+                    &lt;artifactId&gt;selenide&lt;/artifactId&gt;
+                    &lt;version&gt;7.2.2&lt;/version&gt;
+                    &lt;scope&gt;test&lt;/scope&gt;
+                &lt;/dependency&gt;
+
+                &lt;!-- Drivers --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
+                    &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-database-mongodb-jdbc&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;com.sap.cloud.db.jdbc&lt;/groupId&gt;
+                    &lt;artifactId&gt;ngdbc&lt;/artifactId&gt;
+                    &lt;version&gt;${ngdbc.version}&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;net.snowflake&lt;/groupId&gt;
+                    &lt;artifactId&gt;snowflake-jdbc&lt;/artifactId&gt;
+                    &lt;version&gt;${snowflake.version}&lt;/version&gt;
+                &lt;/dependency&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
+                    &lt;artifactId&gt;dirigible-tests-framework&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+
+            &lt;/dependencies&gt;
+
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                        &lt;configuration&gt;
+                            &lt;mainClass&gt;io.dirigible.samples.CustomStackApplication&lt;/mainClass&gt;
+                        &lt;/configuration&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;repackage&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                    &lt;!-- 
+                        Note: Uncomment for git repositories, as this plugin would get the last commit id.
+                        This is needed for the info in the &quot;About&quot; view.
+                    --&gt;
+                    &lt;!--
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;
+                        &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;
+                        &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;id&gt;get-the-git-infos&lt;/id&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;revision&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                        &lt;configuration&gt;
+                            &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;
+                        &lt;/configuration&gt;
+                    &lt;/plugin&gt;
+                    --&gt;
+                &lt;/plugins&gt;
+                &lt;resources&gt;
+                    &lt;resource&gt;
+                        &lt;directory&gt;src/main/resources&lt;/directory&gt;
+                        &lt;filtering&gt;true&lt;/filtering&gt;
+                    &lt;/resource&gt;
+                &lt;/resources&gt;
+            &lt;/build&gt;
+
+        &lt;/project&gt;
+        ```
+</code></pre></div>
+<h4 id="build-the-custom-platform">Build the Custom Platform</h4>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
@@ -3310,52 +3986,123 @@
 </code></pre></div>
 </li>
 </ul>
-</li>
-<li>
-<p>Run the <em>Custom Platform</em>.</p>
+<h4 id="run-the-custom-platform">Run the Custom Platform</h4>
 <ul>
-<li>Navigate to the <code>releng/target</code> folder.</li>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
 <li>
-<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Platform</em>:</p>
-<div class="highlight"><pre><span></span><code>java -jar custom-stack-spring-boot-*.jar
+<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Debugging</p>
-<p>To run in debug mode, execute the following command:</p>
-<div class="highlight"><pre><span></span><code>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar custom-stack-spring-boot-*.jar
-</code></pre></div>
-</div>
 </li>
 <li>
 <p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
 </li>
 </ul>
-</li>
-<li>
-<p>Test the changes.</p>
-<ol>
-<li>Create a project named <code>sample-custom-stack</code>.</li>
-<li>Right click on the <code>sample-custom-stack</code> project and select <strong>New &#8594; JavaScript CJS Service</strong>.</li>
-<li>Enter <code>greeting.js</code> for the name of the JavaScript Service.</li>
+<h4 id="test-the-typescript-api">Test the TypeScript API</h4>
+<ul>
+<li>Create a project named <code>demo-application</code>.</li>
+<li>Right click on the <code>demo-application</code> project and select <strong>New &#8594; TypeScript CJS Service</strong>.</li>
+<li>Enter <code>demo.ts</code> for the name of the TypeScript Service.</li>
 <li>
 <p>Replace the content with the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http/v4/response&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">greetings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;custom-stack/greetings&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">MyApi</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;custom-api/MyApi&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">greetings</span><span class="p">.</span><span class="nx">getMessage</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myApiInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyApi</span><span class="p">();</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">firstNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myApiInstance</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">secondNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myApiInstance</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">customMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">myApiInstance</span><span class="p">.</span><span class="nx">customMethod</span><span class="p">(</span><span class="s2">&quot;sample-custom-stack&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">greetingMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MyApi</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">firstNumber</span><span class="o">:</span><span class="w"> </span><span class="kt">firstNumber</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">secondNumber</span><span class="o">:</span><span class="w"> </span><span class="kt">secondNumber</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">customMethod</span><span class="o">:</span><span class="w"> </span><span class="kt">customMethod</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">greetingMessage</span><span class="o">:</span><span class="w"> </span><span class="kt">greetingMessage</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
 <p>Save the changes.</p>
 </li>
-<li>Open the <strong>Preview</strong> view to see the result.</li>
-</ol>
+<li>Right click on the <code>demo-application</code> project and select <strong>New &#8594; File</strong>.</li>
+<li>
+<p>Enter <code>tsconfig.json</code> for the name of the File.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ESNext&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES6&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;moduleResolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Node&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;baseUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;../&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;lib&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;ESNext&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;DOM&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;sdk/*&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;../modules/src/*&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;/*&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;../*&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;types&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;../modules/types&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 </li>
-</ol>
+<li>
+<p>Save the changes.</p>
+</li>
+<li>Right click on the <code>demo-application</code> project and select <strong>New &#8594; File</strong>.</li>
+<li>
+<p>Enter <code>project.json</code> for the name of the File.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;demo-application&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build TypeScript&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unix&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd /c tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;registry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Save the changes.</p>
+</li>
+<li>Right click on the <code>demo-application</code> project and select <strong>Publish</strong>.</li>
+<li>Right click on the <code>demo-application</code> project and select <strong>Publish</strong>.</li>
+<li>Select the <code>demo.ts</code> from the <strong>Projects</strong> explorer and open the <strong>Preview</strong> view to see the result.</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<div class="admonition success">
+<p class="admonition-title">Section Completed</p>
+<p>After completing the steps in this tutorial, you would have:</p>
+<ul>
+<li>APIs Maven Module.</li>
+<li>Java Facade <code>io.dirigible.samples.MyFacade</code>.</li>
+<li>TypeScript API <code>custom-api/MyApi</code> exposing the Java Facade.</li>
+<li>Sample project utilizing the TypeScript API.</li>
+</ul>
+<p>Continue to the <a href="../dependency/">Dependency</a> section to adding external Maven dependency and use it in the Custom Stack without creating a Java Facade and TypeScript API.</p>
+<p><em><strong>Note:</strong> The complete content of the Custom Stack tutorial is available at: <a href="https://github.com/dirigiblelabs/sample-custom-stack">https://github.com/dirigiblelabs/sample-custom-stack</a></em></p>
+</div>
 
 
   
