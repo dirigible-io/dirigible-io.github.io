@@ -337,4 +337,4 @@ This section will guide you through the process of adding external Maven depende
     - Custom branding of the Eclipse Dirigible Stack.
     - Custom Java Facade and TypeScript API.
 
-    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
+    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)_

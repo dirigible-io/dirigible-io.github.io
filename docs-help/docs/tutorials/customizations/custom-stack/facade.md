@@ -192,7 +192,7 @@ This section will guide you through the process of creation of `Java Facade` and
 				<url>https://www.eclipse.org</url>
 			</organization>
 			<scm>
-				<url>https://github.com/dirigiblelabs/sample-custom-stack</url>
+				<url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
 			</scm>
 
 			<modules>
@@ -785,7 +785,7 @@ This section will guide you through the process of creation of `Java Facade` and
 
 	const firstNumber = myApiInstance.add(5, 3);
 	const secondNumber = myApiInstance.multiply(5, 3);
-	const customMethod = myApiInstance.customMethod("sample-custom-stack");
+	const customMethod = myApiInstance.customMethod("tutorial-custom-stack");
 	const greetingMessage = MyApi.greet();
 
 	const data = {
@@ -871,4 +871,4 @@ This section will guide you through the process of creation of `Java Facade` and
 
     Continue either to the the [Advanced Facade](../advanced-facade/) section or to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
 
-    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
+    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)_

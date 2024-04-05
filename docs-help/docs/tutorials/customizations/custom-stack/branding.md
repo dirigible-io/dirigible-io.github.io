@@ -89,7 +89,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 				<url>https://www.eclipse.org</url>
 			</organization>
 			<scm>
-				<url>https://github.com/dirigiblelabs/sample-custom-stack</url>
+				<url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
 			</scm>
 
 			<modules>
@@ -424,7 +424,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 		const brandingInfo = {
 			name: 'Custom Stack',
 			brand: 'Custom Stack',
-			brandUrl: 'https://github.com/dirigiblelabs/sample-custom-stack',
+			brandUrl: 'https://github.com/dirigiblelabs/tutorial-custom-stack',
 			icons: {
 				faviconIco: '/services/web/ide-branding/favicon.ico',
 				favicon32: '/services/web/ide-branding/favicon-32x32.png',
@@ -760,4 +760,4 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 
     Continue to the [Facade](../facade/) section to create Java facade and TypeScript API for the Custom Stack.
 
-    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
+    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)_

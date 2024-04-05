@@ -19,4 +19,4 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 
 !!! note
 
-    The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)
+    The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)

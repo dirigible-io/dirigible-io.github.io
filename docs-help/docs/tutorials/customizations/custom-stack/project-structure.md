@@ -55,7 +55,7 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 				<url>https://www.eclipse.org</url>
 			</organization>
 			<scm>
-				<url>https://github.com/dirigiblelabs/sample-custom-stack</url>
+				<url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
 			</scm>
 
 			<modules>
@@ -631,7 +631,7 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 		DIRIGIBLE_PRODUCT_NAME=${project.title}
 		DIRIGIBLE_PRODUCT_VERSION=${project.version}
 		DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
-		DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/sample-custom-stack
+		DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/tutorial-custom-stack
 		DIRIGIBLE_PRODUCT_TYPE=all
 		DIRIGIBLE_INSTANCE_NAME=custom-stack
 		DIRIGIBLE_DATABASE_PROVIDER=local
@@ -1121,4 +1121,4 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 
     Continue to the [Branding](../branding/) section to customize the branding of the Custom Stack.
 
-    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
+    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)_

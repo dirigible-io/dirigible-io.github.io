@@ -745,4 +745,4 @@ This section will guide you through the different ways of creating a `TypeScript
 
     Continue to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
 
-    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
+    _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/tutorial-custom-stack](https://github.com/dirigiblelabs/tutorial-custom-stack)_
