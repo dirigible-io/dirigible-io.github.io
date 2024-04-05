@@ -398,15 +398,15 @@ This section will guide you through the different ways of creating a `TypeScript
 
 	In `ExampleClient`:
 
-		```java
-		public ExampleResponse doExample(ExampleRequest request)
-		```
+	```java
+	public ExampleResponse doExample(ExampleRequest request)
+	```
 
 	In `ExampleClientV2`:
 
-		```java
-		public String doExample(String requestAsString)
-		```
+	```java
+	public String doExample(String requestAsString)
+	```
 
 	The `ExampleClientV2` accepts `String` input parameter instead of `ExampleRequest` and returns also `String` instead of `ExampleResponse`. Inside the implementation `Gson` is used to parse and to stringify the JSON representation of the `ExampleRequest` and the `ExampleResponse`.
 
@@ -490,9 +490,9 @@ This section will guide you through the different ways of creating a `TypeScript
 
 !!! tip "ExampleClient.ts vs ExampleClientV2.ts"
 
-	The `ExampleClient` uses the native Java objects, so it has to follow the "Java way" of creation of objects and assigning properties.
+	The `ExampleClient` uses the native Java objects, so it has to follow the _**`Java way`**_ of creation of objects and assigning properties.
 
-	The `ExampleClientV2` uses TypeScript `interfaces`, that represents the Java classes _(see `ExampleRequestV2.ts` and `ExampleResponseV2.ts`)_ to follow the "TypeScript way" of creation of objects and assigning properties.
+	The `ExampleClientV2` uses TypeScript `interfaces`, that represents the Java classes _(see `ExampleRequestV2.ts` and `ExampleResponseV2.ts`)_ to follow the _**`TypeScript way`**_ of creation of objects and assigning properties.
 
 === "ExampleClient.ts"
 
@@ -647,6 +647,26 @@ This section will guide you through the different ways of creating a `TypeScript
 	```
 
 - Save the changes.
+- Enter `demo-client-v2.ts` for the name of the TypeScript Service.
+- Replace the content with the following code:
+
+	```typescript
+	import { response } from "sdk/http";
+	import { ExampleClientV2 } from "custom-api/ExampleClientV2";
+	import { ExampleRequestV2 } from "custom-api/ExampleRequestV2";
+
+	const exampleRequest: ExampleRequestV2 = {
+		exampleId: 'example-id-1234',
+		exampleName: 'Custom Stack Example'
+	};
+
+	const exampleClient = new ExampleClientV2();
+	const exampleResponse = exampleClient.doExample(exampleRequest);
+
+	response.println(JSON.stringify(exampleResponse, null, 2));
+	```
+
+- Save the changes.
 - Right click on the `demo-application` project and select **New &#8594; File**.
 - Enter `tsconfig.json` for the name of the File.
 
@@ -711,7 +731,7 @@ This section will guide you through the different ways of creating a `TypeScript
 
 	As in the TypeScript API Client section, there is a difference between the usage of the `ExampleClient` and the `ExampleClientV2` in the application code.
 
-	_The `demo-client.ts` uses the `ExampleClient` and uses the native Java objects, so it has to follow the "Java way" of creation of objects and assigning properties, while the `demo-client-v2.ts` follows the `TypeScript way" of creation of objects and assigning properties._
+	_The `demo-client.ts` uses the `ExampleClient` and the native Java objects, so it has to follow the _**`Java way`**_ of creation of objects and assigning properties, while the `demo-client-v2.ts` follows the _**`TypeScript way`**_ of creation of objects and assigning properties._
 
 ## Next Steps
 
@@ -721,7 +741,7 @@ This section will guide you through the different ways of creating a `TypeScript
 
     - Two different versions of the `ExampleClient` Java Facades.
     - Two different versions of the `ExampleClient` TypeScript APIs.
-	- Learned the difference between the native "Java way" and native "TypeScript way" of implementing the Java Facades and the TypeScript APIs
+	- Learned the difference between the native _**`Java way`**_ and native _**`TypeScript way`**_ of implementing the Java Facades and the TypeScript APIs
 
     Continue to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
 

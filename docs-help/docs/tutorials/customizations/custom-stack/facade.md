@@ -166,350 +166,350 @@ This section will guide you through the process of creation of `Java Facade` and
 
 	??? abstract "pom.xml"
 
-	```xml
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-		<modelVersion>4.0.0</modelVersion>
+		```xml
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+			<modelVersion>4.0.0</modelVersion>
 
-		<parent>
-			<groupId>org.sonatype.oss</groupId>
-			<artifactId>oss-parent</artifactId>
-			<version>7</version>
-		</parent>
+			<parent>
+				<groupId>org.sonatype.oss</groupId>
+				<artifactId>oss-parent</artifactId>
+				<version>7</version>
+			</parent>
 
-		<name>custom - stack - parent</name>
-		<description>Custom Stack - Sample</description>
-		<groupId>io.dirigible.samples</groupId>
-		<artifactId>custom-stack-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<packaging>pom</packaging>
+			<name>custom - stack - parent</name>
+			<description>Custom Stack - Sample</description>
+			<groupId>io.dirigible.samples</groupId>
+			<artifactId>custom-stack-parent</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<packaging>pom</packaging>
 
-		<inceptionYear>2024</inceptionYear>
+			<inceptionYear>2024</inceptionYear>
 
-		<url>https://www.dirigible.io</url>
-		<organization>
-			<name>Eclipse Foundation</name>
-			<url>https://www.eclipse.org</url>
-		</organization>
-		<scm>
-			<url>https://github.com/dirigiblelabs/sample-custom-stack</url>
-		</scm>
+			<url>https://www.dirigible.io</url>
+			<organization>
+				<name>Eclipse Foundation</name>
+				<url>https://www.eclipse.org</url>
+			</organization>
+			<scm>
+				<url>https://github.com/dirigiblelabs/sample-custom-stack</url>
+			</scm>
 
-		<modules>
-			<module>apis</module>
-			<module>application</module>
-			<module>branding</module>
-		</modules>
+			<modules>
+				<module>apis</module>
+				<module>application</module>
+				<module>branding</module>
+			</modules>
 
-		<dependencies>
-
-			<!-- Platform -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-core</artifactId>
-				<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<scope>compile</scope>
-			</dependency>
-
-			<!-- Commons -->
-			<dependency>
-				<groupId>org.eclipse.dirigible</groupId>
-				<artifactId>dirigible-commons-config</artifactId>
-			</dependency>
-
-			<!-- Spring Boot -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-				<exclusions>
-					<exclusion>
-						<groupId>org.apache.logging.log4j</groupId>
-						<artifactId>log4j-to-slf4j</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-websocket</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jdbc</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jpa</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-security</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-validation</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-actuator</artifactId>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-web</artifactId>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-				<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.security</groupId>
-				<artifactId>spring-security-test</artifactId>
-				<scope>test</scope>
-			</dependency>
-
-			<!-- Date Type Utils -->
-			<dependency>
-				<groupId>com.fasterxml.jackson.datatype</groupId>
-				<artifactId>jackson-datatype-joda</artifactId>
-			</dependency>
-
-			<!-- Swagger -->
-			<dependency>
-				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>${org.springdoc.openapi.ui.version}</version>
-			</dependency>
-
-			<!-- Data Access -->
-			<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-			</dependency>
-
-			<!-- WebJars -->
-			<dependency>
-				<groupId>org.webjars</groupId>
-				<artifactId>webjars-locator</artifactId>
-				<version>${webjars-locator}</version>
-			</dependency>
-
-			<!-- Olingo -->
-			<dependency>
-				<groupId>org.apache.olingo</groupId>
-				<artifactId>olingo-odata2-lib</artifactId>
-				<version>${olingo.version}</version>
-				<type>pom</type>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.ws.rs</groupId>
-						<artifactId>javax.ws.rs-api</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>com.google.code.gson</groupId>
-				<artifactId>gson</artifactId>
-			</dependency>
-
-		</dependencies>
-
-		<dependencyManagement>
 			<dependencies>
+
+				<!-- Platform -->
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+					<scope>compile</scope>
+				</dependency>
+				<dependency>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-core</artifactId>
+					<scope>compile</scope>
+				</dependency>
+				<dependency>
+					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+					<scope>compile</scope>
+				</dependency>
+
+				<!-- Commons -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-dependencies</artifactId>
-					<version>${dirigible.version}</version>
-					<type>pom</type>
-					<scope>import</scope>
+					<artifactId>dirigible-commons-config</artifactId>
 				</dependency>
+
+				<!-- Spring Boot -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>org.apache.logging.log4j</groupId>
+							<artifactId>log4j-to-slf4j</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-websocket</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-jdbc</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-data-jpa</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-security</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-validation</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-actuator</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-web</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-test</artifactId>
+					<scope>test</scope>
+					<exclusions>
+					<exclusion>
+						<groupId>org.junit.vintage</groupId>
+						<artifactId>junit-vintage-engine</artifactId>
+					</exclusion>
+				</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.security</groupId>
+					<artifactId>spring-security-test</artifactId>
+					<scope>test</scope>
+				</dependency>
+
+				<!-- Date Type Utils -->
+				<dependency>
+					<groupId>com.fasterxml.jackson.datatype</groupId>
+					<artifactId>jackson-datatype-joda</artifactId>
+				</dependency>
+
+				<!-- Swagger -->
+				<dependency>
+					<groupId>org.springdoc</groupId>
+					<artifactId>springdoc-openapi-ui</artifactId>
+					<version>${org.springdoc.openapi.ui.version}</version>
+				</dependency>
+
+				<!-- Data Access -->
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+				</dependency>
+
+				<!-- WebJars -->
+				<dependency>
+					<groupId>org.webjars</groupId>
+					<artifactId>webjars-locator</artifactId>
+					<version>${webjars-locator}</version>
+				</dependency>
+
+				<!-- Olingo -->
+				<dependency>
+					<groupId>org.apache.olingo</groupId>
+					<artifactId>olingo-odata2-lib</artifactId>
+					<version>${olingo.version}</version>
+					<type>pom</type>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.ws.rs</groupId>
+							<artifactId>javax.ws.rs-api</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+
+				<dependency>
+					<groupId>com.google.code.gson</groupId>
+					<artifactId>gson</artifactId>
+				</dependency>
+
 			</dependencies>
-		</dependencyManagement>
 
-		<profiles>
-			<profile>
-				<id>default</id>
-				<activation>
-					<activeByDefault>true</activeByDefault>
-				</activation>
-				<build>
-					<plugins>
-						<plugin>
-							<groupId>org.jacoco</groupId>
-							<artifactId>jacoco-maven-plugin</artifactId>
-							<version>${jacoco.version}</version>
-							<executions>
-								<execution>
-									<id>prepare-agent</id>
-									<goals>
-										<goal>prepare-agent</goal>
-									</goals>
-								</execution>
-							</executions>
-							<configuration>
-								<rules>
-									<rule>
-										<element>SOURCEFILE</element>
-										<excludes>
-											<exclude>*src/test/*</exclude>
-										</excludes>
-									</rule>
-								</rules>
-							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-compiler-plugin</artifactId>
-							<version>${maven.compiler.plugin.version}</version>
-							<configuration>
-								<source>${maven.compiler.source}</source>
-								<target>${maven.compiler.target}</target>
-								<debug>true</debug>
-								<debuglevel>lines,vars,source</debuglevel>
-							</configuration>
-						</plugin>
-					</plugins>
-				</build>
-			</profile>
-		</profiles>
+			<dependencyManagement>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.dirigible</groupId>
+						<artifactId>dirigible-dependencies</artifactId>
+						<version>${dirigible.version}</version>
+						<type>pom</type>
+						<scope>import</scope>
+					</dependency>
+				</dependencies>
+			</dependencyManagement>
 
-		<properties>
-			<project.title>custom stack</project.title>
+			<profiles>
+				<profile>
+					<id>default</id>
+					<activation>
+						<activeByDefault>true</activeByDefault>
+					</activation>
+					<build>
+						<plugins>
+							<plugin>
+								<groupId>org.jacoco</groupId>
+								<artifactId>jacoco-maven-plugin</artifactId>
+								<version>${jacoco.version}</version>
+								<executions>
+									<execution>
+										<id>prepare-agent</id>
+										<goals>
+											<goal>prepare-agent</goal>
+										</goals>
+									</execution>
+								</executions>
+								<configuration>
+									<rules>
+										<rule>
+											<element>SOURCEFILE</element>
+											<excludes>
+												<exclude>*src/test/*</exclude>
+											</excludes>
+										</rule>
+									</rules>
+								</configuration>
+							</plugin>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-compiler-plugin</artifactId>
+								<version>${maven.compiler.plugin.version}</version>
+								<configuration>
+									<source>${maven.compiler.source}</source>
+									<target>${maven.compiler.target}</target>
+									<debug>true</debug>
+									<debuglevel>lines,vars,source</debuglevel>
+								</configuration>
+							</plugin>
+						</plugins>
+					</build>
+				</profile>
+			</profiles>
 
-			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			<properties>
+				<project.title>custom stack</project.title>
 
-			<dirigible.version>10.2.7</dirigible.version>
+				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-			<java.version>17</java.version>
-			<maven.compiler.source>17</maven.compiler.source>
-			<maven.compiler.target>17</maven.compiler.target>
+				<dirigible.version>10.2.7</dirigible.version>
 
-			<maven.resource.plugin.version>3.3.0</maven.resource.plugin.version>
-			<maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
-			<maven.clean.plugin.directory>src/main/resources/META-INF/dirigible</maven.clean.plugin.directory>
-			<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
-			<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-			<maven.scm.plugin.version>1.13.0</maven.scm.plugin.version>
-			<scmVersionType>branch</scmVersionType>
-			<commons.io>2.11.0</commons.io>
-			<commons.codec>1.15</commons.codec>
-			<commons.lang3>3.12.0</commons.lang3>
-			<commons.exec>1.3</commons.exec>
-			<commons.text>1.10.0</commons.text>
-			<gson.version>2.10.1</gson.version>
-			<mockito.version>4.11.0</mockito.version>
-			<hamcrest.all.version>1.3</hamcrest.all.version>
-			<retrofit.version>1.8.0</retrofit.version>
-			<okhttp3.version>4.10.0</okhttp3.version>
-			<slf4j.version>1.7.36</slf4j.version>
-			<slf4j.simple.version>1.7.12</slf4j.simple.version>
-			<logback.version>1.4.5</logback.version>
-			<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
+				<java.version>17</java.version>
+				<maven.compiler.source>17</maven.compiler.source>
+				<maven.compiler.target>17</maven.compiler.target>
 
-			<postgresql.version>42.7.0</postgresql.version>
-			<ngdbc.version>2.20.11</ngdbc.version>
-			<snowflake.version>3.15.0</snowflake.version>
-			
-			<activemq.version>5.17.3</activemq.version>
-			<jsr250-api.version>1.0</jsr250-api.version>
-			<jetty.version>9.4.48.v20220622</jetty.version>
-			<lucene.version>9.4.2</lucene.version>
-			<chemistry.version>1.1.0</chemistry.version>
-			<flowable.version>6.8.0</flowable.version>
-			<jaxb.version>2.3.0</jaxb.version>
-			<jaxws.version>2.3.3</jaxws.version>
-			<jakarta.ws.rs-api.version>2.1.5</jakarta.ws.rs-api.version>
-			<license-maven-plugin.version>4.3</license-maven-plugin.version>
-			<persistence.api.version>2.2.3</persistence.api.version>
-			<jgit.version>6.4.0.202211300538-r</jgit.version>
-			<javax.mail.api.version>1.6.4</javax.mail.api.version>
-			<olingo.version>2.0.13</olingo.version>
-			<kafka.version>3.3.1</kafka.version>
-			<git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
-			<mongodb.version>3.12.11</mongodb.version>
-			<caffeine.version>3.1.2</caffeine.version>
-			<liquibase-core.version>4.16.1</liquibase-core.version>
-			<commons-csv.version>1.9.0</commons-csv.version>
-			<jquery-ui.version>1.13.0</jquery-ui.version>
-			<sap-theming__theming-base-content.version>11.1.42</sap-theming__theming-base-content.version>
-			<fundamental-styles.version>0.24.4</fundamental-styles.version>
-			<angular-aria.version>1.8.2</angular-aria.version>
-			<split.js.version>1.6.5</split.js.version>
-			<diff.version>5.1.0</diff.version>
-			<monaco-editor.version>0.33.0</monaco-editor.version>
-			<requirejs.version>2.3.6</requirejs.version>
-			<jstree.version>3.3.12</jstree.version>
-			<jquery.version>3.6.0</jquery.version>
-			<jqplot.version>1.0.8r1250</jqplot.version>
-			<bootstrap.version>3.3.7</bootstrap.version>
-			<es5-shim.version>4.6.7</es5-shim.version>
-			<angular-file-upload.version>2.6.1</angular-file-upload.version>
-			<angularjs.version>1.8.2</angularjs.version>
-			<fontawesome.version>4.7.0</fontawesome.version>
-			<classgraph.version>4.8.154</classgraph.version>
-			<commons-compress.version>1.22</commons-compress.version>
-			<testcontainers.elasticsearch.version>1.17.6</testcontainers.elasticsearch.version>
-			<testcontainers.version>1.17.6</testcontainers.version>
-			<testcontainers.rabbitmq.version>1.17.6</testcontainers.rabbitmq.version>
-			<amqp.client.version>5.16.0</amqp.client.version>
-			<elasticsearch.client.version>7.7.1</elasticsearch.client.version>
-			<jetcd.core.version>0.7.5</jetcd.core.version>
-			<jetcd.test.version>0.5.4</jetcd.test.version>
-			<logcaptor.version>2.7.10</logcaptor.version>
-			<exec.maven.plugin>3.0.0</exec.maven.plugin>
+				<maven.resource.plugin.version>3.3.0</maven.resource.plugin.version>
+				<maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
+				<maven.clean.plugin.directory>src/main/resources/META-INF/dirigible</maven.clean.plugin.directory>
+				<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+				<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+				<maven.scm.plugin.version>1.13.0</maven.scm.plugin.version>
+				<scmVersionType>branch</scmVersionType>
+				<commons.io>2.11.0</commons.io>
+				<commons.codec>1.15</commons.codec>
+				<commons.lang3>3.12.0</commons.lang3>
+				<commons.exec>1.3</commons.exec>
+				<commons.text>1.10.0</commons.text>
+				<gson.version>2.10.1</gson.version>
+				<mockito.version>4.11.0</mockito.version>
+				<hamcrest.all.version>1.3</hamcrest.all.version>
+				<retrofit.version>1.8.0</retrofit.version>
+				<okhttp3.version>4.10.0</okhttp3.version>
+				<slf4j.version>1.7.36</slf4j.version>
+				<slf4j.simple.version>1.7.12</slf4j.simple.version>
+				<logback.version>1.4.5</logback.version>
+				<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
 
-			<spring-context-support.version>5.3.24</spring-context-support.version>
-			<webjars-locator>0.51</webjars-locator>
+				<postgresql.version>42.7.0</postgresql.version>
+				<ngdbc.version>2.20.11</ngdbc.version>
+				<snowflake.version>3.15.0</snowflake.version>
+				
+				<activemq.version>5.17.3</activemq.version>
+				<jsr250-api.version>1.0</jsr250-api.version>
+				<jetty.version>9.4.48.v20220622</jetty.version>
+				<lucene.version>9.4.2</lucene.version>
+				<chemistry.version>1.1.0</chemistry.version>
+				<flowable.version>6.8.0</flowable.version>
+				<jaxb.version>2.3.0</jaxb.version>
+				<jaxws.version>2.3.3</jaxws.version>
+				<jakarta.ws.rs-api.version>2.1.5</jakarta.ws.rs-api.version>
+				<license-maven-plugin.version>4.3</license-maven-plugin.version>
+				<persistence.api.version>2.2.3</persistence.api.version>
+				<jgit.version>6.4.0.202211300538-r</jgit.version>
+				<javax.mail.api.version>1.6.4</javax.mail.api.version>
+				<olingo.version>2.0.13</olingo.version>
+				<kafka.version>3.3.1</kafka.version>
+				<git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
+				<mongodb.version>3.12.11</mongodb.version>
+				<caffeine.version>3.1.2</caffeine.version>
+				<liquibase-core.version>4.16.1</liquibase-core.version>
+				<commons-csv.version>1.9.0</commons-csv.version>
+				<jquery-ui.version>1.13.0</jquery-ui.version>
+				<sap-theming__theming-base-content.version>11.1.42</sap-theming__theming-base-content.version>
+				<fundamental-styles.version>0.24.4</fundamental-styles.version>
+				<angular-aria.version>1.8.2</angular-aria.version>
+				<split.js.version>1.6.5</split.js.version>
+				<diff.version>5.1.0</diff.version>
+				<monaco-editor.version>0.33.0</monaco-editor.version>
+				<requirejs.version>2.3.6</requirejs.version>
+				<jstree.version>3.3.12</jstree.version>
+				<jquery.version>3.6.0</jquery.version>
+				<jqplot.version>1.0.8r1250</jqplot.version>
+				<bootstrap.version>3.3.7</bootstrap.version>
+				<es5-shim.version>4.6.7</es5-shim.version>
+				<angular-file-upload.version>2.6.1</angular-file-upload.version>
+				<angularjs.version>1.8.2</angularjs.version>
+				<fontawesome.version>4.7.0</fontawesome.version>
+				<classgraph.version>4.8.154</classgraph.version>
+				<commons-compress.version>1.22</commons-compress.version>
+				<testcontainers.elasticsearch.version>1.17.6</testcontainers.elasticsearch.version>
+				<testcontainers.version>1.17.6</testcontainers.version>
+				<testcontainers.rabbitmq.version>1.17.6</testcontainers.rabbitmq.version>
+				<amqp.client.version>5.16.0</amqp.client.version>
+				<elasticsearch.client.version>7.7.1</elasticsearch.client.version>
+				<jetcd.core.version>0.7.5</jetcd.core.version>
+				<jetcd.test.version>0.5.4</jetcd.test.version>
+				<logcaptor.version>2.7.10</logcaptor.version>
+				<exec.maven.plugin>3.0.0</exec.maven.plugin>
 
-			<keycloak-adapter-bom.version>20.0.2</keycloak-adapter-bom.version>
-			<hikaricp.version>5.0.1</hikaricp.version>
-			<validator.version>1.7</validator.version>
-			<quartz.version>2.3.2</quartz.version>
-			<c3p0.version>0.9.5.5</c3p0.version>
-			<graalvm.version>22.3.1</graalvm.version>
-			<guava.version>31.1-jre</guava.version>
-			<icu4j.version>72.1</icu4j.version>
-			<commons-collections.version>3.2.2</commons-collections.version>
-			<commons-collections4.version>4.4</commons-collections4.version>
-			<velocity.version>2.3</velocity.version>
-			<wikitext.version>3.0.45.202211090110</wikitext.version>
-			<flexmark.version>0.64.0</flexmark.version>
-			<qldb.driver.version>2.3.1</qldb.driver.version>
-			<qldb.sdk.version>1.12.386</qldb.sdk.version>
-			<cassandra.version>1.17.6</cassandra.version>
-			<cassandra.driver.version>3.11.3</cassandra.driver.version>
-			<jedis.version>4.3.1</jedis.version>
-			<spark.version>3.3.1</spark.version>
-			<path-to-regexp.version>6.2.1</path-to-regexp.version>
-			<javax.websocket-api.version>1.1</javax.websocket-api.version>
-			<jacoco.version>0.8.11</jacoco.version>
+				<spring-context-support.version>5.3.24</spring-context-support.version>
+				<webjars-locator>0.51</webjars-locator>
 
-			<jakarta.validation.version>3.0.2</jakarta.validation.version>
-			<org.springdoc.openapi.ui.version>1.7.0</org.springdoc.openapi.ui.version>
-			<swagger-annotations.version>1.6.9</swagger-annotations.version>
+				<keycloak-adapter-bom.version>20.0.2</keycloak-adapter-bom.version>
+				<hikaricp.version>5.0.1</hikaricp.version>
+				<validator.version>1.7</validator.version>
+				<quartz.version>2.3.2</quartz.version>
+				<c3p0.version>0.9.5.5</c3p0.version>
+				<graalvm.version>22.3.1</graalvm.version>
+				<guava.version>31.1-jre</guava.version>
+				<icu4j.version>72.1</icu4j.version>
+				<commons-collections.version>3.2.2</commons-collections.version>
+				<commons-collections4.version>4.4</commons-collections4.version>
+				<velocity.version>2.3</velocity.version>
+				<wikitext.version>3.0.45.202211090110</wikitext.version>
+				<flexmark.version>0.64.0</flexmark.version>
+				<qldb.driver.version>2.3.1</qldb.driver.version>
+				<qldb.sdk.version>1.12.386</qldb.sdk.version>
+				<cassandra.version>1.17.6</cassandra.version>
+				<cassandra.driver.version>3.11.3</cassandra.driver.version>
+				<jedis.version>4.3.1</jedis.version>
+				<spark.version>3.3.1</spark.version>
+				<path-to-regexp.version>6.2.1</path-to-regexp.version>
+				<javax.websocket-api.version>1.1</javax.websocket-api.version>
+				<jacoco.version>0.8.11</jacoco.version>
 
-			<profile.content.phase>none</profile.content.phase>
+				<jakarta.validation.version>3.0.2</jakarta.validation.version>
+				<org.springdoc.openapi.ui.version>1.7.0</org.springdoc.openapi.ui.version>
+				<swagger-annotations.version>1.6.9</swagger-annotations.version>
 
-		</properties>
-	</project>
-	```
+				<profile.content.phase>none</profile.content.phase>
+
+			</properties>
+		</project>
+		```
 
 - Navigate to the `application` folder.
 - Open the `pom.xml` file.
@@ -869,6 +869,6 @@ This section will guide you through the process of creation of `Java Facade` and
 	- TypeScript API `custom-api/MyApi` exposing the Java Facade.
     - Sample project utilizing the TypeScript API.
 
-    Continue either to the the [Facade - Advanced](../facade-advanced/) section or to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
+    Continue either to the the [Advanced Facade](../advanced-facade/) section or to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
 
     _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_
