@@ -3682,14 +3682,10 @@
 <p class="admonition-title">ExampleClient.java vs ExampleClientV2.java</p>
 <p>There is a difference in the method signature of the <code>ExampleClient</code> and the <code>ExampleClientV2</code> classes. Although they have the same functionallity there is difference in the <code>input parameter type</code> and the <code>return type</code>.</p>
 <p>In <code>ExampleClient</code>:</p>
-<div class="highlight"><pre><span></span><code>```java
-public ExampleResponse doExample(ExampleRequest request)
-```
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">ExampleResponse</span><span class="w"> </span><span class="nf">doExample</span><span class="p">(</span><span class="n">ExampleRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <p>In <code>ExampleClientV2</code>:</p>
-<div class="highlight"><pre><span></span><code>```java
-public String doExample(String requestAsString)
-```
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">doExample</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">requestAsString</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <p>The <code>ExampleClientV2</code> accepts <code>String</code> input parameter instead of <code>ExampleRequest</code> and returns also <code>String</code> instead of <code>ExampleResponse</code>. Inside the implementation <code>Gson</code> is used to parse and to stringify the JSON representation of the <code>ExampleRequest</code> and the <code>ExampleResponse</code>.</p>
 <p>This technique is used to simplify the integration between the Java facade and the TypeScript API.</p>
@@ -3776,8 +3772,8 @@ public String doExample(String requestAsString)
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">ExampleClient.ts vs ExampleClientV2.ts</p>
-<p>The <code>ExampleClient</code> uses the native Java objects, so it has to follow the "Java way" of creation of objects and assigning properties.</p>
-<p>The <code>ExampleClientV2</code> uses TypeScript <code>interfaces</code>, that represents the Java classes <em>(see <code>ExampleRequestV2.ts</code> and <code>ExampleResponseV2.ts</code>)</em> to follow the "TypeScript way" of creation of objects and assigning properties.</p>
+<p>The <code>ExampleClient</code> uses the native Java objects, so it has to follow the <em><strong><code>Java way</code></strong></em> of creation of objects and assigning properties.</p>
+<p>The <code>ExampleClientV2</code> uses TypeScript <code>interfaces</code>, that represents the Java classes <em>(see <code>ExampleRequestV2.ts</code> and <code>ExampleResponseV2.ts</code>)</em> to follow the <em><strong><code>TypeScript way</code></strong></em> of creation of objects and assigning properties.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ExampleClient.ts</label><label for="__tabbed_4_2">ExampleClientV2.ts</label><label for="__tabbed_4_3">ExampleRequestV2.ts</label><label for="__tabbed_4_4">ExampleResponseV2.ts</label></div>
 <div class="tabbed-content">
@@ -3938,6 +3934,27 @@ public String doExample(String requestAsString)
 <li>
 <p>Save the changes.</p>
 </li>
+<li>Enter <code>demo-client-v2.ts</code> for the name of the TypeScript Service.</li>
+<li>
+<p>Replace the content with the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ExampleClientV2</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;custom-api/ExampleClientV2&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ExampleRequestV2</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;custom-api/ExampleRequestV2&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">exampleRequest</span><span class="o">:</span><span class="w"> </span><span class="kt">ExampleRequestV2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">exampleId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;example-id-1234&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">exampleName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Custom Stack Example&#39;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">exampleClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ExampleClientV2</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">exampleResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">exampleClient</span><span class="p">.</span><span class="nx">doExample</span><span class="p">(</span><span class="nx">exampleRequest</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">exampleResponse</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Save the changes.</p>
+</li>
 <li>Right click on the <code>demo-application</code> project and select <strong>New &#8594; File</strong>.</li>
 <li>
 <p>Enter <code>tsconfig.json</code> for the name of the File.</p>
@@ -4003,7 +4020,7 @@ public String doExample(String requestAsString)
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>As in the TypeScript API Client section, there is a difference between the usage of the <code>ExampleClient</code> and the <code>ExampleClientV2</code> in the application code.</p>
-<p><em>The <code>demo-client.ts</code> uses the <code>ExampleClient</code> and uses the native Java objects, so it has to follow the "Java way" of creation of objects and assigning properties, while the <code>demo-client-v2.ts</code> follows the `TypeScript way" of creation of objects and assigning properties.</em></p>
+<p><em>The <code>demo-client.ts</code> uses the <code>ExampleClient</code> and the native Java objects, so it has to follow the </em><strong><code>Java way</code></strong><em> of creation of objects and assigning properties, while the <code>demo-client-v2.ts</code> follows the </em><strong><code>TypeScript way</code></strong><em> of creation of objects and assigning properties.</em></p>
 </div>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition success">
@@ -4012,7 +4029,7 @@ public String doExample(String requestAsString)
 <ul>
 <li>Two different versions of the <code>ExampleClient</code> Java Facades.</li>
 <li>Two different versions of the <code>ExampleClient</code> TypeScript APIs.</li>
-<li>Learned the difference between the native "Java way" and native "TypeScript way" of implementing the Java Facades and the TypeScript APIs</li>
+<li>Learned the difference between the native <em><strong><code>Java way</code></strong></em> and native <em><strong><code>TypeScript way</code></strong></em> of implementing the Java Facades and the TypeScript APIs</li>
 </ul>
 <p>Continue to the <a href="../dependency/">Dependency</a> section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.</p>
 <p><em><strong>Note:</strong> The complete content of the Custom Stack tutorial is available at: <a href="https://github.com/dirigiblelabs/sample-custom-stack">https://github.com/dirigiblelabs/sample-custom-stack</a></em></p>
