@@ -34,7 +34,7 @@ nav:
             - Project Structure: 'tutorials/customizations/custom-stack/project-structure.md'
             - Branding: 'tutorials/customizations/custom-stack/branding.md'
             - Facade: 'tutorials/customizations/custom-stack/facade.md'
-            - Advanced Facade: 'tutorials/customizations/custom-stack/facade.md'
+            - Advanced Facade: 'tutorials/customizations/custom-stack/advanced-facade.md'
             - Dependency: 'tutorials/customizations/custom-stack/dependency.md'
       - Setup: 
         - Tomcat: 'setup/index.md'
