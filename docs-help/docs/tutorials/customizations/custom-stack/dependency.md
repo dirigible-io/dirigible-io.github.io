@@ -319,10 +319,28 @@ This section will guide you through the process of adding external Maven depende
 	response.close();
 	```
 
-	!!! note "Access to Packages"
+	!!! note "Access to Java Classes"
 		
-		Java classes are accessed by Fully Qualified Name (FQN). For classes that are not packaged in `java`, `com` or `org` packages, the `Packages` object should be used.
+		Java classes can be accessed through the `Java.type()` function by providing the Fully Qualified Name (FQN) _(e.g. `io.dirigible.samples.MyFacade`)_:
+		
+		```typescript
+		const MyFacade = Java.type("io.dirigible.samples.MyFacade");
+		```
 
+		To invoke `static` method of the `MyFacade` class:
+		
+		```typescript
+		const MyFacade = Java.type("io.dirigible.samples.MyFacade");
+		MyFacade.greet();
+		```
+
+		To create class instance and call a method:
+
+		```typescript
+		const MyFacade = Java.type("io.dirigible.samples.MyFacade");
+		const facadeInstance = new MyFacade();
+		facadeInstance.add(5, 3);
+		```
 
 1. Save the changes.
 1. Open the **Preview** view to see the result.
