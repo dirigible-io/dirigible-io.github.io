@@ -47,11 +47,12 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 
 - Navigate to the root folder of the custom stack _(e.g. `<my-custom-stack-path>/custom-stack`)_.
 - Open the `pom.xml` file.
-- Edit the `<modules>` section.
+- Navigate to the `<modules>` section.
+- Add the following module:
 
 === "pom.xml"
 
-	```xml
+	```xml hl_lines="3"
 	<modules>
 		<module>application</module>
 		<module>branding</module>
@@ -690,6 +691,11 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 							</execution>
 						</executions>
 					</plugin>
+					<!-- 
+						Note: Uncomment for git repositories, as this plugin would get the last commit id.
+						This is needed for the info in the "About" view.
+					-->
+					<!--
 					<plugin>
 						<groupId>pl.project13.maven</groupId>
 						<artifactId>git-commit-id-plugin</artifactId>
@@ -706,6 +712,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 							<dotGitDirectory>../.git</dotGitDirectory>
 						</configuration>
 					</plugin>
+					-->
 				</plugins>
 				<resources>
 					<resource>
@@ -737,6 +744,10 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 	```
 
 - Go to [http://localhost:8080](http://localhost:8080/) to access the _Custom Stack_.
+
+!!! info "Reset Theme"
+
+	If the branding changes aren't visible, clear the browser cache and reset the theme by selecting **Theme &#8594; Reset** in the top right corner.
 
 ## Next Steps
 

@@ -430,6 +430,7 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 			<artifactId>custom-stack-application</artifactId>
 			<packaging>jar</packaging>
 
+            <dependencies>
 				<!-- Core -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
