@@ -3554,8 +3554,19 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Access to Packages</p>
-<p>Java classes are accessed by Fully Qualified Name (FQN). For classes that are not packaged in <code>java</code>, <code>com</code> or <code>org</code> packages, the <code>Packages</code> object should be used.</p>
+<p class="admonition-title">Access to Java Classes</p>
+<p>Java classes can be accessed through the <code>Java.type()</code> function by providing the Fully Qualified Name (FQN) <em>(e.g. <code>io.dirigible.samples.MyFacade</code>)</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>To invoke <code>static</code> method of the <code>MyFacade</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">MyFacade</span><span class="p">.</span><span class="nx">greet</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<p>To create class instance and call a method:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MyFacade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Java</span><span class="p">.</span><span class="kr">type</span><span class="p">(</span><span class="s2">&quot;io.dirigible.samples.MyFacade&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">facadeInstance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MyFacade</span><span class="p">();</span><span class="w"></span>
+<span class="nx">facadeInstance</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
 </div>
 </li>
 <li>
