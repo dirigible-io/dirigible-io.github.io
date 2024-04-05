@@ -856,7 +856,6 @@ This section will guide you through the process of creation of `Java Facade` and
 
 - Save the changes.
 - Right click on the `demo-application` project and select **Publish**.
-- Right click on the `demo-application` project and select **Publish**.
 - Select the `demo.ts` from the **Projects** explorer and open the **Preview** view to see the result.
 
 ## Next Steps
@@ -870,6 +869,6 @@ This section will guide you through the process of creation of `Java Facade` and
 	- TypeScript API `custom-api/MyApi` exposing the Java Facade.
     - Sample project utilizing the TypeScript API.
 
-    Continue to the [Dependency](../dependency/) section to adding external Maven dependency and use it in the Custom Stack without creating a Java Facade and TypeScript API.
+    Continue either to the the [Facade - Advanced](../facade-advanced/) section or to the [Dependency](../dependency/) section where external Maven dependency is added and used in the Custom Stack without creating a Java Facade and TypeScript API.
 
     _**Note:** The complete content of the Custom Stack tutorial is available at: [https://github.com/dirigiblelabs/sample-custom-stack](https://github.com/dirigiblelabs/sample-custom-stack)_

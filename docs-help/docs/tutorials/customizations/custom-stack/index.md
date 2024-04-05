@@ -14,6 +14,7 @@ This tutorial will guide you through the creation of a custom Eclipse Dirigible 
 - [Project Structure](project-structure)
 - [Branding](branding)
 - [Facade](facade)
+- [Advanced Facade](advanced-facade)
 - [Dependency](dependency)
 
 !!! note
