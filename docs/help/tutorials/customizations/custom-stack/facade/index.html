@@ -948,20 +948,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="./" class="md-nav__link">
-        Facade
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -974,12 +960,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Advanced Facade
+          Facade
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Advanced Facade
+        Facade
       </a>
       
         
@@ -1069,6 +1055,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-facade/" class="md-nav__link">
+        Advanced Facade
+      </a>
     </li>
   
 
@@ -3388,611 +3388,623 @@
 </div>
 </div>
 <h4 id="add-module-dependency">Add Module Dependency</h4>
-<div class="highlight"><pre><span></span><code>- Navigate to the root folder of the project _(e.g. `&lt;my-custom-stack-path&gt;/custom-stack`)_.
-- Open the `pom.xml` file.
-- Make the following changes:
-
-=== &quot;Add APIs Module&quot;
-
-    1. Navigate to the `&lt;modules&gt;` section.
-    1. Add the following module:
-
-        ```xml hl_lines=&quot;2&quot;
-        &lt;modules&gt;
-            &lt;module&gt;apis&lt;/module&gt;
-            &lt;module&gt;application&lt;/module&gt;
-            &lt;module&gt;branding&lt;/module&gt;
-        &lt;/modules&gt;
-        ```
-
-=== &quot;Final pom.xml&quot;
-
-    ??? abstract &quot;pom.xml&quot;
-
-    ```xml
-    &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-        xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-        &lt;parent&gt;
-            &lt;groupId&gt;org.sonatype.oss&lt;/groupId&gt;
-            &lt;artifactId&gt;oss-parent&lt;/artifactId&gt;
-            &lt;version&gt;7&lt;/version&gt;
-        &lt;/parent&gt;
-
-        &lt;name&gt;custom - stack - parent&lt;/name&gt;
-        &lt;description&gt;Custom Stack - Sample&lt;/description&gt;
-        &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
-        &lt;artifactId&gt;custom-stack-parent&lt;/artifactId&gt;
-        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-        &lt;packaging&gt;pom&lt;/packaging&gt;
-
-        &lt;inceptionYear&gt;2024&lt;/inceptionYear&gt;
-
-        &lt;url&gt;https://www.dirigible.io&lt;/url&gt;
-        &lt;organization&gt;
-            &lt;name&gt;Eclipse Foundation&lt;/name&gt;
-            &lt;url&gt;https://www.eclipse.org&lt;/url&gt;
-        &lt;/organization&gt;
-        &lt;scm&gt;
-            &lt;url&gt;https://github.com/dirigiblelabs/sample-custom-stack&lt;/url&gt;
-        &lt;/scm&gt;
-
-        &lt;modules&gt;
-            &lt;module&gt;apis&lt;/module&gt;
-            &lt;module&gt;application&lt;/module&gt;
-            &lt;module&gt;branding&lt;/module&gt;
-        &lt;/modules&gt;
-
-        &lt;dependencies&gt;
-
-            &lt;!-- Platform --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-                &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-                &lt;scope&gt;compile&lt;/scope&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
-                &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
-                &lt;scope&gt;compile&lt;/scope&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
-                &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
-                &lt;scope&gt;compile&lt;/scope&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Commons --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                &lt;artifactId&gt;dirigible-commons-config&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Spring Boot --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-                &lt;exclusions&gt;
-                    &lt;exclusion&gt;
-                        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
-                        &lt;artifactId&gt;log4j-to-slf4j&lt;/artifactId&gt;
-                    &lt;/exclusion&gt;
-                &lt;/exclusions&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-websocket&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-data-jdbc&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-                &lt;scope&gt;test&lt;/scope&gt;
-                &lt;exclusions&gt;
-                &lt;exclusion&gt;
-                    &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;
-                    &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;
-                &lt;/exclusion&gt;
-            &lt;/exclusions&gt;
-            &lt;/dependency&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;
-                &lt;artifactId&gt;spring-security-test&lt;/artifactId&gt;
-                &lt;scope&gt;test&lt;/scope&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Date Type Utils --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;com.fasterxml.jackson.datatype&lt;/groupId&gt;
-                &lt;artifactId&gt;jackson-datatype-joda&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Swagger --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-                &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-                &lt;version&gt;${org.springdoc.openapi.ui.version}&lt;/version&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Data Access --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;com.h2database&lt;/groupId&gt;
-                &lt;artifactId&gt;h2&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- WebJars --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.webjars&lt;/groupId&gt;
-                &lt;artifactId&gt;webjars-locator&lt;/artifactId&gt;
-                &lt;version&gt;${webjars-locator}&lt;/version&gt;
-            &lt;/dependency&gt;
-
-            &lt;!-- Olingo --&gt;
-            &lt;dependency&gt;
-                &lt;groupId&gt;org.apache.olingo&lt;/groupId&gt;
-                &lt;artifactId&gt;olingo-odata2-lib&lt;/artifactId&gt;
-                &lt;version&gt;${olingo.version}&lt;/version&gt;
-                &lt;type&gt;pom&lt;/type&gt;
-                &lt;exclusions&gt;
-                    &lt;exclusion&gt;
-                        &lt;groupId&gt;javax.ws.rs&lt;/groupId&gt;
-                        &lt;artifactId&gt;javax.ws.rs-api&lt;/artifactId&gt;
-                    &lt;/exclusion&gt;
-                &lt;/exclusions&gt;
-            &lt;/dependency&gt;
-
-            &lt;dependency&gt;
-                &lt;groupId&gt;com.google.code.gson&lt;/groupId&gt;
-                &lt;artifactId&gt;gson&lt;/artifactId&gt;
-            &lt;/dependency&gt;
-
-        &lt;/dependencies&gt;
-
-        &lt;dependencyManagement&gt;
-            &lt;dependencies&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-dependencies&lt;/artifactId&gt;
-                    &lt;version&gt;${dirigible.version}&lt;/version&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                    &lt;scope&gt;import&lt;/scope&gt;
-                &lt;/dependency&gt;
-            &lt;/dependencies&gt;
-        &lt;/dependencyManagement&gt;
-
-        &lt;profiles&gt;
-            &lt;profile&gt;
-                &lt;id&gt;default&lt;/id&gt;
-                &lt;activation&gt;
-                    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
-                &lt;/activation&gt;
-                &lt;build&gt;
-                    &lt;plugins&gt;
-                        &lt;plugin&gt;
-                            &lt;groupId&gt;org.jacoco&lt;/groupId&gt;
-                            &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;
-                            &lt;version&gt;${jacoco.version}&lt;/version&gt;
-                            &lt;executions&gt;
-                                &lt;execution&gt;
-                                    &lt;id&gt;prepare-agent&lt;/id&gt;
-                                    &lt;goals&gt;
-                                        &lt;goal&gt;prepare-agent&lt;/goal&gt;
-                                    &lt;/goals&gt;
-                                &lt;/execution&gt;
-                            &lt;/executions&gt;
-                            &lt;configuration&gt;
-                                &lt;rules&gt;
-                                    &lt;rule&gt;
-                                        &lt;element&gt;SOURCEFILE&lt;/element&gt;
-                                        &lt;excludes&gt;
-                                            &lt;exclude&gt;*src/test/*&lt;/exclude&gt;
-                                        &lt;/excludes&gt;
-                                    &lt;/rule&gt;
-                                &lt;/rules&gt;
-                            &lt;/configuration&gt;
-                        &lt;/plugin&gt;
-                        &lt;plugin&gt;
-                            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-                            &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-                            &lt;version&gt;${maven.compiler.plugin.version}&lt;/version&gt;
-                            &lt;configuration&gt;
-                                &lt;source&gt;${maven.compiler.source}&lt;/source&gt;
-                                &lt;target&gt;${maven.compiler.target}&lt;/target&gt;
-                                &lt;debug&gt;true&lt;/debug&gt;
-                                &lt;debuglevel&gt;lines,vars,source&lt;/debuglevel&gt;
-                            &lt;/configuration&gt;
-                        &lt;/plugin&gt;
-                    &lt;/plugins&gt;
-                &lt;/build&gt;
-            &lt;/profile&gt;
-        &lt;/profiles&gt;
-
-        &lt;properties&gt;
-            &lt;project.title&gt;custom stack&lt;/project.title&gt;
-
-            &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-
-            &lt;dirigible.version&gt;10.2.7&lt;/dirigible.version&gt;
-
-            &lt;java.version&gt;17&lt;/java.version&gt;
-            &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
-            &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
-
-            &lt;maven.resource.plugin.version&gt;3.3.0&lt;/maven.resource.plugin.version&gt;
-            &lt;maven.clean.plugin.version&gt;3.2.0&lt;/maven.clean.plugin.version&gt;
-            &lt;maven.clean.plugin.directory&gt;src/main/resources/META-INF/dirigible&lt;/maven.clean.plugin.directory&gt;
-            &lt;maven.compiler.plugin.version&gt;3.13.0&lt;/maven.compiler.plugin.version&gt;
-            &lt;maven-surefire-plugin.version&gt;2.22.2&lt;/maven-surefire-plugin.version&gt;
-            &lt;maven.scm.plugin.version&gt;1.13.0&lt;/maven.scm.plugin.version&gt;
-            &lt;scmVersionType&gt;branch&lt;/scmVersionType&gt;
-            &lt;commons.io&gt;2.11.0&lt;/commons.io&gt;
-            &lt;commons.codec&gt;1.15&lt;/commons.codec&gt;
-            &lt;commons.lang3&gt;3.12.0&lt;/commons.lang3&gt;
-            &lt;commons.exec&gt;1.3&lt;/commons.exec&gt;
-            &lt;commons.text&gt;1.10.0&lt;/commons.text&gt;
-            &lt;gson.version&gt;2.10.1&lt;/gson.version&gt;
-            &lt;mockito.version&gt;4.11.0&lt;/mockito.version&gt;
-            &lt;hamcrest.all.version&gt;1.3&lt;/hamcrest.all.version&gt;
-            &lt;retrofit.version&gt;1.8.0&lt;/retrofit.version&gt;
-            &lt;okhttp3.version&gt;4.10.0&lt;/okhttp3.version&gt;
-            &lt;slf4j.version&gt;1.7.36&lt;/slf4j.version&gt;
-            &lt;slf4j.simple.version&gt;1.7.12&lt;/slf4j.simple.version&gt;
-            &lt;logback.version&gt;1.4.5&lt;/logback.version&gt;
-            &lt;commons-dbcp2.version&gt;2.9.0&lt;/commons-dbcp2.version&gt;
-
-            &lt;postgresql.version&gt;42.7.0&lt;/postgresql.version&gt;
-            &lt;ngdbc.version&gt;2.20.11&lt;/ngdbc.version&gt;
-            &lt;snowflake.version&gt;3.15.0&lt;/snowflake.version&gt;
-
-            &lt;activemq.version&gt;5.17.3&lt;/activemq.version&gt;
-            &lt;jsr250-api.version&gt;1.0&lt;/jsr250-api.version&gt;
-            &lt;jetty.version&gt;9.4.48.v20220622&lt;/jetty.version&gt;
-            &lt;lucene.version&gt;9.4.2&lt;/lucene.version&gt;
-            &lt;chemistry.version&gt;1.1.0&lt;/chemistry.version&gt;
-            &lt;flowable.version&gt;6.8.0&lt;/flowable.version&gt;
-            &lt;jaxb.version&gt;2.3.0&lt;/jaxb.version&gt;
-            &lt;jaxws.version&gt;2.3.3&lt;/jaxws.version&gt;
-            &lt;jakarta.ws.rs-api.version&gt;2.1.5&lt;/jakarta.ws.rs-api.version&gt;
-            &lt;license-maven-plugin.version&gt;4.3&lt;/license-maven-plugin.version&gt;
-            &lt;persistence.api.version&gt;2.2.3&lt;/persistence.api.version&gt;
-            &lt;jgit.version&gt;6.4.0.202211300538-r&lt;/jgit.version&gt;
-            &lt;javax.mail.api.version&gt;1.6.4&lt;/javax.mail.api.version&gt;
-            &lt;olingo.version&gt;2.0.13&lt;/olingo.version&gt;
-            &lt;kafka.version&gt;3.3.1&lt;/kafka.version&gt;
-            &lt;git-commit-id-plugin.version&gt;4.9.10&lt;/git-commit-id-plugin.version&gt;
-            &lt;mongodb.version&gt;3.12.11&lt;/mongodb.version&gt;
-            &lt;caffeine.version&gt;3.1.2&lt;/caffeine.version&gt;
-            &lt;liquibase-core.version&gt;4.16.1&lt;/liquibase-core.version&gt;
-            &lt;commons-csv.version&gt;1.9.0&lt;/commons-csv.version&gt;
-            &lt;jquery-ui.version&gt;1.13.0&lt;/jquery-ui.version&gt;
-            &lt;sap-theming__theming-base-content.version&gt;11.1.42&lt;/sap-theming__theming-base-content.version&gt;
-            &lt;fundamental-styles.version&gt;0.24.4&lt;/fundamental-styles.version&gt;
-            &lt;angular-aria.version&gt;1.8.2&lt;/angular-aria.version&gt;
-            &lt;split.js.version&gt;1.6.5&lt;/split.js.version&gt;
-            &lt;diff.version&gt;5.1.0&lt;/diff.version&gt;
-            &lt;monaco-editor.version&gt;0.33.0&lt;/monaco-editor.version&gt;
-            &lt;requirejs.version&gt;2.3.6&lt;/requirejs.version&gt;
-            &lt;jstree.version&gt;3.3.12&lt;/jstree.version&gt;
-            &lt;jquery.version&gt;3.6.0&lt;/jquery.version&gt;
-            &lt;jqplot.version&gt;1.0.8r1250&lt;/jqplot.version&gt;
-            &lt;bootstrap.version&gt;3.3.7&lt;/bootstrap.version&gt;
-            &lt;es5-shim.version&gt;4.6.7&lt;/es5-shim.version&gt;
-            &lt;angular-file-upload.version&gt;2.6.1&lt;/angular-file-upload.version&gt;
-            &lt;angularjs.version&gt;1.8.2&lt;/angularjs.version&gt;
-            &lt;fontawesome.version&gt;4.7.0&lt;/fontawesome.version&gt;
-            &lt;classgraph.version&gt;4.8.154&lt;/classgraph.version&gt;
-            &lt;commons-compress.version&gt;1.22&lt;/commons-compress.version&gt;
-            &lt;testcontainers.elasticsearch.version&gt;1.17.6&lt;/testcontainers.elasticsearch.version&gt;
-            &lt;testcontainers.version&gt;1.17.6&lt;/testcontainers.version&gt;
-            &lt;testcontainers.rabbitmq.version&gt;1.17.6&lt;/testcontainers.rabbitmq.version&gt;
-            &lt;amqp.client.version&gt;5.16.0&lt;/amqp.client.version&gt;
-            &lt;elasticsearch.client.version&gt;7.7.1&lt;/elasticsearch.client.version&gt;
-            &lt;jetcd.core.version&gt;0.7.5&lt;/jetcd.core.version&gt;
-            &lt;jetcd.test.version&gt;0.5.4&lt;/jetcd.test.version&gt;
-            &lt;logcaptor.version&gt;2.7.10&lt;/logcaptor.version&gt;
-            &lt;exec.maven.plugin&gt;3.0.0&lt;/exec.maven.plugin&gt;
-
-            &lt;spring-context-support.version&gt;5.3.24&lt;/spring-context-support.version&gt;
-            &lt;webjars-locator&gt;0.51&lt;/webjars-locator&gt;
-
-            &lt;keycloak-adapter-bom.version&gt;20.0.2&lt;/keycloak-adapter-bom.version&gt;
-            &lt;hikaricp.version&gt;5.0.1&lt;/hikaricp.version&gt;
-            &lt;validator.version&gt;1.7&lt;/validator.version&gt;
-            &lt;quartz.version&gt;2.3.2&lt;/quartz.version&gt;
-            &lt;c3p0.version&gt;0.9.5.5&lt;/c3p0.version&gt;
-            &lt;graalvm.version&gt;22.3.1&lt;/graalvm.version&gt;
-            &lt;guava.version&gt;31.1-jre&lt;/guava.version&gt;
-            &lt;icu4j.version&gt;72.1&lt;/icu4j.version&gt;
-            &lt;commons-collections.version&gt;3.2.2&lt;/commons-collections.version&gt;
-            &lt;commons-collections4.version&gt;4.4&lt;/commons-collections4.version&gt;
-            &lt;velocity.version&gt;2.3&lt;/velocity.version&gt;
-            &lt;wikitext.version&gt;3.0.45.202211090110&lt;/wikitext.version&gt;
-            &lt;flexmark.version&gt;0.64.0&lt;/flexmark.version&gt;
-            &lt;qldb.driver.version&gt;2.3.1&lt;/qldb.driver.version&gt;
-            &lt;qldb.sdk.version&gt;1.12.386&lt;/qldb.sdk.version&gt;
-            &lt;cassandra.version&gt;1.17.6&lt;/cassandra.version&gt;
-            &lt;cassandra.driver.version&gt;3.11.3&lt;/cassandra.driver.version&gt;
-            &lt;jedis.version&gt;4.3.1&lt;/jedis.version&gt;
-            &lt;spark.version&gt;3.3.1&lt;/spark.version&gt;
-            &lt;path-to-regexp.version&gt;6.2.1&lt;/path-to-regexp.version&gt;
-            &lt;javax.websocket-api.version&gt;1.1&lt;/javax.websocket-api.version&gt;
-            &lt;jacoco.version&gt;0.8.11&lt;/jacoco.version&gt;
-
-            &lt;jakarta.validation.version&gt;3.0.2&lt;/jakarta.validation.version&gt;
-            &lt;org.springdoc.openapi.ui.version&gt;1.7.0&lt;/org.springdoc.openapi.ui.version&gt;
-            &lt;swagger-annotations.version&gt;1.6.9&lt;/swagger-annotations.version&gt;
-
-            &lt;profile.content.phase&gt;none&lt;/profile.content.phase&gt;
-
-        &lt;/properties&gt;
-    &lt;/project&gt;
-    ```
-
-- Navigate to the `application` folder.
-- Open the `pom.xml` file.
-- Make the following changes:
-
-=== &quot;Add APIs Dependency&quot;
-
-    1. Navigate to the `&lt;dependencies&gt;` section.
-    1. Add the following dependency:
-
-        ```xml
-        &lt;dependency&gt;
-            &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
-            &lt;artifactId&gt;custom-stack-apis&lt;/artifactId&gt;
-            &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-        &lt;/dependency&gt;
-        ```
-
-=== &quot;Final pom.xml&quot;
-
-    ??? abstract &quot;application/pom.xml&quot;
-
-        ```xml
-        &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-                xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-                xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
-            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-            &lt;parent&gt;
-                &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
-                &lt;artifactId&gt;custom-stack-parent&lt;/artifactId&gt;
-                &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-                &lt;relativePath&gt;../pom.xml&lt;/relativePath&gt;
-            &lt;/parent&gt;
-
-            &lt;name&gt;custom - stack - application&lt;/name&gt;
-            &lt;artifactId&gt;custom-stack-application&lt;/artifactId&gt;
-            &lt;packaging&gt;jar&lt;/packaging&gt;
-
-
-            &lt;dependencies&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
-                    &lt;artifactId&gt;custom-stack-apis&lt;/artifactId&gt;
-                    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;io.dirigible.samples&lt;/groupId&gt;
-                    &lt;artifactId&gt;custom-stack-branding&lt;/artifactId&gt;
-                    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Core --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-core&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                    &lt;exclusions&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;com.zaxxer&lt;/groupId&gt;
-                            &lt;artifactId&gt;HikariCP-java7&lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                    &lt;/exclusions&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Security --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-security-basic&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-security-keycloak&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Data --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-database&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Engine --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-engines&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                    &lt;exclusions&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;javax.validation&lt;/groupId&gt;
-                            &lt;artifactId&gt;validation-api&lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-                            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
-                            &lt;artifactId&gt;cxf-rt-frontend-jaxrs&lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
-                            &lt;artifactId&gt;
-                                cxf-spring-boot-starter-jaxrs
-                            &lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                    &lt;/exclusions&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-engine-command&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- IDE --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-ide&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                    &lt;exclusions&gt;
-                        &lt;exclusion&gt;
-                            &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                            &lt;artifactId&gt;dirigible-components-ide-ui-branding&lt;/artifactId&gt;
-                        &lt;/exclusion&gt;
-                    &lt;/exclusions&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- API --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-api&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Resources --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-resources&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                &lt;/dependency&gt;
-
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-security-oauth2&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Templates --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-components-group-templates&lt;/artifactId&gt;
-                    &lt;type&gt;pom&lt;/type&gt;
-                &lt;/dependency&gt;
-
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                    &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-
-                &lt;dependency&gt;
-                    &lt;groupId&gt;com.codeborne&lt;/groupId&gt;
-                    &lt;artifactId&gt;selenide&lt;/artifactId&gt;
-                    &lt;version&gt;7.2.2&lt;/version&gt;
-                    &lt;scope&gt;test&lt;/scope&gt;
-                &lt;/dependency&gt;
-
-                &lt;!-- Drivers --&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.postgresql&lt;/groupId&gt;
-                    &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-database-mongodb-jdbc&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;com.sap.cloud.db.jdbc&lt;/groupId&gt;
-                    &lt;artifactId&gt;ngdbc&lt;/artifactId&gt;
-                    &lt;version&gt;${ngdbc.version}&lt;/version&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;net.snowflake&lt;/groupId&gt;
-                    &lt;artifactId&gt;snowflake-jdbc&lt;/artifactId&gt;
-                    &lt;version&gt;${snowflake.version}&lt;/version&gt;
-                &lt;/dependency&gt;
-                &lt;dependency&gt;
-                    &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-                    &lt;artifactId&gt;dirigible-tests-framework&lt;/artifactId&gt;
-                &lt;/dependency&gt;
-
-            &lt;/dependencies&gt;
-
-            &lt;build&gt;
-                &lt;plugins&gt;
-                    &lt;plugin&gt;
-                        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-                        &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
-                        &lt;configuration&gt;
-                            &lt;mainClass&gt;io.dirigible.samples.CustomStackApplication&lt;/mainClass&gt;
-                        &lt;/configuration&gt;
-                        &lt;executions&gt;
-                            &lt;execution&gt;
-                                &lt;goals&gt;
-                                    &lt;goal&gt;repackage&lt;/goal&gt;
-                                &lt;/goals&gt;
-                            &lt;/execution&gt;
-                        &lt;/executions&gt;
-                    &lt;/plugin&gt;
-                    &lt;!-- 
-                        Note: Uncomment for git repositories, as this plugin would get the last commit id.
-                        This is needed for the info in the &quot;About&quot; view.
-                    --&gt;
-                    &lt;!--
-                    &lt;plugin&gt;
-                        &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;
-                        &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;
-                        &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;
-                        &lt;executions&gt;
-                            &lt;execution&gt;
-                                &lt;id&gt;get-the-git-infos&lt;/id&gt;
-                                &lt;goals&gt;
-                                    &lt;goal&gt;revision&lt;/goal&gt;
-                                &lt;/goals&gt;
-                            &lt;/execution&gt;
-                        &lt;/executions&gt;
-                        &lt;configuration&gt;
-                            &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;
-                        &lt;/configuration&gt;
-                    &lt;/plugin&gt;
-                    --&gt;
-                &lt;/plugins&gt;
-                &lt;resources&gt;
-                    &lt;resource&gt;
-                        &lt;directory&gt;src/main/resources&lt;/directory&gt;
-                        &lt;filtering&gt;true&lt;/filtering&gt;
-                    &lt;/resource&gt;
-                &lt;/resources&gt;
-            &lt;/build&gt;
-
-        &lt;/project&gt;
-        ```
+<ul>
+<li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
+<li>Open the <code>pom.xml</code> file.</li>
+<li>Make the following changes:</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Add APIs Module</label><label for="__tabbed_2_2">Final pom.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>&lt;modules&gt;</code> section.</li>
+<li>
+<p>Add the following module:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;modules&gt;</span>
+<span class="hll">    <span class="nt">&lt;module&gt;</span>apis<span class="nt">&lt;/module&gt;</span>
+</span>    <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
+<span class="nt">&lt;/modules&gt;</span>
 </code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<details class="abstract">
+<summary>pom.xml</summary>
+</details>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>org.sonatype.oss<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>oss-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>7<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>custom - stack - parent<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>Custom Stack - Sample<span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;inceptionYear&gt;</span>2024<span class="nt">&lt;/inceptionYear&gt;</span>
+
+    <span class="nt">&lt;url&gt;</span>https://www.dirigible.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;organization&gt;</span>
+        <span class="nt">&lt;name&gt;</span>Eclipse Foundation<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://www.eclipse.org<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/organization&gt;</span>
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/dirigiblelabs/sample-custom-stack<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>apis<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>application<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>branding<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+
+        <span class="cm">&lt;!-- Platform --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>slf4j-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>ch.qos.logback<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>logback-classic<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Commons --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-commons-config<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Spring Boot --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>log4j-to-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-websocket<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-security<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+            <span class="nt">&lt;exclusion&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.junit.vintage<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit-vintage-engine<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;/exclusion&gt;</span>
+        <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.security<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-security-test<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Date Type Utils --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.datatype<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jackson-datatype-joda<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Swagger --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springdoc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>springdoc-openapi-ui<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${org.springdoc.openapi.ui.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data Access --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- WebJars --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>webjars-locator<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${webjars-locator}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Olingo --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.olingo<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>olingo-odata2-lib<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${olingo.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.ws.rs<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.ws.rs-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.google.code.gson<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>gson<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>dirigible-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${dirigible.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
+
+    <span class="nt">&lt;profiles&gt;</span>
+        <span class="nt">&lt;profile&gt;</span>
+            <span class="nt">&lt;id&gt;</span>default<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;activation&gt;</span>
+                <span class="nt">&lt;activeByDefault&gt;</span>true<span class="nt">&lt;/activeByDefault&gt;</span>
+            <span class="nt">&lt;/activation&gt;</span>
+            <span class="nt">&lt;build&gt;</span>
+                <span class="nt">&lt;plugins&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.jacoco<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${jacoco.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>prepare-agent<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>prepare-agent<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;rules&gt;</span>
+                                <span class="nt">&lt;rule&gt;</span>
+                                    <span class="nt">&lt;element&gt;</span>SOURCEFILE<span class="nt">&lt;/element&gt;</span>
+                                    <span class="nt">&lt;excludes&gt;</span>
+                                        <span class="nt">&lt;exclude&gt;</span>*src/test/*<span class="nt">&lt;/exclude&gt;</span>
+                                    <span class="nt">&lt;/excludes&gt;</span>
+                                <span class="nt">&lt;/rule&gt;</span>
+                            <span class="nt">&lt;/rules&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>${maven.compiler.plugin.version}<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;source&gt;</span>${maven.compiler.source}<span class="nt">&lt;/source&gt;</span>
+                            <span class="nt">&lt;target&gt;</span>${maven.compiler.target}<span class="nt">&lt;/target&gt;</span>
+                            <span class="nt">&lt;debug&gt;</span>true<span class="nt">&lt;/debug&gt;</span>
+                            <span class="nt">&lt;debuglevel&gt;</span>lines,vars,source<span class="nt">&lt;/debuglevel&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                <span class="nt">&lt;/plugins&gt;</span>
+            <span class="nt">&lt;/build&gt;</span>
+        <span class="nt">&lt;/profile&gt;</span>
+    <span class="nt">&lt;/profiles&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;project.title&gt;</span>custom stack<span class="nt">&lt;/project.title&gt;</span>
+
+        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+
+        <span class="nt">&lt;dirigible.version&gt;</span>10.2.7<span class="nt">&lt;/dirigible.version&gt;</span>
+
+        <span class="nt">&lt;java.version&gt;</span>17<span class="nt">&lt;/java.version&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>17<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>17<span class="nt">&lt;/maven.compiler.target&gt;</span>
+
+        <span class="nt">&lt;maven.resource.plugin.version&gt;</span>3.3.0<span class="nt">&lt;/maven.resource.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.version&gt;</span>3.2.0<span class="nt">&lt;/maven.clean.plugin.version&gt;</span>
+        <span class="nt">&lt;maven.clean.plugin.directory&gt;</span>src/main/resources/META-INF/dirigible<span class="nt">&lt;/maven.clean.plugin.directory&gt;</span>
+        <span class="nt">&lt;maven.compiler.plugin.version&gt;</span>3.13.0<span class="nt">&lt;/maven.compiler.plugin.version&gt;</span>
+        <span class="nt">&lt;maven-surefire-plugin.version&gt;</span>2.22.2<span class="nt">&lt;/maven-surefire-plugin.version&gt;</span>
+        <span class="nt">&lt;maven.scm.plugin.version&gt;</span>1.13.0<span class="nt">&lt;/maven.scm.plugin.version&gt;</span>
+        <span class="nt">&lt;scmVersionType&gt;</span>branch<span class="nt">&lt;/scmVersionType&gt;</span>
+        <span class="nt">&lt;commons.io&gt;</span>2.11.0<span class="nt">&lt;/commons.io&gt;</span>
+        <span class="nt">&lt;commons.codec&gt;</span>1.15<span class="nt">&lt;/commons.codec&gt;</span>
+        <span class="nt">&lt;commons.lang3&gt;</span>3.12.0<span class="nt">&lt;/commons.lang3&gt;</span>
+        <span class="nt">&lt;commons.exec&gt;</span>1.3<span class="nt">&lt;/commons.exec&gt;</span>
+        <span class="nt">&lt;commons.text&gt;</span>1.10.0<span class="nt">&lt;/commons.text&gt;</span>
+        <span class="nt">&lt;gson.version&gt;</span>2.10.1<span class="nt">&lt;/gson.version&gt;</span>
+        <span class="nt">&lt;mockito.version&gt;</span>4.11.0<span class="nt">&lt;/mockito.version&gt;</span>
+        <span class="nt">&lt;hamcrest.all.version&gt;</span>1.3<span class="nt">&lt;/hamcrest.all.version&gt;</span>
+        <span class="nt">&lt;retrofit.version&gt;</span>1.8.0<span class="nt">&lt;/retrofit.version&gt;</span>
+        <span class="nt">&lt;okhttp3.version&gt;</span>4.10.0<span class="nt">&lt;/okhttp3.version&gt;</span>
+        <span class="nt">&lt;slf4j.version&gt;</span>1.7.36<span class="nt">&lt;/slf4j.version&gt;</span>
+        <span class="nt">&lt;slf4j.simple.version&gt;</span>1.7.12<span class="nt">&lt;/slf4j.simple.version&gt;</span>
+        <span class="nt">&lt;logback.version&gt;</span>1.4.5<span class="nt">&lt;/logback.version&gt;</span>
+        <span class="nt">&lt;commons-dbcp2.version&gt;</span>2.9.0<span class="nt">&lt;/commons-dbcp2.version&gt;</span>
+
+        <span class="nt">&lt;postgresql.version&gt;</span>42.7.0<span class="nt">&lt;/postgresql.version&gt;</span>
+        <span class="nt">&lt;ngdbc.version&gt;</span>2.20.11<span class="nt">&lt;/ngdbc.version&gt;</span>
+        <span class="nt">&lt;snowflake.version&gt;</span>3.15.0<span class="nt">&lt;/snowflake.version&gt;</span>
+
+        <span class="nt">&lt;activemq.version&gt;</span>5.17.3<span class="nt">&lt;/activemq.version&gt;</span>
+        <span class="nt">&lt;jsr250-api.version&gt;</span>1.0<span class="nt">&lt;/jsr250-api.version&gt;</span>
+        <span class="nt">&lt;jetty.version&gt;</span>9.4.48.v20220622<span class="nt">&lt;/jetty.version&gt;</span>
+        <span class="nt">&lt;lucene.version&gt;</span>9.4.2<span class="nt">&lt;/lucene.version&gt;</span>
+        <span class="nt">&lt;chemistry.version&gt;</span>1.1.0<span class="nt">&lt;/chemistry.version&gt;</span>
+        <span class="nt">&lt;flowable.version&gt;</span>6.8.0<span class="nt">&lt;/flowable.version&gt;</span>
+        <span class="nt">&lt;jaxb.version&gt;</span>2.3.0<span class="nt">&lt;/jaxb.version&gt;</span>
+        <span class="nt">&lt;jaxws.version&gt;</span>2.3.3<span class="nt">&lt;/jaxws.version&gt;</span>
+        <span class="nt">&lt;jakarta.ws.rs-api.version&gt;</span>2.1.5<span class="nt">&lt;/jakarta.ws.rs-api.version&gt;</span>
+        <span class="nt">&lt;license-maven-plugin.version&gt;</span>4.3<span class="nt">&lt;/license-maven-plugin.version&gt;</span>
+        <span class="nt">&lt;persistence.api.version&gt;</span>2.2.3<span class="nt">&lt;/persistence.api.version&gt;</span>
+        <span class="nt">&lt;jgit.version&gt;</span>6.4.0.202211300538-r<span class="nt">&lt;/jgit.version&gt;</span>
+        <span class="nt">&lt;javax.mail.api.version&gt;</span>1.6.4<span class="nt">&lt;/javax.mail.api.version&gt;</span>
+        <span class="nt">&lt;olingo.version&gt;</span>2.0.13<span class="nt">&lt;/olingo.version&gt;</span>
+        <span class="nt">&lt;kafka.version&gt;</span>3.3.1<span class="nt">&lt;/kafka.version&gt;</span>
+        <span class="nt">&lt;git-commit-id-plugin.version&gt;</span>4.9.10<span class="nt">&lt;/git-commit-id-plugin.version&gt;</span>
+        <span class="nt">&lt;mongodb.version&gt;</span>3.12.11<span class="nt">&lt;/mongodb.version&gt;</span>
+        <span class="nt">&lt;caffeine.version&gt;</span>3.1.2<span class="nt">&lt;/caffeine.version&gt;</span>
+        <span class="nt">&lt;liquibase-core.version&gt;</span>4.16.1<span class="nt">&lt;/liquibase-core.version&gt;</span>
+        <span class="nt">&lt;commons-csv.version&gt;</span>1.9.0<span class="nt">&lt;/commons-csv.version&gt;</span>
+        <span class="nt">&lt;jquery-ui.version&gt;</span>1.13.0<span class="nt">&lt;/jquery-ui.version&gt;</span>
+        <span class="nt">&lt;sap-theming__theming-base-content.version&gt;</span>11.1.42<span class="nt">&lt;/sap-theming__theming-base-content.version&gt;</span>
+        <span class="nt">&lt;fundamental-styles.version&gt;</span>0.24.4<span class="nt">&lt;/fundamental-styles.version&gt;</span>
+        <span class="nt">&lt;angular-aria.version&gt;</span>1.8.2<span class="nt">&lt;/angular-aria.version&gt;</span>
+        <span class="nt">&lt;split.js.version&gt;</span>1.6.5<span class="nt">&lt;/split.js.version&gt;</span>
+        <span class="nt">&lt;diff.version&gt;</span>5.1.0<span class="nt">&lt;/diff.version&gt;</span>
+        <span class="nt">&lt;monaco-editor.version&gt;</span>0.33.0<span class="nt">&lt;/monaco-editor.version&gt;</span>
+        <span class="nt">&lt;requirejs.version&gt;</span>2.3.6<span class="nt">&lt;/requirejs.version&gt;</span>
+        <span class="nt">&lt;jstree.version&gt;</span>3.3.12<span class="nt">&lt;/jstree.version&gt;</span>
+        <span class="nt">&lt;jquery.version&gt;</span>3.6.0<span class="nt">&lt;/jquery.version&gt;</span>
+        <span class="nt">&lt;jqplot.version&gt;</span>1.0.8r1250<span class="nt">&lt;/jqplot.version&gt;</span>
+        <span class="nt">&lt;bootstrap.version&gt;</span>3.3.7<span class="nt">&lt;/bootstrap.version&gt;</span>
+        <span class="nt">&lt;es5-shim.version&gt;</span>4.6.7<span class="nt">&lt;/es5-shim.version&gt;</span>
+        <span class="nt">&lt;angular-file-upload.version&gt;</span>2.6.1<span class="nt">&lt;/angular-file-upload.version&gt;</span>
+        <span class="nt">&lt;angularjs.version&gt;</span>1.8.2<span class="nt">&lt;/angularjs.version&gt;</span>
+        <span class="nt">&lt;fontawesome.version&gt;</span>4.7.0<span class="nt">&lt;/fontawesome.version&gt;</span>
+        <span class="nt">&lt;classgraph.version&gt;</span>4.8.154<span class="nt">&lt;/classgraph.version&gt;</span>
+        <span class="nt">&lt;commons-compress.version&gt;</span>1.22<span class="nt">&lt;/commons-compress.version&gt;</span>
+        <span class="nt">&lt;testcontainers.elasticsearch.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.elasticsearch.version&gt;</span>
+        <span class="nt">&lt;testcontainers.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.version&gt;</span>
+        <span class="nt">&lt;testcontainers.rabbitmq.version&gt;</span>1.17.6<span class="nt">&lt;/testcontainers.rabbitmq.version&gt;</span>
+        <span class="nt">&lt;amqp.client.version&gt;</span>5.16.0<span class="nt">&lt;/amqp.client.version&gt;</span>
+        <span class="nt">&lt;elasticsearch.client.version&gt;</span>7.7.1<span class="nt">&lt;/elasticsearch.client.version&gt;</span>
+        <span class="nt">&lt;jetcd.core.version&gt;</span>0.7.5<span class="nt">&lt;/jetcd.core.version&gt;</span>
+        <span class="nt">&lt;jetcd.test.version&gt;</span>0.5.4<span class="nt">&lt;/jetcd.test.version&gt;</span>
+        <span class="nt">&lt;logcaptor.version&gt;</span>2.7.10<span class="nt">&lt;/logcaptor.version&gt;</span>
+        <span class="nt">&lt;exec.maven.plugin&gt;</span>3.0.0<span class="nt">&lt;/exec.maven.plugin&gt;</span>
+
+        <span class="nt">&lt;spring-context-support.version&gt;</span>5.3.24<span class="nt">&lt;/spring-context-support.version&gt;</span>
+        <span class="nt">&lt;webjars-locator&gt;</span>0.51<span class="nt">&lt;/webjars-locator&gt;</span>
+
+        <span class="nt">&lt;keycloak-adapter-bom.version&gt;</span>20.0.2<span class="nt">&lt;/keycloak-adapter-bom.version&gt;</span>
+        <span class="nt">&lt;hikaricp.version&gt;</span>5.0.1<span class="nt">&lt;/hikaricp.version&gt;</span>
+        <span class="nt">&lt;validator.version&gt;</span>1.7<span class="nt">&lt;/validator.version&gt;</span>
+        <span class="nt">&lt;quartz.version&gt;</span>2.3.2<span class="nt">&lt;/quartz.version&gt;</span>
+        <span class="nt">&lt;c3p0.version&gt;</span>0.9.5.5<span class="nt">&lt;/c3p0.version&gt;</span>
+        <span class="nt">&lt;graalvm.version&gt;</span>22.3.1<span class="nt">&lt;/graalvm.version&gt;</span>
+        <span class="nt">&lt;guava.version&gt;</span>31.1-jre<span class="nt">&lt;/guava.version&gt;</span>
+        <span class="nt">&lt;icu4j.version&gt;</span>72.1<span class="nt">&lt;/icu4j.version&gt;</span>
+        <span class="nt">&lt;commons-collections.version&gt;</span>3.2.2<span class="nt">&lt;/commons-collections.version&gt;</span>
+        <span class="nt">&lt;commons-collections4.version&gt;</span>4.4<span class="nt">&lt;/commons-collections4.version&gt;</span>
+        <span class="nt">&lt;velocity.version&gt;</span>2.3<span class="nt">&lt;/velocity.version&gt;</span>
+        <span class="nt">&lt;wikitext.version&gt;</span>3.0.45.202211090110<span class="nt">&lt;/wikitext.version&gt;</span>
+        <span class="nt">&lt;flexmark.version&gt;</span>0.64.0<span class="nt">&lt;/flexmark.version&gt;</span>
+        <span class="nt">&lt;qldb.driver.version&gt;</span>2.3.1<span class="nt">&lt;/qldb.driver.version&gt;</span>
+        <span class="nt">&lt;qldb.sdk.version&gt;</span>1.12.386<span class="nt">&lt;/qldb.sdk.version&gt;</span>
+        <span class="nt">&lt;cassandra.version&gt;</span>1.17.6<span class="nt">&lt;/cassandra.version&gt;</span>
+        <span class="nt">&lt;cassandra.driver.version&gt;</span>3.11.3<span class="nt">&lt;/cassandra.driver.version&gt;</span>
+        <span class="nt">&lt;jedis.version&gt;</span>4.3.1<span class="nt">&lt;/jedis.version&gt;</span>
+        <span class="nt">&lt;spark.version&gt;</span>3.3.1<span class="nt">&lt;/spark.version&gt;</span>
+        <span class="nt">&lt;path-to-regexp.version&gt;</span>6.2.1<span class="nt">&lt;/path-to-regexp.version&gt;</span>
+        <span class="nt">&lt;javax.websocket-api.version&gt;</span>1.1<span class="nt">&lt;/javax.websocket-api.version&gt;</span>
+        <span class="nt">&lt;jacoco.version&gt;</span>0.8.11<span class="nt">&lt;/jacoco.version&gt;</span>
+
+        <span class="nt">&lt;jakarta.validation.version&gt;</span>3.0.2<span class="nt">&lt;/jakarta.validation.version&gt;</span>
+        <span class="nt">&lt;org.springdoc.openapi.ui.version&gt;</span>1.7.0<span class="nt">&lt;/org.springdoc.openapi.ui.version&gt;</span>
+        <span class="nt">&lt;swagger-annotations.version&gt;</span>1.6.9<span class="nt">&lt;/swagger-annotations.version&gt;</span>
+
+        <span class="nt">&lt;profile.content.phase&gt;</span>none<span class="nt">&lt;/profile.content.phase&gt;</span>
+
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li>Navigate to the <code>application</code> folder.</li>
+<li>Open the <code>pom.xml</code> file.</li>
+<li>
+<p>Make the following changes:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Add APIs Dependency</label><label for="__tabbed_3_2">Final pom.xml</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Navigate to the <code>&lt;dependencies&gt;</code> section.</li>
+<li>
+<p>Add the following dependency:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-apis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<details class="abstract">
+<summary>application/pom.xml</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+        <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;parent&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>custom-stack-parent<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;relativePath&gt;</span>../pom.xml<span class="nt">&lt;/relativePath&gt;</span>
+    <span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;name&gt;</span>custom - stack - application<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>custom-stack-application<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-apis<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.dirigible.samples<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>custom-stack-branding<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Core --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>com.zaxxer<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>HikariCP-java7<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Security --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-basic<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-keycloak<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Data --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-database<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Engine --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-engines<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.validation<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>validation-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>cxf-rt-frontend-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>
+                        cxf-spring-boot-starter-jaxrs
+                    <span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-engine-command<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- IDE --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-ide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;exclusions&gt;</span>
+                <span class="nt">&lt;exclusion&gt;</span>
+                    <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+                    <span class="nt">&lt;artifactId&gt;</span>dirigible-components-ide-ui-branding<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;/exclusion&gt;</span>
+            <span class="nt">&lt;/exclusions&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- API --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-api<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Resources --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-resources<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-security-oauth2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Templates --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-components-group-templates<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-validation<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.codeborne<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>selenide<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>7.2.2<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="cm">&lt;!-- Drivers --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-database-mongodb-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.sap.cloud.db.jdbc<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>ngdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${ngdbc.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>net.snowflake<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>snowflake-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>${snowflake.version}<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.eclipse.dirigible<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>dirigible-tests-framework<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;mainClass&gt;</span>io.dirigible.samples.CustomStackApplication<span class="nt">&lt;/mainClass&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>repackage<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="cm">&lt;!-- </span>
+<span class="cm">                Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
+<span class="cm">                This is needed for the info in the &quot;About&quot; view.</span>
+<span class="cm">            --&gt;</span>
+            <span class="cm">&lt;!--</span>
+<span class="cm">            &lt;plugin&gt;</span>
+<span class="cm">                &lt;groupId&gt;pl.project13.maven&lt;/groupId&gt;</span>
+<span class="cm">                &lt;artifactId&gt;git-commit-id-plugin&lt;/artifactId&gt;</span>
+<span class="cm">                &lt;version&gt;${git-commit-id-plugin.version}&lt;/version&gt;</span>
+<span class="cm">                &lt;executions&gt;</span>
+<span class="cm">                    &lt;execution&gt;</span>
+<span class="cm">                        &lt;id&gt;get-the-git-infos&lt;/id&gt;</span>
+<span class="cm">                        &lt;goals&gt;</span>
+<span class="cm">                            &lt;goal&gt;revision&lt;/goal&gt;</span>
+<span class="cm">                        &lt;/goals&gt;</span>
+<span class="cm">                    &lt;/execution&gt;</span>
+<span class="cm">                &lt;/executions&gt;</span>
+<span class="cm">                &lt;configuration&gt;</span>
+<span class="cm">                    &lt;dotGitDirectory&gt;../.git&lt;/dotGitDirectory&gt;</span>
+<span class="cm">                &lt;/configuration&gt;</span>
+<span class="cm">            &lt;/plugin&gt;</span>
+<span class="cm">            --&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
+                <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div>
+</details>
+</div>
+</div>
+</div>
+</li>
+</ul>
 <h4 id="build-the-custom-platform">Build the Custom Platform</h4>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
@@ -4144,7 +4156,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="./" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../branding/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -4153,19 +4165,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Facade			
+							Branding			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../dependency/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../advanced-facade/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Dependency
+							Advanced Facade
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
