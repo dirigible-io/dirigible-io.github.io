@@ -6,18 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide">
       
-        <meta name="author" content="Georgi Pavlov">
+      
+        <meta name="author" content="Yordan Pavlov">
       
       
-        <link rel="canonical" href="https://www.dirigible.io/blogs/2017/03/10/blogs-apps-tests-jasmine/">
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2024/04/05/custom-stack/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Testing Server-Side JavaScript with Jasmine - Eclipse Dirigible Blogs</title>
+        <title>Building Your Own Eclipse Dirigible Stack - Eclipse Dirigible Blogs</title>
       
     
     
@@ -82,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing-server-side-javascript-with-jasmine" class="md-skip">
+        <a href="#building-your-own-eclipse-dirigible-stack-a-step-by-step-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing Server-Side JavaScript with Jasmine
+              Building Your Own Eclipse Dirigible Stack
             
           </span>
         </div>
@@ -200,13 +202,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../2024/04/05/custom-stack/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         2024
       </a>
     </li>
@@ -312,15 +316,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../blogs-apps-tests-jasmine1/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-tabs__link">
         2017
       </a>
     </li>
@@ -445,12 +447,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -477,11 +481,160 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../2024/04/05/custom-stack/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Building Your Own Eclipse Dirigible Stack
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Building Your Own Eclipse Dirigible Stack
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-custom-stack" class="md-nav__link">
+    What is a Custom Stack?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-your-custom-stack" class="md-nav__link">
+    Build Your Custom Stack
+  </a>
+  
+    <nav class="md-nav" aria-label="Build Your Custom Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    Project Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-and-run" class="md-nav__link">
+    Build and Run
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization-steps" class="md-nav__link">
+    Customization Steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    Branding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facade" class="md-nav__link">
+    Facade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-facade" class="md-nav__link">
+    Advanced Facade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency" class="md-nav__link">
+    Dependency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -493,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2024/03/26/multitenancy/" class="md-nav__link">
+      <a href="../../../03/26/multitenancy/" class="md-nav__link">
         Multitenant applications with zero effort
       </a>
     </li>
@@ -1273,14 +1426,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       
       
@@ -1311,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blogs-apps-tests-jasmine1/" class="md-nav__link">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine1/" class="md-nav__link">
         Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console
       </a>
     </li>
@@ -1323,76 +1474,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Testing Server-Side JavaScript with Jasmine
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../2017/03/10/blogs-apps-tests-jasmine/" class="md-nav__link">
         Testing Server-Side JavaScript with Jasmine
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#testing-server-side-javascript-with-jasmine" class="md-nav__link">
-    Testing Server-Side JavaScript with Jasmine
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#jasmine-api-in-dirigible-scripting-environment" class="md-nav__link">
-    Jasmine API in Dirigible Scripting Environment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-runner" class="md-nav__link">
-    Test runner
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#putting-it-all-together" class="md-nav__link">
-    Putting it all together
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1404,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blogs-apps-testfwks/" class="md-nav__link">
+      <a href="../../../../2017/03/10/blogs-apps-testfwks/" class="md-nav__link">
         Integration of Third-Party JavaScript Libraries in Dirigible
       </a>
     </li>
@@ -1975,6 +2061,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1983,36 +2071,116 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#testing-server-side-javascript-with-jasmine" class="md-nav__link">
-    Testing Server-Side JavaScript with Jasmine
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-custom-stack" class="md-nav__link">
+    What is a Custom Stack?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#jasmine-api-in-dirigible-scripting-environment" class="md-nav__link">
-    Jasmine API in Dirigible Scripting Environment
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
   </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-runner" class="md-nav__link">
-    Test runner
+  <a href="#build-your-custom-stack" class="md-nav__link">
+    Build Your Custom Stack
   </a>
+  
+    <nav class="md-nav" aria-label="Build Your Custom Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    Project Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-and-run" class="md-nav__link">
+    Build and Run
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#putting-it-all-together" class="md-nav__link">
-    Putting it all together
+  <a href="#customization-steps" class="md-nav__link">
+    Customization Steps
   </a>
+  
+    <nav class="md-nav" aria-label="Customization Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    Branding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facade" class="md-nav__link">
+    Facade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-facade" class="md-nav__link">
+    Advanced Facade
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency" class="md-nav__link">
+    Dependency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
   </a>
   
 </li>
@@ -2033,7 +2201,7 @@
         <!-- Edit button -->
         
           <a
-            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2017/03/10/blogs-apps-tests-jasmine.md"
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2024/04/05/custom-stack.md"
             title="Edit this page"
             class="md-content__button md-icon"
           >
@@ -2047,24 +2215,22 @@
           as the main headline.
         -->
         
-          <h1>Testing Server-Side JavaScript with Jasmine</h1>
-        
 
         <!-- Markdown content -->
         
         <aside class="mdx-author">
             <p>
-            <img src="https://avatars.githubusercontent.com/shturec" alt="@shturec">
+            <img src="https://avatars.githubusercontent.com/thuf" alt="@thuf">
             </p>
             <p>
             <span> 
-            <b>Georgi Pavlov</b> · <a href="https://github.com/shturec">@shturec</a>
+            <b>Yordan Pavlov</b> · <a href="https://github.com/thuf">@thuf</a>
             </span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
                     <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-                  </svg> March 10, 2017 ·
+                  </svg> April 05, 2024 ·
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
@@ -2074,104 +2240,46 @@
         </aside>
         
 
-        <p><a href="https://jasmine.github.io/">Jasmine</a> is a popular test framework that supports BDD (Behavior-Driven Development) with testing JavaScript code. It does not require DOM. And all that makes it a very good candidate for a test framework of choice for JavaScript Scripting Services in Dirigible. It is made available for you to use as a Dirigible <a href="https://github.com/dirigiblelabs/jasmine">GitHub project</a>.</p>
-<h2 id="testing-server-side-javascript-with-jasmine">Testing Server-Side JavaScript with Jasmine</h2>
-<p>Writing tests with Jasmine is fun. It has interesting style of naming its functions so they sound quite natural.
-You literally <em>describe</em> what your code (<em>it</em>) is <em>expect</em> ed to do with nice fluent assertion API. Here's (a dumb simple) example of how it looks:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">$$j</span><span class="p">.</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;A suite is just a function&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and has a positive case&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and can have a negative case&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w">   </span>
-
-<span class="p">});</span><span class="w"></span>
-</code></pre></div>
-<p>It's pretty much a functional specification of your code. Hence, how it supports BDD.
-There's plenty of examples out there how to make use of it for client-side apps so I won't spend time on that right now. The point of this blog is to show how to make use of it for testing server side code in Dirigible.</p>
-<h2 id="jasmine-api-in-dirigible-scripting-environment">Jasmine API in Dirigible Scripting Environment</h2>
-<p>Once you get the <a href="https://github.com/dirigiblelabs/jasmine">Jasmine project</a> from GitHub into your workspace, you need to require the library first before you can make anything with it. Open up a file in the <em>Test Cases</em> section of your project (or create it manually if you don't have one yet) and start writing: <em>var j = require("jasmine/jasmine");</em>. The <strong>j</strong> variable is a reference to the Jasmine API and now you are completely into the Jasmine world. Set it up and use <em>require</em> to reference the code you want to test and start asserting its behavior using the Jasmine API as you normally would when testing client-side JavaScript libraries.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;jasmine/jasmine&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">jasmine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">j</span><span class="p">.</span><span class="nx">core</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">();</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">$$j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">j</span><span class="p">.</span><span class="kr">interface</span><span class="p">(</span><span class="nx">jasmine</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<h2 id="test-runner">Test runner</h2>
-<p>So, you have your tests developed and now you are eager to run the suite. There are a couple of options here. You can go quite native to Jasmine and take care of integrating a test results reporter (we provide two reporters adapted for Dirigible for you out-of-the-box, one for console and one as a JSON service). Or even better, and I shall focus on this now, you can use the Jasmine Test Runner Service (require with path <strong>jasmine/jasmine_test_runner_svc</strong>). It is designed to work with the core Test Runner module in Dirigible to deliver test results as a service in a form suitable for you user agent. If you requested the test suite file via a browser (or the Preview view in Dirigible IDE) it will redirect the results to the Test Dashboard HTML UI. And if you requested it e.g. with cUrl using <strong>Accept: application/json</strong> header it will deliver test results formatted as JSON as a response. This makes it suitable both for direct consumption or integration in third-party quality control systems and it will cost just a single line of code to enable.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;jasmine/jasmine_test_runner_svc&quot;</span><span class="p">).</span><span class="nx">service</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-The test results output for HTML capable user agents looks like this:</p>
-<p><img src="/img/posts/20170310-0/test-dashboard.png"/></p>
-<p>And when requested for JSON instead of HTML it will deliver the following payload:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;tests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spec0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;and has a positive case&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A suite is just a function &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;assertions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Expected false to be true.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;failed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spec1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;and can have a negative case&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A suite is just a function &quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;assertions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;and can have a negative case assertion[toBe] passed.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">      </span><span class="p">],</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;failed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;testSuite&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">122</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;passed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;failed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<h2 id="putting-it-all-together">Putting it all together</h2>
-<p>Finally, putting it all together, here is the layout of Jasmine-Dirigible test suite with two test cases delivering results as a service, that we discussed so far.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;jasmine/jasmine&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">jasmine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">j</span><span class="p">.</span><span class="nx">core</span><span class="p">(</span><span class="nx">j</span><span class="p">);</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jasmine</span><span class="p">.</span><span class="nx">getEnv</span><span class="p">();</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">$$j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">j</span><span class="p">.</span><span class="kr">interface</span><span class="p">(</span><span class="nx">jasmine</span><span class="p">,</span><span class="w"> </span><span class="nx">env</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">$$j</span><span class="p">.</span><span class="nx">describe</span><span class="p">(</span><span class="s2">&quot;A suite is just a function&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and has a positive case&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">it</span><span class="p">(</span><span class="s2">&quot;and can have a negative case&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">$$j</span><span class="p">.</span><span class="nx">expect</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="nx">not</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w">   </span>
-
-<span class="p">});</span><span class="w"></span>
-
-<span class="nx">require</span><span class="p">(</span><span class="s2">&quot;jasmine/jasmine_test_runner_svc&quot;</span><span class="p">).</span><span class="nx">service</span><span class="p">(</span><span class="nx">env</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>Now, you are all set to benefit from what Jasmine has to offer to you as a developer for JavaScript server-side code.</p>
-<h2 id="references">References</h2>
+        <h1 id="building-your-own-eclipse-dirigible-stack-a-step-by-step-guide">Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide</h1>
+<p>In the realm of enterprise development, customization often leads to optimization. Eclipse Dirigible, a cloud development platform, offers immense flexibility, allowing developers to tailor their development environments to specific needs. One such capability is creating a custom Eclipse Dirigible stack. This tutorial will walk you through the process of building your own stack from scratch.</p>
+<h2 id="overview">Overview</h2>
+<h3 id="what-is-a-custom-stack">What is a Custom Stack?</h3>
+<p>A custom stack in Eclipse Dirigible is essentially a personalized environment tailored to your project's requirements. It involves setting up your development environment with custom configurations, branding, and additional functionalities as per your project needs. Follow the steps <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/">here</a> to build your Eclipse Dirigible Custom Stack.</p>
+<p><img alt="Dirigible" src="../dirigible.jpg" /></p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before diving into the customization process, ensure you have the following prerequisites installed on your system:</p>
 <ul>
-<li><a href="https://jasmine.github.io/">Jasmin project</a></li>
-<li><a href="https://github.com/dirigiblelabs/jasmine">Dirigible Jasmin module GitHub project</a> </li>
+<li>JDK 21+ (OpenJDK versions are also supported)</li>
+<li>Maven 3.5+</li>
+<li>Node.js 18+ and npm</li>
+<li>esbuild 0.19+</li>
+<li>TypeScript Compiler (tsc) 5.2+</li>
 </ul>
+<h2 id="build-your-custom-stack">Build Your Custom Stack</h2>
+<h3 id="project-structure">Project Structure</h3>
+<p>The first step is to create the project structure for your custom stack. This includes setting up Maven <code>pom.xml</code> files, static content resources, <code>application.properties</code> configuration files, and a Spring Boot Java class. Refer to the tutorial <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/project-structure/">here</a> for detailed instructions on creating the project structure.</p>
+<h3 id="build-and-run">Build and Run</h3>
+<p>Once the project structure is set up, navigate to the root folder of your project in the terminal and execute the following commands:</p>
+<p>To build the custom stack:</p>
+<div class="highlight"><pre><span></span><code>mvn clean install
+</code></pre></div>
+<p>To run the custom stack:</p>
+<div class="highlight"><pre><span></span><code>java --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED -jar application/target/custom-stack-application-*.jar
+</code></pre></div>
+<p>You can access your custom stack at http://localhost:8080.</p>
+<h2 id="customization-steps">Customization Steps</h2>
+<h3 id="branding">Branding</h3>
+<p>Customizing the branding of your custom stack adds a personal touch to your development environment. Follow the instructions <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/branding/">here</a> to rebrand your Eclipse Dirigible Custom Stack.</p>
+<h3 id="facade">Facade</h3>
+<p>Creating Java Facade and TypeScript API enhances the functionality of your custom stack. The tutorial provides detailed steps on creating APIs Maven Module, Java Facade, and TypeScript API. Check out the tutorial <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/facade/">here</a> for a step-by-step guide.</p>
+<h3 id="advanced-facade">Advanced Facade</h3>
+<p>Dive deeper into creating a TypeScript API for your custom stack with different versions of Java Facades. Learn about the native Java and TypeScript ways of implementing APIs. Refer to the tutorial <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/advanced-facade/">here</a> for detailed instructions.</p>
+<h3 id="dependency">Dependency</h3>
+<p>Integrating external Maven dependencies adds extra functionalities to your custom stack. Follow the steps in the tutorial <a href="https://www.dirigible.io/help/tutorials/customizations/custom-stack/dependency/">here</a> to add external Maven dependency for generating barcodes and using it in your Eclipse Dirigible Custom Stack.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following this tutorial, you have successfully built your own Eclipse Dirigible stack tailored to your project's needs. With custom branding, APIs, and additional dependencies, your development environment is now optimized for efficient development. For more detailed instructions and resources, refer to the complete tutorial <a href="https://github.com/dirigiblelabs/tutorial-custom-stack">here</a>.</p>
+<p>Start customizing and unleash the full potential of Eclipse Dirigible for your projects!</p>
 
         <!-- Last update of source file -->
         
@@ -2196,7 +2304,7 @@ The test results output for HTML capable user agents looks like this:</p>
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../blogs-apps-tests-jasmine1/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../../.." class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -2205,19 +2313,19 @@ The test results output for HTML capable user agents looks like this:</p>
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Server-Side Tests: Enabling Jasmine Test Results in Dirigible Console			
+							Blogs			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../blogs-apps-testfwks/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../../03/26/multitenancy/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Integration of Third-Party JavaScript Libraries in Dirigible
+							Multitenant applications with zero effort
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">

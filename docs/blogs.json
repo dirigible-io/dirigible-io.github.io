@@ -1,10 +1,5 @@
 [
   {
-    "location": "2022/09/26/qldb-repository-api-guide.md",
-    "title": "Amazon Quantum Ledger Database with Eclipse Dirigible",
-    "description": "In this article we are going to setup and use AWS QLDB with Eclipse Dirigible's QLDB Repository API."
-  },
-  {
     "location": "2023/01/16/http-decorators.md",
     "title": "JavaScript Decorators in Eclipse Dirigible",
     "description": "In this article we are going to take a look at the HTTP JS decorators of Eclipse Dirigible"
@@ -23,5 +18,10 @@
     "location": "2024/03/26/multitenancy.md",
     "title": "Multitenant applications with zero effort",
     "description": "\"Multitenancy with zero effort using Eclipse Dirigible\""
+  },
+  {
+    "location": "2024/04/05/custom-stack.md",
+    "title": "Building Your Own Eclipse Dirigible Stack",
+    "description": "\"Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide\""
   }
 ]
