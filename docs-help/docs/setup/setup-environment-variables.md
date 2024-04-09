@@ -437,6 +437,12 @@ Parameter     | Description | Default*
 **DIRIGIBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_NASHORN** | Whether GraalVM has enabled compatibility mode for Nashorn | _`true`_
 **DIRIGIBLE_JAVASCRIPT_GRAALVM_COMPATIBILITY_MODE_MOZILLA** | Whether GraalVM has enabled compatibility mode for Mozilla | _`false`_
 
+##### TypeScript
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_PROJECT_TYPESCRIPT** | Whether the project is TypeScript enabled | _`true`_
+
 #### OData
 
 Parameter     | Description | Default*
