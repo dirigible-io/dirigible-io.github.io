@@ -46,7 +46,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2015/01/21/news-new-release-osgiruntime-flowengine/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/02/23/news-new-release-rcp-native-eclipse-plugins/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2015/03/09/news-introduction-to-the-team/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/03/16/news-new-release-root-package/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/04/24/news-new-release-orion-as-editor/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -57,6 +77,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/08/24/news-dirigible-new-trial-instance/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/09/23/news-2-1-m1/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -77,6 +102,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/10/06/news-dirigible-in-cio-bg/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/10/07/news-new-release-2-1/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -106,6 +136,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2015/11/17/news-new-milestone-2-2-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2015/12/10/blogs-dirigible-remote-debugging/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -117,6 +152,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2015/12/17/blogs-how-to-install-dirigible-on-sap-hana-cloud-platform/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2015/12/17/news-new-milestone-2-2-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -136,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2016/01/19/news-new-milestone-2-2-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2016/01/21/blogs-dirigible-custom-ds-3/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -147,6 +192,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/01/26/news-docker/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/02/03/news-new-release-2-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -171,12 +221,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2016/03/17/news-new-release-2-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2016/04/18/fast-prototyping-in-front-of-your-customer/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/05/19/news-new-release-2-4/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -192,6 +252,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2016/08/01/blogs-why-enterprise-js/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/08/04/news-new-release-2-5/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -216,6 +281,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2016/10/05/news-new-milestone-2-6-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/10/14/news-new-milestone-2-6-2/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/10/21/news-new-milestone-2-6-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2016/10/30/news-eclipsecon-eu-2016/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -231,7 +311,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2016/11/22/news-new-milestone-2-6-4/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2016/12/02/news-innoweek-sap-2016/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2016/12/03/news-new-release-2-6/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2017/01/09/news-new-milestone-2-7-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2017/02/25/news-new-milestone-2-7-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -266,7 +366,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2017/05/04/news-new-milestone-2-7-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2017/06/08/news-new-release-2-7/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2017/08/21/news-new-release-2-8/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2017/10/04/news-javaone-2017/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2017/11/14/news-new-release-3-0/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2018/01/19/news-new-release-3-1/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -282,6 +407,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2018/03/02/blogs-3x-ide/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2018/05/19/news-new-release-3-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -326,7 +456,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2018/12/20/news-new-release-3-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2019/09/10/news-new-release-3-5/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2019/09/25/how-does-eclipse-dirigible-contribute-to-eclipse-che-7/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2019/11/24/news-new-release-4-0/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2019/12/27/news-new-release-4-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/01/14/news-new-release-4-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -351,7 +506,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2020/03/11/news-new-release-4-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/04/04/news-new-release-4-4/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/05/04/news-new-release-4-5/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2020/05/07/what-is-eclipse-dirigible/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/05/31/news-new-release-4-6/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/06/25/news-new-release-5-0/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -361,7 +541,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2020/08/24/news-new-release-5-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/09/02/news-new-release-5-2/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/10/05/news-new-release-5-3/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2020/10/23/how-to-deploy-eclipse-dirigible-in-the-sap-cloud-platform-kyma-environment/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/10/23/news-new-release-5-4/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2020/11/11/news-new-release-5-5/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -391,6 +596,51 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2020/12/22/news-new-release-5-6/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/01/31/news-new-release-5-7/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/02/18/news-new-release-5-8/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/03/26/news-new-release-5-9/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/04/24/news-new-release-5-10/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/05/27/news-new-release-5-11/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/07/04/news-new-release-5-12/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/09/29/news-new-release-6-0/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2021/10/07/news-new-release-6-1/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2021/10/11/low-code-mobile-apps-with-dirigible-and-ns/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
@@ -412,6 +662,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2022/01/14/dirigible-vscode-theia-custom-editors/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2022/02/13/news-new-release-6-2/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -446,7 +701,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2022/12/24/news-new-release-7-0/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2023/01/16/http-decorators/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2023/03/31/news-new-release-8-0/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -457,6 +722,11 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/blogs/2023/09/27/typescript-support/</loc>
+         <lastmod>2024-04-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/blogs/2023/12/19/news-new-release-9-0/</loc>
          <lastmod>2024-04-15</lastmod>
          <changefreq>daily</changefreq>
     </url>

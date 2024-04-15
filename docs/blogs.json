@@ -1,10 +1,5 @@
 [
   {
-    "location": "2023/01/16/http-decorators.md",
-    "title": "JavaScript Decorators in Eclipse Dirigible",
-    "description": "In this article we are going to take a look at the HTTP JS decorators of Eclipse Dirigible"
-  },
-  {
     "location": "2023/09/26/java-and-graaljs-update.md",
     "title": "Eclipse Dirigible's Latest Update: Java 21 and GraalJS 23.1.0!",
     "description": "In the dynamic world of software development, staying up-to-date is key"
@@ -13,6 +8,10 @@
     "location": "2023/09/27/typescript-support.md",
     "title": "TypeScript support",
     "description": "\"In the ever-evolving world of web development, staying on top of the latest technologies is crucial for success\""
+  },
+  {
+    "location": "2023/12/19/news-new-release-9-0.md",
+    "title": "Release 9.0"
   },
   {
     "location": "2024/03/26/multitenancy.md",
