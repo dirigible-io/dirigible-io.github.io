@@ -342,8 +342,64 @@ This section will guide you through the process of adding external Maven depende
 		facadeInstance.add(5, 3);
 		```
 
-1. Save the changes.
-1. Open the **Preview** view to see the result.
+- Right click on the `demo-application` project and select **New &#8594; File**.
+- Enter `tsconfig.json` for the name of the File.
+
+	```json
+	{
+		"compilerOptions": {
+			"module": "ESNext",
+			"target": "ES6",
+			"moduleResolution": "Node",
+			"baseUrl": "../",
+			"lib": [
+				"ESNext",
+				"DOM"
+			],
+			"paths": {
+				"sdk/*": [
+					"../modules/src/*"
+				],
+				"/*": [
+					"../*"
+				]
+			},
+			"types": [
+				"../modules/types"
+			]
+		}
+	}
+	```
+
+- Save the changes.
+- Right click on the `demo-application` project and select **New &#8594; File**.
+- Enter `project.json` for the name of the File.
+
+	```json
+	{
+		"guid": "demo-application",
+		"actions": [
+			{
+				"name": "Build TypeScript",
+				"commands": [
+					{
+						"os": "unix",
+						"command": "tsc"
+					},
+					{
+						"os": "windows",
+						"command": "cmd /c tsc"
+					}
+				],
+				"registry": "true"
+			}
+		]
+	}
+	```
+
+- Save the changes.
+- Right click on the `demo-application` project and select **Publish**
+- Select the `barcode.ts` from the **Projects** explorer and open the **Preview** view to see the result.
 
 ## Summary
 
