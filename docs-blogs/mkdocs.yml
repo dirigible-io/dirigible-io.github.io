@@ -1,8 +1,8 @@
-site_name: Eclipse Dirigible Blogs
+site_name: Eclipse Dirigible Blog
 site_url: https://www.dirigible.io/blogs/
 
 nav:
-    - 'Blogs': 'index.md'
+    - 'Blog': 'index.md'
     - '2024':
       - 'Building Your Own Eclipse Dirigible Stack': '2024/04/05/custom-stack.md'
       - 'Multitenant applications with zero effort': '2024/03/26/multitenancy.md'
