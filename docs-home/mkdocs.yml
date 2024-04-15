@@ -5,8 +5,7 @@ nav:
     - Home: 'index.md'
     - Documentation: '/help/'
     - API: '/api/'
-    - Blogs: '/blogs/'
-    - News: '/news/'
+    - Blog: '/blogs/'
     - Releases: '/releases/'
     - Downloads: 'https://downloads.dirigible.io'
 
