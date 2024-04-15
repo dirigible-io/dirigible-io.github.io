@@ -627,7 +627,7 @@ This section will guide you through the different ways of creating a `TypeScript
 #### Test the Advanced TypeScript API
 
 - Create a project named `demo-application`.
-- Right click on the `demo-application` project and select **New &#8594; TypeScript CJS Service**.
+- Right click on the `demo-application` project and select **New &#8594; TypeScript Service**.
 - Enter `demo-client.ts` for the name of the TypeScript Service.
 - Replace the content with the following code:
 
