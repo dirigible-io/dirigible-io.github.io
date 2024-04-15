@@ -221,19 +221,7 @@
 
   <li class="md-tabs__item">
     <a href="/blogs/" class="md-tabs__link">
-      Blogs
-    </a>
-  </li>
-
-      
-        
-  
-  
-
-
-  <li class="md-tabs__item">
-    <a href="/news/" class="md-tabs__link">
-      News
+      Blog
     </a>
   </li>
 
@@ -723,17 +711,6 @@
         <a class="md-button" href="/releases/"><p>All Releases ...</p></a>
     </div>
 
-    <div class="feature-item" ng-controller="NewsController">
-        <h2>News and Updates</h2>
-        <div>
-            <ul ng-repeat="next in news">
-                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
-            </ul>
-        </div>
-        <br>
-        <a class="md-button" href="/news/"><p>All News ...</p></a>
-    </div>
-
     <div class="feature-item">
         <h2>Tweets</h2>
         <div style="overflow: hidden; max-height: 500px">
@@ -802,20 +779,6 @@ $(document).ready(function() {
             }
             loadData();
         })
-        .controller('NewsController', function ($scope, $http) {
-            function loadData() {
-                $http.get("/news.json")
-                    .then(function (response) {
-                        $scope.news = response.data;
-                        $scope.news.forEach(e => {
-                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/news/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
-                        });
-                        $scope.news.reverse();
-                    });
-            }
-            loadData();
-        });
 </script>
 
 
@@ -918,22 +881,7 @@ $(document).ready(function() {
   
     <li class="md-nav__item">
       <a href="/blogs/" class="md-nav__link">
-        Blogs
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="/news/" class="md-nav__link">
-        News
+        Blog
       </a>
     </li>
   
@@ -1029,7 +977,7 @@ $(document).ready(function() {
 						<div class="column1">
 							<h3 style="font-size:16px">Updates</h3>
 							<ul>
-								<li style="font-size:14px"><a href="https://www.dirigible.io/news.html">News</a></li>
+								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">News</a></li>
 								<li style="font-size:14px"><a href="https://www.dirigible.io/blogs/">Blogs</a></li>
 								<li style="font-size:14px"><a href="http://download.dirigible.io/">Downloads</a></li>
 							</ul>						

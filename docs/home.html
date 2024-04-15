@@ -451,17 +451,6 @@
         <a class="md-button" href="/releases/"><p>All Releases ...</p></a>
     </div>
 
-    <div class="feature-item" ng-controller="NewsController">
-        <h2>News and Updates</h2>
-        <div>
-            <ul ng-repeat="next in news">
-                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
-            </ul>
-        </div>
-        <br>
-        <a class="md-button" href="/news/"><p>All News ...</p></a>
-    </div>
-
     <div class="feature-item">
         <h2>Tweets</h2>
         <div style="overflow: hidden; max-height: 500px">
@@ -530,20 +519,6 @@ $(document).ready(function() {
             }
             loadData();
         })
-        .controller('NewsController', function ($scope, $http) {
-            function loadData() {
-                $http.get("/news.json")
-                    .then(function (response) {
-                        $scope.news = response.data;
-                        $scope.news.forEach(e => {
-                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/news/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
-                        });
-                        $scope.news.reverse();
-                    });
-            }
-            loadData();
-        });
 </script>
 
 {% endblock %}
