@@ -13,7 +13,7 @@ This guide explains how to setup an Eclipse Dirigible instance and how to use it
 
 !!! tip "Trial Environment"
 
-    In case you are using the shared [https://trial.apps.dirigible.io](https://trial.apps.dirigible.io) environment, you can skip this section.
+    In case you are using the shared [https://trial.dirigible.io](https://trial.dirigible.io) environment, you can skip this section.
 
 ### Get the binary
 
@@ -23,7 +23,7 @@ This guide explains how to setup an Eclipse Dirigible instance and how to use it
 ### Choose the environment
 
 * You can choose one of the [setup options](../setup/) available to get an Eclipse Dirigible instance depending on your target environment.
-* A shared trial instance is also available and can be accessed from here: [https://trial.apps.dirigible.io](https://trial.apps.dirigible.io)
+* A shared trial instance is also available and can be accessed from here: [https://trial.dirigible.io](https://trial.dirigible.io)
 
 !!! info "Environment Variables"
 

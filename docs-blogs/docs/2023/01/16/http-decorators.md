@@ -85,4 +85,4 @@ onPost(body, ctx) {
 By using the `ctx` argument of the request handler you can access the underlying [request](https://www.dirigible.io/api/http/request/) with `ctx.req` or the [response](https://www.dirigible.io/api/http/response/) object with `ctx.res`.
 
 ## Wrap up
-Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at [Dirigible Trial](https://trial.apps.dirigible.io/).
+Whether using decorators for declaring REST APIs is the best way, of course, is debatable. Some people like using decorators, and some people like defining routes like in Express. Personally, I believe both solutions have their pros and cons and it's the developer's responsibility to choose the best approach for a given REST API. If you want to see all this for yourself, go ahead and try it out at [Dirigible Trial](https://trial.dirigible.io/).
