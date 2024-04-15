@@ -283,7 +283,7 @@ This section will guide you through the process of adding external Maven depende
 #### Test the Changes
 
 - Create a project named `demo-application`.
-- Right click on the `demo-application` project and select **New &#8594; TypeScript CJS Service**.
+- Right click on the `demo-application` project and select **New &#8594; TypeScript Service**.
 - Enter `barcode.ts` for the name of the TypeScript Service.
 - Replace the content with the following code:
 
