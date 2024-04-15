@@ -6,7 +6,6 @@ nav:
     - Documentation: '/help/'
     - API: '/api/'
     - Blog: '/blogs/'
-    - Releases: '/releases/'
     - Downloads: 'https://downloads.dirigible.io'
 
 theme:
