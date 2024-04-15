@@ -696,7 +696,18 @@
             </ul>
         </div>
         <br>
-        <a class="md-button" href="/releases/"><p>All Releases ...</p></a>
+        <a class="md-button" href="https://github.com/eclipse/dirigible/releases/"><p>All Releases ...</p></a>
+    </div>
+
+    <div class="feature-item" ng-controller="NewsController">
+        <h2>News and Updates</h2>
+        <div>
+            <ul ng-repeat="next in news">
+                <li><p>[{ next.date }] <a class="post-link" href="[{ next.location }]">[{ next.title }]</p></a></li>
+            </ul>
+        </div>
+        <br>
+        <a class="md-button" href="/blogs/"><p>All News ...</p></a>
     </div>
 
     <div class="feature-item">
@@ -760,13 +771,27 @@ $(document).ready(function() {
                         $scope.releases = response.data;
                         $scope.releases.forEach(e => {
                             e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
-                            e.location = "/releases/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
+                            e.location = "/blogs/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
                         });
                         $scope.releases.reverse();
                     });
             }
             loadData();
         })
+        .controller('NewsController', function ($scope, $http) {
+            function loadData() {
+                $http.get("/news.json")
+                    .then(function (response) {
+                        $scope.news = response.data;
+                        $scope.news.forEach(e => {
+                            e.date = e.location.substring(0, e.location.lastIndexOf("/")).replaceAll("/", "-");
+                            e.location = "/blogs/" + e.location.substring(0, e.location.indexOf(".md")) + "/";
+                        });
+                        $scope.news.reverse();
+                    });
+            }
+            loadData();
+        });
 </script>
 
 
