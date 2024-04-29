@@ -2554,38 +2554,10 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Value after update: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultSetAfter</span><span class="p">));</span><span class="w"></span>
 
 <span class="nx">update</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE MY_TABLE&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="s2">&quot;DefaultDB&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
-<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<!-- === "CommonJS"
-
-    ```javascript
-    const update = require("db/update");
-    const query = require("db/query");
-    const response = require("http/response");
-
-    update.execute("CREATE TABLE MY_TABLE (COLUMN_A INT)", [], "DefaultDB");
-
-    update.execute("INSERT INTO MY_TABLE VALUES (1)", [], "DefaultDB");
-
-    let resultSetBefore = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
-    response.println("Value before update: " + JSON.stringify(resultSetBefore));
-
-    update.execute("UPDATE MY_TABLE SET COLUMN_A = 2", [], "DefaultDB");
-
-    let resultSetAfter = query.execute("SELECT COLUMN_A FROM MY_TABLE", [], "DefaultDB");
-    response.println("Value after update: " + JSON.stringify(resultSetAfter));
-
-    update.execute("DROP TABLE MY_TABLE", [], "DefaultDB");
-
-    response.flush();
-    response.close();
-    ``` -->
-
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -2602,10 +2574,16 @@
 <td>Executes a SQL update against the selected <em>datasourceName</em> with the provided parameters and returns the number of affected rows</td>
 <td><em>int</em></td>
 </tr>
+<tr>
+<td><strong>executeNamed(sql, parameters?, datasourceName?)</strong></td>
+<td>Executes a SQL update against the selected <em>datasourceName</em> with the provided parameters and returns the number of affected rows</td>
+<td><em>int</em></td>
+</tr>
 </tbody>
 </table>
 <blockquote>
-<p>parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]</p>
+<p>parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]
+named parameters array supports objects in format {'name':[PARAM_NAME] 'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'name':'isbn', 'type':'CHAR', 'value':'ISBN19202323322'}]</p>
 </blockquote>
 
 
