@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/database/insert/</loc>
+         <lastmod>2024-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/database/procedure/</loc>
          <lastmod>2024-04-29</lastmod>
          <changefreq>daily</changefreq>
