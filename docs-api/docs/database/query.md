@@ -28,25 +28,35 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
 
     response.println(JSON.stringify(resultset));
-
-    response.flush();
-    response.close();
     ```
 
-<!-- === "CommonJS"
+### Typed Parameters Usage
+
+=== "ECMA6"
 
     ```javascript
-    const query = require("db/query");
-    const response = require("http/response");
-
+    import { query } from "sdk/db";
+    import { response } from "sdk/http";
+    
     const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-    let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
-
+    let resultset = query.execute(sql, [{ "type": "VARCHAR", "value": "ide-editor" }], "SystemDB");
+    
     response.println(JSON.stringify(resultset));
+    ```
 
-    response.flush();
-    response.close();
-    ``` -->
+### Named Parameters Usage
+
+=== "ECMA6"
+
+    ```javascript
+    import { query } from "sdk/db";
+    import { response } from "sdk/http";
+    
+    const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :editor";
+    let resultset = query.executeNamed(sql, [{ "name": "editor", "type": "VARCHAR", "value": "ide-editor" }], "SystemDB");
+    
+    response.println(JSON.stringify(resultset));
+    ```
 
 
 ### Functions
@@ -56,5 +66,7 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 Function     | Description | Returns
 ------------ | ----------- | --------
 **execute(sql, parameters?, datasourceName?)**   | Executes a SQL query against the selected *datasourceName* with the provided parameters | *result-set as JSON object*
+**executeNamed(sql, parameters?, datasourceName?)**   | Executes a SQL query against the selected *datasourceName* with the provided parameters | *result-set as JSON object*
+
 
 > parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]
