@@ -82,21 +82,3 @@ Deploy Eclipse Dirigible in Docker.
     ```
     docker stop dirigible
     ```
-
-!!! example "Contribution"
-    Optionally, you can enhance and customize the Dockerfile artifacts from [here](https://github.com/eclipse/dirigible/blob/master/releng/Dockerfile-tomcat), or any of the other Docker releases:
-
-    - [anonymous-all](https://github.com/eclipse/dirigible/blob/master/releng/anonymous-all/)
-    - [anonymous-runtime](https://github.com/eclipse/dirigible/tree/master/releng/anonymous-runtime)
-    - [openshift-all](https://github.com/eclipse/dirigible/tree/master/releng/openshift-all)
-    - [sap-cf-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-all)
-    - [sap-cf-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-cf-runtime)
-    - [sap-kyma-all](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-all)
-    - [sap-kyma-runtime](https://github.com/eclipse/dirigible/tree/master/releng/sap-kyma-runtime)
-    - [server-all](https://github.com/eclipse/dirigible/tree/master/releng/server-all)
-    - [server-runtime](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime)
-    - [server-keycloak-all](https://github.com/eclipse/dirigible/tree/master/releng/server-keycloak-all)
-    - [server-runtime-keycloak](https://github.com/eclipse/dirigible/tree/master/releng/server-runtime-keycloak)
-    - [trial-all](https://github.com/eclipse/dirigible/tree/master/releng/trial-all)
-
-    _**Note:** Most of the packages contains two files: `Dockerfile-base` and `Dockerfile`. Usually you would want to extend the `Dockerfile`, except in some special cases._
