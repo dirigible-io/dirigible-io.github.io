@@ -3129,6 +3129,11 @@
 </li>
 </ul>
 <p>Alternative of the <code>Windows</code> setup would be to follow the <a href="https://www.dirigible.io/help/setup_docker.html">Setup as a Docker Image</a>.</p>
+<p>Some parts of Dirigible are sensitive to line endings, and assume Unix-style newlines.  Git on Windows may attempt to switch files to use a Windows-style CR/LF endings, which will cause problems when building and running Dirigible on Windows.  In order to prevent this, git should be instructed to preserve the line endings of files.</p>
+<ul>
+<li>From a command prompt, type <code>git config core.autocrlf</code>.</li>
+<li>If the result is not <code>false</code>, change it with <code>git config core.autocrlf false</code>.</li>
+</ul>
 </div>
 </div>
 </div>
