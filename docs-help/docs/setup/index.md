@@ -38,6 +38,11 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
     
         Alternative of the `Windows` setup would be to follow the [Setup as a Docker Image](https://www.dirigible.io/help/setup_docker.html).
 
+        Some parts of Dirigible are sensitive to line endings, and assume Unix-style newlines.  Git on Windows may attempt to switch files to use a Windows-style CR/LF endings, which will cause problems when building and running Dirigible on Windows.  In order to prevent this, git should be instructed to preserve the line endings of files.
+
+        - From a command prompt, type `git config core.autocrlf`.
+        - If the result is not `false`, change it with `git config core.autocrlf false`.
+
 ## Steps
 ---
 
