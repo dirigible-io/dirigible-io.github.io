@@ -35,7 +35,7 @@ Deploy Eclipse Dirigible in Docker.
 
         ```
         docker run --name dirigible \
-        -v <your-local-directory>:/usr/local/tomcat/target \
+        -v <your-local-directory>:/target \
         --rm -p 8080:8080 -p 8081:8081 \
         dirigiblelabs/dirigible:latest
         ```
