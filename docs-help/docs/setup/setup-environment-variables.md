@@ -199,7 +199,7 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_SYSTEM_USERNAME**	| The username used for the SystemDB database connection                                                   | _`sa`_
 **DIRIGIBLE_DATABASE_SYSTEM_PASSWORD**	| The password used for the SystemDB database connection                                                   | _(empty)_
 
-### Custom Database
+#### Custom Database
 
 Parameter     | Description                                                                                              | Default*
 ------------ |----------------------------------------------------------------------------------------------------------| --------
