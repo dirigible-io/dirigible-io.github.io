@@ -180,6 +180,8 @@ Parameter     | Description | Default*
 
 ### Database
 
+#### Common Parameters
+
 Parameter     | Description                                                                                              | Default*
 ------------ |----------------------------------------------------------------------------------------------------------| --------
 **DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance _(`local`, `managed` or `custom`)_ | _`local`_
@@ -187,7 +189,6 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_DEFAULT_MAX_CONNECTIONS_COUNT**   | The _`MAX_CONNECTIONS_COUNT`_ data source parameter                                                      | _`8`_
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_TIMEOUT**   | The _`WAIT_TIMEOUT`_ data source parameter                                                               | _`500`_
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The _`WAIT_COUNT`_ data source parameter                                                                 | _`5`_
-**DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance                                          | ` `
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance                                                | _`DefaultDB`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance                                                 | _`SystemDB`_
 **DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive                            | _`false`_
@@ -197,6 +198,19 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_SYSTEM_URL**	| The JDBC url used for the SystemDB database connection                                                   | _`jdbc:h2:file:./target/dirigible/h2/SystemDB`_
 **DIRIGIBLE_DATABASE_SYSTEM_USERNAME**	| The username used for the SystemDB database connection                                                   | _`sa`_
 **DIRIGIBLE_DATABASE_SYSTEM_PASSWORD**	| The password used for the SystemDB database connection                                                   | _(empty)_
+
+### Custom Database
+
+Parameter     | Description                                                                                              | Default*
+------------ |----------------------------------------------------------------------------------------------------------| --------
+**DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance to be set to _custom_ | _`local`_
+**DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance e.g. _`DS1,DS2`_                                          | _``_
+**DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance e.g. _`DS1`_                                                | _`DefaultDB`_
+**DS1_DRIVER**	| The JDBC driver used for the examplary `DS1` database connection                                                   | _``_
+**DS1_URL**	| The JDBC url used for the examplary `DS1` database connection                                                   | _``_
+**DS1_SCHEMA**	| The default schema used for the examplary `DS1` database connection                                                   | _``_
+**DS1_USERNAME**	| The username used for the examplary `DS1` database connection                                                   | _``_
+**DS1_PASSWORD**	| The password used for the examplary `DS1` database connection                                                   | _``_
 
 #### Database H2
 
