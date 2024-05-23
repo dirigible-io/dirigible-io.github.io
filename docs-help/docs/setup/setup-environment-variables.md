@@ -206,11 +206,11 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance to be set to _custom_ | _`local`_
 **DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES**   | The list of the custom data sources names used in this instance e.g. _`DS1,DS2`_                                          | _``_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance e.g. _`DS1`_                                                | _`DefaultDB`_
-**DS1_DRIVER**	| The JDBC driver used for the examplary `DS1` database connection                                                   | _``_
-**DS1_URL**	| The JDBC url used for the examplary `DS1` database connection                                                   | _``_
-**DS1_SCHEMA**	| The default schema used for the examplary `DS1` database connection                                                   | _``_
-**DS1_USERNAME**	| The username used for the examplary `DS1` database connection                                                   | _``_
-**DS1_PASSWORD**	| The password used for the examplary `DS1` database connection                                                   | _``_
+**DS1_DRIVER**	| The JDBC driver used for the exemplary `DS1` database connection                                                   | _``_
+**DS1_URL**	| The JDBC url used for the exemplary `DS1` database connection                                                   | _``_
+**DS1_SCHEMA**	| The default schema used for the exemplary `DS1` database connection                                                   | _``_
+**DS1_USERNAME**	| The username used for the exemplary `DS1` database connection                                                   | _``_
+**DS1_PASSWORD**	| The password used for the exemplary `DS1` database connection                                                   | _``_
 
 #### Database H2
 
