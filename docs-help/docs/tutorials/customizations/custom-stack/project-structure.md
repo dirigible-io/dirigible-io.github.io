@@ -30,342 +30,342 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 	??? abstract "pom.xml"
 
 		```xml hl_lines="229"
-            <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-            <modelVersion>4.0.0</modelVersion>
-            
-                <parent>
-                    <groupId>org.sonatype.oss</groupId>
-                    <artifactId>oss-parent</artifactId>
-                    <version>9</version>
-                </parent>
-            
-                <name>custom - stack - parent</name>
-                <description>Custom Stack - Sample</description>
-                <groupId>io.dirigible.samples</groupId>
-                <artifactId>custom-stack-parent</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-                <packaging>pom</packaging>
-            
-                <inceptionYear>2024</inceptionYear>
-            
-                <url>https://www.dirigible.io</url>
-                <organization>
-                    <name>Eclipse Foundation</name>
-                    <url>https://www.eclipse.org</url>
-                </organization>
-                <scm>
-                    <url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
-                </scm>
-            
-                <modules>
-                    <module>apis</module>
-                    <module>application</module>
-                    <module>branding</module>
-                </modules>
-            
-                <properties>
-                    <project.title>custom stack</project.title>
-            
-                    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                    <java.version>17</java.version>
-            
-                    <dirigible.version>10.5.3</dirigible.version>
-            
-                    <maven.compiler.source>${java.version}</maven.compiler.source>
-                    <maven.compiler.target>${java.version}</maven.compiler.target>
-            
-                    <maven-spring-boot-plugin.version>3.3.0</maven-spring-boot-plugin.version>
-                    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-                    <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
-                    <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
-                    <maven-git-commit-id-plugin.version>4.9.10</maven-git-commit-id-plugin.version>
-            
-                    <scmVersionType>branch</scmVersionType>
-            
-                    <profile.content.phase>none</profile.content.phase>
-            
-                    <skipTests>false</skipTests>
-                    <skipITs>true</skipITs>
-            
-                </properties>
-            
-                <dependencies>
-            
-                    <!-- Platform -->
-                    <dependency>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                        <scope>compile</scope>
-                    </dependency>
-                    <dependency>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-core</artifactId>
-                        <scope>compile</scope>
-                    </dependency>
-                    <dependency>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-classic</artifactId>
-                        <scope>compile</scope>
-                    </dependency>
-            
-                    <!-- Commons -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-commons-config</artifactId>
-                    </dependency>
-            
-                    <!-- Spring Boot -->
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-web</artifactId>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>org.apache.logging.log4j</groupId>
-                                <artifactId>log4j-to-slf4j</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-websocket</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jdbc</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jpa</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-security</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-validation</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-actuator</artifactId>
-                    </dependency>
-            
-                    <dependency>
-                        <groupId>org.springframework.security</groupId>
-                        <artifactId>spring-security-web</artifactId>
-                    </dependency>
-            
-                    <dependency>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-test</artifactId>
-                        <scope>test</scope>
-                        <exclusions>
+        <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        
+            <parent>
+                <groupId>org.sonatype.oss</groupId>
+                <artifactId>oss-parent</artifactId>
+                <version>9</version>
+            </parent>
+        
+            <name>custom - stack - parent</name>
+            <description>Custom Stack - Sample</description>
+            <groupId>io.dirigible.samples</groupId>
+            <artifactId>custom-stack-parent</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <packaging>pom</packaging>
+        
+            <inceptionYear>2024</inceptionYear>
+        
+            <url>https://www.dirigible.io</url>
+            <organization>
+                <name>Eclipse Foundation</name>
+                <url>https://www.eclipse.org</url>
+            </organization>
+            <scm>
+                <url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
+            </scm>
+        
+            <modules>
+                <module>apis</module>
+                <module>application</module>
+                <module>branding</module>
+            </modules>
+        
+            <properties>
+                <project.title>custom stack</project.title>
+        
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <java.version>17</java.version>
+        
+                <dirigible.version>10.5.3</dirigible.version>
+        
+                <maven.compiler.source>${java.version}</maven.compiler.source>
+                <maven.compiler.target>${java.version}</maven.compiler.target>
+        
+                <maven-spring-boot-plugin.version>3.3.0</maven-spring-boot-plugin.version>
+                <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+                <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+                <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
+                <maven-git-commit-id-plugin.version>4.9.10</maven-git-commit-id-plugin.version>
+        
+                <scmVersionType>branch</scmVersionType>
+        
+                <profile.content.phase>none</profile.content.phase>
+        
+                <skipTests>false</skipTests>
+                <skipITs>true</skipITs>
+        
+            </properties>
+        
+            <dependencies>
+        
+                <!-- Platform -->
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+        
+                <!-- Commons -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-commons-config</artifactId>
+                </dependency>
+        
+                <!-- Spring Boot -->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                    <exclusions>
                         <exclusion>
-                            <groupId>org.junit.vintage</groupId>
-                            <artifactId>junit-vintage-engine</artifactId>
+                            <groupId>org.apache.logging.log4j</groupId>
+                            <artifactId>log4j-to-slf4j</artifactId>
                         </exclusion>
                     </exclusions>
-                    </dependency>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-websocket</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jdbc</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jpa</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-validation</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-actuator</artifactId>
+                </dependency>
+        
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-web</artifactId>
+                </dependency>
+        
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-test</artifactId>
+                    <scope>test</scope>
+                    <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-test</artifactId>
+                    <scope>test</scope>
+                </dependency>
+        
+                <!-- Date Type Utils -->
+                <dependency>
+                    <groupId>com.fasterxml.jackson.datatype</groupId>
+                    <artifactId>jackson-datatype-joda</artifactId>
+                </dependency>
+        
+                <!-- Swagger -->
+                <dependency>
+                    <groupId>org.springdoc</groupId>
+                    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                </dependency>
+        
+                <!-- Data Access -->
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                </dependency>
+        
+                <!-- WebJars -->
+                <dependency>
+                    <groupId>org.webjars</groupId>
+                    <artifactId>webjars-locator</artifactId>
+                </dependency>
+        
+                <!-- Olingo -->
+                <dependency>
+                    <groupId>com.codbex.olingo</groupId>
+                    <artifactId>olingo-odata2-lib</artifactId>
+                    <type>pom</type>
+                </dependency>
+        
+                <dependency>
+                    <groupId>com.google.code.gson</groupId>
+                    <artifactId>gson</artifactId>
+                </dependency>
+        
+            </dependencies>
+        
+            <dependencyManagement>
+                <dependencies>
                     <dependency>
-                        <groupId>org.springframework.security</groupId>
-                        <artifactId>spring-security-test</artifactId>
-                        <scope>test</scope>
-                    </dependency>
-            
-                    <!-- Date Type Utils -->
-                    <dependency>
-                        <groupId>com.fasterxml.jackson.datatype</groupId>
-                        <artifactId>jackson-datatype-joda</artifactId>
-                    </dependency>
-            
-                    <!-- Swagger -->
-                    <dependency>
-                        <groupId>org.springdoc</groupId>
-                        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-                    </dependency>
-            
-                    <!-- Data Access -->
-                    <dependency>
-                        <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId>
-                    </dependency>
-            
-                    <!-- WebJars -->
-                    <dependency>
-                        <groupId>org.webjars</groupId>
-                        <artifactId>webjars-locator</artifactId>
-                    </dependency>
-            
-                    <!-- Olingo -->
-                    <dependency>
-                        <groupId>com.codbex.olingo</groupId>
-                        <artifactId>olingo-odata2-lib</artifactId>
+                        <groupId>org.eclipse.dirigible</groupId>
+                        <artifactId>dirigible-dependencies</artifactId>
+                        <version>${dirigible.version}</version>
                         <type>pom</type>
+                        <scope>import</scope>
                     </dependency>
-            
                     <dependency>
-                        <groupId>com.google.code.gson</groupId>
-                        <artifactId>gson</artifactId>
+                        <groupId>io.dirigible.samples</groupId>
+                        <artifactId>custom-stack-apis</artifactId>
+                        <version>${project.version}</version>
                     </dependency>
-            
+                    <dependency>
+                        <groupId>io.dirigible.samples</groupId>
+                        <artifactId>custom-stack-branding</artifactId>
+                        <version>${project.version}</version>
+                    </dependency>
                 </dependencies>
-            
-                <dependencyManagement>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.eclipse.dirigible</groupId>
-                            <artifactId>dirigible-dependencies</artifactId>
-                            <version>${dirigible.version}</version>
-                            <type>pom</type>
-                            <scope>import</scope>
-                        </dependency>
-                        <dependency>
-                            <groupId>io.dirigible.samples</groupId>
-                            <artifactId>custom-stack-apis</artifactId>
-                            <version>${project.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>io.dirigible.samples</groupId>
-                            <artifactId>custom-stack-branding</artifactId>
-                            <version>${project.version}</version>
-                        </dependency>
-                    </dependencies>
-                </dependencyManagement>
-            
-                <build>
+            </dependencyManagement>
+        
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>pl.project13.maven</groupId>
+                        <artifactId>git-commit-id-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+        
+                <pluginManagement>
                     <plugins>
-                        <plugin>
-                            <groupId>pl.project13.maven</groupId>
-                            <artifactId>git-commit-id-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-compiler-plugin</artifactId>
-                        </plugin>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-surefire-plugin</artifactId>
+                            <version>${maven-surefire-plugin.version}</version>
+                            <configuration>
+                                <skipTests>${skipTests}</skipTests>
+                            </configuration>
                         </plugin>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-failsafe-plugin</artifactId>
+                            <version>${maven-failsafe-plugin.version}</version>
+                            <configuration>
+                                <skipITs>${skipITs}</skipITs>
+                                <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <goals>
+                                        <goal>integration-test</goal>
+                                        <goal>verify</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                        <plugin>
+                            <groupId>pl.project13.maven</groupId>
+                            <artifactId>git-commit-id-plugin</artifactId>
+                            <version>${maven-git-commit-id-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <id>get-the-git-infos</id>
+                                    <goals>
+                                        <goal>revision</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <dotGitDirectory>../.git</dotGitDirectory>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-compiler-plugin</artifactId>
+                            <version>${maven-compiler-plugin.version}</version>
+                            <configuration>
+                                <source>${maven.compiler.source}</source>
+                                <target>${maven.compiler.target}</target>
+                                <debug>true</debug>
+                                <debuglevel>lines,vars,source</debuglevel>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-maven-plugin</artifactId>
+                            <version>${maven-spring-boot-plugin.version}</version>
+                            <executions>
+                                <execution>
+                                    <goals>
+                                        <goal>repackage</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
                         </plugin>
                     </plugins>
-            
-                    <pluginManagement>
+                </pluginManagement>
+            </build>
+        
+            <profiles>
+                <profile>
+                    <id>tests</id>
+                    <properties>
+                        <skipTests>false</skipTests>
+                        <skipITs>false</skipITs>
+                    </properties>
+                </profile>
+                <profile>
+                    <id>unit-tests</id>
+                    <properties>
+                        <skipTests>false</skipTests>
+                        <skipITs>true</skipITs>
+                    </properties>
+                </profile>
+                <profile>
+                    <id>integration-tests</id>
+                    <properties>
+                        <skipITs>false</skipITs>
+                        <skip.code.formatting>true</skip.code.formatting>
+                    </properties>
+                    <build>
                         <plugins>
                             <plugin>
                                 <groupId>org.apache.maven.plugins</groupId>
                                 <artifactId>maven-surefire-plugin</artifactId>
-                                <version>${maven-surefire-plugin.version}</version>
                                 <configuration>
-                                    <skipTests>${skipTests}</skipTests>
+                                    <skipTests>true</skipTests>
                                 </configuration>
-                            </plugin>
-                            <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-failsafe-plugin</artifactId>
-                                <version>${maven-failsafe-plugin.version}</version>
-                                <configuration>
-                                    <skipITs>${skipITs}</skipITs>
-                                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
-                                </configuration>
-                                <executions>
-                                    <execution>
-                                        <goals>
-                                            <goal>integration-test</goal>
-                                            <goal>verify</goal>
-                                        </goals>
-                                    </execution>
-                                </executions>
-                            </plugin>
-                            <plugin>
-                                <groupId>pl.project13.maven</groupId>
-                                <artifactId>git-commit-id-plugin</artifactId>
-                                <version>${maven-git-commit-id-plugin.version}</version>
-                                <executions>
-                                    <execution>
-                                        <id>get-the-git-infos</id>
-                                        <goals>
-                                            <goal>revision</goal>
-                                        </goals>
-                                    </execution>
-                                </executions>
-                                <configuration>
-                                    <dotGitDirectory>../.git</dotGitDirectory>
-                                </configuration>
-                            </plugin>
-                            <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-compiler-plugin</artifactId>
-                                <version>${maven-compiler-plugin.version}</version>
-                                <configuration>
-                                    <source>${maven.compiler.source}</source>
-                                    <target>${maven.compiler.target}</target>
-                                    <debug>true</debug>
-                                    <debuglevel>lines,vars,source</debuglevel>
-                                </configuration>
-                            </plugin>
-                            <plugin>
-                                <groupId>org.springframework.boot</groupId>
-                                <artifactId>spring-boot-maven-plugin</artifactId>
-                                <version>${maven-spring-boot-plugin.version}</version>
-                                <executions>
-                                    <execution>
-                                        <goals>
-                                            <goal>repackage</goal>
-                                        </goals>
-                                    </execution>
-                                </executions>
                             </plugin>
                         </plugins>
-                    </pluginManagement>
-                </build>
-            
-                <profiles>
-                    <profile>
-                        <id>tests</id>
-                        <properties>
-                            <skipTests>false</skipTests>
-                            <skipITs>false</skipITs>
-                        </properties>
-                    </profile>
-                    <profile>
-                        <id>unit-tests</id>
-                        <properties>
-                            <skipTests>false</skipTests>
-                            <skipITs>true</skipITs>
-                        </properties>
-                    </profile>
-                    <profile>
-                        <id>integration-tests</id>
-                        <properties>
-                            <skipITs>false</skipITs>
-                            <skip.code.formatting>true</skip.code.formatting>
-                        </properties>
-                        <build>
-                            <plugins>
-                                <plugin>
-                                    <groupId>org.apache.maven.plugins</groupId>
-                                    <artifactId>maven-surefire-plugin</artifactId>
-                                    <configuration>
-                                        <skipTests>true</skipTests>
-                                    </configuration>
-                                </plugin>
-                            </plugins>
-                        </build>
-                    </profile>
-                    <profile>
-                        <id>quick-build</id>
-                        <properties>
-                            <skipTests>true</skipTests>
-                            <skipITs>true</skipITs>
-                        </properties>
-                    </profile>
-                </profiles>
-            
-            </project>
+                    </build>
+                </profile>
+                <profile>
+                    <id>quick-build</id>
+                    <properties>
+                        <skipTests>true</skipTests>
+                        <skipITs>true</skipITs>
+                    </properties>
+                </profile>
+            </profiles>
+        
+        </project>
 		```
 
 	!!! tip "Eclipse Dirigible version"
@@ -410,165 +410,165 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 			```
 
 		```xml
-            <project xmlns="http://maven.apache.org/POM/4.0.0"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-            <modelVersion>4.0.0</modelVersion>
-            
-                <parent>
+        <project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        
+            <parent>
+                <groupId>io.dirigible.samples</groupId>
+                <artifactId>custom-stack-parent</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <relativePath>../pom.xml</relativePath>
+            </parent>
+        
+            <name>custom - stack - application</name>
+            <artifactId>custom-stack-application</artifactId>
+            <packaging>jar</packaging>
+        
+        
+            <dependencies>
+                <dependency>
                     <groupId>io.dirigible.samples</groupId>
-                    <artifactId>custom-stack-parent</artifactId>
-                    <version>1.0.0-SNAPSHOT</version>
-                    <relativePath>../pom.xml</relativePath>
-                </parent>
-            
-                <name>custom - stack - application</name>
-                <artifactId>custom-stack-application</artifactId>
-                <packaging>jar</packaging>
-            
-            
-                <dependencies>
-                    <dependency>
-                        <groupId>io.dirigible.samples</groupId>
-                        <artifactId>custom-stack-apis</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>io.dirigible.samples</groupId>
-                        <artifactId>custom-stack-branding</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>uk.org.okapibarcode</groupId>
-                        <artifactId>okapibarcode</artifactId>
-                        <version>0.4.6</version>
-                    </dependency>
-            
-                    <!-- Core -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-core</artifactId>
-                        <type>pom</type>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>com.zaxxer</groupId>
-                                <artifactId>HikariCP-java7</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-                    
-                    <!-- Security -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-security-basic</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-security-keycloak</artifactId>
-                    </dependency>
-                    
-                    <!-- Data -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-database</artifactId>
-                        <type>pom</type>
-                    </dependency>
-                    
-                    <!-- Engine -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-engines</artifactId>
-                        <type>pom</type>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-engine-command</artifactId>
-                    </dependency>
-                    
-                    <!-- IDE -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-ide</artifactId>
-                        <type>pom</type>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>org.eclipse.dirigible</groupId>
-                                <artifactId>dirigible-components-ide-ui-branding</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-                    
-                    <!-- API -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-api</artifactId>
-                        <type>pom</type>
-                    </dependency>
-                    
-                    <!-- Resources -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-resources</artifactId>
-                        <type>pom</type>
-                    </dependency>
-            
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-security-oauth2</artifactId>
-                    </dependency>
-                    
-                    <!-- Templates -->
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-components-group-templates</artifactId>
-                        <type>pom</type>
-                    </dependency>
-                    
-                    <dependency>
+                    <artifactId>custom-stack-apis</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>io.dirigible.samples</groupId>
+                    <artifactId>custom-stack-branding</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>uk.org.okapibarcode</groupId>
+                    <artifactId>okapibarcode</artifactId>
+                    <version>0.4.6</version>
+                </dependency>
+        
+                <!-- Core -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-core</artifactId>
+                    <type>pom</type>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>com.zaxxer</groupId>
+                            <artifactId>HikariCP-java7</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                
+                <!-- Security -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-security-basic</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-security-keycloak</artifactId>
+                </dependency>
+                
+                <!-- Data -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-database</artifactId>
+                    <type>pom</type>
+                </dependency>
+                
+                <!-- Engine -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-engines</artifactId>
+                    <type>pom</type>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-engine-command</artifactId>
+                </dependency>
+                
+                <!-- IDE -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-ide</artifactId>
+                    <type>pom</type>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.eclipse.dirigible</groupId>
+                            <artifactId>dirigible-components-ide-ui-branding</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                
+                <!-- API -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-api</artifactId>
+                    <type>pom</type>
+                </dependency>
+                
+                <!-- Resources -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-resources</artifactId>
+                    <type>pom</type>
+                </dependency>
+        
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-security-oauth2</artifactId>
+                </dependency>
+                
+                <!-- Templates -->
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-components-group-templates</artifactId>
+                    <type>pom</type>
+                </dependency>
+                
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-validation</artifactId>
+                </dependency>
+        
+                <!-- Drivers -->
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-database-mongodb-jdbc</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.sap.cloud.db.jdbc</groupId>
+                    <artifactId>ngdbc</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>net.snowflake</groupId>
+                    <artifactId>snowflake-jdbc</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.dirigible</groupId>
+                    <artifactId>dirigible-tests-framework</artifactId>
+                </dependency>
+            </dependencies>
+        
+            <build>
+        
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+        
+                <plugins>
+                    <plugin>
                         <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-validation</artifactId>
-                    </dependency>
-            
-                    <!-- Drivers -->
-                    <dependency>
-                        <groupId>org.postgresql</groupId>
-                        <artifactId>postgresql</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-database-mongodb-jdbc</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.sap.cloud.db.jdbc</groupId>
-                        <artifactId>ngdbc</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.snowflake</groupId>
-                        <artifactId>snowflake-jdbc</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.eclipse.dirigible</groupId>
-                        <artifactId>dirigible-tests-framework</artifactId>
-                    </dependency>
-                </dependencies>
-            
-                <build>
-            
-                    <resources>
-                        <resource>
-                            <directory>src/main/resources</directory>
-                            <filtering>true</filtering>
-                        </resource>
-                    </resources>
-            
-                    <plugins>
-                        <plugin>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-maven-plugin</artifactId>
-                        </plugin>
-                    </plugins>
-            
-                </build>
-            
-            </project>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+        
+            </build>
+        
+        </project>
 		```
 
 #### Create Eclipse Dirigible Resources
@@ -585,18 +585,18 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 	??? abstract "application/src/main/resources/dirigible.properties"
 
 		```
-            # General
-            DIRIGIBLE_PRODUCT_NAME=${project.title}
-            DIRIGIBLE_PRODUCT_VERSION=${project.version}
-            DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
-            DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/tutorial-custom-stack
-            DIRIGIBLE_PRODUCT_TYPE=all
-            DIRIGIBLE_INSTANCE_NAME=custom-stack
-            DIRIGIBLE_DATABASE_PROVIDER=local
-            DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
-            DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
-            DIRIGIBLE_HOME_URL=services/web/ide/
-            DIRIGIBLE_FTP_PORT=22
+        # General
+        DIRIGIBLE_PRODUCT_NAME=${project.title}
+        DIRIGIBLE_PRODUCT_VERSION=${project.version}
+        DIRIGIBLE_PRODUCT_COMMIT_ID=${git.commit.id}
+        DIRIGIBLE_PRODUCT_REPOSITORY=https://github.com/dirigiblelabs/tutorial-custom-stack
+        DIRIGIBLE_PRODUCT_TYPE=all
+        DIRIGIBLE_INSTANCE_NAME=custom-stack
+        DIRIGIBLE_DATABASE_PROVIDER=local
+        DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
+        DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
+        DIRIGIBLE_HOME_URL=services/web/ide/
+        DIRIGIBLE_FTP_PORT=22
 		```
 
 	!!! info "Environment Variables"
