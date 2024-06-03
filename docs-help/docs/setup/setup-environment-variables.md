@@ -505,3 +505,10 @@ Parameter     | Description | Default*
 Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_TERMINAL_ENABLED**   | Whether the `Terminal` view is enabled | _`true`_
+
+### Multitenancy
+---
+Parameter     | Description                                                                                                                                               | Default*
+------------ |-----------------------------------------------------------------------------------------------------------------------------------------------------------| --------
+**DIRIGIBLE_MULTI_TENANT_MODE**   | Whether the Eclipse Dirigible is in multitenant mode or not                                                                                               | _`true`_
+**DIRIGIBLE_TENANT_SUBDOMAIN_REGEX**   | A regex which is used to extract the tenant subdomain from the host of the requests. This subdomain is used to resolve the current tenant. | _`^([^\.]+)\..+$`_
