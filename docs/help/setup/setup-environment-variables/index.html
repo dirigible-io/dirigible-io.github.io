@@ -1806,6 +1806,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multitenancy" class="md-nav__link">
+    Multitenancy
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3922,6 +3929,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#multitenancy" class="md-nav__link">
+    Multitenancy
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5484,6 +5498,29 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_TERMINAL_ENABLED</strong></td>
 <td>Whether the <code>Terminal</code> view is enabled</td>
 <td><em><code>true</code></em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="multitenancy">Multitenancy</h3>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_MULTI_TENANT_MODE</strong></td>
+<td>Whether the Eclipse Dirigible is in multitenant mode or not</td>
+<td><em><code>true</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_TENANT_SUBDOMAIN_REGEX</strong></td>
+<td>A regex which is used to extract the tenant subdomain from the host of the requests. This subdomain is used to resolve the current tenant.</td>
+<td><em><code>^([^\.]+)\..+$</code></em></td>
 </tr>
 </tbody>
 </table>
