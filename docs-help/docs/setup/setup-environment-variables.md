@@ -338,7 +338,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance _(e.g. `cms-provider-internal`, `cms-provider-s3`, `managed` or `database`)_| _`internal`_
+**DIRIGIBLE_CMS_PROVIDER**   | The type of the CMS provider used in this instance _(e.g. `cms-provider-internal`, `cms-provider-s3`)_| _`cms-provider-internal`_
 **DIRIGIBLE_CMS_ROLES_ENABLED** | Whether the RBAC over the CMS content to be enabled | _`true`_
 
 #### CMS - Internal
