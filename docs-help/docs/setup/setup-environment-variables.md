@@ -353,30 +353,10 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**AWS_ACCESS_KEY_ID**   | The AWS access key used for authentication | _`target`_
-**AWS_SECRET_ACCESS_KEY**   | The AWS secret key used for authentication | _`target`_
-**AWS_DEFAULT_REGION**   | The region where the bucket is stored | _`eu-central-1`_
-**DIRIGIBLE_S3_BUCKET**   | The bucket to be used for content management. Will be created if the provided one does not exist | _`target`_
+**AWS_ACCESS_KEY_ID**   | The AWS access key used for authentication (optional when deployed on AWS) | _`target`_
+**AWS_SECRET_ACCESS_KEY**   | The AWS secret key used for authentication (optional when deployed on AWS) | _`target`_
 **DIRIGIBLE_S3_PROVIDER**   | The provider to be used for S3. For local testing an option with `localstack` is available | _`aws`_
-
-#### CMS - Managed
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_CMS_MANAGED_CONFIGURATION_JNDI_NAME**   | The JNDI name of the managed CMS repository | _`java:comp/env/EcmService` in case of SAP package_
-**DIRIGIBLE_CMS_MANAGED_CONFIGURATION_AUTH_METHOD**   | The authentication method _(e.g. `key` or `destination`)_ | _`key`_
-**DIRIGIBLE_CMS_MANAGED_CONFIGURATION_NAME**   | The name of the repository | _`cmis:dirigible`_
-**DIRIGIBLE_CMS_MANAGED_CONFIGURATION_KEY**   | The key of the repository | _`cmis:dirigible:key`_
-**DIRIGIBLE_CMS_MANAGED_CONFIGURATION_DESTINATION**   | The name of the destination where the name and the key for the repository are stored _(e.g. `CMIS_DESTINATION`)_ | _`-`_
-**DIRIGIBLE_CONNECTIVITY_CONFIGURATION_JNDI_NAME**   | The JNDI name of the connectivity configuration serivce | _`java:comp/env/connectivity/Configuration` in case of SAP package_
-
-#### CMS Database
-
-Parameter     | Description | Default*
------------- | ----------- | --------
-**DIRIGIBLE_CMS_DATABASE_DATASOURCE_TYPE**   | Type of the database for CMS repository _(e.g. `local`, `managed`, `custom`, `dynamic`)_| _`managed`_
-**DIRIGIBLE_CMS_DATABASE_DATASOURCE_NAME**   | The datasource name | _`DefaultDB`_
-
+**DIRIGIBLE_S3_BUCKET**   | The bucket to be used for content management. Will be created if the provided one does not exist | _`target`_
 
 ### BPM
 
