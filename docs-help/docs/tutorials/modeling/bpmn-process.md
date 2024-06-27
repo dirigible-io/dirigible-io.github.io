@@ -365,6 +365,18 @@ JavaScript handlers should be provided for the `Service Task` steps in the `Busi
 	- Updating the `*.bpmn` file would result in new synchronization being triggered and the updated process flow would be available after minute or two.
 	- Updating the **JavaScript Task Handler** won't require new synchronization and the new behaviour of the handlers will be available on the fly.
 
+#### (Optional) Add candidate users or groups
+In order to add users / groups who can potentially claim a user task and execute it.
+
+- Double click on the bpmn process definition to open the flowable editor
+- Select the Process Time Entry Request User task
+- In the properties tab click on Assignments, the Assignment editor should open
+- In the Assignment editor add ROLE_ADMINISTRATOR and ROLE_DEVELOPER in the Candidate groups section
+- Click Save in the Assignment editor
+- Right click on the time-entry-request.bpmn and click Publish <br>
+  
+![assignment-editor](bpmn-process/10-assignment-editor.png)
+
 #### Create Process API
 
 To trigger and continue the **BPMN Process** execution a server-side JavaScript API will be created.
@@ -747,10 +759,75 @@ The process form would call the server-side javascript api that was created befo
 		
 			}]);
 		```
+#### (Optional) Create custom approval form
+You can use custom form to approve / reject the user task in the process.
+- Right-click on the sample-bpm project and select New → Form Definition.
+- Enter approval.form for the name of the custom form
+- Right-click on the form and choose Open With -> Code Editor
+- Replace the content of the file with the following:
 
+```javascript
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "let url = new URL(window.location);\nlet params = new URLSearchParams(url.search);\nlet taskId = params.get(\"taskId\");\nconsole.log(taskId);\n\n$scope.approve = function () {\n    $http.post(\"/services/bpm/bpm-processes/tasks/\" + taskId, JSON.stringify(\n        {\n            action: \"COMPLETE\",\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to approve Time Entry Request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Time Entry Request Approved\");\n    });\n};\n\n$scope.reject = function () {\n    $http.post(\"/services/bpm/bpm-processes/tasks/\" + taskId, JSON.stringify(\n        {\n            action: \"COMPLETE\",\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to reject Time Entry Request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Time Entry Request Rejected\");\n    });\n};",
+    "form": [
+        {
+            "controlId": "input-textarea",
+            "groupId": "fb-controls",
+            "id": "i8eb25310-5c60-da90-3e71-41d946687248",
+            "label": "Reason",
+            "horizontal": false,
+            "isCompact": false,
+            "placeholder": "Decision reason",
+            "type": "text",
+            "model": "decisionText",
+            "required": true,
+            "minLength": 0,
+            "maxLength": -1,
+            "validationRegex": "",
+            "errorState": "Incorrect input"
+        },
+        {
+            "controlId": "container-hbox",
+            "groupId": "fb-containers",
+            "children": [
+                {
+                    "controlId": "button",
+                    "groupId": "fb-controls",
+                    "label": "Approve",
+                    "type": "positive",
+                    "sizeToText": false,
+                    "isSubmit": true,
+                    "isCompact": false,
+                    "callback": "approve()"
+                },
+                {
+                    "controlId": "button",
+                    "groupId": "fb-controls",
+                    "label": "Reject",
+                    "type": "negative",
+                    "sizeToText": false,
+                    "isSubmit": true,
+                    "isCompact": false,
+                    "callback": "reject()"
+                }
+            ]
+        }
+    ]
+}
+```
+- Right-click on the approval.form file and choose Generate. As result a gen folder with the custom form generated artifacts should appear.
+- Double-click on the time-request-entry.bpmn
+- Choose the "Process Time Entry" user task
+- In the properties section select "Form Key"
+- Add the url to the newly generated form entry point (ex. http://localhost:8080/services/web/sample-bpm/gen/forms/approval/index.html)
+- Save and publish the process \
+  NOTE: The user task id of the currently running process instance would be passed as query parameter to the generated angularJS controller of the custom form when Open Form is clicked from the user task view. \
+  ![form-key](bpmn-process/11-form-key.png)
 #### (Optional) Email Configuration
 
-In order to recieve email notifications about the process steps a mail configuration should be provided.
+In order to receive email notifications about the process steps a mail configuration should be provided.
 
 The following environment variables are needed:
 
@@ -779,7 +856,22 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 	```
 
 ## Demo
+[Using custom approval form]
+1. Navigate to [http://localhost:8080/services/v4/web/sample-bpm/submit/](http://localhost:8080/services/v4/web/sample-bpm/submit/) to open the **Submit form**.
+2. Enter the required data and press the **Submit** button.
+3. Navigate to the Processes Workspace
+4. Select your active process instance in the Process Instances view
+5. Click on the User Tasks view
+6. Click on the active user task, the Claim button should become active
+7. Click Claim (Assuming you are logged in as admin the task should move from Candidate tasks to Assigned tasks)
+8. In the Assigned task section click on the Open Form button
+   ![claim-task](bpmn-process/12-claim-task.png)
+9. The custom approval form should be opened in a new browser window
+10. Enter 'Decision reason' and click Approve to resume the process execution
+    ![approval-form](bpmn-process/13-approval-form.png)
+11. If successful you can check that the process is completed and moved to the "Historic Process Instances" view
 
+[Using approval url from the console]
 1. Navigate to [http://localhost:8080/services/v4/web/sample-bpm/submit/](http://localhost:8080/services/v4/web/sample-bpm/submit/) to open the **Submit form**.
 1. Enter the required data and press the **Submit** button.
 1. If email configuration was provided an email notification will be send to the email address set by the `APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>` environment variable.
@@ -792,7 +884,7 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 1. Open the URL from the `Console` view or open it from the email notification.
 1. The **Process form** would be prefilled with the data that was entered in the **Submit form**.
 1. Press the **Approve** or **Reject** button to resume the process execution.
-1. One more email notification would be send and message in the `Console` would be logged as part of the last step of the **Business Process**.
+1. One more email notification would be sent and message in the `Console` would be logged as part of the last step of the **Business Process**.
 
 !!! Info "BPM Sample GitHub Repository"
 
