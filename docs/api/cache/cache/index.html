@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://www.dirigible.io/api/job/scheduler/">
+        <link rel="canonical" href="https://www.dirigible.io/api/cache/cache/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Job Scheduler - Eclipse Dirigible API</title>
+        <title>Cache API - Eclipse Dirigible API</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#job-scheduler" class="md-skip">
+        <a href="#cache-api" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Job Scheduler
+              Cache API
             
           </span>
         </div>
@@ -344,12 +344,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -374,11 +376,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../cache/cache/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cache API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Cache API
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1232,14 +1282,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" type="checkbox" id="__nav_14" >
       
       
       
@@ -1264,93 +1312,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Job Scheduler
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../job/scheduler/" class="md-nav__link">
         Job Scheduler
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Objects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#job" class="md-nav__link">
-    Job
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jobparameters" class="md-nav__link">
-    JobParameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jobparameter" class="md-nav__link">
-    JobParameter
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2602,40 +2568,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Objects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#job" class="md-nav__link">
-    Job
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jobparameters" class="md-nav__link">
-    JobParameters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jobparameter" class="md-nav__link">
-    JobParameter
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2650,50 +2582,42 @@
                 
                   
 
-  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-api/docs/job/scheduler.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-api/docs/cache/cache.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="job-scheduler">Job Scheduler</h1>
-<p>Job Scheduler provides convenient API for managing Job state and execution.</p>
+<h1 id="cache-api">Cache API</h1>
+<p>Cache object is used to access and manage the cache from the underlying engine.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
 <ul>
-<li>Module: <code>job/scheduler</code></li>
-<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api-job/src/main/resources/META-INF/dirigible/job/scheduler.js">/job/scheduler.js</a></li>
+<li>Module: <code>sdk/cache</code></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-javascript/src/main/resources/META-INF/dirigible/modules/src/cache/cache.ts">cache.ts</a></li>
 <li>Status: <code>stable</code></li>
-<li>Group: <code>platform</code></li>
+<li>Group: <code>api</code></li>
 </ul>
 <h3 id="basic-usage">Basic Usage</h3>
+<p><strong>The service which interacts with the cache:</strong></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">scheduler</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/job&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Cache</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/cache&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">scheduler</span><span class="p">.</span><span class="nx">getJob</span><span class="p">(</span><span class="s2">&quot;/sample-job/myjob.job&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">param</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">job</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s2">&quot;myParam&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">Cache</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Param is: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">param</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cache</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">exists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Cache</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">Cache</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">Cache</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
-</div>
-</div>
-</div>
-<!-- === "CommonJS"
-
-    ```javascript
-    const scheduler = require("job/scheduler");
-
-    let job = scheduler.getJob("/sample-job/myjob.job");
-    let param = job.getParameter("myParam");
-
-    console.log('Param is: ' + param);
-    ``` -->
-
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -2706,222 +2630,29 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>getJobs()</strong></td>
-<td>Returns the list of all the registered user jobs</td>
-<td><em>Job array</em></td>
+<td><strong>contains(key)</strong></td>
+<td>Checks if the cache contains a specific key</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
-<td><strong>getJob(name)</strong></td>
-<td>Gets a Job object by its name</td>
-<td><em>Job</em></td>
+<td><strong>get(key)</strong></td>
+<td>Retrieves the value associated with a specific key from the cache</td>
+<td><em>any / undefined</em></td>
 </tr>
 <tr>
-<td><strong>enable(name)</strong></td>
-<td>Enables the Job regular execution</td>
-<td><em>-</em></td>
+<td><strong>set(key, data)</strong></td>
+<td>Stores a value in the cache under a specific key</td>
+<td><em>void</em></td>
 </tr>
 <tr>
-<td><strong>disable(name)</strong></td>
-<td>Disables the Job regular execution</td>
-<td><em>-</em></td>
+<td><strong>delete(key)</strong></td>
+<td>Deletes the value associated with a specific key from the cache</td>
+<td><em>void</em></td>
 </tr>
 <tr>
-<td><strong>trigger(name, parameters)</strong></td>
-<td>Triggers the Job regular execution with parameters</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>log(name, message)</strong></td>
-<td>Logs a message with normal severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>error(name, message)</strong></td>
-<td>Logs a message with error severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>warn(name, message)</strong></td>
-<td>Logs a message with warn severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>info(name, message)</strong></td>
-<td>Logs a message with info severity</td>
-<td><em>-</em></td>
-</tr>
-</tbody>
-</table>
-<h3 id="objects">Objects</h3>
-<hr />
-<h4 id="job">Job</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>getName()</strong></td>
-<td>Returns the name of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getGroup()</strong></td>
-<td>Returns the group of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getClazz()</strong></td>
-<td>Returns the clazz of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getDescription()</strong></td>
-<td>Returns the description of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getExpression()</strong></td>
-<td>Returns the expression of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getHandler()</strong></td>
-<td>Returns the handler of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getEngine()</strong></td>
-<td>Returns the engine of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getSingleton()</strong></td>
-<td>Returns the singleton flag of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getEnabled()</strong></td>
-<td>Returns the enabled state of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getCreatedBy()</strong></td>
-<td>Returns the created by user of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getCreatedAt()</strong></td>
-<td>Returns the created at timestamp of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getParameters()</strong></td>
-<td>Returns the parameters object of the Job</td>
-<td><em>JobParameters</em></td>
-</tr>
-<tr>
-<td><strong>getParameter(name)</strong></td>
-<td>Returns the value of the parameter of the Job</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>enable()</strong></td>
-<td>Enables the Job</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>disable()</strong></td>
-<td>Disables the Job</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>trigger()</strong></td>
-<td>Triggers the Job</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>log(message)</strong></td>
-<td>Logs a message with normal severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>error(message)</strong></td>
-<td>Logs a message with error severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>warn(message)</strong></td>
-<td>Logs a message with warn severity</td>
-<td><em>-</em></td>
-</tr>
-<tr>
-<td><strong>info(message)</strong></td>
-<td>Logs a message with info severity</td>
-<td><em>-</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="jobparameters">JobParameters</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>get(i)</strong></td>
-<td>Returns the parameter by the index</td>
-<td><em>JobParameter</em></td>
-</tr>
-<tr>
-<td><strong>count()</strong></td>
-<td>Returns the number of the parameters</td>
-<td><em>number</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="jobparameter">JobParameter</h4>
-<table>
-<thead>
-<tr>
-<th>Function</th>
-<th>Description</th>
-<th>Returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>getName()</strong></td>
-<td>Returns the name of the Parameter</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getDescription()</strong></td>
-<td>Returns the description of the Parameter</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getType()</strong></td>
-<td>Returns the type of the Parameter</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getDefaultValue()</strong></td>
-<td>Returns the default value of the Parameter</td>
-<td><em>string</em></td>
-</tr>
-<tr>
-<td><strong>getChoices()</strong></td>
-<td>Returns the choices of the Parameter</td>
-<td><em>string</em></td>
+<td><strong>clear()</strong></td>
+<td>Clears all entries from the cache</td>
+<td><em>void</em></td>
 </tr>
 </tbody>
 </table>
@@ -2951,7 +2682,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../../io/zip/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../builtin/console/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -2960,19 +2691,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Zip			
+							Console			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../../kafka/consumer/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../cms/cmis/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Kafka Consumer
+							CMIS
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
