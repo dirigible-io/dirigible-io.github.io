@@ -820,6 +820,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optional-add-candidate-users-or-groups" class="md-nav__link">
+    (Optional) Add candidate users or groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#create-process-api" class="md-nav__link">
     Create Process API
   </a>
@@ -836,6 +843,13 @@
           <li class="md-nav__item">
   <a href="#create-process-form" class="md-nav__link">
     Create Process Form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-create-custom-approval-form" class="md-nav__link">
+    (Optional) Create custom approval form
   </a>
   
 </li>
@@ -3208,6 +3222,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#optional-add-candidate-users-or-groups" class="md-nav__link">
+    (Optional) Add candidate users or groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#create-process-api" class="md-nav__link">
     Create Process API
   </a>
@@ -3224,6 +3245,13 @@
           <li class="md-nav__item">
   <a href="#create-process-form" class="md-nav__link">
     Create Process Form
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-create-custom-approval-form" class="md-nav__link">
+    (Optional) Create custom approval form
   </a>
   
 </li>
@@ -3655,6 +3683,17 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 <li>Updating the <strong>JavaScript Task Handler</strong> won't require new synchronization and the new behaviour of the handlers will be available on the fly.</li>
 </ul>
 </div>
+<h4 id="optional-add-candidate-users-or-groups">(Optional) Add candidate users or groups</h4>
+<p>In order to add users / groups who can potentially claim a user task and execute it.</p>
+<ul>
+<li>Double click on the bpmn process definition to open the flowable editor</li>
+<li>Select the Process Time Entry Request User task</li>
+<li>In the properties tab click on Assignments, the Assignment editor should open</li>
+<li>In the Assignment editor add ROLE_ADMINISTRATOR and ROLE_DEVELOPER in the Candidate groups section</li>
+<li>Click Save in the Assignment editor</li>
+<li>Right click on the time-entry-request.bpmn and click Publish <br></li>
+</ul>
+<p><img alt="assignment-editor" src="10-assignment-editor.png" /></p>
 <h4 id="create-process-api">Create Process API</h4>
 <p>To trigger and continue the <strong>BPMN Process</strong> execution a server-side JavaScript API will be created.</p>
 <ul>
@@ -4052,8 +4091,72 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 </div>
 </div>
 </div>
+<h4 id="optional-create-custom-approval-form">(Optional) Create custom approval form</h4>
+<p>You can use custom form to approve / reject the user task in the process.
+- Right-click on the sample-bpm project and select New → Form Definition.
+- Enter approval.form for the name of the custom form
+- Right-click on the form and choose Open With -&gt; Code Editor
+- Replace the content of the file with the following:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;feeds&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;code&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;let url = new URL(window.location);\nlet params = new URLSearchParams(url.search);\nlet taskId = params.get(\&quot;taskId\&quot;);\nconsole.log(taskId);\n\n$scope.approve = function () {\n    $http.post(\&quot;/services/bpm/bpm-processes/tasks/\&quot; + taskId, JSON.stringify(\n        {\n            action: \&quot;COMPLETE\&quot;,\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to approve Time Entry Request: &#39;${response.message}&#39;`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\&quot;Time Entry Request Approved\&quot;);\n    });\n};\n\n$scope.reject = function () {\n    $http.post(\&quot;/services/bpm/bpm-processes/tasks/\&quot; + taskId, JSON.stringify(\n        {\n            action: \&quot;COMPLETE\&quot;,\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to reject Time Entry Request: &#39;${response.message}&#39;`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\&quot;Time Entry Request Rejected\&quot;);\n    });\n};&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;form&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;controlId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;input-textarea&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;groupId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fb-controls&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;i8eb25310-5c60-da90-3e71-41d946687248&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Reason&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;horizontal&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;isCompact&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;placeholder&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Decision reason&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;model&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;decisionText&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;required&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;minLength&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;maxLength&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;validationRegex&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;errorState&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Incorrect input&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;controlId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;container-hbox&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;groupId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fb-containers&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;children&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;controlId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;groupId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fb-controls&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Approve&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;positive&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;sizeToText&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;isSubmit&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;isCompact&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;callback&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;approve()&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;controlId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;groupId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fb-controls&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Reject&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;negative&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;sizeToText&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;isSubmit&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;isCompact&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;callback&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;reject()&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+- Right-click on the approval.form file and choose Generate. As result a gen folder with the custom form generated artifacts should appear.
+- Double-click on the time-request-entry.bpmn
+- Choose the "Process Time Entry" user task
+- In the properties section select "Form Key"
+- Add the url to the newly generated form entry point (ex. http://localhost:8080/services/web/sample-bpm/gen/forms/approval/index.html)
+- Save and publish the process \
+  NOTE: The user task id of the currently running process instance would be passed as query parameter to the generated angularJS controller of the custom form when Open Form is clicked from the user task view. \
+  <img alt="form-key" src="11-form-key.png" /></p>
 <h4 id="optional-email-configuration">(Optional) Email Configuration</h4>
-<p>In order to recieve email notifications about the process steps a mail configuration should be provided.</p>
+<p>In order to receive email notifications about the process steps a mail configuration should be provided.</p>
 <p>The following environment variables are needed:</p>
 <div class="highlight"><pre><span></span><code>DIRIGIBLE_MAIL_USERNAME=&lt;YOUR_MAIL_USERNAME&gt;
 DIRIGIBLE_MAIL_PASSWORD=&lt;YOUR_MAIL_PASSWORD&gt;
@@ -4076,21 +4179,34 @@ APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;
 </code></pre></div>
 </div>
 <h2 id="demo">Demo</h2>
-<ol>
-<li>Navigate to <a href="http://localhost:8080/services/v4/web/sample-bpm/submit/">http://localhost:8080/services/v4/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.</li>
-<li>Enter the required data and press the <strong>Submit</strong> button.</li>
-<li>If email configuration was provided an email notification will be send to the email address set by the <code>APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;</code> environment variable.</li>
-<li>
-<p>If email configuration wasn't provided then in the <code>Console</code> view the following message can be found:</p>
-<div class="highlight"><pre><span></span><code>Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
+<p>[Using custom approval form]
+1. Navigate to <a href="http://localhost:8080/services/v4/web/sample-bpm/submit/">http://localhost:8080/services/v4/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.
+2. Enter the required data and press the <strong>Submit</strong> button.
+3. Navigate to the Processes Workspace
+4. Select your active process instance in the Process Instances view
+5. Click on the User Tasks view
+6. Click on the active user task, the Claim button should become active
+7. Click Claim (Assuming you are logged in as admin the task should move from Candidate tasks to Assigned tasks)
+8. In the Assigned task section click on the Open Form button
+   <img alt="claim-task" src="12-claim-task.png" />
+9. The custom approval form should be opened in a new browser window
+10. Enter 'Decision reason' and click Approve to resume the process execution
+    <img alt="approval-form" src="13-approval-form.png" />
+11. If successful you can check that the process is completed and moved to the "Historic Process Instances" view</p>
+<p>[Using approval url from the console]
+1. Navigate to <a href="http://localhost:8080/services/v4/web/sample-bpm/submit/">http://localhost:8080/services/v4/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.
+1. Enter the required data and press the <strong>Submit</strong> button.
+1. If email configuration was provided an email notification will be send to the email address set by the <code>APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;</code> environment variable.
+1. If email configuration wasn't provided then in the <code>Console</code> view the following message can be found:</p>
+<div class="highlight"><pre><span></span><code>```
+Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
+```
 </code></pre></div>
-</li>
-<li>
-<p>Open the URL from the <code>Console</code> view or open it from the email notification.</p>
-</li>
+<ol>
+<li>Open the URL from the <code>Console</code> view or open it from the email notification.</li>
 <li>The <strong>Process form</strong> would be prefilled with the data that was entered in the <strong>Submit form</strong>.</li>
 <li>Press the <strong>Approve</strong> or <strong>Reject</strong> button to resume the process execution.</li>
-<li>One more email notification would be send and message in the <code>Console</code> would be logged as part of the last step of the <strong>Business Process</strong>.</li>
+<li>One more email notification would be sent and message in the <code>Console</code> would be logged as part of the last step of the <strong>Business Process</strong>.</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">BPM Sample GitHub Repository</p>
