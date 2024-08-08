@@ -97,25 +97,27 @@ Function     | Description | Returns
 
 #### Connection
 
-Function     | Description | Returns
------------- | ----------- | --------
-**prepareStatement(sql)**   | Creates a prepared statement by the given SQL script | *PreparedStatement*
-**prepareCall(sql)** | Creates a callable statement by the given SQL script | *CallableStatement*
-**close()**   | Closes the Connection and returns it to the pool | -
-**commit()**   | Commits the current transaction | -
-**getAutoCommit()**   | Returns the value of the auto commit setting | *boolean*
-**getCatalog()**   | Returns the Catalog name, which the Connection is related to | *string*
-**getSchema()**   | Returns the Schema name, which the Connection is related to | *string*
-**getTransactionIsolation()**   | Returns the value of the transaction isolation setting | *int*
-**isClosed()**   | Returns true if the Connection is already closed and false otherwise | *boolean*
+Function     | Description                                                                       | Returns
+------------ |-----------------------------------------------------------------------------------| --------
+**getDatabaseSystem()**   | Get database system type for this connection                                      | *DatabaseSystem enum*
+**isOfType(databaseSystem)**   | Check whether the connection is of specific database system type                  | *boolean*
+**prepareStatement(sql)**   | Creates a prepared statement by the given SQL script                              | *PreparedStatement*
+**prepareCall(sql)** | Creates a callable statement by the given SQL script                              | *CallableStatement*
+**close()**   | Closes the Connection and returns it to the pool                                  | -
+**commit()**   | Commits the current transaction                                                   | -
+**getAutoCommit()**   | Returns the value of the auto commit setting                                      | *boolean*
+**getCatalog()**   | Returns the Catalog name, which the Connection is related to                      | *string*
+**getSchema()**   | Returns the Schema name, which the Connection is related to                       | *string*
+**getTransactionIsolation()**   | Returns the value of the transaction isolation setting                            | *int*
+**isClosed()**   | Returns true if the Connection is already closed and false otherwise              | *boolean*
 **isReadOnly()**   | Returns true if the Connection is opened in a read only state and false otherwise | *boolean*
-**isValid()**   | Returns true if the Connection is still valid and false otherwise | *boolean*
-**rollback()**   | Rolls the current transaction back | -
-**setAutoCommit(autoCommit)**   | Sets the value of the auto commit setting | -
-**setCatalog(catalog)**   | Sets the Catalog name, which the Connection is related to | -
-**setSchema(schema)**   | Sets the Schema name, which the Connection is related to | -
-**setReadOnly(readOnly)**   | Sets the value of the read only state | -
-**setTransactionIsolation(transactionIsolation)**   | Sets the value of the transaction isolation setting | -
+**isValid()**   | Returns true if the Connection is still valid and false otherwise                 | *boolean*
+**rollback()**   | Rolls the current transaction back                                                | -
+**setAutoCommit(autoCommit)**   | Sets the value of the auto commit setting                                         | -
+**setCatalog(catalog)**   | Sets the Catalog name, which the Connection is related to                         | -
+**setSchema(schema)**   | Sets the Schema name, which the Connection is related to                          | -
+**setReadOnly(readOnly)**   | Sets the value of the read only state                                             | -
+**setTransactionIsolation(transactionIsolation)**   | Sets the value of the transaction isolation setting                               | -
 
 
 #### PreparedStatement
