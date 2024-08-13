@@ -191,7 +191,6 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The _`WAIT_COUNT`_ data source parameter                                                                 | _`5`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance                                                | _`DefaultDB`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance                                                 | _`SystemDB`_
-**DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE**   | The names of the tables, views and columns to be considered as case sensitive                            | _`false`_
 **DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer                                                             | _`1000`_
 **DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT**	| The batch size used during quering data from the database                                                | _`1000`_
 **DIRIGIBLE_DATABASE_SYSTEM_DRIVER**	| The driver used for the SystemDB database connection                                                     | _`org.h2.Driver`_

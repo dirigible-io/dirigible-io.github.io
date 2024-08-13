@@ -120,7 +120,6 @@ Deploy Eclipse Dirigible in [Apache Tomcat](http://tomcat.apache.org/) web conta
             export DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE=org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
             export DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE=true
             export DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE=true
-            export DIRIGIBLE_DATABASE_NAMES_CASE_SENSITIVE=true
             ```
 
     === "MySQL"
