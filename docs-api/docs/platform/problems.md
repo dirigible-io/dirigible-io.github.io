@@ -20,16 +20,16 @@ Problems module provides utility functions for managing and logging problems/iss
 === "ECMA6"
 
     ```javascript
-    import { problems } from "sdk/platform";
+    import { Problems } from "sdk/platform";
     import { response } from "sdk/http";
 
-    problems.save("/my-project/my-file", problems.ACTIVE, "line: 4", "row: 10", "", "Some problem / at line 4", "Expected end of line ;", "ProblemsModule", "my-file.mjs", "my-file.mjs");
+    problems.save("/my-project/my-file", Problems.ACTIVE, "line: 4", "row: 10", "", "Some problem / at line 4", "Expected end of line ;", "ProblemsModule", "my-file.mjs", "my-file.mjs");
 
-    let myProblems = problems.fetchAllProblems();
+    const myProblems = Problems.fetchAllProblems();
 
-    response.println(myProblems);
+    response.println(JSON.stringify(myProblems));
 
-    problems.clearAllProblems();
+    Problems.clearAllProblems();
     ```
 
 <!-- === "CommonJS"
