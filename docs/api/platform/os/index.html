@@ -2619,17 +2619,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ECMA6</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/platform&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">OS</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/platform&quot;</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">isWindows</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">OS</span><span class="p">.</span><span class="nx">isWindows</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Windows logic here</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">isUnix</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">OS</span><span class="p">.</span><span class="nx">isUnix</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Unix logic here</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">osName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">osName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">OS</span><span class="p">.</span><span class="nx">OS_NAME</span><span class="p">;</span><span class="w"></span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;OS is: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">osName</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
