@@ -2612,6 +2612,7 @@
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;QR Code Bytes: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">qrCodeBytes</span><span class="p">);</span><span class="w"></span>
 
+<span class="nx">response</span><span class="p">.</span><span class="nx">setContentType</span><span class="p">(</span><span class="s1">&#39;image/png&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">qrCodeBytes</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
