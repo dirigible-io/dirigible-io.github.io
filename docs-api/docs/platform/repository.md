@@ -25,7 +25,7 @@ The service which list the available workspaces:
     import { repository } from "sdk/platform";
     import { response } from "sdk/http";
 
-    let resource = repository.getResource("/registry/public/platform/repository.js");
+    let resource = repository.getResource("/registry/public/modules/src/platform/repository.ts");
 
     response.println("Exists: " + resource.exists());
     response.flush();
