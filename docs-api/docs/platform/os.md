@@ -18,17 +18,17 @@ OS object is used to get OS details.
 === "ECMA6"
 
     ```javascript
-    import { os } from "sdk/platform";
+    import { OS } from "sdk/platform";
 
-    if (os.isWindows()) {
+    if (OS.isWindows()) {
         // Windows logic here
     }
 
-    if (os.isUnix()) {
+    if (OS.isUnix()) {
         // Unix logic here
     }
 
-    const osName = os.name;
+    const osName = OS.OS_NAME;
     console.log("OS is: " + osName);
     ```
 
