@@ -23,7 +23,7 @@ Registry object gives access to the content in the repository and also the pre-d
     import { registry } from "sdk/platform";
     import { response } from "sdk/http";
 
-    let text = registry.getText("platform/registry.js");
+    let text = registry.getText("modules/src/platform/registry.ts");
 
     response.println(text);
     response.flush();
