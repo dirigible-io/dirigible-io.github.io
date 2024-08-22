@@ -25,6 +25,7 @@ QRCode object is used to generate a JavaScript byte array based on an input stri
 
     console.log("QR Code Bytes: " + qrCodeBytes);
 
+    response.setContentType('image/png')
     response.write(qrCodeBytes);
     response.flush();
     response.close();
