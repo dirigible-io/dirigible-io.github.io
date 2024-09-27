@@ -21,7 +21,7 @@ This section shows how to create and manage `Job Definition` for the `Scheduled 
     ```json
     {
         "expression": "0/10 * * * * ?",
-        "group": "dirigible-defined",
+        "group": "defined",
         "handler": "scheduled-job-project/handler.mjs",
         "description": "Scheduled Log Job",
         "parameters": [
