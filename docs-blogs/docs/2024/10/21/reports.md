@@ -62,21 +62,21 @@ This sample demonstrates how to create a basic application with reports. It incl
 -  In the `SQL View` enter the following script:
 
 
-    INSERT INTO PRODUCT (PRODUCT_NAME, PRODUCT_CATEGORY, PRODUCT_PRICE, PRODUCT_STOCKQUANTITY) VALUES
-    ('Apple', 'Fruits', 0.50, 100),
-    ('Banana', 'Fruits', 0.30, 150),
-    ('Milk', 'Dairy', 1.20, 50),
-    ('Bread', 'Bakery', 2.00, 80),
-    ('Cheese', 'Dairy', 3.50, 40),
-    ('Orange Juice', 'Beverages', 2.50, 60);
+       INSERT INTO PRODUCT (PRODUCT_NAME, PRODUCT_CATEGORY, PRODUCT_PRICE, PRODUCT_STOCKQUANTITY) VALUES
+       ('Apple', 'Fruits', 0.50, 100),
+       ('Banana', 'Fruits', 0.30, 150),
+       ('Milk', 'Dairy', 1.20, 50),
+       ('Bread', 'Bakery', 2.00, 80),
+       ('Cheese', 'Dairy', 3.50, 40),
+       ('Orange Juice', 'Beverages', 2.50, 60);
  
-    INSERT INTO SALE (SALE_PRODUCT, SALE_CUSTOMER, SALE_DATE, SALE_QUANTITYSOLD, SALE_TOTALAMOUNT) VALUES
-    (1, 'John Doe', '2024-10-01', 5, 2.50),
-    (2, 'Jane Smith', '2024-10-02', 10, 3.00),
-    (3, 'Emily Johnson', '2024-10-03', 2, 2.40),  
-    (4, 'Michael Brown', '2024-10-04', 1, 2.00),
-    (5, 'Emma Wilson', '2024-10-05', 3, 10.50),
-    (6, 'James Lee', '2024-10-06', 2, 5.00);
+       INSERT INTO SALE (SALE_PRODUCT, SALE_CUSTOMER, SALE_DATE, SALE_QUANTITYSOLD, SALE_TOTALAMOUNT) VALUES
+       (1, 'John Doe', '2024-10-01', 5, 2.50),
+       (2, 'Jane Smith', '2024-10-02', 10, 3.00),
+       (3, 'Emily Johnson', '2024-10-03', 2, 2.40),  
+       (4, 'Michael Brown', '2024-10-04', 1, 2.00),
+       (5, 'Emma Wilson', '2024-10-05', 3, 10.50),
+       (6, 'James Lee', '2024-10-06', 2, 5.00);
 
 -  Press the `Run` icon to execute the SQL script.
 
