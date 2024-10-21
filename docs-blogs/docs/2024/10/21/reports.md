@@ -171,11 +171,6 @@ This sample demonstrates how to create a basic application with reports. It incl
 ![print-report](../../../images/reports/print-report.png)<br>
 
 -------------------------
-### Video
-
-![video](../../../images/reports/report-1-video.mov)<br>
-
--------------------------------------------------------------
  
 #### Sales on a specific date ####
 
