@@ -55,7 +55,7 @@ This section shows how to create the database tables for the Reports application
 
 #### Table content
 
--  Right-click on the `PRODUCT` or `SALE` tables and select `Show Contents`.
+- Right-click on the `PRODUCT` or `SALE` tables and select `Show Contents`.
 
 - The table data would be displayed in the `Result View`.
  
@@ -63,7 +63,7 @@ This section shows how to create the database tables for the Reports application
 
 ![empty-tables](../../../images/reports/empty-tables.png)<br>
 
--  In the `SQL View` enter the following script:
+- In the `SQL View` enter the following script:
 
 ```sql
        INSERT INTO PRODUCT (PRODUCT_NAME, PRODUCT_CATEGORY, PRODUCT_PRICE, PRODUCT_STOCKQUANTITY) VALUES
@@ -83,9 +83,9 @@ This section shows how to create the database tables for the Reports application
        (6, 'James Lee', '2024-10-06', 2, 5.00);
 ```
 
--  Press the `Run` icon to execute the SQL script.
+- Press the `Run` icon to execute the SQL script.
 
--  Right-click on the `PRODUCT` or `SALE` tables and select `Show Contents`. You should see the data inside.
+- Right-click on the `PRODUCT` or `SALE` tables and select `Show Contents`. You should see the data inside.
 
 ![product-table](../../../images/reports/product-table.png)<br>
 
@@ -95,7 +95,7 @@ This section shows how to create the database tables for the Reports application
 
 The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.
 
-- `Total sales by product`
+- Total sales by product
 
 ```sql
         SELECT P.PRODUCT_NAME,
@@ -108,7 +108,7 @@ The next step is to define the purpose of your reports. It’s essential to crea
         ORDER BY TOTAL_SALES_AMOUNT DESC;
 ```
 
-- `Sales on a specific date`
+- Sales on a specific date
 
 ```sql
         SELECT P.PRODUCT_NAME, S.SALE_CUSTOMER, S.SALE_QUANTITYSOLD, S.SALE_TOTALAMOUNT
