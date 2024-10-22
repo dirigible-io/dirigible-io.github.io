@@ -7,7 +7,8 @@ author_avatar: https://avatars.githubusercontent.com/u/105500638?u=dc143b82eef5e
 read_time: 10 min
 publish_date: October 21, 2024
 ---
-# Reports in Eclipse Dirigible
+# Making Reports in Eclipse Dirigible: Step-by-Step Tutorial
+
 This sample demonstrates how to create a basic application with reports. It includes database tables, report queries, and the report model itself.
 
 ## Sections:
