@@ -24,7 +24,7 @@ This sample demonstrates how to create a basic application with reports. It incl
 
  - In the `SQL View` enter the following script:
  
-
+```sql
        CREATE TABLE PRODUCT (
        PRODUCT_ID INT PRIMARY KEY AUTO_INCREMENT,
        PRODUCT_NAME VARCHAR(100) NOT NULL,
@@ -40,6 +40,7 @@ This sample demonstrates how to create a basic application with reports. It incl
        SALE_QUANTITYSOLD INT NOT NULL,
        SALE_TOTALAMOUNT DECIMAL(10, 2) NOT NULL,
        FOREIGN KEY (SALE_PRODUCT) REFERENCES PRODUCT(PRODUCT_ID));
+```
 
 <br>
 
@@ -61,7 +62,7 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 -  In the `SQL View` enter the following script:
 
-
+```sql
        INSERT INTO PRODUCT (PRODUCT_NAME, PRODUCT_CATEGORY, PRODUCT_PRICE, PRODUCT_STOCKQUANTITY) VALUES
        ('Apple', 'Fruits', 0.50, 100),
        ('Banana', 'Fruits', 0.30, 150),
@@ -77,6 +78,7 @@ This sample demonstrates how to create a basic application with reports. It incl
        (4, 'Michael Brown', '2024-10-04', 1, 2.00),
        (5, 'Emma Wilson', '2024-10-05', 3, 10.50),
        (6, 'James Lee', '2024-10-06', 2, 5.00);
+```
 
 -  Press the `Run` icon to execute the SQL script.
 
@@ -90,25 +92,27 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 - `Total sales by product`
 
-     ```
-  SELECT P.PRODUCT_NAME,
-  SUM(S.SALE_QUANTITYSOLD) AS TOTAL_QUANTITY_SOLD,
-  SUM(S.SALE_TOTALAMOUNT) AS TOTAL_SALES_AMOUNT
-  FROM SALE S
-  JOIN PRODUCT P
-  ON S.SALE_PRODUCT = P.PRODUCT_ID
-  GROUP BY P.PRODUCT_NAME 
-  ORDER BY TOTAL_SALES_AMOUNT DESC;
+```sql
+        SELECT P.PRODUCT_NAME,
+        SUM(S.SALE_QUANTITYSOLD) AS TOTAL_QUANTITY_SOLD,
+        SUM(S.SALE_TOTALAMOUNT) AS TOTAL_SALES_AMOUNT
+        FROM SALE S
+        JOIN PRODUCT P
+        ON S.SALE_PRODUCT = P.PRODUCT_ID
+        GROUP BY P.PRODUCT_NAME 
+        ORDER BY TOTAL_SALES_AMOUNT DESC;
+```
 
 - `Sales on a specific date`
 
-  ```
-  SELECT P.PRODUCT_NAME, S.SALE_CUSTOMER, S.SALE_QUANTITYSOLD, S.SALE_TOTALAMOUNT
-  FROM SALE S
-  JOIN PRODUCT P
-  ON S.SALE_PRODUCT = P.PRODUCT_ID
-  WHERE S.SALE_DATE = :parameter;
-  
+```sql
+        SELECT P.PRODUCT_NAME, S.SALE_CUSTOMER, S.SALE_QUANTITYSOLD, S.SALE_TOTALAMOUNT
+        FROM SALE S
+        JOIN PRODUCT P
+        ON S.SALE_PRODUCT = P.PRODUCT_ID
+        WHERE S.SALE_DATE = :parameter;
+```
+
 <br>
 
 3. **Report models**
