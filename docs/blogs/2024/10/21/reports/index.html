@@ -3548,7 +3548,7 @@
 <h3 id="queries">Queries</h3>
 <p>The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.</p>
 <ul>
-<li><code>Total sales by product</code></li>
+<li>Total sales by product</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SALE_QUANTITYSOLD</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_QUANTITY_SOLD</span><span class="p">,</span><span class="w"></span>
@@ -3560,7 +3560,7 @@
 <span class="w">        </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">TOTAL_SALES_AMOUNT</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 <ul>
-<li><code>Sales on a specific date</code></li>
+<li>Sales on a specific date</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_CUSTOMER</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_QUANTITYSOLD</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_TOTALAMOUNT</span><span class="w"></span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">SALE</span><span class="w"> </span><span class="n">S</span><span class="w"></span>
