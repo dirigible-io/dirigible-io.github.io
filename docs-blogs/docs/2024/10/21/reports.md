@@ -238,8 +238,11 @@ The next step is to define the purpose of your reports. It’s essential to crea
 
 ![filter](../../../images/reports/filter.png)
 
+### Conclusion
 
-
+We covered the benefits of using Dirigible's report builder, 
+including ease of creating templates, integrating data sources, filtering with parameters,
+and generating customizable outputs like PDF files.
 
 
 
