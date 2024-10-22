@@ -113,8 +113,8 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 3. **Report models**
 
-   #### Total sales by product ####
------------------------------------------------------
+#### Total sales by product
+
 
      1. Right click on the Project -> New -> Report Model.
 
@@ -172,9 +172,7 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 -------------------------
  
-#### Sales on a specific date ####
-
------------------------------------------------------
+#### Sales on a specific
 
       1. Right click on the Project -> New -> Report Model.
       
