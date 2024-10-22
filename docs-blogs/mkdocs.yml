@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blog': 'index.md'
     - '2024':
+      - 'Reports in Eclipse Dirigible': '/2024/10/21/reports.md'
       - 'Building Your Own Eclipse Dirigible Stack': '2024/04/05/custom-stack.md'
       - 'Multitenant applications with zero effort': '2024/03/26/multitenancy.md'
     - '2023':
