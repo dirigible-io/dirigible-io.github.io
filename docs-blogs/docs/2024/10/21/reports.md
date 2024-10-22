@@ -178,7 +178,7 @@ The next step is to define the purpose of your reports. It’s essential to crea
 
 -------------------------
  
-#### Sales on a specific product
+#### Sales on a specific date
 
 1. Right click on the Project -> New -> Report Model.
       
