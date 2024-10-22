@@ -17,7 +17,9 @@ This sample demonstrates how to create a basic application with reports. It incl
  * Queries
  * Report models
 
- 1. **Database tables** - this section shows how to create the database tables for the Reports application.
+### Database tables
+
+This section shows how to create the database tables for the Reports application.
 
  - Create a project named `reports-sample-project`.
 
@@ -51,7 +53,7 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 ![db-tables](../../../images/reports/db-tables.png)<br>
 
-**Table content**
+#### Table content
 
 -  Right-click on the `PRODUCT` or `SALE` tables and select `Show Contents`.
 
@@ -89,7 +91,9 @@ This sample demonstrates how to create a basic application with reports. It incl
 
 ![sale-table](../../../images/reports/sale-table.png)<br>
 
-2. **Queries** - The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.
+### Queries
+
+The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.
 
 - `Total sales by product`
 
@@ -114,129 +118,126 @@ This sample demonstrates how to create a basic application with reports. It incl
         WHERE S.SALE_DATE = :parameter;
 ```
 
-<br>
-
-3. **Report models**
+### Report models
 
 #### Total sales by product
 
+1. Right click on the Project -> New -> Report Model.
 
-     1. Right click on the Project -> New -> Report Model.
+2. Open the report-model.report file and assign a name to the report.
 
-     2. Open the report-model.report file and assign a name to the report.
+![report-name-1](../../../images/reports/report-name-1.png)
 
-![report-name-1](../../../images/reports/report-name-1.png)<br>
+3. Select the main table for the report; in our case, it’s SALE.
 
-     3. Select the main table for the report; in our case, it’s SALE.
-
-![base-table-1](../../../images/reports/base-table-1.png)<br>
+![base-table-1](../../../images/reports/base-table-1.png)
      
-     4. In the columns section, remove any columns you don’t want to include in the report and set the aggregate functions.
+4. In the columns section, remove any columns you don’t want to include in the report and set the aggregate functions.
 
-![columns-1](../../../images/reports/columns-1.png)<br>
+![columns-1](../../../images/reports/columns-1.png)
 
-![columns-functions-1](../../../images/reports/columns-functions-1.png)<br>
+![columns-functions-1](../../../images/reports/columns-functions-1.png)
 
-     5. In the Joins section, define the joins by specifying their type and conditions.
+5. In the Joins section, define the joins by specifying their type and conditions.
 
-![join-1](../../../images/reports/join-1.png)<br>
+![join-1](../../../images/reports/join-1.png)
 
-     6. In the Ordering section, specify the column and the order for displaying the results.
+6. In the Ordering section, specify the column and the order for displaying the results.
 
-![order-1](../../../images/reports/order-1.png)<br>
+![order-1](../../../images/reports/order-1.png)
 
+7. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
 
-     7. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
+![query-1](../../../images/reports/query-1.png)
 
-![query-1](../../../images/reports/query-1.png)<br>
+8. Report generation
 
-     8. Report generation
-         - Right click ot .report file and choose generate 
+- Right click ot .report file and choose generate 
 
-![generate-report](../../../images/reports/generate-report.png)<br>
+![generate-report](../../../images/reports/generate-report.png)
 
-         - Choose Application Report - Table for template and enter needed information in the next dialog
+- Choose Application Report - Table for template and enter needed information in the next dialog
 
-![generate-report-template](../../../images/reports/generate-report-template.png)<br>
+![generate-report-template](../../../images/reports/generate-report-template.png)
 
-![generate-second-template](../../../images/reports/generate-second-template.png)<br>
+![generate-second-template](../../../images/reports/generate-second-template.png)
 
-         - Publish the project
+- Publish the project
 
-![publish-report](../../../images/reports/publish-report.png)<br>
+![publish-report](../../../images/reports/publish-report.png)
 
-         - Open the index.html and view the report
+- Open the index.html and view the report
 
-![open-index](../../../images/reports/open-index.png)<br>
+![open-index](../../../images/reports/open-index.png)
 
-![report-table-1](../../../images/reports/report-table-1.png)<br>
+![report-table-1](../../../images/reports/report-table-1.png)
 
-         - You can also print the report 
+- You can also print the report 
 
-![print-report](../../../images/reports/print-report.png)<br>
+![print-report](../../../images/reports/print-report.png)
 
 -------------------------
  
-#### Sales on a specific
+#### Sales on a specific product
 
-      1. Right click on the Project -> New -> Report Model.
+1. Right click on the Project -> New -> Report Model.
       
-      2. Open the report-model.report file and assign a name to the report.
+2. Open the report-model.report file and assign a name to the report.
 
-![report-name-2](../../../images/reports/report-name-2.png)<br>
+![report-name-2](../../../images/reports/report-name-2.png)
 
-      3. Select the main table for the report; in our case, it’s SALE.
+3. Select the main table for the report; in our case, it’s SALE.
 
-![base-table-1](../../../images/reports/base-table-1.png)<br>
+![base-table-1](../../../images/reports/base-table-1.png)
 
-      4. In the columns section, remove any columns you don’t want to include in the report.
+4. In the columns section, remove any columns you don’t want to include in the report.
 
-![columns-2](../../../images/reports/columns-2.png)<br>
+![columns-2](../../../images/reports/columns-2.png)
 
-      5. In the Joins section, define the joins by specifying their type and conditions.
+5. In the Joins section, define the joins by specifying their type and conditions.
 
-![join-2](../../../images/reports/join-2.png)<br>
+![join-2](../../../images/reports/join-2.png)
 
-      6. In the Conditions section, define the criteria for filtering the results..
+6. In the Conditions section, define the criteria for filtering the results..
 
          Note: ':date' is dynamic parameter which will be configured in step 7
 
-![conditions-2](../../../images/reports/conditions-2.png)<br>
+![conditions-2](../../../images/reports/conditions-2.png)
 
-      7. In the Parameters section, specify their names, types, and initial values.
+7. In the Parameters section, specify their names, types, and initial values.
 
-![parameters-2](../../../images/reports/parameters-2.png)<br>
+![parameters-2](../../../images/reports/parameters-2.png)
 
-      8. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
+8. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
 
-![query-2](../../../images/reports/query-2.png)<br>
+![query-2](../../../images/reports/query-2.png)
 
-      9. Report generation
-         - Right click ot .report file and choose generate 
+9. Report generation
 
-![generate-report](../../../images/reports/generate-report.png)<br>
+- Right click ot .report file and choose generate 
 
-         - Choose Application Report - Table for template and enter needed information in the next dialog
+![generate-report](../../../images/reports/generate-report.png)
 
-![generate-report-template](../../../images/reports/generate-report-template.png)<br>
+- Choose Application Report - Table for template and enter needed information in the next dialog
 
-![generate-second-template](../../../images/reports/generate-second-template.png)<br>
+![generate-report-template](../../../images/reports/generate-report-template.png)
 
-         - Publish the project
+![generate-second-template](../../../images/reports/generate-second-template.png)
 
-![publish-report](../../../images/reports/publish-report.png)<br>
+- Publish the project
 
-         - Open the index.html and view the report
+![publish-report](../../../images/reports/publish-report.png)
 
-![open-index](../../../images/reports/open-index.png)<br>
+- Open the index.html and view the report
 
-![report-table-2](../../../images/reports/report-table-2.png)<br>
+![open-index](../../../images/reports/open-index.png)
 
-         - You can now filter by date
+![report-table-2](../../../images/reports/report-table-2.png)
 
-![filter](../../../images/reports/filter.png)<br>
+- You can now filter by date
 
--------------------------
+![filter](../../../images/reports/filter.png)
+
 
 
 
