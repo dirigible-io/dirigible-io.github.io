@@ -1,10 +1,5 @@
 [
   {
-    "location": "2023/09/26/java-and-graaljs-update.md",
-    "title": "Eclipse Dirigible's Latest Update: Java 21 and GraalJS 23.1.0!",
-    "description": "In the dynamic world of software development, staying up-to-date is key"
-  },
-  {
     "location": "2023/09/27/typescript-support.md",
     "title": "TypeScript support",
     "description": "\"In the ever-evolving world of web development, staying on top of the latest technologies is crucial for success\""
@@ -22,5 +17,10 @@
     "location": "2024/04/05/custom-stack.md",
     "title": "Building Your Own Eclipse Dirigible Stack",
     "description": "\"Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide\""
+  },
+  {
+    "location": "2024/10/21/reports.md",
+    "title": "Making Reports in Eclipse Dirigible: Step-by-Step Tutorial",
+    "description": "\"Making Reports with small effort using Eclipse Dirigible\""
   }
 ]
