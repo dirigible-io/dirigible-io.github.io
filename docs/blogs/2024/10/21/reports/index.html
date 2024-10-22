@@ -527,6 +527,41 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#database-tables" class="md-nav__link">
+    Database tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Database tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-content" class="md-nav__link">
+    Table content
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-models" class="md-nav__link">
+    Report models
+  </a>
+  
+    <nav class="md-nav" aria-label="Report models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#total-sales-by-product" class="md-nav__link">
     Total sales by product
   </a>
@@ -534,9 +569,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sales-on-a-specific" class="md-nav__link">
-    Sales on a specific
+  <a href="#sales-on-a-specific-product" class="md-nav__link">
+    Sales on a specific product
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3303,6 +3343,41 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#database-tables" class="md-nav__link">
+    Database tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Database tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-content" class="md-nav__link">
+    Table content
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-models" class="md-nav__link">
+    Report models
+  </a>
+  
+    <nav class="md-nav" aria-label="Report models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#total-sales-by-product" class="md-nav__link">
     Total sales by product
   </a>
@@ -3310,9 +3385,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sales-on-a-specific" class="md-nav__link">
-    Sales on a specific
+  <a href="#sales-on-a-specific-product" class="md-nav__link">
+    Sales on a specific product
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3382,12 +3462,11 @@
 <ul>
 <li>Database tables</li>
 <li>Queries</li>
-<li>
-<p>Report models</p>
-</li>
-<li>
-<p><strong>Database tables</strong> - this section shows how to create the database tables for the Reports application.</p>
-</li>
+<li>Report models</li>
+</ul>
+<h3 id="database-tables">Database tables</h3>
+<p>This section shows how to create the database tables for the Reports application.</p>
+<ul>
 <li>
 <p>Create a project named <code>reports-sample-project</code>.</p>
 </li>
@@ -3424,7 +3503,7 @@
 </li>
 </ul>
 <p><img alt="db-tables" src="../../../../images/reports/db-tables.png" /><br></p>
-<p><strong>Table content</strong></p>
+<h4 id="table-content">Table content</h4>
 <ul>
 <li>
 <p>Right-click on the <code>PRODUCT</code> or <code>SALE</code> tables and select <code>Show Contents</code>.</p>
@@ -3466,14 +3545,11 @@
 </ul>
 <p><img alt="product-table" src="../../../../images/reports/product-table.png" /><br></p>
 <p><img alt="sale-table" src="../../../../images/reports/sale-table.png" /><br></p>
-<ol>
-<li>
-<p><strong>Queries</strong> - The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.</p>
-</li>
-<li>
-<p><code>Total sales by product</code></p>
-</li>
-</ol>
+<h3 id="queries">Queries</h3>
+<p>The next step is to define the purpose of your reports. It’s essential to create your queries early and verify that they function correctly. You can test this by pasting them into the Database perspective and ensuring they run without errors.</p>
+<ul>
+<li><code>Total sales by product</code></li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SALE_QUANTITYSOLD</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_QUANTITY_SOLD</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SALE_TOTALAMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_SALES_AMOUNT</span><span class="w"></span>
@@ -3492,96 +3568,129 @@
 <span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_PRODUCT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_ID</span><span class="w"></span>
 <span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="k">parameter</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-<p><br></p>
-<ol>
-<li><strong>Report models</strong></li>
-</ol>
+<h3 id="report-models">Report models</h3>
 <h4 id="total-sales-by-product">Total sales by product</h4>
-<div class="highlight"><pre><span></span><code> 1. Right click on the Project -&gt; New -&gt; Report Model.
-
- 2. Open the report-model.report file and assign a name to the report.
-</code></pre></div>
-<p><img alt="report-name-1" src="../../../../images/reports/report-name-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 3. Select the main table for the report; in our case, it’s SALE.
-</code></pre></div>
-<p><img alt="base-table-1" src="../../../../images/reports/base-table-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 4. In the columns section, remove any columns you don’t want to include in the report and set the aggregate functions.
-</code></pre></div>
-<p><img alt="columns-1" src="../../../../images/reports/columns-1.png" /><br></p>
-<p><img alt="columns-functions-1" src="../../../../images/reports/columns-functions-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 5. In the Joins section, define the joins by specifying their type and conditions.
-</code></pre></div>
-<p><img alt="join-1" src="../../../../images/reports/join-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 6. In the Ordering section, specify the column and the order for displaying the results.
-</code></pre></div>
-<p><img alt="order-1" src="../../../../images/reports/order-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 7. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
-</code></pre></div>
-<p><img alt="query-1" src="../../../../images/reports/query-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code> 8. Report generation
-     - Right click ot .report file and choose generate
-</code></pre></div>
-<p><img alt="generate-report" src="../../../../images/reports/generate-report.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Choose Application Report - Table for template and enter needed information in the next dialog
-</code></pre></div>
-<p><img alt="generate-report-template" src="../../../../images/reports/generate-report-template.png" /><br></p>
-<p><img alt="generate-second-template" src="../../../../images/reports/generate-second-template.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Publish the project
-</code></pre></div>
-<p><img alt="publish-report" src="../../../../images/reports/publish-report.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Open the index.html and view the report
-</code></pre></div>
-<p><img alt="open-index" src="../../../../images/reports/open-index.png" /><br></p>
-<p><img alt="report-table-1" src="../../../../images/reports/report-table-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - You can also print the report
-</code></pre></div>
-<p><img alt="print-report" src="../../../../images/reports/print-report.png" /><br></p>
+<ol>
+<li>
+<p>Right click on the Project -&gt; New -&gt; Report Model.</p>
+</li>
+<li>
+<p>Open the report-model.report file and assign a name to the report.</p>
+</li>
+</ol>
+<p><img alt="report-name-1" src="../../../../images/reports/report-name-1.png" /></p>
+<ol>
+<li>Select the main table for the report; in our case, it’s SALE.</li>
+</ol>
+<p><img alt="base-table-1" src="../../../../images/reports/base-table-1.png" /></p>
+<ol>
+<li>In the columns section, remove any columns you don’t want to include in the report and set the aggregate functions.</li>
+</ol>
+<p><img alt="columns-1" src="../../../../images/reports/columns-1.png" /></p>
+<p><img alt="columns-functions-1" src="../../../../images/reports/columns-functions-1.png" /></p>
+<ol>
+<li>In the Joins section, define the joins by specifying their type and conditions.</li>
+</ol>
+<p><img alt="join-1" src="../../../../images/reports/join-1.png" /></p>
+<ol>
+<li>In the Ordering section, specify the column and the order for displaying the results.</li>
+</ol>
+<p><img alt="order-1" src="../../../../images/reports/order-1.png" /></p>
+<ol>
+<li>After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.</li>
+</ol>
+<p><img alt="query-1" src="../../../../images/reports/query-1.png" /></p>
+<ol>
+<li>
+<p>Report generation</p>
+</li>
+<li>
+<p>Right click ot .report file and choose generate </p>
+</li>
+</ol>
+<p><img alt="generate-report" src="../../../../images/reports/generate-report.png" /></p>
+<ul>
+<li>Choose Application Report - Table for template and enter needed information in the next dialog</li>
+</ul>
+<p><img alt="generate-report-template" src="../../../../images/reports/generate-report-template.png" /></p>
+<p><img alt="generate-second-template" src="../../../../images/reports/generate-second-template.png" /></p>
+<ul>
+<li>Publish the project</li>
+</ul>
+<p><img alt="publish-report" src="../../../../images/reports/publish-report.png" /></p>
+<ul>
+<li>Open the index.html and view the report</li>
+</ul>
+<p><img alt="open-index" src="../../../../images/reports/open-index.png" /></p>
+<p><img alt="report-table-1" src="../../../../images/reports/report-table-1.png" /></p>
+<ul>
+<li>You can also print the report </li>
+</ul>
+<p><img alt="print-report" src="../../../../images/reports/print-report.png" /></p>
 <hr />
-<h4 id="sales-on-a-specific">Sales on a specific</h4>
-<div class="highlight"><pre><span></span><code>  1. Right click on the Project -&gt; New -&gt; Report Model.
-
-  2. Open the report-model.report file and assign a name to the report.
+<h4 id="sales-on-a-specific-product">Sales on a specific product</h4>
+<ol>
+<li>
+<p>Right click on the Project -&gt; New -&gt; Report Model.</p>
+</li>
+<li>
+<p>Open the report-model.report file and assign a name to the report.</p>
+</li>
+</ol>
+<p><img alt="report-name-2" src="../../../../images/reports/report-name-2.png" /></p>
+<ol>
+<li>Select the main table for the report; in our case, it’s SALE.</li>
+</ol>
+<p><img alt="base-table-1" src="../../../../images/reports/base-table-1.png" /></p>
+<ol>
+<li>In the columns section, remove any columns you don’t want to include in the report.</li>
+</ol>
+<p><img alt="columns-2" src="../../../../images/reports/columns-2.png" /></p>
+<ol>
+<li>In the Joins section, define the joins by specifying their type and conditions.</li>
+</ol>
+<p><img alt="join-2" src="../../../../images/reports/join-2.png" /></p>
+<ol>
+<li>In the Conditions section, define the criteria for filtering the results..<div class="highlight"><pre><span></span><code> Note: &#39;:date&#39; is dynamic parameter which will be configured in step 7
 </code></pre></div>
-<p><img alt="report-name-2" src="../../../../images/reports/report-name-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  3. Select the main table for the report; in our case, it’s SALE.
-</code></pre></div>
-<p><img alt="base-table-1" src="../../../../images/reports/base-table-1.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  4. In the columns section, remove any columns you don’t want to include in the report.
-</code></pre></div>
-<p><img alt="columns-2" src="../../../../images/reports/columns-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  5. In the Joins section, define the joins by specifying their type and conditions.
-</code></pre></div>
-<p><img alt="join-2" src="../../../../images/reports/join-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  6. In the Conditions section, define the criteria for filtering the results..
-
-     Note: &#39;:date&#39; is dynamic parameter which will be configured in step 7
-</code></pre></div>
-<p><img alt="conditions-2" src="../../../../images/reports/conditions-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  7. In the Parameters section, specify their names, types, and initial values.
-</code></pre></div>
-<p><img alt="parameters-2" src="../../../../images/reports/parameters-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  8. After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.
-</code></pre></div>
-<p><img alt="query-2" src="../../../../images/reports/query-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>  9. Report generation
-     - Right click ot .report file and choose generate
-</code></pre></div>
-<p><img alt="generate-report" src="../../../../images/reports/generate-report.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Choose Application Report - Table for template and enter needed information in the next dialog
-</code></pre></div>
-<p><img alt="generate-report-template" src="../../../../images/reports/generate-report-template.png" /><br></p>
-<p><img alt="generate-second-template" src="../../../../images/reports/generate-second-template.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Publish the project
-</code></pre></div>
-<p><img alt="publish-report" src="../../../../images/reports/publish-report.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - Open the index.html and view the report
-</code></pre></div>
-<p><img alt="open-index" src="../../../../images/reports/open-index.png" /><br></p>
-<p><img alt="report-table-2" src="../../../../images/reports/report-table-2.png" /><br></p>
-<div class="highlight"><pre><span></span><code>     - You can now filter by date
-</code></pre></div>
-<p><img alt="filter" src="../../../../images/reports/filter.png" /><br></p>
-<hr />
+</li>
+</ol>
+<p><img alt="conditions-2" src="../../../../images/reports/conditions-2.png" /></p>
+<ol>
+<li>In the Parameters section, specify their names, types, and initial values.</li>
+</ol>
+<p><img alt="parameters-2" src="../../../../images/reports/parameters-2.png" /></p>
+<ol>
+<li>After completing these steps, a query is generated for the report. You can review it and make any necessary adjustments, adding or removing elements as needed.</li>
+</ol>
+<p><img alt="query-2" src="../../../../images/reports/query-2.png" /></p>
+<ol>
+<li>
+<p>Report generation</p>
+</li>
+<li>
+<p>Right click ot .report file and choose generate </p>
+</li>
+</ol>
+<p><img alt="generate-report" src="../../../../images/reports/generate-report.png" /></p>
+<ul>
+<li>Choose Application Report - Table for template and enter needed information in the next dialog</li>
+</ul>
+<p><img alt="generate-report-template" src="../../../../images/reports/generate-report-template.png" /></p>
+<p><img alt="generate-second-template" src="../../../../images/reports/generate-second-template.png" /></p>
+<ul>
+<li>Publish the project</li>
+</ul>
+<p><img alt="publish-report" src="../../../../images/reports/publish-report.png" /></p>
+<ul>
+<li>Open the index.html and view the report</li>
+</ul>
+<p><img alt="open-index" src="../../../../images/reports/open-index.png" /></p>
+<p><img alt="report-table-2" src="../../../../images/reports/report-table-2.png" /></p>
+<ul>
+<li>You can now filter by date</li>
+</ul>
+<p><img alt="filter" src="../../../../images/reports/filter.png" /></p>
 
         <!-- Last update of source file -->
         
