@@ -1,6 +1,6 @@
 ---
-title: "Making Reports in Eclipse Dirigible: Step-by-Step Tutorial"
-description: "Making Reports with small effort using Eclipse Dirigible"
+title: "Making Reports in Eclipse Dirigible"
+description: "Making Reports with small effort using Eclipse Dirigible: Step-by-Step Tutorial"
 author: Nicole Georgieva
 author_gh_user: NicoleNG18
 author_avatar: https://avatars.githubusercontent.com/u/105500638?u=dc143b82eef5e59088ec2d5c140b1e6e4f59ddb6&v=4&size=64
