@@ -3396,22 +3396,24 @@
 </li>
 <li>
 <p>In the <code>SQL View</code> enter the following script:</p>
-<p>CREATE TABLE PRODUCT (
-   PRODUCT_ID INT PRIMARY KEY AUTO_INCREMENT,
-   PRODUCT_NAME VARCHAR(100) NOT NULL,
-   PRODUCT_CATEGORY VARCHAR(100),
-   PRODUCT_PRICE DECIMAL(10, 2) NOT NULL,
-   PRODUCT_STOCKQUANTITY INT DEFAULT 0);</p>
-<p>CREATE TABLE SALE (
-   SALE_ID INT PRIMARY KEY AUTO_INCREMENT,
-   SALE_PRODUCT INT,
-   SALE_CUSTOMER VARCHAR(100),
-   SALE_DATE DATE NOT NULL,
-   SALE_QUANTITYSOLD INT NOT NULL,
-   SALE_TOTALAMOUNT DECIMAL(10, 2) NOT NULL,
-   FOREIGN KEY (SALE_PRODUCT) REFERENCES PRODUCT(PRODUCT_ID));</p>
 </li>
 </ul>
+<div class="highlight"><pre><span></span><code><span class="w">       </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">PRODUCT</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">       </span><span class="n">PRODUCT_ID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">PRODUCT_NAME</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">PRODUCT_CATEGORY</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="n">PRODUCT_PRICE</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">PRODUCT_STOCKQUANTITY</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">       </span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">SALE</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_ID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_PRODUCT</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_CUSTOMER</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_DATE</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_QUANTITYSOLD</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="n">SALE_TOTALAMOUNT</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">SALE_PRODUCT</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">PRODUCT</span><span class="p">(</span><span class="n">PRODUCT_ID</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
 <p><br></p>
 <ul>
 <li>
@@ -3436,23 +3438,25 @@
 </ul>
 <p><img alt="empty-tables" src="../../../../images/reports/empty-tables.png" /><br></p>
 <ul>
-<li>
-<p>In the <code>SQL View</code> enter the following script:</p>
-<p>INSERT INTO PRODUCT (PRODUCT_NAME, PRODUCT_CATEGORY, PRODUCT_PRICE, PRODUCT_STOCKQUANTITY) VALUES
-   ('Apple', 'Fruits', 0.50, 100),
-   ('Banana', 'Fruits', 0.30, 150),
-   ('Milk', 'Dairy', 1.20, 50),
-   ('Bread', 'Bakery', 2.00, 80),
-   ('Cheese', 'Dairy', 3.50, 40),
-   ('Orange Juice', 'Beverages', 2.50, 60);</p>
-<p>INSERT INTO SALE (SALE_PRODUCT, SALE_CUSTOMER, SALE_DATE, SALE_QUANTITYSOLD, SALE_TOTALAMOUNT) VALUES
-   (1, 'John Doe', '2024-10-01', 5, 2.50),
-   (2, 'Jane Smith', '2024-10-02', 10, 3.00),
-   (3, 'Emily Johnson', '2024-10-03', 2, 2.40),<br />
-   (4, 'Michael Brown', '2024-10-04', 1, 2.00),
-   (5, 'Emma Wilson', '2024-10-05', 3, 10.50),
-   (6, 'James Lee', '2024-10-06', 2, 5.00);</p>
-</li>
+<li>In the <code>SQL View</code> enter the following script:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">       </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">PRODUCT</span><span class="w"> </span><span class="p">(</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">PRODUCT_CATEGORY</span><span class="p">,</span><span class="w"> </span><span class="n">PRODUCT_PRICE</span><span class="p">,</span><span class="w"> </span><span class="n">PRODUCT_STOCKQUANTITY</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fruits&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Banana&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Fruits&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Milk&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dairy&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Bread&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bakery&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Cheese&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Dairy&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="s1">&#39;Orange Juice&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Beverages&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">       </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">SALE</span><span class="w"> </span><span class="p">(</span><span class="n">SALE_PRODUCT</span><span class="p">,</span><span class="w"> </span><span class="n">SALE_CUSTOMER</span><span class="p">,</span><span class="w"> </span><span class="n">SALE_DATE</span><span class="p">,</span><span class="w"> </span><span class="n">SALE_QUANTITYSOLD</span><span class="p">,</span><span class="w"> </span><span class="n">SALE_TOTALAMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;John Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-01&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Jane Smith&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-02&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Emily Johnson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-03&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">40</span><span class="p">),</span><span class="w">  </span>
+<span class="w">       </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Michael Brown&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-04&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="mi">00</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Emma Wilson&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-05&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;James Lee&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2024-10-06&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<ul>
 <li>
 <p>Press the <code>Run</code> icon to execute the SQL script.</p>
 </li>
@@ -3468,26 +3472,26 @@
 </li>
 <li>
 <p><code>Total sales by product</code></p>
-<p>```
-  SELECT P.PRODUCT_NAME,
-  SUM(S.SALE_QUANTITYSOLD) AS TOTAL_QUANTITY_SOLD,
-  SUM(S.SALE_TOTALAMOUNT) AS TOTAL_SALES_AMOUNT
-  FROM SALE S
-  JOIN PRODUCT P
-  ON S.SALE_PRODUCT = P.PRODUCT_ID
-  GROUP BY P.PRODUCT_NAME 
-  ORDER BY TOTAL_SALES_AMOUNT DESC;</p>
-</li>
-<li>
-<p><code>Sales on a specific date</code></p>
 </li>
 </ol>
-<p>```
-  SELECT P.PRODUCT_NAME, S.SALE_CUSTOMER, S.SALE_QUANTITYSOLD, S.SALE_TOTALAMOUNT
-  FROM SALE S
-  JOIN PRODUCT P
-  ON S.SALE_PRODUCT = P.PRODUCT_ID
-  WHERE S.SALE_DATE = :parameter;</p>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SALE_QUANTITYSOLD</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_QUANTITY_SOLD</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="k">SUM</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">SALE_TOTALAMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">TOTAL_SALES_AMOUNT</span><span class="w"></span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">SALE</span><span class="w"> </span><span class="n">S</span><span class="w"></span>
+<span class="w">        </span><span class="k">JOIN</span><span class="w"> </span><span class="n">PRODUCT</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_PRODUCT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_ID</span><span class="w"></span>
+<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="w"> </span>
+<span class="w">        </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">TOTAL_SALES_AMOUNT</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li><code>Sales on a specific date</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_CUSTOMER</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_QUANTITYSOLD</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_TOTALAMOUNT</span><span class="w"></span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">SALE</span><span class="w"> </span><span class="n">S</span><span class="w"></span>
+<span class="w">        </span><span class="k">JOIN</span><span class="w"> </span><span class="n">PRODUCT</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_PRODUCT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">PRODUCT_ID</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">SALE_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="k">parameter</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
 <p><br></p>
 <ol>
 <li><strong>Report models</strong></li>
