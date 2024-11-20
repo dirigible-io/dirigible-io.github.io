@@ -8,7 +8,7 @@ read_time: 10 min
 publish_date: November 18, 2024
 ---
 
-# *Building and Releasing a Docker Image for an Eclipse Dirigible Application*
+# Building and Releasing a Docker Image for an Eclipse Dirigible Application
 
 This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application. 
 
@@ -76,7 +76,7 @@ ENV DIRIGIBLE_HOME_URL=/services/web/application/gen/application/index.html
 If your application uses npm packages (otherwise skip this step), you’ll need `package.json` and `package-lock.json`. The Dirigible Web IDE generates these files, and they should only be completed as you need. The easiest way to fill in the `package-lock.json` is to pull you repository locally and to run` npm install` in your project directory.
 
 
-### **Example** `package.json`
+### **Example** `project.json`
 ```json
 {
 	"guid": "your-application-name",
@@ -114,7 +114,7 @@ If your application uses npm packages (otherwise skip this step), you’ll need 
 ```                                                                                                                                                                                   
 
 
-### **Example** `package-lock.json`
+### **Example** `package.json`
 ```json
 {
 	"name": "your-application-name",
