@@ -1,10 +1,5 @@
 [
   {
-    "location": "2023/09/27/typescript-support.md",
-    "title": "TypeScript support",
-    "description": "\"In the ever-evolving world of web development, staying on top of the latest technologies is crucial for success\""
-  },
-  {
     "location": "2023/12/19/news-new-release-9-0.md",
     "title": "Release 9.0"
   },
@@ -22,5 +17,10 @@
     "location": "2024/10/21/reports.md",
     "title": "Making Reports in Eclipse Dirigible",
     "description": "\"Making Reports with small effort using Eclipse Dirigible: Step-by-Step Tutorial\""
+  },
+  {
+    "location": "2024/11/18/build-and-release.md",
+    "title": "Building and Releasing a Docker Image for an Eclipse Dirigible Application",
+    "description": "\"Building and releasing Docker image for Application effortlessly using GitHub Actions: Step-by-Step Tutorial\""
   }
 ]

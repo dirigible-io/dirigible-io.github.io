@@ -6,18 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Building and releasing Docker image for Application effortlessly using GitHub Actions: Step-by-Step Tutorial">
       
-        <meta name="author" content="Yordan Pavlov">
+      
+        <meta name="author" content="Tomislav Ivanow">
       
       
-        <link rel="canonical" href="https://www.dirigible.io/blogs/2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/">
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2024/11/18/build-and-release/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Document Service Explorer at SAP HANA Cloud Platform - Eclipse Dirigible Blog</title>
+        <title>Building and Releasing a Docker Image for an Eclipse Dirigible Application - Eclipse Dirigible Blog</title>
       
     
     
@@ -82,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#building-and-releasing-a-docker-image-for-an-eclipse-dirigible-application" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Document Service Explorer at SAP HANA Cloud Platform
+              Building and Releasing a Docker Image for an Eclipse Dirigible Application
             
           </span>
         </div>
@@ -200,13 +202,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../2024/11/18/build-and-release/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         2024
       </a>
     </li>
@@ -328,15 +332,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-tabs__link">
         2016
       </a>
     </li>
@@ -445,12 +447,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -481,11 +485,180 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../2024/11/18/build-and-release/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Building and releasing Docker image for Eclipse Dirigible Application
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Building and releasing Docker image for Eclipse Dirigible Application
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-building-the-docker-image" class="md-nav__link">
+    1. Building the Docker Image
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Building the Docker Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-dockerfile" class="md-nav__link">
+    Example Dockerfile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-handling-dependencies" class="md-nav__link">
+    2. Handling Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Handling Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-packagejson" class="md-nav__link">
+    Example package.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-package-lockjson" class="md-nav__link">
+    Example package-lock.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-build-workflow-buildyaml" class="md-nav__link">
+    3. Build Workflow (build.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Build Workflow (build.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps" class="md-nav__link">
+    Key Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-buildyaml" class="md-nav__link">
+    Example build.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pull-request-workflow-pull-requestyaml" class="md-nav__link">
+    4. Pull-Request Workflow (pull-request.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pull-Request Workflow (pull-request.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-pull-requestyaml" class="md-nav__link">
+    Example pull-request.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-release-workflow-releaseyaml" class="md-nav__link">
+    5. Release Workflow (release.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Release Workflow (release.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps_1" class="md-nav__link">
+    Key Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-releaseyaml" class="md-nav__link">
+    Example release.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-activating-the-release" class="md-nav__link">
+    6. Activating the Release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    Takeaways
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -497,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2024/10/21/reports/" class="md-nav__link">
+      <a href="../../../10/21/reports/" class="md-nav__link">
         Making Reports in Eclipse Dirigible
       </a>
     </li>
@@ -511,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2024/04/05/custom-stack/" class="md-nav__link">
+      <a href="../../../04/05/custom-stack/" class="md-nav__link">
         Building Your Own Eclipse Dirigible Stack
       </a>
     </li>
@@ -525,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2024/03/26/multitenancy/" class="md-nav__link">
+      <a href="../../../03/26/multitenancy/" class="md-nav__link">
         Multitenant applications with zero effort
       </a>
     </li>
@@ -2093,14 +2266,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
       
       
       
@@ -2189,7 +2360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-nav__link">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-nav__link">
         Release 2.6.161203-R
       </a>
     </li>
@@ -2203,7 +2374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/02/news-innoweek-sap-2016/" class="md-nav__link">
+      <a href="../../../../2016/12/02/news-innoweek-sap-2016/" class="md-nav__link">
         InnoWeek SAP Labs 2016
       </a>
     </li>
@@ -2217,7 +2388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../22/news-new-milestone-2-6-4/" class="md-nav__link">
+      <a href="../../../../2016/11/22/news-new-milestone-2-6-4/" class="md-nav__link">
         Milestone 2.6.161122-M4
       </a>
     </li>
@@ -2231,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../16/news-java2days-2016/" class="md-nav__link">
+      <a href="../../../../2016/11/16/news-java2days-2016/" class="md-nav__link">
         Java2Days 2016
       </a>
     </li>
@@ -2243,111 +2414,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Document Service Explorer at SAP HANA Cloud Platform
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
         Document Service Explorer at SAP HANA Cloud Platform
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#download-eclipse-dirigible" class="md-nav__link">
-    Download Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-document-repository" class="md-nav__link">
-    Create a Document Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploy-eclipse-dirigible" class="md-nav__link">
-    Deploy Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-data-source" class="md-nav__link">
-    Configure Data Source
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assign-security-roles" class="md-nav__link">
-    Assign Security Roles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#launch-eclipse-dirigible" class="md-nav__link">
-    Launch Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-the-cmis-explorer" class="md-nav__link">
-    Install the CMIS Explorer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recap" class="md-nav__link">
-    Recap
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enjoy" class="md-nav__link">
-    Enjoy!
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2359,7 +2430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
+      <a href="../../../../2016/10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
         EclipseCon Europe 2016
       </a>
     </li>
@@ -2373,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/21/news-new-milestone-2-6-3/" class="md-nav__link">
+      <a href="../../../../2016/10/21/news-new-milestone-2-6-3/" class="md-nav__link">
         Milestone 2.6.161021-M3
       </a>
     </li>
@@ -2387,7 +2458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/14/news-new-milestone-2-6-2/" class="md-nav__link">
+      <a href="../../../../2016/10/14/news-new-milestone-2-6-2/" class="md-nav__link">
         Milestone 2.6.161014-M2
       </a>
     </li>
@@ -2401,7 +2472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/05/news-new-milestone-2-6-1/" class="md-nav__link">
+      <a href="../../../../2016/10/05/news-new-milestone-2-6-1/" class="md-nav__link">
         Milestone 2.6.161005-M1
       </a>
     </li>
@@ -2415,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../09/12/the-java-saurus/" class="md-nav__link">
+      <a href="../../../../2016/09/12/the-java-saurus/" class="md-nav__link">
         The Java-saurus
       </a>
     </li>
@@ -2429,7 +2500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+      <a href="../../../../2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure - Part II?
       </a>
     </li>
@@ -2443,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/17/sap-summer-practice/" class="md-nav__link">
+      <a href="../../../../2016/08/17/sap-summer-practice/" class="md-nav__link">
         Summer Practice in SAP
       </a>
     </li>
@@ -2457,7 +2528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+      <a href="../../../../2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure?
       </a>
     </li>
@@ -2471,7 +2542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/04/news-new-release-2-5/" class="md-nav__link">
+      <a href="../../../../2016/08/04/news-new-release-2-5/" class="md-nav__link">
         Release 2.5.160804-R
       </a>
     </li>
@@ -2485,7 +2556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/01/blogs-why-enterprise-js/" class="md-nav__link">
+      <a href="../../../../2016/08/01/blogs-why-enterprise-js/" class="md-nav__link">
         Why Enterprise JavaScript?
       </a>
     </li>
@@ -2499,7 +2570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../06/17/news-dirigiblelabs/" class="md-nav__link">
+      <a href="../../../../2016/06/17/news-dirigiblelabs/" class="md-nav__link">
         Dirigible Labs is live!
       </a>
     </li>
@@ -2513,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/30/news-hackfmi7/" class="md-nav__link">
+      <a href="../../../../2016/05/30/news-hackfmi7/" class="md-nav__link">
         Brainstormers at HackFMI7
       </a>
     </li>
@@ -2527,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/news-new-release-2-4/" class="md-nav__link">
+      <a href="../../../../2016/05/19/news-new-release-2-4/" class="md-nav__link">
         Release 2.4.160519-R
       </a>
     </li>
@@ -2541,7 +2612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+      <a href="../../../../2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
         WebSockets and Equinox OSGi in a Servlet Container
       </a>
     </li>
@@ -2555,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
+      <a href="../../../../2016/04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
         Fast Prototyping in Front of Your Customer - Presentation
       </a>
     </li>
@@ -2569,7 +2640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/17/news-new-release-2-3/" class="md-nav__link">
+      <a href="../../../../2016/03/17/news-new-release-2-3/" class="md-nav__link">
         Release 2.3.160317-R
       </a>
     </li>
@@ -2583,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/08/eclipsecon/" class="md-nav__link">
+      <a href="../../../../2016/03/08/eclipsecon/" class="md-nav__link">
         Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation
       </a>
     </li>
@@ -2597,7 +2668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/01/d-kom/" class="md-nav__link">
+      <a href="../../../../2016/03/01/d-kom/" class="md-nav__link">
         What is New in Dirigible @ d-kom Sofia 2016 - Presentation
       </a>
     </li>
@@ -2611,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/26/blogs-understanding-dirigible/" class="md-nav__link">
+      <a href="../../../../2016/02/26/blogs-understanding-dirigible/" class="md-nav__link">
         Understanding Dirigible
       </a>
     </li>
@@ -2625,7 +2696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+      <a href="../../../../2016/02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
         Develop from Mobile for Mobile
       </a>
     </li>
@@ -2639,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/03/news-new-release-2-2/" class="md-nav__link">
+      <a href="../../../../2016/02/03/news-new-release-2-2/" class="md-nav__link">
         Release 2.2.160203-R
       </a>
     </li>
@@ -2653,7 +2724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/26/news-docker/" class="md-nav__link">
+      <a href="../../../../2016/01/26/news-docker/" class="md-nav__link">
         Docker image for Dirigible
       </a>
     </li>
@@ -2667,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/21/blogs-repositories/" class="md-nav__link">
+      <a href="../../../../2016/01/21/blogs-repositories/" class="md-nav__link">
         Developer - Repositories, repositories, repositories...
       </a>
     </li>
@@ -2681,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
+      <a href="../../../../2016/01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
       </a>
     </li>
@@ -2695,7 +2766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/19/news-new-milestone-2-2-3/" class="md-nav__link">
+      <a href="../../../../2016/01/19/news-new-milestone-2-2-3/" class="md-nav__link">
         Milestone 2.2.160119-M3
       </a>
     </li>
@@ -2709,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
+      <a href="../../../../2016/01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
       </a>
     </li>
@@ -2723,7 +2794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+      <a href="../../../../2016/01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
       </a>
     </li>
@@ -3338,6 +3409,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3346,71 +3419,136 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    Overview
+  <a href="#1-building-the-docker-image" class="md-nav__link">
+    1. Building the Docker Image
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Building the Docker Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-dockerfile" class="md-nav__link">
+    Example Dockerfile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-handling-dependencies" class="md-nav__link">
+    2. Handling Dependencies
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Handling Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-packagejson" class="md-nav__link">
+    Example package.json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-package-lockjson" class="md-nav__link">
+    Example package-lock.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-build-workflow-buildyaml" class="md-nav__link">
+    3. Build Workflow (build.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Build Workflow (build.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps" class="md-nav__link">
+    Key Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-buildyaml" class="md-nav__link">
+    Example build.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pull-request-workflow-pull-requestyaml" class="md-nav__link">
+    4. Pull-Request Workflow (pull-request.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pull-Request Workflow (pull-request.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-pull-requestyaml" class="md-nav__link">
+    Example pull-request.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-release-workflow-releaseyaml" class="md-nav__link">
+    5. Release Workflow (release.yaml)
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Release Workflow (release.yaml)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-steps_1" class="md-nav__link">
+    Key Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-releaseyaml" class="md-nav__link">
+    Example release.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-activating-the-release" class="md-nav__link">
+    6. Activating the Release
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#download-eclipse-dirigible" class="md-nav__link">
-    Download Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-document-repository" class="md-nav__link">
-    Create a Document Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deploy-eclipse-dirigible" class="md-nav__link">
-    Deploy Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-data-source" class="md-nav__link">
-    Configure Data Source
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assign-security-roles" class="md-nav__link">
-    Assign Security Roles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#launch-eclipse-dirigible" class="md-nav__link">
-    Launch Eclipse Dirigible
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-the-cmis-explorer" class="md-nav__link">
-    Install the CMIS Explorer
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recap" class="md-nav__link">
-    Recap
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enjoy" class="md-nav__link">
-    Enjoy!
+  <a href="#takeaways" class="md-nav__link">
+    Takeaways
   </a>
   
 </li>
@@ -3431,7 +3569,7 @@
         <!-- Edit button -->
         
           <a
-            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/11/03/cmis-explorer-at-sap-hana-cloud-platform.md"
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2024/11/18/build-and-release.md"
             title="Edit this page"
             class="md-content__button md-icon"
           >
@@ -3445,126 +3583,382 @@
           as the main headline.
         -->
         
-          <h1>Document Service Explorer at SAP HANA Cloud Platform</h1>
-        
 
         <!-- Markdown content -->
         
         <aside class="mdx-author">
             <p>
-            <img src="https://avatars.githubusercontent.com/thuf" alt="@thuf">
+            <img src="https://avatars.githubusercontent.com/TIVMOF" alt="@TIVMOF">
             </p>
             <p>
             <span> 
-            <b>Yordan Pavlov</b> · <a href="https://github.com/thuf">@thuf</a>
+            <b>Tomislav Ivanow</b> · <a href="https://github.com/TIVMOF">@TIVMOF</a>
             </span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
                     <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-                  </svg> November 3, 2016 ·
+                  </svg> November 18, 2024 ·
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                  </svg> 5 min read
+                  </svg> 10 min read
             </span>
             </p>
         </aside>
         
 
-        <p>Wondering how you can easily manage the <strong>SAP HANA Cloud Platform Document Service</strong> through the browser? Now this is possible with the help of <strong>Eclipse Dirigible</strong> and the <strong>CMIS Explorer</strong> application.</p>
-<h2 id="overview">Overview</h2>
-<p>Wondering how you can easily manage the <strong>SAP HANA Cloud Platform</strong> <a href="https://help.hana.ondemand.com/help/frameset.htm?e60b7e45bb57101487a881c7c5487778.html">Document Service</a> through the browser? Now this is possible with the help of <strong>Eclipse Dirigible</strong> and the <strong>CMIS Explorer</strong> application.</p>
-<p>In this blog, you will see how to download, configure, deploy, and run <strong>Eclipse Dirigible</strong> on the <strong>SAP HANA Cloud Platform</strong>. After that, you can go through the steps of installing and running the <strong>CMIS Explorer</strong> application.</p>
-<h2 id="download-eclipse-dirigible">Download Eclipse Dirigible</h2>
-<ol>
-<li>Download the latest milestone/release, which you can find at <a href="http://download.eclipse.org/dirigible/">http://download.eclipse.org/dirigible/</a>.</li>
-</ol>
-<blockquote>
-<p><strong>Note</strong>: At the time of the blog, the latest milestone was <em>M20161021-1818</em>.</p>
-</blockquote>
-<ol>
-<li>From the selected release/milestone, navigate to the <strong>HANA Cloud Platform</strong> category and download the <strong>sap/allinone/ROOT.war</strong> file.</li>
-</ol>
-<h2 id="create-a-document-repository">Create a Document Repository</h2>
-<ol>
-<li>Log in to the SAP HANA Cloud Platform Cockpit.</li>
-<li>In the <strong>Repositories</strong> section, open the <strong>Document Repositories</strong> tab.</li>
-<li>Create a new document repository.</li>
-<li>Please remember the values for the <strong>Name</strong> and the <strong>Repository Key</strong>, as we will need them later on.</li>
-</ol>
-<p><img alt="Create a Document Repository" class="img-responsive" src="/img/posts/20161103-0/1-create-document-repository.png" /></p>
-<h2 id="deploy-eclipse-dirigible">Deploy Eclipse Dirigible</h2>
-<ol>
-<li>In the <strong>Applications</strong> section, open the <strong>Java Applications</strong> tab.</li>
-<li>Click on the <strong>Deploy Application</strong> button.</li>
-<li>Browse to the <strong>ROOT.war</strong> file, which you have already downloaded.</li>
-<li>For the application name, you can specify whatever you want (for example, dirigible, doc, …).</li>
-<li>Change the runtime to <strong>Java Web Tomcat 8</strong>.</li>
-<li>For the <strong>JVM Arguments</strong> input, enter this:<div class="highlight"><pre><span></span><code>    -DjndiCmisServiceName=&lt;name_of_repository&gt; -DjndiCmisServiceKey=&lt;repository_key&gt;
+        <h1 id="building-and-releasing-a-docker-image-for-an-eclipse-dirigible-application"><em>Building and Releasing a Docker Image for an Eclipse Dirigible Application</em></h1>
+<p>This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application. </p>
+<p><strong>Prerequisite:</strong> This guide assumes you already have created a Dirigible application.</p>
+<p>We’ll explore:</p>
+<p><a href="#1-building-the-docker-image">1. Building the Docker Image</a></p>
+<p><a href="#example-dockerfile">Example Dockerfile</a></p>
+<p><a href="#2-handling-dependencies">2. Handling Dependencies</a></p>
+<p><a href="#exampleiamaspacepackagejson">Example package.json</a></p>
+<p><a href="#exampleiamaspacepackage-lockjson">Example package-lock.json</a></p>
+<p><a href="#3-build-workflow-buildyaml">3. Build Workflow (build.yaml)</a></p>
+<p><a href="#key-steps">Key Steps</a></p>
+<p><a href="#exampleiamaspacebuildyaml">Example build.yaml</a></p>
+<p><a href="#4-pull-request-workflow-pull-requestyaml">4. Pull-Request Workflow (pull-request.yaml)</a></p>
+<p><a href="#exampleiamaspacepull-requestyaml">Example pull-request.yaml</a></p>
+<p><a href="#5-release-workflow-releaseyaml">5. Release Workflow (release.yaml)</a></p>
+<p><a href="#key-steps-1">Key Steps</a></p>
+<p><a href="#exampleiamaspacereleaseyaml">Example release.yaml</a></p>
+<p><a href="#6-activating-the-release">6. Activating the Release</a></p>
+<p><a href="#takeaways">Takeaways</a></p>
+<h2 id="1-building-the-docker-image"><strong>1. Building the Docker Image</strong></h2>
+<p>A Docker image is the foundation for deploying your application. Below is an example <code>Dockerfile</code> to build your application.</p>
+<h3 id="example-dockerfile"><strong>Example Dockerfile</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">dirigiblelabs/dirigible:latest</span>
+
+<span class="k">COPY</span><span class="w"> </span>application target/dirigible/repository/root/registry/public/application
+<span class="k">COPY</span><span class="w"> </span>application/node_modules/ target/dirigible/repository/root/registry/public/
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DIRIGIBLE_HOME_URL</span><span class="o">=</span>/services/web/application/gen/application/index.html
 </code></pre></div>
+<ul>
+<li>
+<p>The first line in the Dockerfile sets up the Dirigible Docker image as your base. Note that this is not a runtime image, meaning that the Dirigible’s Web IDE will be incorporated into your application.</p>
 </li>
-</ol>
-<p>These are the magic settings that will allow the Eclipse Dirigible to connect and use the document repository. List of all available environment variables can be found <a href="www.dirigible.io/help/setup_env_vars.html">here</a>.</p>
-<p>Finally, the <strong>Deploy Application</strong> wizard should look something like this:</p>
-<p><img alt="Deploy Application" class="img-responsive" src="/img/posts/20161103-0/2-deploy-application.png" /></p>
-<p><strong>Wait till the deployment is finished, but don't start the application yet!</strong></p>
-<h2 id="configure-data-source">Configure Data Source</h2>
-<blockquote>
-<p><strong>Note</strong>: This step can be skipped if the <a href="https://hanatrial.ondemand.com">https://hanatrial.ondemand.com</a> landscape is used.</p>
-</blockquote>
-<ol>
-<li>Navigate to your application (in this example <em>dirigible</em>) in the <strong>Java Applications</strong> tab.</li>
-<li>In the <strong>Configuration</strong> section, open the <strong>Data Source Bindings</strong> tab.</li>
-<li>Create a <strong>New Binding</strong>:<ul>
-<li>For the name of the data source, leave the default name.</li>
-<li>Select the desired DB/Schema ID.</li>
-<li>Provide the required credentials.</li>
+<li>
+<p>The first <code>COPY</code> copies your project directory. </p>
+</li>
+<li>
+<p>The second one copies npm packages you’ve listed in the dependency section in your package.json. If you application doesn’t depend on any you should delete this line.</p>
+</li>
+<li>
+<p>The final line in the Docker file uses a Dirigible Environment Variable (full list here: <a href="https://www.dirigible.io/help/setup/setup-environment-variables/#basic">Enviroment Variables - Eclipse Dirigble</a>) to set up the main page of your application.</p>
+</li>
 </ul>
+<h2 id="2-handling-dependencies"><strong>2. Handling Dependencies</strong></h2>
+<p>If your application uses npm packages (otherwise skip this step), you’ll need <code>package.json</code> and <code>package-lock.json</code>. The Dirigible Web IDE generates these files, and they should only be completed as you need. The easiest way to fill in the <code>package-lock.json</code> is to pull you repository locally and to run<code>npm install</code> in your project directory.</p>
+<h3 id="example-packagejson"><strong>Example</strong> <code>package.json</code></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-application-name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first-npm-package&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;link-to-git-repo&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;second-npm-package&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;link-to-git-repo&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build TypeScript&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unix&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd /c tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;registry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="example-package-lockjson"><strong>Example</strong> <code>package-lock.json</code></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-application-name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;lockfileVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;requires&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;first-dependency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.3.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;second-dependency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.3.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;path/to/your/first/dependency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.3.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;resolved&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;exact/first/dependency/url&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;integrity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first/dependency/content/cryptographic/hash&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;path/to/your/second/dependency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.3.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;resolved&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;exact/second/dependency/url&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;integrity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;second/dependency/content/cryptographic/hash&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="3-build-workflow-buildyaml"><strong>3. Build Workflow (</strong><code>build.yaml</code><strong>)</strong></h2>
+<p>To automate the build process, create a <code>build.yaml</code> file inside <code>.github/workflows</code>. This action will take effect immediately after pushing to the main branch of your projects repository.</p>
+<h3 id="key-steps"><strong>Key Steps</strong></h3>
+<ol>
+<li>
+<p><strong>Install Node.js</strong>: Sets up the Node.js environment.</p>
+</li>
+<li>
+<p><strong>Install Dependencies</strong>: Downloads necessary npm packages. Point the workflow to the directory that contains your package.json. If your application doesn’t depend on any packages you should delete this section.</p>
+</li>
+<li>
+<p><strong>TypeScript Build</strong>: Ensures TypeScript compilation without critical errors. Point the workflow to the directory that contains your tsconfig.json that is generated through the Dirigible Web IDE</p>
+</li>
+<li>
+<p><strong>Docker Buildx</strong>: Builds and pushes a multi-architecture Docker image.</p>
 </li>
 </ol>
-<h2 id="assign-security-roles">Assign Security Roles</h2>
+<h3 id="example-buildyaml"><strong>Example</strong> <code>build.yaml</code></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build - Application</span><span class="w"></span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
+<span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
+<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+
+<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+</code></pre></div>
+<h2 id="4-pull-request-workflow-pull-requestyaml"><strong>4. Pull-Request Workflow (</strong><code>pull-request.yaml</code><strong>)</strong></h2>
+<p>This workflow validates pull requests by ensuring builds aren’t disrupted. The build process is identical, but the image is <strong>not pushed</strong> to a registry. If your application doesn’t depend on any packages you should delete the given section.</p>
+<h3 id="example-pull-requestyaml"><strong>Example</strong> <code>pull-request.yaml</code></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pull Request - Application</span><span class="w"></span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"></span>
+<span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
+<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+
+<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Docker Image</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+</code></pre></div>
+<h2 id="5-release-workflow-releaseyaml"><strong>5. Release Workflow (</strong><code>release.yaml</code><strong>)</strong></h2>
+<p>This workflow triggers a release manually and tags the Docker image with a specific version.</p>
+<h3 id="key-steps_1"><strong>Key Steps</strong></h3>
 <ol>
-<li>After deploying the application in the cockpit, click on its name.</li>
-<li>In the <strong>Security</strong> section, open the <strong>Roles</strong> tab.</li>
-<li>Assign the <strong>Developer</strong> and <strong>Operator</strong> roles to your user.</li>
+<li>
+<p><strong>Inputs</strong>: Accepts a release version as input.</p>
+</li>
+<li>
+<p><strong>Git Operations</strong>: Creates a release branch and tags the repository.</p>
+</li>
+<li>
+<p><strong>GitHub Release</strong>: Generates a GitHub release with metadata.</p>
+</li>
 </ol>
-<h2 id="launch-eclipse-dirigible">Launch Eclipse Dirigible</h2>
+<p>Note that this workflow expects you to have a correct DOCKER_USERNAME and DOCKER_PASSWORD repository secrets that should be respectively your GitHub username and access token with enabled permissions to read and write. If your application doesn’t depend on any packages you should delete the given section.</p>
+<h3 id="example-releaseyaml"><strong>Example</strong> <code>release.yaml</code></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release - Application</span><span class="w"></span>
+
+<span class="nt">on</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w"></span>
+<span class="nt">inputs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">release-version</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release Version</span><span class="w"></span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span><span class="w"></span>
+
+<span class="nt">run-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;version</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">inputs.release-version</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">release&#39;</span><span class="w"></span>
+
+<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
+<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+
+<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+
+<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+
+<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+
+<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">Git&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">git fetch</span><span class="w"></span>
+<span class="w">        </span><span class="no">git checkout main  # Checkout the branch you want to release from</span><span class="w"></span>
+<span class="w">        </span><span class="no">git config user.name &quot;$GITHUB_ACTOR&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="no">git config user.email &quot;$GITHUB_ACTOR@users.noreply.github.com&quot;</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">        </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:${{ inputs.release-version }} -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create and Push Release Branch</span><span class="w"></span>
+<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">git checkout -b release/${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">        </span><span class="no">git push --set-upstream origin release/${{ inputs.release-version }}</span><span class="w"></span>
+
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">Release&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">softprops/action-gh-release@v1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"></span>
+<span class="w">        </span><span class="nt">tag_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">        </span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">        </span><span class="nt">prerelease</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">LICENSE</span><span class="w"></span>
+<span class="w">    </span><span class="w w-Error">  </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">## Release - ${{ inputs.release-version }}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="6-activating-the-release"><strong>6. Activating the Release</strong></h2>
+<p>To trigger the release:</p>
 <ol>
-<li>Go back to the <strong>Overview</strong> section and click on the <strong>Start</strong> button.</li>
-<li>Wait till the application is started.</li>
-<li>Launch Eclipse Dirigible from the <strong>Application URLs</strong> link.</li>
+<li>
+<p>Go to the <strong>Actions</strong> tab in your GitHub repository.</p>
+</li>
+<li>
+<p>Select the <strong>Release</strong> workflow.</p>
+</li>
+<li>
+<p>Click <strong>Run workflow</strong>.</p>
+</li>
+<li>
+<p>Enter the desired release version (e.g., <code>0.1.0</code>).</p>
+</li>
+<li>
+<p>Monitor the workflow for successful completion.</p>
+</li>
 </ol>
-<p>Finally, Eclipse Dirigible has been configured and deployed and is running into your SAP HANA Cloud Platform account.</p>
-<h2 id="install-the-cmis-explorer">Install the CMIS Explorer</h2>
-<p>The <strong>CMIS Explorer</strong> is a project in the <a href="github.com/dirigiblelabs">DirigibleLabs</a> GitHub organization.</p>
-<ol>
-<li>Open the <a href="https://github.com/dirigiblelabs/sample_cmis_explorer">CMIS Explorer</a> in GitHub, choose <strong>Clone or download</strong> and then copy the URL.</li>
-<li>Go back to the <strong>Eclipse Dirigible Registry UI</strong>.</li>
-</ol>
-<blockquote>
-<p><strong>Note</strong>: If you are wondering, this is how it looks like:</p>
-<p><img alt="Registry UI" class="img-responsive" src="/img/posts/20161103-0/3-registry-ui.png" /></p>
-</blockquote>
-<ol>
-<li>Click on the <strong>Develop</strong> tile and after that on the <strong>Web IDE</strong>.</li>
-</ol>
-<blockquote>
-<p><strong>Note</strong>: If this is the first time you are launching the "Web IDE", cancel the “Get Started Project Wizard”.</p>
-</blockquote>
-<ol>
-<li>Right-click on the <strong>Workspace Explorer</strong> and select <strong>Team &gt; Clone</strong>.</li>
-<li>Paste the Git URL that you’ve copied earlier.</li>
-<li>Username and Password are not required, so just click <strong>OK</strong>.</li>
-<li>After the project is imported into the workspace, right-click on it and press the <strong>Publish</strong> button.</li>
-<li>Expand the project and find the <strong>index.html</strong>.</li>
-<li>The application should be visible in the <strong>Preview</strong> tab, you can copy the link and open it in a new tab.</li>
-<li>The application URL can be found also through the <strong>Eclipse Dirigible Registry UI</strong> from <strong>Discover &gt; Web</strong>.</li>
-</ol>
-<p><img alt="Registry UI" class="img-responsive" src="/img/posts/20161103-0/4-cmis-explorer.png" /></p>
-<h2 id="recap">Recap</h2>
-<p>In this tutorial, you have downloaded, configured, deployed, and run <strong>Eclipse Dirigible</strong> on the <strong>SAP HANA Cloud Platform</strong>, and you have leveraged the <strong>Document Service</strong> and the <strong>CMIS Explorer</strong> application.</p>
-<h2 id="enjoy">Enjoy!</h2>
+<h2 id="takeaways"><strong>Takeaways</strong></h2>
+<p>By leveraging Docker and GitHub Actions, we’ve automated the entire process of building, testing, and releasing Docker images for <strong>Eclipse Dirigible</strong> applications. This approach ensures consistency, reproducibility, and efficiency across your development pipeline.</p>
 
         <!-- Last update of source file -->
         
@@ -3589,7 +3983,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../../16/news-java2days-2016/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../../.." class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -3598,19 +3992,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Java2Days 2016			
+							Blog			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../../../10/30/news-eclipsecon-eu-2016/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../../10/21/reports/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							EclipseCon Europe 2016
+							Making Reports in Eclipse Dirigible
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
