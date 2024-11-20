@@ -14,39 +14,6 @@ This blog post will guide you through the process of building and releasing a Do
 
 **Prerequisite:** This guide assumes you already have created a Dirigible application.
 
-We’ll explore:
-
-[1. Building the Docker Image](#1-building-the-docker-image)
-
-[Example Dockerfile](#example-dockerfile)
-
-[2. Handling Dependencies](#2-handling-dependencies)
-
-[Example package.json](#exampleiamaspacepackagejson)
-
-[Example package-lock.json](#exampleiamaspacepackage-lockjson)
-
-[3. Build Workflow (build.yaml)](#3-build-workflow-buildyaml)
-
-[Key Steps](#key-steps)
-
-[Example build.yaml](#exampleiamaspacebuildyaml)
-
-[4. Pull-Request Workflow (pull-request.yaml)](#4-pull-request-workflow-pull-requestyaml)
-
-[Example pull-request.yaml](#exampleiamaspacepull-requestyaml)
-
-[5. Release Workflow (release.yaml)](#5-release-workflow-releaseyaml)
-
-[Key Steps](#key-steps-1)
-
-[Example release.yaml](#exampleiamaspacereleaseyaml)
-
-[6. Activating the Release](#6-activating-the-release)
-
-[Takeaways](#takeaways)
-
-
 ## **1. Building the Docker Image**
 
 A Docker image is the foundation for deploying your application. Below is an example `Dockerfile` to build your application.
