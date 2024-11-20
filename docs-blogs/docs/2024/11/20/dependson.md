@@ -58,7 +58,6 @@ The next step was to expand the functionality of the "Depends on" feature, not o
 ![item-chosen-product](../../../images/dependsOnFeature/item-chosen-product.png)<br>
 
 **Conclusion**
-The introduction of the "Depends on" feature in Dirigible significantly enhances the flexibility and usability of the platform, enabling more complex data relationships and dynamic filtering. Whether filtering cities by country, setting UoM for products, or transferring product details directly into order items, this feature provides a streamlined and efficient approach for handling interrelated entities. By expanding this functionality beyond dropdowns to other field types, D
-
+The introduction of the "Depends on" feature in Dirigible significantly enhances the flexibility and usability of the platform, enabling more complex data relationships and dynamic filtering. Whether filtering cities by country, setting UoM for products, or transferring product details directly into order items, this feature provides a streamlined and efficient approach for handling interrelated entities. By expanding this functionality beyond dropdowns to other field types, Dirigible opens up new possibilities for creating robust and user-friendly applications.
 
 -------------------------
