@@ -3611,26 +3611,27 @@
 <span class="k">ENV</span><span class="w"> </span><span class="nv">DIRIGIBLE_HOME_URL</span><span class="o">=</span>/services/web/application/gen/application/index.html
 </code></pre></div>
 <ul>
-<li>The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.</li>
-</ul>
-<p>!!! note</p>
-<div class="highlight"><pre><span></span><code>  Note that this is not a runtime image, meaning that the Eclipse Dirigible’s Web IDE will be incorporated into your application.
-</code></pre></div>
-<ul>
+<li>
+<p>The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that this is not a runtime image, meaning that the Eclipse Dirigible’s Web IDE will be incorporated into your application.</p>
+</div>
+</li>
 <li>
 <p>The first <code>COPY</code> copies your project directory <em>(e.g. <code>application</code>)</em> to the public <a href="/help/development/concepts/registry/">Registry</a>, where the <a href="/help/development/concepts/publishing/">published</a> content resides.</p>
 </li>
 <li>
 <p><em>(Optional)</em> The second <code>COPY</code> copies the npm dependency packages you’ve listed in the <code>package.json</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">NPM Dependencies</p>
+<p>If the application don't have NPM dependencies you should delete this line.</p>
+<p>If the application have NPM dependencies, it's assumed that <code>npm install</code> should be ran in advance, before triggering the Docker build.</p>
+</div>
 </li>
-</ul>
-<p>!!! note "NPM Dependencies"</p>
-<div class="highlight"><pre><span></span><code>  If the application don&#39;t have NPM dependencies you should delete this line.
-
-  If the application have NPM dependencies, it&#39;s assumed that `npm install` should be ran in advance, before triggering the Docker build.
-</code></pre></div>
-<ul>
-<li>The final line in the Docker file uses a Dirigible Environment Variable <em>(full list here: <a href="/help/setup/setup-environment-variables/#basic">Enviroment Variables - Eclipse Dirigble</a>)</em> to set up the main page of your application.</li>
+<li>
+<p>The final line in the Docker file uses a Dirigible Environment Variable <em>(full list here: <a href="/help/setup/setup-environment-variables/#basic">Enviroment Variables - Eclipse Dirigble</a>)</em> to set up the main page of your application.</p>
+</li>
 </ul>
 <h2 id="handling-dependencies">Handling Dependencies</h2>
 <p>If your application needs NPM dependencies <em>(otherwise skip this step)</em>, you’ll need a <code>package.json</code> file. The Eclipse Dirigible Web IDE generates <code>project.json</code> file by default, once a new project is created. Note that the <code>project.json</code> file is Eclipse Dirigible specific one, and you'll need to manually create <code>package.json</code>, in order to declare NPM dependencies. To install the NPM dependencies, run <code>npm install</code> in the project directory.</p>
@@ -3638,44 +3639,44 @@
 <p class="admonition-title">Note</p>
 <p>You can also use the <a href="/help/development/ide/views/terminal/">Terminal view</a>, to execute commands.</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">project.json</p>
+<details class="info">
+<summary>project.json</summary>
 <p>The <code>project.json</code> file in combination with the <code>tsconfig.json</code> are used to setup seemless build of the project's TypeScript files. Additional commands can be declared in the <code>project.json</code> and can be executed at different stages of development lifecycle. It's important to note, that the <code>project.json</code> file is only a design time artifact, meaning that the commands declared there would be executed only during development from the Eclipse Dirigible Web IDE. More about Eclipse Dirigible Core Concepts can be found <a href="/help/development/concepts/">here</a>.</p>
-<div class="highlight"><pre><span></span><code>{
-    &quot;guid&quot;: &quot;your-application-name&quot;,
-    &quot;dependencies&quot;: [
-        {
-            &quot;guid&quot;: &quot;first-dirigible-module&quot;,
-            &quot;type&quot;: &quot;git&quot;,
-            &quot;url&quot;: &quot;link-to-git-repo&quot;,
-            &quot;branch&quot;: &quot;main&quot;
-        },
-        {
-            &quot;guid&quot;: &quot;second-dirigible-module&quot;,
-            &quot;type&quot;: &quot;git&quot;,
-            &quot;url&quot;: &quot;link-to-git-repo&quot;,
-            &quot;branch&quot;: &quot;main&quot;
-        }
-    ],
-    &quot;actions&quot;: [
-        {
-            &quot;name&quot;: &quot;Build TypeScript&quot;,
-            &quot;commands&quot;: [
-                {
-                    &quot;os&quot;: &quot;unix&quot;,
-                    &quot;command&quot;: &quot;tsc&quot;
-                },
-                {
-                    &quot;os&quot;: &quot;windows&quot;,
-                    &quot;command&quot;: &quot;cmd /c tsc&quot;
-                }
-            ],
-            &quot;registry&quot;: &quot;true&quot;
-        }
-    ]
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-application-name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first-dirigible-module&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;link-to-git-repo&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;second-dirigible-module&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;git&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;link-to-git-repo&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Build TypeScript&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;commands&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unix&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;os&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmd /c tsc&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;registry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
-</div>
+</details>
 <h3 id="packagejson">package.json</h3>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;@&lt;github-org-name&gt;/&lt;application-name&gt;&quot;</span><span class="p">,</span><span class="w"></span>
@@ -3817,9 +3818,11 @@
 <h2 id="release-workflow">Release Workflow</h2>
 <p>This workflow allows to manually trigger a release and tag the Docker image with a specific version.</p>
 <h3 id="key-steps_1">Key Steps</h3>
-<p>1.<code>Inputs</code>: Accepts a release version as input.
-1. <code>Git Operations</code>: Creates a release branch and tags the repository.
-1. <code>GitHub Release</code>: Generates a GitHub release with metadata.</p>
+<ol>
+<li><code>Inputs</code>: Accepts a release version as input.</li>
+<li><code>Git Operations</code>: Creates a release branch and tags the repository.</li>
+<li><code>GitHub Release</code>: Generates a GitHub release with metadata.</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that this workflow expects you to have a correct <code>DOCKER_USERNAME</code> and <code>DOCKER_PASSWORD</code> repository secrets that should be respectively your GitHub username and access token with enabled permissions to read and write.</p>
