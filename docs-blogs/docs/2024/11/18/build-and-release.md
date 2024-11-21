@@ -33,19 +33,19 @@ ENV DIRIGIBLE_HOME_URL=/services/web/application/gen/application/index.html
 
 - The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.
 
-  !!! note
-
-      Note that this is not a runtime image, meaning that the Eclipse Dirigible’s Web IDE will be incorporated into your application.
+    !!! note
+  
+        Note that this is not a runtime image, meaning that the Eclipse Dirigible’s Web IDE will be incorporated into your application.
   
 - The first `COPY` copies your project directory _(e.g. `application`)_ to the public [Registry](/help/development/concepts/registry/), where the [published](/help/development/concepts/publishing/) content resides.
 
 - _(Optional)_ The second `COPY` copies the npm dependency packages you’ve listed in the `package.json`.
 
-  !!! note "NPM Dependencies"
-
-      If the application don't have NPM dependencies you should delete this line.
-
-      If the application have NPM dependencies, it's assumed that `npm install` should be ran in advance, before triggering the Docker build.
+    !!! note "NPM Dependencies"
+  
+        If the application don't have NPM dependencies you should delete this line.
+  
+        If the application have NPM dependencies, it's assumed that `npm install` should be ran in advance, before triggering the Docker build.
 
 - The final line in the Docker file uses a Dirigible Environment Variable _(full list here: [Enviroment Variables - Eclipse Dirigble](/help/setup/setup-environment-variables/#basic))_ to set up the main page of your application.
 
@@ -57,11 +57,11 @@ If your application needs NPM dependencies _(otherwise skip this step)_, you’l
 
 	You can also use the [Terminal view](/help/development/ide/views/terminal/), to execute commands.
 
-!!! info "project.json"
+??? info "project.json"
 
 	The `project.json` file in combination with the `tsconfig.json` are used to setup seemless build of the project's TypeScript files. Additional commands can be declared in the `project.json` and can be executed at different stages of development lifecycle. It's important to note, that the `project.json` file is only a design time artifact, meaning that the commands declared there would be executed only during development from the Eclipse Dirigible Web IDE. More about Eclipse Dirigible Core Concepts can be found [here](/help/development/concepts/).
 
-	```
+	```json
 	{
 		"guid": "your-application-name",
 		"dependencies": [
@@ -253,7 +253,8 @@ steps:
 This workflow allows to manually trigger a release and tag the Docker image with a specific version.
 
 ### Key Steps
-1.`Inputs`: Accepts a release version as input.
+
+1. `Inputs`: Accepts a release version as input.
 1. `Git Operations`: Creates a release branch and tags the repository.
 1. `GitHub Release`: Generates a GitHub release with metadata.
 
