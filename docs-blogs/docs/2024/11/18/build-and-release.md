@@ -146,52 +146,51 @@ name: Build - Application
 
 on:
   push:
-branches:
-- main
+    branches:
+      - main
 
 jobs:
   main:
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+        uses: actions/checkout@v3
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v3
+    - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+        node-version: 18
 
-  - name: Install NodeJS
-    uses: actions/setup-node@v4
-    with:
-      node-version: 18
+    - name: Install TypeScript compiler
+        run: npm i -g typescript
 
-  - name: Install TypeScript compiler
-    run: npm i -g typescript
+    - name: TypeScript Build
+        run: |
+            cd path/to/your/tsconfig.json
+            tsc --pretty > tsc-output.log 2>&1 || true
+            grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
+            cat filtered-tsc-output.log
+            if grep -q 'error TS' filtered-tsc-output.log; then
+                exit 1
+            fi
 
-  - name: TypeScript Build
-    run: |
-          cd path/to/your/tsconfig.json
-          tsc --pretty > tsc-output.log 2>&1 || true
-          grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
-          cat filtered-tsc-output.log
-          if grep -q 'error TS' filtered-tsc-output.log; then
-              exit 1
-          fi
+    - name: Install Dependencies
+        run: |
+            cd path/to/your/package.json
+            echo "registry=https://npm.pkg.github.com
+            //npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
+            npm install
+            rm -rf .npmrc
 
-  - name: Install Dependencies
-    run: |
-          cd path/to/your/package.json
-          echo "registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
-          npm install
-          rm -rf .npmrc
+    - name: Initialize Buildx
+        run: |
+            docker buildx create --name builder || true
+            docker buildx use builder
 
-  - name: Initialize Buildx
-    run: |
-          docker buildx create --name builder || true
-          docker buildx use builder
-
-  - name: Build and Push Docker Image
-    run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .
+    - name: Build and Push Docker Image
+        run: |
+            echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+            docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .
 ```
 
 ## Pull-Request Workflow
