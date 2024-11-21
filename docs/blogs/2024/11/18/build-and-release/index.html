@@ -3717,52 +3717,51 @@
 
 <span class="nt">on</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"></span>
-<span class="nt">branches</span><span class="p">:</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
 
 <span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
-<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
 
-<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">                </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">            </span><span class="no">fi</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
-<span class="w">          </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
-<span class="w">          </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">          </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">          </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
-<span class="w">              </span><span class="no">exit 1</span><span class="w"></span>
-<span class="w">          </span><span class="no">fi</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">            </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">            </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">            </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
-<span class="w">          </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
-<span class="w">          </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
-<span class="w">          </span><span class="no">npm install</span><span class="w"></span>
-<span class="w">          </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx use builder</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
-<span class="w">          </span><span class="no">docker buildx use builder</span><span class="w"></span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
-<span class="w">          </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
 </code></pre></div>
 <h2 id="pull-request-workflow">Pull-Request Workflow</h2>
 <p>This workflow validates <code>Pull Requests</code> by ensuring builds aren’t disrupted. The build process is identical, but the image is <strong>not pushed</strong> to a registry.</p>
