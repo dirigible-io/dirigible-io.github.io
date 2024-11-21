@@ -642,8 +642,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    Takeaways
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
   </a>
   
 </li>
@@ -3533,8 +3533,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#takeaways" class="md-nav__link">
-    Takeaways
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
   </a>
   
 </li>
@@ -3595,7 +3595,7 @@
         
 
         <h1 id="building-and-releasing-a-docker-image-for-an-eclipse-dirigible-application">Building and Releasing a Docker Image for an Eclipse Dirigible Application</h1>
-<p>This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application. </p>
+<p>This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application.</p>
 <div class="admonition info">
 <p class="admonition-title">Prerequisites</p>
 <p>This guide assumes you already have created an Eclipse Dirigible application.</p>
@@ -3615,33 +3615,35 @@
 <p>The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that this is not a runtime image, meaning that the Eclipse Dirigible’s Web IDE will be incorporated into your application.</p>
+<p>This is not a runtime image, meaning that Eclipse Dirigible’s Web IDE will be incorporated into your application.</p>
 </div>
 </li>
 <li>
-<p>The first <code>COPY</code> copies your project directory <em>(e.g. <code>application</code>)</em> to the public <a href="/help/development/concepts/registry/">Registry</a>, where the <a href="/help/development/concepts/publishing/">published</a> content resides.</p>
+<p>The <code>COPY</code> command transfers your project directory <em>(e.g., <code>application</code>)</em> to the public <a href="/help/development/concepts/registry/">Registry</a>, where the <a href="/help/development/concepts/publishing/">published</a> content resides.</p>
 </li>
 <li>
-<p><em>(Optional)</em> The second <code>COPY</code> copies the npm dependency packages you’ve listed in the <code>package.json</code>.</p>
+<p><em>(Optional)</em> The second <code>COPY</code> command copies npm dependency packages listed in <code>package.json</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">NPM Dependencies</p>
-<p>If the application don't have NPM dependencies you should delete this line.</p>
-<p>If the application have NPM dependencies, it's assumed that <code>npm install</code> should be ran in advance, before triggering the Docker build.</p>
+<p>If your application doesn't have NPM dependencies, delete this line.</p>
+<p>If it does, run <code>npm install</code> before triggering the Docker build.</p>
 </div>
 </li>
 <li>
-<p>The final line in the Docker file uses a Dirigible Environment Variable <em>(full list here: <a href="/help/setup/setup-environment-variables/#basic">Enviroment Variables - Eclipse Dirigble</a>)</em> to set up the main page of your application.</p>
+<p>The final line in the Dockerfile uses a Dirigible environment variable <em>(see the <a href="/help/setup/setup-environment-variables/#basic">Environment Variables Guide</a>)</em> to set up the main page of your application.</p>
 </li>
 </ul>
 <h2 id="handling-dependencies">Handling Dependencies</h2>
-<p>If your application needs NPM dependencies <em>(otherwise skip this step)</em>, you’ll need a <code>package.json</code> file. The Eclipse Dirigible Web IDE generates <code>project.json</code> file by default, once a new project is created. Note that the <code>project.json</code> file is Eclipse Dirigible specific one, and you'll need to manually create <code>package.json</code>, in order to declare NPM dependencies. To install the NPM dependencies, run <code>npm install</code> in the project directory.</p>
+<p>If your application requires NPM dependencies <em>(otherwise, skip this step)</em>, you’ll need a <code>package.json</code> file. Eclipse Dirigible's Web IDE generates a <code>project.json</code> file by default. However, this file is Eclipse Dirigible-specific. You'll need to manually create a <code>package.json</code> file to declare your NPM dependencies.</p>
+<p>To install the dependencies, run <code>npm install</code> in the project directory.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also use the <a href="/help/development/ide/views/terminal/">Terminal view</a>, to execute commands.</p>
+<p>You can also use the <a href="/help/development/ide/views/terminal/">Terminal view</a> in Eclipse Dirigible to execute commands.</p>
 </div>
 <details class="info">
 <summary>project.json</summary>
-<p>The <code>project.json</code> file in combination with the <code>tsconfig.json</code> are used to setup seemless build of the project's TypeScript files. Additional commands can be declared in the <code>project.json</code> and can be executed at different stages of development lifecycle. It's important to note, that the <code>project.json</code> file is only a design time artifact, meaning that the commands declared there would be executed only during development from the Eclipse Dirigible Web IDE. More about Eclipse Dirigible Core Concepts can be found <a href="/help/development/concepts/">here</a>.</p>
+<p>The <code>project.json</code> file, combined with the <code>tsconfig.json</code>, enables seamless builds of TypeScript files in your project. Additional commands can be declared in <code>project.json</code> and executed at different stages of the development lifecycle.</p>
+<p>It's important to note that <code>project.json</code> is only a design-time artifact, meaning its commands are executed only during development in Eclipse Dirigible's Web IDE. For more details, see <a href="/help/development/concepts/">Eclipse Dirigible Core Concepts</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;guid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;your-application-name&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
@@ -3695,20 +3697,20 @@
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">package.json</p>
-<p>You can find more about the <code>package.json</code> specification <a href="https://docs.npmjs.com/cli/v10/configuring-npm/package-json">here</a>.</p>
+<p>Learn more about the <code>package.json</code> specification <a href="https://docs.npmjs.com/cli/v10/configuring-npm/package-json">here</a>.</p>
 </div>
 <h2 id="build-workflow">Build Workflow</h2>
-<p>To automate the build process, create a <code>.github/workflows/build.yaml</code> file inside the GitHub repository. This GitHub Action would be active immediately after pushing the changes to the main branch of your repository.</p>
+<p>To automate the build process, create a <code>.github/workflows/build.yaml</code> file inside your GitHub repository. This GitHub Action will activate whenever changes are pushed to the main branch.</p>
 <div class="admonition note">
 <p class="admonition-title">GitHub Actions</p>
-<p>We are assumming, that you want to setup CI/CD pipelines with <a href="https://github.com/features/actions">GitHub Actions</a>. If you are using another tool for the CI/CD, you can still follow this guide, as it highlight the build and release steps.</p>
+<p>This guide assumes you are setting up CI/CD pipelines with <a href="https://github.com/features/actions">GitHub Actions</a>. If you use a different CI/CD tool, you can still adapt the steps below.</p>
 </div>
 <h3 id="key-steps">Key Steps</h3>
 <ol>
-<li><code>Install Node.js</code>: Sets up the Node.js environment.</li>
-<li><code>Install Dependencies</code>: Downloads necessary npm packages. Point the workflow to the directory that contains your package.json. If your application doesn’t depend on any packages you should delete this section.</li>
-<li><code>TypeScript Build</code>: Ensures TypeScript compilation without critical errors. Point the workflow to the directory that contains your <code>tsconfig.json</code> that is generated through the Dirigible Web IDE.</li>
-<li><code>Docker Buildx</code>: Builds and pushes a multi-architecture Docker image.</li>
+<li><strong>Install Node.js</strong>: Set up the Node.js environment.</li>
+<li><strong>Install Dependencies</strong>: Download necessary NPM packages. If your application doesn’t use dependencies, delete this step.</li>
+<li><strong>TypeScript Build</strong>: Compile TypeScript files without errors.</li>
+<li><strong>Docker Buildx</strong>: Build and push a multi-architecture Docker image.</li>
 </ol>
 <h3 id="buildyaml">build.yaml</h3>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build - Application</span><span class="w"></span>
@@ -3736,31 +3738,31 @@
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
 <span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
-<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
-<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
-<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+<span class="w">          </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">          </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">          </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">          </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">          </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">              </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">          </span><span class="no">fi</span><span class="w"></span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
 <span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
-<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
-<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
-<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+<span class="w">          </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">          </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">          </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">          </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">          </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
 <span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
+<span class="w">          </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">          </span><span class="no">docker buildx use builder</span><span class="w"></span>
 
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
 <span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">          </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
+<span class="w">          </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
 </code></pre></div>
 <h2 id="pull-request-workflow">Pull-Request Workflow</h2>
 <p>This workflow validates <code>Pull Requests</code> by ensuring builds aren’t disrupted. The build process is identical, but the image is <strong>not pushed</strong> to a registry.</p>
@@ -3769,51 +3771,50 @@
 
 <span class="nt">on</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w"></span>
-<span class="nt">branches</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w"></span>
 
 <span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
-<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
 
-<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">                </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">            </span><span class="no">fi</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
-<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
-<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
-<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
-<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">            </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">            </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">            </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
-<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
-<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
-<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx use builder</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Docker Image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build Docker Image</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
 </code></pre></div>
 <h2 id="release-workflow">Release Workflow</h2>
 <p>This workflow allows to manually trigger a release and tag the Docker image with a specific version.</p>
@@ -3832,88 +3833,87 @@
 
 <span class="nt">on</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w"></span>
-<span class="nt">inputs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">release-version</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release Version</span><span class="w"></span>
-<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span><span class="w"></span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">release-version</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release Version</span><span class="w"></span>
+<span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span><span class="w"></span>
 
 <span class="nt">run-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;version</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">${{</span><span class="nv"> </span><span class="s">inputs.release-version</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">release&#39;</span><span class="w"></span>
 
 <span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
 <span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"></span>
-<span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
 
-<span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout Repository</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install NodeJS</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-node@v4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">node-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install TypeScript compiler</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm i -g typescript</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TypeScript Build</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/tsconfig.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">tsc --pretty &gt; tsc-output.log 2&gt;&amp;1 || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
 
-<span class="w">        </span><span class="no">grep -v &#39;TS2688&#39; tsc-output.log &gt; filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
 
-<span class="w">        </span><span class="no">cat filtered-tsc-output.log</span><span class="w"></span>
+<span class="w">            </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
+<span class="w">                </span><span class="no">exit 1</span><span class="w"></span>
+<span class="w">            </span><span class="no">fi</span><span class="w"></span>
 
-<span class="w">        </span><span class="no">if grep -q &#39;error TS&#39; filtered-tsc-output.log; then</span><span class="w"></span>
-<span class="w">            </span><span class="no">exit 1</span><span class="w"></span>
-<span class="w">        </span><span class="no">fi</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
+<span class="w">            </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
+<span class="w">            </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
+<span class="w">            </span><span class="no">npm install</span><span class="w"></span>
+<span class="w">            </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">cd path/to/your/package.json</span><span class="w"></span>
-<span class="w">        </span><span class="no">echo &quot;registry=https://npm.pkg.github.com</span><span class="w"></span>
-<span class="w">        </span><span class="no">//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}&quot; &gt; .npmrc</span><span class="w"></span>
-<span class="w">        </span><span class="no">npm install</span><span class="w"></span>
-<span class="w">        </span><span class="no">rm -rf .npmrc</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">Git&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">git fetch</span><span class="w"></span>
+<span class="w">            </span><span class="no">git checkout main  # Checkout the branch you want to release from</span><span class="w"></span>
+<span class="w">            </span><span class="no">git config user.name &quot;$GITHUB_ACTOR&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="no">git config user.email &quot;$GITHUB_ACTOR@users.noreply.github.com&quot;</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Configure</span><span class="nv"> </span><span class="s">Git&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">git fetch</span><span class="w"></span>
-<span class="w">        </span><span class="no">git checkout main  # Checkout the branch you want to release from</span><span class="w"></span>
-<span class="w">        </span><span class="no">git config user.name &quot;$GITHUB_ACTOR&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="no">git config user.email &quot;$GITHUB_ACTOR@users.noreply.github.com&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx use builder</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Initialize Buildx</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx create --name builder || true</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx use builder</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">            </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:${{ inputs.release-version }} -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and Push Docker Image</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
-<span class="w">        </span><span class="no">docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:${{ inputs.release-version }} -o type=image --platform=linux/arm64,linux/amd64 .</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create and Push Release Branch</span><span class="w"></span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="no">git checkout -b release/${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">            </span><span class="no">git push --set-upstream origin release/${{ inputs.release-version }}</span><span class="w"></span>
 
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create and Push Release Branch</span><span class="w"></span>
-<span class="w">    </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="no">git checkout -b release/${{ inputs.release-version }}</span><span class="w"></span>
-<span class="w">        </span><span class="no">git push --set-upstream origin release/${{ inputs.release-version }}</span><span class="w"></span>
-
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">Release&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">softprops/action-gh-release@v1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"></span>
-<span class="w">        </span><span class="nt">tag_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v${{ inputs.release-version }}</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ inputs.release-version }}</span><span class="w"></span>
-<span class="w">        </span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">        </span><span class="nt">prerelease</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">        </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">LICENSE</span><span class="w"></span>
-<span class="w">    </span><span class="w w-Error">  </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">            </span><span class="no">## Release - ${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">Release&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">softprops/action-gh-release@v1</span><span class="w"></span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span><span class="w"></span>
+<span class="w">            </span><span class="nt">tag_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ inputs.release-version }}</span><span class="w"></span>
+<span class="w">            </span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">            </span><span class="nt">prerelease</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">            </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">LICENSE</span><span class="w"></span>
+<span class="w">        </span><span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">                </span><span class="no">## Release - ${{ inputs.release-version }}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="activating-the-release">Activating the Release</h2>
 <p>To trigger the release:</p>
@@ -3924,8 +3924,8 @@
 <li>Enter the desired release version <em>(e.g., <code>1.0.0</code>)</em>.</li>
 <li>Monitor the workflow for successful completion.</li>
 </ol>
-<h2 id="takeaways">Takeaways</h2>
-<p>By leveraging Docker and GitHub Actions, we’ve automated the entire process of building, testing, and releasing Docker images for <strong>Eclipse Dirigible</strong> applications. This approach ensures consistency, reproducibility, and efficiency across your development pipeline.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By combining Docker and GitHub Actions, you can automate the building, testing, and releasing of Docker images for Eclipse Dirigible applications, ensuring a consistent and efficient development pipeline.</p>
 
         <!-- Last update of source file -->
         
