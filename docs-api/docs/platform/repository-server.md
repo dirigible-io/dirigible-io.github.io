@@ -1,8 +1,8 @@
 ---
-title: Repository
+title: Repository (Server)
 ---
 
-Repository
+Repository (Server)
 ===
 
 Repository object gives access to the repository. It can be used for creating artifacts such as services and web pages programmatically.

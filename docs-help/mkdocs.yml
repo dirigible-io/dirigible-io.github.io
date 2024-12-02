@@ -71,7 +71,6 @@ nav:
           - 'development/concepts/index.md'
           - Dynamic Applications: 'development/concepts/dynamic-applications.md'
           - Entity Service: 'development/concepts/entity-service.md'
-          - Extension Definitions: 'development/concepts/extensions.md'
           - Generation: 'development/concepts/generation.md'
           - Mobile Applications: 'development/concepts/mobile-apps.md'
           - Publishing: 'development/concepts/publishing.md'
@@ -82,10 +81,7 @@ nav:
           - Workspace: 'development/concepts/workspace.md'
       - Extensions:
         - Extensions Overview: 'development/extensions/index.md'
-        - Editor: 'development/extensions/editor.md'
-        - Perspective: 'development/extensions/perspective.md'
         - Template: 'development/extensions/template.md'
-        - View: 'development/extensions/view.md'
       - IDE:
         - IDE Overview: 'development/ide/index.md'
         - About: 'development/ide/about.md'
@@ -108,7 +104,6 @@ nav:
           - Terminal: 'development/ide/perspectives/terminal.md'
           - Workbench: 'development/ide/perspectives/workbench.md'
         - Views:
-          - About: 'development/ide/views/about.md'
           - Access: 'development/ide/views/access.md'
           - Configurations: 'development/ide/views/configurations.md'
           - Console: 'development/ide/views/console.md'
@@ -137,7 +132,7 @@ nav:
           - Staging: 'development/ide/views/staging.md'
           - Terminal: 'development/ide/views/terminal.md'
           - Web Sockets: 'development/ide/views/websockets.md'
-          - Workspace: 'development/ide/views/workspace.md'
+          - Projects: 'development/ide/views/projects.md'
       - Developer Resources:
         - Development & Operations: 'development/devops.md'
         - Keyboard Shortcuts: 'developer-resources/keyboard-shortcuts.md'

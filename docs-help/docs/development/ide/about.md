@@ -5,16 +5,16 @@ title: About
 About
 ===
 
-The **About** view contains system information about Dirigible's installation. The different properties and sections are:
+The **About** window contains system information about Dirigible's installation. The different properties and sections are:
 
-* `Version` - the version of Dirigible.
-* `Commit Id` - the commit that Dirigible is from. The commit id link also leads to the GitHub page of the release.
-* `Type` - the type of the account.
-* `Instance` - the type of the instance running.
-* `Repository` - the place where the project repository is housed.
-* `Database` - the database used. It can be local, custom or managed.
-* `Modules` - the list of modules in the Dirigible.
-* `Engines` - the list of engines in the Dirigible.
-* `Synchronizers` - list of synchronizers in the Dirigible. Their status is also shown.
+* `Version` - Dirigible version.
+* `Commit Id` - The commit that Dirigible is from. The commit id link leads to the GitHub page of the release.
+* `Type` - Type of the account.
+* `Instance` - Type of the instance running.
+* `Repository` - Place where the project repository is housed.
+* `Database` - Database used. It can be local, custom or managed.
+* `BlimpKit` - BlimpKit UI library version.
+* `Engines` - List of available engines in Dirigible.
+* `Synchronizers` - List and status of all synchronizers available in Dirigible.
 
 ![About View](../../images/aboutview.png)
