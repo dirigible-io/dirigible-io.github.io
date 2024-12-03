@@ -4,6 +4,7 @@ site_url: https://www.dirigible.io/blogs/
 nav:
     - 'Blog': 'index.md'
     - '2024':
+      - 'Eclipse Dirigible Observability Unlocked Using OpenTelemetry': '2024/12/03/open-telemetry.md'
       - 'Depends On feature in Eclipse Dirigible': '2024/11/20/depenson.md'
       - 'Building and releasing Docker image for Eclipse Dirigible Application': '2024/11/18/build-and-release.md'
       - 'Making Reports in Eclipse Dirigible': '2024/10/21/reports.md'

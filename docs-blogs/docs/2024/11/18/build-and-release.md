@@ -8,391 +8,362 @@ read_time: 10 min
 publish_date: November 18, 2024
 ---
 
-# *Building and Releasing a Docker Image for an Eclipse Dirigible Application*
+# Building and Releasing a Docker Image for an Eclipse Dirigible Application
 
-This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application. 
+This blog post will guide you through the process of building and releasing a Docker image for an Eclipse Dirigible application.
 
-**Prerequisite:** This guide assumes you already have created a Dirigible application.
+!!! info "Prerequisites"
 
-We’ll explore:
+    This guide assumes you already have created an Eclipse Dirigible application.
 
-[1. Building the Docker Image](#1-building-the-docker-image)
+## **Building the Docker Image**
 
-[Example Dockerfile](#example-dockerfile)
+A Docker image is the foundation for deploying your application. Below is an example `Dockerfile` of how to build your application.
 
-[2. Handling Dependencies](#2-handling-dependencies)
+### Dockerfile
 
-[Example package.json](#exampleiamaspacepackagejson)
-
-[Example package-lock.json](#exampleiamaspacepackage-lockjson)
-
-[3. Build Workflow (build.yaml)](#3-build-workflow-buildyaml)
-
-[Key Steps](#key-steps)
-
-[Example build.yaml](#exampleiamaspacebuildyaml)
-
-[4. Pull-Request Workflow (pull-request.yaml)](#4-pull-request-workflow-pull-requestyaml)
-
-[Example pull-request.yaml](#exampleiamaspacepull-requestyaml)
-
-[5. Release Workflow (release.yaml)](#5-release-workflow-releaseyaml)
-
-[Key Steps](#key-steps-1)
-
-[Example release.yaml](#exampleiamaspacereleaseyaml)
-
-[6. Activating the Release](#6-activating-the-release)
-
-[Takeaways](#takeaways)
-
-
-## **1. Building the Docker Image**
-
-A Docker image is the foundation for deploying your application. Below is an example `Dockerfile` to build your application.
-
-
-### **Example Dockerfile**
 ```Dockerfile
 FROM dirigiblelabs/dirigible:latest
 
 COPY application target/dirigible/repository/root/registry/public/application
-COPY application/node_modules/ target/dirigible/repository/root/registry/public/
+# COPY application/node_modules/ target/dirigible/repository/root/registry/public/
 
 ENV DIRIGIBLE_HOME_URL=/services/web/application/gen/application/index.html
 ```
 
-- The first line in the Dockerfile sets up the Dirigible Docker image as your base. Note that this is not a runtime image, meaning that the Dirigible’s Web IDE will be incorporated into your application.
+- The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.
 
-- The first `COPY` copies your project directory. 
+    !!! note
+  
+        This is not a runtime image, meaning that Eclipse Dirigible’s Web IDE will be incorporated into your application.
+  
+- The `COPY` command transfers your project directory _(e.g., `application`)_ to the public [Registry](/help/development/concepts/registry/), where the [published](/help/development/concepts/publishing/) content resides.
 
-- The second one copies npm packages you’ve listed in the dependency section in your package.json. If you application doesn’t depend on any you should delete this line.
+- _(Optional)_ The second `COPY` command copies npm dependency packages listed in `package.json`.
 
-- The final line in the Docker file uses a Dirigible Environment Variable (full list here: [Enviroment Variables - Eclipse Dirigble](https://www.dirigible.io/help/setup/setup-environment-variables/#basic)) to set up the main page of your application.
+    !!! note "NPM Dependencies"
+  
+        If your application doesn't have NPM dependencies, delete this line.
+  
+        If it does, run `npm install` before triggering the Docker build.
 
+- The final line in the Dockerfile uses a Dirigible environment variable _(see the [Environment Variables Guide](/help/setup/setup-environment-variables/#basic))_ to set up the main page of your application.
 
-## **2. Handling Dependencies**
+## Handling Dependencies
 
-If your application uses npm packages (otherwise skip this step), you’ll need `package.json` and `package-lock.json`. The Dirigible Web IDE generates these files, and they should only be completed as you need. The easiest way to fill in the `package-lock.json` is to pull you repository locally and to run` npm install` in your project directory.
+If your application requires NPM dependencies _(otherwise, skip this step)_, you’ll need a `package.json` file. Eclipse Dirigible's Web IDE generates a `project.json` file by default. However, this file is Eclipse Dirigible-specific. You'll need to manually create a `package.json` file to declare your NPM dependencies.
 
+To install the dependencies, run `npm install` in the project directory.
 
-### **Example** `package.json`
+!!! note
+
+    You can also use the [Terminal view](/help/development/ide/views/terminal/) in Eclipse Dirigible to execute commands.
+
+??? info "project.json"
+
+    The `project.json` file, combined with the `tsconfig.json`, enables seamless builds of TypeScript files in your project. Additional commands can be declared in `project.json` and executed at different stages of the development lifecycle.
+    
+    It's important to note that `project.json` is only a design-time artifact, meaning its commands are executed only during development in Eclipse Dirigible's Web IDE. For more details, see [Eclipse Dirigible Core Concepts](/help/development/concepts/).
+
+    ```json
+    {
+        "guid": "your-application-name",
+        "dependencies": [
+            {
+                "guid": "first-dirigible-module",
+                "type": "git",
+                "url": "link-to-git-repo",
+                "branch": "main"
+            },
+            {
+                "guid": "second-dirigible-module",
+                "type": "git",
+                "url": "link-to-git-repo",
+                "branch": "main"
+            }
+        ],
+        "actions": [
+            {
+                "name": "Build TypeScript",
+                "commands": [
+                    {
+                        "os": "unix",
+                        "command": "tsc"
+                    },
+                    {
+                        "os": "windows",
+                        "command": "cmd /c tsc"
+                    }
+                ],
+                "registry": "true"
+            }
+        ]
+    }
+    ```
+
+### package.json
+
 ```json
 {
-	"guid": "your-application-name",
-	"dependencies": [
-    	{
-        	"guid": "first-npm-package",
-        	"type": "git",
-        	"url": "link-to-git-repo",
-        	"branch": "main"
-    	},
-    	{
-        	"guid": "second-npm-package",
-        	"type": "git",
-        	"url": "link-to-git-repo",
-        	"branch": "main"
-    	}
-	],
-	"actions": [
-    	{
-        	"name": "Build TypeScript",
-        	"commands": [
-            	{
-                	"os": "unix",
-                	"command": "tsc"
-            	},
-            	{
-                	"os": "windows",
-                	"command": "cmd /c tsc"
-            	}
-        	],
-        	"registry": "true"
-    	}
-	]
-}
-```                                                                                                                                                                                   
-
-
-### **Example** `package-lock.json`
-```json
-{
-	"name": "your-application-name",
-	"lockfileVersion": 3,
-	"requires": true,
-	"packages": {
-    	"": {
-        	"dependencies": {
-            	"first-dependency": "0.3.0",
-            	"second-dependency": "0.3.0",
-        	}
-    	},
-    	"path/to/your/first/dependency": {
-        	"version": "0.3.0",
-        	"resolved": "exact/first/dependency/url",
-        	"integrity": "first/dependency/content/cryptographic/hash"
-    	},
-    	"path/to/your/second/dependency": {
-        	"version": "0.3.0",
-        	"resolved": "exact/second/dependency/url",
-        	"integrity": "second/dependency/content/cryptographic/hash"
-    	},
-   }
+    "name": "@<github-org-name>/<application-name>",
+    "version": "0.1.0",
+    "repository": {
+        "url": "https://github.com/<github-org-name>/<application-repository>.git",
+        "type": "git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "dependencies": {
+        "@<github-org-name>/<dependency-name>": "0.1.0"
+    }
 }
 ```
 
+!!! info "package.json"
 
-## **3. Build Workflow (**`build.yaml`**)**
+    Learn more about the `package.json` specification [here](https://docs.npmjs.com/cli/v10/configuring-npm/package-json).
 
-To automate the build process, create a `build.yaml` file inside `.github/workflows`. This action will take effect immediately after pushing to the main branch of your projects repository.
+## Build Workflow
 
+To automate the build process, create a `.github/workflows/build.yaml` file inside your GitHub repository. This GitHub Action will activate whenever changes are pushed to the main branch.
 
-### **Key Steps**
+!!! note "GitHub Actions"
 
-1. **Install Node.js**: Sets up the Node.js environment.
+    This guide assumes you are setting up CI/CD pipelines with [GitHub Actions](https://github.com/features/actions). If you use a different CI/CD tool, you can still adapt the steps below.
 
-2. **Install Dependencies**: Downloads necessary npm packages. Point the workflow to the directory that contains your package.json. If your application doesn’t depend on any packages you should delete this section.
+### Key Steps
 
-3. **TypeScript Build**: Ensures TypeScript compilation without critical errors. Point the workflow to the directory that contains your tsconfig.json that is generated through the Dirigible Web IDE
+1. **Install Node.js**: Set up the Node.js environment.
+1. **Install Dependencies**: Download necessary NPM packages. If your application doesn’t use dependencies, delete this step.
+1. **TypeScript Build**: Compile TypeScript files without errors.
+1. **Docker Buildx**: Build and push a multi-architecture Docker image.
 
-4. **Docker Buildx**: Builds and pushes a multi-architecture Docker image.
+### build.yaml
 
-
-### **Example** `build.yaml`
 ```yaml
 name: Build - Application
 
 on:
   push:
-branches:
-- main
+    branches:
+      - main
 
 jobs:
   main:
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+        uses: actions/checkout@v3
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v3
+    - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+        node-version: 18
 
-  - name: Install NodeJS
-    uses: actions/setup-node@v4
-    with:
-      node-version: 18
+    - name: Install TypeScript compiler
+        run: npm i -g typescript
 
-  - name: Install TypeScript compiler
-    run: npm i -g typescript
+    - name: TypeScript Build
+        run: |
+            cd path/to/your/tsconfig.json
+            tsc --pretty > tsc-output.log 2>&1 || true
+            grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
+            cat filtered-tsc-output.log
+            if grep -q 'error TS' filtered-tsc-output.log; then
+                exit 1
+            fi
 
-  - name: TypeScript Build
-    run: |
-      	cd path/to/your/tsconfig.json
-      	tsc --pretty > tsc-output.log 2>&1 || true
-      	grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
-      	cat filtered-tsc-output.log
-      	if grep -q 'error TS' filtered-tsc-output.log; then
-          	exit 1
-      	fi
+    - name: Install Dependencies
+        run: |
+            cd path/to/your/package.json
+            echo "registry=https://npm.pkg.github.com
+            //npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
+            npm install
+            rm -rf .npmrc
 
-  - name: Install Dependencies
-    run: |
-      	cd path/to/your/package.json
-      	echo "registry=https://npm.pkg.github.com
-      	//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
-      	npm install
-      	rm -rf .npmrc
+    - name: Initialize Buildx
+        run: |
+            docker buildx create --name builder || true
+            docker buildx use builder
 
-  - name: Initialize Buildx
-    run: |
-      	docker buildx create --name builder || true
-      	docker buildx use builder
+    - name: Build and Push Docker Image
+        run: |
+            echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+            docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .
+```
 
-  - name: Build and Push Docker Image
-    run: |
-      	echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      	docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:latest -o type=image --platform=linux/arm64,linux/amd64 .
-```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+## Pull-Request Workflow
 
+This workflow validates `Pull Requests` by ensuring builds aren’t disrupted. The build process is identical, but the image is **not pushed** to a registry.
 
-## **4. Pull-Request Workflow (**`pull-request.yaml`**)**
+### pull-request.yaml
 
-This workflow validates pull requests by ensuring builds aren’t disrupted. The build process is identical, but the image is **not pushed** to a registry. If your application doesn’t depend on any packages you should delete the given section.
-
-
-### **Example** `pull-request.yaml`
 ```yaml
 name: Pull Request - Application
 
 on:
   pull_request:
-branches:
-  - main
+    branches:
+      - main
 
 jobs:
   main:
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+        uses: actions/checkout@v3
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v3
+    - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+        node-version: 18
 
-  - name: Install NodeJS
-    uses: actions/setup-node@v4
-    with:
-      node-version: 18
+    - name: Install TypeScript compiler
+        run: npm i -g typescript
 
-  - name: Install TypeScript compiler
-    run: npm i -g typescript
+    - name: TypeScript Build
+        run: |
+            cd path/to/your/tsconfig.json
+            tsc --pretty > tsc-output.log 2>&1 || true
+            grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
+            cat filtered-tsc-output.log
+            if grep -q 'error TS' filtered-tsc-output.log; then
+                exit 1
+            fi
 
-  - name: TypeScript Build
-    run: |
-      	cd path/to/your/tsconfig.json
-      	tsc --pretty > tsc-output.log 2>&1 || true
-      	grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
-      	cat filtered-tsc-output.log
-      	if grep -q 'error TS' filtered-tsc-output.log; then
-          	exit 1
-      	fi
+    - name: Install Dependencies
+        run: |
+            cd path/to/your/package.json
+            echo "registry=https://npm.pkg.github.com
+            //npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
+            npm install
+            rm -rf .npmrc
 
-  - name: Install Dependencies
-    run: |
-      	cd path/to/your/package.json
-      	echo "registry=https://npm.pkg.github.com
-      	//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
-      	npm install
-      	rm -rf .npmrc
+    - name: Initialize Buildx
+        run: |
+            docker buildx create --name builder || true
+            docker buildx use builder
 
-  - name: Initialize Buildx
-    run: |
-      	docker buildx create --name builder || true
-      	docker buildx use builder
-
-  - name: Build Docker Image
-    run: |
-      	docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .
+    - name: Build Docker Image
+        run: |
+            docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .
 ```
 
+## Release Workflow
 
-## **5. Release Workflow (**`release.yaml`**)**
+This workflow allows to manually trigger a release and tag the Docker image with a specific version.
 
-This workflow triggers a release manually and tags the Docker image with a specific version.
+### Key Steps
 
+1. `Inputs`: Accepts a release version as input.
+1. `Git Operations`: Creates a release branch and tags the repository.
+1. `GitHub Release`: Generates a GitHub release with metadata.
 
-### **Key Steps**
+!!! note
 
-1. **Inputs**: Accepts a release version as input.
+    Note that this workflow expects you to have a correct `DOCKER_USERNAME` and `DOCKER_PASSWORD` repository secrets that should be respectively your GitHub username and access token with enabled permissions to read and write.
 
-2. **Git Operations**: Creates a release branch and tags the repository.
+### release.yaml
 
-3. **GitHub Release**: Generates a GitHub release with metadata.
-
-Note that this workflow expects you to have a correct DOCKER\_USERNAME and DOCKER\_PASSWORD repository secrets that should be respectively your GitHub username and access token with enabled permissions to read and write. If your application doesn’t depend on any packages you should delete the given section.
-
-
-### **Example** `release.yaml`
 ```yaml
 name: Release - Application
 
 on:
   workflow_dispatch:
-inputs:
-  release-version:
-    description: Release Version
-    required: true
-    default: 1.0.0
+    inputs:
+      release-version:
+        description: Release Version
+        required: true
+        default: 1.0.0
 
 run-name: 'version set to ${{ inputs.release-version }} for release'
 
 jobs:
   main:
-runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+        fetch-depth: 0
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v3
-    with:
-      fetch-depth: 0
+    - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+        node-version: 18
 
-  - name: Install NodeJS
-    uses: actions/setup-node@v4
-    with:
-      node-version: 18
+    - name: Install TypeScript compiler
+        run: npm i -g typescript
 
-  - name: Install TypeScript compiler
-    run: npm i -g typescript
+    - name: TypeScript Build
+        run: |
+            cd path/to/your/tsconfig.json
+            tsc --pretty > tsc-output.log 2>&1 || true
 
-  - name: TypeScript Build
-    run: |
-      	cd path/to/your/tsconfig.json
-      	tsc --pretty > tsc-output.log 2>&1 || true
+            grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
 
-      	grep -v 'TS2688' tsc-output.log > filtered-tsc-output.log
+            cat filtered-tsc-output.log
 
-      	cat filtered-tsc-output.log
+            if grep -q 'error TS' filtered-tsc-output.log; then
+                exit 1
+            fi
 
-      	if grep -q 'error TS' filtered-tsc-output.log; then
-          	exit 1
-      	fi
+    - name: Install Dependencies
+        run: |
+            cd path/to/your/package.json
+            echo "registry=https://npm.pkg.github.com
+            //npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
+            npm install
+            rm -rf .npmrc
 
-  - name: Install Dependencies
-    run: |
-      	cd path/to/your/package.json
-      	echo "registry=https://npm.pkg.github.com
-      	//npm.pkg.github.com/:_authToken=${{ secrets.DOCKER_PASSWORD }}" > .npmrc
-      	npm install
-      	rm -rf .npmrc
+    - name: "Configure Git"
+        run: |
+            git fetch
+            git checkout main  # Checkout the branch you want to release from
+            git config user.name "$GITHUB_ACTOR"
+            git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-  - name: "Configure Git"
-    run: |
-      	git fetch
-      	git checkout main  # Checkout the branch you want to release from
-      	git config user.name "$GITHUB_ACTOR"
-      	git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+    - name: Initialize Buildx
+        run: |
+            docker buildx create --name builder || true
+            docker buildx use builder
 
-  - name: Initialize Buildx
-    run: |
-      	docker buildx create --name builder || true
-      	docker buildx use builder
+    - name: Build and Push Docker Image
+        run: |
+            echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+            docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .
+            docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:${{ inputs.release-version }} -o type=image --platform=linux/arm64,linux/amd64 .
 
-  - name: Build and Push Docker Image
-    run: |
-      	echo ${{ secrets.DOCKER_PASSWORD }} | docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      	docker buildx build --tag your-application-name -o type=image --platform=linux/arm64,linux/amd64 .
-      	docker buildx build --push --tag ghcr.io/your-github-username/your-application-name:${{ inputs.release-version }} -o type=image --platform=linux/arm64,linux/amd64 .
+    - name: Create and Push Release Branch
+        run: |
+            git checkout -b release/${{ inputs.release-version }}
+            git push --set-upstream origin release/${{ inputs.release-version }}
 
-  - name: Create and Push Release Branch
-    run: |
-      	git checkout -b release/${{ inputs.release-version }}
-      	git push --set-upstream origin release/${{ inputs.release-version }}
-
-  - name: "Create GitHub Release"
-    uses: softprops/action-gh-release@v1
-    with:
-      	token: ${{ secrets.GITHUB_TOKEN }}
-      	tag_name: v${{ inputs.release-version }}
-      	name: ${{ inputs.release-version }}
-      	draft: false
-      	prerelease: false
-      	files: |
-        LICENSE
-      body: |
-        	## Release - ${{ inputs.release-version }}
+    - name: "Create GitHub Release"
+        uses: softprops/action-gh-release@v1
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            tag_name: v${{ inputs.release-version }}
+            name: ${{ inputs.release-version }}
+            draft: false
+            prerelease: false
+            files: |
+            LICENSE
+        body: |
+                ## Release - ${{ inputs.release-version }}
 ```
 
-## **6. Activating the Release**
+## Activating the Release
 
 To trigger the release:
 
-1. Go to the **Actions** tab in your GitHub repository.
+1. Go to the `Actions` tab in your GitHub repository.
+1. Select the `Release` workflow.
+1. Click the `Run workflow` button.
+1. Enter the desired release version _(e.g., `1.0.0`)_.
+1. Monitor the workflow for successful completion.
 
-2. Select the **Release** workflow.
+## Conclusion
 
-3. Click **Run workflow**.
-
-4. Enter the desired release version (e.g., `0.1.0`).
-
-5. Monitor the workflow for successful completion.
-
-
-## **Takeaways**
-
-By leveraging Docker and GitHub Actions, we’ve automated the entire process of building, testing, and releasing Docker images for **Eclipse Dirigible** applications. This approach ensures consistency, reproducibility, and efficiency across your development pipeline.
+By combining Docker and GitHub Actions, you can automate the building, testing, and releasing of Docker images for Eclipse Dirigible applications, ensuring a consistent and efficient development pipeline.

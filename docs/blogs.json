@@ -1,9 +1,5 @@
 [
   {
-    "location": "2023/12/19/news-new-release-9-0.md",
-    "title": "Release 9.0"
-  },
-  {
     "location": "2024/03/26/multitenancy.md",
     "title": "Multitenant applications with zero effort",
     "description": "\"Multitenancy with zero effort using Eclipse Dirigible\""
@@ -22,5 +18,10 @@
     "location": "2024/11/18/build-and-release.md",
     "title": "Building and Releasing a Docker Image for an Eclipse Dirigible Application",
     "description": "\"Building and releasing Docker image for Application effortlessly using GitHub Actions: Step-by-Step Tutorial\""
+  },
+  {
+    "location": "2024/12/03/open-telemetry.md",
+    "title": "Eclipse Dirigible Observability Unlocked Using OpenTelemetry",
+    "description": "\"Observability Unlocked: Metrics, Traces and Logs in Eclipse Dirigible Using OpenTelemetry\""
   }
 ]
