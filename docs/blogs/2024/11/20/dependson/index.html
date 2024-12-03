@@ -19,7 +19,7 @@
     
     
       
-        <title>'Depends on' feature for properties in Eclipse Dirigible - Eclipse Dirigible Blog</title>
+        <title>Depends on Feature for Properties in Eclipse Dirigible - Eclipse Dirigible Blog</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              'Depends on' feature for properties in Eclipse Dirigible
+              Depends on Feature for Properties in Eclipse Dirigible
             
           </span>
         </div>
@@ -3271,42 +3271,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sections" class="md-nav__link">
-    Sections:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-case-filtering-cities-by-country" class="md-nav__link">
-    First case: Filtering Cities by Country
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#second-case-automatically-setting-the-unit-of-measurement-uom" class="md-nav__link">
-    Second case: Automatically Setting the Unit of Measurement (UoM)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#third-case-expanding-the-depends-on-feature-to-work-with-different-types-of-field" class="md-nav__link">
-    Third case: Expanding the "Depends on" Feature to work with different types of field
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3360,48 +3324,37 @@
         </aside>
         
 
-        <h1 id="the-depens-on-feature-in-eclipse-dirigible">The 'Depens on' feature in Eclipse Dirigible</h1>
-<p>In this blog post, we introduce a new feature for building models in Dirigible: the "Depends on" functionality. Previously, Dirigible allowed for visualising dropdowns based on key-value pairs, often displaying data by ID and showing the corresponding name or number. However, as we encountered more complex use cases, we realised the need for more advanced connections and filtering of options based on a specific indicator. One such use case was filtering a list of cities by the selected country.</p>
-<h2 id="sections">Sections:</h2>
+        <h1 id="the-depens-on-feature-in-eclipse-dirigible">The 'Depens on' Feature in Eclipse Dirigible</h1>
+<p>In this blog post, we introduce a new feature for building models in Eclipse Dirigible: the "Depends on" functionality. Previously, Dirigible allowed for visualising dropdowns based on key-value pairs, often displaying data by ID and showing the corresponding name or number. However, as we encountered more complex use cases, we realised the need for more advanced connections and filtering of options based on a specific indicator. One such use case was filtering a list of cities by the selected country.</p>
+<h1 id="scenarios">Scenarios</h1>
 <ul>
-<li>First case: Filtering Cities by Country</li>
-<li>Second case: Automatically Setting the Unit of Measurement (UoM)</li>
-<li>
-<p>Third case: Expanding the "Depends on" Feature to work with different types of fields</p>
-</li>
-<li>
-<h2 id="first-case-filtering-cities-by-country">First case: Filtering Cities by Country</h2>
-</li>
+<li>Filtering Cities by Country</li>
+<li>Automatically Setting the Unit of Measurement (UoM)</li>
+<li>Expanding the "Depends on" Feature to work with different types of fields</li>
 </ul>
+<p>## Filtering Cities by Country</p>
 <p>To explore this in more detail, consider the following model structure:</p>
-<p><img alt="country-city-relation" src="../../../../images/dependsOnFeature/country-city-relation.png" /><br></p>
+<p><img alt="country-city-relation" src="../../../../images/dependsOnFeature/country-city-relation.png" /></p>
 <p>Each city has a reference to the country it belongs to, typically stored as an ID. </p>
 <p>The solution we implemented was to filter the list of cities based on the selected country ID. This is where the "Depends on" section was introduced in the user interface properties of the modeller, allowing us to filter the list of cities based on the selected country. This solved the issue for simple relationships where the filter value was a direct part of the filtered entity.</p>
-<p><img alt="city-dependsOn" src="../../../../images/dependsOnFeature/city-dependsOn.png" /><br></p>
-<p>What this feature does is simply filter the cities list by the value of "Country" in the current entity. The dropdown for cities now functions with the following logic: "Take the value from the Country property in the current entity, link it to the Country entity, retrieve the ID of the selected country, and filter the list of cities where City.Country matches Country.Id."</p>
-<p><strong>Example: Filtering Cities by Country</strong></p>
-<p>To illustrate this, consider the following example. Suppose we have two countries in the application: Bulgaria (ID 1) and Greece (ID 2). The city Sofia references Bulgaria, so its Country property is set to 1. On the other hand, Athens references Greece, so its Country value is set to 2. When Bulgaria is selected from the countries dropdown, the cities list is filtered by this choice. Dirigible uses the value from the Country property (1), finds the corresponding Country entity with ID 1, and filters the cities list where City.Country = Country.Id.</p>
-<p><img alt="filteredCities" src="../../../../images/dependsOnFeature/filteredCities.png" /><br></p>
-<p><br></p>
-<ol>
-<li>
-<h2 id="second-case-automatically-setting-the-unit-of-measurement-uom">Second case: Automatically Setting the Unit of Measurement (UoM)</h2>
-</li>
-</ol>
-<p>The next step is to define the purpose of your reports. The issue arose when we wanted to automatically set the unit of measurement (UoM) for a product when it was chosen in a sales order. The Product entity has a BaseUnit property, which is a reference to the primary unit of measurement for the product. However, when adding items to a sales order, we couldn't link the BaseUnit to the expected UoM because the "Depends on" feature could only filter entities by a field they contained (e.g., City by Country), not the other way around (e.g., UoM by Product).</p>
-<p><img alt="item-product-relation" src="../../../../images/dependsOnFeature/item-product-relation.png" /><br></p>
-<p>The solution was to define the property of the current entity whose value was needed, then identify the entity and property we aimed to reach. In this case, the logic was as follows: "Take the value from the SalesOrderItem's Product, find the corresponding product entity, retrieve the value from the BaseUnit property, and filter the current UoM list where the ID matches the selected BaseUnit."</p>
-<p><img alt="baseUnit-dependsOn" src="../../../../images/dependsOnFeature/baseUnit-dependsOn.png" /><br></p>
-<ol>
-<li>
-<h2 id="third-case-expanding-the-depends-on-feature-to-work-with-different-types-of-field">Third case: Expanding the "Depends on" Feature to work with different types of field</h2>
-The next step was to expand the functionality of the "Depends on" feature, not only for dropdowns but also for other fields like text boxes, numbers, and more. By applying the same logic, we can now transfer product details such as price and VAT directly into the order items. These values can also be edited if necessary. The "Filter by" option is primarily used for lists, where the value from the selected property is not directly used but rather employed to filter the available options.</li>
-</ol>
-<p><img alt="price-dependsOn" src="../../../../images/dependsOnFeature/price-dependsOn.png" /><br></p>
-<p><img alt="item-chosen-product" src="../../../../images/dependsOnFeature/item-chosen-product.png" /><br></p>
-<p><strong>Conclusion</strong>
-The introduction of the "Depends on" feature in Dirigible significantly enhances the flexibility and usability of the platform, enabling more complex data relationships and dynamic filtering. Whether filtering cities by country, setting UoM for products, or transferring product details directly into order items, this feature provides a streamlined and efficient approach for handling interrelated entities. By expanding this functionality beyond dropdowns to other field types, Dirigible opens up new possibilities for creating robust and user-friendly applications.</p>
-<hr />
+<p><img alt="city-dependsOn" src="../../../../images/dependsOnFeature/city-dependsOn.png" /></p>
+<p>What this feature does is simply filter the cities list by the value of "Country" in the current entity. The dropdown for cities now functions with the following logic: <em>"Take the value from the Country property in the current entity, link it to the Country entity, retrieve the ID of the selected country, and filter the list of cities where City.Country matches Country.Id."</em></p>
+<div class="admonition example">
+<p class="admonition-title">Filtering Cities by Country</p>
+<p>To illustrate this, consider the following example. Suppose we have two countries in the application: Bulgaria <em>(<code>ID 1</code>)</em> and Greece <em>(<code>ID 2</code>)</em>. The city Sofia references Bulgaria, so its <code>Country</code> property is set to <code>1</code>. On the other hand, Athens references Greece, so its <code>Country</code> value is set to <code>2</code>. When Bulgaria is selected from the countries dropdown, the cities list is filtered by this choice. Dirigible uses the value from the <code>Country</code> property <em>(<code>1</code>)</em>, finds the corresponding Country entity with <code>ID 1</code>, and filters the cities list where <code>City.Country = Country.Id</code>.</p>
+</div>
+<p><img alt="filteredCities" src="../../../../images/dependsOnFeature/filteredCities.png" /></p>
+<h2 id="automatically-setting-the-unit-of-measurement-uom">Automatically Setting the Unit of Measurement (UoM)</h2>
+<p>The next step is to define the purpose of your reports. The issue arose when we wanted to automatically set the unit of measurement (UoM) for a product when it was chosen in a sales order. The Product entity has a <code>BaseUnit</code> property, which is a reference to the primary unit of measurement for the product. However, when adding items to a sales order, we couldn't link the <code>BaseUnit</code> to the expected UoM because the "Depends on" feature could only filter entities by a field they contained (e.g., City by Country), not the other way around (e.g., UoM by Product).</p>
+<p><img alt="item-product-relation" src="../../../../images/dependsOnFeature/item-product-relation.png" /></p>
+<p>The solution was to define the property of the current entity whose value was needed, then identify the entity and property we aimed to reach. In this case, the logic was as follows: <em>"Take the value from the SalesOrderItem's Product, find the corresponding product entity, retrieve the value from the <code>BaseUnit</code> property, and filter the current UoM list where the <code>ID</code> matches the selected <code>BaseUnit</code>."</em></p>
+<p><img alt="baseUnit-dependsOn" src="../../../../images/dependsOnFeature/baseUnit-dependsOn.png" /></p>
+<h2 id="expanding-the-depends-on-feature-to-work-with-different-types-of-field">Expanding the "Depends on" Feature to Work with Different Types of Field</h2>
+<p>The next step was to expand the functionality of the "Depends on" feature, not only for dropdowns but also for other fields like text boxes, numbers, and more. By applying the same logic, we can now transfer product details such as price and VAT directly into the order items. These values can also be edited if necessary. The "Filter by" option is primarily used for lists, where the value from the selected property is not directly used but rather employed to filter the available options.</p>
+<p><img alt="price-dependsOn" src="../../../../images/dependsOnFeature/price-dependsOn.png" /></p>
+<p><img alt="item-chosen-product" src="../../../../images/dependsOnFeature/item-chosen-product.png" /></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>The introduction of the "Depends on" feature in Eclipse Dirigible significantly enhances the flexibility and usability of the platform, enabling more complex data relationships and dynamic filtering. Whether filtering cities by country, setting UoM for products, or transferring product details directly into order items, this feature provides a streamlined and efficient approach for handling interrelated entities. By expanding this functionality beyond dropdowns to other field types, Dirigible opens up new possibilities for creating robust and user-friendly applications.</p>
 
         <!-- Last update of source file -->
         
