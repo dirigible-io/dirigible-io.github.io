@@ -8,15 +8,15 @@ read_time: 10 min
 publish_date: November 20, 2024
 ---
 
-# The 'Depens on' Feature in Eclipse Dirigible
+# The Depends on Feature in Eclipse Dirigible
 
 In this blog post, we introduce a new feature for building models in Eclipse Dirigible: the "Depends on" functionality. Previously, Dirigible allowed for visualising dropdowns based on key-value pairs, often displaying data by ID and showing the corresponding name or number. However, as we encountered more complex use cases, we realised the need for more advanced connections and filtering of options based on a specific indicator. One such use case was filtering a list of cities by the selected country.
 
 # Scenarios
 
- * Filtering Cities by Country
- * Automatically Setting the Unit of Measurement (UoM)
- * Expanding the "Depends on" Feature to work with different types of fields
+- Filtering Cities by Country
+- Automatically Setting the Unit of Measurement (UoM)
+- Expanding the "Depends on" Feature to work with different types of fields
 
 ## Filtering Cities by Country
 
