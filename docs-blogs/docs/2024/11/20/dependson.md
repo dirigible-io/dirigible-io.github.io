@@ -18,7 +18,7 @@ In this blog post, we introduce a new feature for building models in Eclipse Dir
  * Automatically Setting the Unit of Measurement (UoM)
  * Expanding the "Depends on" Feature to work with different types of fields
 
- ## Filtering Cities by Country
+## Filtering Cities by Country
 
 To explore this in more detail, consider the following model structure:
 
