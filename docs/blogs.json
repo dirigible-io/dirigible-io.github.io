@@ -1,10 +1,5 @@
 [
   {
-    "location": "2024/03/26/multitenancy.md",
-    "title": "Multitenant applications with zero effort",
-    "description": "\"Multitenancy with zero effort using Eclipse Dirigible\""
-  },
-  {
     "location": "2024/04/05/custom-stack.md",
     "title": "Building Your Own Eclipse Dirigible Stack",
     "description": "\"Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide\""
@@ -18,6 +13,11 @@
     "location": "2024/11/18/build-and-release.md",
     "title": "Building and Releasing a Docker Image for an Eclipse Dirigible Application",
     "description": "\"Building and releasing Docker image for Application effortlessly using GitHub Actions: Step-by-Step Tutorial\""
+  },
+  {
+    "location": "2024/11/20/dependson.md",
+    "title": "'Depends on' feature for properties in Eclipse Dirigible",
+    "description": "\"Easy relation visualization between entities\""
   },
   {
     "location": "2024/12/03/open-telemetry.md",

@@ -751,6 +751,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/blogs/2024/11/20/dependson/</loc>
+         <lastmod>2024-12-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/blogs/2024/12/03/open-telemetry/</loc>
          <lastmod>2024-12-03</lastmod>
          <changefreq>daily</changefreq>
