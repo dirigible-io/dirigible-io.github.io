@@ -1565,6 +1565,11 @@ Grafana serves as the central hub for visualizing and analyzing telemetry data i
 
 Additionally, Grafana supports setting up real-time alerts based on predefined thresholds or anomalies, ensuring proactive issue resolution and system reliability. This unified view empowers teams to monitor, troubleshoot, and optimize application performance seamlessly.
 
+## Visualizing Telemetry Data in Action
+To give you a better understanding of how the telemetry data looks and behaves in our setup, we've created a video demonstration. The video showcases examples of traces, metrics, and logs generated from the sample Eclipse Dirigible application.
+<iframe width="100%" height="450" src="https://www.youtube.com/embed/UGw78B6Gtrc" frameborder="0" allowfullscreen></iframe>
+
+
 ## Summary
 Integrating OpenTelemetry into the Eclipse Dirigible project significantly enhances its enterprise readiness by providing deep observability into the application's performance and behavior. With custom traces and metrics for key components like REST endpoints, Quartz jobs, Flowable processes, and Apache Camel routes, the integration allows for precise monitoring and troubleshooting. 
 
