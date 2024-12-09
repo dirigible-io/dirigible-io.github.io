@@ -1,22 +1,26 @@
 ---
-title: Workspace
+title: Projects
 ---
 
-Workspace View
+Projects View
 ===
-The **Workspace** is the developer's place where he/she creates and manages the application artifacts. The first-level citizens of the workspace are the projects. With Eclipse Dirigible the users can create, manage, and switch between multiple workspaces through the **Workspace** view.
+The **Workspace** is the developer's place where he/she creates and manages the application artifacts. The first-level citizens of the workspace are the projects. With Eclipse Dirigible the users can create, manage, and switch between multiple workspaces through the **Projects** view.
 Each project can contain multiple folders and files (artifacts).
 The new template-based project and artifacts scaffolding generators features are worthy of mention.
 The projects file organization is now non-normative and entirely up-to the preferences of the users.
 The IDE supports multiple editors registered for different file (MIME) types. More than one editor can be registered for one file type and in this case a "Open with…" context menu entry is rendered for the user to select, which one to use.
 
-The Workspace explorer displays a standard view on the projects in your [workspace](../../../concepts/workspace). It shows the folder structure along with the files. 
+The Projects explorer displays a standard view on the projects in your [workspace](../../../concepts/workspace). It shows the folder structure along with the files. 
 
-![Workspace View](../../../images/ide_view_workspace.png)
+![Projects View](../../../images/projects-view.png)
+
+You can switch between workspaces:
+
+![Workspace select](../../../images/projects-view-workspace-select.png)
 
 There is a context menu assigned to the project node:
 
-![Context Menu / New](../../../images/ide_workspace_menu_new.png)
+![Context Menu / New](../../../images/projects-view-context-menu.png)
 
 Via this context menu, you can create new [artifacts](../../../artifacts) such as:
 

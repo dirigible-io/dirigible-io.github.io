@@ -1,5 +1,5 @@
 ---
-title: Workspace
+title: Workspace (Server)
 redirect_from:
   - /api/platform_workspace.html
   - /api/workspace_manager.html
@@ -20,7 +20,7 @@ Workspace object gives access to the user's workspaces. It can be used for creat
 
 ### Basic Usage
 
-The service which list the available workspaces:
+The service which lists the available workspaces:
 
 === "ECMA6"
 

@@ -40,14 +40,14 @@ There is also a list of samples that you can experiment with and reuse in order 
 ## Setup
 
 ```
-docker pull squidfunk/mkdocs-material
+docker pull squidfunk/mkdocs-material:8.5.11
 ```
 
 Run on localhost:
 ```
-docker run --rm -it -p 8000:8000 -v $PWD/docs-api:/docs squidfunk/mkdocs-material
-docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material
-docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-api:/docs squidfunk/mkdocs-material:8.5.11
+docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material:8.5.11
+docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-material:8.5.11
 ```
 
 ## License:

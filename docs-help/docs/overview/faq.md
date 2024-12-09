@@ -56,14 +56,6 @@ title: FAQ
     - Business agility depends on the process change -ability.
     - Bilateral extension-points and extensions descriptors.
 
-??? info "Web IDE"
-    Why it looks like Eclipse in a web browser? Why not more webby style?
-
-    - Lower barrier for Eclipse developers.
-    - Overall experience comfortable for developers proven for years from on-premise tools.
-    - Using of Resource like API and concepts.
-    - There are some themes you can choose from the menu for more "webby" look and feel.
-
 ## Decisions
 
 ???+ important "GraalJS"
@@ -73,18 +65,6 @@ title: FAQ
     <!-- - Supports [CommonJS](http://wiki.commonjs.org/wiki/CommonJS) for dynamic loading of modules. -->
     - Built-in debugger with simple API.
     - Possibility to invoke standard Java objects directly, which is not recommended of course.
-
-??? important "Angular, Bootstrap & GoldenLayout"
-    Why moved from RAP to Angular, Bootstrap, GoldenLayout web frameworks?
-
-    [RAP](https://www.eclipse.org/rap/) is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:
-
-    - RAP is a mature framework and depends on a reliable API, but not so attractive for pure web developers (HTML, JavaScript, etc.).
-    - RAP is a stable framework with great support, but also it could be said for Angular 1.x and Bootstrap 3.x<br>
-    - RAP rely on the standard modularization – OSGi, plugins, but comes with the complexity of Maven, Tycho, OSGi, Orbit, etc. integration.
-    - In RAP developers can write mostly in pure Java with all the benefits it brings by itself, but for web developers it turns out it is not a benefit, but a drawback.
-    - In RAP one can have a single sourcing components - reuse of existing functionality written as Eclipse plugins, which has never happen in the reality.
-    - RAP has possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component, but it is much more complex than pure web coding.
 
 ??? important "JSON Models"
     Why JSON for models?
