@@ -1615,8 +1615,6 @@
         
           
         
-          
-        
       
       
         
@@ -1661,20 +1659,6 @@
     <li class="md-nav__item">
       <a href="../concepts/entity-service/" class="md-nav__link">
         Entity Service
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/extensions/" class="md-nav__link">
-        Extension Definitions
       </a>
     </li>
   
@@ -1827,12 +1811,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -1861,50 +1839,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions/editor/" class="md-nav__link">
-        Editor
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../extensions/perspective/" class="md-nav__link">
-        Perspective
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../extensions/template/" class="md-nav__link">
         Template
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../extensions/view/" class="md-nav__link">
-        View
       </a>
     </li>
   
@@ -2380,8 +2316,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_6_9">
@@ -2395,20 +2329,6 @@
           Views
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="views/about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -2557,7 +2477,7 @@
   
     <li class="md-nav__item">
       <a href="views/git/" class="md-nav__link">
-        Git
+        Git Projects
       </a>
     </li>
   
@@ -2808,8 +2728,8 @@
   
   
     <li class="md-nav__item">
-      <a href="views/workspace/" class="md-nav__link">
-        Workspace
+      <a href="views/projects/" class="md-nav__link">
+        Projects
       </a>
     </li>
   
@@ -3094,13 +3014,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#layouts" class="md-nav__link">
-    Layouts
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3123,16 +3036,16 @@
 
 <h1 id="ide-overview">IDE Overview</h1>
 <h2 id="web-ide">Web IDE</h2>
-<p>The Web-based integrated development environment (Web IDE) runs directly in a browser and, therefore, does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, DevOps productivity tools, and a new Web IDE for in-system application development.</p>
-<p>The Web IDE is a composition of perspectives, each consisting of the necessary tools to accomplish a certain goal. Three of the UI elements retain their positions in all perpectives:</p>
+<p>The Web-based integrated development environment (Web IDE) runs directly in a browser and, therefore, does not require additional downloads and installations. It has a rich set of editors, viewers, wizards, DevOps productivity tools, and a new Web IDE for in-system application development.
+The Web IDE is a composition of a shell, perspectives and views, each providing the necessary features to accomplish a certain goal. The basic anatomy of the IDE shell is the following:</p>
 <ul>
-<li>top-area toolbar for the menus, theme selection, and user control</li>
-<li>sidebar on the left with shortcuts to the perspectives</li>
-<li>status bar at the bottom, for notifications and other use by the tools</li>
+<li>Shellbar - Header on top which contains brand logo and name, quick access menus, notification list popover and user control.</li>
+<li>Vertical Navigation - Sidebar on the left with shortcuts to all perspectives.</li>
+<li>Main Container - The container next to the sidebar that shows the currently selected perspective.</li>
+<li>Infobar - Positioned at the bottom, used for displaying short bits of information, errors or loading indicators.</li>
 </ul>
 <p><img alt="Workbench Perspective" src="../../images/ide_workbench_perspective.png" /></p>
-<p>The tools that constitute the perspectives are laid out in predefined regions of the work plot, but you can change their position using drag and drop. The perspectives are simply predefined configurations, hence you can open, move, or close different tools on the work plot of a perspective for your convenience. You can also be maximize, minimize, or even pop out any of the tools in a separate window.</p>
-<p>The tools are the smallest atomic parts in the Web IDE. They are referred to as views or editors, and each type is handled differently.</p>
+<p>Each perspective comes with its default views opened but you can open and close other views for your convenience, using the "Window" menu in the Shellbar.</p>
 <h2 id="perspectives">Perspectives</h2>
 <p>By default, the different views and editors are separated into a few perspectives:</p>
 <ul>
@@ -3173,7 +3086,7 @@
 <li><a href="views/repository">Repository</a></li>
 </ul>
 <h2 id="editors">Editors</h2>
-<p><a href="https://microsoft.github.io/monaco-editor/">Monaco</a> is the editor integrated into the Eclipse Dirigible Web IDE.</p>
+<p>The default code editor in Eclipse Dirigible is based on the <a href="https://microsoft.github.io/monaco-editor/">Monaco</a> editor.</p>
 <h2 id="modelers">Modelers</h2>
 <p>There are some more sophisticated visual editors:</p>
 <ul>
@@ -3182,13 +3095,6 @@
 <li><a href="modelers/entity-data">Entity Data Modeler</a></li>
 <li><a href="modelers/form-designer">Form Designer</a></li>
 </ul>
-<h2 id="layouts">Layouts</h2>
-<p>The Web IDE layout API delegates the layout management to the GoldenLayout framework. Layouts is a convenience bag of functions that significantly simplifies the work with layouts. It takes care of views registry setup, the work plot regions configuration, layout initialization, serialization, control on the layout manager, open view and open editor functions, global notifications, and others.</p>
-<p>The top-area toolbar is a composite that aggregates the drop-down menus, the theme selection, the user name, and sign-out control. It uses the corresponding UI microservices available in the ideUiCore module as Menu, User, and Theme.</p>
-<p>By convention, all UI components are built with Bootstrap 3.x CSS and the themes in the Web IDE are actually custom Bootstrap CSS. A UI microservice enables dynamic change of the CSS upon change of the theme automatically. It is available as Angular factory theme.</p>
-<p>The Angular service User provides the details for the user that are rendered by the Menu directive, such as the user name.</p>
-<p>The sidebar is Angular directive that takes care of rendering a standard sidebar in the framework template. It works with the <code>perspectives.js</code> service to populate the registered perspectives as shortcuts.</p>
-<p>The status bar is an Angular directive that renders a standard, fixed-position footer. The component is subscribed to listen to message types configured as value of the status-bar-topic attribute, or by default to status-message messages.</p>
 
 
   
@@ -3215,7 +3121,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../extensions/view/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../extensions/template/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -3224,7 +3130,7 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							View			
+							Template			
 						</div>
 					</div>
 				</a>

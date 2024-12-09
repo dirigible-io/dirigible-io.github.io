@@ -96,7 +96,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/extensions/extensions/</loc>
+         <loc>https://www.dirigible.io/api/extensions/extension-point/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/extensions/extensions-client/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/extensions/extensions-server/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -196,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/api/loader/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/api/log/logging/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
@@ -271,12 +286,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/platform/repository/</loc>
+         <loc>https://www.dirigible.io/api/platform/repository-client/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/api/platform/workspace/</loc>
+         <loc>https://www.dirigible.io/api/platform/repository-hub/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/platform/repository-server/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/platform/workspace-client/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/platform/workspace-hub/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/platform/workspace-server/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -322,6 +357,106 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/api/test/runner/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/branding/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/context-menu/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/dialog/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/editor/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/layout/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/menu/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/message-hub/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/notification/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/perspective/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/shell-hub/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/shell/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/shortcuts/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/status-bar/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/subview/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/themes/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/ui-components/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/view/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/viewParameters/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.dirigible.io/api/user-interface/window/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -1615,8 +1615,6 @@
         
           
         
-          
-        
       
       
         
@@ -1661,20 +1659,6 @@
     <li class="md-nav__item">
       <a href="../concepts/entity-service/" class="md-nav__link">
         Entity Service
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/extensions/" class="md-nav__link">
-        Extension Definitions
       </a>
     </li>
   
@@ -1829,12 +1813,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -1863,50 +1841,8 @@
   
   
     <li class="md-nav__item">
-      <a href="editor/" class="md-nav__link">
-        Editor
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="perspective/" class="md-nav__link">
-        Perspective
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="template/" class="md-nav__link">
         Template
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="view/" class="md-nav__link">
-        View
       </a>
     </li>
   
@@ -2380,8 +2316,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_6_9">
@@ -2395,20 +2329,6 @@
           Views
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ide/views/about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -2557,7 +2477,7 @@
   
     <li class="md-nav__item">
       <a href="../ide/views/git/" class="md-nav__link">
-        Git
+        Git Projects
       </a>
     </li>
   
@@ -2808,8 +2728,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../ide/views/workspace/" class="md-nav__link">
-        Workspace
+      <a href="../ide/views/projects/" class="md-nav__link">
+        Projects
       </a>
     </li>
   
@@ -3075,8 +2995,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ide" class="md-nav__link">
-    IDE
+  <a href="#client" class="md-nav__link">
+    Client
   </a>
   
 </li>
@@ -3088,22 +3008,23 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    Events
+          <li class="md-nav__item">
+  <a href="#extension-point-api" class="md-nav__link">
+    Extension Point API
   </a>
   
-    <nav class="md-nav" aria-label="Events">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#ide_1" class="md-nav__link">
-    IDE
+  <a href="#extensions-api-server" class="md-nav__link">
+    Extensions API (Server)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-api-client" class="md-nav__link">
+    Extensions API (Client)
   </a>
   
 </li>
@@ -3136,27 +3057,33 @@
 <h1 id="extensions-overview">Extensions Overview</h1>
 <h2 id="extensibility">Extensibility</h2>
 <p>Extensibility is an important requirement for business applications built to follow custom processes in Line of Business(LoB) areas. In the cloud toolkit, a generic description of the extension points and extensions is provided without explicitly defining the contract. This a simple but powerful way to define extensions.</p>
-<p>To learn more about the <code>Extensions</code> concept, click <a href="../concepts/extensions/">here</a></p>
 <h2 id="extension-points">Extension Points</h2>
-<h3 id="ide">IDE</h3>
+<h3 id="client">Client</h3>
 <ul>
-<li><a href="perspective/">ide-perspective</a></li>
-<li><a href="view/">ide-view</a></li>
-<li><a href="editor/">ide-editor</a></li>
-<li><a href="template/">ide-template</a></li>
-<li>ide-menu</li>
-<li>ide-themes</li>
-<li>ide-workspace-menu-new-template</li>
-<li>api-modules</li>
-<li>ide-operations-menu</li>
-<li>ide-documents-content-type</li>
-<li>ide-documents-menu</li>
-<li>ide-git-menu</li>
-<li>ide-terminal-menu</li>
-<li>ide-discussions-menu</li>
-<li>ide-database-menu</li>
-<li>ide-repository-menu</li>
+<li><a href="../platform-ui/shell.md">platform-shells</a></li>
+<li><a href="../platform-ui/perspective.md">platform-perspectives</a></li>
+<li><a href="../platform-ui/perspective.md">platform-settings</a></li>
+<li><a href="../platform-ui/view.md">platform-views</a></li>
+<li><a href="../platform-ui/subview.md">platform-subviews</a></li>
+<li><a href="../platform-ui/window.md">platform-windows</a></li>
+<li><a href="../platform-ui/editor.md">platform-editors</a></li>
+<li><a href="../platform-ui/menu.md">platform-menus</a></li>
+<li><a href="../platform-ui/theme.md">platform-themes</a></li>
+<li><a href="template/">platform-templates</a></li>
 </ul>
+<p>You can override and/or extend the default extension points by adding an AngularJS constant named <code>extensionPoints</code> to your shell's module:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformShell&#39;</span><span class="p">]).</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;extensionPoints&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">perspectives</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-perspectives&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">shells</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-shells&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-views&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">subviews</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-subviews&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">editors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-editors&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">menus</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-menus&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">windows</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-windows&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">themes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-themes&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">settings</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-settings&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="p">}).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ShellController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+</code></pre></div>
 <h3 id="server">Server</h3>
 <ul>
 <li>ide-workspace-on-save</li>
@@ -3165,35 +3092,12 @@
 <li>ide-workspace-before-unpublish</li>
 <li>ide-workspace-after-unpublish</li>
 </ul>
-<h2 id="events">Events</h2>
-<h3 id="ide_1">IDE</h3>
-<ul>
-<li>editor.file.saved</li>
-<li>editor.file.dirty</li>
-<li>status.message</li>
-<li>status.caret</li>
-<li>status.error</li>
-<li>database.database.selection.changed</li>
-<li>database.datasource.selection.changed</li>
-<li>database.sql.execute</li>
-<li>database.sql.run</li>
-<li>git.repository.run</li>
-<li>workspace.file.selected</li>
-<li>workspace.file.created</li>
-<li>workspace.file.open</li>
-<li>workspace.file.pull</li>
-<li>workspace.file.deleted</li>
-<li>workspace.file.renamed</li>
-<li>workspace.file.moved</li>
-<li>workspace.file.copied</li>
-<li>workspace.file.properties</li>
-<li>workspace.file.published</li>
-<li>workspace.project.exported</li>
-<li>repository.resource.selected</li>
-<li>repository.resource.created</li>
-<li>repository.resource.open</li>
-<li>repository.resource.deleted</li>
-</ul>
+<h3 id="extension-point-api">Extension Point API</h3>
+<p>See <a href="/api/extensions/extension-point/">Extension Point</a></p>
+<h3 id="extensions-api-server">Extensions API (Server)</h3>
+<p>See <a href="/api/extensions/extensions-server/">Extensions (Server)</a></p>
+<h3 id="extensions-api-client">Extensions API (Client)</h3>
+<p>See <a href="/api/extensions/extensions-client/">Extensions (Client)</a></p>
 
 
   
@@ -3235,13 +3139,13 @@
 				</a>
     		
 			
-				<a href="editor/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="template/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Editor
+							Template
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">

@@ -1615,8 +1615,6 @@
         
           
         
-          
-        
       
       
         
@@ -1661,20 +1659,6 @@
     <li class="md-nav__item">
       <a href="../../development/concepts/entity-service/" class="md-nav__link">
         Entity Service
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../development/concepts/extensions/" class="md-nav__link">
-        Extension Definitions
       </a>
     </li>
   
@@ -1827,12 +1811,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -1861,50 +1839,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/extensions/editor/" class="md-nav__link">
-        Editor
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../development/extensions/perspective/" class="md-nav__link">
-        Perspective
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../development/extensions/template/" class="md-nav__link">
         Template
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../development/extensions/view/" class="md-nav__link">
-        View
       </a>
     </li>
   
@@ -2378,8 +2314,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_6_9">
@@ -2393,20 +2327,6 @@
           Views
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../development/ide/views/about/" class="md-nav__link">
-        About
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -2555,7 +2475,7 @@
   
     <li class="md-nav__item">
       <a href="../../development/ide/views/git/" class="md-nav__link">
-        Git
+        Git Projects
       </a>
     </li>
   
@@ -2806,8 +2726,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/ide/views/workspace/" class="md-nav__link">
-        Workspace
+      <a href="../../development/ide/views/projects/" class="md-nav__link">
+        Projects
       </a>
     </li>
   
@@ -3219,16 +3139,6 @@
 <li>Bilateral extension-points and extensions descriptors.</li>
 </ul>
 </details>
-<details class="info">
-<summary>Web IDE</summary>
-<p>Why it looks like Eclipse in a web browser? Why not more webby style?</p>
-<ul>
-<li>Lower barrier for Eclipse developers.</li>
-<li>Overall experience comfortable for developers proven for years from on-premise tools.</li>
-<li>Using of Resource like API and concepts.</li>
-<li>There are some themes you can choose from the menu for more "webby" look and feel.</li>
-</ul>
-</details>
 <h2 id="decisions">Decisions</h2>
 <details class="important" open="open">
 <summary>GraalJS</summary>
@@ -3238,19 +3148,6 @@
 <!-- - Supports <a href="http://wiki.commonjs.org/wiki/CommonJS">CommonJS</a> for dynamic loading of modules. --></li>
 <li>Built-in debugger with simple API.</li>
 <li>Possibility to invoke standard Java objects directly, which is not recommended of course.</li>
-</ul>
-</details>
-<details class="important">
-<summary>Angular, Bootstrap &amp; GoldenLayout</summary>
-<p>Why moved from RAP to Angular, Bootstrap, GoldenLayout web frameworks?</p>
-<p><a href="https://www.eclipse.org/rap/">RAP</a> is an Eclipse framework providing a rendering of the user interface for standard SWT/JFace widgets remotely e.g. in a browser. It brings for us:</p>
-<ul>
-<li>RAP is a mature framework and depends on a reliable API, but not so attractive for pure web developers (HTML, JavaScript, etc.).</li>
-<li>RAP is a stable framework with great support, but also it could be said for Angular 1.x and Bootstrap 3.x<br></li>
-<li>RAP rely on the standard modularization – OSGi, plugins, but comes with the complexity of Maven, Tycho, OSGi, Orbit, etc. integration.</li>
-<li>In RAP developers can write mostly in pure Java with all the benefits it brings by itself, but for web developers it turns out it is not a benefit, but a drawback.</li>
-<li>In RAP one can have a single sourcing components - reuse of existing functionality written as Eclipse plugins, which has never happen in the reality.</li>
-<li>RAP has possibility to integrate non-Java modules as well (pure client side HTML and JavaScript) via the browser component, but it is much more complex than pure web coding.</li>
 </ul>
 </details>
 <details class="important">

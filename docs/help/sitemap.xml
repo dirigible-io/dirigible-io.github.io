@@ -66,11 +66,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/development/concepts/extensions/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/help/development/concepts/generation/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
@@ -116,22 +111,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/development/extensions/editor/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/help/development/extensions/perspective/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/help/development/extensions/template/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/help/development/extensions/view/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -226,11 +206,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://www.dirigible.io/help/development/ide/views/about/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://www.dirigible.io/help/development/ide/views/access/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
@@ -321,6 +296,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.dirigible.io/help/development/ide/views/projects/</loc>
+         <lastmod>2024-12-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.dirigible.io/help/development/ide/views/registry/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
@@ -367,11 +347,6 @@
     </url>
     <url>
          <loc>https://www.dirigible.io/help/development/ide/views/websockets/</loc>
-         <lastmod>2024-12-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://www.dirigible.io/help/development/ide/views/workspace/</loc>
          <lastmod>2024-12-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
