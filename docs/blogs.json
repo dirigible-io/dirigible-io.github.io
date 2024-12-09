@@ -1,10 +1,5 @@
 [
   {
-    "location": "2024/04/05/custom-stack.md",
-    "title": "Building Your Own Eclipse Dirigible Stack",
-    "description": "\"Building Your Own Eclipse Dirigible Stack: A Step-by-Step Guide\""
-  },
-  {
     "location": "2024/10/21/reports.md",
     "title": "Making Reports in Eclipse Dirigible",
     "description": "\"Making Reports with small effort using Eclipse Dirigible: Step-by-Step Tutorial\""
@@ -23,5 +18,10 @@
     "location": "2024/12/03/open-telemetry.md",
     "title": "Eclipse Dirigible Observability Unlocked Using OpenTelemetry",
     "description": "\"Observability Unlocked: Metrics, Traces and Logs in Eclipse Dirigible Using OpenTelemetry\""
+  },
+  {
+    "location": "2024/12/04/spring-boot-admin.md",
+    "title": "Monitoring Eclipse Dirigible with Spring Boot Admin",
+    "description": "\"Monitoring Eclipse Dirigible with Spring Boot Admin\""
   }
 ]
