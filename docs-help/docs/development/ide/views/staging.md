@@ -14,4 +14,5 @@ The **Staging** view provides a visual alternative of executing Git commands fro
 * ```Commit Message``` - provide details about the changes included in your commit.
 * ```Username```, ```Password```, ```Email``` - provide your authentication credentials.
 * ```Commit & Push``` - commit your changes and directly push them to your remote repository.
+* ```Push``` - push changes to your remote repository.
 * ```Commit``` - commit your changes without pushing them. This way, you can organize your changes in several commits and push them together.

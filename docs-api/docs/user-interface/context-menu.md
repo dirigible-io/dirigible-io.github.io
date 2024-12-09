@@ -105,11 +105,8 @@ Function     | Description | Returns
 
 <dl>
 <dt><a href="#MenuItem">MenuItem</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#MenuSublist">MenuSublist</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#MenuObject">MenuObject</a> : <code>Object</code></dt>
-</dd>
 </dl>
 
 !!! Note
@@ -117,7 +114,7 @@ Function     | Description | Returns
 
 <a name="MenuItem"></a>
 
-## MenuItem : <code>Object</code>
+### MenuItem : <code>Object</code>
 Menu item parameter.
 
 **Properties**
@@ -136,7 +133,7 @@ Menu item parameter.
 
 <a name="MenuSublist"></a>
 
-## MenuSublist : <code>Object</code>
+### MenuSublist : <code>Object</code>
 Menu sublist parameter.
 
 **Properties**
@@ -153,7 +150,7 @@ Menu sublist parameter.
 
 <a name="MenuObject"></a>
 
-## MenuObject : <code>Object</code>
+### MenuObject : <code>Object</code>
 Main menu parameter.
 
 **Properties**

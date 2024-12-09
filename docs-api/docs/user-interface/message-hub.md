@@ -47,11 +47,8 @@ Function     | Description | Returns
 
 <dl>
 <dt><a href="#InitObject">InitObject</a> : <code>Object</code></dt>
-<dd></dd>
 <dt><a href="#PostObject">PostObject</a> : <code>Object</code></dt>
-<dd></dd>
 <dt><a href="#ListenerObject">ListenerObject</a> : <code>Object</code></dt>
-<dd></dd>
 </dl>
 
 !!! Note
@@ -59,7 +56,7 @@ Function     | Description | Returns
 
 <a name="InitObject"></a>
 
-## InitObject : <code>Object</code>
+### InitObject : <code>Object</code>
 
 **Properties**
 
@@ -71,7 +68,7 @@ Function     | Description | Returns
 
 <a name="PostObject"></a>
 
-## PostObject : <code>Object</code>
+### PostObject : <code>Object</code>
 
 **Properties**
 
@@ -82,7 +79,7 @@ Function     | Description | Returns
 
 <a name="ListenerObject"></a>
 
-## ListenerObject : <code>Object</code>
+### ListenerObject : <code>Object</code>
 
 **Properties**
 

@@ -21,6 +21,7 @@ There are a few main components that are used when creating UI applications usin
 * [Menu](menu)
 * [ContextMenuHub](context-menu)
 * [LayoutHub](layout)
+* [ShellHub](shell)
 * [NotificationHub](notification)
 * [StatusBarHub](status-bar)
 * [ThemingHub](themes)

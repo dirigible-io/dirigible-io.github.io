@@ -16,8 +16,6 @@ Dirigible allows you to change the branding of the platform. You will have to re
 
 ### Basic Usage
 
-Create a file named `branding.js` in the root of the project.
-
 The branding object:
 
 ```javascript

@@ -67,15 +67,10 @@ Function     | Description | Returns
 
 <dl>
 <dt><a href="#AlertObject">AlertObject</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#DialogObject">DialogObject</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#FormItem">FormItem</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#FormObject">FormObject</a> : <code>Object</code></dt>
-</dd>
 <dt><a href="#WindowObject">WindowObject</a> : <code>Object</code></dt>
-</dd>
 </dl>
 
 !!! Note
@@ -83,7 +78,7 @@ Function     | Description | Returns
 
 <a name="AlertObject"></a>
 
-## AlertTypes : <code>Object</code>
+### AlertTypes : <code>Object</code>
 
 **Properties**
 
@@ -95,7 +90,7 @@ Function     | Description | Returns
 | Warning | <code>string</code> | Warning type. |
 | Information | <code>string</code> | Information type. |
 
-## AlertObject : <code>Object</code>
+### AlertObject : <code>Object</code>
 
 **Properties**
 
@@ -109,7 +104,7 @@ Function     | Description | Returns
 
 <a name="DialogObject"></a>
 
-## DialogObject : <code>Object</code>
+### DialogObject : <code>Object</code>
 
 **Properties**
 
@@ -125,7 +120,7 @@ Function     | Description | Returns
 
 <a name="FormItem"></a>
 
-## FormItem : <code>Object</code>
+### FormItem : <code>Object</code>
 A form item can describe several types of form inputs. Some properties are common for all and some are type specific.
 
 **Properties**
@@ -157,7 +152,7 @@ A form item can describe several types of form inputs. Some properties are commo
 
 <a name="FormObject"></a>
 
-## FormObject : <code>Object</code>
+### FormObject : <code>Object</code>
 
 **Properties**
 
@@ -178,7 +173,7 @@ A form item can describe several types of form inputs. Some properties are commo
 
 <a name="WindowObject"></a>
 
-## WindowObject : <code>Object</code>
+### WindowObject : <code>Object</code>
 
 **Properties**
 

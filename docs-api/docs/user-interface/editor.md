@@ -121,7 +121,6 @@ const editor = angular.module('editor', [
     'WorkspaceService']); // Include the WorkspaceService for working with files
 editor.controller('EditorController', function ($scope, $window, WorkspaceService, ViewParameters) {
     const statusBarHub = new StatusBarHub(); // This is an API based on MessageHub for communicating with the shell's status bar
-    const workspaceHub = new WorkspaceHub(); // This is an API based on MessageHub for triggering and receiving file related events
     const layoutHub = new LayoutHub(); // This is an API based on MessageHub for communicating with the layout
     $scope.state = {
         isBusy: true,
@@ -139,7 +138,7 @@ editor.controller('EditorController', function ($scope, $window, WorkspaceServic
 
     // Whenever there is a change to the file model, mark the file as dirty
     $scope.modelChange = () => {
-        workspaceHub.setFileDirty({
+        layoutHub.setEditorDirty({
             path: $scope.dataParameters.filePath,
             dirty: true,
         });
@@ -151,7 +150,7 @@ editor.controller('EditorController', function ($scope, $window, WorkspaceServic
             $scope.state.isBusy = true;
             WorkspaceService.saveContent($scope.dataParameters.filePath, $scope.file.model).then(() => {
                 // Clean the dirty status, once the file has been saved.
-                workspaceHub.setFileDirty({
+                layoutHub.setEditorDirty({
                     path: $scope.dataParameters.filePath,
                     dirty: false,
                 });
@@ -192,7 +191,7 @@ editor.controller('EditorController', function ($scope, $window, WorkspaceServic
     });
 
     // If the file changes (rename, move, etc) outside the editor, parameters will be changed and should be reloaded.
-    workspaceHub.onReloadEditorParams((data) => {
+    layoutHub.onReloadEditorParams((data) => {
         if (data.path === $scope.dataParameters.filePath) {
             $scope.$evalAsync(() => {
                 $scope.dataParameters = ViewParameters.get();

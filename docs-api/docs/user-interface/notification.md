@@ -42,7 +42,7 @@ Function     | Description | Returns
 
 <a name="NotifyObject"></a>
 
-## NotifyObject : <code>Object</code>
+### NotifyObject : <code>Object</code>
 
 | Param | Type | Description |
 | --- | --- | --- |

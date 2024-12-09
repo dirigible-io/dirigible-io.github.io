@@ -114,7 +114,7 @@ nav:
           - Discussions: 'development/ide/views/discussions.md'
           - Documents: 'development/ide/views/documents.md'
           - Extensions: 'development/ide/views/extensions.md'
-          - Git: 'development/ide/views/git.md'
+          - Git Projects: 'development/ide/views/git.md'
           - History: 'development/ide/views/history.md'
           - Import: development/ide/views/import.md
           - Jobs: 'development/ide/views/jobs.md'

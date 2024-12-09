@@ -8,12 +8,7 @@ group: help-features
 View
 ===
 
-Views are the smallest atomic part in the Dirigible UI platform. Views are displayed inside the layout of a [perspective](../perspective). There are four main types of views and each type is handled differently:
-
-* View - Default.
-* Subview - View that is meant to be embedded inside another view.
-* Editor - View that is used for modifying files.
-* Window - View that is opened inside a dialog window.
+Views are the most important part of the Dirigible UI platform. Views can be displayed inside layouts, [perspectives](../perspective), dialogs and even outside the Dirigible shell as standalone web apps.
 
 Extension
 ---
