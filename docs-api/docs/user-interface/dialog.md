@@ -1,8 +1,8 @@
 ---
-title: Dialog
+title: DialogHub
 ---
 
-Dialog
+DialogHub
 ===
 
 Controls system dialogs. Extends [MessageHub](../message-hub).

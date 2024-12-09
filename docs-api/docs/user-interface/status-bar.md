@@ -1,8 +1,8 @@
 ---
-title: Status Bar
+title: StatusBarHub
 ---
 
-Status Bar
+StatusBarHub
 ===
 
 Used to control the status bar. Extends [MessageHub](../message-hub).

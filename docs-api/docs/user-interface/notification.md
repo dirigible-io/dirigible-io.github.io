@@ -1,8 +1,8 @@
 ---
-title: Notification
+title: NotificationHub
 ---
 
-Notification
+NotificationHub
 ===
 
 Used to send notifications. Extends [MessageHub](../message-hub).
