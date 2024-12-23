@@ -2655,6 +2655,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#focusparams-object" class="md-nav__link">
+    FocusParams : Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#editordirtyparams-object" class="md-nav__link">
     EditorDirtyParams : Object
   </a>
@@ -3201,6 +3208,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#focusparams-object" class="md-nav__link">
+    FocusParams : Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#editordirtyparams-object" class="md-nav__link">
     EditorDirtyParams : Object
   </a>
@@ -3413,6 +3427,16 @@
 <td><em>function</em></td>
 </tr>
 <tr>
+<td><strong>focusEditor(FocusParams)</strong></td>
+<td>Tells an editor that it has been focused.</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>onFocusEditor()</strong></td>
+<td>Triggered when an editor gains focus.</td>
+<td><em>function</em></td>
+</tr>
+<tr>
 <td><strong>setEditorDirty(EditorDirtyParams)</strong></td>
 <td>Sends a message containing information on which editor has to be set to dirty.</td>
 <td>-</td>
@@ -3472,6 +3496,7 @@
 <dt><a href="#OpenEditorParams">OpenEditorParams</a> : <code>Object</code></dt>
 <dt><a href="#PathParams">PathParams</a> : <code>Object</code></dt>
 <dt><a href="#Params">Params</a> : <code>Object</code></dt>
+<dt><a href="#FocusParams">FocusParams</a> : <code>Object</code></dt>
 <dt><a href="#EditorDirtyParams">EditorDirtyParams</a> : <code>Object</code></dt>
 <dt><a href="#GetOpenedParams">GetOpenedParams</a> : <code>Object</code></dt>
 </dl>
@@ -3623,6 +3648,35 @@
 <td>[params]</td>
 <td><code>Object.&lt;any, any&gt;</code></td>
 <td>Extra parameters.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="FocusParams"></a></p>
+<h3 id="focusparams-object">FocusParams : <code>Object</code></h3>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>Editor tab id.</td>
+</tr>
+<tr>
+<td>[path]</td>
+<td><code>string</code></td>
+<td>Full file path, including file name.</td>
+</tr>
+<tr>
+<td>[params]</td>
+<td><code>object</code></td>
+<td>Custom parameters.</td>
 </tr>
 </tbody>
 </table>

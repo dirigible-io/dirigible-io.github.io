@@ -2780,6 +2780,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typedefs" class="md-nav__link">
+    Typedefs
+  </a>
+  
+    <nav class="md-nav" aria-label="Typedefs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#params-object" class="md-nav__link">
+    Params : Object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     Example
   </a>
@@ -3068,6 +3088,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typedefs" class="md-nav__link">
+    Typedefs
+  </a>
+  
+    <nav class="md-nav" aria-label="Typedefs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#params-object" class="md-nav__link">
+    Params : Object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     Example
   </a>
@@ -3104,7 +3144,8 @@
 </div>
 <ul>
 <li>Module: <code>platform-core</code></li>
-<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js">platform-core/ui/platform/view.js</a></li>
+<li>Source 1: <a href="https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js">platform-core/ui/platform/view.js</a></li>
+<li>Source 2: <a href="https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view-parameters.js">platform-core/utilities/view-parameters.js</a></li>
 <li>Web Link: <code>/services/web/platform-core/ui/platform/view.js</code></li>
 <li>Status: <code>stable</code></li>
 <li>Group: <code>platform</code></li>
@@ -3114,11 +3155,8 @@
 <p>To initialize it, place this in your code:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">exampleView</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleViewController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">ViewParameters</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{...});</span><span class="w"></span>
 </code></pre></div>
-<p>If you are making a custom view, you can manually get the parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">dataParameters</span><span class="p">;</span><span class="w"></span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">frameElement</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">frameElement</span><span class="p">.</span><span class="nx">hasAttribute</span><span class="p">(</span><span class="s1">&#39;data-parameters&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">dataParameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">$window</span><span class="p">.</span><span class="nx">frameElement</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;data-parameters&#39;</span><span class="p">));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<p>If you are making a custom view, you can use the second source (Source 2):</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/platform-core/utilities/view-parameters.js&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <h2 id="functions">Functions</h2>
 <hr />
@@ -3132,14 +3170,58 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>get()</strong></td>
+<td><strong>ViewParameters.get()</strong></td>
 <td>Returns all view parameters.</td>
-<td><em>Promise</em></td>
+<td><em>Object</em></td>
+</tr>
+<tr>
+<td><strong>getViewParameters(Params)</strong></td>
+<td>Returns all view parameters.</td>
+<td><em>Object</em></td>
 </tr>
 </tbody>
 </table>
+<h2 id="typedefs">Typedefs</h2>
+<dl>
+<dt><a href="#Params">Params</a> : <code>Object</code></dt>
+</dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Params in square brackets are optional.</p>
+</div>
+<p><a name="Params"></a></p>
+<h3 id="params-object">Params : <code>Object</code></h3>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[vframe]</td>
+<td><code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a></code></td>
+<td>iframe window.</td>
+</tr>
+<tr>
+<td>[attribute]</td>
+<td><code>string</code></td>
+<td>The attribute to get and parse. By default, it's <code>data-parameters</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Params in square brackets are optional.</p>
+</div>
 <h2 id="example">Example</h2>
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">dataParameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ViewParameters</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span><span class="w"></span>
+<span class="c1">// or for custom views (Source 2)</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">dataParameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getViewParameters</span><span class="p">();</span><span class="w"></span>
 </code></pre></div>
 
 
