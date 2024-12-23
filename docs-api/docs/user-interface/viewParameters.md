@@ -11,7 +11,8 @@ In Dirigible all [Views](/help/development/platform-ui/view/), [Subviews](/help/
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/view.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js)
+- Source 1: [platform-core/ui/platform/view.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js)
+- Source 2: [platform-core/utilities/view-parameters.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view-parameters.js)
 - Web Link: `/services/web/platform-core/ui/platform/view.js`
 - Status: `stable`
 - Group: `platform`
@@ -26,13 +27,10 @@ To initialize it, place this in your code:
 exampleView.controller('ExampleViewController', ($scope, ViewParameters) => {...});
 ```
 
-If you are making a custom view, you can manually get the parameters:
+If you are making a custom view, you can use the second source (Source 2):
 
-```javascript
-let dataParameters;
-if (window.frameElement && window.frameElement.hasAttribute('data-parameters')) {
-    dataParameters = JSON.parse($window.frameElement.getAttribute('data-parameters'));
-}
+```html
+<link type="text/css" rel="stylesheet" href="/services/js/platform-core/utilities/view-parameters.js" />
 ```
 
 ## Functions
@@ -41,10 +39,36 @@ if (window.frameElement && window.frameElement.hasAttribute('data-parameters')) 
 
 Function     | Description | Returns
 ------------ | ----------- | --------
-**get()**   | Returns all view parameters. | *Promise*
+**ViewParameters.get()**   | Returns all view parameters. | *Object*
+**getViewParameters(Params)**   | Returns all view parameters. | *Object*
+
+## Typedefs
+
+<dl>
+<dt><a href="#Params">Params</a> : <code>Object</code></dt>
+</dl>
+
+!!! Note
+    Params in square brackets are optional.
+
+<a name="Params"></a>
+
+### Params : <code>Object</code>
+
+**Properties**
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [vframe] | <code>[window](https://developer.mozilla.org/en-US/docs/Web/API/Window)</code> | iframe window. |
+| [attribute] | <code>string</code> | The attribute to get and parse. By default, it's `data-parameters`. |
+
+!!! Note
+	Params in square brackets are optional.
 
 ## Example
 
 ```javascript
 let dataParameters = ViewParameters.get();
+// or for custom views (Source 2)
+let dataParameters = getViewParameters();
 ```

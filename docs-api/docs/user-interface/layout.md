@@ -67,6 +67,8 @@ Function     | Description | Returns
 **onCloseEditor(handlerFunc)**   | Triggered when an editor has to be closed. | *function*
 **closeAllEditors(Params)**   | Sends a message when all editors should be closed. | -
 **onCloseAllEditors(handlerFunc)**   | Triggered when editors have to be closed. | *function*
+**focusEditor(FocusParams)**   | Tells an editor that it has been focused. | -
+**onFocusEditor()**   | Triggered when an editor gains focus. | *function*
 **setEditorDirty(EditorDirtyParams)**   | Sends a message containing information on which editor has to be set to dirty. | -
 **onSetEditorDirty(handlerFunc)**   | Triggered when an editor has to be set as dirty. | *function*
 **isEditorDirty(PathParams)**   | Gets the dirty state of an editor. | *Promise*
@@ -87,6 +89,7 @@ Function     | Description | Returns
 <dt><a href="#OpenEditorParams">OpenEditorParams</a> : <code>Object</code></dt>
 <dt><a href="#PathParams">PathParams</a> : <code>Object</code></dt>
 <dt><a href="#Params">Params</a> : <code>Object</code></dt>
+<dt><a href="#FocusParams">FocusParams</a> : <code>Object</code></dt>
 <dt><a href="#EditorDirtyParams">EditorDirtyParams</a> : <code>Object</code></dt>
 <dt><a href="#GetOpenedParams">GetOpenedParams</a> : <code>Object</code></dt>
 </dl>
@@ -154,6 +157,18 @@ Function     | Description | Returns
 | Param | Type | Description |
 | --- | --- | --- |
 | [params] | <code>Object.&lt;any, any&gt;</code> | Extra parameters. |
+
+<a name="FocusParams"></a>
+
+### FocusParams : <code>Object</code>
+
+**Properties**
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | Editor tab id. |
+| [path] | <code>string</code> | Full file path, including file name. |
+| [params] | <code>object</code> | Custom parameters. |
 
 <a name="FileDirtyParams"></a>
 

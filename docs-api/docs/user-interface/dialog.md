@@ -61,6 +61,7 @@ Function     | Description | Returns
 **showFormDialog(FormObject)**   | Opens a form dialog. | *Promise*
 **onFormDialog(handlerFunc)**   | Registers a listener. Triggered when a form dialog should be shown. Returns a function to unregister the listener. | *function*
 **showWindow(WindowObject)**   | Opens a dialog window. | *Promise*
+**closeWindow()**   | Closes the currently shown window. Usually used inside the window itself when the `closeButton` option is set to false. | -
 **onWindow(handlerFunc)**   | Registers a listener. Triggered when a dialog window should be shown. Returns a function to unregister the listener. | *function*
 
 ## Typedefs
