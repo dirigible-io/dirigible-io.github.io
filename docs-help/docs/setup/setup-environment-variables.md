@@ -210,6 +210,8 @@ Parameter     | Description                                                     
 **DS1_SCHEMA**	| The default schema used for the exemplary `DS1` database connection                                                   | _``_
 **DS1_USERNAME**	| The username used for the exemplary `DS1` database connection                                                   | _``_
 **DS1_PASSWORD**	| The password used for the exemplary `DS1` database connection                                                   | _``_
+**DS1_MAX_LIFETIME_MINUTES**	| The max lifetime in minutes used for the exemplary `DS1` database connection                                                   | _`15`_
+**DS1_LEAK_DETECTION_THRESHOLD_MINUTES**	| The leak detection threshold in minutes used for the exemplary `DS1` database connection                                                   | _`1`_
 
 #### Database H2
 
