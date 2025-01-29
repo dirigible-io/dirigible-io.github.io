@@ -13,15 +13,15 @@ Extensibility is an important requirement for business applications built to fol
 
 ### Client
 
-  - [platform-shells](../platform-ui/shell.md)
-  - [platform-perspectives](../platform-ui/perspective.md)
-  - [platform-settings](../platform-ui/perspective.md)
-  - [platform-views](../platform-ui/view.md)
-  - [platform-subviews](../platform-ui/subview.md)
-  - [platform-windows](../platform-ui/window.md)
-  - [platform-editors](../platform-ui/editor.md)
-  - [platform-menus](../platform-ui/menu.md)
-  - [platform-themes](../platform-ui/theme.md)
+  - [platform-shells](/api/user-interface/shell/)
+  - [platform-perspectives](/api/user-interface/perspective/)
+  - platform-settings
+  - [platform-views](/api/user-interface/view/)
+  - [platform-subviews](/api/user-interface/subview/)
+  - [platform-windows](/api/user-interface/window/)
+  - [platform-editors](/api/user-interface/editor/)
+  - [platform-menus](/api/user-interface/menu/)
+  - [platform-themes](/api/user-interface/themes/)
   - [platform-templates](template/)
 
 You can override and/or extend the default extension points by adding an AngularJS constant named `extensionPoints` to your shell's module:
