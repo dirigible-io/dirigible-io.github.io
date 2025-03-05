@@ -116,6 +116,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_KEYCLOAK_CLIENT_ID** | The Keycloak Client ID _(e.g. `my-client`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
 **DIRIGIBLE_KEYCLOAK_CONFIDENTIAL_PORT** | The Keycloak Confidential Port _(e.g. `443`)_ | _`-`_
+**DIRIGIBLE_MULTI_TENANT_MODE_KEYCLOAK_SINGLE_REALM** | Whether single realm multitenancy mode is enabled | _`false`_
 **SERVER_MAXHTTPHEADERSIZE** | The HTTP header max size _(e.g. `48000`)_ | _`Default for the underlying server (e.g. Tomcat)`_
 
 !!! Note
