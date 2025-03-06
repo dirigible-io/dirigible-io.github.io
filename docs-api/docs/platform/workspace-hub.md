@@ -9,7 +9,7 @@ The workspace hub is used to send and receive events on the client, regarding wo
 
 === "Overview"
 - Module: `platform-core`
-- Source: [service-workspace/workspace-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/service-workspace/src/main/resources/META-INF/dirigible/service-workspace/workspace-hub.js)
+- Source: [service-workspace/workspace-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/service-workspace/src/main/resources/META-INF/dirigible/service-workspace/workspace-hub.js)
 - Web Link: `/services/web/service-workspace/workspace-hub.js`
 - Status: `stable`
 - Group: `platform`

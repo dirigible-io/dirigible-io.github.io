@@ -7,7 +7,7 @@ Custom Stack - Branding
 
 ## Overview
 
-This section will guide you through the process of rebranding of Eclipse Dirigible Custom Stack.
+This section will guide you through the process of rebranding a custom Eclipse Dirigible stack.
 
 ### Steps
 
@@ -31,7 +31,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 			<modelVersion>4.0.0</modelVersion>
 
 			<parent>
-				<groupId>io.dirigible.samples</groupId>
+				<groupId>com.custom.stack</groupId>
 				<artifactId>custom-stack-parent</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 				<relativePath>../pom.xml</relativePath>
@@ -76,18 +76,19 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 
 			<name>custom - stack - parent</name>
 			<description>Custom Stack - Sample</description>
-			<groupId>io.dirigible.samples</groupId>
+			<groupId>com.custom.stack</groupId>
 			<artifactId>custom-stack-parent</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 			<packaging>pom</packaging>
 
-			<inceptionYear>2024</inceptionYear>
+			<inceptionYear>2025</inceptionYear>
 
-			<url>https://www.dirigible.io</url>
+			<url>http://your-custom-organization.com</url>
 			<organization>
-				<name>Eclipse Foundation</name>
-				<url>https://www.eclipse.org</url>
+				<name>custom organization</name>
+				<url>http://your-custom-organization.com</url>
 			</organization>
+
 			<scm>
 				<url>https://github.com/dirigiblelabs/tutorial-custom-stack</url>
 			</scm>
@@ -157,7 +158,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-actuator</artifactId>
 				</dependency>
-
+				
 				<dependency>
 					<groupId>org.springframework.security</groupId>
 					<artifactId>spring-security-web</artifactId>
@@ -186,43 +187,10 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 					<artifactId>jackson-datatype-joda</artifactId>
 				</dependency>
 
-				<!-- Swagger -->
-				<dependency>
-					<groupId>org.springdoc</groupId>
-					<artifactId>springdoc-openapi-ui</artifactId>
-					<version>${org.springdoc.openapi.ui.version}</version>
-				</dependency>
-
 				<!-- Data Access -->
 				<dependency>
 					<groupId>com.h2database</groupId>
 					<artifactId>h2</artifactId>
-				</dependency>
-
-				<!-- WebJars -->
-				<dependency>
-					<groupId>org.webjars</groupId>
-					<artifactId>webjars-locator</artifactId>
-					<version>${webjars-locator}</version>
-				</dependency>
-
-				<!-- Olingo -->
-				<dependency>
-					<groupId>org.apache.olingo</groupId>
-					<artifactId>olingo-odata2-lib</artifactId>
-					<version>${olingo.version}</version>
-					<type>pom</type>
-					<exclusions>
-						<exclusion>
-							<groupId>javax.ws.rs</groupId>
-							<artifactId>javax.ws.rs-api</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
-
-				<dependency>
-					<groupId>com.google.code.gson</groupId>
-					<artifactId>gson</artifactId>
 				</dependency>
 
 			</dependencies>
@@ -230,11 +198,9 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 			<dependencyManagement>
 				<dependencies>
 					<dependency>
-						<groupId>org.eclipse.dirigible</groupId>
-						<artifactId>dirigible-dependencies</artifactId>
-						<version>${dirigible.version}</version>
-						<type>pom</type>
-						<scope>import</scope>
+						<groupId>com.custom.stack</groupId>
+						<artifactId>custom-stack-branding</artifactId>
+						<version>${project.version}</version>
 					</dependency>
 				</dependencies>
 			</dependencyManagement>
@@ -289,183 +255,35 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 			<properties>
 				<project.title>custom stack</project.title>
 
-				<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-				<dirigible.version>10.2.7</dirigible.version>
-
-				<java.version>17</java.version>
-				<maven.compiler.source>17</maven.compiler.source>
-				<maven.compiler.target>17</maven.compiler.target>
-
-				<maven.resource.plugin.version>3.3.0</maven.resource.plugin.version>
-				<maven.clean.plugin.version>3.2.0</maven.clean.plugin.version>
-				<maven.clean.plugin.directory>src/main/resources/META-INF/dirigible</maven.clean.plugin.directory>
-				<maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
-				<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-				<maven.scm.plugin.version>1.13.0</maven.scm.plugin.version>
-				<scmVersionType>branch</scmVersionType>
-				<commons.io>2.11.0</commons.io>
-				<commons.codec>1.15</commons.codec>
-				<commons.lang3>3.12.0</commons.lang3>
-				<commons.exec>1.3</commons.exec>
-				<commons.text>1.10.0</commons.text>
-				<gson.version>2.10.1</gson.version>
-				<mockito.version>4.11.0</mockito.version>
-				<hamcrest.all.version>1.3</hamcrest.all.version>
-				<retrofit.version>1.8.0</retrofit.version>
-				<okhttp3.version>4.10.0</okhttp3.version>
-				<slf4j.version>1.7.36</slf4j.version>
-				<slf4j.simple.version>1.7.12</slf4j.simple.version>
-				<logback.version>1.4.5</logback.version>
-				<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
-
-				<postgresql.version>42.7.0</postgresql.version>
-				<ngdbc.version>2.20.11</ngdbc.version>
-				<snowflake.version>3.15.0</snowflake.version>
-
-				<activemq.version>5.17.3</activemq.version>
-				<jsr250-api.version>1.0</jsr250-api.version>
-				<jetty.version>9.4.48.v20220622</jetty.version>
-				<lucene.version>9.4.2</lucene.version>
-				<chemistry.version>1.1.0</chemistry.version>
-				<flowable.version>6.8.0</flowable.version>
-				<jaxb.version>2.3.0</jaxb.version>
-				<jaxws.version>2.3.3</jaxws.version>
-				<jakarta.ws.rs-api.version>2.1.5</jakarta.ws.rs-api.version>
-				<license-maven-plugin.version>4.3</license-maven-plugin.version>
-				<persistence.api.version>2.2.3</persistence.api.version>
-				<jgit.version>6.4.0.202211300538-r</jgit.version>
-				<javax.mail.api.version>1.6.4</javax.mail.api.version>
-				<olingo.version>2.0.13</olingo.version>
-				<kafka.version>3.3.1</kafka.version>
-				<git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
-				<mongodb.version>3.12.11</mongodb.version>
-				<caffeine.version>3.1.2</caffeine.version>
-				<liquibase-core.version>4.16.1</liquibase-core.version>
-				<commons-csv.version>1.9.0</commons-csv.version>
-				<jquery-ui.version>1.13.0</jquery-ui.version>
-				<sap-theming__theming-base-content.version>11.1.42</sap-theming__theming-base-content.version>
-				<fundamental-styles.version>0.24.4</fundamental-styles.version>
-				<angular-aria.version>1.8.2</angular-aria.version>
-				<split.js.version>1.6.5</split.js.version>
-				<diff.version>5.1.0</diff.version>
-				<monaco-editor.version>0.33.0</monaco-editor.version>
-				<requirejs.version>2.3.6</requirejs.version>
-				<jstree.version>3.3.12</jstree.version>
-				<jquery.version>3.6.0</jquery.version>
-				<jqplot.version>1.0.8r1250</jqplot.version>
-				<bootstrap.version>3.3.7</bootstrap.version>
-				<es5-shim.version>4.6.7</es5-shim.version>
-				<angular-file-upload.version>2.6.1</angular-file-upload.version>
-				<angularjs.version>1.8.2</angularjs.version>
-				<fontawesome.version>4.7.0</fontawesome.version>
-				<classgraph.version>4.8.154</classgraph.version>
-				<commons-compress.version>1.22</commons-compress.version>
-				<testcontainers.elasticsearch.version>1.17.6</testcontainers.elasticsearch.version>
-				<testcontainers.version>1.17.6</testcontainers.version>
-				<testcontainers.rabbitmq.version>1.17.6</testcontainers.rabbitmq.version>
-				<amqp.client.version>5.16.0</amqp.client.version>
-				<elasticsearch.client.version>7.7.1</elasticsearch.client.version>
-				<jetcd.core.version>0.7.5</jetcd.core.version>
-				<jetcd.test.version>0.5.4</jetcd.test.version>
-				<logcaptor.version>2.7.10</logcaptor.version>
-				<exec.maven.plugin>3.0.0</exec.maven.plugin>
-
-				<spring-context-support.version>5.3.24</spring-context-support.version>
-				<webjars-locator>0.51</webjars-locator>
-
-				<keycloak-adapter-bom.version>20.0.2</keycloak-adapter-bom.version>
-				<hikaricp.version>5.0.1</hikaricp.version>
-				<validator.version>1.7</validator.version>
-				<quartz.version>2.3.2</quartz.version>
-				<c3p0.version>0.9.5.5</c3p0.version>
-				<graalvm.version>22.3.1</graalvm.version>
-				<guava.version>31.1-jre</guava.version>
-				<icu4j.version>72.1</icu4j.version>
-				<commons-collections.version>3.2.2</commons-collections.version>
-				<commons-collections4.version>4.4</commons-collections4.version>
-				<velocity.version>2.3</velocity.version>
-				<wikitext.version>3.0.45.202211090110</wikitext.version>
-				<flexmark.version>0.64.0</flexmark.version>
-				<qldb.driver.version>2.3.1</qldb.driver.version>
-				<qldb.sdk.version>1.12.386</qldb.sdk.version>
-				<cassandra.version>1.17.6</cassandra.version>
-				<cassandra.driver.version>3.11.3</cassandra.driver.version>
-				<jedis.version>4.3.1</jedis.version>
-				<spark.version>3.3.1</spark.version>
-				<path-to-regexp.version>6.2.1</path-to-regexp.version>
-				<javax.websocket-api.version>1.1</javax.websocket-api.version>
-				<jacoco.version>0.8.11</jacoco.version>
-
-				<jakarta.validation.version>3.0.2</jakarta.validation.version>
-				<org.springdoc.openapi.ui.version>1.7.0</org.springdoc.openapi.ui.version>
-				<swagger-annotations.version>1.6.9</swagger-annotations.version>
-
 				<profile.content.phase>none</profile.content.phase>
-
 			</properties>
 		</project>
 		```
 
-#### Create Branding Resources
+#### Set Branding Information
 
 - Navigate to the `branding` folder.
-- Create `src/main/resources/META-INF/dirigible/ide-branding/` folder structure and navigate to it.
-- Create `branding.js` and `custom-stack.svg` files.
+- Create `src/main/resources/META-INF/dirigible/custom-branding/` folder structure and navigate to it.
+- Create `favicon.ico` and `custom-stack.svg` files.
 
-=== "branding.js"
+=== "favicon.ico"
 
-	1. Create new `branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js` file.
-	1. Paste the following content:
-
-	??? abstract "branding/src/main/resources/META-INF/dirigible/ide-branding/branding.js"
-
-		```javascript
-		const brandingInfo = {
-			name: 'Custom Stack',
-			brand: 'Custom Stack',
-			brandUrl: 'https://github.com/dirigiblelabs/tutorial-custom-stack',
-			icons: {
-				faviconIco: '/services/web/ide-branding/favicon.ico',
-				favicon32: '/services/web/ide-branding/favicon-32x32.png',
-				favicon16: '/services/web/ide-branding/favicon-16x16.png',
-			},
-			logo: '/services/web/ide-branding/custom-stack.svg'
-		};
-		```
-
-	!!! warning "Favicons"
-
-		For the sake of simplicity, the favicon files were omitted.
+	Create your own or as a temporary solution, [copy this](https://github.com/dirigiblelabs/sample-platform/blob/master/platform-samples/images/favicon.ico)
 
 === "custom-stack.svg"
 
-	1. Create new `branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg` file.
+	1. Create new `branding/src/main/resources/META-INF/dirigible/custom-branding/custom-stack.svg` file.
 	1. Paste the following content:
 
-	??? abstract "branding/src/main/resources/META-INF/dirigible/ide-branding/custom-stack.svg"
+	??? abstract "branding/src/main/resources/META-INF/dirigible/custom-branding/custom-stack.svg"
 
 		```xml
-		<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-		<svg style="filter: invert(100%);"
-			width="24"
-			height="24"
-			viewBox="0 0 6.3499999 6.3500002"
-			version="1.1"
-			id="svg5"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlns:svg="http://www.w3.org/2000/svg">
-			<defs
-				id="defs2" />
-			<g
-				id="layer1"
-				transform="matrix(1.0590909,0,0,1.0590909,-0.18761367,-0.18761367)">
-			<path
-				id="path1074"
-				style="fill-opacity:1;stroke:none;stroke-width:2.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-				d="M 12,1 A 11,11 0 0 0 1,12 11,11 0 0 0 12,23 11,11 0 0 0 23,12 11,11 0 0 0 12,1 Z m -0.101562,4.3378906 c 0.955078,0 1.796875,0.15625 2.523437,0.4667969 0.732422,0.3046875 1.294922,0.7558594 1.6875,1.3535156 0.392578,0.5976562 0.603516,1.2734376 0.632813,2.0292969 L 15.107422,9.3105469 C 15.019531,8.4960938 14.720703,7.8808594 14.210938,7.4648438 13.707031,7.0488281 12.958984,6.8417969 11.96875,6.8417969 c -1.03125,0 -1.783203,0.1894531 -2.2578125,0.5703125 -0.46875,0.375 -0.703125,0.8300781 -0.703125,1.3632812 0,0.4628906 0.1660156,0.84375 0.5,1.1425782 0.328125,0.2988282 1.1835935,0.6054692 2.5664065,0.9218752 1.388672,0.310547 2.341797,0.583984 2.857422,0.818359 0.75,0.345703 1.302734,0.785156 1.660156,1.318359 0.357422,0.527344 0.537109,1.136719 0.537109,1.828126 0,0.685546 -0.197265,1.332031 -0.589844,1.941406 -0.392578,0.603515 -0.957031,1.074219 -1.695312,1.414062 -0.732422,0.333985 -1.558594,0.501953 -2.478516,0.501953 -1.166015,0 -2.144531,-0.169922 -2.9355465,-0.509765 C 8.6445313,17.8125 8.0253906,17.302734 7.5742188,16.623047 7.1289063,15.9375 6.8945312,15.164062 6.8710938,14.302734 l 1.609375,-0.140625 c 0.076172,0.644532 0.2519531,1.173829 0.5273437,1.589844 0.28125,0.410156 0.7148438,0.744141 1.3007815,1.001953 0.585937,0.251953 1.24414,0.378906 1.976562,0.378906 0.650391,0 1.22461,-0.09766 1.722656,-0.291015 0.498047,-0.193359 0.867188,-0.457031 1.107422,-0.791016 0.246094,-0.339843 0.369141,-0.707031 0.369141,-1.105469 0,-0.404296 -0.117188,-0.755859 -0.351563,-1.054687 C 14.898438,13.585938 14.511719,13.330078 13.972656,13.125 13.626953,12.990234 12.863281,12.783203 11.679688,12.501953 10.496094,12.214844 9.6660156,11.945312 9.1914062,11.693359 8.5761719,11.371094 8.1171875,10.972656 7.8125,10.498047 7.5136719,10.017578 7.3632812,9.4804687 7.3632812,8.8886719 c 10e-8,-0.6503906 0.1855469,-1.2558594 0.5546876,-1.8183594 0.3691406,-0.5683593 0.9082031,-1 1.6171874,-1.2929687 C 10.244141,5.484375 11.03125,5.3378906 11.898438,5.3378906 Z"
-				transform="scale(0.26458334)" />
-			</g>
+		<?xml version="1.0" encoding="UTF-8"?>
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+		<path fill-rule="nonzero" fill="rgb(99.607843%, 80%, 1.568627%)" fill-opacity="1" d="M 16 29.683594 C 8.433594 29.683594 2.316406 23.566406 2.316406 16 C 2.316406 8.433594 8.433594 2.316406 16 2.316406 C 23.566406 2.316406 29.683594 8.433594 29.683594 16 C 29.683594 23.566406 23.566406 29.683594 16 29.683594 Z M 16 29.683594 "/>
+		<path fill-rule="nonzero" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 2.5 11.5 L 29.5 11.5 C 30.609375 11.5 31.5 12.390625 31.5 13.5 L 31.5 18.5 C 31.5 19.609375 30.609375 20.5 29.5 20.5 L 2.5 20.5 C 1.390625 20.5 0.5 19.609375 0.5 18.5 L 0.5 13.5 C 0.5 12.390625 1.390625 11.5 2.5 11.5 Z M 2.5 11.5 "/>
+		<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.539062 17.144531 C 5.539062 17.449219 5.464844 17.714844 5.316406 17.9375 C 5.167969 18.164062 4.949219 18.339844 4.667969 18.464844 C 4.386719 18.585938 4.046875 18.644531 3.644531 18.644531 C 3.464844 18.644531 3.289062 18.632812 3.117188 18.609375 C 2.949219 18.585938 2.785156 18.550781 2.628906 18.507812 C 2.472656 18.460938 2.328125 18.402344 2.1875 18.335938 L 2.1875 17.320312 C 2.433594 17.425781 2.683594 17.523438 2.945312 17.613281 C 3.207031 17.699219 3.46875 17.746094 3.730469 17.746094 C 3.90625 17.746094 4.050781 17.71875 4.15625 17.671875 C 4.265625 17.625 4.34375 17.558594 4.394531 17.476562 C 4.445312 17.394531 4.472656 17.300781 4.472656 17.195312 C 4.472656 17.066406 4.425781 16.957031 4.335938 16.863281 C 4.25 16.773438 4.132812 16.6875 3.984375 16.613281 C 3.832031 16.53125 3.664062 16.445312 3.46875 16.351562 C 3.351562 16.296875 3.222656 16.226562 3.082031 16.152344 C 2.941406 16.070312 2.808594 15.972656 2.675781 15.855469 C 2.554688 15.734375 2.449219 15.589844 2.367188 15.421875 C 2.285156 15.253906 2.246094 15.054688 2.246094 14.816406 C 2.246094 14.511719 2.316406 14.246094 2.453125 14.03125 C 2.597656 13.8125 2.800781 13.640625 3.058594 13.527344 C 3.324219 13.410156 3.632812 13.355469 3.988281 13.355469 C 4.257812 13.355469 4.511719 13.386719 4.753906 13.449219 C 5 13.511719 5.253906 13.597656 5.519531 13.714844 L 5.164062 14.566406 C 4.929688 14.46875 4.71875 14.394531 4.53125 14.339844 C 4.34375 14.289062 4.152344 14.261719 3.953125 14.261719 C 3.820312 14.261719 3.703125 14.285156 3.609375 14.328125 C 3.511719 14.371094 3.4375 14.429688 3.382812 14.507812 C 3.335938 14.585938 3.3125 14.675781 3.3125 14.78125 C 3.3125 14.902344 3.347656 15.003906 3.421875 15.089844 C 3.492188 15.171875 3.601562 15.253906 3.746094 15.328125 C 3.890625 15.40625 4.070312 15.496094 4.285156 15.601562 C 4.550781 15.726562 4.773438 15.859375 4.957031 15.992188 C 5.144531 16.128906 5.289062 16.285156 5.386719 16.46875 C 5.488281 16.652344 5.539062 16.875 5.539062 17.144531 Z M 9.628906 18.574219 L 9.253906 17.347656 L 7.378906 17.347656 L 7.003906 18.574219 L 5.828125 18.574219 L 7.644531 13.40625 L 8.976562 13.40625 L 10.800781 18.574219 Z M 8.617188 15.234375 C 8.59375 15.152344 8.5625 15.050781 8.523438 14.925781 C 8.484375 14.800781 8.449219 14.671875 8.410156 14.542969 C 8.371094 14.414062 8.339844 14.300781 8.316406 14.203125 C 8.292969 14.300781 8.257812 14.421875 8.214844 14.566406 C 8.175781 14.703125 8.136719 14.839844 8.097656 14.96875 C 8.066406 15.09375 8.039062 15.183594 8.019531 15.234375 L 7.652344 16.433594 L 8.992188 16.433594 Z M 13.628906 18.574219 L 12.386719 14.535156 L 12.359375 14.535156 C 12.363281 14.632812 12.371094 14.777344 12.382812 14.96875 C 12.390625 15.160156 12.398438 15.367188 12.410156 15.589844 C 12.417969 15.804688 12.425781 16.003906 12.425781 16.179688 L 12.425781 18.574219 L 11.449219 18.574219 L 11.449219 13.425781 L 12.9375 13.425781 L 14.15625 17.363281 L 14.175781 17.363281 L 15.464844 13.425781 L 16.953125 13.425781 L 16.953125 18.574219 L 15.933594 18.574219 L 15.933594 16.136719 C 15.933594 15.972656 15.9375 15.785156 15.941406 15.574219 C 15.953125 15.363281 15.960938 15.164062 15.964844 14.976562 C 15.972656 14.785156 15.980469 14.640625 15.984375 14.542969 L 15.957031 14.542969 L 14.628906 18.574219 Z M 19.894531 13.425781 C 20.554688 13.425781 21.039062 13.570312 21.34375 13.859375 C 21.648438 14.140625 21.804688 14.535156 21.804688 15.035156 C 21.804688 15.257812 21.769531 15.476562 21.703125 15.683594 C 21.636719 15.882812 21.523438 16.066406 21.363281 16.230469 C 21.210938 16.390625 21.003906 16.515625 20.75 16.605469 C 20.496094 16.695312 20.179688 16.742188 19.804688 16.742188 L 19.335938 16.742188 L 19.335938 18.574219 L 18.25 18.574219 L 18.25 13.425781 Z M 19.835938 14.320312 L 19.335938 14.320312 L 19.335938 15.847656 L 19.699219 15.847656 C 19.90625 15.847656 20.082031 15.820312 20.230469 15.769531 C 20.378906 15.714844 20.496094 15.632812 20.578125 15.515625 C 20.660156 15.402344 20.699219 15.253906 20.699219 15.070312 C 20.699219 14.816406 20.628906 14.628906 20.492188 14.507812 C 20.351562 14.382812 20.132812 14.320312 19.835938 14.320312 Z M 22.777344 18.574219 L 22.777344 13.425781 L 23.863281 13.425781 L 23.863281 17.671875 L 25.957031 17.671875 L 25.957031 18.574219 Z M 29.8125 18.574219 L 26.847656 18.574219 L 26.847656 13.425781 L 29.8125 13.425781 L 29.8125 14.320312 L 27.9375 14.320312 L 27.9375 15.453125 L 29.683594 15.453125 L 29.683594 16.347656 L 27.9375 16.347656 L 27.9375 17.671875 L 29.8125 17.671875 Z M 29.8125 18.574219 "/>
+		<path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 16 1.320312 C 9.628906 1.320312 4.21875 5.359375 2.183594 11.023438 C 0.953125 11.179688 0 12.230469 0 13.5 L 0 18.5 C 0 19.769531 0.953125 20.820312 2.183594 20.976562 C 4.21875 26.640625 9.628906 30.683594 16 30.683594 C 22.371094 30.683594 27.78125 26.640625 29.816406 20.976562 C 31.046875 20.820312 32 19.769531 32 18.5 L 32 13.5 C 32 12.230469 31.046875 11.179688 29.816406 11.023438 C 27.785156 5.359375 22.371094 1.320312 16 1.320312 Z M 16 2.320312 C 21.800781 2.320312 26.746094 5.914062 28.738281 11 L 3.261719 11 C 5.253906 5.914062 10.199219 2.320312 16 2.320312 Z M 2.5 12 L 29.5 12 C 30.339844 12 31 12.660156 31 13.5 L 31 18.5 C 31 19.339844 30.339844 20 29.5 20 L 2.5 20 C 1.660156 20 1 19.339844 1 18.5 L 1 13.5 C 1 12.660156 1.660156 12 2.5 12 Z M 3.261719 21 L 28.738281 21 C 26.746094 26.085938 21.800781 29.679688 16 29.679688 C 10.199219 29.679688 5.257812 26.085938 3.261719 21 Z M 3.261719 21 "/>
 		</svg>
 		```
 
@@ -482,32 +300,11 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 
 		```xml
 		<dependency>
-            <groupId>io.dirigible.samples</groupId>
+            <groupId>com.custom.stack</groupId>
             <artifactId>custom-stack-branding</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 		```
-
-=== "Exclude Default Branding"
-
-	1. Navigate to the `<dependencies>` section.
-	1. Edit the `dirigible-components-group-ide` dependency:
-
-		```xml hl_lines="6 11"
-		<!-- IDE -->
-		<dependency>
-			<groupId>org.eclipse.dirigible</groupId>
-			<artifactId>dirigible-components-group-ide</artifactId>
-			<type>pom</type>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-ide-ui-branding</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		```
-
 === "Final pom.xml"
 
 	??? abstract "application/pom.xml"
@@ -519,7 +316,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 			<modelVersion>4.0.0</modelVersion>
 
 			<parent>
-				<groupId>io.dirigible.samples</groupId>
+				<groupId>com.custom.stack</groupId>
 				<artifactId>custom-stack-parent</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 				<relativePath>../pom.xml</relativePath>
@@ -532,7 +329,7 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 
 			<dependencies>
 				<dependency>
-					<groupId>io.dirigible.samples</groupId>
+					<groupId>com.custom.stack</groupId>
 					<artifactId>custom-stack-branding</artifactId>
 					<version>1.0.0-SNAPSHOT</version>
 				</dependency>
@@ -570,107 +367,85 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 				<!-- Engine -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-group-engines</artifactId>
+					<artifactId>dirigible-components-group-engines-core</artifactId>
 					<type>pom</type>
-					<exclusions>
-						<exclusion>
-							<groupId>javax.validation</groupId>
-							<artifactId>validation-api</artifactId>
-						</exclusion>
-						<exclusion>
-							<groupId>javax.servlet</groupId>
-							<artifactId>javax.servlet-api</artifactId>
-						</exclusion>
-						<exclusion>
-							<groupId>org.apache.cxf</groupId>
-							<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-						</exclusion>
-						<exclusion>
-							<groupId>org.apache.cxf</groupId>
-							<artifactId>
-								cxf-spring-boot-starter-jaxrs
-							</artifactId>
-						</exclusion>
-					</exclusions>
 				</dependency>
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-engine-command</artifactId>
+					<artifactId>dirigible-components-engine-template-mustache</artifactId>
 				</dependency>
-				
-				<!-- IDE -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-group-ide</artifactId>
-					<type>pom</type>
-					<exclusions>
-						<exclusion>
-							<groupId>org.eclipse.dirigible</groupId>
-							<artifactId>dirigible-components-ide-ui-branding</artifactId>
-						</exclusion>
-					</exclusions>
+					<artifactId>dirigible-components-engine-cms</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-engine-cms-internal</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-engine-sftp</artifactId>
 				</dependency>
 				
 				<!-- API -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-group-api</artifactId>
+					<artifactId>dirigible-components-group-api-platform</artifactId>
 					<type>pom</type>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-api-cms</artifactId>
 				</dependency>
 				
 				<!-- Resources -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-group-resources</artifactId>
+					<artifactId>dirigible-components-group-resources-core</artifactId>
 					<type>pom</type>
 				</dependency>
 
+				<!-- UI Editors -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-security-oauth2</artifactId>
+					<artifactId>dirigible-components-ui-editor-monaco</artifactId>
 				</dependency>
-				
-				<!-- Templates -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-components-group-templates</artifactId>
-					<type>pom</type>
-				</dependency>
-				
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-validation</artifactId>
+					<artifactId>dirigible-components-ui-editor-monaco-extensions</artifactId>
 				</dependency>
 
+				<!-- UI Views -->
 				<dependency>
-					<groupId>com.codeborne</groupId>
-					<artifactId>selenide</artifactId>
-					<version>7.2.2</version>
-					<scope>test</scope>
-				</dependency>
-
-				<!-- Drivers -->
-				<dependency>
-					<groupId>org.postgresql</groupId>
-					<artifactId>postgresql</artifactId>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-ui-view-properties</artifactId>
 				</dependency>
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
-					<artifactId>dirigible-database-mongodb-jdbc</artifactId>
+					<artifactId>dirigible-components-ui-view-projects</artifactId>
+				</dependency>
+
+				<!-- UI Perspectives -->
+				<dependency>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-ui-perspective-workbench</artifactId>
 				</dependency>
 				<dependency>
-					<groupId>com.sap.cloud.db.jdbc</groupId>
-					<artifactId>ngdbc</artifactId>
-					<version>${ngdbc.version}</version>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-ui-perspective-settings</artifactId>
 				</dependency>
+
+				<!-- UI Shell -->
 				<dependency>
-					<groupId>net.snowflake</groupId>
-					<artifactId>snowflake-jdbc</artifactId>
-					<version>${snowflake.version}</version>
+					<groupId>org.eclipse.dirigible</groupId>
+					<artifactId>dirigible-components-ui-shell-ide</artifactId>
 				</dependency>
+
+				<!-- Tests -->
 				<dependency>
 					<groupId>org.eclipse.dirigible</groupId>
 					<artifactId>dirigible-tests-framework</artifactId>
+					<scope>test</scope>
 				</dependency>
 
 			</dependencies>
@@ -678,52 +453,33 @@ This section will guide you through the process of rebranding of Eclipse Dirigib
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+					</plugin>
+					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
-						<configuration>
-							<mainClass>io.dirigible.samples.CustomStackApplication</mainClass>
-						</configuration>
-						<executions>
-							<execution>
-								<goals>
-									<goal>repackage</goal>
-								</goals>
-							</execution>
-						</executions>
 					</plugin>
-					<!-- 
-						Note: Uncomment for git repositories, as this plugin would get the last commit id.
-						This is needed for the info in the "About" view.
-					-->
-					<!--
-					<plugin>
-						<groupId>pl.project13.maven</groupId>
-						<artifactId>git-commit-id-plugin</artifactId>
-						<version>${git-commit-id-plugin.version}</version>
-						<executions>
-							<execution>
-								<id>get-the-git-infos</id>
-								<goals>
-									<goal>revision</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<dotGitDirectory>../.git</dotGitDirectory>
-						</configuration>
-					</plugin>
-					-->
 				</plugins>
-				<resources>
-					<resource>
-						<directory>src/main/resources</directory>
-						<filtering>true</filtering>
-					</resource>
-				</resources>
 			</build>
-
 		</project>
 		```
+
+#### Set the Branding Information
+
+- Navigate to the `application/src/main/resources` folder.
+- Create/open the `dirigible.properties` file.
+- Set the environment variables:
+
+	```
+	DIRIGIBLE_BRANDING_NAME=Stack
+	DIRIGIBLE_BRANDING_BRAND=Custom
+	DIRIGIBLE_BRANDING_BRAND_URL=http://your-custom-organization.com
+	DIRIGIBLE_BRANDING_FAVICON=/services/web/custom-branding/favicon.ico
+	DIRIGIBLE_BRANDING_LOGO=/services/web/custom-branding/custom-stack.svg
+	DIRIGIBLE_BRANDING_THEME=blimpkit-auto
+	DIRIGIBLE_KEY_PREFIX=customStack
+	```
 
 #### Build the Custom Platform
 

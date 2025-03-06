@@ -24,21 +24,24 @@ Extensibility is an important requirement for business applications built to fol
   - [platform-themes](/api/user-interface/themes/)
   - [platform-templates](template/)
 
-You can override and/or extend the default extension points by adding an AngularJS constant named `extensionPoints` to your shell's module:
+You can override and/or extend the default extension points by using the `setExtPoints` function to your shell, right before you initialize anything else:
 
 ```javascript
-angular.module('shell', ['blimpKit', 'platformShell']).constant('extensionPoints', {
-    perspectives: ["example-perspectives"],
-    shells: ["example-shells"],
-    views: ["example-views"],
-    subviews: ["example-subviews"],
-    editors: ["example-editors"],
-    menus: ["example-menus"],
-    windows: ["example-windows"],
-    themes: ["example-themes"],
-    settings: ["example-settings"],
-}).controller('ShellController', ($scope) => { });
+setExtPoints({
+  perspectives = ['custom-perspectives'],
+  shells = ['custom-shells'],
+  views = ['custom-views'],
+  subviews = ['custom-subviews'],
+  editors = ['custom-editors'],
+  menus = ['custom-menus'],
+  windows = ['custom-windows'],
+  themes = ['custom-themes'],
+  settings = ['custom-settings'],
+});
+angular.module('shell', ...
 ```
+
+You can find more information in the Extensions API (Client).
 
 ### Server
 

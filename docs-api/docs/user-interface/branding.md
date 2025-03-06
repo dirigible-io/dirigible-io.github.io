@@ -5,41 +5,74 @@ title: Branding
 Branding
 ===
 
-Dirigible allows you to change the branding of the platform. You will have to replace the default `platform-branding` module with your own.
+Dirigible allows you to change the branding of the platform.
 
 === "Overview"
 - Module: `platform-branding`
-- Source: [platform-branding/branding.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.js)
-- Web Link: `/services/web/platform-branding/branding.js`
+- Source: [platform-branding/branding.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.js)
+- Source: [platform-branding/branding.mjs](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.mjs)
+- Source: [platform-core/utilities/view.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view.js)
+- JS Link: `/services/js/platform-branding/branding.js`
+- Web Link: `/services/web/platform-core/utilities/view.js`
 - Status: `stable`
 - Group: `platform`
 
-### Basic Usage
+### Setting the brand information
 
-The branding object:
+There are two ways to do this:
+
+#### Static
+
+Configure the [branding environment variables](/help/setup/setup-environment-variables/#branding).
+
+#### Dynamic
+
+Use the `setBrandingInfo` function:
 
 ```javascript
-const brandingInfo = {
+setBrandingInfo({
     name: 'Dirigible',
-    brand: 'Eclipse Dirigible',
+    brand: 'Eclipse',
     brandUrl: 'https://www.dirigible.io/',
     icons: {
-        faviconIco: '/services/web/platform-branding/images/favicon.ico',
-        favicon32: '/services/web/platform-branding/images/favicon-32x32.png',
-        favicon16: '/services/web/platform-branding/images/favicon-16x16.png',
+        favicon: '/services/web/platform-branding/images/favicon.ico',
     },
     logo: '/services/web/platform-branding/images/dirigible.svg',
+    theme: 'blimpkit-auto',
     keyPrefix: 'dirigible'
-};
+});
 ```
 
-* `brandingInfo` - This is the configuration object itself. It must be a const and it must always be called "brandingInfo".
-	* `name` - Brand name that will be used for titles.
-	* `brand` - Brand name that will be used for the the shellbar. 
-	* `brandUrl` - URL to the brand/product that will be used in the about information.
-    * `icons` - FavIcons
-        * faviconIco - FavIcon in `.ico` format
-        * favicon32 - FavIcon in `.png` format in 32x32px size.
-        * favicon16 - FavIcon in `.png` format in 16x16px size.
-    * `logo` - Link to the brand logo.
-    * `keyPrefix` - When saving data to the local storage (opened tabs, layout configuration, etc.), this prefix will be used.
+Parameter     | Description | Required
+------------ | ----------- | -----------
+**name**   | The product name | no
+**brand**   | The brand name | no
+**brandUrl**   | The brand/product URL | no
+**icons**   | Favicons | no
+**icons.favicon**   | Favicon in `.ico` format | no
+**logo**   | The brand/product logo | no
+**theme**   | The default theme ID | no
+**keyPrefix**   | The prefix used for cookie and localStorage value keys | no
+
+### Getting the brand information
+
+```javascript
+const branding = getBrandingInfo();
+```
+
+The branding constant will be a reference to the global branding information object, which will have the same structure as the set function object parameter.
+
+### Initializing the branding
+
+For standard Dirigible shells/perspectives/views/etc. you can just use the loader. Example:
+
+```html
+<script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+```
+
+In a custom view, you must include those two files in your shell/perspective/view/etc. and make sure they are the first to load.
+
+```html
+<script type="text/javascript" src="/services/js/platform-branding/branding.js"></script>
+<script type="text/javascript" src="/services/web/platform-core/utilities/view.js"></script>
+```

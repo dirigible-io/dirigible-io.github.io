@@ -9,7 +9,7 @@ The repository hub is used to send and receive events on the client, regarding w
 
 === "Overview"
 - Module: `platform-core`
-- Source: [service-repository/repository-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/service-workspace/src/main/resources/META-INF/dirigible/service-repository/repository-hub.js)
+- Source: [service-repository/repository-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/service-workspace/src/main/resources/META-INF/dirigible/service-repository/repository-hub.js)
 - Web Link: `/services/web/service-repository/repository-hub.js`
 - Status: `stable`
 - Group: `platform`

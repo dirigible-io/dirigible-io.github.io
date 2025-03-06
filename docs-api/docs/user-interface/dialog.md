@@ -9,7 +9,7 @@ Controls system dialogs. Extends [MessageHub](../message-hub).
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/dialog-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/dialog-hub.js)
+- Source: [platform-core/ui/platform/dialog-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/dialog-hub.js)
 - Web Link: `/services/web/platform-core/ui/platform/dialog-hub.js`
 - Status: `stable`
 - Group: `platform`

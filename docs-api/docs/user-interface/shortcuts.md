@@ -9,7 +9,7 @@ Directive used to assign keyboard shortcuts to a vew or to a specific element.
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/shortcuts.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/shortcuts.js)
+- Source: [platform-core/ui/platform/shortcuts.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/shortcuts.js)
 - Web Link: `/services/web/platform-core/ui/platform/shortcuts.js`
 - Status: `stable`
 - Group: `platform`
