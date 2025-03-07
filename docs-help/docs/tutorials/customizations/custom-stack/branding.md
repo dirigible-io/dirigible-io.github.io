@@ -478,7 +478,7 @@ This section will guide you through the process of rebranding a custom Eclipse D
 	DIRIGIBLE_BRANDING_FAVICON=/services/web/custom-branding/favicon.ico
 	DIRIGIBLE_BRANDING_LOGO=/services/web/custom-branding/custom-stack.svg
 	DIRIGIBLE_BRANDING_THEME=blimpkit-auto
-	DIRIGIBLE_KEY_PREFIX=customStack
+	DIRIGIBLE_BRANDING_PREFIX=customStack
 	```
 
 #### Build the Custom Platform

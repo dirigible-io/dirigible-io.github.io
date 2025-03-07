@@ -56,7 +56,7 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BRANDING_FAVICON**   | The brand/product favicon | _`/services/web/platform-branding/images/favicon.ico`_
 **DIRIGIBLE_BRANDING_LOGO**   | The brand/product logo | _`/services/web/platform-branding/images/dirigible.svg`_
 **DIRIGIBLE_BRANDING_THEME**   | The default theme ID | _`blimpkit-auto`_
-**DIRIGIBLE_KEY_PREFIX**   | The prefix used for cookie and localStorage value keys | _`blimpkit-auto`_
+**DIRIGIBLE_BRANDING_PREFIX**   | The prefix used for cookie and localStorage value keys | _`blimpkit-auto`_
 **DIRIGIBLE_BRANDING_HELP_ITEMS** | The list of the custom help menu items (comma separated).The order of the list will be used for the menu item order.	| _`-`_
 
 #### Branding - Help Items

@@ -39,7 +39,7 @@ setBrandingInfo({
     },
     logo: '/services/web/platform-branding/images/dirigible.svg',
     theme: 'blimpkit-auto',
-    keyPrefix: 'dirigible'
+    prefix: 'dirigible'
 });
 ```
 
@@ -52,7 +52,7 @@ Parameter     | Description | Required
 **icons.favicon**   | Favicon in `.ico` format | no
 **logo**   | The brand/product logo | no
 **theme**   | The default theme ID | no
-**keyPrefix**   | The prefix used for cookie and localStorage value keys | no
+**prefix**   | The prefix used for cookie and localStorage value keys | no
 
 ### Getting the brand information
 
