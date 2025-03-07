@@ -3907,32 +3907,42 @@
 <tbody>
 <tr>
 <td><strong>DIRIGIBLE_BRANDING_NAME</strong></td>
-<td>The brand name</td>
-<td><em><code>Eclipse Dirigible</code></em></td>
+<td>The product name</td>
+<td><em><code>Dirigible</code></em></td>
 </tr>
 <tr>
 <td><strong>DIRIGIBLE_BRANDING_BRAND</strong></td>
-<td>The branding name</td>
-<td><em><code>Eclipse Dirigible</code></em></td>
+<td>The brand name</td>
+<td><em><code>Eclipse</code></em></td>
 </tr>
 <tr>
 <td><strong>DIRIGIBLE_BRANDING_BRAND_URL</strong></td>
-<td>The branding URL</td>
+<td>The brand/product URL</td>
 <td><em><code>https://www.dirigible.io</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_BRANDING_ICON</strong></td>
-<td>The branding icon</td>
-<td><em><code>../../../../services/v4/web/resources/images/favicon.png</code></em></td>
+<td><strong>DIRIGIBLE_BRANDING_FAVICON</strong></td>
+<td>The brand/product favicon</td>
+<td><em><code>/services/web/platform-branding/images/favicon.ico</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT</strong></td>
-<td>The branding welcome page</td>
-<td><em><code>../../../../services/v4/web/ide/welcome.html</code></em></td>
+<td><strong>DIRIGIBLE_BRANDING_LOGO</strong></td>
+<td>The brand/product logo</td>
+<td><em><code>/services/web/platform-branding/images/dirigible.svg</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_BRANDING_THEME</strong></td>
+<td>The default theme ID</td>
+<td><em><code>blimpkit-auto</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_KEY_PREFIX</strong></td>
+<td>The prefix used for cookie and localStorage value keys</td>
+<td><em><code>blimpkit-auto</code></em></td>
 </tr>
 <tr>
 <td><strong>DIRIGIBLE_BRANDING_HELP_ITEMS</strong></td>
-<td>The list of the custom help menu items (comma separated)</td>
+<td>The list of the custom help menu items (comma separated).The order of the list will be used for the menu item order.</td>
 <td><em><code>-</code></em></td>
 </tr>
 </tbody>
@@ -3960,11 +3970,6 @@
 <td><strong>DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_URL</strong></td>
 <td>The url of the custom help item</td>
 <td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER</strong></td>
-<td>(Optional) The order of the custom help item</td>
-<td><em><code>0</code></em></td>
 </tr>
 <tr>
 <td><strong>DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER</strong></td>

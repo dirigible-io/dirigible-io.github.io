@@ -2528,8 +2528,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#setting-the-brand-information" class="md-nav__link">
+    Setting the brand information
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting the brand information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    Static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic" class="md-nav__link">
+    Dynamic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-brand-information" class="md-nav__link">
+    Getting the brand information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-branding" class="md-nav__link">
+    Initializing the branding
   </a>
   
 </li>
@@ -3040,8 +3074,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#setting-the-brand-information" class="md-nav__link">
+    Setting the brand information
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting the brand information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    Static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic" class="md-nav__link">
+    Dynamic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-brand-information" class="md-nav__link">
+    Getting the brand information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-branding" class="md-nav__link">
+    Initializing the branding
   </a>
   
 </li>
@@ -3067,7 +3135,7 @@
 
 
 <h1 id="branding">Branding</h1>
-<p>Dirigible allows you to change the branding of the platform. You will have to replace the default <code>platform-branding</code> module with your own.</p>
+<p>Dirigible allows you to change the branding of the platform.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Overview</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
@@ -3075,42 +3143,95 @@
 </div>
 <ul>
 <li>Module: <code>platform-branding</code></li>
-<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/platform/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.js">platform-branding/branding.js</a></li>
-<li>Web Link: <code>/services/web/platform-branding/branding.js</code></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.js">platform-branding/branding.js</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.mjs">platform-branding/branding.mjs</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view.js">platform-core/utilities/view.js</a></li>
+<li>JS Link: <code>/services/js/platform-branding/branding.js</code></li>
+<li>Web Link: <code>/services/web/platform-core/utilities/view.js</code></li>
 <li>Status: <code>stable</code></li>
 <li>Group: <code>platform</code></li>
 </ul>
-<h3 id="basic-usage">Basic Usage</h3>
-<p>The branding object:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">brandingInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<h3 id="setting-the-brand-information">Setting the brand information</h3>
+<p>There are two ways to do this:</p>
+<h4 id="static">Static</h4>
+<p>Configure the <a href="/help/setup/setup-environment-variables/#branding">branding environment variables</a>.</p>
+<h4 id="dynamic">Dynamic</h4>
+<p>Use the <code>setBrandingInfo</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">setBrandingInfo</span><span class="p">({</span><span class="w"></span>
 <span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Dirigible&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Eclipse Dirigible&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">brand</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Eclipse&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">brandUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;https://www.dirigible.io/&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">icons</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">faviconIco</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/platform-branding/images/favicon.ico&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">favicon32</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/platform-branding/images/favicon-32x32.png&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">favicon16</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/platform-branding/images/favicon-16x16.png&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">favicon</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/platform-branding/images/favicon.ico&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="nx">logo</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/web/platform-branding/images/dirigible.svg&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;blimpkit-auto&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nx">keyPrefix</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;dirigible&#39;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<ul>
-<li><code>brandingInfo</code> - This is the configuration object itself. It must be a const and it must always be called "brandingInfo".<ul>
-<li><code>name</code> - Brand name that will be used for titles.</li>
-<li><code>brand</code> - Brand name that will be used for the the shellbar. </li>
-<li><code>brandUrl</code> - URL to the brand/product that will be used in the about information.</li>
-<li><code>icons</code> - FavIcons<ul>
-<li>faviconIco - FavIcon in <code>.ico</code> format</li>
-<li>favicon32 - FavIcon in <code>.png</code> format in 32x32px size.</li>
-<li>favicon16 - FavIcon in <code>.png</code> format in 16x16px size.</li>
-</ul>
-</li>
-<li><code>logo</code> - Link to the brand logo.</li>
-<li><code>keyPrefix</code> - When saving data to the local storage (opened tabs, layout configuration, etc.), this prefix will be used.</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>The product name</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>brand</strong></td>
+<td>The brand name</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>brandUrl</strong></td>
+<td>The brand/product URL</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>icons</strong></td>
+<td>Favicons</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>icons.favicon</strong></td>
+<td>Favicon in <code>.ico</code> format</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>logo</strong></td>
+<td>The brand/product logo</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td>The default theme ID</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>keyPrefix</strong></td>
+<td>The prefix used for cookie and localStorage value keys</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getting-the-brand-information">Getting the brand information</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">branding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getBrandingInfo</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<p>The branding constant will be a reference to the global branding information object, which will have the same structure as the set function object parameter.</p>
+<h3 id="initializing-the-branding">Initializing the branding</h3>
+<p>For standard Dirigible shells/perspectives/views/etc. you can just use the loader. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-core/services/loader.js?id=view-js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>In a custom view, you must include those two files in your shell/perspective/view/etc. and make sure they are the first to load.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-branding/branding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/utilities/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
   

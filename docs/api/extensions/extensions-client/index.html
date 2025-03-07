@@ -873,8 +873,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#set-custom-extension-points" class="md-nav__link">
+    Set custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-custom-extension-points" class="md-nav__link">
+    Get custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-custom-extension-points" class="md-nav__link">
+    Add custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-extension-points" class="md-nav__link">
+    Remove extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-api" class="md-nav__link">
+    Extensions API
   </a>
   
 </li>
@@ -3082,8 +3110,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic Usage
+  <a href="#set-custom-extension-points" class="md-nav__link">
+    Set custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-custom-extension-points" class="md-nav__link">
+    Get custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-custom-extension-points" class="md-nav__link">
+    Add custom extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remove-extension-points" class="md-nav__link">
+    Remove extension points
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions-api" class="md-nav__link">
+    Extensions API
   </a>
   
 </li>
@@ -3145,7 +3201,7 @@
 </div>
 <ul>
 <li>Module: <code>platform-core</code></li>
-<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/extensions.js">platform-core/ui/platform/extensions.js</a></li>
+<li>Source: <a href="https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/extensions.js">platform-core/ui/platform/extensions.js</a></li>
 <li>Web Link: <code>/services/web/platform-core/ui/platform/extensions.js</code></li>
 <li>Status: <code>stable</code></li>
 <li>Group: <code>platform</code></li>
@@ -3166,7 +3222,224 @@
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<h3 id="basic-usage">Basic Usage</h3>
+<h3 id="set-custom-extension-points">Set custom extension points</h3>
+<p>You can set custom extension points in your shell, right before you initialize anything else. After you do, all nested perspectives/views/etc. will automatically use the new information.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">setExtPoints</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspectives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-shells&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">views</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-views&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subviews</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-editors&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-menus&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">windows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-windows&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-themes&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-settings&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>perspectives</strong></td>
+<td>List of perspective extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>shells</strong></td>
+<td>List of shell extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>views</strong></td>
+<td>List of view extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>subviews</strong></td>
+<td>List of subview extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>editors</strong></td>
+<td>List of editor extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>menus</strong></td>
+<td>List of menu extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>windows</strong></td>
+<td>List of dialog window extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>themes</strong></td>
+<td>List of theme extension points</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>settings</strong></td>
+<td>List of setting extension points</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-custom-extension-points">Get custom extension points</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">extPoints</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getExtPoints</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+<p>The extPoints constant will be a reference to the global extension points information object, which will have the same structure as the set function object parameter.</p>
+<h3 id="add-custom-extension-points">Add custom extension points</h3>
+<p>In some cases, you may want to add an extension point to the default/already set ones.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">addExtPoints</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">setting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>perspective</strong></td>
+<td>Perspective extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>shell</strong></td>
+<td>Shell extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>view</strong></td>
+<td>View extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>subview</strong></td>
+<td>Subview extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>editor</strong></td>
+<td>Editor extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>menu</strong></td>
+<td>Menu extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>window</strong></td>
+<td>Dialog window extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td>Theme extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>setting</strong></td>
+<td>Setting extension point</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="remove-extension-points">Remove extension points</h3>
+<p>In some cases, you may want to remove an extension point from the default/already set ones.</p>
+<div class="highlight"><pre><span></span><code><span class="nx">removeExtPoints</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">setting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>perspective</strong></td>
+<td>Perspective extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>shell</strong></td>
+<td>Shell extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>view</strong></td>
+<td>View extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>subview</strong></td>
+<td>Subview extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>editor</strong></td>
+<td>Editor extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>menu</strong></td>
+<td>Menu extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>window</strong></td>
+<td>Dialog window extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>theme</strong></td>
+<td>Theme extension point</td>
+<td>no</td>
+</tr>
+<tr>
+<td><strong>setting</strong></td>
+<td>Setting extension point</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extensions-api">Extensions API</h3>
 <p>If you are using the standard Dirigible view configuration, extensions support is enabled automatically. All you have to do is to include <code>Extensions</code> in your controller.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">exampleView</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ExampleViewController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">Extensions</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nx">Extensions</span><span class="p">.</span><span class="nx">getViews</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

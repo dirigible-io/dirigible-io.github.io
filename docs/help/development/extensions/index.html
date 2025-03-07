@@ -3071,19 +3071,21 @@
 <li><a href="/api/user-interface/themes/">platform-themes</a></li>
 <li><a href="template/">platform-templates</a></li>
 </ul>
-<p>You can override and/or extend the default extension points by adding an AngularJS constant named <code>extensionPoints</code> to your shell's module:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformShell&#39;</span><span class="p">]).</span><span class="nx">constant</span><span class="p">(</span><span class="s1">&#39;extensionPoints&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">perspectives</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-perspectives&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">shells</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-shells&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-views&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">subviews</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-subviews&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">editors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-editors&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">menus</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-menus&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">windows</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-windows&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">themes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-themes&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">settings</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;example-settings&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="p">}).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ShellController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<p>You can override and/or extend the default extension points by using the <code>setExtPoints</code> function to your shell, right before you initialize anything else:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">setExtPoints</span><span class="p">({</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspectives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-shells&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">views</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-views&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subviews</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-editors&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-menus&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">windows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-windows&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-themes&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-settings&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+<span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 </code></pre></div>
+<p>You can find more information in the Extensions API (Client).</p>
 <h3 id="server">Server</h3>
 <ul>
 <li>ide-workspace-on-save</li>
