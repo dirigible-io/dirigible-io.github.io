@@ -11,7 +11,7 @@ The loader is a system service that aggregates javascript and css files togeter 
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/services/loader.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/services/loader.js)
+- Source: [platform-core/services/loader.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/services/loader.js)
 - Service Link: `/services/js/platform-core/services/loader.js`
 - Status: `stable`
 - Group: `platform`

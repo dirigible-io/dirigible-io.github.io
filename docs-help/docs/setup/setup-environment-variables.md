@@ -50,12 +50,14 @@ All applied configuration values could be found under the [Configurations View](
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_BRANDING_NAME**   | The brand name | _`Eclipse Dirigible`_
-**DIRIGIBLE_BRANDING_BRAND**   | The branding name | _`Eclipse Dirigible`_
-**DIRIGIBLE_BRANDING_BRAND_URL**   | The branding URL | _`https://www.dirigible.io`_
-**DIRIGIBLE_BRANDING_ICON**   | The branding icon | _`../../../../services/v4/web/resources/images/favicon.png`_
-**DIRIGIBLE_BRANDING_WELCOME_PAGE_DEFAULT**   | The branding welcome page | _`../../../../services/v4/web/ide/welcome.html`_
-**DIRIGIBLE_BRANDING_HELP_ITEMS** | The list of the custom help menu items (comma separated)	| _`-`_
+**DIRIGIBLE_BRANDING_NAME**   | The product name | _`Dirigible`_
+**DIRIGIBLE_BRANDING_BRAND**   | The brand name | _`Eclipse`_
+**DIRIGIBLE_BRANDING_BRAND_URL**   | The brand/product URL | _`https://www.dirigible.io`_
+**DIRIGIBLE_BRANDING_FAVICON**   | The brand/product favicon | _`/services/web/platform-branding/images/favicon.ico`_
+**DIRIGIBLE_BRANDING_LOGO**   | The brand/product logo | _`/services/web/platform-branding/images/dirigible.svg`_
+**DIRIGIBLE_BRANDING_THEME**   | The default theme ID | _`blimpkit-auto`_
+**DIRIGIBLE_KEY_PREFIX**   | The prefix used for cookie and localStorage value keys | _`blimpkit-auto`_
+**DIRIGIBLE_BRANDING_HELP_ITEMS** | The list of the custom help menu items (comma separated).The order of the list will be used for the menu item order.	| _`-`_
 
 #### Branding - Help Items
 
@@ -66,7 +68,6 @@ Parameter     | Description | Default*
 ------------ | ----------- | --------
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_NAME**   | The name of the custom help item | _`-`_
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_URL**   | The url of the custom help item | _`-`_
-**DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_ORDER**   | (Optional) The order of the custom help item | _`0`_
 **DIRIGIBLE_BRANDING_HELP_ITEM_CUSTOM_ITEM_DIVIDER**   | (Optional) Whether to set divider after the custom help item | _`false`_
 
 ### Server

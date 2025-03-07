@@ -12,7 +12,7 @@ The workspace client service is used to communicate with the back-end API. You m
 
 === "Overview"
 - Module: `platform-core`
-- Source: [service-workspace/workspace.js](https://github.com/eclipse/dirigible/blob/master/components/platform/service-workspace/src/main/resources/META-INF/dirigible/service-workspace/workspace.js)
+- Source: [service-workspace/workspace.js](https://github.com/eclipse/dirigible/blob/master/components/ui/service-workspace/src/main/resources/META-INF/dirigible/service-workspace/workspace.js)
 - Web Link: `/services/web/service-workspace/workspace.js`
 - Status: `stable`
 - Group: `platform`

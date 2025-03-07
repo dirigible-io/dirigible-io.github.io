@@ -13,7 +13,7 @@ The ThemingHub API is used to get/set the currect theme and listen for theme cha
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/theming-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/theming-hub.js)
+- Source: [platform-core/ui/platform/theming-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/theming-hub.js)
 - Web Link: `/services/web/platform-core/ui/platform/theming-hub.js`
 - Status: `stable`
 - Group: `platform`

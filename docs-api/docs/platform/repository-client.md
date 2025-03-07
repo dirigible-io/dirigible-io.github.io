@@ -9,7 +9,7 @@ The repository client service is used to communicate with the back-end API. You 
 
 === "Overview"
 - Module: `platform-core`
-- Source: [service-repository/repository.js](https://github.com/eclipse/dirigible/blob/master/components/platform/service-workspace/src/main/resources/META-INF/dirigible/service-repository/repository.js)
+- Source: [service-repository/repository.js](https://github.com/eclipse/dirigible/blob/master/components/ui/service-workspace/src/main/resources/META-INF/dirigible/service-repository/repository.js)
 - Web Link: `/services/web/service-repository/repository.js`
 - Status: `stable`
 - Group: `platform`

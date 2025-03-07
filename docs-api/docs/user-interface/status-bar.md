@@ -9,7 +9,7 @@ Used to control the status bar. Extends [MessageHub](../message-hub).
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/status-bar-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/status-bar-hub.js)
+- Source: [platform-core/ui/platform/status-bar-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/status-bar-hub.js)
 - Web Link: `/services/web/platform-core/ui/platform/status-bar-hub.js`
 - Status: `stable`
 - Group: `platform`

@@ -11,9 +11,10 @@ In Dirigible all [Views](/help/development/platform-ui/view/), [Subviews](/help/
 
 === "Overview"
 - Module: `platform-core`
-- Source 1: [platform-core/ui/platform/view.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js)
-- Source 2: [platform-core/utilities/view-parameters.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view-parameters.js)
+- Source 1: [platform-core/ui/platform/view.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/view.js)
+- Source 2: [platform-core/utilities/view.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/utilities/view.js)
 - Web Link: `/services/web/platform-core/ui/platform/view.js`
+- Web Link 2: `/services/web/platform-core/utilities/view.js`
 - Status: `stable`
 - Group: `platform`
 
@@ -30,7 +31,7 @@ exampleView.controller('ExampleViewController', ($scope, ViewParameters) => {...
 If you are making a custom view, you can use the second source (Source 2):
 
 ```html
-<link type="text/css" rel="stylesheet" href="/services/js/platform-core/utilities/view-parameters.js" />
+<link type="text/css" rel="stylesheet" href="/services/js/platform-core/utilities/view.js" />
 ```
 
 ## Functions

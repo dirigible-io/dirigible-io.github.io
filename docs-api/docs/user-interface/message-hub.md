@@ -9,7 +9,7 @@ In order to maximize extensibility and isolation, all perspectives, views, edito
 
 === "Overview"
 - Module: `platform-core`
-- Source: [platform-core/ui/platform/message-hub.js](https://github.com/eclipse/dirigible/blob/master/components/platform/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/message-hub.js)
+- Source: [platform-core/ui/platform/message-hub.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/ui/platform/message-hub.js)
 - Web Link: `/services/web/platform-core/ui/platform/message-hub.js`
 - Status: `stable`
 - Group: `platform`
