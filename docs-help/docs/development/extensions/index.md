@@ -28,15 +28,15 @@ You can override and/or extend the default extension points by using the `setExt
 
 ```javascript
 setExtPoints({
-  perspectives = ['custom-perspectives'],
-  shells = ['custom-shells'],
-  views = ['custom-views'],
-  subviews = ['custom-subviews'],
-  editors = ['custom-editors'],
-  menus = ['custom-menus'],
-  windows = ['custom-windows'],
-  themes = ['custom-themes'],
-  settings = ['custom-settings'],
+  perspectives: ['custom-perspectives'],
+  shells: ['custom-shells'],
+  views: ['custom-views'],
+  subviews: ['custom-subviews'],
+  editors: ['custom-editors'],
+  menus: ['custom-menus'],
+  windows: ['custom-windows'],
+  themes: ['custom-themes'],
+  settings: ['custom-settings'],
 });
 angular.module('shell', ...
 ```

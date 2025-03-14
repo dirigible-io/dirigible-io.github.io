@@ -44,15 +44,15 @@ You can set custom extension points in your shell, right before you initialize a
 
 ```javascript
 setExtPoints({
-  perspectives = ['custom-perspectives'],
-  shells = ['custom-shells'],
-  views = ['custom-views'],
-  subviews = ['custom-subviews'],
-  editors = ['custom-editors'],
-  menus = ['custom-menus'],
-  windows = ['custom-windows'],
-  themes = ['custom-themes'],
-  settings = ['custom-settings'],
+  perspectives: ['custom-perspectives'],
+  shells: ['custom-shells'],
+  views: ['custom-views'],
+  subviews: ['custom-subviews'],
+  editors: ['custom-editors'],
+  menus: ['custom-menus'],
+  windows: ['custom-windows'],
+  themes: ['custom-themes'],
+  settings: ['custom-settings'],
 });
 angular.module('shell', ...
 ```
@@ -83,15 +83,15 @@ In some cases, you may want to add an extension point to the default/already set
 
 ```javascript
 addExtPoints({
-  perspective = 'custom-perspectives',
-  shell = 'custom-shells',
-  view = 'custom-views',
-  subview = 'custom-subviews',
-  editor = 'custom-editors',
-  menu = 'custom-menus',
-  window = 'custom-windows',
-  theme = 'custom-themes',
-  setting = 'custom-settings',
+  perspective: 'custom-perspectives',
+  shell: 'custom-shells',
+  view: 'custom-views',
+  subview: 'custom-subviews',
+  editor: 'custom-editors',
+  menu: 'custom-menus',
+  window: 'custom-windows',
+  theme: 'custom-themes',
+  setting: 'custom-settings',
 });
 angular.module('shell', ...
 ```
@@ -114,15 +114,15 @@ In some cases, you may want to remove an extension point from the default/alread
 
 ```javascript
 removeExtPoints({
-  perspective = 'custom-perspectives',
-  shell = 'custom-shells',
-  view = 'custom-views',
-  subview = 'custom-subviews',
-  editor = 'custom-editors',
-  menu = 'custom-menus',
-  window = 'custom-windows',
-  theme = 'custom-themes',
-  setting = 'custom-settings',
+  perspective: 'custom-perspectives',
+  shell: 'custom-shells',
+  view: 'custom-views',
+  subview: 'custom-subviews',
+  editor: 'custom-editors',
+  menu: 'custom-menus',
+  window: 'custom-windows',
+  theme: 'custom-themes',
+  setting: 'custom-settings',
 });
 angular.module('shell', ...
 ```
