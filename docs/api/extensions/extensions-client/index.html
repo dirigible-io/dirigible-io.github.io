@@ -3225,15 +3225,15 @@
 <h3 id="set-custom-extension-points">Set custom extension points</h3>
 <p>You can set custom extension points in your shell, right before you initialize anything else. After you do, all nested perspectives/views/etc. will automatically use the new information.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">setExtPoints</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">perspectives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">shells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-shells&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">views</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-views&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">subviews</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">editors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-editors&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">menus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-menus&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">windows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-windows&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">themes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-themes&#39;</span><span class="p">],</span><span class="w"></span>
-<span class="w">  </span><span class="nx">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-settings&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspectives</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shells</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-shells&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-views&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subviews</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-editors&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menus</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-menus&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">windows</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-windows&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">themes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-themes&#39;</span><span class="p">],</span><span class="w"></span>
+<span class="w">  </span><span class="nx">settings</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;custom-settings&#39;</span><span class="p">],</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 </code></pre></div>
@@ -3300,15 +3300,15 @@
 <h3 id="add-custom-extension-points">Add custom extension points</h3>
 <p>In some cases, you may want to add an extension point to the default/already set ones.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">addExtPoints</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">perspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">subview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">setting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspective</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shell</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">view</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subview</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menu</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nb">window</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">setting</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 </code></pre></div>
@@ -3371,15 +3371,15 @@
 <h3 id="remove-extension-points">Remove extension points</h3>
 <p>In some cases, you may want to remove an extension point from the default/already set ones.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">removeExtPoints</span><span class="p">({</span><span class="w"></span>
-<span class="w">  </span><span class="nx">perspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">view</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">subview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">editor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">menu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">setting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">perspective</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-perspectives&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">shell</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-shells&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">view</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-views&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">subview</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-subviews&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">editor</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-editors&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">menu</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-menus&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nb">window</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-windows&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-themes&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nx">setting</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-settings&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;shell&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 </code></pre></div>
