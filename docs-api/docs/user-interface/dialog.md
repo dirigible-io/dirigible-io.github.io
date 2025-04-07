@@ -61,7 +61,7 @@ Function     | Description | Returns
 **showFormDialog(FormObject)**   | Opens a form dialog. | *Promise*
 **onFormDialog(handlerFunc)**   | Registers a listener. Triggered when a form dialog should be shown. Returns a function to unregister the listener. | *function*
 **showWindow(WindowObject)**   | Opens a dialog window. | *Promise*
-**closeWindow()**   | Closes the currently shown window. Usually used inside the window itself when the `closeButton` option is set to false. | -
+**closeWindow(CloseObject)**   | Closes a dialog window. Usually used inside the window itself when the `closeButton` option is set to false. | -
 **onWindow(handlerFunc)**   | Registers a listener. Triggered when a dialog window should be shown. Returns a function to unregister the listener. | *function*
 
 ## Typedefs
@@ -72,6 +72,7 @@ Function     | Description | Returns
 <dt><a href="#FormItem">FormItem</a> : <code>Object</code></dt>
 <dt><a href="#FormObject">FormObject</a> : <code>Object</code></dt>
 <dt><a href="#WindowObject">WindowObject</a> : <code>Object</code></dt>
+<dt><a href="#CloseObject">CloseObject</a> : <code>Object</code></dt>
 </dl>
 
 !!! Note
@@ -195,6 +196,18 @@ A form item can describe several types of form inputs. Some properties are commo
 | [minHeight] | <code>string</code> |  | Custom min height for the window. This maps to the CSS min-height propery. |
 | [callbackTopic] | <code>string</code> |  | Callback topic for when the window has been closed. |
 | [closeButton] | <code>boolean</code> | <code>true</code> | Should the dialog have a close button in the title bar. |
+
+<a name="CloseObject"></a>
+
+### CloseObject : <code>Object</code>
+If the `closeWindow` function is called without any parameters, it closes the currently shown window. Otherwise, you can provide an object with either the 'id' or 'path' of the window that you want to close.
+
+**Properties**
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [id] | <code>string</code> | The dialog window id. |
+| [path] | <code>string</code> | The dialog window path. |
 
 ## Example
 

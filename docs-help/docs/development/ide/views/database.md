@@ -6,7 +6,7 @@ Database View
 ===
 
 The **Database** view gives you direct access to the configured data source(s).
-It enables you to expand the schema item and see the list of all tables and views created either via the data structures models or directly via SQL script in [SQL View](https://www.dirigible.io/help/development/ide/views/sql/).
+It enables you to expand the schema item and see the list of all tables and views created either via the data structures models or directly via SQL script in [Statements View](https://www.dirigible.io/help/development/ide/views/statements/).
 
 !!! note
 

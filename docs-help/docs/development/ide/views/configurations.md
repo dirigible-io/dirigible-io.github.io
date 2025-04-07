@@ -30,7 +30,7 @@ response.close();
 ``` 
 3. Save the file.
 4. Refresh the page. 
-5. Navigate to **Window** **&rarr;** **Select View** **&rarr;** **Configurations**
+5. Navigate to the **Operations** perspective and click on the **Configurations** tab.
 
 ![Configurations Overwrite](../../../images/configurationsoverwrite.png)
 

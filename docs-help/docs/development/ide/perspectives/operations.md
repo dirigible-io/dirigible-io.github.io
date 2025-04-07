@@ -9,15 +9,17 @@ The Web IDE includes an **Operations perspective**, which is comprised of the fo
 
 * Registry
 * Repository
-* Extension 
+* Extensions
+* Configurations
+* Artefacts
 * Jobs
 * Listeners
-* Data Structures
-* Access
-* Roles
-* Console
-* Terminal
+* Table Structures
+* View Structures
+* WebSockets
 * Logs
+* Loggers
+* Console
 
 The **Operations** perspective enables you to monitor the ongoing processes and operation activities.
 

@@ -51,7 +51,7 @@ Function     | Description | Returns
 **onIsViewOpen(handlerFunc)**   | Registers a listener. Triggered when a view opened state check is requested. Returns a function to unregister the listener. | *function*
 **openView(IdParamObject)**   | Opens a view. | -
 **onOpenView(handlerFunc)**   | Registers a listener. Triggered when a view should be opened. Returns a function to unregister the listener. | *function*
-**focusView(IdParamObject)**   | Focuses a view. | -
+**focusView(IdRegionObject)**   | Focuses a view. | -
 **onFocusView(handlerFunc)**   | Registers a listener. Triggered when a view should be focused. Returns a function to unregister the listener. | *function*
 **closeView(IdParamObject)**   | Closes a view. | -
 **onCloseView(handlerFunc)**   | Registers a listener. Triggered when a view should be closed. Returns a function to unregister the listener. | *function*
@@ -84,6 +84,7 @@ Function     | Description | Returns
 
 <dl>
 <dt><a href="#IdParamObject">IdParamObject</a> : <code>Object</code></dt>
+<dt><a href="#IdRegionObject">IdRegionObject</a> : <code>Object</code></dt>
 <dt><a href="#ParamsObject">ParamsObject</a> : <code>Object</code></dt>
 <dt><a href="#ViewDirtyObject">ViewDirtyObject</a> : <code>Object</code></dt>
 <dt><a href="#OpenEditorParams">OpenEditorParams</a> : <code>Object</code></dt>
@@ -107,6 +108,17 @@ Function     | Description | Returns
 | --- | --- | --- |
 | id | <code>string</code> | View id. |
 | [params] | <code>object</code> | Custom parameters. See [ViewParameters](../viewParameters). |
+
+<a name="IdRegionObject"></a>
+
+### IdRegionObject : <code>Object</code>
+
+**Properties**
+
+| Param | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | View id. |
+| [region] | <code>object</code> | The region where the view is displayed. The options are 'left', 'right', 'center' and 'bottom'. Default is 'center'. |
 
 <a name="ParamsObject"></a>
 

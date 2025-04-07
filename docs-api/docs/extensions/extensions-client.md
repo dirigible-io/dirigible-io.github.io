@@ -184,7 +184,7 @@ Function     | Description | Returns
 **getEditors(ExPointArray)**   | Returns all registered editors. | *Promise*
 **getPerspectives(ExPointArray)**   | Returns all registered perspectives. | *Promise*
 **getShells(ExPointArray)**   | Returns all registered shells. | *Promise*
-**getMenus(ExPointArray)**   | Returns all registered menus. | *Promise*
+**getMenus(ExPointArray)**   | Returns all registered menus. When calling this function with a custom menu extension point, it's recommended that you also provide the custom perspective, view and shell extension points. Otherwise, you will get the default ones. | *Promise*
 **getThemes(ExPointArray)**   | Returns all registered themes. | *Promise*
 
 !!! Note

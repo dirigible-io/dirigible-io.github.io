@@ -8,7 +8,7 @@ group: help-features
 Shell
 ===
 
-The shell is the topmost part of the Dirigible UI platform. It contains all the perspectives and views, and it acts as the centrilized event hub.
+The shell is the topmost part of the Dirigible UI platform and it cannot be shown inside an iframe. It contains all the perspectives and views, and it acts as the centrilized event hub.
 
 Extension
 ---
@@ -114,6 +114,22 @@ Example of a basic shell:
     </body>
 
 </html>
+```
+
+#### Shell URL parameters
+
+You can control which perspective and which view will be focused on initial load using url parameters.
+
+**Parameters**
+
+| Param | Type | Description |
+| --- | --- | --- |
+| perspective | <code>string</code> | Perspective id. |
+| view | <code>string</code> | View id. |
+
+Example:
+```
+/services/web/shell-ide/?perspective=operations&view=jobs
 ```
 
 #### Custom sidebar list

@@ -32,7 +32,7 @@ This view includes a few panes that are helpful during the debugging process. Se
 
 ??? tip "`Debug Preview`"
 
-	This pane displays the result of executing the debugged file. The Debug Preview is similar in functionality to the [`Preview`](../preview) view.
+	The [`Preview`](../preview) view can show the result of executing the debugged file.
     
     ![Debug Preview pane of the Debugger view](../../../images/ide_view_debugger_debug_preview.png)
 
@@ -40,4 +40,3 @@ This view includes a few panes that are helpful during the debugging process. Se
 !!! info "Related content"
 
 	* [Console](../console) view
-    * [Debugger](../../perspectives/debugger) perspective

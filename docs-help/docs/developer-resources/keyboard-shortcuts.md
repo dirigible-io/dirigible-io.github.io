@@ -10,14 +10,14 @@ Keyboard shortcuts represent combinations of two or more keyboard buttons that, 
 
 |      Keyboard Combination   | Action |
 | ------------- |-------------|
-| ++ctrl+s++  / ++command+s++    | Save |
-| ++alt+w++  /  ++option+w++      | Close active editor |
-| ++alt+shift+w++  /  ++option+shift+w++ | Close all opened editors |
-| ++ctrl+shift+f++  /  ++command+shift+f++ | Open **Search** view |
+| ++f1++                                   | Command Pallette |
+| ++ctrl+s++  / ++command+s++              | Save |
+| ++ctrl+shift+i++  /  ++command+shift+i++ | Format the document |
+| ++ctrl+shift+f++  /  ++command+shift+f++ | Open **Search** popup |
 
 
 ## Command Pallette
 
-![Open Command Pallette](../../images/pallette_screenshot.png)
+The command pallette gives you access to the most common operations in the default editor along with their keyboard shortcuts.
 
-The command pallette gives you access to the most common operations in Eclipse Dirigible along with their keyboard shortcuts. You can access the command pallette by pressing <kbd>F1</kbd> on your keyboard.
+![Open Command Pallette](../../images/pallette_screenshot.png)

@@ -14,7 +14,7 @@ This section shows how to create the database table for the Scheduled Job applic
 ### Database Table
 
 1. Navigate to the [`Database Perspective`](/help/development/ide/perspectives/database/).
-1. In the [`SQL View`](/help/development/ide/views/sql/) enter the following script:
+1. In the [`Statements View`](/help/development/ide/views/statements/) enter the following script:
 
     ```sql
     create table LOG_EVENTS (
@@ -52,7 +52,7 @@ This section shows how to create the database table for the Scheduled Job applic
     After completing the steps in this tutorial, you would:
 
     - Have database table named `LOG_EVENTS`.
-    - Be familiar with the [`Database Perspective`](/help/development/ide/perspectives/database/), the [`SQL View`](/help/development/ide/views/sql/) and the [`Result View`](/help/development/ide/views/resultview/).
+    - Be familiar with the [`Database Perspective`](/help/development/ide/perspectives/database/), the [`Statements View`](/help/development/ide/views/statements/) and the [`Result View`](/help/development/ide/views/resultview/).
 
     Continue to the [Job Handler](../handler/) section to create a `Job Handler`, that would be executed by the `Scheduled Job`.
 
