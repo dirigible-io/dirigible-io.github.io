@@ -3509,7 +3509,7 @@
 </tr>
 <tr>
 <td><strong>getMenus(ExPointArray)</strong></td>
-<td>Returns all registered menus.</td>
+<td>Returns all registered menus. When calling this function with a custom menu extension point, it's recommended that you also provide the custom perspective, view and shell extension points. Otherwise, you will get the default ones.</td>
 <td><em>Promise</em></td>
 </tr>
 <tr>

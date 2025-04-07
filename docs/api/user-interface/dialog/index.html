@@ -2619,6 +2619,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#closeobject-object" class="md-nav__link">
+    CloseObject : Object
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3172,6 +3179,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#closeobject-object" class="md-nav__link">
+    CloseObject : Object
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3301,8 +3315,8 @@
 <td><em>Promise</em></td>
 </tr>
 <tr>
-<td><strong>closeWindow()</strong></td>
-<td>Closes the currently shown window. Usually used inside the window itself when the <code>closeButton</code> option is set to false.</td>
+<td><strong>closeWindow(CloseObject)</strong></td>
+<td>Closes a dialog window. Usually used inside the window itself when the <code>closeButton</code> option is set to false.</td>
 <td>-</td>
 </tr>
 <tr>
@@ -3319,6 +3333,7 @@
 <dt><a href="#FormItem">FormItem</a> : <code>Object</code></dt>
 <dt><a href="#FormObject">FormObject</a> : <code>Object</code></dt>
 <dt><a href="#WindowObject">WindowObject</a> : <code>Object</code></dt>
+<dt><a href="#CloseObject">CloseObject</a> : <code>Object</code></dt>
 </dl>
 
 <div class="admonition note">
@@ -3783,6 +3798,31 @@
 <td><code>boolean</code></td>
 <td><code>true</code></td>
 <td>Should the dialog have a close button in the title bar.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="CloseObject"></a></p>
+<h3 id="closeobject-object">CloseObject : <code>Object</code></h3>
+<p>If the <code>closeWindow</code> function is called without any parameters, it closes the currently shown window. Otherwise, you can provide an object with either the 'id' or 'path' of the window that you want to close.</p>
+<p><strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[id]</td>
+<td><code>string</code></td>
+<td>The dialog window id.</td>
+</tr>
+<tr>
+<td>[path]</td>
+<td><code>string</code></td>
+<td>The dialog window path.</td>
 </tr>
 </tbody>
 </table>

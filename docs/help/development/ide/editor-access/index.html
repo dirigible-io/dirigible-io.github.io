@@ -2166,12 +2166,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_6_8">
@@ -2194,20 +2188,6 @@
     <li class="md-nav__item">
       <a href="../perspectives/database/" class="md-nav__link">
         Database
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../perspectives/debugger/" class="md-nav__link">
-        Debugger
       </a>
     </li>
   
@@ -2262,34 +2242,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../perspectives/repository/" class="md-nav__link">
-        Repository
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../perspectives/terminal/" class="md-nav__link">
-        Terminal
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../perspectives/workbench/" class="md-nav__link">
         Workbench
       </a>
@@ -2318,12 +2270,6 @@
       
       
       
-        
-          
-        
-          
-        
-          
         
           
         
@@ -2467,8 +2413,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../views/datastructures/" class="md-nav__link">
-        Data Structures
+      <a href="../views/tablestructures/" class="md-nav__link">
+        Table Structures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../views/viewstructures/" class="md-nav__link">
+        View Structures
       </a>
     </li>
   
@@ -2483,34 +2443,6 @@
     <li class="md-nav__item">
       <a href="../views/debugger/" class="md-nav__link">
         Debugger
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../views/discussions/" class="md-nav__link">
-        Discussions
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../views/documents/" class="md-nav__link">
-        Documents
       </a>
     </li>
   
@@ -2621,20 +2553,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../views/plugins/" class="md-nav__link">
-        Plugins
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../views/preview/" class="md-nav__link">
         Previews
       </a>
@@ -2719,22 +2637,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../views/snapshot/" class="md-nav__link">
-        Snapshot
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../views/sql/" class="md-nav__link">
-        SQL
+      <a href="../views/statements/" class="md-nav__link">
+        Statements
       </a>
     </li>
   
@@ -3093,7 +2997,7 @@
 <h2 id="create-a-security-constraints-file">Create a Security Constraints File</h2>
 <ol>
 <li>
-<p>Right-click on your project in the <strong>Workspace</strong> view and choose <strong>New</strong> <strong>&rarr;</strong> <strong>Access Constraints</strong>.</p>
+<p>Right-click on your project in the <strong>Projects</strong> view and choose <strong>New</strong> <strong>&rarr;</strong> <strong>Access Constraints</strong>.</p>
 <p><img alt="New Security Constraint" src="../../../images/securityconstraint.png" /></p>
 </li>
 <li>
@@ -3108,8 +3012,7 @@
 <p><img alt="Access Editor" src="../../../images/access_editor1.png" /></p>
 </li>
 <li>
-<p>Choose <strong>New</strong> (<kbd>+</kbd>).</p>
-<p><img alt="New Constraint" src="../../../images/new_constraint.png" /></p>
+<p>Click on the <strong>Add</strong> button.</p>
 </li>
 <li>
 <p>In the <strong>Create Constraint</strong> dialog, fill in the path to the file for which you're creating the access constraint in the <strong>Path</strong> field.</p>
@@ -3121,10 +3024,10 @@
 <p>Select HTTP or CMIS scope from the drop-down list in the <strong>Scope</strong> field.</p>
 </li>
 <li>
-<p>Fill in a role for which the access constraint is valid in the <strong>Roles</strong> field.</p>
+<p>Fill in a role(s) for which the access constraint is valid in the <strong>Roles</strong> field.</p>
 </li>
 <li>
-<p>Choose <strong>Save</strong>.</p>
+<p>Click <strong>Add</strong>.</p>
 <p><img alt="Dialog Create Constraint" src="../../../images/dialog_create_constraint.png" /></p>
 </li>
 </ol>
@@ -3132,24 +3035,16 @@
 <p>You can also use the <strong>Access</strong> editor to make a resource publicly accessible. To do this, fill in the role <code>public</code> in step 6 above. This way, you're effectively creating a new public endpoint for the resource. You can access the public endpoint by replacing <code>web</code> with <code>public</code> in the endpoint's URL.</p>
 <ol>
 <li>
-<p>Fill in the <code>public</code> role in the <strong>Roles</strong> field of the <strong>Create Constraint</strong> dialog and choose <strong>Save</strong>.</p>
+<p>Fill in the <code>public</code> role in the <strong>Roles</strong> field of the <strong>Add Constraint</strong> dialog, click <strong>Add</strong> and then <strong>Save</strong>.</p>
 <p><img alt="Add public role" src="../../../images/public_role.png" /></p>
-</li>
-<li>
-<p>Publish your project.</p>
-<p><img alt="Publish public project" src="../../../images/public_role_publish.png" /></p>
 </li>
 <li>
 <p>Copy the endpoint's URL from the <strong>Preview</strong> view.</p>
 <p><img alt="Copy URL" src="../../../images/endpoint_URL.png" /></p>
 </li>
 <li>
-<p>Open a browser and replace <code>web</code> with <code>public</code> in the URL.</p>
+<p>Open a browser, paste the URL, replace <code>web</code> with <code>public</code> and check if you can access the public endpoint.</p>
 <p><img alt="Public endpoint URL" src="../../../images/public_endpoint_URL.png" /></p>
-</li>
-<li>
-<p>Check if you can access the public endpoint.</p>
-<p><img alt="Public endpoint" src="../../../images/public_endpoint.png" /></p>
 </li>
 </ol>
 
