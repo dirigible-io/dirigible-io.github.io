@@ -1961,6 +1961,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artefact" class="md-nav__link">
+    Artefact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory" class="md-nav__link">
+    Directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefactinformation" class="md-nav__link">
+    ArtefactInformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3060,6 +3094,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artefact" class="md-nav__link">
+    Artefact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directory" class="md-nav__link">
+    Directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefactinformation" class="md-nav__link">
+    ArtefactInformation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3136,23 +3204,211 @@
 <tbody>
 <tr>
 <td><strong>getContent(path)</strong></td>
-<td>Gets the content of resource by path, as byte array</td>
+<td>Gets the content of artefact by path, as byte array</td>
 <td><em>array of bytes</em></td>
 </tr>
 <tr>
 <td><strong>getContentNative(path)</strong></td>
-<td>Gets the content of resource by path, as array of Java bytes</td>
+<td>Gets the content of artefact by path, as array of Java bytes</td>
 <td><em>array of Java bytes</em></td>
 </tr>
 <tr>
 <td><strong>getText(path)</strong></td>
-<td>Gets the content of resource by path, as text</td>
+<td>Gets the content of artefact by path, as text</td>
 <td><em>string</em></td>
 </tr>
 <tr>
 <td><strong>find(path, pattern)</strong></td>
-<td>Find resources under certain path (e.g. /) by pattern (e.g. *.js)</td>
+<td>Find artefacts under certain path (e.g. /) by pattern (e.g. *.js)</td>
 <td><em>array of strings</em></td>
+</tr>
+<tr>
+<td><strong>getRoot()</strong></td>
+<td>Gets the <code>Root</code> directory</td>
+<td><em>Directory</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="objects">Objects</h3>
+<hr />
+<h4 id="artefact">Artefact</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getName()</strong></td>
+<td>Gets the Artefact name</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getPath()</strong></td>
+<td>Gets the Artefact path</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getParent()</strong></td>
+<td>Gets the Artefact parent</td>
+<td><em>Directory</em></td>
+</tr>
+<tr>
+<td><strong>getInformation()</strong></td>
+<td>Get the Artefact information</td>
+<td><em>ArtefactInformation</em></td>
+</tr>
+<tr>
+<td><strong>exists()</strong></td>
+<td>Returns <em>true</em> if the Artefact exists</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>isEmpty()</strong></td>
+<td>Returns <em>true</em> if the Artefact is empty</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getText()</strong></td>
+<td>Returns the content of the Artefact as text</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getContent()</strong></td>
+<td>Returns the content of the Artefact</td>
+<td><em>byte array</em></td>
+</tr>
+<tr>
+<td><strong>getContentNative()</strong></td>
+<td>Returns the content of the Artefact</td>
+<td><em>array of Java bytes</em></td>
+</tr>
+<tr>
+<td><strong>isBinary()</strong></td>
+<td>Returns <em>true</em> if the Artefact content is binary</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getContentType()</strong></td>
+<td>Returns the content type of the Artefact</td>
+<td><em>string</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="directory">Directory</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getName()</strong></td>
+<td>Gets the Directory name</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getPath()</strong></td>
+<td>Gets the Directory path</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getParent()</strong></td>
+<td>Gets the Directory parent Directory</td>
+<td><em>Directory</em></td>
+</tr>
+<tr>
+<td><strong>getInformation()</strong></td>
+<td>Get the Directory information</td>
+<td><em>ArtefactInformation</em></td>
+</tr>
+<tr>
+<td><strong>exists()</strong></td>
+<td>Returns <em>true</em> if the Directory exists</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>isEmpty()</strong></td>
+<td>Returns <em>true</em> if the Directory is empty</td>
+<td><em>boolean</em></td>
+</tr>
+<tr>
+<td><strong>getDirectoriesNames()</strong></td>
+<td>Gets the names of the Directories in this Directory</td>
+<td><em>array of strings</em></td>
+</tr>
+<tr>
+<td><strong>getDirectory(name)</strong></td>
+<td>Get Directory by name</td>
+<td><em>Directory</em></td>
+</tr>
+<tr>
+<td><strong>getArtefactsNames()</strong></td>
+<td>Gets the names of the Artefacts in this Directory</td>
+<td><em>array of strings</em></td>
+</tr>
+<tr>
+<td><strong>getArtefact(name)</strong></td>
+<td>Get Artefact by name</td>
+<td><em>Artefact</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="artefactinformation">ArtefactInformation</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getName()</strong></td>
+<td>Gets the Artefact name</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getPath()</strong></td>
+<td>Gets the Artefact path</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getPermissions()</strong></td>
+<td>Gets the Artefact permissions</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getSize()</strong></td>
+<td>Gets the Artefact size</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getCreatedBy()</strong></td>
+<td>Gets the Artefact createdBy</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getCreatedAt()</strong></td>
+<td>Gets the Artefact createdAt</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getModifiedBy()</strong></td>
+<td>Gets the Artefact modifiedBy</td>
+<td><em>string</em></td>
+</tr>
+<tr>
+<td><strong>getModifiedAt()</strong></td>
+<td>Gets the Artefact modifiedAt</td>
+<td><em>string</em></td>
 </tr>
 </tbody>
 </table>
