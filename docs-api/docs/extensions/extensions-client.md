@@ -53,6 +53,7 @@ setExtPoints({
   windows: ['custom-windows'],
   themes: ['custom-themes'],
   settings: ['custom-settings'],
+  locales: ['custom-locales'],
 });
 angular.module('shell', ...
 ```
@@ -68,6 +69,7 @@ Parameter     | Description | Required
 **windows**   | List of dialog window extension points | no
 **themes**   | List of theme extension points | no
 **settings**   | List of setting extension points | no
+**locales**   | List of locale extension points | no
 
 ### Get custom extension points
 
@@ -92,6 +94,7 @@ addExtPoints({
   window: 'custom-windows',
   theme: 'custom-themes',
   setting: 'custom-settings',
+  locale: 'custom-locales',
 });
 angular.module('shell', ...
 ```
@@ -107,6 +110,7 @@ Parameter     | Description | Required
 **window**   | Dialog window extension point | no
 **theme**   | Theme extension point | no
 **setting**   | Setting extension point | no
+**locales**   | Locale extension point | no
 
 ### Remove extension points
 
@@ -123,6 +127,7 @@ removeExtPoints({
   window: 'custom-windows',
   theme: 'custom-themes',
   setting: 'custom-settings',
+  locale: 'custom-locales',
 });
 angular.module('shell', ...
 ```
@@ -138,6 +143,7 @@ Parameter     | Description | Required
 **window**   | Dialog window extension point | no
 **theme**   | Theme extension point | no
 **setting**   | Setting extension point | no
+**locales**   | Locale extension point | no
 
 ### Extensions API
 
@@ -186,6 +192,7 @@ Function     | Description | Returns
 **getShells(ExPointArray)**   | Returns all registered shells. | *Promise*
 **getMenus(ExPointArray)**   | Returns all registered menus. When calling this function with a custom menu extension point, it's recommended that you also provide the custom perspective, view and shell extension points. Otherwise, you will get the default ones. | *Promise*
 **getThemes(ExPointArray)**   | Returns all registered themes. | *Promise*
+**getTranslations(TranslationObj)**   | Returns all registered themes. | *Promise*
 
 !!! Note
 	Params in square brackets are optional.
@@ -199,6 +206,16 @@ Function     | Description | Returns
 | Type | Description |
 | --- | --- |
 | string | Extension point id. |
+
+<a name="TranslationObj"></a>
+
+## TranslationObj : <code>Object</code>
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [langs] | <code>Array.&lt;string&gt;</code> or <code>string</code> | BCP 47 language tag(s). Example - 'en-US' |
+| [namespaces] | <code>Array.&lt;string&gt;</code> or <code>string</code> | Translation namespace(s). Usually, namspaces are the same as the name of the project they come from. |
+| [exPoints] | <code>Array.&lt;string&gt;</code> or <code>string</code> | Extension point id(s) |
 
 ## Example
 
