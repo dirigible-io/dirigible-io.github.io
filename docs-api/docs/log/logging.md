@@ -24,8 +24,9 @@ Logging API using high-performance underlying framework - [logback](https://logb
 
     let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
-    logger.debug("Hello from {} {}!", "MyLogger");
+    logger.debug("Hello from {}!", "MyLogger");
     logger.error("Oops", new Error("Something wrong happened"));
+    logger.error("Oops! Param 1: {}, param 2: {}", "param1Value", "param2Value", new Error("Something wrong happened"));
     ```
 
 <!-- === "CommonJS"
@@ -35,8 +36,9 @@ Logging API using high-performance underlying framework - [logback](https://logb
 
     let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
-    logger.debug("Hello from {} {}!", "MyLogger");
+    logger.debug("Hello from {}!", "MyLogger");
     logger.error("Oops", new Error("Something wrong happened"));
+    logger.error("Oops! Param 1: {}, param 2: {}", "param1Value", "param2Value", new Error("Something wrong happened"));
     ``` -->
 
 
@@ -65,9 +67,9 @@ Function     | Description | Returns
 **debug(message, args?)**   | Logs the *message* with the DEBUG log level | -
 **trace(message, args?)**   | Logs the *message* with the TRACE log level | -
 **log(message, level, args?)**   | Logs the *message* with the provided log *level* and optional message parameters | -
-**infoError(message, error)**   | Logs the *error* with the stack trace with the INFO log level | -
-**warnError(message, error)**   | Logs the *error* with the stack trace with the WARN log level | -
-**errorError(message, error)**   | Logs the *error* with the stack trace with the ERROR log level | -
-**debugError(message, error)**   | Logs the *error* with the stack trace with the DEBUG log level | -
-**traceError(message, error)**   | Logs the *error* with the stack trace with the TRACE log level | -
+**isDebugEnabled()**   | Is the logger instance enabled for the **DEBUG** level | *boolean*
+**isErrorEnabled()**   | Is the logger instance enabled for the **ERROR** level | *boolean*
+**isWarnEnabled()**   | Is the logger instance enabled for the **WARN** level | *boolean*
+**isInfoEnabled()**   | Is the logger instance enabled for the **INFO** level | *boolean*
+**isTraceEnabled()**   | Is the logger instance enabled for the **TRACE** level | *boolean*
 **setLevel(level)**   | Sets the log level ('INFO', 'WARN', 'ERROR', 'DEBUG', 'TRACE') | -
