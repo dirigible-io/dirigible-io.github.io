@@ -3202,8 +3202,9 @@
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">logging</span><span class="p">.</span><span class="nx">getLogger</span><span class="p">(</span><span class="s2">&quot;org.eclipse.dirigible.mylogger&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">logger</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Hello from {} {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MyLogger&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">logger</span><span class="p">.</span><span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;Hello from {}!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MyLogger&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Oops&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Something wrong happened&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Oops! Param 1: {}, param 2: {}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param1Value&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;param2Value&quot;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Something wrong happened&quot;</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -3215,8 +3216,9 @@
 
     let logger = logging.getLogger("org.eclipse.dirigible.mylogger");
 
-    logger.debug("Hello from {} {}!", "MyLogger");
+    logger.debug("Hello from {}!", "MyLogger");
     logger.error("Oops", new Error("Something wrong happened"));
+    logger.error("Oops! Param 1: {}, param 2: {}", "param1Value", "param2Value", new Error("Something wrong happened"));
     ``` -->
 
 <h3 id="functions">Functions</h3>
@@ -3280,29 +3282,29 @@
 <td>-</td>
 </tr>
 <tr>
-<td><strong>infoError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the INFO log level</td>
-<td>-</td>
+<td><strong>isDebugEnabled()</strong></td>
+<td>Is the logger instance enabled for the <strong>DEBUG</strong> level</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
-<td><strong>warnError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the WARN log level</td>
-<td>-</td>
+<td><strong>isErrorEnabled()</strong></td>
+<td>Is the logger instance enabled for the <strong>ERROR</strong> level</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
-<td><strong>errorError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the ERROR log level</td>
-<td>-</td>
+<td><strong>isWarnEnabled()</strong></td>
+<td>Is the logger instance enabled for the <strong>WARN</strong> level</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
-<td><strong>debugError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the DEBUG log level</td>
-<td>-</td>
+<td><strong>isInfoEnabled()</strong></td>
+<td>Is the logger instance enabled for the <strong>INFO</strong> level</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
-<td><strong>traceError(message, error)</strong></td>
-<td>Logs the <em>error</em> with the stack trace with the TRACE log level</td>
-<td>-</td>
+<td><strong>isTraceEnabled()</strong></td>
+<td>Is the logger instance enabled for the <strong>TRACE</strong> level</td>
+<td><em>boolean</em></td>
 </tr>
 <tr>
 <td><strong>setLevel(level)</strong></td>
