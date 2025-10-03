@@ -84,7 +84,9 @@ The `Entity` description in the Hibernate `xml` or `json` format (e.g. Customer.
 Function     | Description | Returns
 ------------ | ----------- | --------
 **save(name, entry)**   | Save the `entry` in the collection with `name` | *-*
-**list(name)**   | List all the entris in the collection with `name` | *Array of Objects*
+**list(name)**   | List all the entries in the collection with `name` | *Array of Objects*
 **get(name, id)**   | Get the entry from the collection with `name` by its `id` | *Object*
 **deleteEntry(name, id)**   | Delete the entry from the collection with `name` by its `id` | *-*
+**query(query)**   | Query the entries with `query` | *Array of Objects*
+**queryNative(query)**   | Query the entries with native `query`` | *Array of Objects*
 
