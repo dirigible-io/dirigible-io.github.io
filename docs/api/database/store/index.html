@@ -737,6 +737,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    Advanced Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -3114,6 +3121,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    Advanced Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -3214,6 +3228,56 @@
 </div>
 </div>
 </div>
+<h3 id="advanced-usage">Advanced Usage</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ECMA6</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">store</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/db&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">entry1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;address&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Sofia, Bulgaria&#39;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">entry2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;address&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Varna, Bulgaria&#39;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">entry3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Matthias&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;address&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Berlin, Germany&#39;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+
+<span class="nx">store</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry1</span><span class="p">);</span><span class="w"></span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry2</span><span class="p">);</span><span class="w"></span>
+<span class="nx">store</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">entry3</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;List all customers:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Select customers with first name John:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s2">&quot;from Customer c where c.name = &#39;John&#39;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">select</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Select native customers with first name John:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">selectNative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">queryNative</span><span class="p">(</span><span class="s2">&quot;select * from Customer c where c.name = &#39;John&#39;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">selectNative</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Find customers by Example:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">findByExample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;John&quot;}&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">findByExample</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;List customers with filter options:&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">listWithOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;conditions&quot;:[{&quot;propertyName&quot;:&quot;name&quot;,&quot;operator&quot;:&quot;LIKE&quot;,&quot;value&quot;:&quot;J%&quot;}],&quot;sorts&quot;:[{&quot;propertyName&quot;:&quot;name&quot;,&quot;direction&quot;:&quot;ASC&quot;}],&quot;limit&quot;:&quot;100&quot;}&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">listWithOptions</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+
+<span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span><span class="w"></span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="functions">Functions</h3>
 <hr />
 <table>
@@ -3231,8 +3295,8 @@
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>list(name)</strong></td>
-<td>List all the entries in the collection with <code>name</code></td>
+<td><strong>list(name, options)</strong></td>
+<td>List all the entries in the collection with <code>name</code> and optionally <code>options</code></td>
 <td><em>Array of Objects</em></td>
 </tr>
 <tr>
@@ -3246,13 +3310,18 @@
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>query(query)</strong></td>
+<td><strong>query(query, limit, offset)</strong></td>
 <td>Query the entries with <code>query</code></td>
 <td><em>Array of Objects</em></td>
 </tr>
 <tr>
 <td><strong>queryNative(query)</strong></td>
 <td>Query the entries with native `query``</td>
+<td><em>Array of Objects</em></td>
+</tr>
+<tr>
+<td><strong>find(name, example, limit, offset)</strong></td>
+<td>Find all the entries in the collection with <code>name</code> matching <code>example</code></td>
 <td><em>Array of Objects</em></td>
 </tr>
 </tbody>
