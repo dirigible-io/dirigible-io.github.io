@@ -119,13 +119,13 @@ The `Entity` description in the `json` format
     response.println("");
     response.println("Find customers by Example:");
     response.println("---------------------------------------------");
-    let findByExample = store.find('Customer', '{"name":"John"}');
+    let findByExample = store.find('Customer', {"name":"John"});
     response.println(JSON.stringify(findByExample, null, 2));
     
     response.println("");
     response.println("List customers with filter options:");
     response.println("---------------------------------------------");
-    let listWithOptions = store.list('Customer', '{"conditions":[{"propertyName":"name","operator":"LIKE","value":"J%"}],"sorts":[{"propertyName":"name","direction":"ASC"}],"limit":"100"}');
+    let listWithOptions = store.list('Customer', {"conditions":[{"propertyName":"name","operator":"LIKE","value":"J%"}],"sorts":[{"propertyName":"name","direction":"ASC"}],"limit":"100"});
     response.println(JSON.stringify(listWithOptions, null, 2));
     
     response.flush();
@@ -142,10 +142,54 @@ The `Entity` description in the `json` format
 Function     | Description | Returns
 ------------ | ----------- | --------
 **save(name, entry)**   | Save the `entry` in the collection with `name` | *-*
-**list(name, options)**   | List all the entries in the collection with `name` and optionally `options` | *Array of Objects*
+**update(name, entry)**   | Update the `entry` in the collection with `name` | *-*
+**upsert(name, entry)**   | Save or update the `entry` in the collection with `name` | *-*
+**list(name, Options)**   | List all the entries in the collection with `name` and optionally `Options` | *Array of Objects*
 **get(name, id)**   | Get the entry from the collection with `name` by its `id` | *Object*
 **deleteEntry(name, id)**   | Delete the entry from the collection with `name` by its `id` | *-*
 **query(query, limit, offset)**   | Query the entries with `query` | *Array of Objects*
 **queryNative(query)**   | Query the entries with native `query`` | *Array of Objects*
 **find(name, example, limit, offset)**   | Find all the entries in the collection with `name` matching `example` | *Array of Objects*
+**count(name, Options)**   | Count the entries with `name` and optionally `Options` | *number*
 
+
+### Objects
+
+---
+
+```javascript
+interface Options {
+	conditions?: Condition[],
+	sorts?: Sort[],
+	limit?: number,
+	offset?: number
+}
+
+interface Condition {
+	propertyName: string,
+	operator: Operator,
+	value: any | any[]
+}
+
+enum Operator {
+	EQ = "=", // Equals
+	NE = "<>", // Not Equals
+	GT = ">", // Greater Than
+	LT = "<", // Less Than
+	GE = ">=", // Greater Than or Equals
+	LE = "<=", // Less Than or Equals
+	LIKE = "LIKE", // SQL LIKE operator
+	BETWEEN = "BETWEEN", // SQL BETWEEN operator (requires two values)
+	IN = "IN" // SQL IN operator (requires a List or Array of values)
+}
+
+interface Sort {
+	propertyName: string,
+	direction: Direction
+}
+
+enum Direction {
+	ASC = "ASC", // Ascending
+	DESC = "DESC" // Descending
+}
+```
