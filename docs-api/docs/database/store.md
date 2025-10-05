@@ -51,26 +51,36 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ``` -->
 
-The `Entity` description in the Hibernate `xml` or `json` format (e.g. Customer.hbm.xml as XML or Customer.entity as JSON)
+The `Entity` description in the `json` format
 
-=== "XML"
+=== "JSON"
 
-    ```xml
-    <hibernate-mapping>
-
-        <class entity-name="Customer">
-
-            <id name="id" type="long" column="ID">
-                <generator class="sequence" />
-            </id>
-
-            <property name="name" column="NAME" type="string" />
-
-            <property name="address" column="ADDRESS" type="string" />
-
-        </class>
-
-    </hibernate-mapping>
+    ```json
+    {
+      "entity-mapping" : {
+        "class" : {
+          "entity-name" : "Customer",
+          "table" : "Customer",
+          "id" : {
+            "column" : "ID",
+            "name" : "id",
+            "type" : "long",
+            "generator" : {
+              "class" : "sequence"
+            }
+          },
+          "property" : [ {
+            "column" : "NAME",
+            "name" : "name",
+            "type" : "string"
+          }, {
+            "column" : "ADDRESS",
+            "name" : "address",
+            "type" : "string"
+          } ]
+        }
+      }
+    }
     ```
 
 ### Advanced Usage
