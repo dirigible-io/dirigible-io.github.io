@@ -750,6 +750,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3134,6 +3141,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3273,13 +3287,13 @@
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Find customers by Example:&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">findByExample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;name&quot;:&quot;John&quot;}&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">findByExample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;John&quot;</span><span class="p">});</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">findByExample</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;List customers with filter options:&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;---------------------------------------------&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">listWithOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;{&quot;conditions&quot;:[{&quot;propertyName&quot;:&quot;name&quot;,&quot;operator&quot;:&quot;LIKE&quot;,&quot;value&quot;:&quot;J%&quot;}],&quot;sorts&quot;:[{&quot;propertyName&quot;:&quot;name&quot;,&quot;direction&quot;:&quot;ASC&quot;}],&quot;limit&quot;:&quot;100&quot;}&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">listWithOptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">store</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;conditions&quot;</span><span class="o">:</span><span class="p">[{</span><span class="s2">&quot;propertyName&quot;</span><span class="o">:</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;operator&quot;</span><span class="o">:</span><span class="s2">&quot;LIKE&quot;</span><span class="p">,</span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="s2">&quot;J%&quot;</span><span class="p">}],</span><span class="s2">&quot;sorts&quot;</span><span class="o">:</span><span class="p">[{</span><span class="s2">&quot;propertyName&quot;</span><span class="o">:</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;direction&quot;</span><span class="o">:</span><span class="s2">&quot;ASC&quot;</span><span class="p">}],</span><span class="s2">&quot;limit&quot;</span><span class="o">:</span><span class="s2">&quot;100&quot;</span><span class="p">});</span><span class="w"></span>
 <span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">listWithOptions</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
 
 <span class="nx">response</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span><span class="w"></span>
@@ -3305,8 +3319,18 @@
 <td><em>-</em></td>
 </tr>
 <tr>
-<td><strong>list(name, options)</strong></td>
-<td>List all the entries in the collection with <code>name</code> and optionally <code>options</code></td>
+<td><strong>update(name, entry)</strong></td>
+<td>Update the <code>entry</code> in the collection with <code>name</code></td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>upsert(name, entry)</strong></td>
+<td>Save or update the <code>entry</code> in the collection with <code>name</code></td>
+<td><em>-</em></td>
+</tr>
+<tr>
+<td><strong>list(name, Options)</strong></td>
+<td>List all the entries in the collection with <code>name</code> and optionally <code>Options</code></td>
 <td><em>Array of Objects</em></td>
 </tr>
 <tr>
@@ -3334,8 +3358,50 @@
 <td>Find all the entries in the collection with <code>name</code> matching <code>example</code></td>
 <td><em>Array of Objects</em></td>
 </tr>
+<tr>
+<td><strong>count(name, Options)</strong></td>
+<td>Count the entries with <code>name</code> and optionally <code>Options</code></td>
+<td><em>number</em></td>
+</tr>
 </tbody>
 </table>
+<h3 id="objects">Objects</h3>
+<hr />
+<div class="highlight"><pre><span></span><code><span class="kr">interface</span><span class="w"> </span><span class="nx">Options</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">conditions</span><span class="o">?:</span><span class="w"> </span><span class="nx">Condition</span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">sorts</span><span class="o">?:</span><span class="w"> </span><span class="nx">Sort</span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nx">limit</span><span class="o">?:</span><span class="w"> </span><span class="nx">number</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">offset</span><span class="o">?:</span><span class="w"> </span><span class="nx">number</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">interface</span><span class="w"> </span><span class="nx">Condition</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">propertyName</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">operator</span><span class="o">:</span><span class="w"> </span><span class="nx">Operator</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">any</span><span class="p">[]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">enum</span><span class="w"> </span><span class="nx">Operator</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">EQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Equals</span><span class="w"></span>
+<span class="w">    </span><span class="nx">NE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Not Equals</span><span class="w"></span>
+<span class="w">    </span><span class="nx">GT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Greater Than</span><span class="w"></span>
+<span class="w">    </span><span class="nx">LT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Less Than</span><span class="w"></span>
+<span class="w">    </span><span class="nx">GE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Greater Than or Equals</span><span class="w"></span>
+<span class="w">    </span><span class="nx">LE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Less Than or Equals</span><span class="w"></span>
+<span class="w">    </span><span class="nx">LIKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;LIKE&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// SQL LIKE operator</span><span class="w"></span>
+<span class="w">    </span><span class="nx">BETWEEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;BETWEEN&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// SQL BETWEEN operator (requires two values)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">IN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;IN&quot;</span><span class="w"> </span><span class="c1">// SQL IN operator (requires a List or Array of values)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">interface</span><span class="w"> </span><span class="nx">Sort</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">propertyName</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">direction</span><span class="o">:</span><span class="w"> </span><span class="nx">Direction</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">enum</span><span class="w"> </span><span class="nx">Direction</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">ASC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ASC&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Ascending</span><span class="w"></span>
+<span class="w">    </span><span class="nx">DESC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;DESC&quot;</span><span class="w"> </span><span class="c1">// Descending</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 
   
