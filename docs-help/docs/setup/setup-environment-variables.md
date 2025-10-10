@@ -175,14 +175,18 @@ Parameter     | Description | Default*
 Parameter     | Description                                                                                              | Default*
 ------------ |----------------------------------------------------------------------------------------------------------| --------
 **DIRIGIBLE_DATABASE_PROVIDER**   | The name of the database provider which will be used in this instance _(`local`, `managed` or `custom`)_ | _`local`_
+**DIRIGIBLE_DATASOURCE_DEFAULT_DRIVER**  | The driver used for the DefaultDB database connection | _`org.h2.Driver`_
+**DIRIGIBLE_DATASOURCE_DEFAULT_URL**  | The JDBC url used for the DefaultDB database connection | _`jdbc:h2:file:./target/dirigible/h2/DefaultDB`_
+**DIRIGIBLE_DATASOURCE_DEFAULT_USERNAME**  | The username used for the DefaultDB database connection | _`sa`_
+**DIRIGIBLE_DATASOURCE_DEFAULT_PASSWORD**  | The password used for the DefaultDB database connection | _(empty)_
 **DIRIGIBLE_DATABASE_DEFAULT_SET_AUTO_COMMIT**   | The _`AUTO_COMMIT`_ data source parameter                                                                | _`true`_
 **DIRIGIBLE_DATABASE_DEFAULT_MAX_CONNECTIONS_COUNT**   | The _`MAX_CONNECTIONS_COUNT`_ data source parameter                                                      | _`8`_
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_TIMEOUT**   | The _`WAIT_TIMEOUT`_ data source parameter                                                               | _`500`_
 **DIRIGIBLE_DATABASE_DEFAULT_WAIT_COUNT**   | The _`WAIT_COUNT`_ data source parameter                                                                 | _`5`_
+**DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT**	| The batch size used during quering data from the database                                                | _`1000`
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance                                                | _`DefaultDB`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance                                                 | _`SystemDB`_
 **DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer                                                             | _`1000`_
-**DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT**	| The batch size used during quering data from the database                                                | _`1000`_
 **DIRIGIBLE_DATABASE_SYSTEM_DRIVER**	| The driver used for the SystemDB database connection                                                     | _`org.h2.Driver`_
 **DIRIGIBLE_DATABASE_SYSTEM_URL**	| The JDBC url used for the SystemDB database connection                                                   | _`jdbc:h2:file:./target/dirigible/h2/SystemDB`_
 **DIRIGIBLE_DATABASE_SYSTEM_USERNAME**	| The username used for the SystemDB database connection                                                   | _`sa`_
