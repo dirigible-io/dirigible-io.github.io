@@ -4189,6 +4189,26 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><em><code>local</code></em></td>
 </tr>
 <tr>
+<td><strong>DIRIGIBLE_DATASOURCE_DEFAULT_DRIVER</strong></td>
+<td>The driver used for the DefaultDB database connection</td>
+<td><em><code>org.h2.Driver</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATASOURCE_DEFAULT_URL</strong></td>
+<td>The JDBC url used for the DefaultDB database connection</td>
+<td><em><code>jdbc:h2:file:./target/dirigible/h2/DefaultDB</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATASOURCE_DEFAULT_USERNAME</strong></td>
+<td>The username used for the DefaultDB database connection</td>
+<td><em><code>sa</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_DATASOURCE_DEFAULT_PASSWORD</strong></td>
+<td>The password used for the DefaultDB database connection</td>
+<td><em>(empty)</em></td>
+</tr>
+<tr>
 <td><strong>DIRIGIBLE_DATABASE_DEFAULT_SET_AUTO_COMMIT</strong></td>
 <td>The <em><code>AUTO_COMMIT</code></em> data source parameter</td>
 <td><em><code>true</code></em></td>
@@ -4209,6 +4229,11 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><em><code>5</code></em></td>
 </tr>
 <tr>
+<td><strong>DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT</strong></td>
+<td>The batch size used during quering data from the database</td>
+<td>_<code>1000</code></td>
+</tr>
+<tr>
 <td><strong>DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT</strong></td>
 <td>The name of the primary data source used in this instance</td>
 <td><em><code>DefaultDB</code></em></td>
@@ -4221,11 +4246,6 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <tr>
 <td><strong>DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE</strong></td>
 <td>The batch size used during the data transfer</td>
-<td><em><code>1000</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_DATABASE_DEFAULT_QUERY_LIMIT</strong></td>
-<td>The batch size used during quering data from the database</td>
 <td><em><code>1000</code></em></td>
 </tr>
 <tr>
