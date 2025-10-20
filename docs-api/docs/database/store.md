@@ -34,53 +34,26 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ```
 
-<!-- === "CommonJS"
+The `Entity` class with corresponding decorators:
 
-    ```javascript
-    const store = require("db/store");
-    const response = require("http/response");
+=== "TypeScript"
 
-    let entry = { 'name': 'John', 'address': 'Sofia, Bulgaria' };
-
-    store.save('Customer', entry);
-
-    let list = store.list('Customer');
-
-    response.println(JSON.stringify(list));
-    response.flush();
-    response.close();
-    ``` -->
-
-The `Entity` description in the `json` format
-
-=== "JSON"
-
-    ```json
-    {
-      "entity-mapping" : {
-        "class" : {
-          "entity-name" : "Customer",
-          "table" : "Customer",
-          "id" : {
-            "column" : "ID",
-            "name" : "id",
-            "type" : "long",
-            "generator" : {
-              "class" : "sequence"
-            }
-          },
-          "property" : [ {
-            "column" : "NAME",
-            "name" : "name",
-            "type" : "string"
-          }, {
-            "column" : "ADDRESS",
-            "name" : "address",
-            "type" : "string"
-          } ]
-        }
-      }
-    }
+    ```typescript
+    @Entity("Customer")
+	@Table("CUSTOMER")
+	export class Customer {
+	    
+	    @Id()
+	    @Generated("sequence")
+	    @Column({ name: "CUSTOMER_ID", type: "long" })
+	    public id: number;
+	
+	    @Column({ name: "CUSTOMER_NAME", type: "string" })
+	    public name: string;
+	
+	    @Column({ name: "CUSTOMER_ADDRESS", type: "string" })
+	    public address: string;
+	}
     ```
 
 ### Advanced Usage
@@ -101,30 +74,25 @@ The `Entity` description in the `json` format
     
     let list = store.list('Customer');
     response.println("List all customers:");
-    response.println("---------------------------------------------");
     response.println(JSON.stringify(list, null, 2));
     
     response.println("");
     response.println("Select customers with first name John:");
-    response.println("---------------------------------------------");
     let select = store.query("from Customer c where c.name = 'John'");
     response.println(JSON.stringify(select, null, 2));
     
     response.println("");
     response.println("Select native customers with first name John:");
-    response.println("---------------------------------------------");
     let selectNative = store.queryNative("select * from Customer c where c.name = 'John'");
     response.println(JSON.stringify(selectNative, null, 2));
     
     response.println("");
     response.println("Find customers by Example:");
-    response.println("---------------------------------------------");
     let findByExample = store.find('Customer', {"name":"John"});
     response.println(JSON.stringify(findByExample, null, 2));
     
     response.println("");
     response.println("List customers with filter options:");
-    response.println("---------------------------------------------");
     let listWithOptions = store.list('Customer', {"conditions":[{"propertyName":"name","operator":"LIKE","value":"J%"}],"sorts":[{"propertyName":"name","direction":"ASC"}],"limit":"100"});
     response.println(JSON.stringify(listWithOptions, null, 2));
     
@@ -162,7 +130,8 @@ interface Options {
 	conditions?: Condition[],
 	sorts?: Sort[],
 	limit?: number,
-	offset?: number
+	offset?: number,
+	language: string
 }
 
 interface Condition {
