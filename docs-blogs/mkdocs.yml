@@ -3,6 +3,8 @@ site_url: https://www.dirigible.io/blogs/
 
 nav:
     - 'Blog': 'index.md'
+    - '2025':
+      - 'Introducing the Eclipse Dirigible CLI': '2025/10/30/dirigible-cli.md'
     - '2024':
       - 'Monitoring Eclipse Dirigible with Spring Boot Admin': '2024/12/04/spring-boot-admin.md'
       - 'Eclipse Dirigible Observability Unlocked Using OpenTelemetry': '2024/12/03/open-telemetry.md'
