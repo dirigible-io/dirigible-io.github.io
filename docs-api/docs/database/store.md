@@ -34,14 +34,14 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ```
 
-The `Entity` class with corresponding decorators:
+The `Entity` class with corresponding decorators **CustomerEntity.ts** (note the 'Entity' term in the file name):
 
 === "TypeScript"
 
     ```typescript
     @Entity("Customer")
 	@Table("CUSTOMER")
-	export class Customer {
+	export class CustomerEntity {
 	    
 	    @Id()
 	    @Generated("sequence")
@@ -80,21 +80,26 @@ The `Entity` class with corresponding decorators:
     response.println("Select customers with first name John:");
     let select = store.query("from Customer c where c.name = 'John'");
     response.println(JSON.stringify(select, null, 2));
-    
+
     response.println("");
     response.println("Select native customers with first name John:");
-    let selectNative = store.queryNative("select * from Customer c where c.name = 'John'");
+    let selectNative = store.queryNative("select * from Customer c where CUSTOMER_NAME = 'John'");
     response.println(JSON.stringify(selectNative, null, 2));
-    
+
     response.println("");
     response.println("Find customers by Example:");
-    let findByExample = store.find('Customer', {"name":"John"});
+    let findByExample = store.find('Customer', { "name": "John" });
     response.println(JSON.stringify(findByExample, null, 2));
-    
+
     response.println("");
     response.println("List customers with filter options:");
-    let listWithOptions = store.list('Customer', {"conditions":[{"propertyName":"name","operator":"LIKE","value":"J%"}],"sorts":[{"propertyName":"name","direction":"ASC"}],"limit":"100"});
+    let listWithOptions = store.list('Customer', { "conditions": [{ "propertyName": "name", "operator": "LIKE", "value": "J%" }], "sorts": [{ "propertyName": "name", "direction": "ASC" }], "limit": "100" });
     response.println(JSON.stringify(listWithOptions, null, 2));
+
+    response.println("");
+    response.println("Select customers with first name starts with J:");
+    let selectWithParams = store.query("from Customer c where c.name like ?1", ["J%"]);
+    response.println(JSON.stringify(selectWithParams, null, 2));
     
     response.flush();
     response.close();
