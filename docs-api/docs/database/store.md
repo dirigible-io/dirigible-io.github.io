@@ -34,7 +34,7 @@ Simple Data Store functionality based on [Hibernate](https://hibernate.org/) fra
     response.close();
     ```
 
-The `Entity` class with corresponding decorators **CustomerEntity.ts** (note the 'Entity' term in the file name):
+The `Entity` class with corresponding decorators **CustomerEntity.ts** (note the `Entity` suffix in the file name):
 
 === "TypeScript"
 
