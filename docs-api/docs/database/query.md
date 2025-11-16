@@ -25,9 +25,9 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     import { response } from "sdk/http";
 
     const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-    let resultset = query.execute(sql, ["ide-editor"], "SystemDB");
+    let resultset = query.execute(sql, ["platform-editors"], "SystemDB");
 
-    response.println(JSON.stringify(resultset));
+    response.println(JSON.stringify(resultset, null, 4));
     ```
 
 ### Typed Parameters Usage
@@ -39,9 +39,9 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     import { response } from "sdk/http";
     
     const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?";
-    let resultset = query.execute(sql, [{ "type": "VARCHAR", "value": "ide-editor" }], "SystemDB");
-    
-    response.println(JSON.stringify(resultset));
+    let resultset = query.execute(sql, [{ "type": "VARCHAR", "value": "platform-editors" }], "SystemDB");
+
+    response.println(JSON.stringify(resultset, null, 4));
     ```
 
 ### Named Parameters Usage
@@ -53,9 +53,9 @@ Simplified query functionality, accepts SQL script and query parameters and retu
     import { response } from "sdk/http";
     
     const sql = "SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :editor";
-    let resultset = query.executeNamed(sql, [{ "name": "editor", "type": "VARCHAR", "value": "ide-editor" }], "SystemDB");
-    
-    response.println(JSON.stringify(resultset));
+    let resultset = query.execute(sql, [{ "name": "editor", "type": "VARCHAR", "value": "platform-editors" }], "SystemDB");
+
+    response.println(JSON.stringify(resultset, null, 4));
     ```
 
 
@@ -66,7 +66,6 @@ Simplified query functionality, accepts SQL script and query parameters and retu
 Function     | Description | Returns
 ------------ | ----------- | --------
 **execute(sql, parameters?, datasourceName?)**   | Executes a SQL query against the selected *datasourceName* with the provided parameters | *result-set as JSON object*
-**executeNamed(sql, parameters?, datasourceName?)**   | Executes a SQL query against the selected *datasourceName* with the provided parameters | *result-set as JSON object*
 
 
-> parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]
+> parameters array supports primitives e.g. `[1, 'John', 34.56]` or objects in format either `{'type':'[DATA_TYPE]', 'value':[VALUE]}` or `{'name':'[string]', 'type':'[DATA_TYPE]', 'value':[VALUE]}` e.g. `[{'type':'CHAR', 'value':'ISBN19202323322'}]` or `[{'name': 'order_number', 'type':'CHAR', 'value':'ISBN19202323322'}]`
