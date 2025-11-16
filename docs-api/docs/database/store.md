@@ -100,6 +100,11 @@ The `Entity` class with corresponding decorators **CustomerEntity.ts** (note the
     response.println("Select customers with first name starts with J:");
     let selectWithParams = store.query("from Customer c where c.name like ?1", ["J%"]);
     response.println(JSON.stringify(selectWithParams, null, 2));
+
+	response.println("");
+    response.println("Select customers with first name starts with J with named query:");
+    let selectWithParamsNamed = store.query("from Customer c where c.name like :first_name", [{ "name": "first_name", "type": "VARCHAR", "value": "M%" }]);
+    response.println(JSON.stringify(selectWithParamsNamed, null, 2));
     
     response.flush();
     response.close();
