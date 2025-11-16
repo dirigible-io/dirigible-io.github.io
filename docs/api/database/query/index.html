@@ -3190,9 +3190,9 @@
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ide-editor&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;platform-editors&quot;</span><span class="p">],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -3205,9 +3205,9 @@
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = ?&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ide-editor&quot;</span><span class="w"> </span><span class="p">}],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;platform-editors&quot;</span><span class="w"> </span><span class="p">}],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -3220,9 +3220,9 @@
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;sdk/http&quot;</span><span class="p">;</span><span class="w"></span>
 
 <span class="kd">const</span><span class="w"> </span><span class="nx">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;SELECT * FROM DIRIGIBLE_EXTENSIONS WHERE EXTENSION_EXTENSIONPOINT_NAME = :editor&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">executeNamed</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;editor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ide-editor&quot;</span><span class="w"> </span><span class="p">}],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">resultset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">query</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="nx">sql</span><span class="p">,</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;editor&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VARCHAR&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;platform-editors&quot;</span><span class="w"> </span><span class="p">}],</span><span class="w"> </span><span class="s2">&quot;SystemDB&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">));</span><span class="w"></span>
+<span class="nx">response</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">resultset</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">));</span><span class="w"></span>
 </code></pre></div>
 </div>
 </div>
@@ -3243,15 +3243,10 @@
 <td>Executes a SQL query against the selected <em>datasourceName</em> with the provided parameters</td>
 <td><em>result-set as JSON object</em></td>
 </tr>
-<tr>
-<td><strong>executeNamed(sql, parameters?, datasourceName?)</strong></td>
-<td>Executes a SQL query against the selected <em>datasourceName</em> with the provided parameters</td>
-<td><em>result-set as JSON object</em></td>
-</tr>
 </tbody>
 </table>
 <blockquote>
-<p>parameters array supports primitives e.g. [1, 'John', 34.56] or objects in format {'type':'[DATA_TYPE]', 'value':[VALUE]} e.g. [1, {'type':'CHAR', 'value':'ISBN19202323322'}]</p>
+<p>parameters array supports primitives e.g. <code>[1, 'John', 34.56]</code> or objects in format either <code>{'type':'[DATA_TYPE]', 'value':[VALUE]}</code> or <code>{'name':'[string]', 'type':'[DATA_TYPE]', 'value':[VALUE]}</code> e.g. <code>[{'type':'CHAR', 'value':'ISBN19202323322'}]</code> or <code>[{'name': 'order_number', 'type':'CHAR', 'value':'ISBN19202323322'}]</code></p>
 </blockquote>
 
 
