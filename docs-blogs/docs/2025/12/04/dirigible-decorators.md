@@ -13,7 +13,7 @@ Where once developers roamed the dusty deserts of boilerplate code, a new army h
 
 Elegant. Precise. Opinionated.
 
-<img src="../../../../images/decorators/decorators.jpg" alt="decorators.jpg">
+<img src="../../../../images/decorators/decorators-jedi.jpg" alt="decorators-jedi.jpg">
 
 Some call them syntactic sugar.
 Others call them magic.
@@ -107,6 +107,8 @@ Balance is restored.
 
 GitHub Sample: [dirigiblelabs/sample-listener-decorator](https://github.com/dirigiblelabs/sample-listener-decorator)
 
+<img src="../../../../images/decorators/decorators-clones.jpg" alt="decorators-clones.jpg">
+
 ## Episode IV: A New WebSocket
 
 The Clone Army now spans galaxies — including the real-time domain.
@@ -165,6 +167,8 @@ Controllers? Also decorated.
 Together, they form the Republic.
 
 GitHub Sample: [dirigiblelabs/sample-entity-decorators](https://github.com/dirigiblelabs/sample-entity-decorators)
+
+<img src="../../../../images/decorators/decorators-dirigible.jpg" alt="decorators-dirigible.jpg">
 
 ## Episode VI: Return of the Extensions
 
