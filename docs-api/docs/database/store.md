@@ -83,7 +83,7 @@ The `Entity` class with corresponding decorators **CustomerEntity.ts** (note the
 
     response.println("");
     response.println("Select native customers with first name John:");
-    let selectNative = store.queryNative("select * from Customer c where CUSTOMER_NAME = 'John'");
+    let selectNative = store.queryNative("select * from \"CUSTOMER\" c where CUSTOMER_NAME = 'John'");
     response.println(JSON.stringify(selectNative, null, 2));
 
     response.println("");
