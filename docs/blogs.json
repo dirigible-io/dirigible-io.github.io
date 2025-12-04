@@ -1,10 +1,5 @@
 [
   {
-    "location": "2024/11/18/build-and-release.md",
-    "title": "Building and Releasing a Docker Image for an Eclipse Dirigible Application",
-    "description": "\"Building and releasing Docker image for Application effortlessly using GitHub Actions: Step-by-Step Tutorial\""
-  },
-  {
     "location": "2024/11/20/dependson.md",
     "title": "Depends on Feature for Properties in Eclipse Dirigible",
     "description": "\"Easy relation visualization between entities\""
@@ -23,5 +18,10 @@
     "location": "2025/10/30/dirigible-cli.md",
     "title": "Introducing the Eclipse Dirigible CLI – Develop and Run Dirigible Projects Effortlessly from Your Terminal",
     "description": "\"Learn how to quickly create, run, and manage Eclipse Dirigible projects using the new Dirigible Command Line Interface (CLI) — available now as an NPM package.\""
+  },
+  {
+    "location": "2025/12/04/dirigible-decorators.md",
+    "title": "Attack of the Decorators - A New Hope for Eclipse Dirigible Developers",
+    "description": "\"The Attack of the Decorators is here, and with it comes a wave of new TypeScript superpowers that dramatically simplify Dependency Injection, Entities, Jobs, Listeners, WebSockets, Controllers, Roles, and Extensions.\""
   }
 ]

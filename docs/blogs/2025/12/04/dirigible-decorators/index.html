@@ -6,16 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="The Attack of the Decorators is here, and with it comes a wave of new TypeScript superpowers that dramatically simplify Dependency Injection, Entities, Jobs, Listeners, WebSockets, Controllers, Roles, and Extensions.">
       
       
-        <link rel="canonical" href="https://www.dirigible.io/blogs/2016/03/17/news-new-release-2-3/">
+        <meta name="author" content="Nedelcho Delchev">
+      
+      
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2025/12/04/dirigible-decorators/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Release 2.3.160317-R - Eclipse Dirigible Blog</title>
+        <title>Attack of the Decorators - A New Hope for Eclipse Dirigible Developers - Eclipse Dirigible Blog</title>
       
     
     
@@ -80,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#features" class="md-skip">
+        <a href="#episode-i-the-phantom-dependency-injection" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Release 2.3.160317-R
+              Attack of the Decorators - A New Hope for Eclipse Dirigible Developers
             
           </span>
         </div>
@@ -198,13 +202,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../2025/10/30/dirigible-cli/" class="md-tabs__link">
+      <a href="../../../10/30/dirigible-cli/" class="md-tabs__link md-tabs__link--active">
         2025
       </a>
     </li>
@@ -342,15 +348,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-tabs__link">
         2016
       </a>
     </li>
@@ -459,12 +463,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -493,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2025/10/30/dirigible-cli/" class="md-nav__link">
+      <a href="../../../10/30/dirigible-cli/" class="md-nav__link">
         Introducing the Eclipse Dirigible CLI
       </a>
     </li>
@@ -505,11 +511,104 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../2025/12/04/dirigible-decorators/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Attack of the Decorators - A New Hope for Eclipse Dirigible Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Attack of the Decorators - A New Hope for Eclipse Dirigible Developers
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#episode-i-the-phantom-dependency-injection" class="md-nav__link">
+    Episode I: The Phantom Dependency Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-ii-attack-of-the-cron-expressions" class="md-nav__link">
+    Episode II: Attack of the Cron Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-iii-revenge-of-the-listeners" class="md-nav__link">
+    Episode III: Revenge of the Listeners
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-iv-a-new-websocket" class="md-nav__link">
+    Episode IV: A New WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-v-the-orm-strikes-back" class="md-nav__link">
+    Episode V: The ORM Strikes Back
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-vi-return-of-the-extensions" class="md-nav__link">
+    Episode VI: Return of the Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-vii-the-role-awakens" class="md-nav__link">
+    Episode VII: The Role Awakens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-viii-the-controller-menace" class="md-nav__link">
+    Episode VIII: The Controller Menace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-decorator-order-is-here" class="md-nav__link">
+    The Decorator Order is Here
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2223,14 +2322,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
       
       
@@ -2319,7 +2416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-nav__link">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-nav__link">
         Release 2.6.161203-R
       </a>
     </li>
@@ -2333,7 +2430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/02/news-innoweek-sap-2016/" class="md-nav__link">
+      <a href="../../../../2016/12/02/news-innoweek-sap-2016/" class="md-nav__link">
         InnoWeek SAP Labs 2016
       </a>
     </li>
@@ -2347,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/22/news-new-milestone-2-6-4/" class="md-nav__link">
+      <a href="../../../../2016/11/22/news-new-milestone-2-6-4/" class="md-nav__link">
         Milestone 2.6.161122-M4
       </a>
     </li>
@@ -2361,7 +2458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/16/news-java2days-2016/" class="md-nav__link">
+      <a href="../../../../2016/11/16/news-java2days-2016/" class="md-nav__link">
         Java2Days 2016
       </a>
     </li>
@@ -2375,7 +2472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
         Document Service Explorer at SAP HANA Cloud Platform
       </a>
     </li>
@@ -2389,7 +2486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
+      <a href="../../../../2016/10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
         EclipseCon Europe 2016
       </a>
     </li>
@@ -2403,7 +2500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/21/news-new-milestone-2-6-3/" class="md-nav__link">
+      <a href="../../../../2016/10/21/news-new-milestone-2-6-3/" class="md-nav__link">
         Milestone 2.6.161021-M3
       </a>
     </li>
@@ -2417,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/14/news-new-milestone-2-6-2/" class="md-nav__link">
+      <a href="../../../../2016/10/14/news-new-milestone-2-6-2/" class="md-nav__link">
         Milestone 2.6.161014-M2
       </a>
     </li>
@@ -2431,7 +2528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/05/news-new-milestone-2-6-1/" class="md-nav__link">
+      <a href="../../../../2016/10/05/news-new-milestone-2-6-1/" class="md-nav__link">
         Milestone 2.6.161005-M1
       </a>
     </li>
@@ -2445,7 +2542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../09/12/the-java-saurus/" class="md-nav__link">
+      <a href="../../../../2016/09/12/the-java-saurus/" class="md-nav__link">
         The Java-saurus
       </a>
     </li>
@@ -2459,7 +2556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+      <a href="../../../../2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure - Part II?
       </a>
     </li>
@@ -2473,7 +2570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/17/sap-summer-practice/" class="md-nav__link">
+      <a href="../../../../2016/08/17/sap-summer-practice/" class="md-nav__link">
         Summer Practice in SAP
       </a>
     </li>
@@ -2487,7 +2584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+      <a href="../../../../2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure?
       </a>
     </li>
@@ -2501,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/04/news-new-release-2-5/" class="md-nav__link">
+      <a href="../../../../2016/08/04/news-new-release-2-5/" class="md-nav__link">
         Release 2.5.160804-R
       </a>
     </li>
@@ -2515,7 +2612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/01/blogs-why-enterprise-js/" class="md-nav__link">
+      <a href="../../../../2016/08/01/blogs-why-enterprise-js/" class="md-nav__link">
         Why Enterprise JavaScript?
       </a>
     </li>
@@ -2529,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../06/17/news-dirigiblelabs/" class="md-nav__link">
+      <a href="../../../../2016/06/17/news-dirigiblelabs/" class="md-nav__link">
         Dirigible Labs is live!
       </a>
     </li>
@@ -2543,7 +2640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/30/news-hackfmi7/" class="md-nav__link">
+      <a href="../../../../2016/05/30/news-hackfmi7/" class="md-nav__link">
         Brainstormers at HackFMI7
       </a>
     </li>
@@ -2557,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/news-new-release-2-4/" class="md-nav__link">
+      <a href="../../../../2016/05/19/news-new-release-2-4/" class="md-nav__link">
         Release 2.4.160519-R
       </a>
     </li>
@@ -2571,7 +2668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+      <a href="../../../../2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
         WebSockets and Equinox OSGi in a Servlet Container
       </a>
     </li>
@@ -2585,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
+      <a href="../../../../2016/04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
         Fast Prototyping in Front of Your Customer - Presentation
       </a>
     </li>
@@ -2597,69 +2694,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Release 2.3.160317-R
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../2016/03/17/news-new-release-2-3/" class="md-nav__link">
         Release 2.3.160317-R
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blogs" class="md-nav__link">
-    Blogs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operational" class="md-nav__link">
-    Operational
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enjoy" class="md-nav__link">
-    Enjoy!
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2671,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../08/eclipsecon/" class="md-nav__link">
+      <a href="../../../../2016/03/08/eclipsecon/" class="md-nav__link">
         Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation
       </a>
     </li>
@@ -2685,7 +2724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01/d-kom/" class="md-nav__link">
+      <a href="../../../../2016/03/01/d-kom/" class="md-nav__link">
         What is New in Dirigible @ d-kom Sofia 2016 - Presentation
       </a>
     </li>
@@ -2699,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/26/blogs-understanding-dirigible/" class="md-nav__link">
+      <a href="../../../../2016/02/26/blogs-understanding-dirigible/" class="md-nav__link">
         Understanding Dirigible
       </a>
     </li>
@@ -2713,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+      <a href="../../../../2016/02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
         Develop from Mobile for Mobile
       </a>
     </li>
@@ -2727,7 +2766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/03/news-new-release-2-2/" class="md-nav__link">
+      <a href="../../../../2016/02/03/news-new-release-2-2/" class="md-nav__link">
         Release 2.2.160203-R
       </a>
     </li>
@@ -2741,7 +2780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/26/news-docker/" class="md-nav__link">
+      <a href="../../../../2016/01/26/news-docker/" class="md-nav__link">
         Docker image for Dirigible
       </a>
     </li>
@@ -2755,7 +2794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/21/blogs-repositories/" class="md-nav__link">
+      <a href="../../../../2016/01/21/blogs-repositories/" class="md-nav__link">
         Developer - Repositories, repositories, repositories...
       </a>
     </li>
@@ -2769,7 +2808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
+      <a href="../../../../2016/01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
       </a>
     </li>
@@ -2783,7 +2822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/19/news-new-milestone-2-2-3/" class="md-nav__link">
+      <a href="../../../../2016/01/19/news-new-milestone-2-2-3/" class="md-nav__link">
         Milestone 2.2.160119-M3
       </a>
     </li>
@@ -2797,7 +2836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
+      <a href="../../../../2016/01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
       </a>
     </li>
@@ -2811,7 +2850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+      <a href="../../../../2016/01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
       </a>
     </li>
@@ -3434,29 +3473,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    Features
+  <a href="#episode-i-the-phantom-dependency-injection" class="md-nav__link">
+    Episode I: The Phantom Dependency Injection
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#blogs" class="md-nav__link">
-    Blogs
+  <a href="#episode-ii-attack-of-the-cron-expressions" class="md-nav__link">
+    Episode II: Attack of the Cron Expressions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#operational" class="md-nav__link">
-    Operational
+  <a href="#episode-iii-revenge-of-the-listeners" class="md-nav__link">
+    Episode III: Revenge of the Listeners
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enjoy" class="md-nav__link">
-    Enjoy!
+  <a href="#episode-iv-a-new-websocket" class="md-nav__link">
+    Episode IV: A New WebSocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-v-the-orm-strikes-back" class="md-nav__link">
+    Episode V: The ORM Strikes Back
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-vi-return-of-the-extensions" class="md-nav__link">
+    Episode VI: Return of the Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-vii-the-role-awakens" class="md-nav__link">
+    Episode VII: The Role Awakens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#episode-viii-the-controller-menace" class="md-nav__link">
+    Episode VIII: The Controller Menace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-decorator-order-is-here" class="md-nav__link">
+    The Decorator Order is Here
   </a>
   
 </li>
@@ -3477,7 +3551,7 @@
         <!-- Edit button -->
         
           <a
-            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/03/17/news-new-release-2-3.md"
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2025/12/04/dirigible-decorators.md"
             title="Edit this page"
             class="md-content__button md-icon"
           >
@@ -3491,39 +3565,216 @@
           as the main headline.
         -->
         
-          <h1>Release 2.3.160317-R</h1>
+          <h1>Attack of the Decorators - A New Hope for Eclipse Dirigible Developers</h1>
         
 
         <!-- Markdown content -->
         
+        <aside class="mdx-author">
+            <p>
+            <img src="https://avatars.githubusercontent.com/delchev" alt="@delchev">
+            </p>
+            <p>
+            <span> 
+            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            </span>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                  </svg> December 04, 2025 ·
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                  </svg> 5 min read
+            </span>
+            </p>
+        </aside>
+        
 
-        <p>New Release <a href="http://download.eclipse.org/dirigible/drops/R-2.3-201603171717/index.html">2.3.160317-R</a> released.</p>
-<h4 id="features">Features</h4>
+        <p>In a galaxy not so far away - specifically, the Dirigible runtime - a silent revolution has begun.
+Where once developers roamed the dusty deserts of boilerplate code, a new army has emerged: Decorators.</p>
+<p>Elegant. Precise. Opinionated.</p>
+<p><img src="../../../../images/decorators/decorators.jpg" alt="decorators.jpg"></p>
+<p>Some call them syntactic sugar.
+Others call them magic.
+But in Dirigible… they are <em>the chosen ones</em>.</p>
+<p>The Attack of the Decorators is here, and with it comes a wave of new TypeScript superpowers that dramatically simplify Dependency Injection, Entities, Jobs, Listeners, WebSockets, Controllers, Roles, and Extensions.</p>
+<p>Let us witness the rise of this new army - and the fall of verbosity.</p>
+<h2 id="episode-i-the-phantom-dependency-injection">Episode I: The Phantom Dependency Injection</h2>
+<p>For years, Jedi developers manually wired components together using pure JavaScript. But those days are over.</p>
+<p>The Dependency Injection Decorators have arrived:</p>
 <ul>
-<li>Integrated tern definition for Tabris.js in Orion</li>
-<li>Upgrade Orion to R11</li>
-<li>Runtime Catalog Service</li>
-<li>New approach for theming (client side includes) reflected in templates</li>
-<li>Listeners concept and processor for the built-in messaging hub</li>
-<li>Persisted steps for the Flows, Jobs and Listeners (process log)</li>
-<li>Customizable Registry main menu for easy integration with tools running as Dirigible projects on the same instance</li>
-<li>Customizable home location</li>
-<li>Bugfixes and refactoring...</li>
+<li><code>@Component</code></li>
+<li><code>@Injected</code></li>
+<li><code>@Inject</code></li>
 </ul>
-<h4 id="blogs">Blogs</h4>
+<p>You can now summon your services as easily as calling the Force.</p>
+<p>Across the sand dunes of <em>PaymentComponent.ts</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Component</span><span class="p">(</span><span class="s1">&#39;myPaymentService&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">PaymentComponent</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">doPayment</span><span class="p">(</span><span class="nx">paymentData</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">paymentData</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>And in the hidden temple of <em>OrderProcessor.ts</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Injected</span><span class="p">()</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">OrderProcessor</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">@Inject</span><span class="p">(</span><span class="s1">&#39;myPaymentService&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nx">paymentComponent</span><span class="o">!:</span><span class="w"> </span><span class="nx">PaymentComponent</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>No XML holocrons. No config files. The Force binds everything together.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-component-decorators">dirigiblelabs/sample-component-decorators</a></p>
+<h2 id="episode-ii-attack-of-the-cron-expressions">Episode II: Attack of the Cron Expressions</h2>
+<p>They said jobs were difficult.
+They said scheduling was tedious.
+But they had not met the <code>@Scheduled</code> decorator.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Scheduled</span><span class="p">({</span><span class="w"> </span><span class="nx">expression</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0/10 * * * * ?&quot;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">MyJob</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;MyJob executed!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Every 10 seconds, a new execution. Like clockwork. Like droids marching across Geonosis.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-job-decorator">dirigiblelabs/sample-job-decorator</a></p>
+<h2 id="episode-iii-revenge-of-the-listeners">Episode III: Revenge of the Listeners</h2>
+<p>A disturbance in the queue you sense…
+A message is coming.</p>
+<p>And who will answer?
+A Listener will.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Listener</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sample-listener-decorator/OrderListener&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;queue&quot;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">OrderListener</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">onMessage</span><span class="p">(</span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Processing message event:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>A producer triggers it.
+The Listener awakens.
+Balance is restored.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-listener-decorator">dirigiblelabs/sample-listener-decorator</a></p>
+<h2 id="episode-iv-a-new-websocket">Episode IV: A New WebSocket</h2>
+<p>The Clone Army now spans galaxies — including the real-time domain.</p>
+<p>WebSockets join the battle with the <code>@Websocket</code> decorator:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Websocket</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sample-websocket-decorator/OrderWebsocket&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;order-ws&quot;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">OrderWebsocket</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">onMessage</span><span class="p">(</span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sb">`Hello from OrderWebsocket! [</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">]`</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Connections open.
+Messages fly.
+The council approves.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-websocket-decorator">dirigiblelabs/sample-websocket-decorator</a></p>
+<h2 id="episode-v-the-orm-strikes-back">Episode V: The ORM Strikes Back</h2>
+<p>The Entity decorators bring order to the database. An entire Jedi Archive — structured, typed, documented.</p>
+<p>Decorators include:</p>
 <ul>
-<li><a href="http://www.dirigible.io/blogs/2016/02/05/blogs_develop_from_mobile_for_mobile.html">Develop from Mobile for Mobile</a></li>
-<li><a href="http://www.dirigible.io/blogs/2016/02/26/blogs_understanding_dirigible.html">Understanding Dirigible</a></li>
-<li><a href="http://www.dirigible.io/news/2016/03/01/d-kom.html">What’s New in Dirigible - d-kom Sofia 2016 presentation</a></li>
-<li><a href="http://www.dirigible.io/news/2016/03/08/eclipsecon.html">Cloud Development with Dirigible in the Eyes of a Java-saurus - EclipseCon NA 2016</a></li>
+<li><code>@Entity</code></li>
+<li><code>@Table</code></li>
+<li><code>@Column</code></li>
+<li><code>@Id</code></li>
+<li><code>@Generated</code></li>
+<li><code>@Documentation</code></li>
+<li><code>@OneToMany</code>, <code>@ManyToOne</code></li>
 </ul>
-<h4 id="operational">Operational</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">@Entity</span><span class="p">(</span><span class="s2">&quot;CountryEntity&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">@Table</span><span class="p">(</span><span class="s2">&quot;SAMPLE_COUNTRY&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CountryEntity</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">@Id</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="kd">@Generated</span><span class="p">(</span><span class="s2">&quot;sequence&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">@Column</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;COUNTRY_ID&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;long&quot;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">Id?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">@Column</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;COUNTRY_NAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">Name?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Repositories? Also decorated.
+Controllers? Also decorated.
+Together, they form the Republic.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-entity-decorators">dirigiblelabs/sample-entity-decorators</a></p>
+<h2 id="episode-vi-return-of-the-extensions">Episode VI: Return of the Extensions</h2>
+<p>Through the <code>@Extension</code> decorator, modules can add capabilities to others across the platform — like Jedi teachings passed between temples.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Extension</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;OrderExtension&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;order-extension-point&quot;</span><span class="w"></span>
+<span class="p">})</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">OrderExtension</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">getDiscount</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Other modules discover these extensions, aggregate them, and weave new logic.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-extension-decorator">dirigiblelabs/sample-extension-decorator</a></p>
+<h2 id="episode-vii-the-role-awakens">Episode VII: The Role Awakens</h2>
+<p>Security is strong in this one.</p>
+<p>The <code>@Roles</code> decorator ensures only chosen users can access the protected paths of the application:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Roles</span><span class="p">([</span><span class="s2">&quot;ADMINISTRATOR&quot;</span><span class="p">])</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">RolesCheck</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">getMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Roles Check&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="kt">user.getName</span><span class="p">(),</span><span class="w"></span>
+<span class="w">            </span><span class="nx">date</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Access control has never been more cinematic.</p>
+<p>GitHub Sample: <a href="https://github.com/dirigiblelabs/sample-roles-decorator">dirigiblelabs/sample-roles-decorator</a></p>
+<h2 id="episode-viii-the-controller-menace">Episode VIII: The Controller Menace</h2>
+<p>HTTP controllers now join the decor family:</p>
 <ul>
-<li>The full list of bug-fixes and enhancements can be found <a href="https://bugs.eclipse.org/bugs/buglist.cgi?bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;classification=ECD&amp;columnlist=product%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cshort_desc%2Cchangeddate%2Cversion%2Ctarget_milestone&amp;known_name=Dirigible%202.3&amp;list_id=14031710&amp;product=Dirigible&amp;query_based_on=Dirigible%202.3&amp;query_format=advanced&amp;version=2.3">here</a>.</li>
-<li>The source code is available at GitHub repository <a href="https://github.com/eclipse/dirigible/tree/2.3.160317-R">here</a>.</li>
-<li>The instant trial is updated accordingly with the released version <a href="http://trial.dirigible.io">here</a>.</li>
+<li><code>@Controller</code></li>
+<li><code>@Get</code></li>
+<li><code>@Post</code></li>
+<li><code>@Put</code></li>
+<li><code>@Delete</code></li>
+<li><code>@Documentation</code></li>
 </ul>
-<h4 id="enjoy">Enjoy!</h4>
+<p>A simple controller suddenly looks like a polished Jedi Master:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Controller</span><span class="w"></span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">CountryController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">@Get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nx">getAll</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">countries</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>No friction. No config. No empire.</p>
+<h2 id="the-decorator-order-is-here">The Decorator Order is Here</h2>
+<p>With the arrival of decorators in Eclipse Dirigible:</p>
+<ul>
+<li>Dependency Injection becomes seamless</li>
+<li>Jobs become declarative</li>
+<li>Listeners become elegant</li>
+<li>WebSockets become structured</li>
+<li>Entities become readable</li>
+<li>Extensions become modular</li>
+<li>Roles become enforceable</li>
+<li>Controllers become beautiful</li>
+</ul>
+<p>This is not an evolution.
+This is a Clone Army of productivity.</p>
+<p>The Attack of the Decorators is not an attack on the developer — it’s an attack on complexity.
+A battle we’re finally winning.</p>
+<p>May the Source be with you!</p>
 
         <!-- Last update of source file -->
         
@@ -3548,7 +3799,7 @@
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../../../04/18/fast-prototyping-in-front-of-your-customer/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../../10/30/dirigible-cli/" class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -3557,19 +3808,19 @@
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Fast Prototyping in Front of Your Customer - Presentation			
+							Introducing the Eclipse Dirigible CLI			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../../08/eclipsecon/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../../../2024/12/04/spring-boot-admin/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation
+							Monitoring Eclipse Dirigible with Spring Boot Admin
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">
