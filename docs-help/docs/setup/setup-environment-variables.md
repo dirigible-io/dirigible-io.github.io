@@ -370,6 +370,13 @@ Parameter     | Description | Default*
 **DIRIGIBLE_FLOWABLE_DATABASE_DATASOURCE_NAME**   | The datasource name of the Flowable engine, if any configured | _`-`_
 **DIRIGIBLE_FLOWABLE_DATABASE_SCHEMA_UPDATE**   | Whether to materialize the database layout or not | _`true`_
 **DIRIGIBLE_FLOWABLE_USE_DEFAULT_DATABASE**   | Whether to use the DefaultDB datasource or built-in H2 _(e.g. `true` (DefaultDB) or `false` (H2))_ | _`true`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_HOST**  | The SMTP mail server host _(e.g. `email-smtp.eu-central-1.amazonaws.com`)_ | _`-`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_PORT** | The SMTP mail server port | _`587`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_USERNAME** | The SMTP mail server username | _`-`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_PASSWORD** | The SMTP mail server password | _`-`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_USE_TLS** | Whether the SMTP mail server TLS is enabled | _`true`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_USE_SSL** | Whether the SMTP mail server SSL is enabled | _`false`_
+**DIRIGIBLE_FLOWABLE_MAIL_SERVER_DEFAULT_FROM** | The default mail sender address _(e.g. `no-reply@example.com`)_ | _`-`_
 
 ### Mail
 
