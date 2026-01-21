@@ -187,6 +187,7 @@ Parameter     | Description                                                     
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT**   | The name of the primary data source used in this instance                                                | _`DefaultDB`_
 **DIRIGIBLE_DATABASE_DATASOURCE_NAME_SYSTEM**   | The name of the system data source used in this instance                                                 | _`SystemDB`_
 **DIRIGIBLE_DATABASE_TRANSFER_BATCH_SIZE**    | The batch size used during the data transfer                                                             | _`1000`_
+**DIRIGIBLE_DATABASE_SYSTEM_DIALECT** | The driver dialect for the SystemDB database _(e.g. `org.hibernate.dialect.PostgreSQLDialect`)_ | _`-`_
 **DIRIGIBLE_DATABASE_SYSTEM_DRIVER**	| The driver used for the SystemDB database connection                                                     | _`org.h2.Driver`_
 **DIRIGIBLE_DATABASE_SYSTEM_URL**	| The JDBC url used for the SystemDB database connection                                                   | _`jdbc:h2:file:./target/dirigible/h2/SystemDB`_
 **DIRIGIBLE_DATABASE_SYSTEM_USERNAME**	| The username used for the SystemDB database connection                                                   | _`sa`_
