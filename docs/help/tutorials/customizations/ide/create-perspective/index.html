@@ -411,8 +411,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_1">
@@ -456,7 +454,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../application-development/bookstore/">Bookstore</a>
+          <a href="../../../application-development/scheduled-job/">Scheduled Job</a>
           
             <label for="__nav_2_2_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -464,103 +462,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Bookstore" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          Bookstore
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/database/" class="md-nav__link">
-        Database
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/api/" class="md-nav__link">
-        API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/ui/" class="md-nav__link">
-        User Interface
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_2" type="checkbox" id="__nav_2_2_1_2" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../application-development/scheduled-job/">Scheduled Job</a>
-          
-            <label for="__nav_2_2_1_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Scheduled Job" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_1_2">
+        <label class="md-nav__title" for="__nav_2_2_1_1">
           <span class="md-nav__icon md-icon"></span>
           Scheduled Job
         </label>
@@ -2956,7 +2859,7 @@
 
 
 <h1 id="create-perspective">Create Perspective</h1>
-<p>All perspectives in Eclipse Dirigible are loaded via the <code>ide-perspective</code> extension point. List with all extension points can be found at the <a href="/help/development/extensions/">Extensions Overview</a> page. To develop a new perspective, <em>extension</em>, <em>perspective definition</em> and <em>frontend resources</em> should be created. The following example is using <a href="https://angularjs.org/">AngularJS</a> and <a href="https://sap.github.io/fundamental/">Fundamental Library</a>.</p>
+<p>All perspectives in Eclipse Dirigible are loaded via the <code>platform-perspectives</code> extension point. List with all extension points can be found at the <a href="/help/development/extensions/">Extensions Overview</a> page. To develop a new perspective, <em>extension</em>, <em>perspective definition</em> and <em>frontend resources</em> should be created. The following example is using <a href="https://angularjs.org/">AngularJS</a> and <a href="https://blimpkit.dev/">BlimpKit UI Library</a>.</p>
 <h3 id="steps">Steps</h3>
 <ol>
 <li>
@@ -2981,12 +2884,14 @@
 <p>Create perspective extension:</p>
 <ul>
 <li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; Folder</strong>.</li>
-<li>Enter <code>perspective</code> for the name of the folder.</li>
-<li>Right click on the <code>perspective</code> folder and select <strong>New &#8594; Folder</strong>.</li>
 <li>Enter <code>extensions</code> for the name of the folder.</li>
-<li>Create <code>perspective.extension</code>, <code>perspective-menu.extension</code>, <code>perspective-menu-window.extension</code> and <code>perspective-menu-help.extension</code> files.</li>
+<li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; Folder</strong>.</li>
+<li>Enter <code>configs</code> for the name of the folder.</li>
+<li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; Folder</strong>.</li>
+<li>Enter <code>js</code> for the name of the folder.</li>
+<li>In the <code>extensions</code> folder, create the <code>perspective.extension</code> and <code>perspective-menu.extension</code> files.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">perspective.extension</label><label for="__tabbed_1_2">perspective-menu.extension</label><label for="__tabbed_1_3">perspective-menu-window.extension</label><label for="__tabbed_1_4">perspective-menu-help.extension</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">perspective.extension</label><label for="__tabbed_1_2">perspective-menu.extension</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -2996,8 +2901,8 @@
 <li>
 <p>Replace the content with the following definition:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective/perspective/perspective.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide-perspective&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective/configs/perspective.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;platform-perspectives&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Perspective&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -3016,8 +2921,8 @@
 <li>
 <p>Replace the content with the following definition:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective/perspective/perspective-menu.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective-menu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective/configs/perspective-menu.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;platform-menus&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Perspective Menu&quot;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
@@ -3028,145 +2933,91 @@
 <li><em>(optional)</em> Double click on the <code>perspective-menu.extension</code> file to open the extension with the <em>Extension Editor</em>.</li>
 </ol>
 </div>
-<div class="tabbed-block">
-<ol>
-<li>Right click on the <code>extensions</code> folder and select <strong>New &#8594; Extension</strong>.</li>
-<li>Enter <code>perspective-menu-window.extension</code> for the name of the file.</li>
-<li>Right click on the <code>perspective-menu-window.extension</code> file and select <strong>Open With &#8594; Code Editor</strong>.</li>
-<li>
-<p>Replace the content with the following definition:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide-core/services/menus/window.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective-menu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Window Menu&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>Save the changes and close the <em>Code Editor</em>.</p>
-</li>
-<li><em>(optional)</em> Double click on the <code>perspective-menu-window.extension</code> file to open the extension with the <em>Extension Editor</em>.</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Right click on the <code>extensions</code> folder and select <strong>New &#8594; Extension</strong>.</li>
-<li>Enter <code>perspective-menu-help.extension</code> for the name of the file.</li>
-<li>Right click on the <code>perspective-menu-help.extension</code> file and select <strong>Open With &#8594; Code Editor</strong>.</li>
-<li>
-<p>Replace the content with the following definition:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide-core/services/menus/help.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;extensionPoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-perspective-menu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Help Menu&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>Save the changes and close the <em>Code Editor</em>.</p>
-</li>
-<li><em>(optional)</em> Double click on the <code>perspective-menu-help.extension</code> file to open the extension with the <em>Extension Editor</em>.</li>
-</ol>
-</div>
 </div>
 </div>
 </li>
 <li>
-<p>Create perspective definition:</p>
-<ul>
-<li>Create <code>perspective.js</code> and <code>perspective-menu.js</code> files.</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">perspective.js</label><label for="__tabbed_2_2">perspective-menu.js</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Right click on the <code>perspective</code> folder and select <strong>New &#8594; JavaScript CJS Service</strong>.</li>
-<li>Enter <code>perspective.js</code> for the name of the file.</li>
-<li>Double click on the <code>perspective.js</code> file to open it with the <em>Code Editor</em>.</li>
-<li>
-<p>Replace the content with the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">perspectiveData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;my-perspective&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My Perspective&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">link</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;../my-perspective/index.html&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1000&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;../my-perspective/icon.svg&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<p>Create perspective definition: - Create <code>perspective.js</code> and <code>perspective-menu.js</code> files.</p>
+<div class="highlight"><pre><span></span><code>=== &quot;perspective.js&quot;
 
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">exports</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;undefined&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">exports</span><span class="p">.</span><span class="nx">getPerspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">perspectiveData</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+    1. Right click on the `config` folder and select **New &amp;#8594; File**.
+    1. Enter `perspective.js` for the name of the file.
+    1. Double click on the `perspective.js` file to open it with the _Code Editor_.
+    1. Replace the content with the following code:
+
+        ```javascript
+        const perspectiveData = {
+            id: &#39;my-perspective&#39;,
+            label: &#39;My perspective&#39;,
+            path: &#39;/services/web/my-perspective/index.html&#39;,
+            order: 1,
+            icon: &#39;/services/web/resources/images/unknown.svg&#39;,
+        };
+        if (typeof exports !== &#39;undefined&#39;) {
+            exports.getPerspective = () =&gt; perspectiveData;
+        }
+        ```
+
+    1. Save the changes and close the _Code Editor_.
+
+=== &quot;perspective-menu.js&quot;
+
+    1. Right click on the `configs` folder and select **New &amp;#8594; File**.
+    1. Enter `perspective-menu.js` for the name of the file.
+    1. Double click on the `perspective-menu.js` file to open it with the _Code Editor_.
+    1. Replace the content with the following code:
+
+        ```javascript
+        exports.getMenu = () =&gt; ({
+            perspectiveId: &#39;my-perspective&#39;,
+            include: {
+                window: true,
+                help: true,
+            },
+            items: [
+                {
+                    label: &#39;My Menu&#39;,
+                    items: [
+                        {
+                            label: &#39;Empty item&#39;,
+                            order: 1,
+                            items: [
+                                {
+                                    label: &#39;Empty subitem with separator&#39;,
+                                    order: 1,
+                                    action: &#39;event&#39;,
+                                    data: {
+                                        topic: &#39;my-perspective.some.event&#39;
+                                    },
+                                },
+                                {
+                                    label: &#39;Empty subitem&#39;,
+                                    order: 2,
+                                    action: &#39;open&#39;,
+                                    link: &#39;https://github.com/eclipse-dirigible/dirigible/issues&#39;,
+                                },
+                            ],
+                        },
+                    ]
+                },
+            ]
+
+        });
+        ```
+
+    1. Save the changes and close the _Code Editor_.
 </code></pre></div>
-</li>
-<li>
-<p>Save the changes and close the <em>Code Editor</em>.</p>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Right click on the <code>perspective</code> folder and select <strong>New &#8594; JavaScript CJS Service</strong>.</li>
-<li>Enter <code>perspective-menu.js</code> for the name of the file.</li>
-<li>Double click on the <code>perspective-menu.js</code> file to open it with the <em>Code Editor</em>.</li>
-<li>
-<p>Replace the content with the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">getMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;My Menu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Empty item&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Empty item with divider&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">divider</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Submenu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                    </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;GitHub page&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/eclipse/dirigible&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}</span><span class="w"></span>
-<span class="w">                </span><span class="p">]</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;About&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;openDialogWindow&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">dialogId</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;about&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nx">order</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">};</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>Save the changes and close the <em>Code Editor</em>.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Create perspective frontend resources:</p>
 <ul>
-<li>Create <code>index.html</code>, <code>controller.js</code> and <code>icon.svg</code> files.</li>
+<li>Create <code>index.html</code> in the base of the project and <code>controller.js</code> in the <code>js</code> folder.</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">index.html</label><label for="__tabbed_3_2">controller.js</label><label for="__tabbed_3_3">icon.svg</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">index.html</label><label for="__tabbed_2_2">controller.js</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
-<li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; HTML5 Page</strong>.</li>
+<li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; File</strong>.</li>
 <li>Enter <code>index.html</code> for the name of the file.</li>
 <li>Double click on the <code>index.html</code> file to open it with the <em>Code Editor</em>.</li>
 <li>
@@ -3175,46 +3026,20 @@
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;myPerspective&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;MyPerspectiveController&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">dg-brand-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-
-        <span class="cm">&lt;!-- &#39;brandicon&#39; is an AngularJS directive to set the proper favicon. Do this only for perspective and not regular views --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;data:;base64,iVBORw0KGgo=&quot;</span> <span class="na">dg-brand-icon</span> <span class="p">/&gt;</span>
-
-        <span class="cm">&lt;!-- Perspective data --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/web/my-perspective/perspective/perspective.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/v4/js/ide-core/services/loader.js?id=ide-perspective-js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/v4/js/ide-core/services/loader.js?id=ide-perspective-css&quot;</span> <span class="p">/&gt;</span>
-
-        <span class="cm">&lt;!-- Project-specific stuff --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;controller.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-
+        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">config-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">sizes</span><span class="o">=</span><span class="s">&quot;any&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;data:;base64,iVBORw0KGgo=&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/my-perspective/configs/perspective.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;platform-links&quot;</span> <span class="na">category</span><span class="o">=</span><span class="s">&quot;ng-view,ng-perspective&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/controller.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
-
-        <span class="cm">&lt;!-- Top IDE panel and it&#39;s contents --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ide-header</span> <span class="na">menu-ext-id</span><span class="o">=</span><span class="s">&quot;my-perspective-menu&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">ide-header</span><span class="p">&gt;</span>
-        <span class="cm">&lt;!-- Context menu overlay --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ide-contextmenu</span><span class="p">&gt;&lt;/</span><span class="nt">ide-contextmenu</span><span class="p">&gt;</span>
-
-        <span class="cm">&lt;!-- The container which holds the sidebar and this perspective --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ide-container</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">ide-layout</span> <span class="na">views-layout-model</span><span class="o">=</span><span class="s">&quot;layoutModel&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">ide-layout</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">ide-container</span><span class="p">&gt;</span>
-
-        <span class="cm">&lt;!-- Alert dialog Overlay for alerts, notifications, dialogs --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ide-dialogs</span><span class="p">&gt;&lt;/</span><span class="nt">ide-dialogs</span><span class="p">&gt;</span>
-        <span class="cm">&lt;!-- Bottom IDE status bar --&gt;</span>
-        <span class="p">&lt;</span><span class="nt">ide-status-bar</span><span class="p">&gt;&lt;/</span><span class="nt">ide-status-bar</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">ng-on-contextmenu</span><span class="o">=</span><span class="s">&quot;showContextMenu($event)&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">layout</span> <span class="na">config</span><span class="o">=</span><span class="s">&quot;::layoutConfig&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">layout</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
 </li>
@@ -3230,108 +3055,62 @@
 <li>Double click on the <code>controller.js</code> file to open it with the <em>Code Editor</em>.</li>
 <li>
 <p>Replace the content with the following code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">myPerspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">&quot;myPerspective&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ngResource&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ideLayout&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ideUI&quot;</span><span class="p">]);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">myPerspective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;workbench&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;platformView&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformLayout&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;blimpKit&#39;</span><span class="p">]);</span><span class="w"></span>
 
-<span class="nx">myPerspective</span><span class="p">.</span><span class="nx">config</span><span class="p">([</span><span class="s2">&quot;messageHubProvider&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">messageHubProvider</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">messageHubProvider</span><span class="p">.</span><span class="nx">eventIdPrefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;example&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}]);</span><span class="w"></span>
+<span class="nx">workbench</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;WorkbenchController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">Layout</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">contextMenuHub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ContextMenuHub</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">messageHub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MessageHubApi</span><span class="p">();</span><span class="w"></span>
 
-<span class="nx">myPerspective</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">&quot;MyPerspectiveController&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;$scope&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;messageHub&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">messageHub</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">layoutModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">layoutConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="c1">// Array of view ids</span><span class="w"></span>
-<span class="w">        </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;import&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;welcome&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;console&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">views</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;welcome&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;console&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nx">viewSettings</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
 <span class="w">        </span><span class="nx">layoutSettings</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">hideEditorsPane</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">            </span><span class="nx">hideCenterPane</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">leftPaneMinSize</span><span class="o">:</span><span class="w"> </span><span class="mf">355</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nx">events</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="s2">&quot;example.alert.info&quot;</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">contextMenuContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">callbackTopic</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;example.contextmenu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">showContextMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="nx">contextMenuHub</span><span class="p">.</span><span class="nx">showContextMenu</span><span class="p">({</span><span class="w"></span>
+<span class="w">            </span><span class="nx">ariaLabel</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my perspective contextmenu&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">posX</span><span class="o">:</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">posY</span><span class="o">:</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nx">icons</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;New&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sap-icon--create&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">items</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                        </span><span class="p">{</span><span class="w"></span>
-<span class="w">                            </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tab&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                            </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tab&quot;</span><span class="w"></span>
-<span class="w">                        </span><span class="p">},</span><span class="w"></span>
-<span class="w">                    </span><span class="p">]</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;action1&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Action One&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">separator</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="p">},</span><span class="w"></span>
 <span class="w">                </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;other&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Other&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">divider</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">icon</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sap-icon--question-mark&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;action2&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Action Two&#39;</span><span class="p">,</span><span class="w"></span>
 <span class="w">                </span><span class="p">}</span><span class="w"></span>
 <span class="w">            </span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">id</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;action1&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;action one&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;action two&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
 <span class="w">    </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">    </span><span class="nx">messageHub</span><span class="p">.</span><span class="nx">onDidReceiveMessage</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;contextmenu&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;other&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">messageHub</span><span class="p">.</span><span class="nx">showAlertSuccess</span><span class="p">(</span><span class="w"></span>
-<span class="w">                    </span><span class="s2">&quot;Success&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="s2">&quot;You have selected the other option!&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nx">messageHub</span><span class="p">.</span><span class="nx">showAlertInfo</span><span class="p">(</span><span class="w"></span>
-<span class="w">                    </span><span class="s2">&quot;Nothing will happen&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    </span><span class="s2">&quot;This is just a demo after all.&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">messageHub</span><span class="p">.</span><span class="nx">addMessageListener</span><span class="p">({</span><span class="w"></span>
+<span class="w">        </span><span class="nx">topic</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-perspective.some.event&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;from empty subitem&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
 
-<span class="p">}]);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
 <p>Save the changes and close the <em>Code Editor</em>.</p>
 </li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Right click on the <code>my-perspective</code> project and select <strong>New &#8594; File</strong>.</li>
-<li>Enter <code>icon.svg</code> for the name of the file.</li>
-<li>Right click on the <code>icon.svg</code> file and select <strong>Open With &#8594; Code Editor</strong>.</li>
-<li>Replace the content with the following code:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
-<span class="nt">&lt;svg</span>
-   <span class="na">width=</span><span class="s">&quot;24&quot;</span>
-   <span class="na">height=</span><span class="s">&quot;24&quot;</span>
-   <span class="na">viewBox=</span><span class="s">&quot;0 0 6.3499999 6.3500002&quot;</span>
-   <span class="na">version=</span><span class="s">&quot;1.1&quot;</span>
-   <span class="na">id=</span><span class="s">&quot;svg5&quot;</span>
-   <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span>
-   <span class="na">xmlns:svg=</span><span class="s">&quot;http://www.w3.org/2000/svg&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;defs</span>
-     <span class="na">id=</span><span class="s">&quot;defs2&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;g</span>
-     <span class="na">id=</span><span class="s">&quot;layer1&quot;</span>
-     <span class="na">transform=</span><span class="s">&quot;matrix(1.0590909,0,0,1.0590909,-0.18761367,-0.18761367)&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;path</span>
-       <span class="na">id=</span><span class="s">&quot;path1074&quot;</span>
-       <span class="na">style=</span><span class="s">&quot;fill-opacity:1;stroke:none;stroke-width:2.8;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1&quot;</span>
-       <span class="na">d=</span><span class="s">&quot;M 12,1 A 11,11 0 0 0 1,12 11,11 0 0 0 12,23 11,11 0 0 0 23,12 11,11 0 0 0 12,1 Z m -0.101562,4.3378906 c 0.955078,0 1.796875,0.15625 2.523437,0.4667969 0.732422,0.3046875 1.294922,0.7558594 1.6875,1.3535156 0.392578,0.5976562 0.603516,1.2734376 0.632813,2.0292969 L 15.107422,9.3105469 C 15.019531,8.4960938 14.720703,7.8808594 14.210938,7.4648438 13.707031,7.0488281 12.958984,6.8417969 11.96875,6.8417969 c -1.03125,0 -1.783203,0.1894531 -2.2578125,0.5703125 -0.46875,0.375 -0.703125,0.8300781 -0.703125,1.3632812 0,0.4628906 0.1660156,0.84375 0.5,1.1425782 0.328125,0.2988282 1.1835935,0.6054692 2.5664065,0.9218752 1.388672,0.310547 2.341797,0.583984 2.857422,0.818359 0.75,0.345703 1.302734,0.785156 1.660156,1.318359 0.357422,0.527344 0.537109,1.136719 0.537109,1.828126 0,0.685546 -0.197265,1.332031 -0.589844,1.941406 -0.392578,0.603515 -0.957031,1.074219 -1.695312,1.414062 -0.732422,0.333985 -1.558594,0.501953 -2.478516,0.501953 -1.166015,0 -2.144531,-0.169922 -2.9355465,-0.509765 C 8.6445313,17.8125 8.0253906,17.302734 7.5742188,16.623047 7.1289063,15.9375 6.8945312,15.164062 6.8710938,14.302734 l 1.609375,-0.140625 c 0.076172,0.644532 0.2519531,1.173829 0.5273437,1.589844 0.28125,0.410156 0.7148438,0.744141 1.3007815,1.001953 0.585937,0.251953 1.24414,0.378906 1.976562,0.378906 0.650391,0 1.22461,-0.09766 1.722656,-0.291015 0.498047,-0.193359 0.867188,-0.457031 1.107422,-0.791016 0.246094,-0.339843 0.369141,-0.707031 0.369141,-1.105469 0,-0.404296 -0.117188,-0.755859 -0.351563,-1.054687 C 14.898438,13.585938 14.511719,13.330078 13.972656,13.125 13.626953,12.990234 12.863281,12.783203 11.679688,12.501953 10.496094,12.214844 9.6660156,11.945312 9.1914062,11.693359 8.5761719,11.371094 8.1171875,10.972656 7.8125,10.498047 7.5136719,10.017578 7.3632812,9.4804687 7.3632812,8.8886719 c 10e-8,-0.6503906 0.1855469,-1.2558594 0.5546876,-1.8183594 0.3691406,-0.5683593 0.9082031,-1 1.6171874,-1.2929687 C 10.244141,5.484375 11.03125,5.3378906 11.898438,5.3378906 Z&quot;</span>
-       <span class="na">transform=</span><span class="s">&quot;scale(0.26458334)&quot;</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;/g&gt;</span>
-<span class="nt">&lt;/svg&gt;</span>
-</code></pre></div>
-<ol>
-<li>Save the changes and close the <em>Code Editor</em>.</li>
 </ol>
 </div>
 </div>
@@ -3341,7 +3120,7 @@
 <p>Refresh the browser.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In some cases you may want to go to <strong>Theme &#8594; Reset</strong> to clean Web IDE state.</p>
+<p>In some cases you may want to open DevTools, go to the Network tab, disable cache and refresh again.</p>
 </div>
 </li>
 <li>

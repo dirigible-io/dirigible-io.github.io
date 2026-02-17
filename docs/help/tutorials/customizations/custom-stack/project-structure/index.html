@@ -411,8 +411,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_1">
@@ -456,7 +454,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../application-development/bookstore/">Bookstore</a>
+          <a href="../../../application-development/scheduled-job/">Scheduled Job</a>
           
             <label for="__nav_2_2_1_1">
               <span class="md-nav__icon md-icon"></span>
@@ -464,103 +462,8 @@
           
         </div>
       
-      <nav class="md-nav" aria-label="Bookstore" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_1_1">
-          <span class="md-nav__icon md-icon"></span>
-          Bookstore
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/database/" class="md-nav__link">
-        Database
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/api/" class="md-nav__link">
-        API
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../application-development/bookstore/ui/" class="md-nav__link">
-        User Interface
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_2" type="checkbox" id="__nav_2_2_1_2" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../application-development/scheduled-job/">Scheduled Job</a>
-          
-            <label for="__nav_2_2_1_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
       <nav class="md-nav" aria-label="Scheduled Job" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_2_1_2">
+        <label class="md-nav__title" for="__nav_2_2_1_1">
           <span class="md-nav__icon md-icon"></span>
           Scheduled Job
         </label>
@@ -3095,13 +2998,7 @@
 <h2 id="overview">Overview</h2>
 <p>This section shows how to create the project structure of the Custom Stack.
 It contains the creation of several Maven <code>pom.xml</code> files, static content resources, <code>application.properties</code> configuration files and a <code>Spring Boot</code> Java class.</p>
-<div class="admonition note">
-<p class="admonition-title">Prerequisites</p>
-<ul>
-<li>JDK 21+ - OpenJDK versions can be found <a href="https://adoptopenjdk.net/">here</a>.</li>
-<li>Maven 3.5+ - Maven version 3.5.3 can be found <a href="https://maven.apache.org/docs/3.5.3/release-notes.html">here</a>.</li>
-</ul>
-</div>
+<p>!!! note "Prerequisites" - JDK 21+ - OpenJDK versions can be found <a href="https://adoptopenjdk.net/">here</a>. - Maven 3.5+ - Maven version 3.5.3 can be found <a href="https://maven.apache.org/docs/3.5.3/release-notes.html">here</a>.</p>
 <h3 id="steps">Steps</h3>
 <h4 id="create-maven-project">Create Maven Project</h4>
 <ul>
@@ -3471,7 +3368,7 @@ It contains the creation of several Maven <code>pom.xml</code> files, static con
 <div class="admonition info">
 <p class="admonition-title">Git Repository</p>
 <p>For git repositories uncomment the following lines, in order to receive the <code>Commit Id</code> information in the <strong>About</strong> view:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- </span>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--</span>
 <span class="cm">    Note: Uncomment for git repositories, as this plugin would get the last commit id.</span>
 <span class="cm">    This is needed for the info in the &quot;About&quot; view.</span>
 <span class="cm">--&gt;</span>
@@ -3684,7 +3581,7 @@ DIRIGIBLE_INSTANCE_NAME=custom-stack
 DIRIGIBLE_DATABASE_PROVIDER=local
 DIRIGIBLE_JAVASCRIPT_HANDLER_CLASS_NAME=org.eclipse.dirigible.graalium.handler.GraaliumJavascriptHandler
 DIRIGIBLE_GRAALIUM_ENABLE_DEBUG=true
-DIRIGIBLE_HOME_URL=services/web/ide/
+DIRIGIBLE_HOME_URL=services/web/shell-ide/
 DIRIGIBLE_FTP_PORT=22
 </code></pre></div>
 </details>
@@ -3731,72 +3628,102 @@ DIRIGIBLE_FTP_PORT=22
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Loading ...<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">config-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">viewData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Loading...&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">autoFocusTab</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">            </span><span class="p">};</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/jquery/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/i18next/dist/umd/i18next.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-resource.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angular-aria/angular-aria.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-sanitize.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-branding/branding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/utilities/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/extensions.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/locale.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/blimpkit.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/fundamental-styles/dist/fundamental-styles.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/css/blimpkit.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/styles/fonts.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="o">[</span><span class="nt">data-status</span><span class="o">=</span><span class="s1">&#39;positive&#39;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--sapPositiveTextColor</span><span class="p">)</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">            </span><span class="o">[</span><span class="nt">data-status</span><span class="o">=</span><span class="s1">&#39;negative&#39;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--sapNegativeTextColor</span><span class="p">)</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-vbox bk-center--vertical&quot;</span> <span class="na">bk-scrollbar</span><span class="p">&gt;</span>
 
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;padding-left: 10rem; padding-right: 10rem; margin-top: 3rem;&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel fd-panel--fixed&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__header&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-panel__title&quot;</span><span class="p">&gt;</span>Preparing Custom Stack Instance<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">fd-list</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-list-item</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&quot;job in jobs&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">fd-object-status</span> <span class="na">status</span><span class="o">=</span><span class="s">&quot;{{job.status}}&quot;</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;{{job.statusIcon}}&quot;</span>
-                        <span class="na">text</span><span class="o">=</span><span class="s">&quot;{{job.name}}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">fd-list-item</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">fd-list</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">fd-busy-indicator</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin-top: 3rem;&quot;</span> <span class="na">dg-size</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">fd-busy-indicator</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">busyPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;busyPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
-
-<span class="w">            </span><span class="nx">busyPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;BusyController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$http&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">$http</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">                </span><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">                    </span><span class="nx">$http</span><span class="p">({</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/healthcheck&#39;</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">){</span><span class="w"></span>
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Ready&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                            </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="o">=</span><span class="s1">&#39;/home&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                        </span><span class="p">}</span><span class="w"></span>
-<span class="w">                        </span><span class="kd">let</span><span class="w"> </span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
-<span class="w">                        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">jobs</span><span class="p">.</span><span class="nx">statuses</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                            </span><span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Object</span><span class="p">();</span><span class="w"></span>
-<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">key</span><span class="p">;</span><span class="w"></span>
-<span class="w">                            </span><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                                </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Succeeded&quot;</span><span class="o">:</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;positive&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-success&quot;</span><span class="w"></span>
-<span class="w">                                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">                                </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Failed&quot;</span><span class="o">:</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;negative&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-error&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                                </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;informative&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">statusIcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-information&quot;</span><span class="w"></span>
-<span class="w">                                    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">                            </span><span class="p">}</span><span class="w"></span>
-<span class="w">                            </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">job</span><span class="p">);</span><span class="w"></span>
-<span class="w">                        </span><span class="p">}</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">                    </span><span class="p">}),</span><span class="w"> </span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="w"></span>
-<span class="w">                        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error retreiving the health status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span><span class="w"></span>
-<span class="w">                    </span><span class="p">});</span><span class="w"></span>
-
-<span class="w">                </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
-<span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-vbox bk-box--gap-xl bk-restrict-width--sm bk-full-width bk-padding-top-bottom--md&quot;</span> <span class="na">ng-hide</span><span class="o">=</span><span class="s">&quot;state.error&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h4</span> <span class="na">bk-title</span> <span class="na">wrap</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">header-size</span><span class="o">=</span><span class="s">&quot;4&quot;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;page title&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;text-align: center;&quot;</span><span class="p">&gt;</span>Preparing the Instance<span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">bk-list</span> <span class="na">ng-if</span><span class="o">=</span><span class="s">&quot;jobs.length&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-list-border&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">bk-list-item</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">&quot;job in jobs track by $index&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-loader</span> <span class="na">ng-if</span><span class="o">=</span><span class="s">&quot;job.status === &#39;loading&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-loader</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-list-icon</span> <span class="na">ng-if</span><span class="o">=</span><span class="s">&quot;job.status !== &#39;loading&#39;&quot;</span> <span class="na">data-status</span><span class="o">=</span><span class="s">&quot;{{job.status}}&quot;</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;{{job.icon}}&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-list-icon</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-list-title</span><span class="p">&gt;</span>{{::job.name}}<span class="p">&lt;/</span><span class="nt">bk-list-title</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">bk-list-item</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">bk-list</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">bk-busy-indicator-extended</span> <span class="na">ng-if</span><span class="o">=</span><span class="s">&quot;!jobs.length&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-fill-parent&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">&gt;</span>Loading job list...<span class="p">&lt;/</span><span class="nt">bk-busy-indicator-extended</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">bk-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--error&quot;</span> <span class="na">ng-if</span><span class="o">=</span><span class="s">&quot;state.error&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>Encounterd an error!<span class="p">&lt;/</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">bk-message-page-subtitle</span><span class="p">&gt;</span>Error retreiving the health status<span class="p">&lt;/</span><span class="nt">bk-message-page-subtitle</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">bk-message-page</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">busyPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;busyPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformView&#39;</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="nx">busyPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;BusyController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">$http</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">setInterval</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">$http</span><span class="p">({</span><span class="w"></span>
+<span class="w">                </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/services/core/healthcheck&#39;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">healthStatus</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;Ready&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/home&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="kd">let</span><span class="w"> </span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span><span class="w"></span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">healthStatus</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">jobs</span><span class="p">.</span><span class="nx">statuses</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="kd">let</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Object</span><span class="p">();</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">job</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">key</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Succeeded&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;positive&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-success&quot;</span><span class="w"></span>
+<span class="w">                            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="k">case</span><span class="w"> </span><span class="s2">&quot;Failed&quot;</span><span class="o">:</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;negative&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">icon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sap-icon--message-error&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">                            </span><span class="nx">job</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;loading&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                    </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">job</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">jobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">jobs</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Error retreiving the health status&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">$evalAsync</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="w">            </span><span class="p">});</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="mf">1000</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -3828,53 +3755,61 @@ DIRIGIBLE_FTP_PORT=22
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">config-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">viewData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Unexpected Error Occurred&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">autoFocusTab</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">            </span><span class="p">};</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/jquery/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/i18next/dist/umd/i18next.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-resource.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angular-aria/angular-aria.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-sanitize.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-branding/branding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/utilities/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/extensions.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/locale.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/blimpkit.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/fundamental-styles/dist/fundamental-styles.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/css/blimpkit.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/styles/fonts.css&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-center&quot;</span> <span class="na">bk-scrollbar</span><span class="p">&gt;</span>
 
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--error&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>There was a problem serving the requested page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    Usually this means that an enexpected error
-                    happened while processing your request. Here&#39;s what you can try next:
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Reload the page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, the problem may be temporary. If the problem persists, <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>contact us<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
-                        and we&#39;ll
-                        help get you on your way.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Reload Page&quot;</span> <span class="na">dg-type</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin: 0 0.25rem;&quot;</span>
-                        <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;reloadPage()&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Contact Support&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;contactSupport()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">bk-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--alert&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>Unexpected Error Occurred<span class="p">&lt;/</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-subtitle</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-vbox bk-box--gap-m&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>There was a problem serving the requested page.<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Usually this means that an enexpected error happened while processing your request. Here&#39;s what you can try next:<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Reload the page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, the problem may be temporary. If the problem persists, <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>contact us<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span> and we&#39;ll help get you on your way.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">bk-message-page-subtitle</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-actions</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">bk-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Contact Support&quot;</span> <span class="na">state</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;contactSupport()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-button</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">bk-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Reload Page&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;reloadPage()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">bk-message-page-actions</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">bk-message-page</span><span class="p">&gt;</span>
 
         <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
-
-<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">reloadPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformView&#39;</span><span class="p">]).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">reloadPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span><span class="w"></span>
 <span class="w">                </span><span class="p">};</span><span class="w"></span>
 
-<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">contactSupport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">contactSupport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;https://bugs.dirigible.io&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_blank&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">                </span><span class="p">};</span><span class="w"></span>
-<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">            </span><span class="p">});</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -3883,7 +3818,7 @@ DIRIGIBLE_FTP_PORT=22
 </div>
 <div class="tabbed-block">
 <ul>
-<li>Create <code>error</code> folder and navigate to it. </li>
+<li>Create <code>error</code> folder and navigate to it.</li>
 <li>Create <code>application/src/main/resources/error/403.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
@@ -3893,38 +3828,49 @@ DIRIGIBLE_FTP_PORT=22
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Access Denied<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;data:;base64,iVBORw0KGgo=&quot;</span> <span class="na">brand-icon</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">config-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">viewData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Access Denied&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">autoFocusTab</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">            </span><span class="p">};</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/jquery/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/i18next/dist/umd/i18next.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-resource.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angular-aria/angular-aria.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-sanitize.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-branding/branding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/utilities/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/extensions.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/locale.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/blimpkit.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/fundamental-styles/dist/fundamental-styles.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/css/blimpkit.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/styles/fonts.css&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--alert&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Access Denied<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>The page you&#39;re trying to access has resctricted access<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    Pleace contact your system administrator for more details.
-                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-center&quot;</span> <span class="na">bk-scrollbar</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">bk-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--alert&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>Access Denied<span class="p">&lt;/</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-subtitle</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-vbox bk-box--gap-m&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>The page you&#39;re trying to access has resctricted access.<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Contact your system administrator for more details.<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">bk-message-page-subtitle</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">bk-message-page</span><span class="p">&gt;</span>
 
         <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
-
-<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformView&#39;</span><span class="p">]).</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -3933,7 +3879,7 @@ DIRIGIBLE_FTP_PORT=22
 </div>
 <div class="tabbed-block">
 <ul>
-<li>Create <code>error</code> folder and navigate to it. </li>
+<li>Create <code>error</code> folder and navigate to it.</li>
 <li>Create <code>application/src/main/resources/error/404.html</code> file.</li>
 <li>Paste the following content:</li>
 </ul>
@@ -3943,56 +3889,58 @@ DIRIGIBLE_FTP_PORT=22
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">ng-app</span><span class="o">=</span><span class="s">&quot;errorPage&quot;</span> <span class="na">ng-controller</span><span class="o">=</span><span class="s">&quot;ErrorPageController&quot;</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
         <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/resources/images/favicon.ico&quot;</span> <span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Custom Stack | Page Not Found<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-js&quot;</span><span class="p">&gt;</span><span class="w"></span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;icon&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;data:;base64,iVBORw0KGgo=&quot;</span> <span class="na">brand-icon</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span> <span class="na">config-title</span><span class="p">&gt;&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">viewData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Page Not Found&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nx">autoFocusTab</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">            </span><span class="p">};</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
-            <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/js/resources-core/services/loader.js?id=application-view-css&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/jquery/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/i18next/dist/umd/i18next.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-resource.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angular-aria/angular-aria.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/angularjs/angular-sanitize.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/js/platform-branding/branding.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/utilities/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/message-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming-hub.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/extensions.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/theming.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/locale.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/platform/view.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/blimpkit.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/fundamental-styles/dist/fundamental-styles.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/webjars/blimpkit__blimpkit/dist/css/blimpkit.css&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/services/web/platform-core/ui/styles/fonts.css&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 
-    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;fd-scrollbar&quot;</span> <span class="na">dg-contextmenu</span><span class="o">=</span><span class="s">&quot;contextMenuContent&quot;</span><span class="p">&gt;</span>
-
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 600px; width: 100%;&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">fd-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--documents&quot;</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>Page Not Found<span class="p">&lt;/</span><span class="nt">fd-message-page-title</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>It looks like you&#39;ve reached a URL that doesn&#39;t exist<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    The page you are looking for is no longer here, or never existed in the first place.
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>You can go to the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>previous page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, or start over from the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>home page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">fd-message-page-subtitle</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Go Back&quot;</span> <span class="na">dg-type</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin: 0 0.25rem;&quot;</span>
-                        <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goBack()&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">fd-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">dg-label</span><span class="o">=</span><span class="s">&quot;Take Me Home&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span><span class="p">&gt;</span>
-                    <span class="p">&lt;/</span><span class="nt">fd-button</span><span class="p">&gt;</span>
-                <span class="p">&lt;/</span><span class="nt">fd-message-page-actions</span><span class="p">&gt;</span>
-            <span class="p">&lt;/</span><span class="nt">fd-message-page</span><span class="p">&gt;</span>
-        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-center&quot;</span> <span class="na">bk-scrollbar</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">bk-message-page</span> <span class="na">glyph</span><span class="o">=</span><span class="s">&quot;sap-icon--documents&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>Page Not Found<span class="p">&lt;/</span><span class="nt">bk-message-page-title</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-subtitle</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bk-vbox bk-box--gap-m&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>It looks like you&#39;ve reached a URL that doesn&#39;t exist.<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
+                The page you are looking for is no longer here, or never existed in the first place.
+                <span class="p">&lt;</span><span class="nt">i</span><span class="p">&gt;</span>You can go to the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>previous page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>, or start over from the <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>home page<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">bk-message-page-subtitle</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">bk-message-page-actions</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">bk-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Go Back&quot;</span> <span class="na">state</span><span class="o">=</span><span class="s">&quot;emphasized&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goBack()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-button</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">bk-button</span> <span class="na">compact</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">label</span><span class="o">=</span><span class="s">&quot;Take Me Home&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span> <span class="na">ng-click</span><span class="o">=</span><span class="s">&quot;goHome()&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">bk-button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">bk-message-page-actions</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">bk-message-page</span><span class="p">&gt;</span>
 
         <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;ideUI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ideView&#39;</span><span class="p">]);</span><span class="w"></span>
-
-<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;theming&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span><span class="w"> </span><span class="nx">theming</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-
-<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goBack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span><span class="w"></span>
-<span class="w">                </span><span class="p">};</span><span class="w"></span>
-
-<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goHome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">};</span><span class="w"></span>
-
-<span class="w">            </span><span class="p">}]);</span><span class="w"></span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="nx">errorPage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;errorPage&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blimpKit&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;platformView&#39;</span><span class="p">]);</span><span class="w"></span>
+<span class="w">            </span><span class="nx">errorPage</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;ErrorPageController&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goBack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">history</span><span class="p">.</span><span class="nx">back</span><span class="p">();</span><span class="w"></span>
+<span class="w">                </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">goHome</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="p">});</span><span class="w"></span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">theme</span><span class="p">&gt;&lt;/</span><span class="nt">theme</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -4142,29 +4090,23 @@ org.quartz.threadPool.threadPriority=5
 <h4 id="build-the-custom-stack">Build the Custom Stack</h4>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
-<li>
-<p>Open the <strong>Terminal</strong> and execute the following command to build the <em>Custom Stack</em>:</p>
+<li>Open the <strong>Terminal</strong> and execute the following command to build the <em>Custom Stack</em>:</li>
+</ul>
 <div class="highlight"><pre><span></span><code>mvn clean install
 </code></pre></div>
-</li>
-</ul>
 <h4 id="run-the-custom-stack">Run the Custom Stack</h4>
 <ul>
 <li>Navigate to the root folder of the project <em>(e.g. <code>&lt;my-custom-stack-path&gt;/custom-stack</code>)</em>.</li>
-<li>
-<p>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</p>
+<li>Open the <strong>Terminal</strong> and execute the following command to run the <em>Custom Stack</em>:</li>
+</ul>
 <div class="highlight"><pre><span></span><code>java -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Debugging</p>
+<p>!!! info "Debugging"</p>
 <p>To run in debug mode, execute the following command:</p>
 <div class="highlight"><pre><span></span><code>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -jar application/target/custom-stack-application-*.jar
 </code></pre></div>
-</div>
-</li>
-<li>
-<p>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</p>
-</li>
+<ul>
+<li>Go to <a href="http://localhost:8080/">http://localhost:8080</a> to access the <em>Custom Stack</em>.</li>
 </ul>
 <h2 id="next-steps">Next Steps</h2>
 <div class="admonition success">
