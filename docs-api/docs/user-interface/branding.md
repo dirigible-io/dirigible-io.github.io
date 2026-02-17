@@ -2,12 +2,12 @@
 title: Branding
 ---
 
-Branding
-===
+# Branding
 
 Dirigible allows you to change the branding of the platform.
 
 === "Overview"
+
 - Module: `platform-branding`
 - Source: [platform-branding/branding.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.js)
 - Source: [platform-branding/branding.mjs](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-branding/src/main/resources/META-INF/dirigible/platform-branding/branding.mjs)
@@ -31,28 +31,28 @@ Use the `setBrandingInfo` function:
 
 ```javascript
 setBrandingInfo({
-    name: 'Dirigible',
-    brand: 'Eclipse',
-    brandUrl: 'https://www.dirigible.io/',
-    icons: {
-        favicon: '/services/web/platform-branding/images/favicon.ico',
-    },
-    logo: '/services/web/platform-branding/images/dirigible.svg',
-    theme: 'blimpkit-auto',
-    prefix: 'dirigible'
+  name: "Dirigible",
+  brand: "Eclipse",
+  brandUrl: "https://www.dirigible.io/",
+  icons: {
+    favicon: "/services/web/platform-branding/images/favicon.ico",
+  },
+  logo: "/services/web/platform-branding/images/dirigible.svg",
+  theme: "blimpkit-auto",
+  prefix: "dirigible",
 });
 ```
 
-Parameter     | Description | Required
------------- | ----------- | -----------
-**name**   | The product name | no
-**brand**   | The brand name | no
-**brandUrl**   | The brand/product URL | no
-**icons**   | Favicons | no
-**icons.favicon**   | Favicon in `.ico` format | no
-**logo**   | The brand/product logo | no
-**theme**   | The default theme ID | no
-**prefix**   | The prefix used for cookie and localStorage value keys | no
+| Parameter         | Description                                            | Required |
+| ----------------- | ------------------------------------------------------ | -------- |
+| **name**          | The product name                                       | no       |
+| **brand**         | The brand name                                         | no       |
+| **brandUrl**      | The brand/product URL                                  | no       |
+| **icons**         | Favicons                                               | no       |
+| **icons.favicon** | Favicon in `.ico` format                               | no       |
+| **logo**          | The brand/product logo                                 | no       |
+| **theme**         | The default theme ID                                   | no       |
+| **prefix**        | The prefix used for cookie and localStorage value keys | no       |
 
 ### Getting the brand information
 
@@ -64,15 +64,25 @@ The branding constant will be a reference to the global branding information obj
 
 ### Initializing the branding
 
-For standard Dirigible shells/perspectives/views/etc. you can just use the loader. Example:
+For standard shells, perspectives, views, and related components in Eclipse Dirigible, the PlatformAssets loader can be used directly.
+
+Example:
 
 ```html
-<script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+<meta name="platform-links" category="ng-view" />
 ```
 
-In a custom view, you must include those two files in your shell/perspective/view/etc. and make sure they are the first to load.
+This approach ensures that all required assets for the specified category are automatically resolved and injected.
+
+In a custom view, you must include those two files in your view. and make sure they are the first to load.
 
 ```html
-<script type="text/javascript" src="/services/js/platform-branding/branding.js"></script>
-<script type="text/javascript" src="/services/web/platform-core/utilities/view.js"></script>
+<script
+  type="text/javascript"
+  src="/services/js/platform-branding/branding.js"
+></script>
+<script
+  type="text/javascript"
+  src="/services/web/platform-core/utilities/view.js"
+></script>
 ```

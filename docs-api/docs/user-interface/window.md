@@ -84,8 +84,7 @@ Window
         <script type="text/javascript" src="/services/web/new-window/configs/window.js"></script>
         
         <!-- Base view services and styles -->
-        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
-        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+        <meta name="platform-links" category="ng-view">
     </head>
 
     <body>

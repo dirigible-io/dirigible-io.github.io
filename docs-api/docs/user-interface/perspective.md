@@ -97,8 +97,7 @@ Perspective with a default layout:
 		<script type="text/javascript" src="/services/web/new-perspective/configs/perspective.js"></script>
 
 		<!-- Perspective services and styles -->
-		<script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=perspective-js"></script>
-		<link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=perspective-css" />
+		<meta name="platform-links" category="ng-view,ng-perspective">
 
 		<!-- Perspective controller -->
 		<script type="text/javascript" src="js/perspective.js"></script>
@@ -175,8 +174,7 @@ Perspective with a custom layout:
         <script type="text/javascript" src="/services/web/new-perspective/configs/perspective.js"></script>
 
         <!-- Base perspective services and styles -->
-        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=perspective-js"></script>
-        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=perspective-css" />
+        <meta name="platform-links" category="ng-view,ng-perspective">
     </head>
 
     <body>

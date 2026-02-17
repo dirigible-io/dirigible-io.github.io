@@ -7,11 +7,11 @@ nav:
       - 'development/index.md'
       - Tutorials:
         - Development:
-          - Bookstore:
-            - 'tutorials/application-development/bookstore/index.md'
-            - Database: 'tutorials/application-development/bookstore/database.md'
-            - API: 'tutorials/application-development/bookstore/api.md'
-            - User Interface: 'tutorials/application-development/bookstore/ui.md'
+          # - Bookstore:
+          #   - 'tutorials/application-development/bookstore/index.md'
+          #   - Database: 'tutorials/application-development/bookstore/database.md'
+          #   - API: 'tutorials/application-development/bookstore/api.md'
+          #   - User Interface: 'tutorials/application-development/bookstore/ui.md'
           - Scheduled Job:
             - 'tutorials/application-development/scheduled-job/index.md'
             - Database: 'tutorials/application-development/scheduled-job/database.md'

@@ -90,8 +90,7 @@ View
 		<script type="text/javascript" src="/services/web/new-view/configs/view.js"></script>
 		
         <!-- View services and styles -->
-		<script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
-		<link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+		<meta name="platform-links" category="ng-view">
 		
         <!-- View controller -->
 		<script type="text/javascript" src="js/view.js"></script>

@@ -83,8 +83,7 @@ Example of a basic shell:
         <script type="text/javascript" src="/services/web/new-shell/configs/shell.js"></script>
         
 		<!-- Shell services and styles -->
-        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=shell-js"></script>
-        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=shell-css" />
+        <meta name="platform-links" category="ng-view,ng-shell">
     </head>
 
     <body>

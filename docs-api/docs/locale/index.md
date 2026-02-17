@@ -4,12 +4,12 @@ title: Locale
 icon: help-features
 ---
 
-Loader
-===
+# Locale
 
 The locale is a system service that returns the locale configurations and translations.
 
 === "Overview"
+
 - Module: `platform-core`
 - Source: [platform-core/extension-services/locales.js](https://github.com/eclipse/dirigible/blob/master/components/ui/platform-core/src/main/resources/META-INF/dirigible/platform-core/extension-services/locales.js)
 - Service Link: `/services/js/platform-core/extension-services/locales.js`
@@ -20,20 +20,22 @@ The locale is a system service that returns the locale configurations and transl
 
 ---
 
-Bundle name     | Description
------------- | -----------
-**langs**   | BCP 47 language tag(s). Example - 'en-US'
-**namespaces**   | Translation namespace(s). Usually, namspaces are the same as the name of the project they come from.
-**extensionPoints**   | Extension point id(s)
+| Bundle name         | Description                                                                                          |
+| ------------------- | ---------------------------------------------------------------------------------------------------- |
+| **langs**           | BCP 47 language tag(s). Example - 'en-US'                                                            |
+| **namespaces**      | Translation namespace(s). Usually, namspaces are the same as the name of the project they come from. |
+| **extensionPoints** | Extension point id(s)                                                                                |
 
 ### Example
 
 Request:
+
 ```
 /services/js/platform-core/extension-services/locales.js?langs=en-US
 ```
 
 Response:
+
 ```json
 {
   "locales": [
