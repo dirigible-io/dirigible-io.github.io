@@ -119,13 +119,48 @@ layout: default-home
 	            <div class="col-sm-4">
 	                <h2>Releases</h2>
 	                <div>
-						{% for post in site.tags.release limit:6 %}
-							{% if post.categories contains 'release' %}
-								<p class="post-item">
-									{{ post.date | date: '%Y-%m-%d' }} <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-								</p>
-							{% endif %}
-						{% endfor %}
+<div id="github-releases">
+    <p>Loading releases...</p>
+</div>
+
+<script>
+(async function () {
+    const container = document.getElementById('github-releases');
+    const repo = "eclipse-dirigible/dirigible";
+    const limit = 6;
+
+    try {
+        const response = await fetch(`https://api.github.com/repos/${repo}/releases`);
+        const releases = await response.json();
+
+        if (!Array.isArray(releases)) {
+            container.innerHTML = "<p>Failed to load releases.</p>";
+            return;
+        }
+
+        const html = releases
+            .slice(0, limit)
+            .map(r => {
+                const date = new Date(r.published_at).toISOString().split('T')[0];
+                return `
+                    <p class="post-item">
+                        ${date}
+                        <a class="post-link" href="${r.html_url}" target="_blank">
+                            ${r.name || r.tag_name}
+                        </a>
+                    </p>
+                `;
+            })
+            .join("");
+
+        container.innerHTML = html;
+
+    } catch (e) {
+        container.innerHTML = "<p>Error loading releases.</p>";
+        console.error(e);
+    }
+})();
+</script>
 					</div>
 					<br>
 					<a class="btn btn-default" href="{{ site.url }}/releases.html" target="_blank">All Releases ...</a> <a class="btn btn-primary" href="http://download.dirigible.io" target="_blank">Downloads</a>
