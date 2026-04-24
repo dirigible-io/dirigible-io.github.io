@@ -49,6 +49,7 @@ docker run --rm -it -p 8000:8000 -v $PWD/docs-api:/docs squidfunk/mkdocs-materia
 docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material:8.5.11
 docker run --rm -it -p 8000:8000 -v $PWD/docs-samples:/docs squidfunk/mkdocs-material:8.5.11
 docker run --rm -it -p 8000:8000 -v $PWD/docs-blogs:/docs squidfunk/mkdocs-material
+docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material:8.5.11
 
 ```
 
