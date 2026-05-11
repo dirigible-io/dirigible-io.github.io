@@ -355,6 +355,18 @@ Parameter     | Description | Default*
 **DIRIGIBLE_S3_PROVIDER**   | The provider to be used for S3. For local testing an option with `localstack` is available | _`aws`_
 **DIRIGIBLE_S3_BUCKET**   | The bucket to be used for content management. Will be created if the provided one does not exist | _`target`_
 
+#### CMS - Microsoft SharePoint
+
+Parameter     | Description                                                                                                                                                                                                          | Default*
+------------ |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --------
+**DIRIGIBLE_CMS_PROVIDER**   | Set `cms-provider-ms-sharepoint` for Microsoft SharePoint CMS.                                                                                                                                                       | _`cms-provider-internal`_
+**DIRIGIBLE_MS_SHAREPOINT_TENANT_ID**   | Microsoft SharePoint tenant id.                                                                                                                                                                                      | _`null`_
+**DIRIGIBLE_MS_SHAREPOINT_SITE_HOSTNAME**   | Microsoft SharePoint host name. Example: `xxx.sharepoint.com`.                                                                                                                                                       | _`null`_
+**DIRIGIBLE_MS_SHAREPOINT_SITE_PATH**   | Microsoft SharePoint site path. Example: `/sites/DemoSite`.                                                                                                                                                          | _`null`_
+**DIRIGIBLE_MS_SHAREPOINT_CLIENT_ID**   | Microsoft SharePoint client id. Check [this blog](https://learn.microsoft.com/en-us/graph/tutorials/java?tabs=aad#register-an-application-for-user-authentication) for more details.                                 | _`null`_
+**DIRIGIBLE_MS_SHAREPOINT_CLIENT_SECRET**   | Microsoft SharePoint client secret. Check [this blog](https://learn.microsoft.com/en-us/graph/tutorials/java?tabs=aad#register-an-application-for-user-authentication) for more details.                             | _`null`_
+**DIRIGIBLE_MS_SHAREPOINT_TOKEN**   | Microsoft SharePoint oauth token. Used for **dev purpose only**. You cannot have `DIRIGIBLE_MS_SHAREPOINT_TOKEN` and `DIRIGIBLE_MS_SHAREPOINT_CLIENT_ID` + `DIRIGIBLE_MS_SHAREPOINT_CLIENT_SECRET` at the same time. | _`null`_
+
 ### BPM
 
 Parameter     | Description | Default*
