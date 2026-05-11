@@ -1528,6 +1528,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cms-microsoft-sharepoint" class="md-nav__link">
+    CMS - Microsoft SharePoint
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3448,6 +3455,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#cms-microsoft-sharepoint" class="md-nav__link">
+    CMS - Microsoft SharePoint
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4706,6 +4720,53 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_S3_BUCKET</strong></td>
 <td>The bucket to be used for content management. Will be created if the provided one does not exist</td>
 <td><em><code>target</code></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cms-microsoft-sharepoint">CMS - Microsoft SharePoint</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_CMS_PROVIDER</strong></td>
+<td>Set <code>cms-provider-ms-sharepoint</code> for Microsoft SharePoint CMS.</td>
+<td><em><code>cms-provider-internal</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_TENANT_ID</strong></td>
+<td>Microsoft SharePoint tenant id.</td>
+<td><em><code>null</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_SITE_HOSTNAME</strong></td>
+<td>Microsoft SharePoint host name. Example: <code>xxx.sharepoint.com</code>.</td>
+<td><em><code>null</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_SITE_PATH</strong></td>
+<td>Microsoft SharePoint site path. Example: <code>/sites/DemoSite</code>.</td>
+<td><em><code>null</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_CLIENT_ID</strong></td>
+<td>Microsoft SharePoint client id. Check <a href="https://learn.microsoft.com/en-us/graph/tutorials/java?tabs=aad#register-an-application-for-user-authentication">this blog</a> for more details.</td>
+<td><em><code>null</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_CLIENT_SECRET</strong></td>
+<td>Microsoft SharePoint client secret. Check <a href="https://learn.microsoft.com/en-us/graph/tutorials/java?tabs=aad#register-an-application-for-user-authentication">this blog</a> for more details.</td>
+<td><em><code>null</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_MS_SHAREPOINT_TOKEN</strong></td>
+<td>Microsoft SharePoint oauth token. Used for <strong>dev purpose only</strong>. You cannot have <code>DIRIGIBLE_MS_SHAREPOINT_TOKEN</code> and <code>DIRIGIBLE_MS_SHAREPOINT_CLIENT_ID</code> + <code>DIRIGIBLE_MS_SHAREPOINT_CLIENT_SECRET</code> at the same time.</td>
+<td><em><code>null</code></em></td>
 </tr>
 </tbody>
 </table>
