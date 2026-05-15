@@ -11,31 +11,29 @@ Debugging
 
 To connect for remote java debugging of Eclipse Dirigible, follow the next steps:
 
-1. Start the Tomcat server in [JPDA (debug)](https://cwiki.apache.org/confluence/display/TOMCAT/Developing#Developing-Debugging) mode:
+1. Start the Dirigible executable JAR with the JDWP agent enabled. The runtime ships as a self-contained Spring Boot fat JAR (`dirigible-application-*-executable.jar` under `build/application/target/`), so the standard `-agentlib:jdwp=...` JVM flag is all that is needed:
 
-    !!! example "Run Tomcat in JPDA mode"
+    !!! example "Start Dirigible with the JDWP agent"
 
-        === "on macOS"
-
-            ```
-            ./catalina.sh jpda run
-            ```
-
-        === "on Linux"
+        === "on macOS / Linux"
 
             ```
-            ./catalina.sh jpda run
+            java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 \
+              -jar build/application/target/dirigible-application-*-executable.jar
             ```
 
-        === "on Windows"
+        === "on Windows (PowerShell)"
 
             ```
-            catalina.bat jpda run
+            java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 `
+              -jar build/application/target/$((Get-ChildItem dirigible-application-*-executable.jar -recurse -File | Sort-Object LastWriteTime | Select -Last 1).BaseName).jar
             ```
 
         === "Docker Image"
 
             Run the docker image **with Java Debugging Options** as described [here](/help/setup/docker/).
+
+    The JVM will listen for debugger attaches on **port 8000** (configurable via the `address=` part of the agent string). Use `suspend=y` instead of `suspend=n` if you need the JVM to wait for the debugger before continuing startup.
 
 === "Eclipse IDE"
 
