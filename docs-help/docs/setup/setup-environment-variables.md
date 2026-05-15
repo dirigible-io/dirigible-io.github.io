@@ -72,27 +72,20 @@ Parameter     | Description | Default*
 **DIRIGIBLE_BASIC_USERNAME**   | Base64 encoded property, which will be used as user name for basic authentication | _`admin`_
 **DIRIGIBLE_BASIC_PASSWORD**   | Base64 encoded property, which will be used as password for basic authentication | _`admin`_
 
-### OAuth
+### OAuth (GitHub)
+
+OAuth login is provided via Spring Security and activated by enabling the `github` Spring profile (e.g. `SPRING_PROFILES_ACTIVE=github`). When the profile is active, configuration is read from `application-github.properties` using the following variables:
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_OAUTH_ENABLED** | Whether the OAuth authentication is enabled | _`false`_
-**DIRIGIBLE_OAUTH_AUTHORIZE_URL** | The OAuth authorization URL _(e.g. `https://my-oauth-server/oauth/authorize`)_ | _`-`_
-**DIRIGIBLE_OAUTH_TOKEN_URL** | The OAuth token URL _(e.g. `https://my-oauth-server/oauth/token`)_ | _`-`_
-**DIRIGIBLE_OAUTH_TOKEN_REQUEST_METHOD** | The OAuth token request method _(`GET` or `POST`)_ | _`GET`_
-**DIRIGIBLE_OAUTH_CLIENT_ID** | The OAuth `clientid` _(e.g. `sb-xxx-yyy`)_ | _`-`_
-**DIRIGIBLE_OAUTH_CLIENT_SECRET** | The OAuth `clientsecret` _(e.g. `PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...`)_ | _`-`_
-**DIRIGIBLE_OAUTH_APPLICATION_HOST** | The application host _(e.g. `https://my-application-host`)_ | _`-`_
-**DIRIGIBLE_OAUTH_ISSUER** | The OAuth `issuer` _(e.g. `http://xxx.localhost:8080/uaa/oauth/token`)_ | _`-`_
-**DIRIGIBLE_OAUTH_VERIFICATION_KEY** | The OAuth `verificationkey` _(e.g. `-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...`)_ | _`-`_
-**DIRIGIBLE_OAUTH_VERIFICATION_KEY_EXPONENT** | The OAuth verificationkey exponent _(e.g. `AQAB`)_ | _`-`_
-**DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED** | Sets whether the JWT verifier should check the token `issuer` | _`true`_
-**DIRIGIBLE_OAUTH_CHECK_AUDIENCE_ENABLED** | Sets whether the JWT verifier should check the token `aud` | _`true`_
-**DIRIGIBLE_OAUTH_APPLICATION_NAME** | The application name _(e.g. `dirigible-xxx`)_ | _`-`_
+**DIRIGIBLE_GITHUB_CLIENT_ID** | The OAuth `clientId` registered for the GitHub OAuth App | _`-`_
+**DIRIGIBLE_GITHUB_CLIENT_SECRET** | The OAuth `clientSecret` registered for the GitHub OAuth App | _`-`_
+**DIRIGIBLE_GITHUB_SCOPE** | The OAuth scopes requested from GitHub | _`read:user,user:email`_
+**DIRIGIBLE_HOST** | The application's public host used to build the OAuth redirect URI _(e.g. `https://my-application-host`)_ | _`-`_
 
 !!! Note "Redirect/Callback URL"
 
-    Configure the Redirect/Callback URL in the OAuth client to: `<DIRIGIBLE_OAUTH_APPLICATION_HOST>/services/v4/oauth/callback`
+    Configure the Authorization callback URL in the GitHub OAuth App to: `<DIRIGIBLE_HOST>/login/oauth2/code/github`
 
 ### Keycloak
 
@@ -316,7 +309,7 @@ Parameter     | Description | Default*
 
 Parameter     | Description | Default*
 ------------ | ----------- | --------
-**DIRIGIBLE_HOME_URL**   | The home URL where the user to be redirected on access | _`/services/v4/web/ide/index.html`_
+**DIRIGIBLE_HOME_URL**   | The home URL where the user to be redirected on access | _`services/web/shell-ide/`_
 
 ### Vert.x
 
