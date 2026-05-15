@@ -149,7 +149,7 @@ JavaScript handlers should be provided for the `Service Task` steps in the `Busi
 
     	let urlEncodedData = base64.encode(JSON.stringify(data));
 
-    	let url = `http://localhost:8080/services/v4/web/sample-bpm/process/?data=${urlEncodedData}`;
+    	let url = `http://localhost:8080/services/web/sample-bpm/process/?data=${urlEncodedData}`;
 
     	console.log(`Approve Request URL: ${url}`);
 
@@ -571,7 +571,7 @@ The submit form would call the server-side javascript api that was created in th
     			};
 
     			$scope.submit = function () {
-    				$http.post("/services/v4/js/sample-bpm/api/process.js", JSON.stringify($scope.entity)).then(function (response) {
+    				$http.post("/services/js/sample-bpm/api/process.js", JSON.stringify($scope.entity)).then(function (response) {
     					if (response.status != 202) {
     						alert(`Unable to submit Time Entry Request: '${response.message}'`);
     						$scope.resetForm();
@@ -718,7 +718,7 @@ The process form would call the server-side javascript api that was created befo
     			};
 
     			$scope.approve = function () {
-    				$http.post("/services/v4/js/sample-bpm/api/process.js/continue/" + $scope.executionId, JSON.stringify(
+    				$http.post("/services/js/sample-bpm/api/process.js/continue/" + $scope.executionId, JSON.stringify(
     					{
     						user: $scope.user,
     						approved: true
@@ -734,7 +734,7 @@ The process form would call the server-side javascript api that was created befo
     			};
 
     			$scope.reject = function () {
-    				$http.post("/services/v4/js/sample-bpm/api/process.js/continue/" + $scope.executionId, JSON.stringify(
+    				$http.post("/services/js/sample-bpm/api/process.js/continue/" + $scope.executionId, JSON.stringify(
     					{
     						user: $scope.user,
     						approved: false
@@ -856,7 +856,7 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 
 [Using custom approval form]
 
-1. Navigate to [http://localhost:8080/services/v4/web/sample-bpm/submit/](http://localhost:8080/services/v4/web/sample-bpm/submit/) to open the **Submit form**.
+1. Navigate to [http://localhost:8080/services/web/sample-bpm/submit/](http://localhost:8080/services/web/sample-bpm/submit/) to open the **Submit form**.
 2. Enter the required data and press the **Submit** button.
 3. Navigate to the Processes Workspace
 4. Select your active process instance in the Process Instances view
@@ -872,13 +872,13 @@ APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 
 [Using approval url from the console]
 
-1. Navigate to [http://localhost:8080/services/v4/web/sample-bpm/submit/](http://localhost:8080/services/v4/web/sample-bpm/submit/) to open the **Submit form**.
+1. Navigate to [http://localhost:8080/services/web/sample-bpm/submit/](http://localhost:8080/services/web/sample-bpm/submit/) to open the **Submit form**.
 1. Enter the required data and press the **Submit** button.
 1. If email configuration was provided an email notification will be send to the email address set by the `APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>` environment variable.
 1. If email configuration wasn't provided then in the `Console` view the following message can be found:
 
    ```
-   Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
+   Approve Request URL: http://localhost:8080/services/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
    ```
 
 1. Open the URL from the `Console` view or open it from the email notification.

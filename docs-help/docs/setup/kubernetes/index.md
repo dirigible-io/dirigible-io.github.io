@@ -144,7 +144,7 @@ You can deploy [Eclipse Dirigible](https://hub.docker.com/r/dirigiblelabs) Docke
     !!! tip "Eclipse Dirigible versions"
         Instead of using the `latest` tag (version), for production and development use cases it is recomended to use a stable release version:
         
-        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All released versions can be found [here](https://github.com/eclipse-dirigible/dirigible/releases/).
         - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
 1. Create service configuration file: `service.yaml`
@@ -286,7 +286,7 @@ To update the Eclipse Dirigible version either use the **kubectl** or update the
 
     Update the `<dirigible-version>` placeholder with a stable release version:
 
-    - You can find all released versions [here](https://github.com/eclipse/dirigible/releases/).
+    - You can find all released versions [here](https://github.com/eclipse-dirigible/dirigible/releases/).
     - You can find all Eclipse Dirigible Docker images and tags (versions) [here](https://hub.docker.com/u/dirigiblelabs).
 
 ### Scaling

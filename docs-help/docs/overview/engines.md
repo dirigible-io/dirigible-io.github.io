@@ -7,15 +7,22 @@ Engines
 
 ## Engines List
 
-- [Javascript GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) - a Javascript module based on the [GraalVM JS](https://www.graalvm.org/reference-manual/js/) engine.
-- [Web](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-web) - serving the static content via the underlying web container's capabilities e.g. [Apache Tomcat](http://tomcat.apache.org/).
-- [Wiki Markdown](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki) - a Wiki engine supporting [Markdown](https://daringfireball.net/projects/markdown/syntax) markup language and uses the [Mylyn](https://wiki.eclipse.org/Mylyn/WikiText) underlying framework.
-- [BPM](https://github.com/eclipse/dirigible/tree/master/modules/bpm/bpm-flowable) - a [BPMN](http://www.omg.org/bpmn/) specification supporting engine [Flowable](https://www.flowable.org/).
-- [OData](https://olingo.apache.org/) - expose OData services from database tables/views.
-- Command - execute shell commands and bash scripts.
+The execution engines live under [`components/engine/`](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine) in the source repository. Each engine is auto-discovered by the Spring Boot runtime when its module is on the classpath.
 
-## Deprecated
-
-- [Javascript Rhino](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-rhino) - a Javascript module based on the [Mozilla Rhino](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino) engine.
-- [Javascript Nashorn](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-nashorn) - a Javascript module based on the built-in Java [Nashorn](http://www.oracle.com/technetwork/articles/java/jf14-nashorn-2126515.html) engine.
-- [Javascript V8](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-v8) - a Javascript module based on the [Chrome V8](https://developers.google.com/v8/) engine.
+- [JavaScript](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-javascript) - server-side JavaScript executed on top of [GraalVM](https://www.graalvm.org/reference-manual/js/) via the embedded [Graalium](https://github.com/eclipse-dirigible/graalium) runtime.
+- [TypeScript](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-typescript) - TypeScript support, transpiled with `tsc`/`esbuild` and executed through the JavaScript engine.
+- [Python](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-python) - Python support powered by GraalPy.
+- [Web](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-web) - serves static content (HTML, CSS, JS, images) directly out of the repository.
+- [Wiki Markdown](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-wiki) - renders [Markdown](https://daringfireball.net/projects/markdown/syntax) using the [Mylyn WikiText](https://wiki.eclipse.org/Mylyn/WikiText) framework.
+- [BPM (Flowable)](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-bpm-flowable) - a [BPMN 2.0](http://www.omg.org/bpmn/) execution engine based on [Flowable](https://www.flowable.org/).
+- [Camel](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-camel) - [Apache Camel](https://camel.apache.org/) integration routes.
+- [Jobs](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-jobs) - scheduled jobs backed by [Quartz](https://www.quartz-scheduler.org/).
+- [Listeners](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-listeners) - JMS / message-queue listeners.
+- [OData](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-odata) - expose [OData v2](https://olingo.apache.org/) services from database tables/views (served at `/odata/v2`).
+- [OpenAPI](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-openapi) - aggregates OpenAPI/Swagger definitions of the running services.
+- [WebSockets](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-websockets) - server-side WebSocket endpoints.
+- [CMS](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms) - Content Management with pluggable backends ([Internal](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-internal), [S3](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-s3), [SharePoint](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-sharepoint)).
+- [Command](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-command) - execute shell commands and scripts.
+- Template engines - [JavaScript](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-javascript), [Mustache](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-mustache), and [Velocity](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-velocity).
+- [SFTP](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-sftp) / [FTP](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-ftp) - file-transfer endpoints.
+- [OpenTelemetry](https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-open-telemetry) - traces, metrics, and logs exporter.

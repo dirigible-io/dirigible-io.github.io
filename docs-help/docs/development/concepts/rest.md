@@ -21,7 +21,7 @@ rs.service()
   .execute();
 ```
 
-Sending a `GET` request to `/services/v4/js/test/hello-api.js` to the server and hosting the `hello-api.js` piece of code above in `test/hello-api.js` will return response body:
+Sending a `GET` request to `/services/js/test/hello-api.js` to the server and hosting the `hello-api.js` piece of code above in `test/hello-api.js` will return response body:
 
 > `Hello there!`  
 
@@ -107,7 +107,7 @@ Resources are the top-level configuration objects that represent an [HTTP (serve
 
 ### Resource paths and path templates
 
-The `sPath` string parameter (mandatory) of the `resource()` method will serve as the resource URL. It is relative to the location where the JavaScript service is running (e.g. `/services/v4/my-application/api/my-service.js`). No path (`""`), request directly to the JavaScript service root (`""`) path.
+The `sPath` string parameter (mandatory) of the `resource()` method will serve as the resource URL. It is relative to the location where the JavaScript service is running (e.g. `/services/my-application/api/my-service.js`). No path (`""`), request directly to the JavaScript service root (`""`) path.
 The path can also be a URL template, i.e. parameterized.  
 For example consider the path template:  
 

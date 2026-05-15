@@ -18,7 +18,7 @@ This guide explains how to setup an Eclipse Dirigible instance and how to use it
 ### Get the binary
 
 * In case you want to use a prebuild package, you can get the one built for your environment from the [downloads](http://download.dirigible.io/) section.
-* To build Eclipse Dirigible from sources by yourself, just follow the instructions in the [README](https://github.com/eclipse/dirigible/blob/master/README.md#build).
+* To build Eclipse Dirigible from sources by yourself, just follow the instructions in the [README](https://github.com/eclipse-dirigible/dirigible/blob/master/README.md#build).
 
 ### Choose the environment
 

@@ -84,11 +84,11 @@ Generic query methods are not generated because:
 Entity services are generated in JavaScript, hence they can be accessed right after generation and publishing on:
 
 
-`<protocol>://<host>:<port>/services/v4/js/<project>/<entity-service-path>`
+`<protocol>://<host>:<port>/services/js/<project>/<entity-service-path>`
 
 Here's an example:
 
-`https://example.com/services/v4/js/bookstore/books.js`
+`https://example.com/services/js/bookstore/books.js`
 
 Or just select them in the **Workspace** view and check the result in the **Preview** view.
 

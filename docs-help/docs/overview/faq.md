@@ -2,7 +2,7 @@
 title: FAQ
 ---
 
-*If you have a question that is not covered here, but it should be, please let us [know](https://github.com/eclipse/dirigible/issues).* 
+*If you have a question that is not covered here, but it should be, please let us [know](https://github.com/eclipse-dirigible/dirigible/issues).* 
 
 
 ## Concepts
@@ -131,11 +131,11 @@ title: FAQ
 
 ??? question "How to integrate my Java framework?"
 
-    It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the WAR or the executable JAR files.
+    It is even simpler - add it during the packaging phase as a regular Maven module to be packaged in the Spring Boot executable JAR.
 
 ??? question "How to register my Enterprise JavaScript API?"
 
-    Once you make the your core framework available as a Maven module packaged into your WAR file, you can implement your own [Enterprise JavaScript API](../../../api/) facade.
+    Once you make the your core framework available as a Maven module packaged into the executable JAR, you can implement your own [Enterprise JavaScript API](../../../api/) facade.
 
 ??? question "How to integrate my non-Java framework?"
 

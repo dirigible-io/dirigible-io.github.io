@@ -109,17 +109,17 @@ All views in Eclipse Dirigible are loaded via the `ide-view` extension point. Li
                     <theme></theme>
             
                     <!-- Dirigible styles -->
-                    <link type="text/css" rel="stylesheet" href="/services/v4/web/resources/styles/core.css" />
-                    <link type="text/css" rel="stylesheet" href="/services/v4/web/resources/styles/widgets.css" />
+                    <link type="text/css" rel="stylesheet" href="/services/web/resources/styles/core.css" />
+                    <link type="text/css" rel="stylesheet" href="/services/web/resources/styles/widgets.css" />
             
                     <!-- MessageHub -->
-                    <script type="text/javascript" src="/services/v4/web/ide-core/core/message-hub.js"></script>
-                    <script type="text/javascript" src="/services/v4/web/ide-core/core/ide-message-hub.js"></script>
+                    <script type="text/javascript" src="/services/web/ide-core/core/message-hub.js"></script>
+                    <script type="text/javascript" src="/services/web/ide-core/core/ide-message-hub.js"></script>
             
                     <!-- IDE Core UI -->
-                    <script type="text/javascript" src="/services/v4/web/ide-core/ui/theming.js"></script>
-                    <script type="text/javascript" src="/services/v4/web/ide-core/ui/widgets.js"></script>
-                    <script type="text/javascript" src="/services/v4/web/ide-core/ui/view.js"></script>
+                    <script type="text/javascript" src="/services/web/ide-core/ui/theming.js"></script>
+                    <script type="text/javascript" src="/services/web/ide-core/ui/widgets.js"></script>
+                    <script type="text/javascript" src="/services/web/ide-core/ui/view.js"></script>
             
                     <!-- Project-specific stuff -->
                     <script type="text/javascript" src="controller.js"></script>

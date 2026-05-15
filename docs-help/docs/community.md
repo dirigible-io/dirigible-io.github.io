@@ -9,7 +9,7 @@ Welcome to the community page for contributors! Here you will find resources to 
 
 ## Contributor Guide
 
-Eclipse Dirigible is an open source project, which means that you can propose contributions by sending pull requests through [GitHub](https://github.com/eclipse/dirigible).
+Eclipse Dirigible is an open source project, which means that you can propose contributions by sending pull requests through [GitHub](https://github.com/eclipse-dirigible/dirigible).
 
 Before you get started, here are some prerequisites that you need to complete:
 
@@ -17,7 +17,7 @@ Before you get started, here are some prerequisites that you need to complete:
 
 Please read the [Eclipse Foundation policy on accepting contributions via Git](https://wiki.eclipse.org/Development_Resources/Contributing_via_Git).
 
-Please read the [Code of Conduct](https://github.com/eclipse/dirigible/blob/master/CODE_OF_CONDUCT.md).
+Please read the [Code of Conduct](https://github.com/eclipse-dirigible/dirigible/blob/master/CODE_OF_CONDUCT.md).
 
 Your contribution cannot be accepted unless you have an [Eclipse Contributor Agreement](https://www.eclipse.org/legal/ECA.php) in place.
 
@@ -28,7 +28,7 @@ Here is the checklist for contributions to be acceptable:
 3. [Log into the projects portal](https://projects.eclipse.org/), look for ["Eclipse Contributor Agreement"](https://www.eclipse.org/legal/ECA.php), and agree to the terms.
 4. Ensure that you sign-off your Git commits with the same email address as your Eclipse Foundation profile. 
 
-For  more information see the [Contributor Guide](https://github.com/eclipse/dirigible/blob/master/CONTRIBUTING.md).
+For  more information see the [Contributor Guide](https://github.com/eclipse-dirigible/dirigible/blob/master/CONTRIBUTING.md).
 
 ### Style Guide
 
