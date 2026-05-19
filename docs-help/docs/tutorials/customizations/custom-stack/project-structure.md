@@ -366,7 +366,7 @@ It contains the creation of several Maven `pom.xml` files, static content resour
 
     !!! tip "Eclipse Dirigible version"
 
-    	The tutorial is using Eclipse Dirigible version `10.2.7` as highlighted on line **229**. To check for a more recent and stable version go to [Eclipse Dirigible Releases](https://github.com/eclipse/dirigible/releases/).
+    	The tutorial is using Eclipse Dirigible version `10.2.7` as highlighted on line **229**. To check for a more recent and stable version go to [Eclipse Dirigible Releases](https://github.com/eclipse-dirigible/dirigible/releases/).
 
 === "application/pom.xml"
 

@@ -72,23 +72,23 @@ The activation of the table descriptor is the process of creating a database tab
 	
 ## Scripting Services
 
-* Support of JavaScript language by using [GraalVM JS](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
+* Support of JavaScript language by using [GraalVM JS](https://github.com/eclipse-dirigible/dirigible/tree/master/modules/engines/engine-javascript-graalvm) as runtime execution engine (`*.js`).
 <!-- * Support of CommonJS based modularization of JavaScript services (`*.js`). -->
 * Support of strictly defined enterprise [ API](../../../api/) for JavaScript to be used by the business application developers.
 
 ## Web Content
 
-* Support of client-side [Web](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-web) related artifacts, such as HTML, CSS, JS, pictures, etc.
+* Support of client-side [Web](https://github.com/eclipse-dirigible/dirigible/tree/master/modules/engines/engine-web) related artifacts, such as HTML, CSS, JS, pictures, etc.
 	
 ## Wiki Content
 
-* Support of [Markdown](https://daringfireball.net/projects/markdown/syntax) format for [Wiki](https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki) pages.
+* Support of [Markdown](https://daringfireball.net/projects/markdown/syntax) format for [Wiki](https://github.com/eclipse-dirigible/dirigible/tree/master/modules/engines/engine-wiki) pages.
 	
 ## Integration Services
 
 * Support of listeners for messages from the built-in message bus (`*.listener`).
 * Support of scheduled jobs as triggers for backend services invocation (`*.job`).
-* Support of business processes defined in BPMN 2.0 and executed by the underlying [BPM](https://github.com/eclipse/dirigible/tree/master/modules/bpm/bpm-flowable) process engine (`*.bpmn`).
+* Support of business processes defined in BPMN 2.0 and executed by the underlying [BPM](https://github.com/eclipse-dirigible/dirigible/tree/master/modules/bpm/bpm-flowable) process engine (`*.bpmn`).
 * Support of shell commands execution (`*.command`).
 * Support of [OData 2.0](https://olingo.apache.org/) (`*.odata`).
 * Support of websockets (`*.websocket`).

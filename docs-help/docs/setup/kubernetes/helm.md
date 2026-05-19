@@ -258,7 +258,7 @@ The following table lists all the configurable parameters expose by the Dirigibl
 |             Name             |          Description            |            Default                 |
 |------------------------------|---------------------------------|------------------------------------|
 | `dirigible.image`            | Custom Dirigible image          | `""`                               |
-| `image.repository`           | Dirigible image repo            | `dirigiblelabs/dirigible-all`      |
+| `image.repository`           | Dirigible image repo            | `dirigiblelabs/dirigible`          |
 | `image.repositoryKyma`       | Dirigible Kyma image repo       | `dirigiblelabs/dirigible-sap-kyma` |
 | `image.repositoryKeycloak`   | Dirigible Keycloak image repo   | `dirigiblelabs/dirigible-keycloak` |
 | `image.pullPolicy`           | Image pull policy               | `IfNotPresent`                     |
@@ -279,11 +279,11 @@ The following table lists all the configurable parameters expose by the Dirigibl
 |             Name             |          Description            |            Default                 |
 |------------------------------|---------------------------------|------------------------------------|
 | `volume.enabled`             | Volume to be mounted            | `true`                             |
-| `volume.storage`             | Volume storage size             | `1Gi`                              |
+| `volume.storage`             | Volume storage size             | `2Gi`                              |
 | `database.enabled`           | Database to be deployed         | `false`                            |
-| `database.image`             | Database image                  | `postgres:13`                      |
+| `database.image`             | Database image                  | `postgres:14`                      |
 | `database.driver`            | Database JDBC driver            | `org.postgresql.Driver`            |
-| `database.storage`           | Database storage size           | `1Gi`                              |
+| `database.storage`           | Database storage size           | `2Gi`                              |
 | `database.username`          | Database username               | `dirigible`                        |
 | `database.password`          | Database password               | `dirigible`                        |
 | `ingress.enabled`            | Ingress to be created           | `false`                            |
@@ -323,7 +323,7 @@ The following table lists all the configurable parameters expose by the Dirigibl
 | `keycloak.enabled`           | Keycloak environment to be used | `false`                            |
 | `keycloak.install`           | Keycloak to be installed        | `false`                            |
 | `keycloak.name`              | Keycloak deployment name        | `keycloak`                         |
-| `keycloak.image`             | Keycloak image                  | `jboss/keycloak:12.0.4`            |
+| `keycloak.image`             | Keycloak image                  | `jboss/keycloak:16.1.1`            |
 | `keycloak.username`          | Keycloak username               | `admin`                            |
 | `keycloak.password`          | Keycloak password               | `admin`                            |
 | `keycloak.replicaCount`      | Keycloak number of replicas     | `1`                                |
@@ -332,7 +332,7 @@ The following table lists all the configurable parameters expose by the Dirigibl
 | `keycloak.database.enabled`  | Keycloak database to be used    | `false`                            |
 | `keycloak.database.enabled`  | Keycloak database to be used    | `true`                             |
 | `keycloak.database.image`    | Keycloak database image         | `postgres:13`                      |
-| `keycloak.database.storage`  | Keycloak database storage size  | `1Gi`                              |
+| `keycloak.database.storage`  | Keycloak database storage size  | `2Gi`                              |
 | `keycloak.database.username` | Keycloak database username      | `keycloak`                         |
 | `keycloak.database.password` | Keycloak database password      | `keycloak`                         |
 
@@ -355,4 +355,4 @@ helm install dirigible dirigible/dirigible --values values.yaml
 ```
 
 !!! tip
-	You can use the default [values.yaml](https://github.com/eclipse/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml).
+	You can use the default [values.yaml](https://github.com/eclipse-dirigible/dirigible/blob/master/releng/helm-charts/dirigible/values.yaml).

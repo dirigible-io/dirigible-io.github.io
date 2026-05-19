@@ -11,20 +11,21 @@ The components are separated between the design time (definition work, modeling,
 
 ![Dirigible Design Time and Runtime](../images/architecture_designtime_runtime.png)
 
-At design time, the programmers and designers use the Web-based integrated development environment [Web IDE](../../development/ide). This tooling is based on the most popular client side JavaScript framework - AngularJS, as well as Bootstrap for theme-ing and GoldenLayout for windows management.
+At design time, the programmers and designers use the Web-based integrated development environment [Web IDE](../../development/ide). The IDE front-end is built with TypeScript and HTML, using the [BlimpKit](https://github.com/blimpkit/blimpkit.github.io) component framework for UI elements and the [Monaco](https://github.com/microsoft/monaco-editor) editor for code editing.
 
 ![Dirigible Design Time and Runtime](../images/ide_workbench_perspective.png)
 
-The runtime components provide the cloud application after you create it. The underlying technology platform is a Java-Web-Profile-compliant application server (such as Tomcat). On top are the Eclipse Dirigible containers for service execution. Depending on the scripting language and purpose, they can be:
- 
-* GraalVM JS 
-* Mylyn
-* Lucene
-* Quartz 
-* ActiveMQ
-* Flowable
-* Mustache 
-* Chemistry 
+The runtime is delivered as a self-contained Spring Boot executable JAR (built with Java 21) that embeds all execution engines and the IDE web content. On top of the Spring Boot platform, Eclipse Dirigible ships dedicated engines for service execution. Depending on the scripting language and purpose, they include:
+
+* GraalVM JavaScript / TypeScript (via [Graalium](https://github.com/eclipse-dirigible/graalium))
+* Python
+* [Flowable](https://www.flowable.org/) (BPMN)
+* [Apache Camel](https://camel.apache.org/) (integration routes)
+* Quartz (scheduled jobs)
+* Mustache / Velocity (template engines)
+* Lucene (indexing)
+* Chemistry (CMIS / Content Management)
+* Mylyn WikiText (Markdown / wiki rendering)
 
 The runtime can be scaled independently from the design time and can be deployed without the design time at all (for productive landscapes).
 

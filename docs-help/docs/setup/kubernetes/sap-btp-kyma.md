@@ -126,7 +126,7 @@ Deploy Eclipse Dirigible in SAP BTP[^1], Kyma environment.
     !!! tip "Eclipse Dirigible versions"
         Instead of using the `latest` tag (version), for production and development use cases it is recomended to use stable release version:
 
-        - All released versions can be found [here](https://github.com/eclipse/dirigible/releases/).
+        - All released versions can be found [here](https://github.com/eclipse-dirigible/dirigible/releases/).
         - All Eclipse Dirigible Docker images and tags (versions) can be found [here](https://hub.docker.com/u/dirigiblelabs).
 
 1. Create service configuration file: `service.yaml`
