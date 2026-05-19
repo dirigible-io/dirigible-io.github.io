@@ -1500,13 +1500,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#deprecated" class="md-nav__link">
-    Deprecated
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2841,13 +2834,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#deprecated" class="md-nav__link">
-    Deprecated
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2870,19 +2856,25 @@
 
 <h1 id="engines">Engines</h1>
 <h2 id="engines-list">Engines List</h2>
+<p>The execution engines live under <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine"><code>components/engine/</code></a> in the source repository. Each engine is auto-discovered by the Spring Boot runtime when its module is on the classpath.</p>
 <ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-graalvm">Javascript GraalVM JS</a> - a Javascript module based on the <a href="https://www.graalvm.org/reference-manual/js/">GraalVM JS</a> engine.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-web">Web</a> - serving the static content via the underlying web container's capabilities e.g. <a href="http://tomcat.apache.org/">Apache Tomcat</a>.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-wiki">Wiki Markdown</a> - a Wiki engine supporting <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> markup language and uses the <a href="https://wiki.eclipse.org/Mylyn/WikiText">Mylyn</a> underlying framework.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/bpm/bpm-flowable">BPM</a> - a <a href="http://www.omg.org/bpmn/">BPMN</a> specification supporting engine <a href="https://www.flowable.org/">Flowable</a>.</li>
-<li><a href="https://olingo.apache.org/">OData</a> - expose OData services from database tables/views.</li>
-<li>Command - execute shell commands and bash scripts.</li>
-</ul>
-<h2 id="deprecated">Deprecated</h2>
-<ul>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-rhino">Javascript Rhino</a> - a Javascript module based on the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Mozilla Rhino</a> engine.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-nashorn">Javascript Nashorn</a> - a Javascript module based on the built-in Java <a href="http://www.oracle.com/technetwork/articles/java/jf14-nashorn-2126515.html">Nashorn</a> engine.</li>
-<li><a href="https://github.com/eclipse/dirigible/tree/master/modules/engines/engine-javascript-v8">Javascript V8</a> - a Javascript module based on the <a href="https://developers.google.com/v8/">Chrome V8</a> engine.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-javascript">JavaScript</a> - server-side JavaScript executed on top of <a href="https://www.graalvm.org/reference-manual/js/">GraalVM</a> via the embedded <a href="https://github.com/eclipse-dirigible/graalium">Graalium</a> runtime.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-typescript">TypeScript</a> - TypeScript support, transpiled with <code>tsc</code>/<code>esbuild</code> and executed through the JavaScript engine.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-python">Python</a> - Python support powered by GraalPy.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-web">Web</a> - serves static content (HTML, CSS, JS, images) directly out of the repository.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-wiki">Wiki Markdown</a> - renders <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> using the <a href="https://wiki.eclipse.org/Mylyn/WikiText">Mylyn WikiText</a> framework.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-bpm-flowable">BPM (Flowable)</a> - a <a href="http://www.omg.org/bpmn/">BPMN 2.0</a> execution engine based on <a href="https://www.flowable.org/">Flowable</a>.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-camel">Camel</a> - <a href="https://camel.apache.org/">Apache Camel</a> integration routes.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-jobs">Jobs</a> - scheduled jobs backed by <a href="https://www.quartz-scheduler.org/">Quartz</a>.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-listeners">Listeners</a> - JMS / message-queue listeners.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-odata">OData</a> - expose <a href="https://olingo.apache.org/">OData v2</a> services from database tables/views (served at <code>/odata/v2</code>).</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-openapi">OpenAPI</a> - aggregates OpenAPI/Swagger definitions of the running services.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-websockets">WebSockets</a> - server-side WebSocket endpoints.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms">CMS</a> - Content Management with pluggable backends (<a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-internal">Internal</a>, <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-s3">S3</a>, <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-cms-sharepoint">SharePoint</a>).</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-command">Command</a> - execute shell commands and scripts.</li>
+<li>Template engines - <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-javascript">JavaScript</a>, <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-mustache">Mustache</a>, and <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-template-velocity">Velocity</a>.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-sftp">SFTP</a> / <a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-ftp">FTP</a> - file-transfer endpoints.</li>
+<li><a href="https://github.com/eclipse-dirigible/dirigible/tree/master/components/engine/engine-open-telemetry">OpenTelemetry</a> - traces, metrics, and logs exporter.</li>
 </ul>
 
 

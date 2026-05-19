@@ -1334,8 +1334,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oauth" class="md-nav__link">
-    OAuth
+  <a href="#oauth-github" class="md-nav__link">
+    OAuth (GitHub)
   </a>
   
 </li>
@@ -3261,8 +3261,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#oauth" class="md-nav__link">
-    OAuth
+  <a href="#oauth-github" class="md-nav__link">
+    OAuth (GitHub)
   </a>
   
 </li>
@@ -3671,14 +3671,14 @@
 <p>Third precedence:</p>
 <ul>
 <li>Rebuild and re-deployment is required.</li>
-<li>"Default" deployment <em>(<code>ROOT.war</code>)</em> configuration variables are taken from <code>dirigible.properties</code> properties file <em>(sample could be found <a href="https://github.com/eclipse/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties">here</a>)</em>.</li>
+<li>"Default" deployment <em>(<code>ROOT.war</code>)</em> configuration variables are taken from <code>dirigible.properties</code> properties file <em>(sample could be found <a href="https://github.com/eclipse-dirigible/dirigible/blob/master/releng/server-all/src/main/resources/dirigible.properties">here</a>)</em>.</li>
 </ul>
 </div>
 <div class="tabbed-block">
 <p>Lowest precedence:</p>
 <ul>
 <li>Rebuild and re-deployment is required.</li>
-<li>"Default" module <em>(e.g. <code>dirigible-database-custom.jar</code>, <code>dirigible-database-h2.jar</code>)</em> configuration variables are taken from <code>dirigible-xxx.properties</code> properties files <em>(sample could be found <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties">here</a> and <a href="https://github.com/eclipse/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties">here</a>)</em></li>
+<li>"Default" module <em>(e.g. <code>dirigible-database-custom.jar</code>, <code>dirigible-database-h2.jar</code>)</em> configuration variables are taken from <code>dirigible-xxx.properties</code> properties files <em>(sample could be found <a href="https://github.com/eclipse-dirigible/dirigible/blob/master/modules/database/database-h2/src/main/resources/dirigible-database-h2.properties">here</a> and <a href="https://github.com/eclipse-dirigible/dirigible/blob/master/modules/database/database-custom/src/main/resources/dirigible-database-custom.properties">here</a>)</em></li>
 </ul>
 </div>
 </div>
@@ -3781,7 +3781,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="oauth">OAuth</h3>
+<h3 id="oauth-github">OAuth (GitHub)</h3>
+<p>OAuth login is provided via Spring Security and activated by enabling the <code>github</code> Spring profile (e.g. <code>SPRING_PROFILES_ACTIVE=github</code>). When the profile is active, configuration is read from <code>application-github.properties</code> using the following variables:</p>
 <table>
 <thead>
 <tr>
@@ -3792,75 +3793,30 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>DIRIGIBLE_OAUTH_ENABLED</strong></td>
-<td>Whether the OAuth authentication is enabled</td>
-<td><em><code>false</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_AUTHORIZE_URL</strong></td>
-<td>The OAuth authorization URL <em>(e.g. <code>https://my-oauth-server/oauth/authorize</code>)</em></td>
+<td><strong>DIRIGIBLE_GITHUB_CLIENT_ID</strong></td>
+<td>The OAuth <code>clientId</code> registered for the GitHub OAuth App</td>
 <td><em><code>-</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_OAUTH_TOKEN_URL</strong></td>
-<td>The OAuth token URL <em>(e.g. <code>https://my-oauth-server/oauth/token</code>)</em></td>
+<td><strong>DIRIGIBLE_GITHUB_CLIENT_SECRET</strong></td>
+<td>The OAuth <code>clientSecret</code> registered for the GitHub OAuth App</td>
 <td><em><code>-</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_OAUTH_TOKEN_REQUEST_METHOD</strong></td>
-<td>The OAuth token request method <em>(<code>GET</code> or <code>POST</code>)</em></td>
-<td><em><code>GET</code></em></td>
+<td><strong>DIRIGIBLE_GITHUB_SCOPE</strong></td>
+<td>The OAuth scopes requested from GitHub</td>
+<td><em><code>read:user,user:email</code></em></td>
 </tr>
 <tr>
-<td><strong>DIRIGIBLE_OAUTH_CLIENT_ID</strong></td>
-<td>The OAuth <code>clientid</code> <em>(e.g. <code>sb-xxx-yyy</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_CLIENT_SECRET</strong></td>
-<td>The OAuth <code>clientsecret</code> <em>(e.g. <code>PID/cpkD8aZzbGaa6+muYYOOMWPDeM1ug/sQ5ZF...</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_APPLICATION_HOST</strong></td>
-<td>The application host <em>(e.g. <code>https://my-application-host</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_ISSUER</strong></td>
-<td>The OAuth <code>issuer</code> <em>(e.g. <code>http://xxx.localhost:8080/uaa/oauth/token</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY</strong></td>
-<td>The OAuth <code>verificationkey</code> <em>(e.g. <code>-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhki...</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_VERIFICATION_KEY_EXPONENT</strong></td>
-<td>The OAuth verificationkey exponent <em>(e.g. <code>AQAB</code>)</em></td>
-<td><em><code>-</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_CHECK_ISSUER_ENABLED</strong></td>
-<td>Sets whether the JWT verifier should check the token <code>issuer</code></td>
-<td><em><code>true</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_CHECK_AUDIENCE_ENABLED</strong></td>
-<td>Sets whether the JWT verifier should check the token <code>aud</code></td>
-<td><em><code>true</code></em></td>
-</tr>
-<tr>
-<td><strong>DIRIGIBLE_OAUTH_APPLICATION_NAME</strong></td>
-<td>The application name <em>(e.g. <code>dirigible-xxx</code>)</em></td>
+<td><strong>DIRIGIBLE_HOST</strong></td>
+<td>The application's public host used to build the OAuth redirect URI <em>(e.g. <code>https://my-application-host</code>)</em></td>
 <td><em><code>-</code></em></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Redirect/Callback URL</p>
-<p>Configure the Redirect/Callback URL in the OAuth client to: <code>&lt;DIRIGIBLE_OAUTH_APPLICATION_HOST&gt;/services/v4/oauth/callback</code></p>
+<p>Configure the Authorization callback URL in the GitHub OAuth App to: <code>&lt;DIRIGIBLE_HOST&gt;/login/oauth2/code/github</code></p>
 </div>
 <h3 id="keycloak">Keycloak</h3>
 <table>
@@ -4599,7 +4555,7 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <tr>
 <td><strong>DIRIGIBLE_HOME_URL</strong></td>
 <td>The home URL where the user to be redirected on access</td>
-<td><em><code>/services/v4/web/ide/index.html</code></em></td>
+<td><em><code>services/web/shell-ide/</code></em></td>
 </tr>
 </tbody>
 </table>

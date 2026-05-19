@@ -2812,18 +2812,19 @@
 <p>The Eclipse Dirigible architecture follows the well-proved principles of simplicity and scalability in the classical service-oriented architecture.</p>
 <p>The components are separated between the design time (definition work, modeling, scripting) and the runtime (execution of services, content provisioning, and monitoring). The transition between design time and runtime is achieved with a <a href="../../development/concepts/repository">repository</a> component. The only linking part is the content itself.</p>
 <p><img alt="Dirigible Design Time and Runtime" src="../../images/architecture_designtime_runtime.png" /></p>
-<p>At design time, the programmers and designers use the Web-based integrated development environment <a href="../../development/ide">Web IDE</a>. This tooling is based on the most popular client side JavaScript framework - AngularJS, as well as Bootstrap for theme-ing and GoldenLayout for windows management.</p>
+<p>At design time, the programmers and designers use the Web-based integrated development environment <a href="../../development/ide">Web IDE</a>. The IDE front-end is built with TypeScript and HTML, using the <a href="https://github.com/blimpkit/blimpkit.github.io">BlimpKit</a> component framework for UI elements and the <a href="https://github.com/microsoft/monaco-editor">Monaco</a> editor for code editing.</p>
 <p><img alt="Dirigible Design Time and Runtime" src="../../images/ide_workbench_perspective.png" /></p>
-<p>The runtime components provide the cloud application after you create it. The underlying technology platform is a Java-Web-Profile-compliant application server (such as Tomcat). On top are the Eclipse Dirigible containers for service execution. Depending on the scripting language and purpose, they can be:</p>
+<p>The runtime is delivered as a self-contained Spring Boot executable JAR (built with Java 21) that embeds all execution engines and the IDE web content. On top of the Spring Boot platform, Eclipse Dirigible ships dedicated engines for service execution. Depending on the scripting language and purpose, they include:</p>
 <ul>
-<li>GraalVM JS </li>
-<li>Mylyn</li>
-<li>Lucene</li>
-<li>Quartz </li>
-<li>ActiveMQ</li>
-<li>Flowable</li>
-<li>Mustache </li>
-<li>Chemistry </li>
+<li>GraalVM JavaScript / TypeScript (via <a href="https://github.com/eclipse-dirigible/graalium">Graalium</a>)</li>
+<li>Python</li>
+<li><a href="https://www.flowable.org/">Flowable</a> (BPMN)</li>
+<li><a href="https://camel.apache.org/">Apache Camel</a> (integration routes)</li>
+<li>Quartz (scheduled jobs)</li>
+<li>Mustache / Velocity (template engines)</li>
+<li>Lucene (indexing)</li>
+<li>Chemistry (CMIS / Content Management)</li>
+<li>Mylyn WikiText (Markdown / wiki rendering)</li>
 </ul>
 <p>The runtime can be scaled independently from the design time and can be deployed without the design time at all (for productive landscapes).</p>
 <p><img alt="Dirigible Components" src="../../images/architecture_components.png" /></p>

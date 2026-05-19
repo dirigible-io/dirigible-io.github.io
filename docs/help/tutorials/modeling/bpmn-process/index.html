@@ -3169,7 +3169,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 
 <span class="kd">let</span><span class="w"> </span><span class="nx">urlEncodedData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">base64</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span><span class="w"></span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`http://localhost:8080/services/v4/web/sample-bpm/process/?data=</span><span class="si">${</span><span class="nx">urlEncodedData</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`http://localhost:8080/services/web/sample-bpm/process/?data=</span><span class="si">${</span><span class="nx">urlEncodedData</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Approve Request URL: </span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
 
@@ -3620,7 +3620,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 <span class="w">        </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">submit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/v4/js/sample-bpm/api/process.js&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/js/sample-bpm/api/process.js&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">entity</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mf">202</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">alert</span><span class="p">(</span><span class="sb">`Unable to submit Time Entry Request: &#39;</span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">&#39;`</span><span class="p">);</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">resetForm</span><span class="p">();</span><span class="w"></span>
@@ -3772,7 +3772,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 <span class="w">        </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">approve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/v4/js/sample-bpm/api/process.js/continue/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">executionId</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/js/sample-bpm/api/process.js/continue/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">executionId</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="w"></span>
 <span class="w">                </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">approved</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
@@ -3788,7 +3788,7 @@ The result of the business process modeling would be a <strong>Time Entry Reques
 <span class="w">        </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">        </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">reject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/v4/js/sample-bpm/api/process.js/continue/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">executionId</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&quot;/services/js/sample-bpm/api/process.js/continue/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">executionId</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="w"></span>
 <span class="w">                </span><span class="p">{</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span><span class="w"></span>
 <span class="w">                    </span><span class="nx">approved</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
@@ -3904,7 +3904,7 @@ APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;
 <h2 id="demo">Demo</h2>
 <p>[Using custom approval form]</p>
 <ol>
-<li>Navigate to <a href="http://localhost:8080/services/v4/web/sample-bpm/submit/">http://localhost:8080/services/v4/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.</li>
+<li>Navigate to <a href="http://localhost:8080/services/web/sample-bpm/submit/">http://localhost:8080/services/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.</li>
 <li>Enter the required data and press the <strong>Submit</strong> button.</li>
 <li>Navigate to the Processes Workspace</li>
 <li>Select your active process instance in the Process Instances view</li>
@@ -3920,12 +3920,12 @@ APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;
 </ol>
 <p>[Using approval url from the console]</p>
 <ol>
-<li>Navigate to <a href="http://localhost:8080/services/v4/web/sample-bpm/submit/">http://localhost:8080/services/v4/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.</li>
+<li>Navigate to <a href="http://localhost:8080/services/web/sample-bpm/submit/">http://localhost:8080/services/web/sample-bpm/submit/</a> to open the <strong>Submit form</strong>.</li>
 <li>Enter the required data and press the <strong>Submit</strong> button.</li>
 <li>If email configuration was provided an email notification will be send to the email address set by the <code>APP_SAMPLE_BPM_TO_EMAIL=&lt;RECEIVER_EMAIL&gt;</code> environment variable.</li>
 <li>If email configuration wasn't provided then in the <code>Console</code> view the following message can be found:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>Approve Request URL: http://localhost:8080/services/v4/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
+<div class="highlight"><pre><span></span><code>Approve Request URL: http://localhost:8080/services/web/sample-bpm/process/?data=eyJleGVjdXRpb25JZCI6IjE4Ni...
 </code></pre></div>
 <ol>
 <li>Open the URL from the <code>Console</code> view or open it from the email notification.</li>
