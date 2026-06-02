@@ -16,7 +16,7 @@ Until today, the only way to integrate any of those was to push them to the peri
 
 Meet **native applications**: a new Dirigible artefact type that brings *any* HTTP service — whether you wrote it this morning in your favourite non-JVM language, or it's been running somewhere else for years — under the same `/services` umbrella as your TypeScript routes and Java controllers. One reverse proxy. One auth model. One role-based access policy. One artefact file.
 
-> **TL;DR.** Drop a `*.native-app` JSON file into your project. Dirigible reverse-proxies the upstream under `/services/native-apps-proxy/v1/<basePath>/...`, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.
+> Drop a `*.native-app` JSON file into your project. Dirigible reverse-proxies the upstream under a dedicated path, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.
 
 ---
 
