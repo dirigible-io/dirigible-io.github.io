@@ -228,8 +228,6 @@ This decoupling is what lets two native apps coexist on the same host without ma
 
 Both modes go through the same readiness probe: after spawn, Dirigible polls the chosen loopback port every 200 ms until the process is accepting connections, with a configurable timeout (`DIRIGIBLE_NATIVE_APP_READY_TIMEOUT_MS`, default 30 s — bump it for first-run `npm install` cold starts).
 
-If the process exits *before* it becomes ready, you don't get a useless "exited" log — you get a rich diagnostic message including the PID, exit code, runtime in ms, port, working directory, and the last ~30 stderr lines from the child. The "what did it print before dying" question is answered inline, not after a 20-minute log archaeology session.
-
 ### Inbound auth, outbound auth, and exposed paths
 
 Two security mechanisms operate independently:
