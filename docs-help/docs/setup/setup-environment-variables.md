@@ -469,6 +469,14 @@ Parameter     | Description | Default*
 **DIRIGIBLE_SFTP_PASSWORD**   | The SFTP server password | _`admin`_
 **DIRIGIBLE_SFTP_PORT**   | The SFTP server port | _`8022`_
 
+#### Native Applications
+
+Parameter     | Description | Default*
+------------ | ----------- | --------
+**DIRIGIBLE_NATIVE_APP_READY_TIMEOUT_MS**   | Milliseconds the platform waits for a started local native-app process to start accepting TCP connections before declaring it failed. Increase it for apps with a slow first start _(e.g. `npm install` on first run)_ | _`30000`_
+**DIRIGIBLE_NATIVE_APP_MONITOR_INTERVAL_SECONDS**   | Interval (seconds) between ticks of the system job that keeps `always`-mode local native apps alive and restarts dead ones | _`30`_
+**DIRIGIBLE_NATIVE_APP_REGISTRY_TTL_SECONDS**   | Time-to-live (seconds) for the native-app proxy lookup cache | _`60`_
+
 
 ### Operations
 ---
