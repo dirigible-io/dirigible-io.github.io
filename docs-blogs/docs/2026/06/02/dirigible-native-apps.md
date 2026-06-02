@@ -236,25 +236,11 @@ Two security mechanisms operate independently:
 
 - **`security.authentication`** is *outbound*. Dirigible attaches `Authorization: Basic …` to every forwarded request, with credentials resolved from environment via `${SAMPLE_APP_USER}.{admin}` / `${SAMPLE_APP_PASS}.{admin}`. The browser caller never sees those credentials — they're a Dirigible-internal concern.
 
-The two stack cleanly. The browser logs into Dirigible. Dirigible checks that the request matches an exposed path. Dirigible checks that the caller holds the right role. Dirigible attaches the outbound credentials. The upstream sees a perfectly-formed Basic-Auth request.
-
 ### Stopping the process
 
-In most cases you don't have to think about stopping at all — when the artefact is deleted or Dirigible shuts down, the platform sends the process a graceful termination signal and falls back to a forced shutdown if it doesn't exit in time. A well-behaved server (Node, Python, .NET, Go, …) handles that signal cleanly out of the box.
+In most cases you don't have to think about stopping at all. When the app is deleted or Dirigible shuts down, the platform stops the process for you — gracefully, and forcefully if it doesn't exit on its own. Most servers handle that cleanly without any extra configuration.
 
-If you do want to ship your own stop command — for example to flush a cache or signal a peer before exiting — Dirigible exports both the process ID and the resolved port to your script as `DIRIGIBLE_NATIVE_APP_PID` and `DIRIGIBLE_NATIVE_APP_PORT`. Use the PID. The sample's stop scripts target it directly:
-
-```bash
-# POSIX
-kill "$DIRIGIBLE_NATIVE_APP_PID"
-```
-
-```powershell
-# Windows
-taskkill /PID $env:DIRIGIBLE_NATIVE_APP_PID /T
-```
-
-Whatever your script does, the platform's own teardown runs afterwards as a safety net, so you don't have to be perfect.
+If you'd like to run your own stop logic — say, to flush a cache or notify a peer before exiting — you can declare a `lifecycle.stop` command. The sample includes one as a reference.
 
 GitHub sample: [**dirigiblelabs/sample-library-local-native-app**](https://github.com/dirigiblelabs/sample-library-local-native-app)
 
