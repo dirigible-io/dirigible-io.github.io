@@ -139,7 +139,7 @@ GitHub sample: [**dirigiblelabs/sample-remote-native-app**](https://github.com/d
 
 The `${KEY}.{DEFAULT}` syntax is the same placeholder Dirigible already uses for Jobs and other artefacts: resolve `MY_API_USER` from the environment, fall back to the literal in `{…}` if unset. Secrets stay out of Git; the file checks in safely.
 
-Basic auth is what ships today, but the mechanism is pluggable — the `type` field is the extension point. Additional schemes (bearer tokens, API keys, OAuth, …) can be added with minimal effort as the need arises, without touching the artefacts that already declare basic auth.
+Basic auth is what ships today, but the mechanism is pluggable — the `type` field is the extension point. Additional schemes (bearer tokens, API keys, OAuth, …) can be added with minimal effort as the need arises.
 
 **Inbound vs outbound is decoupled.** Your browser code authenticates against Dirigible normally (whatever session / OAuth / OIDC you have wired up). Dirigible *then* attaches the outbound credentials on the way to the upstream. The client never sees them.
 
