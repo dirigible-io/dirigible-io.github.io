@@ -212,7 +212,7 @@ This keeps the artefact portable: ship one `.native-app` file, and the same proj
 
 ### Port resolution — prefer-then-allocate
 
-`defaultPort: 8080` is a *preference*, not a contract. Dirigible probes the wildcard interface (not just loopback — that's a deliberate macOS workaround) at the declared port. If it's free, the process gets that port. If it's taken, Dirigible asks the OS for an ephemeral free port via `ServerSocket(0)` and uses that instead. Either way, **the resolved port is exported to the child process as `DIRIGIBLE_NATIVE_APP_PORT`** — and the child must read it rather than hardcode a port.
+`defaultPort: 8080` is a *preference*, not a contract. Dirigible probes the wildcard interface (not just loopback — that's a deliberate macOS workaround) at the declared port. If it's free, the process gets that port. If it's taken, Dirigible asks the OS for an ephemeral free port. Either way, **the resolved port is exported to the child process as `DIRIGIBLE_NATIVE_APP_PORT`** — and the child must read it rather than hardcode a port.
 
 Concretely, the sample's `src/config.ts` does:
 
