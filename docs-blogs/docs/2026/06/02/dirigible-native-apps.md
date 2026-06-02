@@ -219,7 +219,7 @@ This decoupling is what lets two native apps coexist on the same host without ma
 
 ### Working directory
 
-`command.dir` is optional and resolves *relative to the project root* (`<registry>/<project>/`). Omit it and the command runs in the project root. Set `"dir": "apps/server"` and it runs in `<project>/apps/server/` — handy when the runtime code lives in a subfolder of a larger project. **Do not embed the project folder name in `command.dir`** — Dirigible already knows it, and hard-coding it makes the artefact brittle to renames and forks. If a configured subpath doesn't exist on disk, the platform logs a WARN with a concrete remediation hint and falls back to the project root.
+`command.dir` is optional and resolves *relative to the project root* (`<registry>/<project>/`). Omit it and the command runs in the project root. Set `"dir": "apps/server"` and it runs in `<project>/apps/server/` — handy when the runtime code lives in a subfolder of a larger project.
 
 ### Start modes — `lazy` vs `always`
 
