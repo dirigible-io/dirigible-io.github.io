@@ -232,7 +232,7 @@ Both modes go through the same readiness probe: after spawn, Dirigible polls the
 
 Two security mechanisms operate independently:
 
-- **`security.exposedPaths`** is a *whitelist with role scopes*. Only `/rest/api/v1` is exposed under the basePath. The whitelist also requires the caller to hold the `library-admin` role — `403` otherwise. Native-app scope semantics are strict: `DEVELOPER` and `ADMINISTRATOR` super-roles do **not** grant implicit access. If you want admins to bypass, give them the app's role explicitly.
+- **`security.exposedPaths`** is a *whitelist with role scopes*. Only `/rest/api/v1` is exposed under the basePath. The whitelist also requires the caller to hold the `library-admin` role — `403` otherwise.
 
 - **`security.authentication`** is *outbound*. Dirigible attaches `Authorization: Basic …` to every forwarded request, with credentials resolved from environment via `${SAMPLE_APP_USER}.{admin}` / `${SAMPLE_APP_PASS}.{admin}`. The browser caller never sees those credentials — they're a Dirigible-internal concern.
 
