@@ -24,7 +24,7 @@ Meet **native applications**: a new Dirigible artefact type that brings *any* HT
 
 A native application is a Dirigible artefact whose source is a single JSON file with the extension `.native-app`. It declares:
 
-- A **basePath** — the segment users will hit under `/services/native-apps-proxy/v1/`.
+- A **basePath** — the segment users will hit under `/services/native-apps-proxy/v1/<basePath>/`.
 - A **kind** — `remote` (an HTTP(S) endpoint Dirigible doesn't own) or `local` (an OS process Dirigible spawns and supervises).
 - A **security policy** — which sub-paths are exposed, which Dirigible roles guard them, and (optionally) what authentication header to attach when forwarding to the upstream.
 - For local apps, a **lifecycle** — start/stop commands per OS, and a start mode (`lazy` or `always`).
