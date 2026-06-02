@@ -93,8 +93,8 @@ A remote native app declares an existing HTTP(S) URL Dirigible should reverse-pr
 That's the entire artefact. Three things happen the moment you publish it:
 
 1. The basePath `http-bin` gets registered. From this point, requests to `/services/native-apps-proxy/v1/http-bin/...` are routed to this app.
-2. The exposed-paths whitelist is applied. `path: "/"` is a prefix that matches everything below, so the whole upstream API is reachable — but only to users holding the **`http-bin`** Dirigible role. **Note:** native-app scope semantics are intentionally strict — the platform's super-roles `DEVELOPER` / `ADMINISTRATOR` do **not** grant implicit access. The role must be assigned explicitly.
-3. With `authentication: null`, no outbound `Authorization` header is added; `httpbin.org` is anonymous, so the calls go through as-is.
+2. The exposed-paths whitelist is applied. `path: "/"` is a prefix that matches everything below, so the whole upstream API is reachable — but only to users holding the **`http-bin`** Dirigible role.
+3. Outbound `authentication` is optional. With `authentication: null` (or omitted entirely), no `Authorization` header is attached to forwarded requests — appropriate here because `httpbin.org` is anonymous. Set it when the upstream needs credentials.
 
 The companion `roles.roles` file in the same project declares the role:
 
