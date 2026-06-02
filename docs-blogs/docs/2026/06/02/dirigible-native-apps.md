@@ -212,15 +212,7 @@ This keeps the artefact portable: ship one `.native-app` file, and the same proj
 
 ### Port resolution — prefer-then-allocate
 
-`defaultPort: 8080` is a *preference*, not a contract. Dirigible probes the wildcard interface (not just loopback — that's a deliberate macOS workaround) at the declared port. If it's free, the process gets that port. If it's taken, Dirigible asks the OS for an ephemeral free port. Either way, **the resolved port is exported to the child process as `DIRIGIBLE_NATIVE_APP_PORT`** — and the child must read it rather than hardcode a port.
-
-Concretely, the sample's `src/config.ts` does:
-
-```ts
-port: Number(env.DIRIGIBLE_NATIVE_APP_PORT ?? env.PORT ?? 8080)
-```
-
-Read the Dirigible-provided variable first, fall back to `PORT` for local non-Dirigible runs, fall back to 8080 for standalone development. The same pattern works in any language — `os.environ['DIRIGIBLE_NATIVE_APP_PORT']` in Python, `os.Getenv("DIRIGIBLE_NATIVE_APP_PORT")` in Go, and so on.
+`defaultPort: 8080` is a *preference*, not a contract. Dirigible probes the declared port first; if it's free, the process gets it. Either way, **the resolved port is exported to the child process as `DIRIGIBLE_NATIVE_APP_PORT`** — and the child must read it rather than hardcode a port.
 
 This decoupling is what lets two native apps coexist on the same host without manual port management. They both prefer 8080? Fine: the first to start gets it, the second falls back to an ephemeral.
 
@@ -241,76 +233,31 @@ If the process exits *before* it becomes ready, you don't get a useless "exited"
 
 Two security mechanisms operate independently:
 
-- **`security.exposedPaths`** is a *whitelist with role scopes*. Only `/rest/api/v1` is exposed under the basePath; anything else through the proxy returns `404`. The whitelist also requires the caller to hold the `library-admin` role — `403` otherwise. Native-app scope semantics are strict: `DEVELOPER` and `ADMINISTRATOR` super-roles do **not** grant implicit access. If you want admins to bypass, give them the app's role explicitly.
+- **`security.exposedPaths`** is a *whitelist with role scopes*. Only `/rest/api/v1` is exposed under the basePath. The whitelist also requires the caller to hold the `library-admin` role — `403` otherwise. Native-app scope semantics are strict: `DEVELOPER` and `ADMINISTRATOR` super-roles do **not** grant implicit access. If you want admins to bypass, give them the app's role explicitly.
 
-- **`security.authentication`** is *outbound*. The sample upstream (Fastify with `@fastify/basic-auth`) requires HTTP Basic. Dirigible attaches `Authorization: Basic …` to every forwarded request, with credentials resolved from environment via `${SAMPLE_APP_USER}.{admin}` / `${SAMPLE_APP_PASS}.{admin}`. The browser caller never sees those credentials — they're a Dirigible-internal concern.
+- **`security.authentication`** is *outbound*. Dirigible attaches `Authorization: Basic …` to every forwarded request, with credentials resolved from environment via `${SAMPLE_APP_USER}.{admin}` / `${SAMPLE_APP_PASS}.{admin}`. The browser caller never sees those credentials — they're a Dirigible-internal concern.
 
 The two stack cleanly. The browser logs into Dirigible. Dirigible checks that the request matches an exposed path. Dirigible checks that the caller holds the right role. Dirigible attaches the outbound credentials. The upstream sees a perfectly-formed Basic-Auth request.
 
-### Stop scripts — the hard rule
+### Stopping the process
 
-Most local apps don't need a custom stop script. Dirigible always follows up with its own `Process.destroy()` (then `destroyForcibly()` after a 5-second grace), and a well-behaved app handles SIGTERM gracefully. Node does by default.
+In most cases you don't have to think about stopping at all — when the artefact is deleted or Dirigible shuts down, the platform sends the process a graceful termination signal and falls back to a forced shutdown if it doesn't exit in time. A well-behaved server (Node, Python, .NET, Go, …) handles that signal cleanly out of the box.
 
-If you *do* ship a stop script (the sample does, as a reference example), **target `$DIRIGIBLE_NATIVE_APP_PID` — never enumerate PIDs by port**. Both env vars are exported to the stop subprocess: `DIRIGIBLE_NATIVE_APP_PID` (the held root PID) and `DIRIGIBLE_NATIVE_APP_PORT` (the resolved port).
-
-The sample's POSIX stop is exactly:
+If you do want to ship your own stop command — for example to flush a cache or signal a peer before exiting — Dirigible exports both the process ID and the resolved port to your script as `DIRIGIBLE_NATIVE_APP_PID` and `DIRIGIBLE_NATIVE_APP_PORT`. Use the PID. The sample's stop scripts target it directly:
 
 ```bash
-kill "$DIRIGIBLE_NATIVE_APP_PID" 2>/dev/null || true
+# POSIX
+kill "$DIRIGIBLE_NATIVE_APP_PID"
 ```
-
-And its Windows equivalent is:
 
 ```powershell
-& taskkill /PID $env:DIRIGIBLE_NATIVE_APP_PID /T
+# Windows
+taskkill /PID $env:DIRIGIBLE_NATIVE_APP_PID /T
 ```
 
-That's it. Three rules: PID-targeted, exit cleanly, leave the rest to the platform.
-
-**Why?** Because `lsof -ti tcp:<port>` returns *every* PID with a TCP file descriptor on that port — listeners *and* keep-alive clients. After every proxy round-trip, the Dirigible JVM itself holds an idle outbound connection to the upstream port. A port-based `kill` from your stop script would therefore reliably take down the Dirigible JVM. This is not theoretical — it was the exact bug that motivated documenting the rule. The platform now exports the PID precisely so authors don't have to discover it the hard way.
+Whatever your script does, the platform's own teardown runs afterwards as a safety net, so you don't have to be perfect.
 
 GitHub sample: [**dirigiblelabs/sample-library-local-native-app**](https://github.com/dirigiblelabs/sample-library-local-native-app)
-
----
-
-## What happens on a request
-
-Once a native app is published, hitting `/services/native-apps-proxy/v1/<basePath>/<path>` runs through this filter chain (Spring Cloud Gateway WebMvc under the hood):
-
-1. **`rewritePath`** strips the `/services/native-apps-proxy/v1/` prefix.
-2. **Lookup filter** resolves the basePath to the registered native app.
-3. **Exposed-path filter** checks the remaining path against the whitelist; if it doesn't match, **`404`**. If it matches but the caller lacks the required role, **`403`**.
-4. **Lazy-start filter** spawns the local process on demand and waits until its port is open (for lazy mode; no-op for always-mode or remote apps).
-5. **Dispatcher** picks the downstream target — `http://127.0.0.1:<resolvedPort>` for local, the declared upstream URL for remote.
-6. **Auth-injection filter** consults the registered injectors and rewrites the outbound `Authorization` header (basic for now, with the SPI open for more).
-7. **Forward** the request, drop the inbound `Cookie` header, stream the response back.
-
-You don't have to think about any of this in steady state. It's there to be debugged when something goes wrong — and every transition is logged with PID + port so you can cross-reference `ps`, `lsof`, and the proxy logs in seconds rather than minutes.
-
----
-
-## Lifecycle and supervision
-
-For local apps, the moving parts are:
-
-- **`NativeAppBootstrap`** spawns `always`-mode apps when Spring's `ApplicationReadyEvent` fires.
-- **`NativeAppMonitorJob`** wakes every 30 s (configurable), iterates the registered `always`-mode apps, and restarts dead ones. A built-in `SystemJob` — no Quartz config required.
-- **`LazyStartFilter`** spawns `lazy`-mode apps on the first request to their basePath, then steps out of the way for subsequent requests.
-- **`NativeAppShutdown`** stops every owned process on JVM shutdown, snapshotting the descendant tree *before* destroying the root so orphaned grandchildren get cleaned up too. This is the `sh → npm → node` scenario, where killing the root via SIGTERM doesn't always propagate; the descendants walk catches what SIGTERM misses.
-
-There's also a small management REST surface at `/services/native-apps` for listing, starting, stopping, and deleting apps interactively. It's gated to `DEVELOPER` / `ADMINISTRATOR` / `OPERATOR`. Handy when debugging a misbehaving lazy-start.
-
----
-
-## Removal: just delete the file
-
-The synchronizer's DELETE path mirrors the spawn path symmetrically:
-
-1. Stop the process — author's `lifecycle.stop` first (best-effort), then `Process.destroy()`, then `destroyForcibly()` after the grace period, then a descendants-walk for any leftover grandchildren.
-2. Drop the JPA row in `DIRIGIBLE_NATIVE_APPS`.
-3. Unregister the basePath from the proxy router.
-
-From this point, requests to the now-defunct basePath return `404`. No restart needed. No manual cleanup. No orphaned processes. (The cleanup logic was hardened by an end-to-end IT that snapshots the descendant PID set, runs `stop()`, and asserts every PID is dead afterwards — including the case where the *author's* stop script kills the held root PID before the platform's own destroy fires.)
 
 ---
 
@@ -331,23 +278,6 @@ They're **not** the right tool when:
 
 ---
 
-## Putting it together
-
-Two artefacts. Two completely different runtime profiles. One model.
-
-```text
-/services/native-apps-proxy/v1/http-bin/...                 → https://httpbin.org/...   (remote, no auth)
-/services/native-apps-proxy/v1/library-native-app-nodejs/...→ http://127.0.0.1:<port>/... (local Node.js process, basic auth injected)
-```
-
-Both authenticate the caller against Dirigible. Both enforce a per-app role policy. Both expose only the whitelisted paths. Both clean up when their `.native-app` file is deleted. One is a five-line config pointing at a public URL; the other is a managed OS process whose port the platform allocates and whose lifecycle the platform owns.
-
-You wrote zero glue code. You wrote one JSON file.
-
-That's the whole point.
-
----
-
 ## Try it
 
 1. **Remote** — clone [`dirigiblelabs/sample-remote-native-app`](https://github.com/dirigiblelabs/sample-remote-native-app) into a running Dirigible instance via the Git perspective. Publish. Assign the `http-bin` role to a user. Hit `/services/native-apps-proxy/v1/http-bin/get`.
@@ -359,10 +289,10 @@ Both projects ship with `roles.roles` and `project.json` alongside their `.nativ
 
 ## A unified surface, finally
 
-Dirigible's strength has always been integration density: the more artefact types live under the same `/services` namespace, the less plumbing your application surface has, the less your operations team has to memorize. Native applications take the last category of "code that ran somewhere else" and pull it in.
+Dirigible's strength has always been integration density. Native applications take the last category of "code that ran somewhere else" and pull it in.
 
 Write in any language. Run in-process or out-of-process. Local or remote. Lazy or always. Spawn-and-supervise or just-proxy. One JSON file, one consistent model.
 
 The polyglot story just got a lot better.
 
-Happy hacking — and may your processes always come up ready before the timeout.
+Give the samples a spin, drop a `.native-app` next to your own service, and let us know how it goes.
