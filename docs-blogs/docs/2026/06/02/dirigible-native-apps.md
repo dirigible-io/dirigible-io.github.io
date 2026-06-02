@@ -8,13 +8,13 @@ read_time: 9 min
 publish_date: June 02, 2026
 ---
 
-Eclipse Dirigible has always been a polyglot platform — but a *first-party* polyglot platform. You wrote your services in TypeScript, JavaScript, or [Java](../../../../2026/05/19/dirigible-java-decorators.md), and Dirigible compiled, loaded, hot-reloaded, and ran them in-process. That's a beautiful experience for code that's *yours to write today*.
+Eclipse Dirigible has always been a polyglot platform — but a *first-party* polyglot platform. You wrote your services in TypeScript, JavaScript, or [Java](../../../2026/05/19/dirigible-java-decorators.md), and Dirigible compiled, loaded, hot-reloaded, and ran them in-process. That's a beautiful experience for code that's *yours to write today* — as long as the code is in one of those three languages.
 
-But your reality usually has more layers. A Python ML model already exposes `/predict` via FastAPI. A Go gateway already handles SAML. A small Node.js library service has been running for two years and isn't going anywhere. A third-party SaaS API — Stripe, Shopify, an internal Hub — speaks HTTPS and would be useful inside your application surface.
+Real systems are rarely that uniform. You may want to **write a brand-new service in Python**, or Go, or Rust, or .NET, because that's where the right library, the right ecosystem, or the right team is. You may want to **integrate an existing application** your team already runs — a Python ML model behind FastAPI, a Go gateway, a Node.js service that's been running for two years. You may want to **plug in a third-party SaaS API** — Stripe, Shopify, an internal hub — and have it look like a first-class Dirigible route to your front-end.
 
 Until today, the only way to integrate any of those was to push them to the perimeter — separate auth, separate deployment, separate routes for the client to know about, separate observability story. That perimeter has just collapsed.
 
-Meet **native applications**: a new Dirigible artefact type that brings *any* HTTP service — local OS process or remote URL — under the same `/services` umbrella as your TypeScript routes and Java controllers. One reverse proxy. One auth model. One role-based access policy. One artefact file.
+Meet **native applications**: a new Dirigible artefact type that brings *any* HTTP service — whether you wrote it this morning in your favourite non-JVM language, or it's been running somewhere else for years — under the same `/services` umbrella as your TypeScript routes and Java controllers. One reverse proxy. One auth model. One role-based access policy. One artefact file.
 
 > **TL;DR.** Drop a `*.native-app` JSON file into your project. Dirigible reverse-proxies the upstream under `/services/native-apps-proxy/v1/<basePath>/...`, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.
 
