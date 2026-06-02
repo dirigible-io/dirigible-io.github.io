@@ -206,7 +206,7 @@ There's a lot in there. Let's walk through it.
 
 ### Per-OS commands
 
-Each entry under `lifecycle.start.commands` is tagged with `os` (one of `mac` / `linux` / `windows`). Dirigible picks the right entry for the host it's running on, case-insensitively. The matching is strict — an unknown token is rejected at parse time with a clear error, not silently ignored.
+Each entry under `lifecycle.start.commands` is tagged with `os` (one of `mac` / `linux` / `windows`). Dirigible picks the right entry for the host it's running on.
 
 This keeps the artefact portable: ship one `.native-app` file, and the same project runs on a developer's Mac, a CI Linux box, and a Windows production server. No build-time scripting.
 
