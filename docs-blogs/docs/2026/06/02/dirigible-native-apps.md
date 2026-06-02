@@ -1,5 +1,5 @@
 ---
-title: "Native Applications in Eclipse Dirigible — Any Language, Local or Remote"
+title: "Write It in Anything, Run It in Dirigible — Introducing Native Applications"
 description: "A new artefact type that pulls external HTTP services — local OS processes Dirigible spawns and supervises, or remote endpoints anywhere on the network — under one reverse proxy, with managed authentication, role-based access, and lifecycle control. Build the service in Node, Python, Go, .NET, Rust, anything that talks HTTP — Dirigible takes it from there."
 author: Iliyan Velichkov
 author_gh_user: iliyan-velichkov
