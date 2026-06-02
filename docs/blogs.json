@@ -1,10 +1,5 @@
 [
   {
-    "location": "2024/11/20/dependson.md",
-    "title": "Depends on Feature for Properties in Eclipse Dirigible",
-    "description": "\"Easy relation visualization between entities\""
-  },
-  {
     "location": "2024/12/03/open-telemetry.md",
     "title": "Eclipse Dirigible Observability Unlocked Using OpenTelemetry",
     "description": "\"Observability Unlocked: Metrics, Traces and Logs in Eclipse Dirigible Using OpenTelemetry\""
@@ -23,5 +18,10 @@
     "location": "2025/12/04/dirigible-decorators.md",
     "title": "Attack of the Decorators - A New Hope for Eclipse Dirigible Developers",
     "description": "\"The Attack of the Decorators is here, and with it comes a wave of new TypeScript superpowers that dramatically simplify Dependency Injection, Entities, Jobs, Listeners, WebSockets, Controllers, Roles, and Extensions.\""
+  },
+  {
+    "location": "2026/05/19/dirigible-java-decorators.md",
+    "title": "Return of the Java - Decorators Awaken in Eclipse Dirigible",
+    "description": "\"Hot-reloadable @Entity, @Repository, @Controller, @Inject — the decorator order finally lands in Java. Drop a .java file into the registry and watch enterprise Java go declarative, typed, and live-reloaded in one breath.\""
   }
 ]
