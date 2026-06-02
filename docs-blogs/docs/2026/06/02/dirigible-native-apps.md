@@ -137,7 +137,7 @@ GitHub sample: [**dirigiblelabs/sample-remote-native-app**](https://github.com/d
 }
 ```
 
-The `${KEY}.{DEFAULT}` syntax is the same placeholder Dirigible already uses for Jobs and other artefacts: resolve `MY_API_USER` from the environment (or `dirigible-config-*.properties`), fall back to the literal in `{…}` if unset. Secrets stay out of Git; the file checks in safely.
+The `${KEY}.{DEFAULT}` syntax is the same placeholder Dirigible already uses for Jobs and other artefacts: resolve `MY_API_USER` from the environment, fall back to the literal in `{…}` if unset. Secrets stay out of Git; the file checks in safely.
 
 **Inbound vs outbound is decoupled.** Your browser code authenticates against Dirigible normally (whatever session / OAuth / OIDC you have wired up). Dirigible *then* attaches the outbound credentials on the way to the upstream. The client never sees them.
 
@@ -151,7 +151,7 @@ A local native app is more ambitious: Dirigible **spawns** the OS process for yo
 
 ### The sample
 
-[**dirigiblelabs/sample-library-local-native-app**](https://github.com/dirigiblelabs/sample-library-local-native-app) is a small library-management REST service written in TypeScript on Fastify. It runs on Node.js 22+, validates input with Zod, generates an OpenAPI document with `@fastify/swagger`, and ships a Vitest suite. The service itself isn't important here — the important part is that it's a real, idiomatic Node.js project, and the entire integration with Dirigible is one JSON file in the repo root:
+[**dirigiblelabs/sample-library-local-native-app**](https://github.com/dirigiblelabs/sample-library-local-native-app) is a small library-management REST service. The service itself isn't important here — the important part is that it's a real, idiomatic Node.js project, and the entire integration with Dirigible is one JSON file in the repo root:
 
 ```jsonc
 {
