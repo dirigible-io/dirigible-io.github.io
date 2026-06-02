@@ -29,7 +29,7 @@ A native application is a Dirigible artefact whose source is a single JSON file 
 - A **security policy** — which sub-paths are exposed, which Dirigible roles guard them, and (optionally) what authentication header to attach when forwarding to the upstream.
 - For local apps, a **lifecycle** — start/stop commands per OS, and a start mode (`lazy` or `always`).
 
-The synchronizer picks the file up the moment you publish it; the proxy starts serving requests the moment registration completes; lifecycle and authentication are wired in automatically.
+Dirigible picks the file up the moment you publish it; the proxy starts serving requests the moment registration completes; lifecycle and authentication are wired in automatically.
 
 You write zero glue code.
 
