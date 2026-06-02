@@ -246,7 +246,7 @@ GitHub sample: [**dirigiblelabs/sample-library-local-native-app**](https://githu
 
 ---
 
-## When to use this — and when not to
+## When to use this
 
 Native applications are the right tool when:
 
@@ -254,12 +254,6 @@ Native applications are the right tool when:
 - You need polyglot — a Python ML stage, a Go bridge, a Rust hot path — alongside Dirigible's TypeScript and Java surface.
 - You want unified auth, unified RBAC, and unified observability for a service that doesn't *fit* the in-process model.
 - You want managed start/stop/restart of a sidecar process without writing systemd units.
-
-They're **not** the right tool when:
-
-- The thing you're writing fits comfortably in TypeScript or Java. Use [TypeScript decorators](../../../../2025/12/04/dirigible-decorators.md) or [Java decorators](../../../../2026/05/19/dirigible-java-decorators.md) — they hot-reload, share the platform's process, and skip the proxy hop entirely.
-- The thing already runs in your Kubernetes cluster behind an ingress with its own auth. There's no value in double-proxying.
-- The upstream is a streaming endpoint and you need very low latency. Native apps add one reverse-proxy hop; the overhead is small, but it's not zero.
 
 ---
 
