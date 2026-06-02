@@ -262,7 +262,7 @@ Native applications are the right tool when:
 1. **Remote** — clone [`dirigiblelabs/sample-remote-native-app`](https://github.com/dirigiblelabs/sample-remote-native-app) into a running Dirigible instance via the Git perspective. Publish. Assign the `http-bin` role to a user. Hit `/services/native-apps-proxy/v1/http-bin/get`.
 2. **Local** — clone [`dirigiblelabs/sample-library-local-native-app`](https://github.com/dirigiblelabs/sample-library-local-native-app). Publish. Assign the `library-admin` role. Hit `/services/native-apps-proxy/v1/library-native-app-nodejs/rest/api/v1/books`. Watch Dirigible spawn the Node process on the first request and proxy through.
 
-Both projects ship with `roles.roles` and `project.json` alongside their `.native-app` file. Both are real, runnable samples — the local one is a complete Fastify+Zod REST service with a Vitest suite.
+Both projects ship with `roles.roles` and `project.json` alongside their `.native-app` file. Both are real, runnable samples.
 
 ---
 
