@@ -16,13 +16,13 @@ Until today, the only way to integrate any of those was to push them to the peri
 
 Meet **native applications**: a new Dirigible artefact type that brings *any* HTTP service — whether you wrote it this morning in your favourite non-JVM language, or it's been running somewhere else for years.
 
-> Drop a `*.native-app` JSON file into your project. Dirigible reverse-proxies the upstream under a dedicated path, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.
+> Drop a `*.nativeapp` JSON file into your project. Dirigible reverse-proxies the upstream under a dedicated path, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.
 
 ---
 
 ## What a native application is
 
-A native application is a Dirigible artefact whose source is a single JSON file with the extension `.native-app`. It declares:
+A native application is a Dirigible artefact whose source is a single JSON file with the extension `.nativeapp`. It declares:
 
 - A **basePath** — the segment users will hit under `/services/native-apps-proxy/v1/<basePath>/`.
 - A **kind** — `remote` (an HTTP(S) endpoint Dirigible doesn't own) or `local` (an OS process Dirigible spawns and supervises).
@@ -42,12 +42,12 @@ A few patterns that just got cheap:
 - **Build new applications in any language.** Dirigible's in-process engines speak TypeScript, JavaScript, and Java — but native applications let you write a brand-new service in Python, Go, Rust, .NET, or anything else that can serve HTTP, and still have it run as a first-class Dirigible artefact. Pick the language because it has the right library, the right performance profile, or the right team behind it — not because the platform forces your hand.
 - **Polyglot microservices on the same platform.** A Python service for ML, a Go service for protocol bridges, a Rust service on a hot path, a Node service for everything else — Dirigible spawns them, supervises them, and exposes them all under the same `/services` namespace as your TypeScript routes and Java controllers.
 - **SaaS APIs as managed artefacts.** A `remote` native app turns Stripe / GitHub / Slack / your internal hub into a Dirigible-resident route. Outbound auth lives in the artefact (resolved from environment, so secrets stay out of Git); inbound auth is your normal Dirigible auth; role-based access controls who in your tenant can call it. The browser code calls the proxy path and never sees the API key.
-- **Lift-and-shift, not rewrite.** Got an existing Node/Python/Go service that runs perfectly well today? Drop a `.native-app` next to it and it becomes a first-class Dirigible artefact — same auth, same logs, same proxy, no code change to the service itself.
-- **Same artefact lifecycle as everything else.** Publish the `.native-app` → registered. Edit it → re-registered. Delete it → unregistered, child process stopped, database row gone. No separate deploy pipeline.
+- **Lift-and-shift, not rewrite.** Got an existing Node/Python/Go service that runs perfectly well today? Drop a `.nativeapp` next to it and it becomes a first-class Dirigible artefact — same auth, same logs, same proxy, no code change to the service itself.
+- **Same artefact lifecycle as everything else.** Publish the `.nativeapp` → registered. Edit it → re-registered. Delete it → unregistered, child process stopped, database row gone. No separate deploy pipeline.
 
 ---
 
-## Anatomy of the `*.native-app` file
+## Anatomy of the `*.nativeapp` file
 
 Every native app — local or remote — shares the same top-level shape:
 
@@ -211,7 +211,7 @@ There's a lot in there. Let's walk through it.
 
 Each entry under `lifecycle.start.commands` is tagged with `os` (one of `mac` / `linux` / `windows`). Dirigible picks the right entry for the host it's running on.
 
-This keeps the artefact portable: ship one `.native-app` file, and the same project runs on a developer's Mac, a CI Linux box, and a Windows production server. No build-time scripting.
+This keeps the artefact portable: ship one `.nativeapp` file, and the same project runs on a developer's Mac, a CI Linux box, and a Windows production server. No build-time scripting.
 
 ### Port resolution — prefer-then-allocate
 
@@ -264,7 +264,7 @@ Native applications are the right tool when:
 1. **Remote** — clone [`dirigiblelabs/sample-remote-native-app`](https://github.com/dirigiblelabs/sample-remote-native-app) into a running Dirigible instance via the Git perspective. Publish. Assign the `http-bin` role to a user. Hit `/services/native-apps-proxy/v1/http-bin/get`.
 2. **Local** — clone [`dirigiblelabs/sample-library-local-native-app`](https://github.com/dirigiblelabs/sample-library-local-native-app). Publish. Assign the `library-admin` role. Hit `/services/native-apps-proxy/v1/library-native-app-nodejs/rest/api/v1/books`. Watch Dirigible spawn the Node process on the first request and proxy through.
 
-Both projects ship with `roles.roles` and `project.json` alongside their `.native-app` file. Both are real, runnable samples.
+Both projects ship with `roles.roles` and `project.json` alongside their `.nativeapp` file. Both are real, runnable samples.
 
 ---
 
@@ -276,4 +276,4 @@ Write in any language. Run in-process or out-of-process. Local or remote. Lazy o
 
 The polyglot story just got a lot better.
 
-Give the samples a spin, drop a `.native-app` next to your own service, and let us know how it goes.
+Give the samples a spin, drop a `.nativeapp` next to your own service, and let us know how it goes.
