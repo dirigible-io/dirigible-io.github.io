@@ -1,10 +1,5 @@
 [
   {
-    "location": "2024/12/03/open-telemetry.md",
-    "title": "Eclipse Dirigible Observability Unlocked Using OpenTelemetry",
-    "description": "\"Observability Unlocked: Metrics, Traces and Logs in Eclipse Dirigible Using OpenTelemetry\""
-  },
-  {
     "location": "2024/12/04/spring-boot-admin.md",
     "title": "Monitoring Eclipse Dirigible with Spring Boot Admin",
     "description": "\"Monitoring Eclipse Dirigible with Spring Boot Admin\""
@@ -23,5 +18,10 @@
     "location": "2026/05/19/dirigible-java-decorators.md",
     "title": "Return of the Java - Decorators Awaken in Eclipse Dirigible",
     "description": "\"Hot-reloadable @Entity, @Repository, @Controller, @Inject — the decorator order finally lands in Java. Drop a .java file into the registry and watch enterprise Java go declarative, typed, and live-reloaded in one breath.\""
+  },
+  {
+    "location": "2026/06/02/dirigible-native-apps.md",
+    "title": "Write It in Anything, Run It in Dirigible - Introducing Native Applications",
+    "description": "\"A new artefact type that pulls external HTTP services — local OS processes Dirigible spawns and supervises, or remote endpoints anywhere on the network — under one reverse proxy, with managed authentication, role-based access, and lifecycle control. Build the service in Node, Python, Go, .NET, Rust, anything that talks HTTP — Dirigible takes it from there.\""
   }
 ]
