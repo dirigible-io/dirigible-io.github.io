@@ -1,54 +1,167 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with this repository.
 
-## What this repo is
+## Project
 
-Source for **www.dirigible.io** — the public website and documentation for the Eclipse Dirigible project. It is a hybrid Jekyll + MkDocs site published via GitHub Pages from the `docs/` directory on `master`.
+VitePress 1.5.0 site for **Eclipse Dirigible** (`www.dirigible.io`). Migrated from a Jekyll root + 6 separate MkDocs Material instances that lived in the repo `https://github.com/dirigible-io/dirigible-io.github.io.git`.
 
-## Build model (important to understand before editing)
+## Commands
 
-The site is **not** built locally for normal commits. CI (`.github/workflows/ci.yaml`) is the source of truth and runs on every push to `master`/`main`:
-
-1. For each `docs-*` source tree (`docs-api`, `docs-help`, `docs-blogs`, `docs-news`, `docs-releases`, `docs-home`), CI runs `squidfunk/mkdocs-material:8.5.11` in Docker to produce `docs-*/site/`.
-2. CI wipes `docs/` and assembles the final published site there: MkDocs output under `docs/api/`, `docs/help/`, `docs/blogs/`, `docs/news/`, `docs/releases/`, plus `docs-home` output flattened into `docs/`.
-3. Static Jekyll assets (`_data`, `_includes`, `_layouts`, `css`, `fonts`, `gdpr`, `img`, `js`, `services`, `CNAME`, `Gemfile*`, `_config.yml`, `depots.json`) and the top-level HTML pages (`features.html`, `for_developers.html`, `getting_started.html`, `project.html`) are copied into `docs/`. `index.html` is copied as `docs/index-old.html` — the home page served comes from `docs-home`.
-4. `.github/folders.sh` regenerates `blogs.json`, `releases.json`, `news.json` from the last 5 dated markdown files in each `docs-*/docs/` tree. Front matter is parsed by reading literal lines 2 and 3 (`title:` and optionally `description:`), so post front matter ordering matters.
-5. CI commits the regenerated `docs/` back to `master` with the message `Site content updated - ci skip`.
-
-Two consequences:
-- **Never hand-edit files under `docs/`.** They are CI-generated and will be overwritten. Edit the sources in `docs-*/docs/`, the top-level Jekyll files, or `_layouts`/`_includes`/`_data`.
-- **`ci skip` in the commit message is load-bearing.** The CI job has `if: "!contains(github.event.head_commit.message, 'ci skip')"` to break the recursion when CI pushes its own commit. Don't put `ci skip` in human commits unless you intend to suppress the rebuild.
-
-## Source layout
-
-- `docs-home/` — landing page MkDocs project (output lands at site root).
-- `docs-help/` — user guide / tutorials / API reference. Largest tree; nav defined in `docs-help/mkdocs.yml`.
-- `docs-api/` — API docs.
-- `docs-blogs/`, `docs-news/`, `docs-releases/` — dated posts under `docs/YYYY/MM/DD/*.md`. Each post has YAML front matter with `title`, `description`, `author`, `author_gh_user`, `author_avatar`, `read_time`, `publish_date`. Authors are also registered in `_data/authors.yml`.
-- Each `docs-*` directory has its own `mkdocs.yml`, plus `overrides/` (theme partials) and `redirects/` (legacy URL stubs copied verbatim into the output).
-- Top-level `*.html` files are static Jekyll pages copied straight into `docs/`.
-- `_config.yml` is Jekyll config used by GitHub Pages when serving `docs/`.
-
-## Local preview
-
-Per the README, preview a single docs tree with the same MkDocs container CI uses:
-
-```
-docker run --rm -it -p 8000:8000 -v $PWD/docs-help:/docs squidfunk/mkdocs-material:8.5.11
+```bash
+npm install          # install deps (vitepress + vue)
+npm run docs:dev     # dev server on http://localhost:8080
+npm run docs:build   # production build → docs/.vitepress/dist/
+npm run docs:preview # preview built site on http://localhost:8080
 ```
 
-Swap `docs-help` for any other `docs-*` directory. There is no command to build the full composite site locally — that flow only exists in CI.
+## Repository layout
 
-The Jekyll `Gemfile` exists for GitHub Pages compatibility; `bundle exec jekyll serve` would only render the Jekyll/HTML parts, not the MkDocs trees.
+```
+.
+├── package.json                     # vitepress ^1.5.0, vue ^3.5.13
+├── docs/
+│   ├── index.md                     # home page (layout: home)
+│   ├── .vitepress/
+│   │   ├── config.mts               # site config, nav, sidebars
+│   │   └── theme/
+│   │       ├── index.ts             # extends DefaultTheme
+│   │       └── style.css            # brand colors + blog listing CSS
+│   ├── data/
+│   │   ├── blogs.data.ts            # createContentLoader for /blogs/**/*.md
+│   │   └── releases.data.ts         # createContentLoader for /releases/**/*.md
+│   ├── public/                      # static assets (served at /)
+│   │   ├── favicon.png
+│   │   └── img/                     # logo, posts images, home screenshots
+│   ├── images/                      # shared image dir (see Image paths below)
+│   ├── help/                        # docs-help — 113 pages
+│   ├── api/                         # docs-api — 129 pages (from codbex/aerokit)
+│   ├── blogs/                       # docs-blogs — 154 posts + 27 merged-in news posts (YYYY/MM/DD/slug.md)
+│   │   └── index.md                 # blog listing page
+│   └── releases/                    # docs-releases — 55 entries
+│       └── index.md                 # releases listing page
+```
 
-## Adding a blog / news / release post
+## Brand
 
-1. Create `docs-{blogs,news,releases}/docs/YYYY/MM/DD/slug.md`.
-2. Match the front-matter shape used by sibling posts in the same year — line 2 must be `title: "..."` and line 3 should be `description: "..."` for `folders.sh` to pick it up correctly.
-3. If introducing a new author, add them to `_data/authors.yml`.
-4. The post will surface on the home page once CI rebuilds `blogs.json`/`news.json`/`releases.json`.
+- **Primary blue:** `#2b7bb9`
+- **Secondary blue:** `#3592d8`
+- **Dark blue:** `#1a5f96`
+- Font: Open Sans (Google Fonts)
+- Logo: `/img/logo/dirigible-logo.png` (in `docs/public/`)
 
-## Pinned versions
+## Navigation
 
-`squidfunk/mkdocs-material:8.5.11` is pinned in CI. If you bump it, also update the `Setup` section of `README.md` so the local preview command matches.
+```
+Home | Documentation (/help/) | API (/api/) | Blog (/blogs/) | More ▾
+                                                                  Releases (/releases/)
+                                                                  Downloads (external)
+                                                                  GitHub (external)
+```
+
+Sidebars are defined in `config.mts` — `helpSidebar()` and `apiSidebar()` functions. The help sidebar is fully structured (matches the original MkDocs nav). The API sidebar lists top-level categories only; individual API pages within each category are auto-navigated.
+
+## Blog / News / Releases listing pages
+
+Each listing page uses `layout: home` with an inline `<script setup>` that imports from the data loader and renders posts with `v-for`. The pattern:
+
+```md
+---
+layout: home
+hero:
+  name: Blog
+  ...
+editLink: false
+---
+
+<script setup>
+import { withBase } from 'vitepress'
+import { data as posts } from '../data/blogs.data'
+</script>
+
+<section class="blog-posts">
+  <ul class="post-list">
+    <li class="post-item" v-for="post of posts" :key="post.url">
+      <h4 class="post-title"><a :href="withBase(post.url)">{{ post.frontmatter.title }}</a></h4>
+    </li>
+  </ul>
+</section>
+```
+
+**CRITICAL:** The `{{ }}` expression escaping script (see below) will corrupt these listing pages if re-run. Always rewrite `blogs/index.md`, `news/index.md`, `releases/index.md` from scratch after running bulk escape scripts.
+
+## Frontmatter conventions (blog posts)
+
+Blog posts use **non-ISO** publish dates:
+
+```yaml
+---
+title: "Post title"
+description: "One-line description"
+author: Author Name
+author_gh_user: github_username
+author_avatar: https://avatars.githubusercontent.com/u/XXXXX?v=4
+read_time: 5 min
+publish_date: October 30, 2025
+---
+```
+
+The data loaders parse `publish_date` with `new Date(value)` which handles `"October 30, 2025"` correctly. Newer posts should follow the same format for consistency.
+
+## Image paths
+
+VitePress resolves relative image paths from the **filesystem path** of the markdown file (not the URL path). The image layout was designed so that relative paths used in the original MkDocs content resolve correctly:
+
+| Markdown file depth | Relative prefix | Resolves to |
+|---|---|---|
+| `docs/blogs/YYYY/MM/DD/post.md` | `../../../../images/` (4 up) | `docs/images/` |
+| `docs/help/developer-resources/page.md` | `../../images/` (2 up) | `docs/images/` |
+| `docs/help/development/ide/page.md` | `../../../images/` (3 up) | `docs/images/` |
+
+All section images are merged into `docs/images/` (not the `public/` folder). Absolute paths like `/img/posts/...` are served from `docs/public/img/`.
+
+When adding new blog posts with images:
+- Put images in `docs/images/<post-slug>/`
+- Reference them as `../../../../images/<post-slug>/image.png`
+
+## Known issues / TODO
+
+- **213 dead links** — `ignoreDeadLinks: true` is set in `config.mts`. These are cross-section links from the original MkDocs multi-site setup (e.g. `/help/` linking to `/api/` with MkDocs-relative paths). Fix gradually by updating hrefs to the new absolute VitePress paths.
+- **MkDocs tab syntax** (`=== "Tab Name"`) — a few blog posts still use this. VitePress doesn't support it natively; either remove or rewrite as separate sections or use a VitePress tabs plugin.
+- **Admonition indented inside list items** — the bulk admonition converter strips indent and puts `:::` at column 0, which can break the containing list. Review pages with nested admonitions manually.
+
+## Bulk migration scripts (for reference)
+
+These Python/Perl one-liners were used during the initial migration. Re-run only on NEW content, not on already-converted files.
+
+```bash
+# Remove MkDocs attribute list syntax {: .class }
+find docs -name "*.md" | xargs perl -i -pe 's/\{:\s*[^}]+\}//g'
+
+# Strip hl_lines from code fences
+find docs -name "*.md" | xargs perl -i -pe 's/^(```\s*\w*)\s+hl_lines="[^"]*"/$1/g'
+
+# Replace <B>..</B>, <I>..</I>, <U>..</U> with markdown
+find docs -name "*.md" | xargs perl -i -0pe '
+  s|<B><I>(.*?)</B></I>|***$1***|gsi;
+  s|<B>(.*?)</B>|**$1**|gsi;
+  s|<I>(.*?)</I>|*$1*|gsi;
+  s|<U>(.*?)</U>|__$1__|gsi;
+'
+```
+
+The Python scripts for escaping non-HTML angle brackets and `{{ }}` patterns (and the admonition converter) are longer — refer to the session transcript if needed.
+
+## VitePress quirks discovered during migration
+
+1. **`{{ }}` in markdown text** is evaluated as Vue template expressions, even inside `<code>` tags rendered from backtick spans. VitePress escapes them in code fences and inline code automatically, but NOT if the markdown structure is broken (e.g. admonition inside a list item breaks the list, exposing text nodes to Vue).
+
+2. **`<PLACEHOLDER>` angle brackets** (like `<DB_NAME>`, `<Type>`) are parsed by Vue as unknown HTML/component tags and fail the build. Escape to `&lt;PLACEHOLDER&gt;`.
+
+3. **Image resolution**: Vite imports images as modules. Relative paths must point to files that exist at build time. Absolute paths (`/img/...`) are served from `docs/public/`.
+
+4. **MkDocs admonitions inside list items**: Converting `!!! tip` to `::: tip` inside an indented list item puts the `:::` at column 0, breaking the list. Wrap in a blockquote or fix manually.
+
+5. **`layout: home` pages with `<script setup>`**: The `v-for` loop runs at SSR time and renders all items into static HTML. If data loader returns correct data, all posts appear in the initial HTML (good for SEO).
+
+6. **Blog posts with Jinja2/MkDocs template content** (the post about Material for MkDocs blogging): wrap the body in `<div v-pre>...</div>` immediately after the frontmatter to prevent Vue from evaluating the template expressions.

@@ -1,7 +1,0 @@
-name: Dirigible
-markdown: redcarpet
-highlighter: pygments
-baseurl: 
-url: http://localhost:4000
-gems:
-  - jekyll-sitemap

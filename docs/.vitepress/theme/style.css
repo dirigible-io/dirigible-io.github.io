@@ -1,0 +1,463 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:regular,italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Space+Grotesk:regular,italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:regular,italic,700,700italic);
+
+:root {
+  /* Typography */
+  --vp-font-family-base: "Montserrat", "Space Grotesk", "Inter var experimental", "Inter var",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  /* Code Snippet font */
+  --vp-font-family-mono: "Space Mono", Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  --vp-c-brand-1: var(--vp-c-yellow-1);
+  --vp-c-brand-2: var(--vp-c-yellow-2);
+  --vp-c-brand-3: var(--vp-c-yellow-3);
+  --vp-c-brand-soft: var(--vp-c-yellow-soft);
+
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-c-warning-1: var(--vp-c-yellow-1);
+  --vp-c-warning-2: var(--vp-c-yellow-2);
+  --vp-c-warning-3: var(--vp-c-yellow-3);
+  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+  --vp-c-danger-1: var(--vp-c-red-1);
+  --vp-c-danger-2: var(--vp-c-red-2);
+  --vp-c-danger-3: var(--vp-c-red-3);
+  --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color:  #ffb300;
+  
+
+  /* --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #f1eeee 20%,
+    #f1eeee 20%
+  ); */
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  --vp-c-bg-soft: #505050;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+
+
+@media (min-width: 768px) {
+  .flex {
+      display:-webkit-box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      flex-direction: row
+  }
+
+  .flex .text,.flex .image {
+      -webkit-flex: 1;
+      flex: 1;
+      padding: 0 20px
+  }
+
+  .content section:nth-child(even) .flex {
+      flex-direction: row-reverse
+  }
+}
+
+.container,.text-container {
+  margin: 0 auto;
+  position: relative;
+  padding: 0 3em
+}
+
+.text-container {
+  max-width: 750px
+}
+
+.container.max-container {
+  max-width: 100%;
+  padding: 0
+}
+
+.price-tag {
+  border: 3px solid var(--vp-home-hero-name-color);
+  border-radius: 12px;
+  padding: 5px;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 1em;
+  margin: 0.5em;
+  text-align: center;
+  float: right !important
+}
+
+.product-tag {
+  border: 2px solid var(--vp-home-hero-name-color);
+  border-radius: 12px;
+  padding: 0px 20px 0px 20px;
+  margin: 2px;
+  text-align: center;
+  float: right !important;
+}
+
+.product-link {
+  color: var(--vp-home-hero-name-color) !important;
+  text-transform: uppercase;
+}
+
+.vp-doc a {
+  font-weight: 500;
+  font-size: large;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  transition: color 0.25s, opacity 0.25s;
+}
+
+.screenshot {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 1px 0 #ccc, 0 1px 0 1px #eee;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #DDD url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2244%22%20height%3D%2212%22%20viewBox%3D%220%200%2044%2012%22%3E%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%224%22%20fill%3D%22%23eee%22%20%2F%3E%3Ccircle%20cx%3D%2222%22%20cy%3D%226%22%20r%3D%224%22%20fill%3D%22%23eee%22%20%2F%3E%3Ccircle%20cx%3D%2238%22%20cy%3D%226%22%20r%3D%224%22%20fill%3D%22%23eee%22%20%2F%3E%3C%2Fsvg%3E") 4px 4px no-repeat;
+  padding: 20px 0 0 0;
+  position: relative
+}
+
+.partners {
+  padding: 2rem;
+  text-align: center;
+}
+
+.partners h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.partner-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  
+  justify-content: center;
+  align-content: center;
+}
+
+.partner-list li {
+  border-radius: 8px;
+  padding: 0.8rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  list-style: none;
+}
+
+.partner-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.partner-list a {
+  text-decoration: none;
+  color: var(--vp-c-brand-1);
+  font-weight: bold;
+}
+
+.partner-list a:hover {
+  color: var(--vp-c-brand-2);
+}
+
+.blog-posts {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.post-list {
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem;
+  background: transparent;
+  transition: box-shadow 0.3s;
+}
+
+.post-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-title a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--vp-c-brand-1);
+}
+
+.post-title a:hover {
+  text-decoration: underline;
+  color: var(--vp-c-brand-2);
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  display: inline;
+}
+
+.author-image-square {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 1rem;
+  display: inline;
+}
+
+.post-author {
+  font-size: 1.2rem;
+}
+
+.post-date {
+  margin-left: auto;
+}
+
+.testimonial {
+	margin: 0;
+	padding: 100px 0;
+
+	.testimonial-block {
+		max-width: 750px;
+		width: 98%;
+		margin: 0 auto;
+	}
+
+}
+
+blockquote {
+	padding: 18px 25px;
+	margin: 0;
+	quotes: "\201C""\201D""\2018""\2019";
+	font-style: italic;
+
+	.author {
+		display: block;
+		font-weight: bold;
+		margin: 10px 0 0 0;
+		font-size: .85em;
+		font-style: normal;
+	}
+
+	p {
+		display: inline;
+	}
+}
+
+blockquote:before {
+	color: var(--vp-c-divider);
+	content: open-quote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+
+.square-image {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	margin: 25px auto 0 auto;
+	position: relative;
+	border-radius: 200px;
+
+	img {
+		position: absolute;
+		left: -1000%;
+		right: -1000%;
+		top: -1000%;
+		bottom: -1000%;
+		margin: auto;
+		width: 200px;
+	}
+}
+
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.carousel li {
+  list-style: none;
+  flex: 0 0 15%;
+  scroll-snap-align: start;
+  padding: 2rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 0px !important;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.section-image {
+  height: 15em;
+}
+
+.section-icon {
+  font-size: 10em;
+  line-height: 1;
+  color: var(--vp-home-hero-name-color);
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  filter: drop-shadow(0 4px 12px rgba(255, 179, 0, 0.25));
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section-icon:hover {
+  transform: scale(1.05);
+  color: var(--vp-c-brand-2);
+}
+
+@media (max-width: 768px) {
+  .section-icon {
+    font-size: 7em;
+  }
+}

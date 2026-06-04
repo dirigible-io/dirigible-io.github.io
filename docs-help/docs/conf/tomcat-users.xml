@@ -1,6 +1,0 @@
-<tomcat-users>
-        <role rolename="Developer"/>
-        <role rolename="Operator"/>
-        <role rolename="Everyone"/>
-        <user username="dirigible" password="dirigible" roles="Developer,Operator,Everyone"/>
-</tomcat-users>

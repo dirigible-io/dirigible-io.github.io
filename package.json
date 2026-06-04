@@ -1,0 +1,14 @@
+{
+  "name": "dirigible.io",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "vitepress": "^1.5.0",
+    "vue": "^3.5.13"
+  },
+  "scripts": {
+    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs --port 8080",
+    "docs:preview": "vitepress preview docs --port 8080"
+  }
+}

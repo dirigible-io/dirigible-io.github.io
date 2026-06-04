@@ -1,0 +1,168 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: dirigible
+spec:
+  serviceName: postgres-jdbc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: postgres
+          image: postgres
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: root
+              mountPath: /var/lib/postgresql/data
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            # The name of the PostgreSQL user, that will be used from the Dirigible
+            - name: POSTGRES_USER
+              value: dirigible
+            # The password for the PostgreSQL user, that will be used from the Dirigible
+            - name: POSTGRES_PASSWORD
+              value: dirigible
+      serviceAccountName: service-account
+  volumeClaimTemplates:
+    - metadata:
+        name: root
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-jdbc
+  namespace: dirigible
+  labels:
+    app: postgres
+spec:
+  ports:
+  - port: 5432
+  type: ClusterIP
+  selector:
+    app: postgres
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: dirigible
+  namespace: dirigible
+spec:
+  serviceName: dirigible
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dirigible
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: dirigible
+          image: dirigiblelabs/dirigible-keycloak
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: root
+              mountPath: /usr/local/tomcat/target
+          env:
+            - name: DIRIGIBLE_DATABASE_PROVIDER
+              value: "custom"
+            - name: DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES
+              value: "POSTGRES"
+            - name: DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT
+              value: "POSTGRES"
+            - name: POSTGRES_DRIVER
+              value: "org.postgresql.Driver"
+            # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
+            - name: POSTGRES_URL
+              value: "jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible"
+            # The PostgreSQL user
+            - name: POSTGRES_USERNAME
+              value: "dirigible"
+            # The PostgreSQL user's password
+            - name: POSTGRES_PASSWORD
+              value: "dirigible"
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_DRIVER
+              value: "org.postgresql.Driver"
+            # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_URL
+              value: "jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible"
+            # The PostgreSQL user
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_USER
+              value: "dirigible"
+            # The PostgreSQL user's password
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_PASSWORD
+              value: "dirigible"
+            - name: DIRIGIBLE_SCHEDULER_DATABASE_DELEGATE
+              value: "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate"
+            - name: KEYCLOAK_CONFIDENTIAL_PORT
+              value: "443"
+            - name: KEYCLOAK_SSL_REQUIRED
+              value: "none"
+            - name: KEYCLOAK_CLIENT_ID
+              value: "dirigible"
+            - name: KEYCLOAK_REALM
+              value: "master"
+            # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+            - name: KEYCLOAK_AUTH_SERVER_URL
+              value: "https://keycloak.<your-domain-name>/auth"
+      serviceAccountName: service-account
+  volumeClaimTemplates:
+    - metadata:
+        name: root
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dirigible
+  namespace: dirigible
+  labels:
+    app: dirigible
+spec:
+  ports:
+  - port: 8080
+  type: ClusterIP
+  selector:
+    app: dirigible
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: "nginx"
+  name: dirigible
+  namespace: dirigible
+spec:
+  tls:
+  # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+  - hosts:
+    - ide.<your-domain-name>
+    secretName: dirigible-certificate
+  rules:
+    # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
+    - host: ide.<your-domain-name>
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: dirigible
+              servicePort: 8080
