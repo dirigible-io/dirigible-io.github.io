@@ -6,18 +6,20 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="A new artefact type that pulls external HTTP services — local OS processes Dirigible spawns and supervises, or remote endpoints anywhere on the network — under one reverse proxy, with managed authentication, role-based access, and lifecycle control. Build the service in Node, Python, Go, .NET, Rust, anything that talks HTTP — Dirigible takes it from there.">
       
-        <meta name="author" content="Nedelcho Delchev">
+      
+        <meta name="author" content="Iliyan Velichkov">
       
       
-        <link rel="canonical" href="https://www.dirigible.io/blogs/2016/01/21/blogs-repositories/">
+        <link rel="canonical" href="https://www.dirigible.io/blogs/2026/06/02/dirigible-native-apps/">
       
       <link rel="icon" href="/img/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Developer - Repositories, repositories, repositories... - Eclipse Dirigible Blog</title>
+        <title>Write It in Anything, Run It in Dirigible — Introducing Native Applications - Eclipse Dirigible Blog</title>
       
     
     
@@ -82,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-repository" class="md-skip">
+        <a href="#what-a-native-application-is" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Developer - Repositories, repositories, repositories...
+              Write It in Anything, Run It in Dirigible — Introducing Native Applications
             
           </span>
         </div>
@@ -200,13 +202,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../../2026/06/02/dirigible-native-apps/" class="md-tabs__link">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         2026
       </a>
     </li>
@@ -360,15 +364,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-tabs__link">
         2016
       </a>
     </li>
@@ -477,12 +479,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -509,11 +513,165 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../../2026/06/02/dirigible-native-apps/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Write It in Anything, Run It in Dirigible - Introducing Native Applications
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Write It in Anything, Run It in Dirigible - Introducing Native Applications
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-native-application-is" class="md-nav__link">
+    What a native application is
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    Why this matters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anatomy-of-the-nativeapp-file" class="md-nav__link">
+    Anatomy of the *.nativeapp file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flavour-1-remote-applications" class="md-nav__link">
+    Flavour 1 — Remote applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Flavour 1 — Remote applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outbound-authentication" class="md-nav__link">
+    Outbound authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flavour-2-local-applications" class="md-nav__link">
+    Flavour 2 — Local applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Flavour 2 — Local applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sample" class="md-nav__link">
+    The sample
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-os-commands" class="md-nav__link">
+    Per-OS commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-resolution-prefer-then-allocate" class="md-nav__link">
+    Port resolution — prefer-then-allocate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-directory" class="md-nav__link">
+    Working directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-modes-lazy-vs-always" class="md-nav__link">
+    Start modes — lazy vs always
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-auth-outbound-auth-and-exposed-paths" class="md-nav__link">
+    Inbound auth, outbound auth, and exposed paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-the-process" class="md-nav__link">
+    Stopping the process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this" class="md-nav__link">
+    When to use this
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it" class="md-nav__link">
+    Try it
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-unified-surface-finally" class="md-nav__link">
+    A unified surface, finally
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -525,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../2026/05/19/dirigible-java-decorators/" class="md-nav__link">
+      <a href="../../../05/19/dirigible-java-decorators/" class="md-nav__link">
         Return of the Java - Decorators Awaken in Eclipse Dirigible
       </a>
     </li>
@@ -2309,14 +2467,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
       
       
       
@@ -2405,7 +2561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/03/news-new-release-2-6/" class="md-nav__link">
+      <a href="../../../../2016/12/03/news-new-release-2-6/" class="md-nav__link">
         Release 2.6.161203-R
       </a>
     </li>
@@ -2419,7 +2575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12/02/news-innoweek-sap-2016/" class="md-nav__link">
+      <a href="../../../../2016/12/02/news-innoweek-sap-2016/" class="md-nav__link">
         InnoWeek SAP Labs 2016
       </a>
     </li>
@@ -2433,7 +2589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/22/news-new-milestone-2-6-4/" class="md-nav__link">
+      <a href="../../../../2016/11/22/news-new-milestone-2-6-4/" class="md-nav__link">
         Milestone 2.6.161122-M4
       </a>
     </li>
@@ -2447,7 +2603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/16/news-java2days-2016/" class="md-nav__link">
+      <a href="../../../../2016/11/16/news-java2days-2016/" class="md-nav__link">
         Java2Days 2016
       </a>
     </li>
@@ -2461,7 +2617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
+      <a href="../../../../2016/11/03/cmis-explorer-at-sap-hana-cloud-platform/" class="md-nav__link">
         Document Service Explorer at SAP HANA Cloud Platform
       </a>
     </li>
@@ -2475,7 +2631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
+      <a href="../../../../2016/10/30/news-eclipsecon-eu-2016/" class="md-nav__link">
         EclipseCon Europe 2016
       </a>
     </li>
@@ -2489,7 +2645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/21/news-new-milestone-2-6-3/" class="md-nav__link">
+      <a href="../../../../2016/10/21/news-new-milestone-2-6-3/" class="md-nav__link">
         Milestone 2.6.161021-M3
       </a>
     </li>
@@ -2503,7 +2659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/14/news-new-milestone-2-6-2/" class="md-nav__link">
+      <a href="../../../../2016/10/14/news-new-milestone-2-6-2/" class="md-nav__link">
         Milestone 2.6.161014-M2
       </a>
     </li>
@@ -2517,7 +2673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10/05/news-new-milestone-2-6-1/" class="md-nav__link">
+      <a href="../../../../2016/10/05/news-new-milestone-2-6-1/" class="md-nav__link">
         Milestone 2.6.161005-M1
       </a>
     </li>
@@ -2531,7 +2687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../09/12/the-java-saurus/" class="md-nav__link">
+      <a href="../../../../2016/09/12/the-java-saurus/" class="md-nav__link">
         The Java-saurus
       </a>
     </li>
@@ -2545,7 +2701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
+      <a href="../../../../2016/08/18/how-to-run-dirigible-anywhere-microsoft-azure-part-2/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure - Part II?
       </a>
     </li>
@@ -2559,7 +2715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/17/sap-summer-practice/" class="md-nav__link">
+      <a href="../../../../2016/08/17/sap-summer-practice/" class="md-nav__link">
         Summer Practice in SAP
       </a>
     </li>
@@ -2573,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
+      <a href="../../../../2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure/" class="md-nav__link">
         How to Run Dirigible Anywhere - Microsoft Azure?
       </a>
     </li>
@@ -2587,7 +2743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/04/news-new-release-2-5/" class="md-nav__link">
+      <a href="../../../../2016/08/04/news-new-release-2-5/" class="md-nav__link">
         Release 2.5.160804-R
       </a>
     </li>
@@ -2601,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../08/01/blogs-why-enterprise-js/" class="md-nav__link">
+      <a href="../../../../2016/08/01/blogs-why-enterprise-js/" class="md-nav__link">
         Why Enterprise JavaScript?
       </a>
     </li>
@@ -2615,7 +2771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../06/17/news-dirigiblelabs/" class="md-nav__link">
+      <a href="../../../../2016/06/17/news-dirigiblelabs/" class="md-nav__link">
         Dirigible Labs is live!
       </a>
     </li>
@@ -2629,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/30/news-hackfmi7/" class="md-nav__link">
+      <a href="../../../../2016/05/30/news-hackfmi7/" class="md-nav__link">
         Brainstormers at HackFMI7
       </a>
     </li>
@@ -2643,7 +2799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/news-new-release-2-4/" class="md-nav__link">
+      <a href="../../../../2016/05/19/news-new-release-2-4/" class="md-nav__link">
         Release 2.4.160519-R
       </a>
     </li>
@@ -2657,7 +2813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
+      <a href="../../../../2016/05/19/blogs-web-sockets-and-osgi-in-servlet-container/" class="md-nav__link">
         WebSockets and Equinox OSGi in a Servlet Container
       </a>
     </li>
@@ -2671,7 +2827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
+      <a href="../../../../2016/04/18/fast-prototyping-in-front-of-your-customer/" class="md-nav__link">
         Fast Prototyping in Front of Your Customer - Presentation
       </a>
     </li>
@@ -2685,7 +2841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/17/news-new-release-2-3/" class="md-nav__link">
+      <a href="../../../../2016/03/17/news-new-release-2-3/" class="md-nav__link">
         Release 2.3.160317-R
       </a>
     </li>
@@ -2699,7 +2855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/08/eclipsecon/" class="md-nav__link">
+      <a href="../../../../2016/03/08/eclipsecon/" class="md-nav__link">
         Cloud Development with Dirigible in the Eyes of a Java-saurus - Presentation
       </a>
     </li>
@@ -2713,7 +2869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03/01/d-kom/" class="md-nav__link">
+      <a href="../../../../2016/03/01/d-kom/" class="md-nav__link">
         What is New in Dirigible @ d-kom Sofia 2016 - Presentation
       </a>
     </li>
@@ -2727,7 +2883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/26/blogs-understanding-dirigible/" class="md-nav__link">
+      <a href="../../../../2016/02/26/blogs-understanding-dirigible/" class="md-nav__link">
         Understanding Dirigible
       </a>
     </li>
@@ -2741,7 +2897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
+      <a href="../../../../2016/02/05/blogs-develop-from-mobile-for-mobile/" class="md-nav__link">
         Develop from Mobile for Mobile
       </a>
     </li>
@@ -2755,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02/03/news-new-release-2-2/" class="md-nav__link">
+      <a href="../../../../2016/02/03/news-new-release-2-2/" class="md-nav__link">
         Release 2.2.160203-R
       </a>
     </li>
@@ -2769,7 +2925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../26/news-docker/" class="md-nav__link">
+      <a href="../../../../2016/01/26/news-docker/" class="md-nav__link">
         Docker image for Dirigible
       </a>
     </li>
@@ -2781,118 +2937,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Developer - Repositories, repositories, repositories...
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../2016/01/21/blogs-repositories/" class="md-nav__link">
         Developer - Repositories, repositories, repositories...
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-repository" class="md-nav__link">
-    The Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#local-repository" class="md-nav__link">
-    Local Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#master-repository" class="md-nav__link">
-    Master Repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-options" class="md-nav__link">
-    Deployment Options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#single-persistent-instance" class="md-nav__link">
-    Single Persistent Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#single-non-persistence-instance" class="md-nav__link">
-    Single non-Persistence Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-non-persistence-instances" class="md-nav__link">
-    Multiple non-Persistence Instances
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#single-master-instance-and-multiple-slave-instances" class="md-nav__link">
-    Single Master Instance and Multiple Slave Instances
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-instances-with-git" class="md-nav__link">
-    Multiple Instances with Git
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configurations" class="md-nav__link">
-    Configurations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outlook" class="md-nav__link">
-    Outlook
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2904,7 +2953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../blogs-dirigible-custom-ds-3/" class="md-nav__link">
+      <a href="../../../../2016/01/21/blogs-dirigible-custom-ds-3/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
       </a>
     </li>
@@ -2918,7 +2967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../19/news-new-milestone-2-2-3/" class="md-nav__link">
+      <a href="../../../../2016/01/19/news-new-milestone-2-2-3/" class="md-nav__link">
         Milestone 2.2.160119-M3
       </a>
     </li>
@@ -2932,7 +2981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
+      <a href="../../../../2016/01/11/blogs-dirigible-custom-ds-2/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part II: Extending supported databases for custom data sources
       </a>
     </li>
@@ -2946,7 +2995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
+      <a href="../../../../2016/01/07/blogs-dirigible-custom-ds-1/" class="md-nav__link">
         BYODS (Bring Your Own Data Source) in Dirigible - Part I: Custom Data Sources setup
       </a>
     </li>
@@ -3569,78 +3618,125 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-repository" class="md-nav__link">
-    The Repository
+  <a href="#what-a-native-application-is" class="md-nav__link">
+    What a native application is
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#local-repository" class="md-nav__link">
-    Local Repository
+  <a href="#why-this-matters" class="md-nav__link">
+    Why this matters
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#master-repository" class="md-nav__link">
-    Master Repository
+  <a href="#anatomy-of-the-nativeapp-file" class="md-nav__link">
+    Anatomy of the *.nativeapp file
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-options" class="md-nav__link">
-    Deployment Options
+  <a href="#flavour-1-remote-applications" class="md-nav__link">
+    Flavour 1 — Remote applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Flavour 1 — Remote applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outbound-authentication" class="md-nav__link">
+    Outbound authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flavour-2-local-applications" class="md-nav__link">
+    Flavour 2 — Local applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Flavour 2 — Local applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sample" class="md-nav__link">
+    The sample
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-os-commands" class="md-nav__link">
+    Per-OS commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-resolution-prefer-then-allocate" class="md-nav__link">
+    Port resolution — prefer-then-allocate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-directory" class="md-nav__link">
+    Working directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-modes-lazy-vs-always" class="md-nav__link">
+    Start modes — lazy vs always
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inbound-auth-outbound-auth-and-exposed-paths" class="md-nav__link">
+    Inbound auth, outbound auth, and exposed paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-the-process" class="md-nav__link">
+    Stopping the process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-this" class="md-nav__link">
+    When to use this
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-persistent-instance" class="md-nav__link">
-    Single Persistent Instance
+  <a href="#try-it" class="md-nav__link">
+    Try it
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#single-non-persistence-instance" class="md-nav__link">
-    Single non-Persistence Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-non-persistence-instances" class="md-nav__link">
-    Multiple non-Persistence Instances
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#single-master-instance-and-multiple-slave-instances" class="md-nav__link">
-    Single Master Instance and Multiple Slave Instances
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-instances-with-git" class="md-nav__link">
-    Multiple Instances with Git
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configurations" class="md-nav__link">
-    Configurations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outlook" class="md-nav__link">
-    Outlook
+  <a href="#a-unified-surface-finally" class="md-nav__link">
+    A unified surface, finally
   </a>
   
 </li>
@@ -3661,7 +3757,7 @@
         <!-- Edit button -->
         
           <a
-            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2016/01/21/blogs-repositories.md"
+            href="https://github.com/dirigible-io/dirigible-io.github.io/edit/master/docs-blogs/docs/2026/06/02/dirigible-native-apps.md"
             title="Edit this page"
             class="md-content__button md-icon"
           >
@@ -3675,118 +3771,237 @@
           as the main headline.
         -->
         
-          <h1>Developer - Repositories, repositories, repositories...</h1>
+          <h1>Write It in Anything, Run It in Dirigible - Introducing Native Applications</h1>
         
 
         <!-- Markdown content -->
         
         <aside class="mdx-author">
             <p>
-            <img src="https://avatars.githubusercontent.com/delchev" alt="@delchev">
+            <img src="https://avatars.githubusercontent.com/iliyan-velichkov" alt="@iliyan-velichkov">
             </p>
             <p>
             <span> 
-            <b>Nedelcho Delchev</b> · <a href="https://github.com/delchev">@delchev</a>
+            <b>Iliyan Velichkov</b> · <a href="https://github.com/iliyan-velichkov">@iliyan-velichkov</a>
             </span>
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
                     <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-                  </svg> January 21, 2016 ·
+                  </svg> June 02, 2026 ·
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                  </svg> 7 min read
+                  </svg> 9 min read
             </span>
             </p>
         </aside>
         
 
-        <p>What exactly the term Repository means in the context of Dirigible?
-How it is related to my projects' life-cycle management?
-Is there a benefit to have the whole content in a single place?
-What is the difference between the Local and Master Repositories, and when to use them?</p>
-<h2 id="the-repository">The Repository</h2>
-<p>In Dirigible all projects artefacts, including the configurations are stored in a single file system like structure. This content can be easily transported from one instance to another as an archive file in ZIP format, using import/export capabilities. In addition there is a secured RESTful service, which can be used for external updates of the repository content from outside remotely via HTTP.</p>
-<h2 id="local-repository">Local Repository</h2>
-<p>The Repository running in a given instance of Dirigible is often referred as 'Local Repository' and plays the role of an operational source code storage. The analogy is the workspace directory in many desktop IDEs, such as Eclipse. When you create a project with files and folders inside, they are immediately reflected in the Local Repository. Having in mind this, the Local Repository has to be above all - fast.
-The default implementation used in Dirigible is File System based one. It means that Dirigible stores the projects artefacts in some root directory (default or pre-configured) on the very same instance where it runs. There is also a relational database backed implementation for a Local Repository, which can be useful in one of the deployment options described later.</p>
-<h2 id="master-repository">Master Repository</h2>
-<p>Another kind of Repository is the so called Master Repository. This is an immutable (read-only) content provider compliant with the IRepository API. The role of this repository is to supply the initial content comprising configurations and public registry (and also workspaces if any) during the bootstrap step of Dirigble's instance. This is actually a pull transfer, where the Dirigible is the active party.
-This approach gives the flexibility the Master Repository itself (as a passive party) to be implemented based on file system, Git repository or any relational database.</p>
+        <p>Eclipse Dirigible has always been a polyglot platform — but a <em>first-party</em> polyglot platform. You wrote your services in TypeScript, JavaScript, or <a href="../../../05/19/dirigible-java-decorators/">Java</a>, and Dirigible compiled, loaded, hot-reloaded, and ran them in-process. That's a beautiful experience for code that's <em>yours to write today</em> — as long as the code is in one of those three languages.</p>
+<p>Real systems are rarely that uniform. You may want to <strong>write a brand-new service in Python</strong>, or Go, or Rust, or .NET, because that's where the right library, the right ecosystem, or the right team is. You may want to <strong>integrate an existing application</strong> your team already runs — a Python ML model behind FastAPI, a Go gateway, a Node.js service that's been running for two years. You may want to <strong>plug in a third-party SaaS API</strong> — Stripe, Shopify, an internal hub — and have it look like a first-class Dirigible route to your front-end.</p>
+<p>Until today, the only way to integrate any of those was to push them to the perimeter — separate auth, separate deployment, separate routes for the client to know about, separate observability story. That perimeter has just collapsed.</p>
+<p>Meet <strong>native applications</strong>: a new Dirigible artefact type that brings <em>any</em> HTTP service — whether you wrote it this morning in your favourite non-JVM language, or it's been running somewhere else for years.</p>
+<blockquote>
+<p>Drop a <code>*.nativeapp</code> JSON file into your project. Dirigible reverse-proxies the upstream under a dedicated path, enforces your role-based access list, optionally injects authentication outbound, and — for local apps — spawns and supervises the process for you.</p>
+</blockquote>
 <hr />
-<h2 id="deployment-options">Deployment Options</h2>
-<h2 id="single-persistent-instance">Single Persistent Instance</h2>
-<p>This is the simplest option from the operations point of view deployment option. It includes a VM with persistent state, Java Web Container (e.g. Tomcat) and Dirigible "All-In-One" product (WAR file) deployed on it. It uses a file system based Local Repository and no Master Repository is configured in this case. This option applies to trial and local development scenarios. Still interaction with Git, as well as import/export functions are available and can be used.</p>
-<p><img src="/img/posts/repositories/single_persistent.png"/></p>
-<h2 id="single-non-persistence-instance">Single non-Persistence Instance</h2>
-<p>In this case we have a VM which doesn't keep its state after restart. We either have to mount a persistent file system to the image and configure a Local Repository, or we have to use a RDBMS based Local Repository connected to a remote (most likely "managed") relational database.</p>
-<p><img src="/img/posts/repositories/single_non_persistent.png"/></p>
-<h2 id="multiple-non-persistence-instances">Multiple non-Persistence Instances</h2>
-<p>In this case we have multiple transient VMs connected via the RDBMS based Local Repository to a single database schema. Changes to the content (e.g. during development) can be made from any of the VM instances. After the start of a new VM image it gets the most recent content like all the others in the pool and can be used right away for development or production. The load optimisation here is based only on the in-memory cache built-in the Local Repository.</p>
-<p><img src="/img/posts/repositories/multiple_non_persistent.png"/></p>
-<h2 id="single-master-instance-and-multiple-slave-instances">Single Master Instance and Multiple Slave Instances</h2>
-<p>If you want to have immutable production instances and a single or a few instances for development or support, you can choose this option. In this case the "development/support" instance(s) have direct connection (their Local Repository) to the "master" database schema or the "master" root directory (in case of a shared file system). All the other "production" instances have configured a Master Repository to the "master" source on one hand and a Local Repository configured as local file system based one on the other hand. This option gives the flexibility to have secure "production" instances where nobody has even theoretical possibility
-to break the "master" code base. At the same time to have a special instance(s) can be still accessed by different network access rules (e.g. internal access) for quick debugging and bug-fixing on the fly and on the very same environment.</p>
-<p><img src="/img/posts/repositories/master_slave.png"/></p>
-<h2 id="multiple-instances-with-git">Multiple Instances with Git</h2>
-<p>Another option similar to the previous one, is that you can configure the Master Repository to retrieve the content from a Git repository. This can be useful for "production-only” instances, which have to be immutable on one hand, and versioned on the other.</p>
-<p><img src="/img/posts/repositories/multiple_git.png"/></p>
-<h2 id="configurations">Configurations</h2>
-<p>Configurations parameters for the Repository components can be provided either as initial parameters
-for the DirigibleBridge servlet in the web.xml or as environment variables.</p>
-<p>For example to enable the default file-based Local Repository you can use the following snippet:</p>
-<div class="highlight"><pre><span></span><code>    <span class="cm">&lt;!-- Default Repository Provider --&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>repositoryProvider<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>org.eclipse.dirigible.repository.local.LocalRepositoryProvider<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
+<h2 id="what-a-native-application-is">What a native application is</h2>
+<p>A native application is a Dirigible artefact whose source is a single JSON file with the extension <code>.nativeapp</code>. It declares:</p>
+<ul>
+<li>A <strong>basePath</strong> — the segment users will hit under <code>/services/native-apps-proxy/v1/&lt;basePath&gt;/</code>.</li>
+<li>A <strong>kind</strong> — <code>remote</code> (an HTTP(S) endpoint Dirigible doesn't own) or <code>local</code> (an OS process Dirigible spawns and supervises).</li>
+<li>A <strong>security policy</strong> — which sub-paths are exposed, which Dirigible roles guard them, and (optionally) what authentication header to attach when forwarding to the upstream.</li>
+<li>For local apps, a <strong>lifecycle</strong> — start/stop commands per OS, and a start mode (<code>lazy</code> or <code>always</code>).</li>
+</ul>
+<p>Dirigible picks the file up the moment you publish it; the proxy starts serving requests the moment registration completes; lifecycle and authentication are wired in automatically.</p>
+<p>You write zero glue code.</p>
+<hr />
+<h2 id="why-this-matters">Why this matters</h2>
+<p>A few patterns that just got cheap:</p>
+<ul>
+<li><strong>Build new applications in any language.</strong> Dirigible's in-process engines speak TypeScript, JavaScript, and Java — but native applications let you write a brand-new service in Python, Go, Rust, .NET, or anything else that can serve HTTP, and still have it run as a first-class Dirigible artefact. Pick the language because it has the right library, the right performance profile, or the right team behind it — not because the platform forces your hand.</li>
+<li><strong>Polyglot microservices on the same platform.</strong> A Python service for ML, a Go service for protocol bridges, a Rust service on a hot path, a Node service for everything else — Dirigible spawns them, supervises them, and exposes them all under the same <code>/services</code> namespace as your TypeScript routes and Java controllers.</li>
+<li><strong>SaaS APIs as managed artefacts.</strong> A <code>remote</code> native app turns Stripe / GitHub / Slack / your internal hub into a Dirigible-resident route. Outbound auth lives in the artefact (resolved from environment, so secrets stay out of Git); inbound auth is your normal Dirigible auth; role-based access controls who in your tenant can call it. The browser code calls the proxy path and never sees the API key.</li>
+<li><strong>Lift-and-shift, not rewrite.</strong> Got an existing Node/Python/Go service that runs perfectly well today? Drop a <code>.nativeapp</code> next to it and it becomes a first-class Dirigible artefact — same auth, same logs, same proxy, no code change to the service itself.</li>
+<li><strong>Same artefact lifecycle as everything else.</strong> Publish the <code>.nativeapp</code> → registered. Edit it → re-registered. Delete it → unregistered, child process stopped, database row gone. No separate deploy pipeline.</li>
+</ul>
+<hr />
+<h2 id="anatomy-of-the-nativeapp-file">Anatomy of the <code>*.nativeapp</code> file</h2>
+<p>Every native app — local or remote — shares the same top-level shape:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;name&quot;: &quot;my-app&quot;,            // unique artefact name
+  &quot;description&quot;: &quot;...&quot;,
+  &quot;basePath&quot;: &quot;my-app&quot;,        // segment under /services/native-apps-proxy/v1/
+  &quot;type&quot;: &quot;remote&quot;,            // or &quot;local&quot;
+  &quot;config&quot;: { /* kind-specific */ }
+}
 </code></pre></div>
-<p>In case you want to use the database Local Repository you can use the following provider instead:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="n">org</span><span class="p">.</span><span class="na">eclipse</span><span class="p">.</span><span class="na">dirigible</span><span class="p">.</span><span class="na">repository</span><span class="p">.</span><span class="na">db</span><span class="p">.</span><span class="na">DBRepositoryProvider</span><span class="w"></span>
+<p>The two flavours diverge under <code>config</code>. We'll start with the simpler one.</p>
+<hr />
+<h2 id="flavour-1-remote-applications">Flavour 1 — Remote applications</h2>
+<p>A remote native app declares an existing HTTP(S) URL Dirigible should reverse-proxy. Dirigible doesn't own the process; it just stands in front of it, enforcing your auth and role policy.</p>
+<p><strong>Use cases:</strong> third-party SaaS APIs, internal services in another cluster, anything that already speaks HTTP and isn't moving.</p>
+<p><strong>The minimal config:</strong></p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;name&quot;: &quot;sample-remote-native-app&quot;,
+  &quot;description&quot;: &quot;Reverse-proxy the public httpbin.org API under /services/native-apps-proxy/v1/http-bin/.&quot;,
+  &quot;basePath&quot;: &quot;http-bin&quot;,
+  &quot;type&quot;: &quot;remote&quot;,
+  &quot;config&quot;: {
+    &quot;url&quot;: &quot;https://httpbin.org&quot;,
+    &quot;security&quot;: {
+      &quot;authentication&quot;: null,
+      &quot;exposedPaths&quot;: [
+        { &quot;path&quot;: &quot;/&quot;, &quot;scopes&quot;: [&quot;http-bin&quot;] }
+      ]
+    }
+  }
+}
 </code></pre></div>
-<p>The corresponding database Master Repository can be enabled by:</p>
-<div class="highlight"><pre><span></span><code>    <span class="cm">&lt;!-- Default Repository Provider Master (used for Initial Load or Reset) --&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>repositoryProviderMaster<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>org.eclipse.dirigible.repository.db.DBMasterRepositoryProvider<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
+<p>That's the entire artefact. Three things happen the moment you publish it:</p>
+<ol>
+<li>The basePath <code>http-bin</code> gets registered. From this point, requests to <code>/services/native-apps-proxy/v1/http-bin/...</code> are routed to this app.</li>
+<li>The exposed-paths whitelist is applied. <code>path: "/"</code> is a prefix that matches everything below, so the whole upstream API is reachable — but only to users holding the <strong><code>http-bin</code></strong> Dirigible role.</li>
+<li>Outbound <code>authentication</code> is optional. With <code>authentication: null</code> (or omitted entirely), no <code>Authorization</code> header is attached to forwarded requests — appropriate here because <code>httpbin.org</code> is anonymous. Set it when the upstream needs credentials.</li>
+</ol>
+<p>The companion <code>roles.roles</code> file in the same project declares the role:</p>
+<div class="highlight"><pre><span></span><code>[
+  {
+    &quot;name&quot;: &quot;http-bin&quot;,
+    &quot;description&quot;: &quot;Permission to call the httpbin.org upstream via the native-app proxy.&quot;
+  }
+]
 </code></pre></div>
-<p>and with Git-based Mater Repository:</p>
-<div class="highlight"><pre><span></span><code>    <span class="cm">&lt;!-- Default Repository Provider Master (used for Initial Load or Reset) --&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>repositoryProviderMaster<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>org.eclipse.dirigible.repository.db.GitMasterRepositoryProvider<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
+<p>Try it after publishing and assigning the role:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 200 OK — proxied to https://httpbin.org/get</span>
+curl -u admin:admin http://localhost:8080/services/native-apps-proxy/v1/http-bin/get
 
-    <span class="cm">&lt;!-- Master Repository parameters - Git based --&gt;</span>
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>masterRepositoryGitTarget<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>master_git_repository<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
+<span class="c1"># 403 Forbidden — user is authenticated but lacks the http-bin role</span>
+curl -u guest:guest http://localhost:8080/services/native-apps-proxy/v1/http-bin/get
 
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>masterRepositoryGitLocation<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>https://xxx<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>masterRepositoryGitUser<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>{git.user}<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>masterRepositoryGitPassword<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>{git.password}<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
-
-    <span class="nt">&lt;init-param&gt;</span>
-        <span class="nt">&lt;param-name&gt;</span>masterRepositoryGitBranch<span class="nt">&lt;/param-name&gt;</span>
-        <span class="nt">&lt;param-value&gt;</span>{git.branch}<span class="nt">&lt;/param-value&gt;</span>
-    <span class="nt">&lt;/init-param&gt;</span>
+<span class="c1"># 404 Not Found — path is outside the whitelist</span>
+curl -u admin:admin http://localhost:8080/services/native-apps-proxy/v1/other-app/get
 </code></pre></div>
-<h2 id="outlook">Outlook</h2>
-<p>Following the concepts of Repositories - Local and Master ones, the obvious path ahead is implementation of more production-ready connectors to different data storages e.g. NoSQL such as MongoDB or OrientDB, Cloud storage services e.g. Amazon S3, Google Cloud Storage, etc. Of course, this leaves somehow the responsibility of the security, integrity, high-availability, disaster recovery and the other important capabilities of the content Repository to the low level implementation of the data storage, but at the end this is how it should be, isn't it?</p>
+<p>GitHub sample: <a href="https://github.com/dirigiblelabs/sample-remote-native-app"><strong>dirigiblelabs/sample-remote-native-app</strong></a></p>
+<h3 id="outbound-authentication">Outbound authentication</h3>
+<p><code>httpbin.org</code> is anonymous, but real upstreams aren't. Drop a basic-auth block in and Dirigible attaches <code>Authorization: Basic …</code> to every outbound request:</p>
+<div class="highlight"><pre><span></span><code>&quot;authentication&quot;: {
+  &quot;type&quot;: &quot;basic&quot;,
+  &quot;credentials&quot;: {
+    &quot;user&quot;: &quot;${MY_API_USER}.{default-user}&quot;,
+    &quot;password&quot;: &quot;${MY_API_PASS}.{default-pass}&quot;
+  }
+}
+</code></pre></div>
+<p>The <code>${KEY}.{DEFAULT}</code> syntax is the same placeholder Dirigible already uses for Jobs and other artefacts: resolve <code>MY_API_USER</code> from the environment, fall back to the literal in <code>{…}</code> if unset. Secrets stay out of Git; the file checks in safely.</p>
+<p>Basic auth is what ships today, but the mechanism is pluggable — the <code>type</code> field is the extension point. Additional schemes (bearer tokens, API keys, OAuth, …) can be added with minimal effort as the need arises.</p>
+<p><strong>Inbound vs outbound is decoupled.</strong> Your browser code authenticates against Dirigible normally (whatever session / OAuth / OIDC you have wired up). Dirigible <em>then</em> attaches the outbound credentials on the way to the upstream. The client never sees them.</p>
+<hr />
+<h2 id="flavour-2-local-applications">Flavour 2 — Local applications</h2>
+<p>A local native app is more ambitious: Dirigible <strong>spawns</strong> the OS process for you, picks a free port, exports that port to the child as an environment variable, polls until it's ready, and from then on supervises it (with optional auto-restart). When the artefact is deleted or the platform shuts down, the process is stopped — gracefully if possible, forcibly if not.</p>
+<p><strong>Use cases:</strong> Run a Node / Python / Go / .NET / Rust service <em>on the same host</em> as Dirigible, owned by the platform, secured by the platform, restarted by the platform.</p>
+<h3 id="the-sample">The sample</h3>
+<p><a href="https://github.com/dirigiblelabs/sample-library-local-native-app"><strong>dirigiblelabs/sample-library-local-native-app</strong></a> is a small library-management REST service. The service itself isn't important here — the important part is that it's a real, idiomatic Node.js project, and the entire integration with Dirigible is one JSON file in the repo root:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;name&quot;: &quot;sample-library-local-native-app&quot;,
+  &quot;description&quot;: &quot;Sample library REST service (Fastify + Zod) exposed as a Dirigible-managed local native application.&quot;,
+  &quot;basePath&quot;: &quot;library-native-app-nodejs&quot;,
+  &quot;type&quot;: &quot;local&quot;,
+  &quot;config&quot;: {
+    &quot;defaultPort&quot;: 8080,
+    &quot;lifecycle&quot;: {
+      &quot;start&quot;: {
+        &quot;mode&quot;: &quot;lazy&quot;,
+        &quot;commands&quot;: [
+          {
+            &quot;os&quot;: &quot;mac&quot;,
+            &quot;executable&quot;: &quot;sh&quot;,
+            &quot;arguments&quot;: [
+              { &quot;name&quot;: &quot;-c&quot;, &quot;value&quot;: &quot;npm install --silent --no-audit --no-fund &amp;&amp; exec npm run build:start -- \&quot;$@\&quot;&quot; },
+              { &quot;name&quot;: &quot;sample-library-local-native-app&quot;, &quot;value&quot;: &quot;&quot; },
+              { &quot;name&quot;: &quot;--library-address&quot;, &quot;value&quot;: &quot;42 Wallaby Way, Sydney&quot; },
+              { &quot;name&quot;: &quot;--library-phone&quot;, &quot;value&quot;: &quot;+61-2-9999-0042&quot; }
+            ]
+          },
+          { &quot;os&quot;: &quot;linux&quot;,   &quot;executable&quot;: &quot;sh&quot;,      &quot;arguments&quot;: [/* same as mac */] },
+          { &quot;os&quot;: &quot;windows&quot;, &quot;executable&quot;: &quot;cmd.exe&quot;, &quot;arguments&quot;: [/* npm install &amp;&amp; npm run build:start ... */] }
+        ]
+      },
+      &quot;stop&quot;: {
+        &quot;commands&quot;: [
+          { &quot;os&quot;: &quot;mac&quot;,     &quot;executable&quot;: &quot;sh&quot;,      &quot;arguments&quot;: [{ &quot;name&quot;: &quot;-c&quot;, &quot;value&quot;: &quot;npm stop&quot; }] },
+          { &quot;os&quot;: &quot;linux&quot;,   &quot;executable&quot;: &quot;sh&quot;,      &quot;arguments&quot;: [{ &quot;name&quot;: &quot;-c&quot;, &quot;value&quot;: &quot;npm stop&quot; }] },
+          { &quot;os&quot;: &quot;windows&quot;, &quot;executable&quot;: &quot;cmd.exe&quot;, &quot;arguments&quot;: [{ &quot;name&quot;: &quot;/c&quot;, &quot;value&quot;: &quot;npm run stop:win&quot; }] }
+        ]
+      }
+    },
+    &quot;security&quot;: {
+      &quot;authentication&quot;: {
+        &quot;type&quot;: &quot;basic&quot;,
+        &quot;credentials&quot;: {
+          &quot;user&quot;: &quot;${SAMPLE_APP_USER}.{admin}&quot;,
+          &quot;password&quot;: &quot;${SAMPLE_APP_PASS}.{admin}&quot;
+        }
+      },
+      &quot;exposedPaths&quot;: [
+        { &quot;path&quot;: &quot;/rest/api/v1&quot;, &quot;scopes&quot;: [&quot;library-admin&quot;] }
+      ]
+    }
+  }
+}
+</code></pre></div>
+<p>There's a lot in there. Let's walk through it.</p>
+<h3 id="per-os-commands">Per-OS commands</h3>
+<p>Each entry under <code>lifecycle.start.commands</code> is tagged with <code>os</code> (one of <code>mac</code> / <code>linux</code> / <code>windows</code>). Dirigible picks the right entry for the host it's running on.</p>
+<p>This keeps the artefact portable: ship one <code>.nativeapp</code> file, and the same project runs on a developer's Mac, a CI Linux box, and a Windows production server. No build-time scripting.</p>
+<h3 id="port-resolution-prefer-then-allocate">Port resolution — prefer-then-allocate</h3>
+<p><code>defaultPort: 8080</code> is a <em>preference</em>, not a contract. Dirigible probes the declared port first; if it's free, the process gets it. Either way, <strong>the resolved port is exported to the child process as <code>DIRIGIBLE_NATIVE_APP_PORT</code></strong> — and the child must read it rather than hardcode a port.</p>
+<p>This decoupling is what lets two native apps coexist on the same host without manual port management. They both prefer 8080? Fine: the first to start gets it, the second falls back to an ephemeral.</p>
+<h3 id="working-directory">Working directory</h3>
+<p><code>command.dir</code> is optional and resolves <em>relative to the project root</em> (<code>&lt;registry&gt;/&lt;project&gt;/</code>). Omit it and the command runs in the project root. Set <code>"dir": "apps/server"</code> and it runs in <code>&lt;project&gt;/apps/server/</code> — handy when the runtime code lives in a subfolder of a larger project.</p>
+<h3 id="start-modes-lazy-vs-always">Start modes — <code>lazy</code> vs <code>always</code></h3>
+<ul>
+<li><strong><code>lazy</code></strong> (the sample's choice). The process starts on the <em>first</em> proxy request to its basePath. Cold-start cost lands on whoever's poking first; the platform sleeps the rest of the time. Best for development, ad-hoc tools, and services that aren't called often.</li>
+<li><strong><code>always</code></strong>. The process starts when Dirigible itself becomes ready, and a built-in monitor job (configurable interval via <code>DIRIGIBLE_NATIVE_APP_MONITOR_INTERVAL_SECONDS</code>, default 30 s) restarts it if it dies. Best for production paths that should always be hot.</li>
+</ul>
+<p>Both modes go through the same readiness probe: after spawn, Dirigible polls the chosen loopback port every 200 ms until the process is accepting connections, with a configurable timeout (<code>DIRIGIBLE_NATIVE_APP_READY_TIMEOUT_MS</code>, default 30 s — bump it for first-run <code>npm install</code> cold starts).</p>
+<h3 id="inbound-auth-outbound-auth-and-exposed-paths">Inbound auth, outbound auth, and exposed paths</h3>
+<p>Two security mechanisms operate independently:</p>
+<ul>
+<li>
+<p><strong><code>security.exposedPaths</code></strong> is a <em>whitelist with role scopes</em>. Only <code>/rest/api/v1</code> is exposed under the basePath. The whitelist also requires the caller to hold the <code>library-admin</code> role — <code>403</code> otherwise.</p>
+</li>
+<li>
+<p><strong><code>security.authentication</code></strong> is <em>outbound</em>. Dirigible attaches <code>Authorization: Basic …</code> to every forwarded request, with credentials resolved from environment via <code>${SAMPLE_APP_USER}.{admin}</code> / <code>${SAMPLE_APP_PASS}.{admin}</code>. The browser caller never sees those credentials — they're a Dirigible-internal concern.</p>
+</li>
+</ul>
+<h3 id="stopping-the-process">Stopping the process</h3>
+<p>In most cases you don't have to think about stopping at all. When the app is deleted or Dirigible shuts down, the platform stops the process for you — gracefully, and forcefully if it doesn't exit on its own. Most servers handle that cleanly without any extra configuration.</p>
+<p>If you'd like to run your own stop logic — say, to flush a cache or notify a peer before exiting — you can declare a <code>lifecycle.stop</code> command. The sample includes one as a reference.</p>
+<p>GitHub sample: <a href="https://github.com/dirigiblelabs/sample-library-local-native-app"><strong>dirigiblelabs/sample-library-local-native-app</strong></a></p>
+<hr />
+<h2 id="when-to-use-this">When to use this</h2>
+<p>Native applications are the right tool when:</p>
+<ul>
+<li>You have an existing HTTP service (yours or third-party) that you want inside the Dirigible perimeter without rewriting.</li>
+<li>You need polyglot — a Python ML stage, a Go bridge, a Rust hot path — alongside Dirigible's TypeScript and Java surface.</li>
+<li>You want unified auth, unified RBAC, and unified observability for a service that doesn't <em>fit</em> the in-process model.</li>
+<li>You want managed start/stop/restart of a sidecar process without writing systemd units.</li>
+</ul>
+<hr />
+<h2 id="try-it">Try it</h2>
+<ol>
+<li><strong>Remote</strong> — clone <a href="https://github.com/dirigiblelabs/sample-remote-native-app"><code>dirigiblelabs/sample-remote-native-app</code></a> into a running Dirigible instance via the Git perspective. Publish. Assign the <code>http-bin</code> role to a user. Hit <code>/services/native-apps-proxy/v1/http-bin/get</code>.</li>
+<li><strong>Local</strong> — clone <a href="https://github.com/dirigiblelabs/sample-library-local-native-app"><code>dirigiblelabs/sample-library-local-native-app</code></a>. Publish. Assign the <code>library-admin</code> role. Hit <code>/services/native-apps-proxy/v1/library-native-app-nodejs/rest/api/v1/books</code>. Watch Dirigible spawn the Node process on the first request and proxy through.</li>
+</ol>
+<p>Both projects ship with <code>roles.roles</code> and <code>project.json</code> alongside their <code>.nativeapp</code> file. Both are real, runnable samples.</p>
+<hr />
+<h2 id="a-unified-surface-finally">A unified surface, finally</h2>
+<p>Dirigible's strength has always been integration density. Native applications take the last category of "code that ran somewhere else" and pull it in.</p>
+<p>Write in any language. Run in-process or out-of-process. Local or remote. Lazy or always. Spawn-and-supervise or just-proxy. One JSON file, one consistent model.</p>
+<p>The polyglot story just got a lot better.</p>
+<p>Give the samples a spin, drop a <code>.nativeapp</code> next to your own service, and let us know how it goes.</p>
 
         <!-- Last update of source file -->
         
@@ -3811,7 +4026,7 @@ for the DirigibleBridge servlet in the web.xml or as environment variables.</p>
 	
 		<nav class="md-footer__inner md-grid" aria-label="Footer">
 			
-				<a href="../../26/news-docker/" class="md-footer__link md-footer__link--prev" rel="prev">
+				<a href="../../../.." class="md-footer__link md-footer__link--prev" rel="prev">
 					<div class="md-footer__button md-icon">
 					  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
 					</div>
@@ -3820,19 +4035,19 @@ for the DirigibleBridge servlet in the web.xml or as environment variables.</p>
 							<span class="md-footer__direction">
 								Previous
 							</span>
-							Docker image for Dirigible			
+							Blog			
 						</div>
 					</div>
 				</a>
     		
 			
-				<a href="../blogs-dirigible-custom-ds-3/" class="md-footer__link md-footer__link--next" rel="next">
+				<a href="../../../05/19/dirigible-java-decorators/" class="md-footer__link md-footer__link--next" rel="next">
 					<div class="md-footer__title">
 						<div class="md-ellipsis">
 							<span class="md-footer__direction">
 								Next
 							</span>
-							BYODS (Bring Your Own Data Source) in Dirigible - Part III: MongoDB custom data source
+							Return of the Java - Decorators Awaken in Eclipse Dirigible
 						</div>
 					</div>
 					<div class="md-footer__button md-icon">

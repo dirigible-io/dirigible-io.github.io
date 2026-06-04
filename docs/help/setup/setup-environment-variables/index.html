@@ -1637,6 +1637,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#native-applications" class="md-nav__link">
+    Native Applications
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3564,6 +3571,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#native-applications" class="md-nav__link">
+    Native Applications
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5102,6 +5116,33 @@ To find more details about the Keycloak configuration go to <a href="https://www
 <td><strong>DIRIGIBLE_SFTP_PORT</strong></td>
 <td>The SFTP server port</td>
 <td><em><code>8022</code></em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="native-applications">Native Applications</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DIRIGIBLE_NATIVE_APP_READY_TIMEOUT_MS</strong></td>
+<td>Milliseconds the platform waits for a started local native-app process to start accepting TCP connections before declaring it failed. Increase it for apps with a slow first start <em>(e.g. <code>npm install</code> on first run)</em></td>
+<td><em><code>30000</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_NATIVE_APP_MONITOR_INTERVAL_SECONDS</strong></td>
+<td>Interval (seconds) between ticks of the system job that keeps <code>always</code>-mode local native apps alive and restarts dead ones</td>
+<td><em><code>30</code></em></td>
+</tr>
+<tr>
+<td><strong>DIRIGIBLE_NATIVE_APP_REGISTRY_TTL_SECONDS</strong></td>
+<td>Time-to-live (seconds) for the native-app proxy lookup cache</td>
+<td><em><code>60</code></em></td>
 </tr>
 </tbody>
 </table>
