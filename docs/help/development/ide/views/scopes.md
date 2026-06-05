@@ -15,4 +15,5 @@ More info about the type of the artifacts you can find in [Artifacts](../../../a
 
 * [Scopes Editor](../editor-scopes)
 * [Roles View](./roles)
-* [Access View](./access) :::
+* [Access View](./access)
+:::

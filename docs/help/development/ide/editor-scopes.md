@@ -127,4 +127,5 @@ Scope-to-role mapping is applied by the OAuth2 resource-server security configur
 * [Access Editor](./editor-access)
 * [Scopes View](./views/scopes)
 * [Roles View](./views/roles)
-* [Artifacts Overview](../artifacts/) :::
+* [Artifacts Overview](../artifacts/)
+:::
