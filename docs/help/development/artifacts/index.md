@@ -22,6 +22,7 @@ Artifacts Overview
 
   - [*.access](https://github.com/eclipse/dirigible/blob/master/components/engine/engine-security/src/test/resources/META-INF/dirigible/test/test.access) - security constraints file. It defines the access permissions for the given endpoints.
   - [*.role](https://github.com/eclipse/dirigible/blob/master/components/engine/engine-security/src/test/resources/META-INF/dirigible/test/test.role) - roles definition file.
+  - [*.scopes](https://github.com/eclipse/dirigible/blob/master/components/engine/engine-security/src/test/resources/META-INF/dirigible/test/test.scopes) - scope-to-role mapping file. It maps OAuth2 (machine-to-machine) scopes to one or more Dirigible roles.
 
 
 ### Flows
