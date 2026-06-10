@@ -1,32 +1,31 @@
 ---
-title: Welcome to Eclipse Dirigible Documentation
+title: Documentation
+description: Eclipse Dirigible — high-productivity application platform. Install, understand, build, operate, extend.
 ---
 
-# Welcome to Eclipse Dirigible Documentation
+# Eclipse Dirigible Documentation
 
-Eclipse Dirigible™ is a High-Productivity Application Platform that provides development tools and a runtime environment. It supports the full development lifecycle of applications by leveraging an in-system programming model and rapid application development techniques.
+Welcome to the **Eclipse Dirigible** documentation. Dirigible is a high-productivity application platform — a single runtime that bundles an in-browser IDE, multi-language execution engines, BPM, messaging, and a JDBC data layer.
 
-## Getting Started
+## Start here
 
-- [Development Guide](/help/development/) — Start building your first Eclipse Dirigible application
-- [Tutorials](/help/tutorials/application-development/bookstore/) — Step-by-step guides for common use cases
-- [Setup](/help/setup/) — Deploy Dirigible on Tomcat, Docker, or Kubernetes
+- **[Get Started](/help/get-started/)** — install Dirigible, log in, and build your first endpoint.
+- **[Concepts](/help/concepts/)** — read these once; everything else makes more sense afterwards.
+- **[IDE](/help/ide/)** — the in-browser workbench, perspectives, editors, and modelers.
+- **[Develop](/help/develop/)** — building applications with the decorator-driven model.
+- **[Artefacts](/help/artefacts/)** — every file extension and what the platform does with it.
 
-## Platform Overview
+## Going further
 
-- [Features](/help/overview/features) — Explore the full feature set
-- [Architecture](/help/overview/architecture) — Understand the platform architecture
-- [IDE](/help/development/ide/) — Learn about the in-browser development environment
-- [Engines](/help/overview/engines) — JavaScript, TypeScript, Java, BPM, and more
+- **[Tutorials](/help/tutorials/)** — step-by-step exercises.
+- **[Setup](/help/setup/)** — Docker, Kubernetes, Cloud Foundry, native image.
+- **[Operate](/help/operate/)** — observability, multi-tenancy, troubleshooting.
+- **[Extend](/help/extend/)** — author new perspectives, synchronizers, engines, and APIs.
+- **[Reference](/help/reference/)** — HTTP endpoints, ports, environment variables, glossary.
+- **[Contributing](/help/contributing/)** — building from source, code style, community.
 
-## Reference
+## SDK references
 
-- [SDKs Reference](/sdks/) — TypeScript/JavaScript and Java SDK documentation
-- [Environment Variables](/help/setup/setup-environment-variables) — All configuration options
-- [FAQ](/help/overview/faq) — Frequently asked questions
-
-## Community
-
-- [Community](/help/community) — Get involved with the Eclipse Dirigible community
-- [GitHub](https://github.com/eclipse/dirigible) — Source code and issue tracker
-- [Slack](https://slack.dirigible.io) — Chat with the community
+- **[Eclipse Dirigible SDKs](/sdks/)** — the combined landing page.
+  - **[TypeScript / JavaScript SDK](/api/)** — `@aerokit/sdk/*`
+  - **[Java SDK](/sdk/)** — `org.eclipse.dirigible.sdk.*`
