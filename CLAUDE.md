@@ -62,7 +62,10 @@ npm run docs:preview # preview built site → http://localhost:8080
 │   │   └── img/logo/                     # dirigible.svg (yellow) + PNG variants
 │   ├── images/                           # shared image dir (relative-path resolves here)
 │   ├── help/                             # 113 doc pages (from old docs-help)
-│   ├── api/                              # 129 SDK pages (from codbex/aerokit June 2026)
+│   ├── sdks/                             # combined SDKs landing page (single index.md)
+│   │   └── index.md                      # describes both SDKs, links to /api/ and /sdk/
+│   ├── api/                              # TypeScript/JavaScript SDK — 129 pages (from codbex/aerokit)
+│   ├── sdk/                              # Java SDK — 105 pages (org.eclipse.dirigible.sdk.*)
 │   ├── blogs/                            # ~103 posts (YYYY/MM/DD/slug.md)
 │   │   └── index.md                      # blog listing
 │   └── releases/                         # 59 release notes (4 new for v10–v13)
@@ -80,14 +83,29 @@ npm run docs:preview # preview built site → http://localhost:8080
 ## Navigation & sidebars
 
 ```
-Home | Documentation (/help/) | API (/api/) | Blog (/blogs/) | More ▾
-                                                              ├ Releases (/releases/)
-                                                              ├ Downloads (external)
-                                                              └ GitHub (external)
+Home | Documentation (/help/) | SDK (/sdks/) | Blog (/blogs/) | More ▾
+                                                                ├ Releases (/releases/)
+                                                                ├ Downloads (external)
+                                                                └ GitHub (external)
 ```
 
+- The single top-nav **SDK** entry intentionally points at `/sdks/` (the combined overview), not at `/api/` or `/sdk/`. The overview page is the canonical landing for "the SDK" — it briefs the polyglot model and links to both language-specific indexes.
 - `helpSidebar()` in `config.mts` — full nested structure mirroring the legacy MkDocs nav.
-- `apiSidebar()` in `config.mts` — matches `codbex/aerokit` modules (`@aerokit/sdk/http`, `@aerokit/sdk/db`, etc.), full submodule listings.
+- `apiSidebar()` in `config.mts` — matches `codbex/aerokit` modules (`@aerokit/sdk/http`, `@aerokit/sdk/db`, etc.), full submodule listings. Mounted at `/api/`.
+- `sdkSidebar()` in `config.mts` — Java SDK packages (`org.eclipse.dirigible.sdk.http`, `org.eclipse.dirigible.sdk.db`, etc.), one collapsible group per module. Mounted at `/sdk/`.
+- `/sdks/` itself has no sidebar — it's a single landing page with side-by-side cards for each SDK.
+
+## SDK organisation
+
+The two SDKs are siblings, not parent/child:
+
+- **`/api/`** — TypeScript/JavaScript SDK (Aerokit). Imports `@aerokit/sdk/*`. The original SDK.
+- **`/sdk/`** — Java SDK. Imports `org.eclipse.dirigible.sdk.*`. Same capabilities, written in Java; sources live in `dirigible/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/`.
+- **`/sdks/`** — Combined overview only. Links to both SDK indexes plus their Get Started pages.
+
+Framing rule: both SDKs are first-class surfaces of Dirigible's polyglot runtime — they share the in-process platform services, the same broker, the same data sources, the same security context. **Do not frame the Java SDK as "a mirror of the TypeScript SDK"** (that language was scrubbed). When cross-language symmetry matters factually (e.g. cross-runtime cache visibility), describe it as a property of the platform, not as one SDK copying another.
+
+Old "API" landing-page references throughout the site (home, `/help/`, blogs, releases) now point to `/sdks/`. Deep TS-SDK module links (e.g. `/api/messaging/consumer/`, `/api/http/rs/`) were intentionally left pointing at `/api/` because those URLs still resolve to the right pages.
 
 ## Post header injection
 
@@ -151,6 +169,7 @@ VitePress resolves relative image paths from the **filesystem path** of the mark
 4. **MkDocs tab syntax** (`=== "Tab Name"`) — not supported. A few legacy posts still use this; either remove or rewrite.
 5. **Jinja2/MkDocs template content** — wrap body in `<div v-pre>...</div>` immediately after frontmatter to prevent Vue evaluation. The post about Material for MkDocs blogging needs this.
 6. **`{{ }}` escape script will corrupt listing pages** (`blogs/index.md`, `releases/index.md`) if re-run. Rewrite listings from scratch after any bulk escape pass.
+7. **Mustache `{{` and `}}` inside inline backticks still trip Vue's tokenizer.** Counter-intuitively, ``` `{{` ``` and ``` `}}` ``` in the same paragraph break the build with `Error parsing JavaScript expression`. Workaround: phrase the prose without the literal braces (e.g. "double curly braces"); braces inside fenced code blocks are fine.
 
 ## External assets loaded via CDN
 
@@ -200,6 +219,17 @@ This list captures the changes made in the June 2026 migration session so the ra
 11. **Two new blog posts migrated** from the legacy `dirigible-io.github.io` repo: `2026/05/19/dirigible-java-decorators.md` and `2026/06/02/dirigible-native-apps.md`. Images for the first already present at `docs/images/decorators/`.
 12. **Cross-repo move** — content moved into this repo on the `vitepress-migration` branch. PR #126 squash-merged into `master`. Old Jekyll/MkDocs scaffolding deleted in the same PR.
 13. **Pages source flipped** to `build_type: workflow`. CNAME wiped as a side-effect; restored via `gh api -X PUT ... -f cname=www.dirigible.io`. First artifact had stale apex routing; re-running `deploy.yaml` fixed it. All 5 top-level routes verified 200.
+
+## Session log (Java SDK + combined SDKs overview, June 2026)
+
+Subsequent work after the initial migration.
+
+1. **Java SDK added at `/sdk/`** — 105 pages mirroring `dirigible/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/*`. One subdirectory per Java package (`http/`, `db/`, `core/`, `bpm/`, `io/`, `utils/`, `platform/`, `messaging/`, `kafka/`, `rabbitmq/`, `cms/`, `etcd/`, `mongodb/`, `redis/`, `qldb/`, `pdf/`, `extensions/`, `git/`, `indexing/`, `integrations/`, `template/`, `security/`, `component/`, `job/`, `mail/`, `net/`, `log/`, `junit/`, `cache/`). Per-module `index.md` plus one page per class; annotations grouped into a `decorators.md` per module.
+2. **`sdkSidebar()` added to `config.mts`**, mounted at `/sdk/`. Format mirrors `apiSidebar()` — one collapsible group per `org.eclipse.dirigible.sdk.*` package.
+3. **Combined overview at `/sdks/index.md`** — describes the polyglot model, two cards (TypeScript/JavaScript → `/api/`, Java → `/sdk/`), pick-a-language table, shared development model. No sidebar.
+4. **Top nav restructured** — removed standalone `API` and `SDK` entries; replaced with a single `SDK → /sdks/` entry.
+5. **TS-mirror language scrubbed** from every `/sdk/` page. "Mirror of the TypeScript SDK", "same shape as the TS surface", "TS / JS handler", "@aerokit/sdk" cross-references, "TS/JS script" all rewritten in terms of the platform's polyglot runtime.
+6. **Landing-page `/api/` references redirected to `/sdks/`** across the home page, `/help/index.md`, `/help/development/index.md`, two release notes, and six blog posts. Deep TS-SDK page links (e.g. `/api/messaging/consumer/`) intentionally left alone.
 
 ## Known issues / TODO
 
