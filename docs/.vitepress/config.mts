@@ -300,6 +300,7 @@ function helpSidebar() {
         { text: 'CSV Editor', link: '/help/development/ide/editor-csv' },
         { text: 'CSVIM Editor', link: '/help/development/ide/editor-csvim' },
         { text: 'Monaco Editor', link: '/help/development/ide/editor-monaco' },
+        { text: 'Scopes Editor', link: '/help/development/ide/editor-scopes' },
         {
           text: 'Modelers',
           collapsed: true,
@@ -340,6 +341,7 @@ function helpSidebar() {
             { text: 'Projects', link: '/help/development/ide/views/projects' },
             { text: 'Registry', link: '/help/development/ide/views/registry' },
             { text: 'Repository', link: '/help/development/ide/views/repository' },
+            { text: 'Scopes', link: '/help/development/ide/views/scopes' },
             { text: 'Search', link: '/help/development/ide/views/search' },
             { text: 'Terminal', link: '/help/development/ide/views/terminal' },
           ],
