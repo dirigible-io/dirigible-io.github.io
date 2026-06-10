@@ -105,6 +105,6 @@ Using Eclipse Dirigible, you can achieve multitenancy with **zero effort** from 
 **Enjoy low-code development using Eclipse Dirigible like never before!**
 
 ### Resources
-- [Dirigible API documentation](https://www.dirigible.io/api/)
+- [Dirigible SDKs documentation](https://www.dirigible.io/sdks/)
 - [Dirigible repository](https://github.com/eclipse/dirigible)
 - [Multitenancy wikipedia](https://en.wikipedia.org/wiki/Multitenancy)

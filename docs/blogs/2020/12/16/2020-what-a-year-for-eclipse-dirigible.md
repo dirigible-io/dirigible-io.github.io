@@ -19,7 +19,7 @@ It has been a challenging, but in the same time an incredible year for Eclipse D
 * 12 [releases](https://www.dirigible.io/releases.html) from 4.2 to 5.6 with 1 major [5.0](https://www.dirigible.io/release/2020/06/25/news_new_release_5_0.html)
 * 138 [issues](https://github.com/eclipse/dirigible/issues?q=is%3Aissue+is%3Aclosed) fixed
 * 11 [blog posts](https://www.dirigible.io/blogs.html)
-* 10 new [API](https://www.dirigible.io/api/) - Content, Template Engine, Execute, Lifecycle, SOAP, Websocket, Kafka Consumer, Kafka Producer, MongoDB Client, MongoDB DAO
+* 10 new [SDK modules](https://www.dirigible.io/sdks/) - Content, Template Engine, Execute, Lifecycle, SOAP, Websocket, Kafka Consumer, Kafka Producer, MongoDB Client, MongoDB DAO
 * 11K+ users from 143 countries for 2020
 * 412 repositories in [DirigibleLabs](https://github.com/dirigiblelabs/) till date
 

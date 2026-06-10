@@ -40,7 +40,7 @@ There are two major approaches at the moment - Business-Process-Model driven too
 
 What did we decide to provide in Dirigible? As you can guess, following our principle to cover the full development lifecycle end-to-end, the decision was simple - to provide both... and more.
 
-We managed to integrate the world's leading BPM engine - [Flowable](http://www.flowable.org) along with the browser-based BPMN 2.0 modeler. Now, you can create a business model on-the-fly on the live system and even to implement the steps in the same way using our famous [Enterprise JavaScript API](http://www.dirigible.io/api). More information about how to create a simple process you can find under the [samples section](http://www.dirigible.io/samples/complex_process_console.html).
+We managed to integrate the world's leading BPM engine - [Flowable](http://www.flowable.org) along with the browser-based BPMN 2.0 modeler. Now, you can create a business model on-the-fly on the live system and even to implement the steps in the same way using our famous [Dirigible SDKs](https://www.dirigible.io/sdks/). More information about how to create a simple process you can find under the [samples section](http://www.dirigible.io/samples/complex_process_console.html).
 
 <img src="/img/posts/20181107/bpmn_modeler.jpg" width="70%" title="Flowable BPMN Modeler"/>
 

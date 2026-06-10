@@ -10,7 +10,7 @@ Release is of *Type A*
 
 #### Features
 
-* [Help](https://www.dirigible.io/help/), [API](https://www.dirigible.io/api/) and [Samples](https://www.dirigible.io/samples/) migrated to [MkDocs](https://www.mkdocs.org/)
+* [Help](https://www.dirigible.io/help/), [SDKs](https://www.dirigible.io/sdks/) and [Samples](https://www.dirigible.io/samples/) migrated to [MkDocs](https://www.mkdocs.org/)
 * Migrate form TravisCI to [GitHub Actions](https://github.com/eclipse/dirigible/actions)
 * Persisted State and Log for the Synchronizers
 * Synchronizers interdependencies

@@ -261,7 +261,7 @@ To all these questions, the answer is simple: **_Yes_**, you can do it!
 
 - Site: [http://www.dirigible.io](http://www.dirigible.io)
 - Help: [http://www.dirigible.io/help/](http://www.dirigible.io/help/)
-- API: [http://www.dirigible.io/api/](http://www.dirigible.io/api/)
+- SDKs: [https://www.dirigible.io/sdks/](https://www.dirigible.io/sdks/)
 - YouTube: [https://www.youtube.com/c/dirigibleio](https://www.youtube.com/c/dirigibleio)
 - Facebook: [https://www.facebook.com/dirigible.io](https://www.facebook.com/dirigible.io)
 - Twitter: [https://twitter.com/dirigible_io](https://twitter.com/dirigible_io)

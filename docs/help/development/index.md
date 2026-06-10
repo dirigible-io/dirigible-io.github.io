@@ -147,7 +147,7 @@ So far we saw how easy it is to create and modify a `Hello World` RESTful servic
 ::: info References
 
 - You can explore the [Tutorials](/help/tutorials/application-development/bookstore/) section for more scenarios.
-- If you would like to build complex services, you can go to the [API](/api/) section to find more JavaScript APIs that Eclipse Dirigible provides out-of-the-box.
+- If you would like to build complex services, you can go to the [SDKs](/sdks/) section to find more APIs that Eclipse Dirigible provides out-of-the-box.
 - If you are curious what you can do with Eclipse Dirigible apart from writing server-side JavaScript services, you can have a look at the [features](/help/overview/features/) section.
 - In case you are interested in `Modeling` and `Generation` with the `Low-Code/No-Code` tooling of Eclipse Dirigible, you can read about [Entity Data Models](/help/development/concepts/entity-service/) and [Generation](/help/development/concepts/generation/).
 :::

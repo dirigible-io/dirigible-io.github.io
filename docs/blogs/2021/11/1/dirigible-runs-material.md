@@ -50,7 +50,7 @@ If you take a look at the rest of the Dirigible sites, you'll notice that the di
 * [dirigible.io/blogs](https://www.dirigible.io/blogs/)
 * [dirigible.io/news](https://www.dirigible.io/news/)
 * [dirigible.io/releases](https://www.dirigible.io/releases/)
-* [dirigible.io/api](https://www.dirigible.io/api/)
+* [dirigible.io/sdks](https://www.dirigible.io/sdks/)
 * [dirigible.io/samples](https://www.dirigible.io/samples/)
 
 On a serious note, credit goes to [unDraw](https://undraw.co/) for the great illustrations.

@@ -21,7 +21,7 @@ Eclipse Dirigible™ is a High-Productivity Application Platform that provides d
 
 ## Reference
 
-- [API Reference](/api/) — JavaScript/TypeScript API documentation
+- [SDKs Reference](/sdks/) — TypeScript/JavaScript and Java SDK documentation
 - [Environment Variables](/help/setup/setup-environment-variables) — All configuration options
 - [FAQ](/help/overview/faq) — Frequently asked questions
 

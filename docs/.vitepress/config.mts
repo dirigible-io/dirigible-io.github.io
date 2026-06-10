@@ -119,7 +119,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Documentation', link: '/help/' },
-      { text: 'API', link: '/api/' },
+      { text: 'SDK', link: '/sdks/' },
       { text: 'Blog', link: '/blogs/' },
       {
         text: 'More',
@@ -146,6 +146,7 @@ export default defineConfig({
     sidebar: {
       '/help/': helpSidebar(),
       '/api/': apiSidebar(),
+      '/sdk/': sdkSidebar(),
     },
     search: {
       provider: 'local',
@@ -682,6 +683,295 @@ function apiSidebar() {
             { text: 'UTF8', link: '/api/utils/utf8' },
             { text: 'UUID', link: '/api/utils/uuid' },
             { text: 'XML', link: '/api/utils/xml' },
+          ],
+        },
+      ],
+    },
+  ]
+}
+
+function sdkSidebar() {
+  return [
+    { text: 'Overview', link: '/sdk/' },
+    { text: 'Get Started', link: '/sdk/get-started' },
+    {
+      text: 'SDK',
+      items: [
+        {
+          text: 'org.eclipse.dirigible.sdk.http',
+          collapsed: true,
+          link: '/sdk/http/',
+          items: [
+            { text: 'HttpClient', link: '/sdk/http/client' },
+            { text: 'Decorators', link: '/sdk/http/decorators' },
+            { text: 'Request', link: '/sdk/http/request' },
+            { text: 'Response', link: '/sdk/http/response' },
+            { text: 'Session', link: '/sdk/http/session' },
+            { text: 'Upload', link: '/sdk/http/upload' },
+            { text: 'HttpUtils', link: '/sdk/http/utils' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.db',
+          collapsed: true,
+          link: '/sdk/db/',
+          items: [
+            { text: 'Database', link: '/sdk/db/database' },
+            { text: 'Store', link: '/sdk/db/store' },
+            { text: 'Decorators', link: '/sdk/db/decorators' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.core',
+          collapsed: true,
+          link: '/sdk/core/',
+          items: [
+            { text: 'Configurations', link: '/sdk/core/configurations' },
+            { text: 'Context', link: '/sdk/core/context' },
+            { text: 'Env', link: '/sdk/core/env' },
+            { text: 'Globals', link: '/sdk/core/globals' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.bpm',
+          collapsed: true,
+          link: '/sdk/bpm/',
+          items: [
+            { text: 'Deployer', link: '/sdk/bpm/deployer' },
+            { text: 'Process', link: '/sdk/bpm/process' },
+            { text: 'Tasks', link: '/sdk/bpm/tasks' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.io',
+          collapsed: true,
+          link: '/sdk/io/',
+          items: [
+            { text: 'Bytes', link: '/sdk/io/bytes' },
+            { text: 'Files', link: '/sdk/io/files' },
+            { text: 'Image', link: '/sdk/io/image' },
+            { text: 'Streams', link: '/sdk/io/streams' },
+            { text: 'Zip', link: '/sdk/io/zip' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.component',
+          collapsed: true,
+          link: '/sdk/component/',
+          items: [
+            { text: 'Decorators', link: '/sdk/component/decorators' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.cache',
+          collapsed: true,
+          link: '/sdk/cache/',
+          items: [
+            { text: 'Cache', link: '/sdk/cache/cache' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.cms',
+          collapsed: true,
+          link: '/sdk/cms/',
+          items: [
+            { text: 'Cmis', link: '/sdk/cms/cmis' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.etcd',
+          collapsed: true,
+          link: '/sdk/etcd/',
+          items: [
+            { text: 'Client', link: '/sdk/etcd/client' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.extensions',
+          collapsed: true,
+          link: '/sdk/extensions/',
+          items: [
+            { text: 'Decorators', link: '/sdk/extensions/decorators' },
+            { text: 'Extensions', link: '/sdk/extensions/extensions' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.git',
+          collapsed: true,
+          link: '/sdk/git/',
+          items: [
+            { text: 'Git', link: '/sdk/git/client' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.indexing',
+          collapsed: true,
+          link: '/sdk/indexing/',
+          items: [
+            { text: 'Searcher', link: '/sdk/indexing/searcher' },
+            { text: 'Writer', link: '/sdk/indexing/writer' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.integrations',
+          collapsed: true,
+          link: '/sdk/integrations/',
+          items: [
+            { text: 'Integrations', link: '/sdk/integrations/integrations' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.job',
+          collapsed: true,
+          link: '/sdk/job/',
+          items: [
+            { text: 'Decorators', link: '/sdk/job/decorators' },
+            { text: 'Scheduler', link: '/sdk/job/scheduler' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.junit',
+          collapsed: true,
+          link: '/sdk/junit/',
+          items: [
+            { text: 'Assert', link: '/sdk/junit/junit' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.kafka',
+          collapsed: true,
+          link: '/sdk/kafka/',
+          items: [
+            { text: 'Consumer', link: '/sdk/kafka/consumer' },
+            { text: 'Producer', link: '/sdk/kafka/producer' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.log',
+          collapsed: true,
+          link: '/sdk/log/',
+          items: [
+            { text: 'Logging', link: '/sdk/log/logging' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.mail',
+          collapsed: true,
+          link: '/sdk/mail/',
+          items: [
+            { text: 'Mail', link: '/sdk/mail/client' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.messaging',
+          collapsed: true,
+          link: '/sdk/messaging/',
+          items: [
+            { text: 'Consumer', link: '/sdk/messaging/consumer' },
+            { text: 'Decorators', link: '/sdk/messaging/decorators' },
+            { text: 'Producer', link: '/sdk/messaging/producer' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.mongodb',
+          collapsed: true,
+          link: '/sdk/mongodb/',
+          items: [
+            { text: 'Client', link: '/sdk/mongodb/client' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.net',
+          collapsed: true,
+          link: '/sdk/net/',
+          items: [
+            { text: 'Decorators', link: '/sdk/net/decorators' },
+            { text: 'Soap', link: '/sdk/net/soap' },
+            { text: 'Websockets', link: '/sdk/net/websockets' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.pdf',
+          collapsed: true,
+          link: '/sdk/pdf/',
+          items: [
+            { text: 'Pdf', link: '/sdk/pdf/pdf' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.platform',
+          collapsed: true,
+          link: '/sdk/platform/',
+          items: [
+            { text: 'Command', link: '/sdk/platform/command' },
+            { text: 'Documentation', link: '/sdk/platform/documentation' },
+            { text: 'Engines', link: '/sdk/platform/engines' },
+            { text: 'Lifecycle', link: '/sdk/platform/lifecycle' },
+            { text: 'OS', link: '/sdk/platform/os' },
+            { text: 'Problems', link: '/sdk/platform/problems' },
+            { text: 'Registry', link: '/sdk/platform/registry' },
+            { text: 'Repository', link: '/sdk/platform/repository' },
+            { text: 'Workspace', link: '/sdk/platform/workspace' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.qldb',
+          collapsed: true,
+          link: '/sdk/qldb/',
+          items: [
+            { text: 'Qldb', link: '/sdk/qldb/qldb' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.rabbitmq',
+          collapsed: true,
+          link: '/sdk/rabbitmq/',
+          items: [
+            { text: 'Consumer', link: '/sdk/rabbitmq/consumer' },
+            { text: 'Producer', link: '/sdk/rabbitmq/producer' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.redis',
+          collapsed: true,
+          link: '/sdk/redis/',
+          items: [
+            { text: 'Client', link: '/sdk/redis/client' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.security',
+          collapsed: true,
+          link: '/sdk/security/',
+          items: [
+            { text: 'Decorators', link: '/sdk/security/decorators' },
+            { text: 'User', link: '/sdk/security/user' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.template',
+          collapsed: true,
+          link: '/sdk/template/',
+          items: [
+            { text: 'TemplateEngines', link: '/sdk/template/engines' },
+          ],
+        },
+        {
+          text: 'org.eclipse.dirigible.sdk.utils',
+          collapsed: true,
+          link: '/sdk/utils/',
+          items: [
+            { text: 'Alphanumeric', link: '/sdk/utils/alphanumeric' },
+            { text: 'Base64', link: '/sdk/utils/base64' },
+            { text: 'Converter', link: '/sdk/utils/converter' },
+            { text: 'Digest', link: '/sdk/utils/digest' },
+            { text: 'Escape', link: '/sdk/utils/escape' },
+            { text: 'Hex', link: '/sdk/utils/hex' },
+            { text: 'QrCode', link: '/sdk/utils/qrcode' },
+            { text: 'Url', link: '/sdk/utils/url' },
+            { text: 'Utf8', link: '/sdk/utils/utf8' },
+            { text: 'Uuid', link: '/sdk/utils/uuid' },
+            { text: 'Xml', link: '/sdk/utils/xml' },
           ],
         },
       ],

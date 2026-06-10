@@ -179,6 +179,6 @@ Whether you love modeling, coding, scripting, automating, or simply shipping fas
 Explore the platform, learn the tools, and start building your next application today.
 
 - 📘 Documentation: https://www.dirigible.io/help/ Comprehensive guides covering modeling, runtime, APIs, scripting, extensions, CLI, and more.
-- 🧩 SDK Reference: https://www.dirigible.io/api/ Full listing of all built-in modules for TypeScript/JavaScript — HTTP, database, events, security, integration, BPMN, and the core platform services.
+- 🧩 SDK Reference: https://www.dirigible.io/sdks/ Full listing of all built-in modules across both SDKs (TypeScript/JavaScript and Java) — HTTP, database, events, security, integration, BPMN, and the core platform services.
 - 📰 Blog & Tutorials: https://www.dirigible.io/blogs/ Hands-on articles, learning paths, release notes, architecture deep dives, and real-world examples.
 - 💻 GitHub (Source Code): https://github.com/eclipse/dirigible Open source. Apache License. Contributions welcome.

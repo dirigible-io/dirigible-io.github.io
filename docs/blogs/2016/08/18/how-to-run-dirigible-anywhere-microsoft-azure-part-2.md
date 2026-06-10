@@ -40,7 +40,7 @@ To deploy your own instance of **Eclipse Dirigible** on **Microsoft Azure**, fir
 ## References
 
 * <a href="http://www.dirigible.io/help/index.html" target="_blank">Help</a>
-* <a href="http://www.dirigible.io/api/index.html" target="_blank">API</a>
+* <a href="https://www.dirigible.io/sdks/" target="_blank">SDKs</a>
 * <a href="http://www.dirigible.io/samples/bookstore.html" target="_blank">Bookstore Sample</a>
 * <a href="http://www.dirigible.io/blogs/2016/08/09/how-to-run-dirigible-anywhere-microsoft-azure.html" target="_blank">How to Run Dirigible Anywhere - Microsoft Azure?</a>
 
