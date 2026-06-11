@@ -1,6 +1,6 @@
 # Get Started
 
-Welcome to the **Aerokit SDK** — a unified TypeScript SDK for building cloud-native applications, services, and integrations.
+Welcome to the **Aerokit SDK** - a unified TypeScript SDK for building cloud-native applications, services, and integrations.
 
 This guide will help you understand how to start using Aerokit both **inside the platform** and **externally via npm**.
 
@@ -108,10 +108,10 @@ import { Entity } from "@aerokit/sdk/db";
 
 ## Key Concepts
 
-* **Modules** – Independent packages like `http`, `db`, `security`, `job`
-* **Decorators** – Define behavior declaratively
-* **Dependency Injection** – Connect components via `@Inject`
-* **Runtime Extensibility** – Add features without redeployment
+* **Modules** - Independent packages like `http`, `db`, `security`, `job`
+* **Decorators** - Define behavior declaratively
+* **Dependency Injection** - Connect components via `@Inject`
+* **Runtime Extensibility** - Add features without redeployment
 
 ## What to Do Next
 

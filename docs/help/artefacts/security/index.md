@@ -5,6 +5,6 @@ description: Declarative access rules, role definitions, and OAuth client regist
 
 # Security artefacts
 
-- **[Access](/help/artefacts/security/access)** — `*.access` (URL access rules)
-- **[Roles](/help/artefacts/security/roles)** — `*.roles` (role definitions)
-- **[Client registration](/help/artefacts/security/client-registration)** — OAuth client registrations
+- **[Access](/help/artefacts/security/access)** - `*.access` (URL access rules)
+- **[Roles](/help/artefacts/security/roles)** - `*.roles` (role definitions)
+- **[Client registration](/help/artefacts/security/client-registration)** - OAuth client registrations

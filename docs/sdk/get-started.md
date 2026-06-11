@@ -1,6 +1,6 @@
 # Get Started
 
-Welcome to the **Eclipse Dirigible Java SDK** — the Java surface for building services, entities, jobs, and integrations inside a Dirigible runtime.
+Welcome to the **Eclipse Dirigible Java SDK** - the Java surface for building services, entities, jobs, and integrations inside a Dirigible runtime.
 
 This guide walks through how Java is loaded by the platform, the development model, and a minimal end-to-end example.
 
@@ -8,7 +8,7 @@ This guide walks through how Java is loaded by the platform, the development mod
 
 The SDK is **bundled with the platform**:
 
-* No build configuration required — the SDK is already on the classpath
+* No build configuration required - the SDK is already on the classpath
 * `.java` source files are compiled in-process by `engine-java` when synchronized into the registry
 * The same `org.eclipse.dirigible.sdk.*` classes are used by both production and IDE-time compilation
 
@@ -134,14 +134,14 @@ Java sources are placed inside any Dirigible project under the platform registry
 /registry/public/<project>/<package>/<ClassName>.java
 ```
 
-`engine-java` synchronizes and compiles them in-process. The platform classpath — including the SDK — is automatically visible to `javac`.
+`engine-java` synchronizes and compiles them in-process. The platform classpath - including the SDK - is automatically visible to `javac`.
 
 ## Key Concepts
 
-* **Facades** — Static classes like `HttpClient`, `Files`, `Configurations`, `Logging` that wrap the platform's runtime services
-* **Annotations** — Declarative `@Controller`, `@Entity`, `@Scheduled`, `@Listener`, `@Inject`, `@Roles` for plugging classes into the runtime
-* **Pass-through clients** — Modules like `mongodb`, `redis`, `etcd`, `kafka`, `rabbitmq` return native upstream client objects so advanced features remain reachable
-* **Polyglot runtime** — Java sources coexist with other languages in the same project and the same JVM; all share data sources, message queues, jobs, and security context
+* **Facades** - Static classes like `HttpClient`, `Files`, `Configurations`, `Logging` that wrap the platform's runtime services
+* **Annotations** - Declarative `@Controller`, `@Entity`, `@Scheduled`, `@Listener`, `@Inject`, `@Roles` for plugging classes into the runtime
+* **Pass-through clients** - Modules like `mongodb`, `redis`, `etcd`, `kafka`, `rabbitmq` return native upstream client objects so advanced features remain reachable
+* **Polyglot runtime** - Java sources coexist with other languages in the same project and the same JVM; all share data sources, message queues, jobs, and security context
 
 ## What to Do Next
 

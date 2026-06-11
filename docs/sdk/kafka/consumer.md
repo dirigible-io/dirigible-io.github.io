@@ -7,14 +7,14 @@
 - source: [kafka/Consumer.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/kafka/Consumer.java)
 :::
 
-Manages a long-lived Kafka consumer for a topic. `startListening(String, String, int, String)` begins consumption &mdash; the `handler` argument is the registry path of a registry handler (matching the platform listener convention) that will be invoked for each record. `timeout` is the poll timeout in milliseconds.
+Manages a long-lived Kafka consumer for a topic. `startListening(String, String, int, String)` begins consumption - the `handler` argument is the registry path of a registry handler (matching the platform listener convention) that will be invoked for each record. `timeout` is the poll timeout in milliseconds.
 
 Stop the consumer with `stopListening(String, String)` when you're done, and call `closeProducer(String)` from a Java `@Component` that holds an ephemeral producer (the consumer / producer share underlying configuration; `closeProducer` releases the platform's cached producer for the given configuration).
 
 ### Key Features:
-- **Long-lived Consumer**: Once started, the consumer thread is managed by the platform &mdash; it polls in a loop and dispatches each record to the handler.
+- **Long-lived Consumer**: Once started, the consumer thread is managed by the platform - it polls in a loop and dispatches each record to the handler.
 - **Script-backed Handlers**: The `handler` argument points at a registry handler in the platform registry, so Kafka events can be processed by the same scripts used by other event sources.
-- **Configuration-keyed**: Consumer and pooled producer are both keyed by `configurationJson` &mdash; matching configurations share underlying connections.
+- **Configuration-keyed**: Consumer and pooled producer are both keyed by `configurationJson` - matching configurations share underlying connections.
 - **Explicit Lifecycle**: Pair every `startListening` with a `stopListening`. Use `closeProducer` to release a cached producer when its owning component shuts down.
 
 ### Example Usage:
@@ -30,7 +30,7 @@ String config = """
     }
     """;
 
-// Begin consuming from 'orders' &mdash; each record goes to the registered handler script.
+// Begin consuming from 'orders' - each record goes to the registered handler script.
 Consumer.startListening("orders", "/myproject/handlers/on-order.ts", 1000, config);
 
 // ... later, on shutdown ...

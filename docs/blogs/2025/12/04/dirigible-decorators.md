@@ -111,7 +111,7 @@ GitHub Sample: [dirigiblelabs/sample-listener-decorator](https://github.com/diri
 
 ## Episode IV: A New WebSocket
 
-The Clone Army now spans galaxies — including the real-time domain.
+The Clone Army now spans galaxies - including the real-time domain.
 
 WebSockets join the battle with the `@Websocket` decorator:
 
@@ -135,7 +135,7 @@ GitHub Sample: [dirigiblelabs/sample-websocket-decorator](https://github.com/dir
 
 ## Episode V: The ORM Strikes Back
 
-The Entity decorators bring order to the database. An entire Jedi Archive — structured, typed, documented.
+The Entity decorators bring order to the database. An entire Jedi Archive - structured, typed, documented.
 
 Decorators include:
 
@@ -172,7 +172,7 @@ GitHub Sample: [dirigiblelabs/sample-entity-decorators](https://github.com/dirig
 
 ## Episode VI: Return of the Extensions
 
-Through the `@Extension` decorator, modules can add capabilities to others across the platform — like Jedi teachings passed between temples.
+Through the `@Extension` decorator, modules can add capabilities to others across the platform - like Jedi teachings passed between temples.
 
 ```ts
 @Extension({
@@ -255,7 +255,7 @@ With the arrival of decorators in Eclipse Dirigible:
 This is not an evolution.
 This is a Clone Army of productivity.
 
-The Attack of the Decorators is not an attack on the developer — it’s an attack on complexity.
+The Attack of the Decorators is not an attack on the developer - it’s an attack on complexity.
 A battle we’re finally winning.
 
 May the Source be with you!

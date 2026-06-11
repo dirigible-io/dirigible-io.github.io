@@ -7,14 +7,14 @@
 - source: [http/HttpUtils.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/HttpUtils.java)
 :::
 
-Small content-type and query-string helpers — recognising JSON / XML media types, URL-encoding / decoding a `Map` of parameters. Saves writing the `&`-joining loop for the dozenth time and centralises the answer to "is this content-type JSON?" so future RFC additions (custom `+json` suffixes etc.) flow through every caller.
+Small content-type and query-string helpers - recognising JSON / XML media types, URL-encoding / decoding a `Map` of parameters. Saves writing the `&`-joining loop for the dozenth time and centralises the answer to "is this content-type JSON?" so future RFC additions (custom `+json` suffixes etc.) flow through every caller.
 
-Implemented inline against the JDK — no platform facade — because the operations are pure and the result must match the equivalent TS helpers exactly.
+Implemented inline against the JDK - no platform facade - because the operations are pure and the result must match the equivalent TS helpers exactly.
 
 ### Key Features:
 - **JSON / XML Detection**: Recognises both base media types (`application/json`, `application/xml`, `text/xml`) and the structured-suffix forms (`+json`, `+xml`).
 - **URL-encoded Query Strings**: Builds and parses `application/x-www-form-urlencoded` query strings against UTF-8.
-- **Pure JDK**: No platform dependency — safe to call from tests or from utility code that needs no Dirigible runtime.
+- **Pure JDK**: No platform dependency - safe to call from tests or from utility code that needs no Dirigible runtime.
 
 ### Example Usage:
 ```java
@@ -30,7 +30,7 @@ Map<String, String> params = HttpUtils.fromQueryString("?q=hello%20world&page=2"
 
 ### isContentTypeJson()
 
-Returns whether the given content-type identifies a JSON payload — either `application/json` or any structured-suffix `+json` media type.
+Returns whether the given content-type identifies a JSON payload - either `application/json` or any structured-suffix `+json` media type.
 
 > ```java
 > public static boolean isContentTypeJson(String contentType);
@@ -47,7 +47,7 @@ Returns whether the given content-type identifies a JSON payload — either `app
 
 ### isContentTypeXml()
 
-Returns whether the given content-type identifies an XML payload — `application/xml`, `text/xml`, or any structured-suffix `+xml` media type.
+Returns whether the given content-type identifies an XML payload - `application/xml`, `text/xml`, or any structured-suffix `+xml` media type.
 
 > ```java
 > public static boolean isContentTypeXml(String contentType);

@@ -6,7 +6,7 @@ publish_date: October 9, 2015
 read_time: 1 min
 ---
 
-The workshop aims to achieve the dream of every developer in the cloud – building a full-fledged vertical scenario application in the fastest and yet cheapest way possible. The whole development process will be in the cloud so our turn-around time will be faster than a mouse click. For the workshop we will be using Dirigible. It is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. Currently Dirigible is a part of the Eclipse Cloud Development initiative.
+The workshop aims to achieve the dream of every developer in the cloud - building a full-fledged vertical scenario application in the fastest and yet cheapest way possible. The whole development process will be in the cloud so our turn-around time will be faster than a mouse click. For the workshop we will be using Dirigible. It is an open source project that provides Integrated Development Environment as a Service (IDEaaS), as well as integrated runtime execution engines. Currently Dirigible is a part of the Eclipse Cloud Development initiative.
 
 #### Organized by:
 *SAP Labs Bulgaria*

@@ -7,9 +7,9 @@
 - source: [platform/Os.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Os.java)
 :::
 
-Read-only snapshot of the host JVM — operating system, architecture, processor count, and the current memory budget. Useful for diagnostics endpoints and for jobs that want to gate their batch size by available memory.
+Read-only snapshot of the host JVM - operating system, architecture, processor count, and the current memory budget. Useful for diagnostics endpoints and for jobs that want to gate their batch size by available memory.
 
-Implemented directly against `Runtime` and JVM system properties (`os.name`, `os.arch`), so the values are the same ones reported by `Runtime.getRuntime()` and `System.getProperty(...)`. "Available memory" follows the conventional JVM definition: `maxMemory - (totalMemory - freeMemory)` — i.e. how much more the heap can grow before hitting `-Xmx`, not how much physical RAM the OS has free. For OS-level numbers you need a JMX-based view (see `com.sun.management.OperatingSystemMXBean`).
+Implemented directly against `Runtime` and JVM system properties (`os.name`, `os.arch`), so the values are the same ones reported by `Runtime.getRuntime()` and `System.getProperty(...)`. "Available memory" follows the conventional JVM definition: `maxMemory - (totalMemory - freeMemory)` - i.e. how much more the heap can grow before hitting `-Xmx`, not how much physical RAM the OS has free. For OS-level numbers you need a JMX-based view (see `com.sun.management.OperatingSystemMXBean`).
 
 ### Key Features
 
@@ -28,7 +28,7 @@ int cpus    = Os.getProcessors();  // e.g. 8
 
 long freeBytes = Os.getAvailableMemory();
 if (freeBytes < 200L * 1024 * 1024) {
-    // back off — heap is close to -Xmx
+    // back off - heap is close to -Xmx
 }
 ```
 
@@ -83,7 +83,7 @@ Returns the amount of free memory in the current heap, in bytes.
 >
 > ::: info Returns
 > - **Type**: `long`
-> - **Description**: `Runtime.getRuntime().freeMemory()` — free space within the currently committed heap.
+> - **Description**: `Runtime.getRuntime().freeMemory()` - free space within the currently committed heap.
 > :::
 
 ### getTotalMemory()
@@ -96,7 +96,7 @@ Returns the total amount of memory in the current heap, in bytes.
 >
 > ::: info Returns
 > - **Type**: `long`
-> - **Description**: `Runtime.getRuntime().totalMemory()` — the currently committed heap size.
+> - **Description**: `Runtime.getRuntime().totalMemory()` - the currently committed heap size.
 > :::
 
 ### getMaxMemory()
@@ -109,7 +109,7 @@ Returns the maximum amount of memory the JVM will attempt to use, in bytes.
 >
 > ::: info Returns
 > - **Type**: `long`
-> - **Description**: `Runtime.getRuntime().maxMemory()` — typically the `-Xmx` setting.
+> - **Description**: `Runtime.getRuntime().maxMemory()` - typically the `-Xmx` setting.
 > :::
 
 ### getAvailableMemory()
@@ -122,5 +122,5 @@ Returns how much more the heap can grow before hitting `-Xmx`, in bytes.
 >
 > ::: info Returns
 > - **Type**: `long`
-> - **Description**: `maxMemory - (totalMemory - freeMemory)` — the effective free budget against the heap ceiling.
+> - **Description**: `maxMemory - (totalMemory - freeMemory)` - the effective free budget against the heap ceiling.
 > :::

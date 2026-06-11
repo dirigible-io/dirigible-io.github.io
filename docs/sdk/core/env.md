@@ -7,15 +7,15 @@
 - source: [core/Env.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/core/Env.java)
 :::
 
-Read-only view of process environment variables. `get(String)` returns a single value, `list()` returns the full map as a JSON document — handy for debug endpoints or feature-flag inspection from an admin UI.
+Read-only view of process environment variables. `get(String)` returns a single value, `list()` returns the full map as a JSON document - handy for debug endpoints or feature-flag inspection from an admin UI.
 
-Note that for configuration knobs that *also* have a `DIRIGIBLE_*` configuration key (`Configuration.get(...)` or `Configurations`) you should usually read the configuration value, not the raw env var — the configuration layer also honours `DIRIGIBLE_*` property files and runtime overrides.
+Note that for configuration knobs that *also* have a `DIRIGIBLE_*` configuration key (`Configuration.get(...)` or `Configurations`) you should usually read the configuration value, not the raw env var - the configuration layer also honours `DIRIGIBLE_*` property files and runtime overrides.
 
 ### Key Features
 
-- **Read-only**: There is no `set` — env vars are immutable from the JVM's perspective.
+- **Read-only**: There is no `set` - env vars are immutable from the JVM's perspective.
 - **JSON dump**: `list()` returns the full environment as JSON, ready to feed to a UI or log.
-- **Static API**: No instance, no state — just call the methods.
+- **Static API**: No instance, no state - just call the methods.
 
 ### Example Usage
 

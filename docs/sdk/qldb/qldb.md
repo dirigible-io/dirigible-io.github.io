@@ -7,9 +7,9 @@
 - source: [qldb/Qldb.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/qldb/Qldb.java)
 :::
 
-Entry point to Amazon QLDB (Quantum Ledger Database) — the platform's append-only, cryptographically-verifiable ledger backend. `open(ledger, table)` returns a platform `QLDBRepository` pinned to a specific ledger and table; the returned object exposes the full insert / get / update / delete / history surface.
+Entry point to Amazon QLDB (Quantum Ledger Database) - the platform's append-only, cryptographically-verifiable ledger backend. `open(ledger, table)` returns a platform `QLDBRepository` pinned to a specific ledger and table; the returned object exposes the full insert / get / update / delete / history surface.
 
-Suitable for any data set that must keep an audit trail of every change — financial ledgers, regulatory submissions, certified document chains. For regular CRUD without the audit trail, prefer `org.eclipse.dirigible.sdk.db.Database` on a traditional RDBMS.
+Suitable for any data set that must keep an audit trail of every change - financial ledgers, regulatory submissions, certified document chains. For regular CRUD without the audit trail, prefer `org.eclipse.dirigible.sdk.db.Database` on a traditional RDBMS.
 
 ### Key Features:
 - **Ledger-backed Repository**: `open(ledger, table)` returns a `QLDBRepository` pinned to one ledger / table pairing.

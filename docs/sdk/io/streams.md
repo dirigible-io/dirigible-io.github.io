@@ -7,9 +7,9 @@
 - source: [io/Streams.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/io/Streams.java)
 :::
 
-Stream-shaped I/O — read text / bytes from an `InputStream`, write to an `OutputStream`, copy between them, build in-memory buffers via `ByteArrayInputStream` / `ByteArrayOutputStream`. Useful when wiring together sources and sinks supplied by different APIs (a multipart upload feeding a ZIP entry, the platform repository feeding an HTTP response).
+Stream-shaped I/O - read text / bytes from an `InputStream`, write to an `OutputStream`, copy between them, build in-memory buffers via `ByteArrayInputStream` / `ByteArrayOutputStream`. Useful when wiring together sources and sinks supplied by different APIs (a multipart upload feeding a ZIP entry, the platform repository feeding an HTTP response).
 
-`copyLarge(InputStream, OutputStream)` should be preferred over plain `copy(InputStream, OutputStream)` for files larger than a few MB — it uses a bigger internal buffer and reports a `long` byte count via the underlying facade.
+`copyLarge(InputStream, OutputStream)` should be preferred over plain `copy(InputStream, OutputStream)` for files larger than a few MB - it uses a bigger internal buffer and reports a `long` byte count via the underlying facade.
 
 ### Key Features:
 - **Read primitives**: `read`, `readBytes`, `readText` over any `InputStream`.
@@ -46,7 +46,7 @@ Reads a single byte from the stream and returns it as an `int`, or `-1` on end-o
 >
 > ::: info Returns
 > - **Type**: `int`
-> - **Description**: The byte read (0–255), or `-1` at end-of-stream.
+> - **Description**: The byte read (0-255), or `-1` at end-of-stream.
 > :::
 
 ### readBytes()
@@ -147,7 +147,7 @@ Writes a string of text to the output stream using the platform default encoding
 > :::
 
 ### copy()
-Copies all bytes from the input stream to the output stream. Suitable for small payloads — prefer `copyLarge` for multi-MB transfers.
+Copies all bytes from the input stream to the output stream. Suitable for small payloads - prefer `copyLarge` for multi-MB transfers.
 
 > ```java
 > public static void copy(InputStream input, OutputStream output) throws IOException;

@@ -9,10 +9,10 @@
 
 `@Websocket` marks a client Java class as a WebSocket handler managed by the Dirigible runtime. The annotated class may expose any combination of:
 
-- `onOpen()` — called when a client connects
-- `onMessage(String message, String from)` — called for each inbound message
-- `onError(String error)` — called on transport or handler error
-- `onClose()` — called when the connection is closed
+- `onOpen()` - called when a client connects
+- `onMessage(String message, String from)` - called for each inbound message
+- `onError(String error)` - called on transport or handler error
+- `onClose()` - called when the connection is closed
 
 All methods are optional; missing ones are silently skipped.
 
@@ -50,4 +50,4 @@ Registers the class as a STOMP WebSocket handler.
 | Attribute | Type | Description |
 | ------ | ------ | ------ |
 | `name` | `String` | Logical display name for the websocket. |
-| `endpoint` | `String` | URL endpoint suffix used by the client to connect — for example, `"chat"` maps to `/websockets/stomp/chat`. |
+| `endpoint` | `String` | URL endpoint suffix used by the client to connect - for example, `"chat"` maps to `/websockets/stomp/chat`. |

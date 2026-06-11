@@ -7,7 +7,7 @@
 - source: [platform/Repository.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Repository.java)
 :::
 
-Mutable access to the Dirigible repository — resources (files), collections (folders), copies and moves, content-typed creates and updates. Returns the platform's `IResource` / `ICollection` domain types so callers can chain further operations (lock, version, set properties).
+Mutable access to the Dirigible repository - resources (files), collections (folders), copies and moves, content-typed creates and updates. Returns the platform's `IResource` / `ICollection` domain types so callers can chain further operations (lock, version, set properties).
 
 The "repository" here is the on-disk Dirigible store (see `IRepository` / `IRepositoryStructure`), *not* a JPA repository or a Git repository. For workspace-scoped operations (per-user folders under `/users/<u>/workspace/<proj>`) prefer [`Workspace`](./workspace.md); for the read-only public registry view prefer [`Registry`](./registry.md).
 

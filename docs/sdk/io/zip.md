@@ -10,7 +10,7 @@
 ZIP archive creation and extraction. Two styles are supported:
 
 - The folder-level shortcuts `importZip(String, String)` (extract everything under a directory) and `exportZip(String, String)` (zip a folder onto disk).
-- The streaming form via `ZipInputStream` / `ZipOutputStream` when you want entry-by-entry control — useful for producing a download on the fly, scanning archives without writing intermediate files, or filtering entries during extraction.
+- The streaming form via `ZipInputStream` / `ZipOutputStream` when you want entry-by-entry control - useful for producing a download on the fly, scanning archives without writing intermediate files, or filtering entries during extraction.
 
 For end-to-end "zip this folder, send it" workflows the shortcuts are enough; reach for the streaming overloads only when you need entry-level control.
 

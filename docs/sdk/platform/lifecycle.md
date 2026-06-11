@@ -9,7 +9,7 @@
 
 Promotes a project from a user workspace into the public registry (and removes it again). Used by build pipelines, sample loaders, and admin tools that need to push prepared content into the live runtime without going through the IDE UI.
 
-Publishing triggers the same synchronizer chain that hot-reload uses — any artefacts the project declares (`.bpmn`, `.listener`, `.csvim`, `.access`, etc.) come into effect immediately after the call returns.
+Publishing triggers the same synchronizer chain that hot-reload uses - any artefacts the project declares (`.bpmn`, `.listener`, `.csvim`, `.access`, etc.) come into effect immediately after the call returns.
 
 ### Key Features
 

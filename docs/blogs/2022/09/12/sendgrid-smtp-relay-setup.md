@@ -20,14 +20,14 @@ SendGrid is a 3rd party service and charges/limits apply. Here you can find more
 1. Login at [https://app.sendgrid.com](https://app.sendgrid.com/).
 1. Verify a single sender email:
 
-    - Click **Settings** &#8594; **Sender Authentication** &#8594; **Verify a Single Sender**.
+    - Click **Settings** -> **Sender Authentication** -> **Verify a Single Sender**.
     - Enter the details of the email address that Eclipse Dirigible mails will be sent from.
 
     ![Create Single Sender](../../../images/sendgrid-smtp-relay-setup/create-single-sender.png)
 
 1. Setup SMTP Relay:
 
-    - Click **Email API** &#8594; **Integration Guide** &#8594; **SMTP Relay**.
+    - Click **Email API** -> **Integration Guide** -> **SMTP Relay**.
     - Enter an API Key Name and click **Create Key** to get an API Key for your SendGrid SMTP Relay.
     - Notice the **Configure your application** section, the credentials from it will be used to configure the mail client.
   
@@ -49,9 +49,10 @@ You can follow the [Setup](https://www.dirigible.io/help/setup/) guide on how to
     DIRIGIBLE_MAIL_SMTPS_PORT=465
     ```
 
-    !!! note
+    ::: info
 
-        Replace the ``&lt;YOUR_API_KEY_HERE&gt;`` placeholder with the SendGrid SMTP Relay API key.
+    Replace the ``&lt;YOUR_API_KEY_HERE&gt;`` placeholder with the SendGrid SMTP Relay API key.
+    :::
 
 1. Restart the Eclipse Dirigible instance in order to apply the new environment variables.
 
@@ -78,9 +79,9 @@ To get a complete list of all environment variables navigate to the [Environment
     mail.send(from, to, subject, content, subType);
     ```
 
-    !!! note
+    ::: info
 
-        Replace the ``&lt;YOUR_VERIFIED_SENDER_EMAIL_HERE&gt;`` and the ``&lt;YOUR_RECIPIENT_EMAIL_HERE&gt;`` placeholders with valid email addresses.
-
+    Replace the ``&lt;YOUR_VERIFIED_SENDER_EMAIL_HERE&gt;`` and the ``&lt;YOUR_RECIPIENT_EMAIL_HERE&gt;`` placeholders with valid email addresses.
+    :::
 
     ![Mail Delivered](../../../images/sendgrid-smtp-relay-setup/mail-delivered.png)

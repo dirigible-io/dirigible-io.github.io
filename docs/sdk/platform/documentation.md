@@ -7,7 +7,7 @@
 - source: [platform/Documentation.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Documentation.java)
 :::
 
-`@Documentation` is a cross-cutting annotation that attaches a human-readable description to a type, field, or method. It is one of the few annotations in the SDK that doesn't change runtime behaviour — its sole purpose is to feed downstream documentation tooling.
+`@Documentation` is a cross-cutting annotation that attaches a human-readable description to a type, field, or method. It is one of the few annotations in the SDK that doesn't change runtime behaviour - its sole purpose is to feed downstream documentation tooling.
 
 The platform's OpenAPI generator picks `@Documentation` up on `@Controller` classes and their methods:
 
@@ -18,9 +18,9 @@ It is also recognised on `@Entity` fields for future schema documentation (DDL c
 
 ### Targets
 
-- `ElementType.TYPE` — classes, interfaces, annotations, enums
-- `ElementType.FIELD` — instance and static fields
-- `ElementType.METHOD` — methods
+- `ElementType.TYPE` - classes, interfaces, annotations, enums
+- `ElementType.FIELD` - instance and static fields
+- `ElementType.METHOD` - methods
 
 ### Example Usage
 
@@ -55,7 +55,7 @@ The human-readable description string to attach to the annotated element.
 >
 > ::: info Returns
 > - **Type**: `String`
-> - **Description**: The description text. Required — `@Documentation` has no default for `value`.
+> - **Description**: The description text. Required - `@Documentation` has no default for `value`.
 > :::
 
 ## Annotation Metadata

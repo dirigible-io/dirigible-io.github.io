@@ -7,14 +7,14 @@
 - source: [utils/Escape.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/utils/Escape.java)
 :::
 
-Output escaping helpers covering the contexts that templates and emitters commonly target — CSV cells, HTML 3/4 attribute and text content, JavaScript string literals, Java string literals, JSON values, and XML text. Each escape has a matching `unescape` for round-trip decoding when the source is text produced by the same alphabet (it is *not* a general HTML / JSON parser).
+Output escaping helpers covering the contexts that templates and emitters commonly target - CSV cells, HTML 3/4 attribute and text content, JavaScript string literals, Java string literals, JSON values, and XML text. Each escape has a matching `unescape` for round-trip decoding when the source is text produced by the same alphabet (it is *not* a general HTML / JSON parser).
 
 Reach for these when generating output by string concatenation; for structured output (assembled JSON via Jackson, XML via SAX/DOM, HTML via a templating engine) the surrounding library already takes care of escaping correctly.
 
 ### Key Features:
 - **Six contexts**: CSV, HTML3, HTML4, JavaScript, Java, JSON, XML.
 - **Round-trip pairs**: Every `escape*` has a matching `unescape*` for the same alphabet.
-- **Single-string surface**: Each method takes a `String` and returns a `String` — easy to chain into template expressions.
+- **Single-string surface**: Each method takes a `String` and returns a `String` - easy to chain into template expressions.
 
 ### Example Usage:
 ```java
@@ -22,7 +22,7 @@ import org.eclipse.dirigible.sdk.utils.Escape;
 
 // HTML-escape user input before interpolating into a template
 String safe = Escape.escapeHtml4("<script>alert(1)</script>");
-// → "&lt;script&gt;alert(1)&lt;/script&gt;"
+// -> "&lt;script&gt;alert(1)&lt;/script&gt;"
 
 // JSON-escape a value being concatenated into a hand-built JSON string
 String literal = "\"value: " + Escape.escapeJson(input) + "\"";
@@ -34,7 +34,7 @@ String cell = Escape.escapeCsv("Smith, John \"JD\"");
 ## Methods
 
 ### escapeCsv() / unescapeCsv()
-Escapes / unescapes a CSV cell value — quotes the field if it contains a comma, newline, or double-quote, and doubles any embedded double-quotes.
+Escapes / unescapes a CSV cell value - quotes the field if it contains a comma, newline, or double-quote, and doubles any embedded double-quotes.
 
 > ```java
 > public static String escapeCsv(String input);
@@ -51,7 +51,7 @@ Escapes / unescapes a CSV cell value — quotes the field if it contains a comma
 > :::
 
 ### escapeJavascript() / unescapeJavascript()
-Escapes / unescapes a JavaScript string literal — backslash-escapes quotes, backslashes, and control characters.
+Escapes / unescapes a JavaScript string literal - backslash-escapes quotes, backslashes, and control characters.
 
 > ```java
 > public static String escapeJavascript(String input);
@@ -102,7 +102,7 @@ Escapes / unescapes HTML 4 text and attribute content (full named-entity set). T
 > :::
 
 ### escapeJava() / unescapeJava()
-Escapes / unescapes a Java string literal — backslash-escapes quotes, backslashes, and Unicode control characters.
+Escapes / unescapes a Java string literal - backslash-escapes quotes, backslashes, and Unicode control characters.
 
 > ```java
 > public static String escapeJava(String input);
@@ -119,7 +119,7 @@ Escapes / unescapes a Java string literal — backslash-escapes quotes, backslas
 > :::
 
 ### escapeJson() / unescapeJson()
-Escapes / unescapes a JSON string value — backslash-escapes quotes, backslashes, and the JSON-required control characters.
+Escapes / unescapes a JSON string value - backslash-escapes quotes, backslashes, and the JSON-required control characters.
 
 > ```java
 > public static String escapeJson(String input);
@@ -136,7 +136,7 @@ Escapes / unescapes a JSON string value — backslash-escapes quotes, backslashe
 > :::
 
 ### escapeXml() / unescapeXml()
-Escapes / unescapes XML text and attribute content — replaces `&`, `<`, `>`, `"`, `'` with their entity equivalents and vice-versa.
+Escapes / unescapes XML text and attribute content - replaces `&`, `<`, `>`, `"`, `'` with their entity equivalents and vice-versa.
 
 > ```java
 > public static String escapeXml(String input);

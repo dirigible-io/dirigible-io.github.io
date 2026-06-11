@@ -7,7 +7,7 @@ read_time: 7 min
 publish_date: August  17, 2016
 ---
 
-My name is Viktor and in the past two weeks, I took part in the Summer Student Practice in SAP Labs Bulgaria, which brought together IT students from different Bulgarian universities: Sofia University “St. Kliment Ohridski”, Technical University – Sofia, University of Plovdiv "Paisii Hilendarski" and others. Within two weeks we, the participants, had the opportunity to expand our knowledge about modern IT topics and learn from professionals how to develop software – both theoretically and practically. Volunteers from SAP shared with us their professional experience in software architecture and design.
+My name is Viktor and in the past two weeks, I took part in the Summer Student Practice in SAP Labs Bulgaria, which brought together IT students from different Bulgarian universities: Sofia University “St. Kliment Ohridski”, Technical University - Sofia, University of Plovdiv "Paisii Hilendarski" and others. Within two weeks we, the participants, had the opportunity to expand our knowledge about modern IT topics and learn from professionals how to develop software - both theoretically and practically. Volunteers from SAP shared with us their professional experience in software architecture and design.
 
 During the first few days the schedule included lectures and theoretical introduction to the most “hot” technology trends, methodologies and principles of project management, user experience, prototyping, documentation, maintenance and lifecycle of software products. Then, based on everyone’s personal preferences, we were divided into teams. Each team, with the help of a mentor, had to prepare a practical project, based on the acquired knowledge, and present it on the last day. The Eclipse Dirigible platform grabbed my attention and I wanted to try it out. I was a part of a team of five: Vili, Boris, Desi, Svilen, and I.
 
@@ -76,7 +76,7 @@ With the help of the buttons “First”, “Previous”, ”Next”, ”Last”
 
 ## Summary
 
-I found it really easy to develop using  Eclipse Dirigible. It provides everything I needed – from database modeling and management, through RESTful services, to user interface generation. It was the perfect platform.
+I found it really easy to develop using  Eclipse Dirigible. It provides everything I needed - from database modeling and management, through RESTful services, to user interface generation. It was the perfect platform.
 
 I would say that the Summer Student Practice was a great success. We had a nearly finished the project in just a few days, with a platform we never used before, and in the end everyone had learned something new. Our project got second place in the rank list.
 

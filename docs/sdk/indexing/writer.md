@@ -7,14 +7,14 @@
 - source: [indexing/Writer.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/indexing/Writer.java)
 :::
 
-Adds documents to a Lucene index so they become searchable via `Searcher`. Each call is a single document — pass a JSON `parameters` blob for arbitrary additional fields beyond the named ones (`location`, `contents`, `lastModified`).
+Adds documents to a Lucene index so they become searchable via `Searcher`. Each call is a single document - pass a JSON `parameters` blob for arbitrary additional fields beyond the named ones (`location`, `contents`, `lastModified`).
 
-Writes are buffered and committed by the indexing service on its own cadence — callers don't need to flush. For bulk imports, batch by sending many adds in succession; the underlying Lucene writer amortises segment merges well.
+Writes are buffered and committed by the indexing service on its own cadence - callers don't need to flush. For bulk imports, batch by sending many adds in succession; the underlying Lucene writer amortises segment merges well.
 
 ### Key Features:
-- **Per-document add** — straightforward call shape.
-- **Custom fields** — JSON `parameters` extends beyond the three named fields.
-- **Auto-commit** — the platform handles segment management.
+- **Per-document add** - straightforward call shape.
+- **Custom fields** - JSON `parameters` extends beyond the three named fields.
+- **Auto-commit** - the platform handles segment management.
 
 ### Example Usage:
 ```java

@@ -7,13 +7,13 @@
 - source: [db/Store.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/db/Store.java)
 :::
 
-`Store` is the untyped, Hibernate-backed CRUD facade for dynamic entities. Each call addresses an entity by its logical name (matching the `name()` attribute of an `@Entity` annotation on a registered client class) and exchanges data as JSON strings — a convenient shape for scripted callers and for endpoints that proxy arbitrary entity names.
+`Store` is the untyped, Hibernate-backed CRUD facade for dynamic entities. Each call addresses an entity by its logical name (matching the `name()` attribute of an `@Entity` annotation on a registered client class) and exchanges data as JSON strings - a convenient shape for scripted callers and for endpoints that proxy arbitrary entity names.
 
-For typed CRUD over an `@Entity`-annotated client class with compile-time field checks, prefer `org.eclipse.dirigible.components.data.store.java.JavaEntityStore` (resolve it through `BeanProvider.getBean(JavaEntityStore.class)` inside a controller method). The two stores sit on the same Hibernate session — changes from one are immediately visible to the other.
+For typed CRUD over an `@Entity`-annotated client class with compile-time field checks, prefer `org.eclipse.dirigible.components.data.store.java.JavaEntityStore` (resolve it through `BeanProvider.getBean(JavaEntityStore.class)` inside a controller method). The two stores sit on the same Hibernate session - changes from one are immediately visible to the other.
 
 ### Key Features:
 - **Entity-by-name addressing**: Operate on any registered `@Entity` without compile-time coupling to its class.
-- **JSON wire shape**: Reads and writes use JSON strings — friendly to HTTP boundaries.
+- **JSON wire shape**: Reads and writes use JSON strings - friendly to HTTP boundaries.
 - **Shared session**: Backed by the same Hibernate session as `JavaEntityStore`, so typed and untyped calls interleave safely.
 - **Listing options**: `list`, `count`, and `find` accept an options JSON for filtering, paging, sorting, and example-based search.
 - **Metadata helpers**: `getEntityName`, `getTableName`, `getIdName`, and `getIdColumn` resolve the physical mapping for a logical entity.
@@ -127,7 +127,7 @@ Counts entity instances matching the supplied options.
 > :::
 
 ### find(entityName, exampleJson, limit, offset)
-Finds entity instances by example — non-null fields of `exampleJson` form equality predicates.
+Finds entity instances by example - non-null fields of `exampleJson` form equality predicates.
 
 > ```java
 > public static String find(String entityName, String exampleJson, int limit, int offset);

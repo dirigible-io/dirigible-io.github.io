@@ -9,11 +9,11 @@
 
 XML ↔ JSON conversion via the platform's Jackson XML mapper. Use this to consume legacy SOAP responses without writing schema-derived bindings, or to emit XML payloads from data already shaped as JSON.
 
-The conversion is structural — element / attribute names become JSON keys, text nodes become string values, repeated elements become arrays. Round-tripping is reliable for tree-shaped documents; mixed-content XML (text interleaved with elements) loses some fidelity.
+The conversion is structural - element / attribute names become JSON keys, text nodes become string values, repeated elements become arrays. Round-tripping is reliable for tree-shaped documents; mixed-content XML (text interleaved with elements) loses some fidelity.
 
 ### Key Features:
-- **Jackson XML-backed** — same conversion rules across the platform.
-- **String in / string out** — no streaming or DOM bookkeeping.
+- **Jackson XML-backed** - same conversion rules across the platform.
+- **String in / string out** - no streaming or DOM bookkeeping.
 
 ### Example Usage:
 ```java

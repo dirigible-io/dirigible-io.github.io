@@ -9,8 +9,8 @@
 
 xUnit-style assertion helpers that throw `AssertionError` on failure, so they integrate with every JVM test runner without further wiring (JUnit 5, TestNG, Spock, plain `@Test` methods invoked from a controller). Suitable for smoke tests and ad-hoc verification scripts written as plain Java client code inside Dirigible.
 
-::: warning Lightweight helper — not a JUnit replacement
-For full-blown test suites — fixtures, parameterised tests, lifecycle hooks, parallel execution — pull JUnit Jupiter into the project and use `org.junit.jupiter.api.Assertions` directly. This class deliberately covers only the small overlap appropriate for in-platform smoke tests.
+::: warning Lightweight helper - not a JUnit replacement
+For full-blown test suites - fixtures, parameterised tests, lifecycle hooks, parallel execution - pull JUnit Jupiter into the project and use `org.junit.jupiter.api.Assertions` directly. This class deliberately covers only the small overlap appropriate for in-platform smoke tests.
 :::
 
 ### Key Features

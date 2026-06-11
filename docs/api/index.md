@@ -20,12 +20,12 @@ The SDK is structured into multiple modules, each focused on a specific concern.
 
 The SDK is split into independent modules to ensure flexibility and scalability. Common categories include:
 
-* **Core** – foundational utilities and runtime helpers
-* **HTTP** – HTTP clients and request handling
-* **Database** – database access and query execution
-* **Security** – authentication and authorization
-* **Messaging** – event-driven and messaging capabilities
-* **Utilities** – helper functions and shared logic
+* **Core** - foundational utilities and runtime helpers
+* **HTTP** - HTTP clients and request handling
+* **Database** - database access and query execution
+* **Security** - authentication and authorization
+* **Messaging** - event-driven and messaging capabilities
+* **Utilities** - helper functions and shared logic
 
 ## Getting Started
 
@@ -49,10 +49,10 @@ console.log(response.data);
 
 Aerokit follows a set of core principles:
 
-* **Modularity** – use only what you need
-* **Type Safety** – full TypeScript support
-* **Simplicity** – clean and intuitive APIs
-* **Extensibility** – easy to extend and customize
+* **Modularity** - use only what you need
+* **Type Safety** - full TypeScript support
+* **Simplicity** - clean and intuitive APIs
+* **Extensibility** - easy to extend and customize
 
 ## Contributing
 

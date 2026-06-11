@@ -7,14 +7,14 @@
 - source: [http/Upload.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/Upload.java)
 :::
 
-Parses `multipart/form-data` bodies — the standard mechanism for file uploads from HTML forms and from `curl -F`. `isMultipartContent()` short-circuits before the parse (cheap header check) so a controller that handles both URL-encoded forms and uploads can branch correctly.
+Parses `multipart/form-data` bodies - the standard mechanism for file uploads from HTML forms and from `curl -F`. `isMultipartContent()` short-circuits before the parse (cheap header check) so a controller that handles both URL-encoded forms and uploads can branch correctly.
 
 Each `FileItem` reports its field name, content type, byte size, and streams its content via `FileItem#getInputStream()`. The parser writes oversized parts to disk through the platform's configured temp dir, so very large uploads will not blow up the heap.
 
 ### Key Features:
 - **Cheap Pre-Check**: `isMultipartContent()` inspects the `Content-Type` header without consuming the body.
 - **Streamed Parts**: Each `FileItem` is read lazily through `getInputStream()`; large uploads spill to disk through the configured temp directory.
-- **Form Fields and Files Mixed**: `parseRequest()` returns every part of the multipart body — call `FileItem#isFormField()` to tell a regular form field from an uploaded file.
+- **Form Fields and Files Mixed**: `parseRequest()` returns every part of the multipart body - call `FileItem#isFormField()` to tell a regular form field from an uploaded file.
 
 ### Example Usage:
 ```java

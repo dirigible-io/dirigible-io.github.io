@@ -7,7 +7,7 @@
 - source: [http/Request.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/Request.java)
 :::
 
-Inspects the inbound HTTP request bound to the calling thread — method, headers, cookies, query parameters, body. Use this from a `@Controller` method that needs more than the parameter-binding annotations (e.g. raw header inspection, parameter iteration, streaming the body).
+Inspects the inbound HTTP request bound to the calling thread - method, headers, cookies, query parameters, body. Use this from a `@Controller` method that needs more than the parameter-binding annotations (e.g. raw header inspection, parameter iteration, streaming the body).
 
 `getNative()` hands back the underlying `HttpServletRequest` when you need to call into Servlet APIs that aren't exposed through the static helpers; the helpers themselves are sufficient for the vast majority of use cases and keep call sites free of Servlet imports.
 
@@ -295,7 +295,7 @@ Reads the entire request body as text.
 
 ### getInputStream()
 
-Returns the raw request body as a Servlet input stream — use for streaming uploads.
+Returns the raw request body as a Servlet input stream - use for streaming uploads.
 
 > ```java
 > public static ServletInputStream getInputStream() throws IOException;

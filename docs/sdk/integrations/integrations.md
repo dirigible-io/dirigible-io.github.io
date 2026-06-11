@@ -7,7 +7,7 @@
 - source: [integrations/Integrations.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/integrations/Integrations.java)
 :::
 
-Marker / placeholder class for the integrations namespace. Java callers implementing an Apache Camel `Processor` already have the `Exchange` parameter, so the native Camel API (`exchange.getMessage().setHeader(...)`, `setBody(...)`, `setProperty(...)`) is the right tool — there is no intermediate facade to add.
+Marker / placeholder class for the integrations namespace. Java callers implementing an Apache Camel `Processor` already have the `Exchange` parameter, so the native Camel API (`exchange.getMessage().setHeader(...)`, `setBody(...)`, `setProperty(...)`) is the right tool - there is no intermediate facade to add.
 
 The package exists so the namespace stays consistent across the platform; the class itself has no methods.
 

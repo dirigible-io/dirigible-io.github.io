@@ -33,21 +33,23 @@ ENV DIRIGIBLE_HOME_URL=/services/web/application/gen/application/index.html
 
 - The first line in the Dockerfile sets up the Eclipse Dirigible Docker image as a base image.
 
-    !!! note
-  
-        This is not a runtime image, meaning that Eclipse Dirigible’s Web IDE will be incorporated into your application.
-  
-- The `COPY` command transfers your project directory _(e.g., `application`)_ to the public [Registry](/help/development/concepts/registry/), where the [published](/help/development/concepts/publishing/) content resides.
+    ::: info
+
+    This is not a runtime image, meaning that Eclipse Dirigible’s Web IDE will be incorporated into your application.
+    :::
+
+- The `COPY` command transfers your project directory _(e.g., `application`)_ to the public [Registry](/help/concepts/repository-and-workspace), where the [published](/help/concepts/publish-and-reconcile) content resides.
 
 - _(Optional)_ The second `COPY` command copies npm dependency packages listed in `package.json`.
 
-    !!! note "NPM Dependencies"
-  
-        If your application doesn't have NPM dependencies, delete this line.
-  
-        If it does, run `npm install` before triggering the Docker build.
+    ::: info NPM Dependencies
 
-- The final line in the Dockerfile uses a Dirigible environment variable _(see the [Environment Variables Guide](/help/setup/setup-environment-variables/#basic))_ to set up the main page of your application.
+    If your application doesn't have NPM dependencies, delete this line.
+
+    If it does, run `npm install` before triggering the Docker build.
+    :::
+
+- The final line in the Dockerfile uses a Dirigible environment variable _(see the [Environment Variables Guide](/help/setup/environment-variables))_ to set up the main page of your application.
 
 ## Handling Dependencies
 
@@ -57,49 +59,50 @@ To install the dependencies, run `npm install` in the project directory.
 
 ::: info
 
-You can also use the [Terminal view](/help/development/ide/views/terminal/) in Eclipse Dirigible to execute commands.
+You can also use the [Terminal view](/help/ide/views/terminal) in Eclipse Dirigible to execute commands.
 :::
-??? info "project.json"
+::: details project.json
 
-    The `project.json` file, combined with the `tsconfig.json`, enables seamless builds of TypeScript files in your project. Additional commands can be declared in `project.json` and executed at different stages of the development lifecycle.
-    
-    It's important to note that `project.json` is only a design-time artifact, meaning its commands are executed only during development in Eclipse Dirigible's Web IDE. For more details, see [Eclipse Dirigible Core Concepts](/help/development/concepts/).
+The `project.json` file, combined with the `tsconfig.json`, enables seamless builds of TypeScript files in your project. Additional commands can be declared in `project.json` and executed at different stages of the development lifecycle.
 
-    ```json
-    {
-        "guid": "your-application-name",
-        "dependencies": [
-            {
-                "guid": "first-dirigible-module",
-                "type": "git",
-                "url": "link-to-git-repo",
-                "branch": "main"
-            },
-            {
-                "guid": "second-dirigible-module",
-                "type": "git",
-                "url": "link-to-git-repo",
-                "branch": "main"
-            }
-        ],
-        "actions": [
-            {
-                "name": "Build TypeScript",
-                "commands": [
-                    {
-                        "os": "unix",
-                        "command": "tsc"
-                    },
-                    {
-                        "os": "windows",
-                        "command": "cmd /c tsc"
-                    }
-                ],
-                "registry": "true"
-            }
-        ]
-    }
-    ```
+It's important to note that `project.json` is only a design-time artifact, meaning its commands are executed only during development in Eclipse Dirigible's Web IDE. For more details, see [Eclipse Dirigible Core Concepts](/help/concepts/).
+
+```json
+{
+    "guid": "your-application-name",
+    "dependencies": [
+        {
+            "guid": "first-dirigible-module",
+            "type": "git",
+            "url": "link-to-git-repo",
+            "branch": "main"
+        },
+        {
+            "guid": "second-dirigible-module",
+            "type": "git",
+            "url": "link-to-git-repo",
+            "branch": "main"
+        }
+    ],
+    "actions": [
+        {
+            "name": "Build TypeScript",
+            "commands": [
+                {
+                    "os": "unix",
+                    "command": "tsc"
+                },
+                {
+                    "os": "windows",
+                    "command": "cmd /c tsc"
+                }
+            ],
+            "registry": "true"
+        }
+    ]
+}
+```
+:::
 
 ### package.json
 

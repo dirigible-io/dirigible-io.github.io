@@ -7,14 +7,14 @@
 - source: [bpm/Tasks.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/bpm/Tasks.java)
 :::
 
-Helpers for the Flowable user-task layer — list outstanding tasks for the calling user, read and write task-local variables, complete a task. Useful inside controllers backing a worklist UI or in script-style steps that finish off a workflow.
+Helpers for the Flowable user-task layer - list outstanding tasks for the calling user, read and write task-local variables, complete a task. Useful inside controllers backing a worklist UI or in script-style steps that finish off a workflow.
 
-Task-level variables are scoped to the task and shadow process-level variables of the same name — `complete(taskId, variablesJson)` is what promotes them back to process scope (and decides which gateway path the engine takes next).
+Task-level variables are scoped to the task and shadow process-level variables of the same name - `complete(taskId, variablesJson)` is what promotes them back to process scope (and decides which gateway path the engine takes next).
 
 ### Key Features:
-- **Per-user task list** — pre-filtered by the platform's authentication context.
-- **Task-scoped variables** — separate from the parent process's variable map until completion.
-- **JSON in / JSON out** — consistent JSON shape across the platform.
+- **Per-user task list** - pre-filtered by the platform's authentication context.
+- **Task-scoped variables** - separate from the parent process's variable map until completion.
+- **JSON in / JSON out** - consistent JSON shape across the platform.
 
 ### Example Usage:
 ```java

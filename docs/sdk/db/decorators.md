@@ -7,7 +7,7 @@
 - source: [db/](https://github.com/eclipse/dirigible/tree/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/db)
 :::
 
-These annotations are the declarative mapping layer for entities managed by the `data-store-java` module. Their signatures mirror `jakarta.persistence` so existing JPA knowledge transfers, but they are processed by Dirigible's own runtime — not propagated to Hibernate via JPA. The runtime reflects over these annotations and builds Hibernate mappings (HBM XML, dynamic-map mode) on the fly.
+These annotations are the declarative mapping layer for entities managed by the `data-store-java` module. Their signatures mirror `jakarta.persistence` so existing JPA knowledge transfers, but they are processed by Dirigible's own runtime - not propagated to Hibernate via JPA. The runtime reflects over these annotations and builds Hibernate mappings (HBM XML, dynamic-map mode) on the fly.
 
 ### Complete Example:
 

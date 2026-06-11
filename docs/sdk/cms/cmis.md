@@ -7,11 +7,11 @@
 - source: [cms/Cmis.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/cms/Cmis.java)
 :::
 
-Entry point into the platform's CMIS repository — the internal Dirigible store by default, or S3 / SharePoint when those engines are wired in. `getSession()` returns the underlying Apache Chemistry `Session` (`org.apache.chemistry.opencmis.client.api.Session`) so callers can use the full CMIS 1.1 surface — create / read / update / delete documents and folders, query with CMIS-SQL, manage document versions.
+Entry point into the platform's CMIS repository - the internal Dirigible store by default, or S3 / SharePoint when those engines are wired in. `getSession()` returns the underlying Apache Chemistry `Session` (`org.apache.chemistry.opencmis.client.api.Session`) so callers can use the full CMIS 1.1 surface - create / read / update / delete documents and folders, query with CMIS-SQL, manage document versions.
 
 The session is typed as `Object` on the SDK signature to avoid pulling Apache Chemistry types into the SDK compile surface. Cast it to `org.apache.chemistry.opencmis.client.api.Session` at the call site.
 
-Access-control questions can be answered ahead of time with `isAllowed(String, String)` and `getAccessDefinitions(String, String)` — useful when an authorisation outcome needs to be reported before attempting the operation.
+Access-control questions can be answered ahead of time with `isAllowed(String, String)` and `getAccessDefinitions(String, String)` - useful when an authorisation outcome needs to be reported before attempting the operation.
 
 ### Key Features:
 - **Raw CMIS Session**: Returns an Apache Chemistry `Session` so callers can use the full CMIS 1.1 surface.
@@ -88,7 +88,7 @@ Checks whether the calling principal is allowed to perform the given method on t
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
 > | `path` | `String` | The CMIS path to check (for example `/reports/2026/Q2.pdf`). |
-> | `method` | `String` | The access method — use `Cmis.METHOD_READ` or `Cmis.METHOD_WRITE`. |
+> | `method` | `String` | The access method - use `Cmis.METHOD_READ` or `Cmis.METHOD_WRITE`. |
 >
 > ::: info Returns
 > - **Type**: `boolean`
@@ -106,7 +106,7 @@ Returns the set of platform `Access` definitions that apply to the given path / 
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
 > | `path` | `String` | The CMIS path. |
-> | `method` | `String` | The access method — use `Cmis.METHOD_READ` or `Cmis.METHOD_WRITE`. |
+> | `method` | `String` | The access method - use `Cmis.METHOD_READ` or `Cmis.METHOD_WRITE`. |
 >
 > ::: info Returns
 > - **Type**: `Set<Access>`

@@ -17,29 +17,37 @@ The target Kubernetes deployment is shown bellow:
 ![Gardener - AWS - Istio - Dirigible](/img/posts/20211014/overview.png)
 
 
-=== "Kubernetes"
+**Kubernetes**
 
-    !!! tip "Overview"
 
-        Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
+::: tip Overview
 
-=== "AWS Route 53"
+Kubernetes is an open source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes [here](https://kubernetes.io/).
+:::
 
-    !!! tip "Overview"
+**AWS Route 53**
 
-        Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. [here](https://aws.amazon.com/route53/).
 
-=== "Gardener"
+::: tip Overview
 
-    !!! tip "Overview"
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. [here](https://aws.amazon.com/route53/).
+:::
 
-        Deliver fully-managed clusters at scale everywhere with your own Kubernetes-as-a-Service. Kubernetes-native system managing the full lifecycle of conformant Kubernetes clusters as a service on Alicloud, AWS, Azure, GCP, OpenStack, EquinixMetal, vSphere, MetalStack, and Kubevirt with minimal TCO.[here](https://gardener.cloud/).
+**Gardener**
 
-=== "Istio"
 
-    !!! tip "Overview"
+::: tip Overview
 
-        Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://istio.io/).
+Deliver fully-managed clusters at scale everywhere with your own Kubernetes-as-a-Service. Kubernetes-native system managing the full lifecycle of conformant Kubernetes clusters as a service on Alicloud, AWS, Azure, GCP, OpenStack, EquinixMetal, vSphere, MetalStack, and Kubevirt with minimal TCO.[here](https://gardener.cloud/).
+:::
+
+**Istio**
+
+
+::: tip Overview
+
+Istio is an open source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. [here](https://istio.io/).
+:::
 
 ## Prerequisites
 
@@ -112,9 +120,10 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
 
     ![AWS - Add Your Hosted Zone Id to Policy](/img/posts/20211014/add-your-hostedzone-id-to-policy.png)
 
-    !!! note
+    ::: info
 
-        It's very important to add your correct hosted zone id
+    It's very important to add your correct hosted zone id
+    :::
 
     - We don't need tags, see image below:
 
@@ -136,9 +145,10 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
 
     ![AWS - Add User Step - 3](/img/posts/20211014/add-user-step-3.png)
 
-    !!! note
+    ::: info
 
-        Before you click on create user check Permissions summary that consist your new group.
+    Before you click on create user check Permissions summary that consist your new group.
+    :::
 
     ![AWS - Add User Step - 4](/img/posts/20211014/add-user-step-4.png)
 
@@ -173,8 +183,8 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
           providerConfig:
             apiVersion: service.cert.extensions.gardener.cloud/v1alpha1
             issuers:
-              - email: &lt;your-email-here&gt;
-                name: &lt;type-name-for-the-issue&gt;
+              - email: <your-email-here>
+                name: <type-name-for-the-issue>
                 server: 'https://acme-v02.api.letsencrypt.org/directory'
     ```
 
@@ -204,7 +214,7 @@ After you create your hosted zone you can delegate your subdomain to AWS, if you
       dnsName: "app.demo.dirigible.io"
       ttl: 600
       targets: 
-      - &lt;type-here-the-result-from-previous-command&gt;
+      - <type-here-the-result-from-previous-command>
     ```
 
 ## Istio Configuration  

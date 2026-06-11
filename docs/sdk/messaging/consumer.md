@@ -9,7 +9,7 @@
 
 Synchronously pulls a single message from a queue or topic, blocking up to `timeoutMillis`. Returns `null` when the timeout elapses without a delivery.
 
-Use this in script-style code that processes a single message and exits, or when you want tight backpressure control. For long-running, always-on consumption use a `@Listener`-annotated class &mdash; the platform manages the consumer thread, reconnects, and ordering for you.
+Use this in script-style code that processes a single message and exits, or when you want tight backpressure control. For long-running, always-on consumption use a `@Listener`-annotated class - the platform manages the consumer thread, reconnects, and ordering for you.
 
 ### Key Features:
 - **Blocking Pull**: Each call blocks the caller until a message arrives or the supplied timeout elapses.

@@ -1,6 +1,6 @@
 ---
-title: "Introducing the Eclipse Dirigible CLI – Develop and Run Dirigible Projects Effortlessly from Your Terminal"
-description: "Learn how to quickly create, run, and manage Eclipse Dirigible projects using the new Dirigible Command Line Interface (CLI) — available now as an NPM package."
+title: "Introducing the Eclipse Dirigible CLI - Develop and Run Dirigible Projects Effortlessly from Your Terminal"
+description: "Learn how to quickly create, run, and manage Eclipse Dirigible projects using the new Dirigible Command Line Interface (CLI) - available now as an NPM package."
 author: Iliyan Velichkov
 author_gh_user: iliyan-velichkov
 author_avatar: https://avatars.githubusercontent.com/u/5058839?v=4
@@ -8,11 +8,11 @@ read_time: 5 min
 publish_date: October 30, 2025
 ---
 
-We’re excited to announce the **new Command Line Interface (CLI)** for the [Eclipse Dirigible](https://www.dirigible.io/) project — available as an NPM package:  
+We’re excited to announce the **new Command Line Interface (CLI)** for the [Eclipse Dirigible](https://www.dirigible.io/) project - available as an NPM package:  
 👉 [@dirigiblelabs/dirigible-cli](https://www.npmjs.com/package/@dirigiblelabs/dirigible-cli)
 
-This CLI simplifies the entire **development lifecycle** of Dirigible projects — from creation and startup to live reloading and testing.  
-With just a few commands, you can bootstrap a new Dirigible application, run it locally, and iterate quickly — all from your terminal.
+This CLI simplifies the entire **development lifecycle** of Dirigible projects - from creation and startup to live reloading and testing.  
+With just a few commands, you can bootstrap a new Dirigible application, run it locally, and iterate quickly - all from your terminal.
 
 In this post, we’ll explore two ways to use the CLI:
 
@@ -96,7 +96,7 @@ import { response } from "sdk/http";
 response.println("Hello from Watch Mode!");
 ```
 
-Save the file, refresh your browser at [http://localhost:8080/services/ts/demo/hello.ts](http://localhost:8080/services/ts/demo/hello.ts) and you’ll see the updated body `Hello from Watch Mode!` — no manual restart needed.
+Save the file, refresh your browser at [http://localhost:8080/services/ts/demo/hello.ts](http://localhost:8080/services/ts/demo/hello.ts) and you’ll see the updated body `Hello from Watch Mode!` - no manual restart needed.
 
 <a href="../../../../images/dirigible-cli/start-in-watch.gif" target="_blank">
 <img src="../../../../images/dirigible-cli/start-in-watch.gif" alt="start-in-watch.gif">

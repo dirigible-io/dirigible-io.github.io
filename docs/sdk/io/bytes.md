@@ -7,7 +7,7 @@
 - source: [io/Bytes.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/io/Bytes.java)
 :::
 
-Byte-buffer conversions that don't fit cleanly into a single JDK call — text-to-bytes with a named charset and integer / byte-array conversion with explicit byte order. The byte-order constants `BIG_ENDIAN` and `LITTLE_ENDIAN` match the values the underlying facade accepts; use them as the `byteOrder` argument rather than passing raw strings.
+Byte-buffer conversions that don't fit cleanly into a single JDK call - text-to-bytes with a named charset and integer / byte-array conversion with explicit byte order. The byte-order constants `BIG_ENDIAN` and `LITTLE_ENDIAN` match the values the underlying facade accepts; use them as the `byteOrder` argument rather than passing raw strings.
 
 For straight ASCII / UTF-8 conversion you can use `org.eclipse.dirigible.sdk.utils.Utf8` or the standard library directly; this class earns its keep when you actually need a specific charset or a known endianness.
 

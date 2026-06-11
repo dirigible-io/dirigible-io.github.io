@@ -7,16 +7,16 @@
 - source: [security/User.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/security/User.java)
 :::
 
-Identity and role lookup for the user behind the current request. The methods return whatever the platform's authentication chain populated — Spring Security principal, OIDC subject, basic-auth username, etc.
+Identity and role lookup for the user behind the current request. The methods return whatever the platform's authentication chain populated - Spring Security principal, OIDC subject, basic-auth username, etc.
 
 `isInRole(role)` is the authoritative check used by `@Roles` dispatch in controllers; `getRoles()` returns the full set if you need to make a finer-grained decision inside a method body.
 
 In an unauthenticated context (anonymous request, scheduled job) the user name resolves to the platform's anonymous user; role checks then defer to the platform's anonymous-mode configuration.
 
 ### Key Features:
-- **Auth-chain agnostic** — same surface across Spring Security, OIDC, basic auth.
-- **Authoritative role check** — `isInRole` matches what `@Roles` dispatch uses.
-- **Anonymous fallback** — clean defaults in non-request contexts (jobs, listeners).
+- **Auth-chain agnostic** - same surface across Spring Security, OIDC, basic auth.
+- **Authoritative role check** - `isInRole` matches what `@Roles` dispatch uses.
+- **Anonymous fallback** - clean defaults in non-request contexts (jobs, listeners).
 
 ### Example Usage:
 ```java

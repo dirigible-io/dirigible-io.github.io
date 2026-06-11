@@ -7,16 +7,16 @@
 - source: [git/Git.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/git/Git.java)
 :::
 
-JGit-backed operations against repositories the IDE knows about under a user's workspace. Covers the everyday flow — clone, pull, push, checkout, status, log, file content at a given revision — plus branch and remote management.
+JGit-backed operations against repositories the IDE knows about under a user's workspace. Covers the everyday flow - clone, pull, push, checkout, status, log, file content at a given revision - plus branch and remote management.
 
-Repositories are addressed by `(workspaceName, repositoryName)`; the URI and credentials only appear on the clone and pull / push operations. Every method that touches the repository propagates the underlying JGit / connector checked exceptions verbatim — handle them at the controller / job boundary the way you would with `GitFacade` directly.
+Repositories are addressed by `(workspaceName, repositoryName)`; the URI and credentials only appear on the clone and pull / push operations. Every method that touches the repository propagates the underlying JGit / connector checked exceptions verbatim - handle them at the controller / job boundary the way you would with `GitFacade` directly.
 
 For ad-hoc Git work that does not need to live in a workspace (CI scripts, throwaway tooling), the bare JGit API (`org.eclipse.jgit.api.Git`) is a more appropriate fit.
 
 ### Key Features:
-- **Workspace-resident** — repositories are addressed by name, not by filesystem path.
-- **Full JGit surface** — clone, pull, push, checkout, rebase, hard-reset, status, history.
-- **Native return types** — `GitBranch`, `GitChangedFile`, `GitCommitInfo`, `Status` etc.
+- **Workspace-resident** - repositories are addressed by name, not by filesystem path.
+- **Full JGit surface** - clone, pull, push, checkout, rebase, hard-reset, status, history.
+- **Native return types** - `GitBranch`, `GitChangedFile`, `GitCommitInfo`, `Status` etc.
 
 ### Example Usage:
 ```java
@@ -202,7 +202,7 @@ Returns JGit's `Status` for the repository.
 >
 > ::: info Returns
 > - **Type**: `org.eclipse.jgit.api.Status`
-> - **Description**: JGit status object — `added()`, `modified()`, `removed()`, etc.
+> - **Description**: JGit status object - `added()`, `modified()`, `removed()`, etc.
 > :::
 
 ### getBranch()

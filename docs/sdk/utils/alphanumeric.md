@@ -7,12 +7,12 @@
 - source: [utils/Alphanumeric.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/utils/Alphanumeric.java)
 :::
 
-Random string generators suitable for tokens, short identifiers, and one-shot secrets that fit a "human readable" requirement — no symbols, with no extra filtering of ambiguity-prone glyphs (`0`/`O`, `1`/`l`); reach for a dedicated library if you need that.
+Random string generators suitable for tokens, short identifiers, and one-shot secrets that fit a "human readable" requirement - no symbols, with no extra filtering of ambiguity-prone glyphs (`0`/`O`, `1`/`l`); reach for a dedicated library if you need that.
 
 The implementation is backed by `java.security.SecureRandom`, so the outputs are cryptographically random; cost is comparable to one `nextInt` per character. Use `random(int, String)` when you need to constrain the alphabet (e.g. uppercase-only for case-insensitive shortcodes), and `randomNumeric(int)` when only digits are wanted.
 
 ### Key Features:
-- **Cryptographically random**: Backed by `SecureRandom` — safe for tokens, password-reset codes, and one-time secrets.
+- **Cryptographically random**: Backed by `SecureRandom` - safe for tokens, password-reset codes, and one-time secrets.
 - **Custom alphabet support**: Pass any non-empty `charset` string to `random(int, String)` for domain-specific shortcodes.
 - **Default length 16**: All no-argument overloads emit a 16-character string by default.
 
@@ -118,7 +118,7 @@ Generates a 16-character random numeric string (digits only).
 > :::
 
 ### randomNumeric(int length)
-Generates a random numeric string of the requested length — useful for OTPs and short numeric codes.
+Generates a random numeric string of the requested length - useful for OTPs and short numeric codes.
 
 > ```java
 > public static String randomNumeric(int length);

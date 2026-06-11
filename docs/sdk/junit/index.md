@@ -10,7 +10,7 @@
 The `junit` module provides lightweight xUnit-style assertion helpers for use in Dirigible scripts and ad-hoc verification code. The assertions throw `AssertionError` on failure, so they integrate with any JVM test runner without extra wiring.
 
 ::: warning Not a JUnit replacement
-This is *not* a replacement for real JUnit 5 in test sources. For full-blown test suites — fixtures, parameterised tests, lifecycle hooks, parallel execution — pull JUnit Jupiter into the project and use `org.junit.jupiter.api.Assertions` directly. This class deliberately covers only the small overlap appropriate for in-platform smoke tests.
+This is *not* a replacement for real JUnit 5 in test sources. For full-blown test suites - fixtures, parameterised tests, lifecycle hooks, parallel execution - pull JUnit Jupiter into the project and use `org.junit.jupiter.api.Assertions` directly. This class deliberately covers only the small overlap appropriate for in-platform smoke tests.
 :::
 
 The main components of this module are:

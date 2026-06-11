@@ -10,6 +10,6 @@
 This module provides an SMTP delivery facade. The platform-configured client is the default; per-call property overrides support multi-tenant fan-out and one-off messages.
 
 The main components of this module are:
-- **Mail**: Static facade — `getInstance()`, `getInstance(properties)`, and a convenience `send(...)`.
+- **Mail**: Static facade - `getInstance()`, `getInstance(properties)`, and a convenience `send(...)`.
 
 ## Classes

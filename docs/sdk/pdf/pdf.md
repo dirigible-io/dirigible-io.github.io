@@ -7,14 +7,14 @@
 - source: [pdf/Pdf.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/pdf/Pdf.java)
 :::
 
-Renders a Mustache-style template against a JSON data document and returns the resulting PDF bytes. The platform handles font loading, page sizing, and basic CSS — useful for invoice, report, and certificate generation without spinning up a full reporting engine.
+Renders a Mustache-style template against a JSON data document and returns the resulting PDF bytes. The platform handles font loading, page sizing, and basic CSS - useful for invoice, report, and certificate generation without spinning up a full reporting engine.
 
 Write the returned bytes straight into an HTTP response with `Content-Type: application/pdf`, or into the repository / filesystem via `org.eclipse.dirigible.sdk.io.Files#writeBytesNative(String, byte[])`.
 
 ### Key Features:
 - **Mustache-style Templating**: Templates use the familiar `{{ field }}` placeholder syntax.
 - **JSON Data Binding**: The data document is passed as a JSON string, matching the shape consumed across the rest of the SDK.
-- **Native Byte Output**: The result is returned as `byte[]` — stream directly to an HTTP response or persist via `Files.writeBytesNative`.
+- **Native Byte Output**: The result is returned as `byte[]` - stream directly to an HTTP response or persist via `Files.writeBytesNative`.
 - **Platform-managed rendering**: Fonts, page sizing, and basic CSS are handled by the platform.
 
 ### Example Usage:
@@ -57,5 +57,5 @@ Renders the given Mustache-style template with the supplied JSON data document a
 >
 > ::: info Returns
 > - **Type**: `byte[]`
-> - **Description**: The rendered PDF as a byte array — write directly to an HTTP response or persist via `Files.writeBytesNative`.
+> - **Description**: The rendered PDF as a byte array - write directly to an HTTP response or persist via `Files.writeBytesNative`.
 > :::

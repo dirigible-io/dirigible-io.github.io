@@ -7,11 +7,11 @@
 - source: [log/Logging.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/log/Logging.java), [log/Logger.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/log/Logger.java)
 :::
 
-`Logging` is the entry point for obtaining named application loggers. Names are conventionally dot-separated package paths (`com.acme.orders.fulfilment`) and are nested under the platform's `app.` root, so the same configuration knobs that govern other application loggers also govern these — set levels in `logback.xml`, override at runtime through `Logger.setLevel(String)`.
+`Logging` is the entry point for obtaining named application loggers. Names are conventionally dot-separated package paths (`com.acme.orders.fulfilment`) and are nested under the platform's `app.` root, so the same configuration knobs that govern other application loggers also govern these - set levels in `logback.xml`, override at runtime through `Logger.setLevel(String)`.
 
 Loggers returned by `Logging.getLogger` are independent value objects; cache them in a `static final` field per class if performance matters.
 
-Each `Logger` level method (`trace`, `debug`, `info`, `warn`, `error`) accepts an SLF4J-style template plus varargs — placeholders are `{}` (not `{0}`), and a trailing `Throwable` is unpacked into the stack-trace slot by SLF4J automatically.
+Each `Logger` level method (`trace`, `debug`, `info`, `warn`, `error`) accepts an SLF4J-style template plus varargs - placeholders are `{}` (not `{0}`), and a trailing `Throwable` is unpacked into the stack-trace slot by SLF4J automatically.
 
 ### Key Features
 

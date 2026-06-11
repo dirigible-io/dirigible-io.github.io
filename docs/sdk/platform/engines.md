@@ -7,9 +7,9 @@
 - source: [platform/Engine.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Engine.java)
 :::
 
-Invokes another scripting engine on a file in the registry — most often GraalJS, occasionally Python or another GraalVM polyglot engine. The `parameters` map is forwarded into the engine's global scope and the engine's natural return value is propagated back.
+Invokes another scripting engine on a file in the registry - most often GraalJS, occasionally Python or another GraalVM polyglot engine. The `parameters` map is forwarded into the engine's global scope and the engine's natural return value is propagated back.
 
-Useful for hybrid workflows where a Java controller delegates a step to a script in another language (or vice versa) — Dirigible's polyglot runtime lets every language share the same in-process services. For pure in-Java composition prefer regular method calls; spinning up an engine has non-trivial cost compared to invoking a `Component` bean directly.
+Useful for hybrid workflows where a Java controller delegates a step to a script in another language (or vice versa) - Dirigible's polyglot runtime lets every language share the same in-process services. For pure in-Java composition prefer regular method calls; spinning up an engine has non-trivial cost compared to invoking a `Component` bean directly.
 
 ### Key Features
 
@@ -48,7 +48,7 @@ Executes a registry file under the given engine type with an empty parameter map
 >
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
-> | `type` | `String` | The engine type — e.g. `"javascript"`, `"python"`. |
+> | `type` | `String` | The engine type - e.g. `"javascript"`, `"python"`. |
 > | `project` | `String` | The project name under `/registry/public/`. |
 > | `filePath` | `String` | The path to the script file inside the project. |
 >
@@ -67,7 +67,7 @@ Executes a registry file under the given engine type, passing a parameter map in
 >
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
-> | `type` | `String` | The engine type — e.g. `"javascript"`, `"python"`. |
+> | `type` | `String` | The engine type - e.g. `"javascript"`, `"python"`. |
 > | `project` | `String` | The project name under `/registry/public/`. |
 > | `filePath` | `String` | The path to the script file inside the project. |
 > | `parameters` | `Map<Object, Object>` | Values to expose in the engine's global scope. |
@@ -88,7 +88,7 @@ Full-form execute with a path parameter, parameter map, and a debug toggle.
 >
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
-> | `type` | `String` | The engine type — e.g. `"javascript"`, `"python"`. |
+> | `type` | `String` | The engine type - e.g. `"javascript"`, `"python"`. |
 > | `project` | `String` | The project name under `/registry/public/`. |
 > | `filePath` | `String` | The path to the script file inside the project. |
 > | `pathParam` | `String` | An optional path parameter forwarded into the engine. |

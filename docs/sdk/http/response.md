@@ -7,7 +7,7 @@
 - source: [http/Response.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/Response.java)
 :::
 
-Writes the outbound HTTP response bound to the calling thread — status, headers, cookies, body. Useful from `@Controller` methods that want to stream bytes, set explicit status codes, or send `30x` redirects.
+Writes the outbound HTTP response bound to the calling thread - status, headers, cookies, body. Useful from `@Controller` methods that want to stream bytes, set explicit status codes, or send `30x` redirects.
 
 Most controllers can rely on the dispatcher's automatic Jackson serialization of return values and reach for this class only at the edges (file downloads, binary responses, manual error shapes). `getNative()` hands back the underlying `HttpServletResponse` when you need a Servlet-only method.
 
@@ -385,7 +385,7 @@ Returns the response locale.
 
 ### getOutputStream()
 
-Returns the raw response output stream — useful for streaming binary responses.
+Returns the raw response output stream - useful for streaming binary responses.
 
 > ```java
 > public static OutputStream getOutputStream() throws IOException;

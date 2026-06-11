@@ -7,9 +7,9 @@
 - source: [utils/Digest.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/utils/Digest.java)
 :::
 
-One-shot cryptographic-digest helpers — MD5, SHA-1, SHA-256, SHA-384, SHA-512. Each algorithm exposes overloads for `byte[]` or `String` input; MD5 and SHA-1 additionally expose `Hex` variants that return the digest as a printable hex string. Use the `Hex` variants when you want a printable identifier (cache keys, ETags, fingerprints) and the raw-byte variants when you'll feed the digest into another cryptographic step.
+One-shot cryptographic-digest helpers - MD5, SHA-1, SHA-256, SHA-384, SHA-512. Each algorithm exposes overloads for `byte[]` or `String` input; MD5 and SHA-1 additionally expose `Hex` variants that return the digest as a printable hex string. Use the `Hex` variants when you want a printable identifier (cache keys, ETags, fingerprints) and the raw-byte variants when you'll feed the digest into another cryptographic step.
 
-MD5 and SHA-1 are kept for compatibility with file fingerprinting / ETag use cases but should not be used for any new security-sensitive purpose — prefer `sha256` or `sha512`. For password hashing use a dedicated PBKDF2 / bcrypt / Argon2 library, not these helpers.
+MD5 and SHA-1 are kept for compatibility with file fingerprinting / ETag use cases but should not be used for any new security-sensitive purpose - prefer `sha256` or `sha512`. For password hashing use a dedicated PBKDF2 / bcrypt / Argon2 library, not these helpers.
 
 ### Key Features:
 - **Five algorithms**: MD5, SHA-1, SHA-256, SHA-384, SHA-512.
@@ -20,10 +20,10 @@ MD5 and SHA-1 are kept for compatibility with file fingerprinting / ETag use cas
 ```java
 import org.eclipse.dirigible.sdk.utils.Digest;
 
-// Hex-encoded MD5 — fine for ETags, not for security
+// Hex-encoded MD5 - fine for ETags, not for security
 String etag = Digest.md5Hex("payload");
 
-// Raw SHA-256 bytes — feed into HMAC, signatures, etc.
+// Raw SHA-256 bytes - feed into HMAC, signatures, etc.
 byte[] sha = Digest.sha256("payload");
 
 // Long-form SHA-512

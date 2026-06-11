@@ -7,7 +7,7 @@
 - source: [bpm/](https://github.com/eclipse/dirigible/tree/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/bpm)
 :::
 
-This module provides Business Process Management (BPM) functionalities for the Eclipse Dirigible Java SDK, on top of the embedded Flowable engine. It covers everything a Java module needs to drive a BPMN process — deploying definitions, starting instances, reading and writing process variables, correlating messages, and completing user tasks.
+This module provides Business Process Management (BPM) functionalities for the Eclipse Dirigible Java SDK, on top of the embedded Flowable engine. It covers everything a Java module needs to drive a BPMN process - deploying definitions, starting instances, reading and writing process variables, correlating messages, and completing user tasks.
 
 All classes in this module are stateless facades exposing `public static` methods that delegate to the `BpmFacade` (and through it, Flowable). For everyday process work the static helpers are enough; for advanced cases (history queries, sub-process navigation, custom delegates) `Process.getEngine()` returns the raw Flowable `BpmProviderFlowable`.
 

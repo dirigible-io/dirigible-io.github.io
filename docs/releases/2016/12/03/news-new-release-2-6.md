@@ -18,7 +18,7 @@ New version [2.6.161203-R](http://download.eclipse.org/dirigible/drops/R-2.6-201
 * Direct template generation method
 * Template for mobile apps
 * CMIS Simple Local Repository
-* API – Extensions, Error
+* API - Extensions, Error
 * New Mobile App Templates
 * Lifecycle API
 * Workspace API

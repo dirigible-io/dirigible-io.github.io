@@ -7,7 +7,7 @@
 - source: [mongodb/Client.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/mongodb/Client.java)
 :::
 
-Hands back a configured Mongo `MongoClient` (`com.mongodb.client.MongoClient`). Callers can address any database / collection on it directly and use the full MongoDB driver surface — aggregation pipelines, multi-document transactions, GridFS, change streams.
+Hands back a configured Mongo `MongoClient` (`com.mongodb.client.MongoClient`). Callers can address any database / collection on it directly and use the full MongoDB driver surface - aggregation pipelines, multi-document transactions, GridFS, change streams.
 
 `getDefaultDatabaseName()` returns the database name configured in the platform properties (often the entry point for application-managed collections); `createBasicDBObject()` returns a fresh empty `DBObject` for callers that still use the legacy DBObject API.
 
@@ -15,7 +15,7 @@ Hands back a configured Mongo `MongoClient` (`com.mongodb.client.MongoClient`). 
 - **Raw MongoClient**: Returns the standard `com.mongodb.client.MongoClient` so callers can use the full driver surface.
 - **Default Database**: `getDefaultDatabaseName()` exposes the database name from the platform configuration.
 - **Legacy DBObject Factory**: `createBasicDBObject()` returns an empty `DBObject` for code paths still using the legacy API.
-- **Connection parameters**: Accepts a URI, user, and password — pass `null` to fall back to the platform defaults.
+- **Connection parameters**: Accepts a URI, user, and password - pass `null` to fall back to the platform defaults.
 
 ### Example Usage:
 ```java

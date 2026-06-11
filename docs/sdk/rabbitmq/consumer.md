@@ -12,7 +12,7 @@ Subscribes a handler to a RabbitMQ queue. The `handler` string is the registry p
 For per-message ack control or for message inspection beyond the body, drop down to the bare RabbitMQ client through a `@Component` bean and a `.rabbitmq` configuration.
 
 ### Key Features:
-- **Script-backed Handlers**: The `handler` argument points at a handler script in the platform registry &mdash; the same listener convention used elsewhere on the platform.
+- **Script-backed Handlers**: The `handler` argument points at a handler script in the platform registry - the same listener convention used elsewhere on the platform.
 - **Long-lived Subscription**: The platform owns the consumer thread; messages flow until `stopListening` is called.
 - **String Payloads**: Each message body is decoded as a `String` and passed to the handler. Drop down to the bare client for binary or header-rich messages.
 

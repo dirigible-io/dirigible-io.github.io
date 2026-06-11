@@ -7,14 +7,14 @@
 - source: [net/Soap.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/net/Soap.java)
 :::
 
-Minimal SOAP envelope helpers — create an empty message, parse one from an XML string, or synchronously invoke a remote SOAP endpoint. Built directly on `jakarta.xml.soap`, which is part of every Dirigible runtime; no separate WSDL tooling is needed for simple integrations.
+Minimal SOAP envelope helpers - create an empty message, parse one from an XML string, or synchronously invoke a remote SOAP endpoint. Built directly on `jakarta.xml.soap`, which is part of every Dirigible runtime; no separate WSDL tooling is needed for simple integrations.
 
-Reach for a generated client (Apache CXF, JAX-WS) when the service is complex and you want type-safe stubs — these helpers shine for one-off integrations and for inspecting / repairing SOAP traffic from an existing pipeline.
+Reach for a generated client (Apache CXF, JAX-WS) when the service is complex and you want type-safe stubs - these helpers shine for one-off integrations and for inspecting / repairing SOAP traffic from an existing pipeline.
 
 ### Key Features:
-- **Zero dependencies** — `jakarta.xml.soap` ships with every Dirigible runtime.
-- **Three primitives** — `createMessage()`, `parseMessage(xml)`, `call(endpoint, request)`.
-- **Native `SOAPMessage`** — full control over envelope, headers, body.
+- **Zero dependencies** - `jakarta.xml.soap` ships with every Dirigible runtime.
+- **Three primitives** - `createMessage()`, `parseMessage(xml)`, `call(endpoint, request)`.
+- **Native `SOAPMessage`** - full control over envelope, headers, body.
 
 ### Example Usage:
 ```java

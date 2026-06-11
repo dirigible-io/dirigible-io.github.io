@@ -7,7 +7,7 @@ read_time: 1 min
 publish_date: January 20, 2020
 ---
 
-This blog presents the Document Explorer – a feature that you can use as part of the Eclipse Dirigible Web IDE. The Explorer allows you to upload, overwrite, download, delete, and search for pictures, spreadsheets, PDF files, and videos, among other artifacts.
+This blog presents the Document Explorer - a feature that you can use as part of the Eclipse Dirigible Web IDE. The Explorer allows you to upload, overwrite, download, delete, and search for pictures, spreadsheets, PDF files, and videos, among other artifacts.
 
 The Document Explorer of Dirigible is compatible with SAP Cloud Platform Document service in the Neo environment ...
 

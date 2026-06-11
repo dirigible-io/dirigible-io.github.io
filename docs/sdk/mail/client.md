@@ -9,12 +9,12 @@
 
 SMTP delivery entry point. `getInstance()` returns the platform-configured `MailClient` (host, port, credentials picked up from `DIRIGIBLE_MAIL_*` config); the `Properties`-accepting overload lets you override settings per call for one-off messages or multi-tenant fan-out.
 
-Each `send` accepts a list of `Map` parts — one per MIME body — that the underlying client packs into a `multipart/mixed` or `multipart/alternative` structure. Use a `text/plain` and `text/html` pair for typical transactional mail.
+Each `send` accepts a list of `Map` parts - one per MIME body - that the underlying client packs into a `multipart/mixed` or `multipart/alternative` structure. Use a `text/plain` and `text/html` pair for typical transactional mail.
 
 ### Key Features:
-- **Platform-default client** — picks up `DIRIGIBLE_MAIL_*` configuration automatically.
-- **Per-call overrides** — `getInstance(properties)` supports multi-tenant fan-out.
-- **MIME parts via `Map`** — consistent JSON-shaped parts across the platform.
+- **Platform-default client** - picks up `DIRIGIBLE_MAIL_*` configuration automatically.
+- **Per-call overrides** - `getInstance(properties)` supports multi-tenant fan-out.
+- **MIME parts via `Map`** - consistent JSON-shaped parts across the platform.
 
 ### Example Usage:
 ```java
@@ -50,7 +50,7 @@ Returns the platform-configured mail client.
 > - **Description**: The default mail client wired from `DIRIGIBLE_MAIL_*` config.
 > :::
 
-### getInstance() — properties override
+### getInstance() - properties override
 
 Returns a mail client built from the supplied `Properties`, allowing per-call overrides of host, port, credentials, and other JavaMail settings.
 
@@ -83,7 +83,7 @@ Sends a multipart message via the default mail client.
 > | `cc` | `String[]` | Carbon-copy recipients (may be `null`). |
 > | `bcc` | `String[]` | Blind-carbon-copy recipients (may be `null`). |
 > | `subject` | `String` | Mail subject. |
-> | `parts` | `List<Map>` | One `Map` per MIME part — keys typically `type`, `subType`, `content`. |
+> | `parts` | `List<Map>` | One `Map` per MIME part - keys typically `type`, `subType`, `content`. |
 >
 > ::: info Returns
 > - **Type**: `Map`

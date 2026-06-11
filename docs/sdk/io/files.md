@@ -7,9 +7,9 @@
 - source: [io/Files.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/io/Files.java)
 :::
 
-Filesystem operations against the operating-system view — read/write content, query metadata, change permissions, copy or move entries. Paths are absolute OS paths (not registry paths); to read or write artefacts under `/registry/public/...` or a project workspace use `org.eclipse.dirigible.sdk.platform.Registry` or `org.eclipse.dirigible.sdk.platform.Workspace` instead.
+Filesystem operations against the operating-system view - read/write content, query metadata, change permissions, copy or move entries. Paths are absolute OS paths (not registry paths); to read or write artefacts under `/registry/public/...` or a project workspace use `org.eclipse.dirigible.sdk.platform.Registry` or `org.eclipse.dirigible.sdk.platform.Workspace` instead.
 
-Every method propagates `IOException` from the platform — callers should funnel them up to a controller or background-job boundary that knows what to do with them.
+Every method propagates `IOException` from the platform - callers should funnel them up to a controller or background-job boundary that knows what to do with them.
 
 ### Key Features:
 - **Property checks**: `exists`, `isFile`, `isDirectory`, `isReadable`, `isWritable`, `isExecutable`, `isHidden`, `isSameFile`.

@@ -7,13 +7,13 @@
 - source: [utils/Uuid.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/utils/Uuid.java)
 :::
 
-UUID generation and validation. `random()` produces a Version 4 (random) UUID using the JDK's `java.util.UUID.randomUUID()`; `validate(String)` checks string conformance without throwing — useful for trusting or rejecting an inbound identifier before parsing it.
+UUID generation and validation. `random()` produces a Version 4 (random) UUID using the JDK's `java.util.UUID.randomUUID()`; `validate(String)` checks string conformance without throwing - useful for trusting or rejecting an inbound identifier before parsing it.
 
 Use this rather than `java.util.UUID.randomUUID().toString()` when you want UUID generation to stay consistent with the rest of the platform.
 
 ### Key Features:
-- **Version-4 random UUIDs** — backed by the JDK secure RNG.
-- **Non-throwing validation** — `validate` returns a boolean rather than raising on malformed input.
+- **Version-4 random UUIDs** - backed by the JDK secure RNG.
+- **Non-throwing validation** - `validate` returns a boolean rather than raising on malformed input.
 
 ### Example Usage:
 ```java

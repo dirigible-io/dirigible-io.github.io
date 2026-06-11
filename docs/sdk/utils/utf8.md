@@ -9,10 +9,10 @@
 
 UTF-8 byte / `String` conversion helpers. Equivalent to `str.getBytes(StandardCharsets.UTF_8)` and `new String(bytes, StandardCharsets.UTF_8)`; the wrapper exists so client code that reads and writes through `byte[]` streams (e.g. `org.eclipse.dirigible.sdk.io.Streams` output) can keep encoding choices in one obvious place.
 
-`bytesToString(byte[], int, int)` lets callers decode a slice of a larger buffer without an intermediate copy — handy when chunking I/O.
+`bytesToString(byte[], int, int)` lets callers decode a slice of a larger buffer without an intermediate copy - handy when chunking I/O.
 
 ### Key Features:
-- **Single charset, single API**: No charset argument needed — UTF-8 is always the answer.
+- **Single charset, single API**: No charset argument needed - UTF-8 is always the answer.
 - **Slice-aware decode**: `bytesToString(bytes, offset, length)` decodes a window of a larger buffer.
 - **Round-trip safe**: `decode(encode(s))` returns the original string.
 
@@ -66,7 +66,7 @@ Decodes a UTF-8 byte array into a string.
 > :::
 
 ### bytesToString()
-Decodes a slice of a UTF-8 byte buffer — `offset` and `length` define the window within `bytes` to decode, with no intermediate copy.
+Decodes a slice of a UTF-8 byte buffer - `offset` and `length` define the window within `bytes` to decode, with no intermediate copy.
 
 > ```java
 > public static String bytesToString(byte[] bytes, int offset, int length) throws UnsupportedEncodingException;

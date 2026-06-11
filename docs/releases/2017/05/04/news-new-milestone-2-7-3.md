@@ -31,7 +31,7 @@ Join us at JPrime Conference [http://jprime.io/](http://jprime.io/)
 * 200+ Repositories in DirigibleLabs
 * 2 Customers in Production
 * 5 Applications in Production
-* &euro; 200 000 Turnover
+* EUR  200 000 Turnover
 
 #### Operational
 

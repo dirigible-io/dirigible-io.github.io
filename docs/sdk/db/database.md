@@ -11,15 +11,15 @@
 
 Two style choices:
 
-- **Pass-through SQL** (`query`, `update`) — the simplest form; results come back as a JSON string. Good for read-mostly endpoints and ad-hoc admin tools.
-- **JDBC** (`getConnection()`) — full `PreparedStatement` / `ResultSet` control, transactions, type-safe parameter binding. Use this from Java controllers and anywhere correctness matters more than terseness.
+- **Pass-through SQL** (`query`, `update`) - the simplest form; results come back as a JSON string. Good for read-mostly endpoints and ad-hoc admin tools.
+- **JDBC** (`getConnection()`) - full `PreparedStatement` / `ResultSet` control, transactions, type-safe parameter binding. Use this from Java controllers and anywhere correctness matters more than terseness.
 
-The `datasourceName` parameter is optional on every method — when omitted, the default data source applies. Pass the logical name of any `.datasource` artefact present in the registry to target a non-default DB.
+The `datasourceName` parameter is optional on every method - when omitted, the default data source applies. Pass the logical name of any `.datasource` artefact present in the registry to target a non-default DB.
 
-Sequence operations (`nextval`, `createSequence`, `dropSequence`) work across H2, PostgreSQL, Oracle, and MS SQL — the platform translates the call into the appropriate dialect.
+Sequence operations (`nextval`, `createSequence`, `dropSequence`) work across H2, PostgreSQL, Oracle, and MS SQL - the platform translates the call into the appropriate dialect.
 
 ### Key Features:
-- **JSON helpers**: One-liner `query` and `update` calls that hand back JSON strings — ideal for HTTP endpoints.
+- **JSON helpers**: One-liner `query` and `update` calls that hand back JSON strings - ideal for HTTP endpoints.
 - **Raw JDBC**: `getConnection()` returns a `DirigibleConnection` for full `PreparedStatement`/`ResultSet` control and explicit transactions.
 - **Data-source aware**: Every operation accepts an optional `datasourceName` to target any registered `.datasource`.
 - **Named parameters**: `queryNamed` / `updateNamed` variants support `:name`-style bindings.
@@ -394,7 +394,7 @@ Executes a batch `INSERT` over multiple parameter rows and returns the generated
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
 > | `sql` | `String` | A SQL `INSERT` statement with positional `?` placeholders. |
-> | `parametersJson` | `String` | JSON array of parameter-arrays — one inner array per row. |
+> | `parametersJson` | `String` | JSON array of parameter-arrays - one inner array per row. |
 > | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
 >
 > ::: info Returns
@@ -551,7 +551,7 @@ Drops a sequence on the named data source.
 > :::
 
 ### getDefaultSqlFactory()
-Returns the default `SqlFactory` — a fluent SQL-builder bound to the default data source's dialect.
+Returns the default `SqlFactory` - a fluent SQL-builder bound to the default data source's dialect.
 
 > ```java
 > public static SqlFactory getDefaultSqlFactory();

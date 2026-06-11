@@ -143,7 +143,7 @@ D. Post a message to subscribers for the 'namespace.messageName' messages
 Using the message hub framework, we build highly performant loosely coupled integrations between isolated components, reducing the boilerplate in setting up communication channels to the bare minimum. 
 
 #### Layouts
-The cloud IDE layout API delegates the layout management to the [GoldenLayout]( https://golden-layout.com/) framework – a “*multi-window JavaScript layout manager for webapps*“, as the author defines it. It handles all the magic of laying things out, stacking, moving interactively, popping out, maximize/minimize, close and open of views and editors. 
+The cloud IDE layout API delegates the layout management to the [GoldenLayout]( https://golden-layout.com/) framework - a “*multi-window JavaScript layout manager for webapps*“, as the author defines it. It handles all the magic of laying things out, stacking, moving interactively, popping out, maximize/minimize, close and open of views and editors. 
 
 The angular directive **views-layout** encapsulates all the complexity of initializing the layout of views in a perspective and reduces it all to a very simple configuration.
 

@@ -12,7 +12,7 @@ New version [2.6.161014-M2](http://download.eclipse.org/dirigible/drops/M2016101
 * Direct template generation method
 * Template for mobile apps
 * CMIS Simple Local Repository
-* API – Extensions, Error
+* API - Extensions, Error
 * Bugfixes
 
 #### Media

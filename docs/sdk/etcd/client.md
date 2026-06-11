@@ -7,14 +7,14 @@
 - source: [etcd/Client.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/etcd/Client.java)
 :::
 
-Hands back a connected jetcd `KV` client against the platform's etcd configuration. Use it for distributed configuration storage, leader election, and distributed-lock primitives — the full jetcd async surface is available on the returned client, so this SDK class deliberately does not re-export every jetcd operation.
+Hands back a connected jetcd `KV` client against the platform's etcd configuration. Use it for distributed configuration storage, leader election, and distributed-lock primitives - the full jetcd async surface is available on the returned client, so this SDK class deliberately does not re-export every jetcd operation.
 
 etcd keys and values are byte sequences; the `toBytes` / `toString` helpers convert between Java `String` / `byte[]` and jetcd `ByteSequence` so callers do not have to import jetcd's encoding helpers directly.
 
 ### Key Features:
 - **Raw jetcd Client**: Returns the connected `io.etcd.jetcd.KV` so callers can use the full async / watch / lease surface.
 - **Encoding Helpers**: `toBytes(String)` / `toBytes(byte[])` / `toString(ByteSequence)` cover the common encoding conversions between Java types and `ByteSequence`.
-- **Platform-managed configuration**: The connection is driven by the platform's etcd configuration — callers do not need to manage endpoints or credentials.
+- **Platform-managed configuration**: The connection is driven by the platform's etcd configuration - callers do not need to manage endpoints or credentials.
 
 ### Example Usage:
 ```java

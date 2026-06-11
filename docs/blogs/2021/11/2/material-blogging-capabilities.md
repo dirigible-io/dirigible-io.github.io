@@ -48,19 +48,20 @@ publish_date: <Date of Publishing>
 
 It's quite self-explanatory which metadata key-value pairs are responsible for which of the blogging capabilities. You can find more details in step 5 of [Overriding the Content Block](#overriding-the-content-block). The more interesting one is `author_gh_user`. This value will be used for both getting the author's GitHub avatar and creating a hyperlink to their GitHub profile. 
 
-??? caution "Make sure the title is also set in the metadata." 
-    Setting the title in the metadata will help position the blogging capabilities in the right place - under the title and before the rest of your blog.
+::: details Make sure the title is also set in the metadata.
+Setting the title in the metadata will help position the blogging capabilities in the right place - under the title and before the rest of your blog.
 
-    ```yaml hl_lines="2"
-    ---
-    title: &lt;Your Blog Title&gt;
-    author: &lt;Your Name&gt;
-    author_gh_user: &lt;Your GitHub User&gt;
-    read_time: &lt;Reading Time&gt;
-    publish_date: &lt;Date of Publishing&gt;
-    ---
-    ```
-    When the title is set in the metadata, use ``Heading 2`` level (`## This is a heading 2`) as the highest heading level in your blog. Otherwise, the first `Heading 1` you use will overwrite the title from the frontmatter and cause formatting issues.
+```yaml
+---
+title: <Your Blog Title>
+author: <Your Name>
+author_gh_user: <Your GitHub User>
+read_time: <Reading Time>
+publish_date: <Date of Publishing>
+---
+```
+When the title is set in the metadata, use ``Heading 2`` level (`## This is a heading 2`) as the highest heading level in your blog. Otherwise, the first `Heading 1` you use will overwrite the title from the frontmatter and cause formatting issues.
+:::
 
 ## Overriding the Content Block
 
@@ -75,7 +76,7 @@ Since we want to add the blogging capabilities above the content, but just under
     ![Overrides Directory](../../../images/overrides.png)
 
 2. Open your `mkdocs.yml` and add a reference to the `overrides` directory using the `custom_dir` parameter:
-    ```yaml hl_lines="3"
+    ```yaml
     theme: 
       name: material
       custom_dir: overrides
@@ -121,11 +122,12 @@ Since we want to add the blogging capabilities above the content, but just under
     {% endblock %}
     ```
 
-    !!! tip "Although we're overriding a template block in `main.html`, the actual code resides in the `base.html` file that `main.html` extends. Open [`base.html`](https://github.com/squidfunk/mkdocs-material/blob/master/src/base.html) in your browser and scroll down to the `content` block."
+    ::: tip Although we're overriding a template block in `main.html`, the actual code resides in the `base.html` file that `main.html` extends. Open [`base.html`](https://github.com/squidfunk/mkdocs-material/blob/master/src/base.html) in your browser and scroll down to the `content` block.
+    :::
 
 5. Under `Markdown content`, add the custom HTML code we need for the blogging capabilities:
 
-    ```html hl_lines="2-23"
+    ```html
         <!-- Markdown content -->
         {% if page and page.meta and page.meta.author_gh_user %}
         <aside class="mdx-author">
@@ -137,14 +139,14 @@ Since we want to add the blogging capabilities above the content, but just under
             **&#123;&#123; page.meta.author &#125;&#125;** · <a href="https://github.com/&#123;&#123; page.meta.author_gh_user &#125;&#125;">@&#123;&#123; page.meta.author_gh_user &#125;&#125;</a>
             </span>
             <span>
-                &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16"&gt;
-                    &lt;path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/&gt;
-                    &lt;path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/&gt;
-                &lt;/svg&gt; &#123;&#123; page.meta.publish_date &#125;&#125; ·
-                &lt;svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16"&gt;
-                    &lt;path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/&gt;
-                    &lt;path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/&gt;
-                &lt;/svg&gt; &#123;&#123; page.meta.read_time &#125;&#125; read
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                </svg> &#123;&#123; page.meta.publish_date &#125;&#125; ·
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg> &#123;&#123; page.meta.read_time &#125;&#125; read
             </span>
             </p>
         </aside>
@@ -153,8 +155,9 @@ Since we want to add the blogging capabilities above the content, but just under
         &#123;&#123; page.content &#125;&#125;
     ```
     
-    !!! success "Kudos to [squidfunk](https://github.com/squidfunk) for providing the raw code of his own implementation as part of this [discussion](https://github.com/squidfunk/mkdocs-material/discussions/3101)."
-    
+    ::: info Kudos to [squidfunk](https://github.com/squidfunk) for providing the raw code of his own implementation as part of this [discussion](https://github.com/squidfunk/mkdocs-material/discussions/3101).
+    :::
+
     By following the steps above, you've already overriden and extended the `content` block with information about the blog author, publishing date, and reading time.
     Let's have a closer look at some of the settings:
 
@@ -171,7 +174,8 @@ Since we want to add the blogging capabilities above the content, but just under
         - stylesheets/custom.css
     ```
 
-    !!! tip "Any additional stylesheet files should be placed in a `stylesheets` directory within your `docs` folder. For more details, you can refer to [Additional CSS](https://squidfunk.github.io/mkdocs-material/customization/#additional-css)."
+    ::: tip Any additional stylesheet files should be placed in a `stylesheets` directory within your `docs` folder. For more details, you can refer to [Additional CSS](https://squidfunk.github.io/mkdocs-material/customization/#additional-css).
+    :::
 
 7. Add the following styles to `custom.css`:
 

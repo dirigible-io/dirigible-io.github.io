@@ -7,7 +7,7 @@
 - source: [io/Image.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/io/Image.java)
 :::
 
-Image resize helper. Reads from any `InputStream` (file, HTTP body, in-memory buffer), scales the image to the requested dimensions, and returns a fresh stream you can pipe into the next sink. The `type` argument is the output format (`"png"`, `"jpg"`, ...) — the platform uses `javax.imageio.ImageIO` under the hood, so the supported list matches whatever codecs are on the JVM classpath.
+Image resize helper. Reads from any `InputStream` (file, HTTP body, in-memory buffer), scales the image to the requested dimensions, and returns a fresh stream you can pipe into the next sink. The `type` argument is the output format (`"png"`, `"jpg"`, ...) - the platform uses `javax.imageio.ImageIO` under the hood, so the supported list matches whatever codecs are on the JVM classpath.
 
 For more advanced transformations (crop, rotate, compose) drop down to `ImageIO` or a dedicated library and bring the bytes back through `Streams`.
 

@@ -9,7 +9,7 @@ publish_date: December 5, 2018
 
 Two of the coolest additions in version 3.x of Eclipse Dirigible are without a doubt the Entity Data Modeler (EDM) and the Business Process Modeler (BPM). They take the concept of model-driven architecture to the next level. What the “hack” does that mean, you’d probably say?
 
-With the fast pace of technological evolution (Cloud Computing, AI, IoT, etc.), application developers face a common problem – how to develop proof of concepts as quickly as possible, and to receive early feedback from customers. Dirigible provides you with the opportunity to use In-System and Rapid application development techniques such as code generation, EDM, BPM, and Enterprise JavaScript APIs.
+With the fast pace of technological evolution (Cloud Computing, AI, IoT, etc.), application developers face a common problem - how to develop proof of concepts as quickly as possible, and to receive early feedback from customers. Dirigible provides you with the opportunity to use In-System and Rapid application development techniques such as code generation, EDM, BPM, and Enterprise JavaScript APIs.
 
 The Entity Data Modeler plays a huge role in model-driven development.
 

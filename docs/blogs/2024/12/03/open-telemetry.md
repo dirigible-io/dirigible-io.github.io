@@ -8,7 +8,7 @@ read_time: 10 min
 publish_date: December 03, 2024
 ---
 ## Overview
-In today’s fast-paced software development landscape, [observability](https://en.wikipedia.org/wiki/Observability_(software)) has become a cornerstone of resilient and high-performing systems. Observability is more than just [logs](https://opentelemetry.io/docs/concepts/signals/logs/), [metrics](https://opentelemetry.io/docs/concepts/signals/metrics/), and [traces](https://opentelemetry.io/docs/concepts/signals/traces/) — it’s about gaining actionable insights into how your software behaves in production.<br> 
+In today’s fast-paced software development landscape, [observability](https://en.wikipedia.org/wiki/Observability_(software)) has become a cornerstone of resilient and high-performing systems. Observability is more than just [logs](https://opentelemetry.io/docs/concepts/signals/logs/), [metrics](https://opentelemetry.io/docs/concepts/signals/metrics/), and [traces](https://opentelemetry.io/docs/concepts/signals/traces/) - it’s about gaining actionable insights into how your software behaves in production.<br> 
 
 That’s where [OpenTelemetry](https://opentelemetry.io/docs/what-is-opentelemetry/) comes in, a powerful, vendor-neutral framework that simplifies collecting telemetry data and integrates seamlessly with major providers like Google Cloud Platform, AWS, and Azure.<br>
 

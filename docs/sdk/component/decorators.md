@@ -9,7 +9,7 @@
 
 Dirigible's own dependency-injection annotations. The engine resolves `@Inject` fields through its `DependencyResolver` SPI at class-load time; `@Repository` registers a class as a singleton candidate for injection.
 
-Client classes are **not** Spring-scanned, so Spring's `@Autowired` would silently no-op — `@Inject` from this module is the load-bearing annotation.
+Client classes are **not** Spring-scanned, so Spring's `@Autowired` would silently no-op - `@Inject` from this module is the load-bearing annotation.
 
 ### Example Usage:
 ```java
@@ -48,7 +48,7 @@ Marks a field on a client class as needing dependency injection. The field's dec
 
 ### Notes
 
-- Unlike Spring's `@Autowired`, this injection happens through the engine's own SPI — client classes are not Spring-scanned, so `@Autowired` would silently no-op.
+- Unlike Spring's `@Autowired`, this injection happens through the engine's own SPI - client classes are not Spring-scanned, so `@Autowired` would silently no-op.
 - Presently fulfilled by repositories from `data-store-java`, but the SPI is open for further consumers.
 
 ## @Repository

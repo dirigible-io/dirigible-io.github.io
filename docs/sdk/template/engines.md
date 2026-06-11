@@ -9,16 +9,16 @@
 
 Renders a template against a JSON parameter document. Three engines are available:
 
-- **Mustache** — logic-less; perfect for emails and HTML fragments.
-- **Velocity** — Apache Velocity with the platform's default tool set.
-- **JavaScript** — evaluates `${expr}` fragments through GraalJS for the full power of script expressions inside the template.
+- **Mustache** - logic-less; perfect for emails and HTML fragments.
+- **Velocity** - Apache Velocity with the platform's default tool set.
+- **JavaScript** - evaluates `${expr}` fragments through GraalJS for the full power of script expressions inside the template.
 
-`generate(template, parametersJson)` picks the default engine (Mustache); the named variants are for explicit choice. The five-argument `generate` overload lets you change the marker pair (the Mustache defaults are double curly braces) — useful when the template body itself contains the delimiter characters.
+`generate(template, parametersJson)` picks the default engine (Mustache); the named variants are for explicit choice. The five-argument `generate` overload lets you change the marker pair (the Mustache defaults are double curly braces) - useful when the template body itself contains the delimiter characters.
 
 ### Key Features:
-- **Three engines** — pick the one that suits the template style.
-- **Custom markers** — override start / end delimiters per call.
-- **JSON parameter document** — consistent JSON shape across the platform.
+- **Three engines** - pick the one that suits the template style.
+- **Custom markers** - override start / end delimiters per call.
+- **JSON parameter document** - consistent JSON shape across the platform.
 
 ### Example Usage:
 ```java
@@ -71,13 +71,13 @@ Renders with Apache Velocity.
 
 ### generateJavascript()
 
-Renders with the JavaScript engine — `${expr}` fragments are evaluated through GraalJS.
+Renders with the JavaScript engine - `${expr}` fragments are evaluated through GraalJS.
 
 > ```java
 > public static String generateJavascript(String template, String parametersJson) throws IOException;
 > ```
 
-### generate() — custom markers
+### generate() - custom markers
 
 Renders with custom delimiter markers (defaults vary per engine).
 

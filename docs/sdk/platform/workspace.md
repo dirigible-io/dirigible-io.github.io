@@ -7,7 +7,7 @@
 - source: [platform/Workspace.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Workspace.java)
 :::
 
-IDE workspace operations — list, create, and delete the per-user workspaces that the IDE Projects perspective shows, and read or replace the content of files inside them. Unlike the JSON-string accessors elsewhere in the platform, this facade returns the platform's own `Workspace` and `File` domain types directly (`org.eclipse.dirigible.components.ide.workspace.domain.Workspace` / `...domain.File`) — the same objects the IDE renders, so the workspace tree stays consistent across UI and programmatic edits.
+IDE workspace operations - list, create, and delete the per-user workspaces that the IDE Projects perspective shows, and read or replace the content of files inside them. Unlike the JSON-string accessors elsewhere in the platform, this facade returns the platform's own `Workspace` and `File` domain types directly (`org.eclipse.dirigible.components.ide.workspace.domain.Workspace` / `...domain.File`) - the same objects the IDE renders, so the workspace tree stays consistent across UI and programmatic edits.
 
 Use this from build / migration scripts and from IDE extensions that need to prepare or fix up a user's workspace. For published artefacts use [`Registry`](./registry.md) (read-only) or [`Repository`](./repository.md) (mutable); for filesystem paths outside the registry use `org.eclipse.dirigible.sdk.io.Files`.
 

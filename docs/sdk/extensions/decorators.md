@@ -9,7 +9,7 @@
 
 Annotation for registering a class as a contribution to a named Dirigible extension point. The runtime stores an `Extension` metadata record that maps the extension-point name to the contributing class; consumers that query the extension point via `ExtensionService.findByExtensionPoint` will receive this record among the results.
 
-The contributing class itself is instantiated on demand by the consumer — no specific interface is required.
+The contributing class itself is instantiated on demand by the consumer - no specific interface is required.
 
 ### Example Usage:
 ```java

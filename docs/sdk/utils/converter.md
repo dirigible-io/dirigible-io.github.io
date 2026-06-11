@@ -7,12 +7,12 @@
 - source: [utils/Converter.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/utils/Converter.java)
 :::
 
-Quick JSON serialization helpers around Jackson's default `ObjectMapper`. Convenient when you just need `String` / object conversion without configuring a mapper instance — for non-trivial schemas (custom serializers, mixed polymorphism, date format overrides) inject a Jackson `ObjectMapper` bean instead.
+Quick JSON serialization helpers around Jackson's default `ObjectMapper`. Convenient when you just need `String` / object conversion without configuring a mapper instance - for non-trivial schemas (custom serializers, mixed polymorphism, date format overrides) inject a Jackson `ObjectMapper` bean instead.
 
-XML conversion lives in [`Xml`](./xml.md); CSV parsing requires a dedicated library (Apache Commons CSV or OpenCSV) — this class deliberately does not pretend to handle quoting and escaping around the edges of CSV semantics.
+XML conversion lives in [`Xml`](./xml.md); CSV parsing requires a dedicated library (Apache Commons CSV or OpenCSV) - this class deliberately does not pretend to handle quoting and escaping around the edges of CSV semantics.
 
 ### Key Features:
-- **Default Jackson `ObjectMapper`**: Shared static instance — zero configuration on the call site.
+- **Default Jackson `ObjectMapper`**: Shared static instance - zero configuration on the call site.
 - **Typed and untyped parsing**: `fromJson(String, Class)` for typed bindings, `fromJson(String)` for `Map`/`List` shapes.
 - **Wrapping exception**: Jackson's checked `JsonProcessingException` is wrapped as `IllegalArgumentException` for ergonomic call sites.
 
@@ -25,7 +25,7 @@ import java.util.Map;
 String json = Converter.toJson(Map.of("name", "Eclipse Dirigible", "version", 13));
 // → {"name":"Eclipse Dirigible","version":13}
 
-// Untyped parse — comes back as Map / List / primitives
+// Untyped parse - comes back as Map / List / primitives
 Object generic = Converter.fromJson(json);
 
 // Typed parse

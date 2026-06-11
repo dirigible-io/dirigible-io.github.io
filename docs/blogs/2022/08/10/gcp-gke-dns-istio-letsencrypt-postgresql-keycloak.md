@@ -17,50 +17,61 @@ Components:
 ![gcp-gke-dns-istio-letsencrypt-postgresql-keycloak](/img/posts/20220810/gcp-gke-dns-istio-letsencrypt-postgresql-keycloak.png)
 
 
-=== "Kubernetes"
-
-    !!! tip "Overview"
-
-        Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at [www.kubernetes.io](https://kubernetes.io/).
-
-=== "GCP Cloud DNS"
-
-    !!! tip "Overview"
-
-        Reliable, resilient, low-latency DNS serving from Google's worldwide network provides you with everything you need to register, manage, and serve your domains. For more information, see [Cloud DNS](https://cloud.google.com/dns).
+**Kubernetes**
 
 
-=== "GCP Cloud SQL Postgre"
+::: tip Overview
 
-    !!! tip "Overview"
+Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications in a cluster environment. You can read more about Kubernetes at [www.kubernetes.io](https://kubernetes.io/).
+:::
 
-        Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql).
+**GCP Cloud DNS**
 
 
-=== "Istio"
+::: tip Overview
 
-    !!! tip "Overview"
+Reliable, resilient, low-latency DNS serving from Google's worldwide network provides you with everything you need to register, manage, and serve your domains. For more information, see [Cloud DNS](https://cloud.google.com/dns).
+:::
 
-        Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Istio](https://istio.io/).
+**GCP Cloud SQL Postgre**
 
-=== "Let's Encrypt"
 
-    !!! tip "Overview"
+::: tip Overview
 
-        Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Let's Encrypt](https://letsencrypt.org/).
+Fully managed relational database service for MySQL, PostgreSQL, and SQL Server with rich extension collections, configuration flags, and developer ecosystems. For more information, see [GCP Cloud SQL Postgreere](https://cloud.google.com/sql).
+:::
 
-=== "Cert-manager"
+**Istio**
 
-    !!! tip "Overview"
 
-        Cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry. For more information, see [Cert-manager](https://cert-manager.io/).
+::: tip Overview
 
-=== "Keycloak"
+Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Istio](https://istio.io/).
+:::
 
-    !!! tip "Overview"
+**Let's Encrypt**
 
-        Keycloak is an open source Identity and Access Management system for applications and services.For more information, see [Keycloak](https://www.keycloak.org/).
 
+::: tip Overview
+
+Istio is an open-source service mesh that layers transparently onto existing distributed applications. Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. For more information, see [Let's Encrypt](https://letsencrypt.org/).
+:::
+
+**Cert-manager**
+
+
+::: tip Overview
+
+Cert-manager is a powerful and extensible X.509 certificate controller for Kubernetes and OpenShift workloads. It will obtain certificates from a variety of Issuers, both popular public Issuers as well as private Issuers, and ensure the certificates are valid and up-to-date, and will attempt to renew certificates at a configured time before expiry. For more information, see [Cert-manager](https://cert-manager.io/).
+:::
+
+**Keycloak**
+
+
+::: tip Overview
+
+Keycloak is an open source Identity and Access Management system for applications and services.For more information, see [Keycloak](https://www.keycloak.org/).
+:::
 
 ## Prerequisites
 
@@ -149,8 +160,9 @@ We need a workload identity to allow our Dirigible pod to access PostgreSQL.
 
   * Enable the specific GKE cluster as the default cluster to be used for the remaining commands.
 
-    !!! note "Note"
-        You need to replace `dirigible` with `your cluster name` and `europe-north1-a` with `your region` .
+    ::: info Note
+    You need to replace `dirigible` with `your cluster name` and `europe-north1-a` with `your region` .
+    :::
 
     ```
     gcloud container clusters get-credentials dirigible \
@@ -320,7 +332,7 @@ EOF
       - A static external IP address is the IP address that is reserved for your project until you decide to release it.  
           You need to create the IP address in your region.
         ```
-        gcloud compute addresses create demo --addresses=&lt;YOUR-GATEWAY-IP&gt; \
+        gcloud compute addresses create demo --addresses=<YOUR-GATEWAY-IP> \
         --region=europe-north1
         ```
 
@@ -356,8 +368,9 @@ EOF
 
   * Create ClusterIssuer.
 
-    !!! note "Note"
-        You need to replace `<YOUR-EMAIL-ADDRESS>` with your valid email address. 
+    ::: info Note
+    You need to replace `<YOUR-EMAIL-ADDRESS>` with your valid email address. 
+    :::
 
 ```yaml
 kubectl apply -f - <<EOF
@@ -462,8 +475,9 @@ Create the same way a database and a user for Keycloak.
 
   * Add a new binding between your gcp service account and kubernetes service account 
   
-    !!! note "Note"
-        You need to replace `dirigible-gke-demo` with `your project id`.
+    ::: info Note
+    You need to replace `dirigible-gke-demo` with `your project id`.
+    :::
 
     - Dirigible
 
@@ -485,9 +499,10 @@ Create the same way a database and a user for Keycloak.
 
   * Annotate the Kubernetes Service Account with the new binding.
 
-    !!! note "Note"
-        You need to replace `dirigible-gke-demo` with `your project id`.
-    
+    ::: info Note
+    You need to replace `dirigible-gke-demo` with `your project id`.
+    :::
+
     - Dirigible
     
       ```
@@ -511,7 +526,7 @@ Create the same way a database and a user for Keycloak.
       ```
       kubectl create secret generic dirigible-db -n dirigible-demo \
       --from-literal=username=dirigible_user \
-      --from-literal=password=&lt;your-password&gt; \
+      --from-literal=password=<your-password> \
       --from-literal=database=dirigible \
       --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/dirigible
       ```
@@ -521,7 +536,7 @@ Create the same way a database and a user for Keycloak.
       ```
       kubectl create secret generic keycloak-db -n dirigible-demo \
       --from-literal=username=keycloak_user \
-      --from-literal=password=&lt;your-password&gt; \
+      --from-literal=password=<your-password> \
       --from-literal=database=keycloak \
       --from-literal=postgre_url=jdbc:postgresql://127.0.0.1:5432/keycloak
       ```
@@ -594,13 +609,13 @@ When you first open `https://dirigible.demo.apps.dirigible.io`, you will see
 ![create-clientid](/img/posts/20220810/keycloak-create-cliendid.png)
 
 
-1. Add Role – Open a new client and add the new roles Developer, Operator, Everyone.  
+1. Add Role - Open a new client and add the new roles Developer, Operator, Everyone.  
 ![create-default-roles](/img/posts/20220810/create-default-roles.png)
 
-1. Add Default Roles – `Roles->Default Roles` add all roles from the previous step.
+1. Add Default Roles - `Roles->Default Roles` add all roles from the previous step.
 ![keycloak-add-default-roles](/img/posts/20220810/keycloak-default-roles.png) 
 
-1. Add User – By default, the new user should have the default roles assigned to it.
+1. Add User - By default, the new user should have the default roles assigned to it.
 
 Go to [page](https://keycloak.demo.apps.dirigible.io/auth/admin/master/console/#/create/user/master) to create the new user.
 ![add-user](/img/posts/20220810/keycloak-add-user.png)

@@ -7,7 +7,7 @@
 - source: [core/Globals.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/core/Globals.java)
 :::
 
-Application-wide global variables — values survive across requests and across all tenants in the JVM (so be careful in multi-tenant deployments). Strictly typed to `String` (use JSON encoding for richer payloads); for richer types or per-tenant scoping prefer the `Cache` or a database table.
+Application-wide global variables - values survive across requests and across all tenants in the JVM (so be careful in multi-tenant deployments). Strictly typed to `String` (use JSON encoding for richer payloads); for richer types or per-tenant scoping prefer the `Cache` or a database table.
 
 Globals are commonly set once at startup (a `@Scheduled` job, a controller endpoint triggered on deploy) and read frequently from the rest of the application.
 

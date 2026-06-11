@@ -7,7 +7,7 @@
 - source: [security/Roles.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/security/Roles.java)
 :::
 
-The `@Roles` annotation gates controller classes and methods on the caller's role membership. Roles are checked at dispatch time against `UserFacade.isInRole(String)` — any-of semantics.
+The `@Roles` annotation gates controller classes and methods on the caller's role membership. Roles are checked at dispatch time against `UserFacade.isInRole(String)` - any-of semantics.
 
 A method-level `@Roles` overrides the class-level one for that method only. An empty `value()` means "no restriction" (useful at the method level to open up a single endpoint on an otherwise restricted controller).
 
@@ -44,4 +44,4 @@ Restricts a controller class or method to users in any of the listed roles.
 
 | Attribute | Type | Default | Description |
 | ------ | ------ | ------ | ------ |
-| `value` | `String[]` | `{}` | Role names — any one of which grants access. Empty array means no restriction. |
+| `value` | `String[]` | `{}` | Role names - any one of which grants access. Empty array means no restriction. |

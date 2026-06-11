@@ -9,7 +9,7 @@
 
 URL component encoding helpers. `encode(String)` / `decode(String)` use the UTF-8 percent-encoding rules; the `escape*` family exposes the variants needed when building paths or `application/x-www-form-urlencoded` bodies where the standard URL rules differ slightly.
 
-The class is named `Url` (lower-case `rl`) to avoid a name clash with `java.net.URL` in callers that statically import the JDK type — both names coexist on the import list cleanly this way.
+The class is named `Url` (lower-case `rl`) to avoid a name clash with `java.net.URL` in callers that statically import the JDK type - both names coexist on the import list cleanly this way.
 
 ### Key Features:
 - **Named `Url` on purpose**: Avoids collision with `java.net.URL` in the same file.
@@ -89,7 +89,7 @@ Escapes a string using the general URL component rules. Use this when assembling
 > :::
 
 ### escapePath()
-Escapes a string using the URL path-segment rules — leaves characters that are safe in path segments unescaped while still percent-encoding the rest.
+Escapes a string using the URL path-segment rules - leaves characters that are safe in path segments unescaped while still percent-encoding the rest.
 
 > ```java
 > public static String escapePath(String input);
@@ -105,7 +105,7 @@ Escapes a string using the URL path-segment rules — leaves characters that are
 > :::
 
 ### escapeForm()
-Escapes a string for use as an `application/x-www-form-urlencoded` value — `+` for spaces, percent-encodes the rest.
+Escapes a string for use as an `application/x-www-form-urlencoded` value - `+` for spaces, percent-encodes the rest.
 
 > ```java
 > public static String escapeForm(String input);

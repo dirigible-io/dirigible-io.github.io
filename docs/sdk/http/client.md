@@ -7,7 +7,7 @@
 - source: [http/HttpClient.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/HttpClient.java)
 :::
 
-Synchronous outbound HTTP client for calling third-party APIs from controllers, jobs, and listeners. Options (headers, query params, body, timeouts, basic-auth credentials) are passed as a JSON document — a consistent shape used across the platform — so the same option payloads can be reused across components written in any language.
+Synchronous outbound HTTP client for calling third-party APIs from controllers, jobs, and listeners. Options (headers, query params, body, timeouts, basic-auth credentials) are passed as a JSON document - a consistent shape used across the platform - so the same option payloads can be reused across components written in any language.
 
 The client is blocking; for non-trivial latency, wrap calls in a `java.util.concurrent.CompletableFuture#supplyAsync` or batch them through a small executor. For long-running streaming downloads, drop down to `org.apache.hc.client5.http.impl.classic.HttpClients` directly.
 
@@ -36,7 +36,7 @@ System.out.println(response);
 
 ### get()
 
-Executes a synchronous HTTP GET request. Two overloads are provided — one for the URL alone, and one taking a JSON-encoded options document.
+Executes a synchronous HTTP GET request. Two overloads are provided - one for the URL alone, and one taking a JSON-encoded options document.
 
 > ```java
 > public static String get(String url) throws IOException;
@@ -46,7 +46,7 @@ Executes a synchronous HTTP GET request. Two overloads are provided — one for 
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
 > | `url` | `String` | The target URL. |
-> | `optionsJson` | `String` | JSON string carrying the platform-standard `HttpClientRequestOptions` shape — headers, query parameters, body, timeouts, basic-auth credentials. |
+> | `optionsJson` | `String` | JSON string carrying the platform-standard `HttpClientRequestOptions` shape - headers, query parameters, body, timeouts, basic-auth credentials. |
 >
 > ::: info Returns
 > - **Type**: `String`

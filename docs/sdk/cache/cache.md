@@ -7,14 +7,14 @@
 - source: [cache/Cache.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/cache/Cache.java)
 :::
 
-Process-wide key/value cache shared across all client code in the tenant. Backed by the Dirigible platform's in-memory cache manager — values survive the request that wrote them but not a JVM restart, so treat the cache as derived state, not a system of record.
+Process-wide key/value cache shared across all client code in the tenant. Backed by the Dirigible platform's in-memory cache manager - values survive the request that wrote them but not a JVM restart, so treat the cache as derived state, not a system of record.
 
 Useful for memoising expensive lookups, holding short-lived per-user state across requests, and coordinating between components that share the same key. Values are stored as plain `Object`s; the caller is responsible for cast safety.
 
 ### Key Features
 
 - **In-memory**: Reads and writes are cheap; data is lost on JVM restart.
-- **Tenant-wide**: A single shared keyspace across all code in the tenant — use prefixed keys (e.g. `"user:" + id + ":permissions"`) to avoid collisions.
+- **Tenant-wide**: A single shared keyspace across all code in the tenant - use prefixed keys (e.g. `"user:" + id + ":permissions"`) to avoid collisions.
 - **Untyped values**: Stores arbitrary `Object`s; cast on read.
 - **Polyglot-friendly**: Entries are accessible from any language running in the platform, provided the value is JSON-encodable.
 
@@ -102,7 +102,7 @@ Removes the cached entry for the given key. No-op if no value is cached under th
 
 ### clear()
 
-Removes every entry from the cache. Use with caution — the cache is shared across all client code in the tenant.
+Removes every entry from the cache. Use with caution - the cache is shared across all client code in the tenant.
 
 > ```java
 > public static void clear();

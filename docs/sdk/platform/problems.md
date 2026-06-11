@@ -7,7 +7,7 @@
 - source: [platform/Problems.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Problems.java)
 :::
 
-Surfaces the platform's "problems" table — the source of truth for build, synchronization, and validation failures the IDE Problems perspective renders. Use this from custom synchronizers, validation jobs, or compile-time tooling to record entries that should reach the developer.
+Surfaces the platform's "problems" table - the source of truth for build, synchronization, and validation failures the IDE Problems perspective renders. Use this from custom synchronizers, validation jobs, or compile-time tooling to record entries that should reach the developer.
 
 Each entry pins a location (`project/file:line:column`) plus a severity / category, so IDE navigation works without further wiring. `updateStatus(Long, String)` is the mechanism for marking a problem resolved without deleting it (preserving history for audits).
 

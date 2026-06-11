@@ -25,7 +25,7 @@ The Escape class provides static utility methods for performing context-aware st
 import { Escape } from "@aerokit/sdk/utils";
 // Escape a string for use in HTML
 const htmlSafe = Escape.escapeHtml4("<script>alert('XSS');</script>");
-console.log(htmlSafe); // Output: &lt;script&gt;alert(&#39;XSS&#39;);&lt;/script&gt;
+console.log(htmlSafe); // Output: &lt;script&gt;alert('XSS');&lt;/script&gt;
 
 // Unescape the previously escaped HTML string
 const original = Escape.unescapeHtml4(htmlSafe);

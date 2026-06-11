@@ -9,7 +9,7 @@ publish_date: September 25, 2019
 
 Eclipse Che unites a wide range of different frameworks, programming languages, and development tools, and helps developers design and create next-level services on the Cloud. Eclipse Che provides you with a default Web IDE. However, Eclipse Che also allows you to plug in other IDEs, because the default IDE may not be able to cover your use case.
 
-For example, we work on Eclipse Dirigible – an open-source cloud development platform that comes with its own Web IDE. You can directly integrate the Eclipse Dirigible Web IDE in Eclipse Che. This means that you can create a workspace in Eclipse Chе using the Eclipse Dirigible Web IDE instead of the default Eclipse Theia IDE.
+For example, we work on Eclipse Dirigible - an open-source cloud development platform that comes with its own Web IDE. You can directly integrate the Eclipse Dirigible Web IDE in Eclipse Che. This means that you can create a workspace in Eclipse Chе using the Eclipse Dirigible Web IDE instead of the default Eclipse Theia IDE.
 
 ![Fiori-UI-Theme](/img/posts/20190925/dirigible_fiori_che7.png)
 

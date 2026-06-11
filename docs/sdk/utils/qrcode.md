@@ -9,12 +9,12 @@
 
 Renders a QR-code PNG for the given payload. Backed by ZXing under the hood with the platform's default size and error-correction settings; ideal for embedding small URLs, codes, or connection strings in receipts, emails, and IDE perspectives.
 
-Returns the raw PNG bytes — write them straight to an HTTP response (with `Content-Type: image/png`) or into a file via `Files.writeBytesNative`.
+Returns the raw PNG bytes - write them straight to an HTTP response (with `Content-Type: image/png`) or into a file via `Files.writeBytesNative`.
 
 ### Key Features:
 - **ZXing-backed**: Industry-standard QR-code generation with sensible defaults.
 - **PNG output**: Returns raw PNG bytes ready to stream or persist.
-- **Single-call surface**: No builder, no configuration object — just text in, bytes out.
+- **Single-call surface**: No builder, no configuration object - just text in, bytes out.
 
 ### Example Usage:
 ```java

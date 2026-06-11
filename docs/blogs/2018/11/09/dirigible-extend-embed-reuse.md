@@ -51,7 +51,7 @@ With 200+ Maven artifacts, it's obvious that some modules can be reused even in 
 
         private static SqlFactory sqlFactory;
 
-        public List&lt;StudentEntity&gt; searchByFirstName(String name) {
+        public List<StudentEntity> searchByFirstName(String name) {
             String sql = getSqlFactory()
                     .select()
                     .column("*")
@@ -77,11 +77,11 @@ With 200+ Maven artifacts, it's obvious that some modules can be reused even in 
     ```
 1. Dependency:
     ```xml
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-        &lt;artifactId&gt;dirigible-database-sql&lt;/artifactId&gt;
-        &lt;version&gt;3.2.8&lt;/version&gt;
-    &lt;/dependency&gt;
+    <dependency>
+        <groupId>org.eclipse.dirigible</groupId>
+        <artifactId>dirigible-database-sql</artifactId>
+        <version>3.2.8</version>
+    </dependency>
     ```
 
 ### Database - ORM:
@@ -116,7 +116,7 @@ Dirigible's ORM is compatible with the _**Java Persistence API**_:
 
     public class StudentsDao {
 
-        private PersistenceManager&lt;StudentEntity&gt; persistenceManager = new PersistenceManager<>();
+        private PersistenceManager<StudentEntity> persistenceManager = new PersistenceManager<>();
 
         public StudentEntity find(Long id) {
             Connection connection = null;
@@ -128,7 +128,7 @@ Dirigible's ORM is compatible with the _**Java Persistence API**_:
             }
         }
 
-        public List&lt;StudentEntity&gt; query(String sql, Object... values) {
+        public List<StudentEntity> query(String sql, Object... values) {
             Connection connection = null;
             try {
                 connection = getConnection();
@@ -142,11 +142,11 @@ Dirigible's ORM is compatible with the _**Java Persistence API**_:
 1. Dependency
 
     ```xml
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.eclipse.dirigible&lt;/groupId&gt;
-        &lt;artifactId&gt;dirigible-database-persistence&lt;/artifactId&gt;
-        &lt;version&gt;3.2.8&lt;/version&gt;
-    &lt;/dependency&gt;
+    <dependency>
+        <groupId>org.eclipse.dirigible</groupId>
+        <artifactId>dirigible-database-persistence</artifactId>
+        <version>3.2.8</version>
+    </dependency>
     ```
 
 ## Embedded Dirigible

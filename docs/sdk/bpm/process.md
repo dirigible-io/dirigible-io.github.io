@@ -7,14 +7,14 @@
 - source: [bpm/Process.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/bpm/Process.java)
 :::
 
-Start, inspect, and steer Flowable process instances from Java code. The static helpers cover the everyday surface — starting a process by definition key, reading and writing instance variables, correlating message events. Anything beyond that (sub-process trees, history queries, advanced delegate state) is one step away through the underlying Flowable `BpmProviderFlowable` returned by `getEngine()`.
+Start, inspect, and steer Flowable process instances from Java code. The static helpers cover the everyday surface - starting a process by definition key, reading and writing instance variables, correlating message events. Anything beyond that (sub-process trees, history queries, advanced delegate state) is one step away through the underlying Flowable `BpmProviderFlowable` returned by `getEngine()`.
 
-Variables are exchanged as native Java values — strings, numbers, booleans, and JSON-friendly `Map`s land in Flowable's variable store unchanged. Use this together with the `.bpmn` synchronizer for steady-state processes; the `Deployer` helper covers programmatic deployment when you need it.
+Variables are exchanged as native Java values - strings, numbers, booleans, and JSON-friendly `Map`s land in Flowable's variable store unchanged. Use this together with the `.bpmn` synchronizer for steady-state processes; the `Deployer` helper covers programmatic deployment when you need it.
 
 ### Key Features:
-- **Static facade** — all methods are `public static`; no instance to create.
-- **Native value passing** — variables flow as plain Java types into Flowable.
-- **Escape hatch** — `getEngine()` exposes the raw `BpmProviderFlowable` for advanced cases.
+- **Static facade** - all methods are `public static`; no instance to create.
+- **Native value passing** - variables flow as plain Java types into Flowable.
+- **Escape hatch** - `getEngine()` exposes the raw `BpmProviderFlowable` for advanced cases.
 
 ### Example Usage:
 ```java

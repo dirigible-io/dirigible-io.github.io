@@ -9,7 +9,7 @@
 
 Spawns OS-level processes from the JVM, captures their merged stdout/stderr, and returns it as a `String`. The first overload runs with the inherited environment; the second and third let you add or remove specific variables; the third also accepts a `ProcessExecutionOptions` record for advanced settings (working directory, timeout, capture-error-stream toggle).
 
-Use with caution — the command string is passed to a shell on POSIX and to `cmd /c` on Windows, so any user-supplied input must be sanitized or the call should use a `ProcessExecutionOptions` variant that takes an argv array (see the `commons-process` package for the full API).
+Use with caution - the command string is passed to a shell on POSIX and to `cmd /c` on Windows, so any user-supplied input must be sanitized or the call should use a `ProcessExecutionOptions` variant that takes an argv array (see the `commons-process` package for the full API).
 
 ### Key Features
 
@@ -36,7 +36,7 @@ String result = Command.exec(
     List.of("UNWANTED_VAR")
 );
 
-// Advanced options — set a working directory and timeout:
+// Advanced options - set a working directory and timeout:
 ProcessExecutionOptions options = new ProcessExecutionOptions();
 options.setWorkingDirectory("/tmp");
 String advanced = Command.exec("pwd", Map.of(), List.of(), options);
@@ -95,7 +95,7 @@ Runs the given command with explicit env mutations and an advanced options recor
 > | `command` | `String` | The shell command line to execute. |
 > | `envAdditions` | `Map<String, String>` | Environment variables to add (or override) for this invocation. |
 > | `envRemovals` | `List<String>` | Names of inherited environment variables to remove for this invocation. |
-> | `options` | `ProcessExecutionOptions` | Advanced settings — working directory, timeout, error-stream capture. |
+> | `options` | `ProcessExecutionOptions` | Advanced settings - working directory, timeout, error-stream capture. |
 >
 > ::: info Returns
 > - **Type**: `String`

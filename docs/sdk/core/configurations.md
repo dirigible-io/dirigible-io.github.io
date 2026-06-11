@@ -7,14 +7,14 @@
 - source: [core/Configurations.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/core/Configurations.java)
 :::
 
-Reads platform configuration values through the Dirigible `Configuration` layer — the same source the rest of Dirigible consults for `DIRIGIBLE_*` env vars, `application*.properties` entries, and runtime overrides. Use this rather than `System.getenv(String)` so the precedence rules (env &gt; property file &gt; default) apply consistently with the rest of the platform.
+Reads platform configuration values through the Dirigible `Configuration` layer - the same source the rest of Dirigible consults for `DIRIGIBLE_*` env vars, `application*.properties` entries, and runtime overrides. Use this rather than `System.getenv(String)` so the precedence rules (env &gt; property file &gt; default) apply consistently with the rest of the platform.
 
 For lists of supported keys see `DirigibleConfig` in `modules/commons/commons-config`; that enum is the canonical inventory.
 
 ### Key Features
 
 - **Unified precedence**: Reads from env vars, property files, and runtime overrides in the same order the rest of Dirigible does.
-- **Static API**: All methods are `public static` — no instance needed.
+- **Static API**: All methods are `public static` - no instance needed.
 - **Mutable at runtime**: `set` and `remove` adjust the live configuration for the JVM.
 - **Default value fallback**: The two-arg `get` returns a caller-supplied default when the key is absent.
 

@@ -7,7 +7,7 @@
 - source: [component/](https://github.com/eclipse/dirigible/tree/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/component)
 :::
 
-This module provides the Dirigible-native dependency-injection annotations. The runtime resolves `@Inject` fields through the engine's `DependencyResolver` SPI — singleton repositories declared with `@Repository` are the primary providers.
+This module provides the Dirigible-native dependency-injection annotations. The runtime resolves `@Inject` fields through the engine's `DependencyResolver` SPI - singleton repositories declared with `@Repository` are the primary providers.
 
 Client classes are **not** Spring-scanned, so Spring's `@Autowired` would silently no-op here. Use these annotations instead.
 

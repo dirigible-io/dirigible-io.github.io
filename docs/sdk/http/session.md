@@ -7,12 +7,12 @@
 - source: [http/Session.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/http/Session.java)
 :::
 
-Reads and writes the HTTP session attached to the current request — attributes, lifetime, invalidation. Sessions persist across requests for the lifetime configured by the platform (typically 30 minutes idle, configurable via `setMaxInactiveInterval(int)`).
+Reads and writes the HTTP session attached to the current request - attributes, lifetime, invalidation. Sessions persist across requests for the lifetime configured by the platform (typically 30 minutes idle, configurable via `setMaxInactiveInterval(int)`).
 
 Use sessions for short-lived per-user state that does not need to survive a server restart (form wizards, in-progress UI selections). For longer-lived state prefer a database table; for cross-user state prefer the `Cache` or `Globals` facade from `org.eclipse.dirigible.sdk.cache` / `org.eclipse.dirigible.sdk.core`.
 
 ### Key Features:
-- **Per-Request Binding**: Operates on the session attached to the current thread's request — no instance to pass around.
+- **Per-Request Binding**: Operates on the session attached to the current thread's request - no instance to pass around.
 - **String-Keyed Attributes**: Store and retrieve attribute values as strings (serialise more complex data through Jackson).
 - **Lifetime Control**: Inspect creation / last-accessed timestamps and adjust the idle timeout.
 

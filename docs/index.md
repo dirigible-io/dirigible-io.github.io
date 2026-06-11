@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: In-System Programming
-    details: Develop and modify running applications through the browser IDE — no restarts, no deployments, immediate feedback
+    details: Develop and modify running applications through the browser IDE - no restarts, no deployments, immediate feedback
     link: /help/development/concepts/dynamic-applications
     linkText: Learn more
   - title: Model-Driven Development
@@ -29,7 +29,7 @@ features:
     link: /help/tutorials/modeling/generate-application-from-model
     linkText: Learn more
   - title: Full-Stack Runtime
-    details: JavaScript, TypeScript, Java execution engines alongside BPM, Camel integration, OData, and more — all in one platform
+    details: JavaScript, TypeScript, Java execution engines alongside BPM, Camel integration, OData, and more - all in one platform
     link: /help/overview/engines
     linkText: Learn more
   - title: Open & Extensible
@@ -55,7 +55,7 @@ features:
     <div class="container flex">
       <div class="text">
         <h2>Code-Behind for Complete Control</h2>
-        <p>Low-code never limits you — jump into TypeScript or JavaScript at any time to handle custom logic, rules, validation, transformations, or full microservices. Everything you model is immediately available as code, and every line of code instantly updates the runtime.</p>
+        <p>Low-code never limits you - jump into TypeScript or JavaScript at any time to handle custom logic, rules, validation, transformations, or full microservices. Everything you model is immediately available as code, and every line of code instantly updates the runtime.</p>
       </div>
       <div class="image">
         <i class="uil uil-brackets-curly section-icon"></i>
@@ -91,7 +91,7 @@ features:
     <div class="container flex">
       <div class="text">
         <h2>Built-In Integrations &amp; Adapters</h2>
-        <p>Connect to the systems that matter — databases, queues, HTTP services, SAP, Snowflake, OCI, messaging brokers, and more. Drag-and-drop flows or write transformation logic directly in TypeScript or JavaScript.</p>
+        <p>Connect to the systems that matter - databases, queues, HTTP services, SAP, Snowflake, OCI, messaging brokers, and more. Drag-and-drop flows or write transformation logic directly in TypeScript or JavaScript.</p>
       </div>
       <div class="image">
         <i class="uil uil-plug section-icon"></i>
@@ -103,7 +103,7 @@ features:
     <div class="container flex">
       <div class="text">
         <h2>Embedded UI Builder (Layouts + Components)</h2>
-        <p>Developers can rapidly assemble UIs using layouts, forms, tables, pages, and custom components. Low-code for speed — fully scriptable for maximum freedom.</p>
+        <p>Developers can rapidly assemble UIs using layouts, forms, tables, pages, and custom components. Low-code for speed - fully scriptable for maximum freedom.</p>
       </div>
       <div class="image">
         <i class="uil uil-table section-icon"></i>
@@ -139,7 +139,7 @@ features:
     <div class="container flex">
       <div class="text">
         <h2>Enterprise-Grade Debugging &amp; Observability</h2>
-        <p>Get instant logging, profiling, stack traces, job monitoring, and API tracing — all built in. Developers see exactly what's running, where it's running, and why, without external tooling.</p>
+        <p>Get instant logging, profiling, stack traces, job monitoring, and API tracing - all built in. Developers see exactly what's running, where it's running, and why, without external tooling.</p>
       </div>
       <div class="image">
         <i class="uil uil-chart-line section-icon"></i>
@@ -168,7 +168,7 @@ Just write → save → call.
 
 ## Enjoy Programming Like Never Before
 
-Building software should feel empowering - not exhausting. With Dirigible, you get a platform where ideas turn into running applications instantly, where tools feel light instead of heavy, and where everything — models, code, APIs, UI, workflows - lives in harmony. No boilerplate. No scaffolding madness. No context switching.
+Building software should feel empowering - not exhausting. With Dirigible, you get a platform where ideas turn into running applications instantly, where tools feel light instead of heavy, and where everything - models, code, APIs, UI, workflows - lives in harmony. No boilerplate. No scaffolding madness. No context switching.
 
 Just you, your logic, and a platform that stays out of your way.
 
@@ -179,6 +179,6 @@ Whether you love modeling, coding, scripting, automating, or simply shipping fas
 Explore the platform, learn the tools, and start building your next application today.
 
 - 📘 Documentation: https://www.dirigible.io/help/ Comprehensive guides covering modeling, runtime, APIs, scripting, extensions, CLI, and more.
-- 🧩 SDK Reference: https://www.dirigible.io/sdks/ Full listing of all built-in modules across both SDKs (TypeScript/JavaScript and Java) — HTTP, database, events, security, integration, BPMN, and the core platform services.
+- 🧩 SDK Reference: https://www.dirigible.io/sdks/ Full listing of all built-in modules across both SDKs (TypeScript/JavaScript and Java) - HTTP, database, events, security, integration, BPMN, and the core platform services.
 - 📰 Blog & Tutorials: https://www.dirigible.io/blogs/ Hands-on articles, learning paths, release notes, architecture deep dives, and real-world examples.
 - 💻 GitHub (Source Code): https://github.com/eclipse/dirigible Open source. Apache License. Contributions welcome.

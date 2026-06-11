@@ -14,7 +14,7 @@ we like it, with Dirigible.
 To explore the new "**<em>Java Services</em>**" features, we’ll create a simple "gamification" project. It will contain only one service and a couple of helper classes. We’ll take advantage of Java by using
 some of the most popular classes and capabilities in the language, such as <em>Collections</em><em>Comparable</em>,
 and of course <em>Generics</em>. The service will be responsible for calculating and distributing the results
-of the gamification. We’ll deliver the scores in two manners – displaying them to the user, or
+of the gamification. We’ll deliver the scores in two manners - displaying them to the user, or
 sending them via e-mail.
 
 

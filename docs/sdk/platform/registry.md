@@ -7,7 +7,7 @@
 - source: [platform/Registry.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/platform/Registry.java)
 :::
 
-Read-only access to artefacts published under `/registry/public/`. Use this when a controller, job, or extension needs to consume content that ships with another project — configuration files, fixed templates, lookup tables — without going through HTTP or a custom service.
+Read-only access to artefacts published under `/registry/public/`. Use this when a controller, job, or extension needs to consume content that ships with another project - configuration files, fixed templates, lookup tables - without going through HTTP or a custom service.
 
 For mutable access (creating, updating, deleting resources or whole collections) use [`Repository`](./repository.md); for IDE workspace operations use [`Workspace`](./workspace.md).
 

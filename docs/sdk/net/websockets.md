@@ -7,14 +7,14 @@
 - source: [net/Websockets.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/net/Websockets.java)
 :::
 
-Outbound STOMP WebSocket client — connect to a remote endpoint, register a registry-resident handler for lifecycle and message events, then optionally publish or query the platform's view of active connections. Useful for bridging Dirigible into another service that exposes a WebSocket interface (an external trading desk, a chat server, an MQTT bridge).
+Outbound STOMP WebSocket client - connect to a remote endpoint, register a registry-resident handler for lifecycle and message events, then optionally publish or query the platform's view of active connections. Useful for bridging Dirigible into another service that exposes a WebSocket interface (an external trading desk, a chat server, an MQTT bridge).
 
-For **inbound** WebSockets (handlers exposed by Dirigible to remote clients) use the `@Websocket` class annotation instead — that gives you `onOpen` / `onMessage` / `onClose` entry points on a Java class.
+For **inbound** WebSockets (handlers exposed by Dirigible to remote clients) use the `@Websocket` class annotation instead - that gives you `onOpen` / `onMessage` / `onClose` entry points on a Java class.
 
 ### Key Features:
-- **STOMP outbound** — connect, return a `StompSession` for sends and subscriptions.
-- **Connection registry** — inspect active clients by id, handler name, or as JSON.
-- **Inbound counterpart** — `@Websocket` annotation for handlers Dirigible serves.
+- **STOMP outbound** - connect, return a `StompSession` for sends and subscriptions.
+- **Connection registry** - inspect active clients by id, handler name, or as JSON.
+- **Inbound counterpart** - `@Websocket` annotation for handlers Dirigible serves.
 
 ### Example Usage:
 ```java
@@ -45,7 +45,7 @@ Opens an outbound STOMP WebSocket connection.
 >
 > ::: info Returns
 > - **Type**: `StompSession`
-> - **Description**: Live Spring STOMP session — use it to send or subscribe.
+> - **Description**: Live Spring STOMP session - use it to send or subscribe.
 > :::
 
 ### getClients()

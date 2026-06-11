@@ -5,7 +5,7 @@ description: Run Dirigible in a Kubernetes cluster.
 
 # Kubernetes
 
-- **[Helm](/help/setup/kubernetes/helm)** — the recommended install.
+- **[Helm](/help/setup/kubernetes/helm)** - the recommended install.
 - **[Google Kubernetes Engine](/help/setup/kubernetes/gke)**
 - **[Azure Kubernetes Service](/help/setup/kubernetes/aks)**
 - **[Red Hat OpenShift](/help/setup/kubernetes/openshift)**
