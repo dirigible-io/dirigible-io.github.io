@@ -32,16 +32,20 @@ The modern approach is a class with a no-arg `public void run()` method:
 ```java
 package com.acme.demo;
 
+import org.eclipse.dirigible.sdk.job.JobHandler;
 import org.eclipse.dirigible.sdk.job.Scheduled;
 
 @Scheduled(expression = "0 0 * * * ?")
-public class NightlyJob {
+public class NightlyJob implements JobHandler {
 
+    @Override
     public void run() {
         // work here
     }
 }
 ```
+
+`JobHandler` is the optional typed contract for `run()`. Implementing it gives compile-time signature checking and a direct (non-reflective) dispatch path. Plain `run()` by name still works - the runtime falls back to reflection when the interface isn't implemented. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
 
 **TypeScript:**
 

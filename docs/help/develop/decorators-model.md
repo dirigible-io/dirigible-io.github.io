@@ -20,9 +20,9 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Audit fields | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` |
 | Repository / DI | `@Component("CountryRepository")` | `@Repository` |
 | Inject | `@Inject("CountryRepository")` | `@Inject` |
-| Scheduled job | `@Scheduled(...)` | `@Scheduled(expression="0 0 * * * ?")` |
-| Message listener | `@Listener(...)` | `@Listener(name="queue.x", kind=ListenerKind.QUEUE)` |
-| Websocket | `@Websocket(...)` | `@Websocket(name="chat", endpoint="chat")` |
+| Scheduled job | `@Scheduled(...)` | `@Scheduled(expression="0 0 * * * ?")` + optional `implements JobHandler` |
+| Message listener | `@Listener(...)` | `@Listener(name="queue.x", kind=ListenerKind.QUEUE)` + optional `implements MessageHandler` |
+| Websocket | `@Websocket(...)` | `@Websocket(name="chat", endpoint="chat")` + optional `implements WebsocketHandler` |
 | Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
 | Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
@@ -39,6 +39,10 @@ On the Java side this is the `JavaClassConsumer` SPI run in fixed `@Order`:
 4. `HandlerClassConsumer` - claims `implements JavaHandler`.
 
 The ordering guarantees that `@Inject CountryRepository` resolves inside the controller consumer - the repository has already been registered in the same rebuild cycle.
+
+### Optional typed contracts
+
+`@Scheduled`, `@Listener`, and `@Websocket` each ship a companion interface in the SDK (`JobHandler`, `MessageHandler`, `WebsocketHandler`). Implementing the interface is opt-in - the runtime falls back to method-by-name reflection when the interface is absent, so existing handlers keep working unchanged. The typed path gives compile-time signature checking, IDE autocomplete and refactoring, default no-op methods for callbacks you don't override (`WebsocketHandler`, `MessageHandler.onError`), and direct (non-reflective) dispatch. See the per-decorator pages under `/sdk/` for details.
 
 On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `EntitySynchronizer`, `OpenAPISynchronizer`, plus the listener / job / websocket / extension synchronizers) scan files matching `*Component.ts`, `*Entity.ts`, `*Controller.ts`, etc. and do the same registration work.
 

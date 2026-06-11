@@ -17,21 +17,21 @@ A class exposing any combination of `onOpen()`, `onMessage(String, String)`, `on
 package com.acme.demo;
 
 import org.eclipse.dirigible.sdk.net.Websocket;
+import org.eclipse.dirigible.sdk.net.WebsocketHandler;
 
 @Websocket(name = "chat", endpoint = "chat")
-public class ChatEndpoint {
+public class ChatEndpoint implements WebsocketHandler {
 
-    public void onOpen() { }
-
+    @Override
     public void onMessage(String message, String sessionId) {
         // route / broadcast
     }
 
-    public void onError(String error) { }
-
-    public void onClose() { }
+    // onOpen / onError / onClose inherit the no-op default
 }
 ```
+
+`WebsocketHandler` is the optional typed contract for the four lifecycle callbacks. All methods are `default` no-ops, so handlers only override what they need - no empty stubs. Classes that don't implement the interface still work via the same method-by-name reflective dispatch. See [`/sdk/net/decorators`](/sdk/net/decorators) for details.
 
 **TypeScript:**
 

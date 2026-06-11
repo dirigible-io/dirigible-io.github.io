@@ -18,15 +18,19 @@ package com.acme.demo;
 
 import org.eclipse.dirigible.sdk.messaging.Listener;
 import org.eclipse.dirigible.sdk.messaging.ListenerKind;
+import org.eclipse.dirigible.sdk.messaging.MessageHandler;
 
 @Listener(name = "queue.orders", kind = ListenerKind.QUEUE)
-public class OrderListener {
+public class OrderListener implements MessageHandler {
 
+    @Override
     public void onMessage(String body) {
         // handle message
     }
 }
 ```
+
+`MessageHandler` is the optional typed contract for the listener callbacks - `onMessage(String)` plus a `default onError(String) {}`. Implementing it gives compile-time signature checking and a direct dispatch path; classes that don't implement it keep working via reflective `onMessage` / `onError` lookup. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
 
 **TypeScript:**
 
