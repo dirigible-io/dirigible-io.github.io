@@ -263,6 +263,61 @@ These were one-off but are likely to be re-run after any future legacy import or
 - **Entity decoder for code blocks** (`/tmp/fix_code_entities.py`): inside fenced code blocks only, decodes `&lt;` / `&gt;` / `&amp;` to literal characters. **Heads-up:** the SDK escape docs (`/api/utils/escape.md`, `/sdk/utils/escape.md`) intentionally show entity-encoded output in their example comments; restore those by hand if the script over-decodes them.
 - **HTML entity decoder for prose** (`/tmp/fix_entities.py`): decodes ASCII-equivalent entities (`&#8594;`, `&hellip;`, `&nbsp;`, `&mdash;`, etc.) site-wide. Preserves structural entities `&lt;`, `&gt;`, `&amp;`, `&#123;`, `&#125;`.
 
+## Verifying SDK snippets against working samples
+
+The Java SDK pages under `/sdk/*` carry code examples that need to match the **current** API, not the legacy form. Two cross-checks together catch every mistake; do both whenever the platform SDK changes.
+
+### 1. Cross-check the static surface against the platform sources
+
+The authoritative shape of every Java facade and annotation lives in `/Users/delchev/Data/GitHub/dirigible/dirigible/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/`. For each `*.java` file in a module:
+
+```bash
+grep -E "public static|@interface " components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/<module>/*.java
+```
+
+…catches: removed methods, renamed parameters, changed return types, annotation attribute renames, new annotations not yet in the docs.
+
+### 2. Cross-check the recommended patterns against `dirigiblelabs/sample-java-*`
+
+The platform CLAUDE.md treats these repos as the **canonical** worked examples; the integration tests in the platform repo clone them and exercise them end-to-end. The current set:
+
+```
+dirigiblelabs/sample-java-entity-decorators        # @Entity + @Repository + @Controller
+dirigiblelabs/sample-java-extension-decorator      # @ExtensionPoint + @Extension typed pair
+dirigiblelabs/sample-java-job-decorator            # @Scheduled
+dirigiblelabs/sample-java-listener-decorator       # @Listener + ListenerKind
+dirigiblelabs/sample-java-websocket-decorator      # @Websocket with onOpen/onMessage/onError/onClose
+```
+
+Fetch raw content via `gh api`:
+
+```bash
+# Discover the file list
+gh api 'repos/dirigiblelabs/sample-java-entity-decorators/git/trees/HEAD?recursive=1' \
+  --jq '.tree[] | select(.path | endswith(".java")) | .path'
+
+# Pull a specific file
+python3 -c "import urllib.request; print(urllib.request.urlopen(
+  'https://raw.githubusercontent.com/dirigiblelabs/<repo>/master/<path>').read().decode())"
+```
+
+The default branch is `master`. Paths are `<repo-name>/<package-dirs>/<File>.java` (the project folder repeats the repo name).
+
+### Mistakes the cross-check found in the rebuild
+
+These are the differences that turned up in the very first pass; treat them as a watch-list for future sessions:
+
+- **`@Extension(to = "ide-menu")` was the legacy form**; current is `@Extension(target = MenuContribution.class, name = "...")`. The annotation now requires a `Class<?>` (the contract interface), not a `String` (a point id).
+- **`@ExtensionPoint("description")` was missing entirely** from the docs. It's the partner annotation that marks a contract interface; the runtime uses the interface's FQN as the extension-point identifier in the `DIRIGIBLE_EXTENSIONS` table.
+- **`Extensions.getExtensions(String) -> String[]` is legacy** for `.extension` artefacts. The typed `Extensions.find(Class) -> List<T>` and `Extensions.findFirst(Class) -> Optional<T>` are the preferred path for Java. Both coexist; document both, prefer typed.
+- **`@GeneratedValue(GenerationType.SEQUENCE)` (positional) does not compile**. The annotation defines `strategy()`, not `value()`, so the name is required: `@GeneratedValue(strategy = GenerationType.SEQUENCE)`. JPA's own annotation has the same shape.
+- **`JavaRepository<T>` is the recommended client-code pattern**, not constructor-injected `JavaEntityStore`. Subclass `JavaRepository<Entity>` from `org.eclipse.dirigible.components.data.store.java.repository`, pass `Entity.class` to the protected constructor, and inherit `findAll()`, `findAll(limit, offset)`, `findById(id)`, `findOne(id)`, `save(entity)`, `update(entity)`, `delete(entity)`, `deleteById(id)`, `count()`, `query(hql, params)`. Controllers `@Inject` the repository and call typed methods - no `BeanProvider`, no `JavaEntityStore` directly.
+- **`@Documentation("...")` is the OpenAPI summary mechanism**. Samples use it heavily on classes, fields, and methods; docs should mention it as the canonical way to attach human-readable descriptions that flow into the aggregated OpenAPI document.
+
+### Rule of thumb
+
+If a snippet declares a Dirigible-specific annotation or facade, **don't rely on memory** - cross-check against both (1) the `.java` source and (2) any matching `dirigiblelabs/sample-java-*` repo. The samples are kept up to date by the platform's integration tests; the docs portal lives in a separate repo and lags. Tutorials are intentionally out of scope for this verification pass - they'll be revisited as a separate session.
+
 ## Session log (what landed in the migration)
 
 This list captures the changes made in the June 2026 migration session so the rationale survives.
