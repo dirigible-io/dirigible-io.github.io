@@ -57,7 +57,7 @@ import org.eclipse.dirigible.sdk.db.GenerationType;
 public class Country {
 
     @Id
-    @GeneratedValue(GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "COUNTRY_ID")
     private Long id;
 
@@ -77,23 +77,18 @@ public class Country {
 package com.acme.demo;
 
 import org.eclipse.dirigible.sdk.component.Repository;
-import org.eclipse.dirigible.components.data.store.JavaEntityStore;
+import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
 
 @Repository
-public class CountryRepository {
+public class CountryRepository extends JavaRepository<Country> {
 
-    private final JavaEntityStore store;
-
-    public CountryRepository(JavaEntityStore store) {
-        this.store = store;
-    }
-
-    public Country save(Country country) {
-        store.save(country);
-        return country;
+    public CountryRepository() {
+        super(Country.class);
     }
 }
 ```
+
+`JavaRepository<T>` is the recommended client-code pattern. Subclassing it gives you `findAll()`, `findById(id)`, `save(entity)`, `update(entity)`, `delete(entity)`, `deleteById(id)`, `count()`, and `query(hql, params)` out of the box - controllers never need to touch `JavaEntityStore` or `BeanProvider` directly.
 
 ### 3. Controller
 
@@ -104,27 +99,35 @@ import org.eclipse.dirigible.sdk.http.Controller;
 import org.eclipse.dirigible.sdk.http.Get;
 import org.eclipse.dirigible.sdk.http.Post;
 import org.eclipse.dirigible.sdk.http.Body;
+import org.eclipse.dirigible.sdk.http.PathParam;
 import org.eclipse.dirigible.sdk.component.Inject;
 
 import java.util.List;
 
-@Controller("/countries")
+@Controller
 public class CountryController {
 
     @Inject
-    private CountryRepository repository;
+    private CountryRepository countries;
 
-    @Get
-    public List<Country> findAll() {
-        return List.of();
+    @Get("/")
+    public List<Country> list() {
+        return countries.findAll();
+    }
+
+    @Get("/{id}")
+    public Country byId(@PathParam("id") Long id) {
+        return countries.findById(id);
     }
 
     @Post
     public Country create(@Body Country country) {
-        return repository.save(country);
+        return countries.save(country);
     }
 }
 ```
+
+The same shape ships as a working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
 ## Where Java Sources Live
 

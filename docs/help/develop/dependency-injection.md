@@ -27,11 +27,23 @@ Because the loader drains consumer-outer / class-inner, every `@Repository` is i
 
 ### Reaching platform beans
 
-For platform Spring beans that have no `@Repository` wrapper, use `BeanProvider.getBean(Class)`:
+The recommended pattern for entity CRUD is `@Repository extends JavaRepository<T>` - that wraps the platform's `JavaEntityStore` and gives you typed `findAll`, `findById`, `save`, `delete`, etc. without touching internal beans:
 
 ```java
-import org.eclipse.dirigible.components.spring.BeanProvider;
-import org.eclipse.dirigible.components.data.store.JavaEntityStore;
+import org.eclipse.dirigible.sdk.component.Repository;
+import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
+
+@Repository
+public class CountryRepository extends JavaRepository<Country> {
+    public CountryRepository() { super(Country.class); }
+}
+```
+
+For platform beans that have no `JavaRepository` wrapper (logger configuration, custom services), drop down to `BeanProvider.getBean(Class)`:
+
+```java
+import org.eclipse.dirigible.components.base.spring.BeanProvider;
+import org.eclipse.dirigible.components.data.store.java.store.JavaEntityStore;
 
 JavaEntityStore store = BeanProvider.getBean(JavaEntityStore.class);
 ```
@@ -39,18 +51,20 @@ JavaEntityStore store = BeanProvider.getBean(JavaEntityStore.class);
 ### Example
 
 ```java
-@Controller("/countries")
+@Controller
 public class CountryController {
 
     @Inject
-    private CountryRepository repository;
+    private CountryRepository countries;
 
-    @Get
-    public List<Country> findAll() {
-        return repository.findAll();
+    @Get("/")
+    public List<Country> list() {
+        return countries.findAll();
     }
 }
 ```
+
+Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
 ## TypeScript
 

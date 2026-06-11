@@ -7,30 +7,73 @@
 - source: [extensions/Extensions.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/extensions/Extensions.java)
 :::
 
-Discovers extensions contributed to a named extension point. Returns the list of `module` paths registered against the point - by user projects via `.extensionpoint` / `.extension` artefacts, or by Java client classes annotated with [`@Extension`](./decorators.md).
+Static facade for discovering registered contributions. The preferred entry point is the **typed** `find(Class)` / `findFirst(Class)` API - it returns instances cast to the contract interface, so callers invoke contract methods directly with no reflection.
 
-Resolution is dynamic: a new contribution becomes visible to the next call after its synchronizer cycle completes. The returned array is empty (never `null`) when no extensions match - callers can iterate directly without a null-guard.
+`getExtensions(String)` is the legacy string-keyed lookup retained for compatibility with `.extension` artefacts that pre-date the typed annotations. New code should use `find(Class)`.
 
 ### Key Features:
-- **Dynamic resolution**: Newly added extensions are picked up on the next call once the synchronizer has run.
-- **Union of sources**: Combines descriptor-based contributions (`.extension` files) with annotation-based contributions (`@Extension`-annotated Java classes).
-- **Null-safe**: Always returns an array - empty when no contributions exist.
+- **Typed discovery**: `find(Class)` returns `List<T>` where `T` is the contract interface.
+- **Per-request lookup**: returns the live set of registered contributions; safe to call from controllers and listeners.
+- **Legacy compatibility**: string-keyed `getExtensions(String)` still works for older artefact-based extensions.
 
 ### Example Usage:
 ```java
 import org.eclipse.dirigible.sdk.extensions.Extensions;
+import java.util.List;
+import java.util.Optional;
 
-String[] modules = Extensions.getExtensions("ide-menu");
-for (String module : modules) {
-    // load and invoke the contribution
+// Typed - the preferred API
+List<OrderProcessor> processors = Extensions.find(OrderProcessor.class);
+for (OrderProcessor p : processors) {
+    p.process(order);
 }
+
+Optional<OrderProcessor> first = Extensions.findFirst(OrderProcessor.class);
+first.ifPresent(p -> p.process(order));
+
+// Legacy - string-keyed lookup
+String[] modules = Extensions.getExtensions("ide-menu");
 ```
 
 ## Methods
 
+### find()
+
+Returns every class registered against the given extension point, instantiated and cast to the contract interface.
+
+> ```java
+> public static <T> List<T> find(Class<T> extensionPointType) throws Exception;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `extensionPointType` | `Class<T>` | The contract interface, marked with `@ExtensionPoint`. |
+>
+> ::: info Returns
+> - **Type**: `List<T>`
+> - **Description**: Every registered contribution that implements the contract.
+> :::
+
+### findFirst()
+
+Returns the first registered contribution, or `Optional.empty()` if none.
+
+> ```java
+> public static <T> Optional<T> findFirst(Class<T> extensionPointType) throws Exception;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `extensionPointType` | `Class<T>` | The contract interface. |
+>
+> ::: info Returns
+> - **Type**: `Optional<T>`
+> - **Description**: The first registered contribution, or empty.
+> :::
+
 ### getExtensions()
 
-Returns every module path registered against the given extension point.
+Legacy lookup by string-named extension point. Returns the module paths registered via `.extension` artefacts.
 
 > ```java
 > public static String[] getExtensions(String extensionPointName) throws Exception;
@@ -38,9 +81,14 @@ Returns every module path registered against the given extension point.
 >
 > | Parameter | Type | Description |
 > | ------ | ------ | ------ |
-> | `extensionPointName` | `String` | Logical name of the extension point to query. |
+> | `extensionPointName` | `String` | The string identifier of the extension point. |
 >
 > ::: info Returns
 > - **Type**: `String[]`
-> - **Description**: Module paths of every contribution currently registered against the point. Empty when no contributions match - never `null`.
+> - **Description**: Module paths registered against the named point.
 > :::
+
+## See also
+
+- [`@Extension` / `@ExtensionPoint`](/sdk/extensions/decorators) - the annotations side.
+- Sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).

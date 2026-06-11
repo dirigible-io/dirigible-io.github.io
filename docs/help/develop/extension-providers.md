@@ -5,15 +5,59 @@ description: Declare extension points and contribute providers to them.
 
 # Extension providers
 
-The extensions mechanism lets one piece of code declare a pluggable point and any other piece of code contribute a provider. It is the canonical way the platform itself surfaces menu entries, perspectives, and views - and it is open to user projects.
+The extensions mechanism lets one piece of code declare a pluggable contract and any other piece of code contribute a provider. It is the canonical way the platform itself surfaces menu entries, perspectives, and views, and it is open to user projects.
 
-## Two artefact kinds, plus an annotation
+Two coexisting forms:
 
-- `*.extensionpoint` - JSON descriptor declaring a named point.
-- `*.extension` - JSON descriptor registering a contribution to a point, pointing at a JS/TS/Java module.
-- `@Extension(name=..., to="point-name")` - annotation form on a class.
+- **Typed Java** - an interface marked with `@ExtensionPoint` defines the contract; classes marked with `@Extension(target = ContractInterface.class)` plug in. Discovered with `Extensions.find(Class)`. Preferred for Java code.
+- **String-keyed artefacts** - `*.extensionpoint` declares a named point; `*.extension` registers a JS / TS / Java module against the named point. Discovered with `Extensions.getExtensions(String)`. Used by older code and by TypeScript-side extensions.
 
-## Declaring a point
+## Typed Java extensions
+
+### Declare the contract
+
+```java
+import org.eclipse.dirigible.sdk.extensions.ExtensionPoint;
+
+@ExtensionPoint("Order processors")
+public interface OrderProcessor {
+    void process(Order order);
+}
+```
+
+### Contribute an implementation
+
+```java
+import org.eclipse.dirigible.sdk.extensions.Extension;
+
+@Extension(target = OrderProcessor.class, name = "fast-processor")
+public class FastOrderProcessor implements OrderProcessor {
+
+    @Override
+    public void process(Order order) {
+        // ...
+    }
+}
+```
+
+The runtime validates that `FastOrderProcessor` implements `OrderProcessor` at registration time. Consumers receive instances cast to the interface - no reflection.
+
+### Discover and invoke
+
+```java
+import org.eclipse.dirigible.sdk.extensions.Extensions;
+
+List<OrderProcessor> processors = Extensions.find(OrderProcessor.class);
+for (OrderProcessor p : processors) {
+    p.process(order);
+}
+```
+
+A complete end-to-end example lives at [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
+
+## String-keyed artefacts
+
+### Declare a point
 
 ```json
 {
@@ -24,9 +68,7 @@ The extensions mechanism lets one piece of code declare a pluggable point and an
 
 Save as `my-app-menu-items.extensionpoint`.
 
-## Contributing a provider
-
-### `.extension` file
+### Contribute a provider
 
 ```json
 {
@@ -35,47 +77,23 @@ Save as `my-app-menu-items.extensionpoint`.
 }
 ```
 
-### Annotation
+Save as `customer-menu.extension`. Cross-link: [`/help/artefacts/extensibility/extension`](/help/artefacts/extensibility/extension).
 
-**Java:**
+### Consume at runtime
+
+```ts
+import { Extensions } from "@aerokit/sdk/extensions";
+
+const modules = Extensions.getExtensions("my-app-menu-items");
+for (const m of modules) {
+    // m is the registry path of a contributing module; load and invoke as appropriate
+}
+```
 
 ```java
-import org.eclipse.dirigible.sdk.extensions.Extension;
+import org.eclipse.dirigible.sdk.extensions.Extensions;
 
-@Extension(name = "customer-menu", to = "my-app-menu-items")
-public class CustomerMenu {
-
-    public Object provide() {
-        return Map.of("label", "Customers", "href", "/customers");
-    }
-}
-```
-
-**TypeScript:**
-
-```ts
-import { Extension } from "@aerokit/sdk/extensions";
-
-@Extension({ name: "customer-menu", to: "my-app-menu-items" })
-export class CustomerMenu {
-
-  public provide() {
-    return { label: "Customers", href: "/customers" };
-  }
-}
-```
-
-## Consuming providers at runtime
-
-Use `@aerokit/sdk/extensions` to discover every contribution to a point:
-
-```ts
-import { extensions } from "@aerokit/sdk/extensions";
-
-const items = extensions.getExtensions("my-app-menu-items");
-for (const e of items) {
-  // e is the resolved provider instance
-}
+String[] modules = Extensions.getExtensions("my-app-menu-items");
 ```
 
 ## When to use this
@@ -88,5 +106,7 @@ For typed wiring within a single project, prefer [dependency injection](/help/de
 
 ## See also
 
-- [TypeScript API - extensions](/api/).
-- [Java SDK - extensions](/sdk/).
+- [`@ExtensionPoint` / `@Extension`](/sdk/extensions/decorators)
+- [`Extensions`](/sdk/extensions/extensions)
+- [Extension point artefact](/help/artefacts/extensibility/extensionpoint)
+- [Extension artefact](/help/artefacts/extensibility/extension)

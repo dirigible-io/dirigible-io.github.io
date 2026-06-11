@@ -19,7 +19,7 @@ Both paths end up in the same Hibernate `SessionFactory`, rooted at the default 
 | Annotation | Purpose |
 | --- | --- |
 | `@Id` | Primary key field. |
-| `@GeneratedValue(GenerationType.SEQUENCE)` | Auto-generated PK (`AUTO`, `IDENTITY`, `SEQUENCE`, `TABLE`, `UUID`). |
+| `@GeneratedValue(strategy = GenerationType.SEQUENCE)` | Auto-generated PK (`AUTO`, `IDENTITY`, `SEQUENCE`, `TABLE`, `UUID`). |
 | `@Column(name=..., length=..., nullable=...)` | Column mapping override. |
 | `@Transient` | Skip the field during persistence. |
 | `@CreatedAt` | Auto-populated with the current timestamp on insert. |
@@ -62,7 +62,7 @@ import org.eclipse.dirigible.sdk.db.Column;
 public class Country {
 
     @Id
-    @GeneratedValue(GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "COUNTRY_ID")
     private Long id;
 
@@ -75,33 +75,40 @@ public class Country {
 
 ## Repository pattern
 
-The recommended pattern is a thin repository wrapping the platform's typed entity store.
+The recommended pattern is to subclass `JavaRepository<T>` (Java) or `Repository<T>` (TypeScript). Both deliver typed CRUD plus `findAll`, `findById`, `save`, `update`, `delete`, `deleteById`, `count`, and `query`/HQL out of the box.
 
-**Java** - `@Repository` registers the class as a singleton in `RepositoryRegistry`. `JavaEntityStore` is the typed CRUD facade:
+**Java** - `@Repository` registers the class as a singleton; `JavaRepository<T>` is the typed CRUD base:
 
 ```java
 import org.eclipse.dirigible.sdk.component.Repository;
-import org.eclipse.dirigible.components.data.store.JavaEntityStore;
+import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
 
 @Repository
-public class CountryRepository {
+public class CountryRepository extends JavaRepository<Country> {
 
-    private final JavaEntityStore store;
-
-    public CountryRepository(JavaEntityStore store) {
-        this.store = store;
-    }
-
-    public Country save(Country country) {
-        store.save(country);
-        return country;
-    }
-
-    public List<Country> findAll() {
-        return store.list(Country.class);
+    public CountryRepository() {
+        super(Country.class);
     }
 }
 ```
+
+Controllers `@Inject` the repository and call typed methods directly - no `JavaEntityStore`, no `BeanProvider`:
+
+```java
+@Controller
+public class CountryController {
+
+    @Inject
+    private CountryRepository countries;
+
+    @Get("/")        public List<Country> list()                          { return countries.findAll(); }
+    @Get("/{id}")    public Country       byId(@PathParam("id") Long id)  { return countries.findById(id); }
+    @Post            public Country       create(@Body Country c)         { return countries.save(c); }
+    @Delete("/{id}") public void          remove(@PathParam("id") Long id) { countries.deleteById(id); }
+}
+```
+
+Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
 **TypeScript** - `Repository<T>` is auto-generated; subclass it via `@Component`:
 

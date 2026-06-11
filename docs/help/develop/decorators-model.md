@@ -15,7 +15,7 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | HTTP method | `@Get("/{id}")` | `@Get("/{id}")` |
 | Path / query / body | `@PathParam`, `@QueryParam`, `@Body` | `@PathParam`, `@QueryParam`, `@Body` |
 | Entity | `@Entity("User")` from `@aerokit/sdk/db/decorators` | `@Entity` from `org.eclipse.dirigible.sdk.db` |
-| Primary key | `@Id` + `@Generated("sequence")` | `@Id` + `@GeneratedValue(GenerationType.SEQUENCE)` |
+| Primary key | `@Id` + `@Generated("sequence")` | `@Id` + `@GeneratedValue(strategy = GenerationType.SEQUENCE)` |
 | Column | `@Column({name, type})` | `@Column(name=..., length=..., nullable=...)` |
 | Audit fields | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` |
 | Repository / DI | `@Component("CountryRepository")` | `@Repository` |
@@ -23,7 +23,8 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Scheduled job | `@Scheduled(...)` | `@Scheduled(expression="0 0 * * * ?")` |
 | Message listener | `@Listener(...)` | `@Listener(name="queue.x", kind=ListenerKind.QUEUE)` |
 | Websocket | `@Websocket(...)` | `@Websocket(name="chat", endpoint="chat")` |
-| Extension provider | `@Extension(...)` | `@Extension(name="...", to="...")` |
+| Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
+| Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
 
 ## How the wiring happens

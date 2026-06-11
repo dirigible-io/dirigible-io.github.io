@@ -16,30 +16,43 @@ Both are reconciled by their synchronizers (`ExtensionPointsSynchronizer`, `Exte
 
 ## Discovery from user code
 
+Two discovery surfaces. The **typed** Java API (preferred for Java contracts):
+
+```java
+import org.eclipse.dirigible.sdk.extensions.Extensions;
+import java.util.List;
+
+List<ReportExporter> exporters = Extensions.find(ReportExporter.class);
+for (ReportExporter e : exporters) {
+    e.export(report);
+}
+```
+
+The **string-keyed** API (for `.extension` artefacts shared across languages):
+
 ```ts
 import { Extensions } from "@aerokit/sdk/extensions";
 
-const contributions = Extensions.getExtensions("reports.exporter");
-for (const c of contributions) {
-    // c.module points at a JS / TS module; the contract decides what to call on it
+const modules = Extensions.getExtensions("reports.exporter");
+for (const m of modules) {
+    // m is the registry path of a contributing module
 }
 ```
 
 ```java
 import org.eclipse.dirigible.sdk.extensions.Extensions;
 
-String json = Extensions.getExtensions("reports.exporter");
-// parse json -> array of { extensionPoint, module, description }
+String[] modules = Extensions.getExtensions("reports.exporter");
 ```
 
 ## Contracts
 
-The extension point's name does not prescribe a contract - the point owner does. Document the expected exports somewhere reachable (a README in the project, an `*.extensionpoint` description, a `@Documentation` annotation). Common patterns:
+For typed Java extension points the contract is the **interface** the contribution implements. Mark it with `@ExtensionPoint` and document expectations in its Javadoc - consumers receive typed instances from `Extensions.find(Class)` and call contract methods directly.
+
+For string-keyed extension points the point owner publishes the contract by convention (a README, an `*.extensionpoint` description, a `@Documentation` annotation). Common patterns:
 
 - Export a default function with a known signature: `export default function exporter(input) { ... }`.
 - Export a class with named methods: `export class Exporter { run(input) { ... } }`.
-
-For Java contributors the same idea applies with `@Extension`-annotated classes - the consumer reflects over them.
 
 ## Ordering
 
