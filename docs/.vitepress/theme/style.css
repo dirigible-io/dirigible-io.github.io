@@ -461,3 +461,175 @@ blockquote:before {
     font-size: 7em;
   }
 }
+
+/* ── Three Altitudes diagram (manifesto) ───────────────────────────────── */
+.altitudes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 32px 0;
+}
+
+.altitude-source {
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 999px;
+  padding: 6px 18px;
+}
+
+.altitude-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.altitude-link::before {
+  content: "";
+  width: 2px;
+  height: 44px;
+  background: linear-gradient(var(--vp-c-brand-1), var(--vp-c-brand-3));
+}
+
+.altitude-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid var(--vp-c-brand-3);
+}
+
+.altitude-link span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg);
+  padding: 2px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.altitude-card {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  max-width: 720px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-left: 4px solid var(--vp-c-brand-1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.altitude-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 179, 0, 0.14);
+}
+
+.altitude-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--vp-c-bg);
+  background: var(--vp-c-brand-1);
+}
+
+.altitude-body {
+  min-width: 0;
+}
+
+.altitude-body h3 {
+  margin: 4px 0 4px;
+  font-size: 1.15rem;
+  border: none;
+  padding: 0;
+}
+
+.altitude-body h3 em {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+  margin-left: 6px;
+}
+
+.altitude-body p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+}
+
+.altitude-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.altitude-tags span {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.76rem;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+  padding: 2px 9px;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .altitude-link span {
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: center;
+    max-width: 80%;
+  }
+}
+
+/* ── Manifesto nav pill (after social icons in the top nav) ────────────── */
+.nav-manifesto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--vp-c-bg);
+  border-radius: 999px;
+  background: linear-gradient(100deg, var(--vp-c-brand-2), var(--vp-c-brand-1));
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.nav-manifesto:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 4px 14px rgba(255, 179, 0, 0.32);
+}
+
+.nav-manifesto i {
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .nav-manifesto-text {
+    display: none;
+  }
+}
