@@ -124,6 +124,7 @@ export default defineConfig({
       {
         text: 'More',
         items: [
+          { text: 'Manifesto', link: '/manifesto/' },
           { text: 'Releases', link: '/releases/' },
           { text: 'Downloads', link: 'https://downloads.dirigible.io' },
           { text: 'GitHub', link: 'https://github.com/eclipse/dirigible' },
