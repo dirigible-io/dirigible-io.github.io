@@ -27,7 +27,9 @@ Stop / start / reschedule from the Jobs perspective.
 
 The modern approach is a class with a no-arg `public void run()` method:
 
-**Java:**
+**Java** - two equivalent styles.
+
+Strong interface - a class annotated `@Scheduled` that implements `JobHandler`:
 
 ```java
 package com.acme.demo;
@@ -45,7 +47,25 @@ public class NightlyJob implements JobHandler {
 }
 ```
 
-`JobHandler` is the optional typed contract for `run()`. Implementing it gives compile-time signature checking and a direct (non-reflective) dispatch path. Plain `run()` by name still works - the runtime falls back to reflection when the interface isn't implemented. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
+Method-level - `@Scheduled` on a method of a `@Component` bean (Spring `@Scheduled` style), so a single bean can hold several jobs alongside other logic and inject collaborators:
+
+```java
+package com.acme.demo;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.job.Scheduled;
+
+@Component
+public class MaintenanceJobs {
+
+    @Scheduled(expression = "0 0 * * * ?")
+    public void nightly() {
+        // work here
+    }
+}
+```
+
+`JobHandler` is the optional typed contract for `run()`. Implementing it (or using the method-level annotation) gives compile-time signature checking and a direct (non-reflective) dispatch path. The legacy plain `run()`-by-name convention still works - the runtime falls back to reflection when neither is present. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
 
 **TypeScript:**
 
@@ -79,6 +99,8 @@ Scheduled jobs are **tenant-isolated** - the same `.job` file under one project 
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigiblelabs/sample-java-job-decorator).
 - [TypeScript API - job](/api/job/).
 - [Java SDK - job](/sdk/job/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - [Jobs perspective](/help/ide/perspectives/jobs).

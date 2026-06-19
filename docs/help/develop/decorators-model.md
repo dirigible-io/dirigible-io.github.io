@@ -18,31 +18,25 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Primary key | `@Id` + `@Generated("sequence")` | `@Id` + `@GeneratedValue(strategy = GenerationType.SEQUENCE)` |
 | Column | `@Column({name, type})` | `@Column(name=..., length=..., nullable=...)` |
 | Audit fields | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` |
-| Repository / DI | `@Component("CountryRepository")` | `@Repository` |
-| Inject | `@Inject("CountryRepository")` | `@Inject` |
-| Scheduled job | `@Scheduled(...)` | `@Scheduled(expression="0 0 * * * ?")` + optional `implements JobHandler` |
-| Message listener | `@Listener(...)` | `@Listener(name="queue.x", kind=ListenerKind.QUEUE)` + optional `implements MessageHandler` |
-| Websocket | `@Websocket(...)` | `@Websocket(name="chat", endpoint="chat")` + optional `implements WebsocketHandler` |
+| Managed bean | `@Component("Name")` | `@Component` (optional name) |
+| Repository / DI | `@Component("CountryRepository")` | `@Repository` (a `@Component`) |
+| Inject | `@Inject("CountryRepository")` | `@Inject` (field / constructor / parameter) or constructor injection |
+| Scheduled job | `@Scheduled(...)` | `@Scheduled` on a class implementing `JobHandler`, or on a method of a `@Component` |
+| Message listener | `@Listener(...)` | `@Listener` on a class implementing `MessageHandler`, or on a method of a `@Component` |
+| Websocket | `@Websocket(...)` | `@Websocket` on a class implementing `WebsocketHandler`, or `@OnOpen`/`@OnMessage`/`@OnError`/`@OnClose` methods of a `@Component` |
 | Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
 | Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
 
 ## How the wiring happens
 
-The mechanism behind each declaration is the same: at class-load time a consumer reflects over the annotations and registers the class with the relevant platform service.
+The mechanism behind each declaration is the same: at class-load time the platform reflects over the annotations and registers the class with the relevant platform service.
 
-On the Java side this is the `JavaClassConsumer` SPI run in fixed `@Order`:
+On the Java side a single `ComponentContainer` builds all beans per `ClientClassLoader` generation. Because `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and `@Extension` are all meta-annotated `@Component`, they are beans too - the container instantiates them, satisfies constructor / field / collection injection by type, and then registers each with its service (`@Entity` → `JavaEntityManager`, `@Controller` routes → `ControllerRouter`, and so on). Injection is order-independent: any bean can depend on any other regardless of declaration order, so `@Inject CountryRepository` (or a `CountryRepository` constructor parameter) always resolves within the same rebuild cycle.
 
-1. `EntityClassConsumer` (`@Order(100)`) - `@Entity` classes register with `JavaEntityManager`.
-2. `RepositoryClassConsumer` (`@Order(200)`) - `@Repository` classes are instantiated and stored in `RepositoryRegistry`.
-3. `ControllerClassConsumer` (`@Order(300)`) - `@Controller` classes have their `@Inject` fields resolved, then their routes registered with `ControllerRouter`.
-4. `HandlerClassConsumer` - claims `implements JavaHandler`.
+### Strong interfaces or method-level annotations
 
-The ordering guarantees that `@Inject CountryRepository` resolves inside the controller consumer - the repository has already been registered in the same rebuild cycle.
-
-### Optional typed contracts
-
-`@Scheduled`, `@Listener`, and `@Websocket` each ship a companion interface in the SDK (`JobHandler`, `MessageHandler`, `WebsocketHandler`). Implementing the interface is opt-in - the runtime falls back to method-by-name reflection when the interface is absent, so existing handlers keep working unchanged. The typed path gives compile-time signature checking, IDE autocomplete and refactoring, default no-op methods for callbacks you don't override (`WebsocketHandler`, `MessageHandler.onError`), and direct (non-reflective) dispatch. See the per-decorator pages under `/sdk/` for details.
+`@Scheduled`, `@Listener`, and `@Websocket` each ship a companion interface in the SDK (`JobHandler`, `MessageHandler`, `WebsocketHandler`) - implement it for compile-time signature checking, IDE autocomplete, default no-op callbacks, and direct (non-reflective) dispatch. Alternatively, annotate a **method** of a `@Component` bean: `@Scheduled` / `@Listener` on a method (Spring `@Scheduled` / `@JmsListener` style), or `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` for websockets. The legacy method-by-name reflective convention remains as a fallback, so existing handlers keep working unchanged. See the per-decorator pages under `/sdk/` for details.
 
 On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `EntitySynchronizer`, `OpenAPISynchronizer`, plus the listener / job / websocket / extension synchronizers) scan files matching `*Component.ts`, `*Entity.ts`, `*Controller.ts`, etc. and do the same registration work.
 
@@ -50,7 +44,7 @@ On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `Entit
 
 - [REST APIs](/help/develop/rest-apis) - `@Controller`, the method verbs, parameter binding, return-value writing.
 - [Entities and persistence](/help/develop/entities-and-persistence) - `@Entity`, `@Id`, `@Column`, audit fields, repository pattern.
-- [Dependency injection](/help/develop/dependency-injection) - `@Inject`, `@Repository`, `@Component`.
+- [Dependency injection](/help/develop/dependency-injection) - `@Component`, `@Inject`, constructor and collection injection, `@Repository`.
 - [Scheduled jobs](/help/develop/scheduled-jobs) - `@Scheduled`.
 - [Message listeners](/help/develop/message-listeners) - `@Listener`.
 - [Extension providers](/help/develop/extension-providers) - `@Extension`.

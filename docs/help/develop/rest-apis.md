@@ -63,17 +63,26 @@ import org.eclipse.dirigible.sdk.http.PathParam;
 @Controller("/countries")
 public class CountryController {
 
+    private final CountryRepository countries;
+
+    // collaborators are constructor-injected by the container
+    public CountryController(CountryRepository countries) {
+        this.countries = countries;
+    }
+
     @Get("/{id}")
     public Country byId(@PathParam("id") long id) {
-        return new Country(id, "...");
+        return countries.findById(id);
     }
 
     @Post
     public Country create(@Body Country country) {
-        return country;
+        return countries.save(country);
     }
 }
 ```
+
+A `@Controller` is a managed bean, so it receives its repository or service through the constructor (field `@Inject` is also supported). See [Dependency injection](/help/develop/dependency-injection) for the full picture.
 
 ## Role-protected endpoints
 

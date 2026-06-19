@@ -42,7 +42,34 @@ public class FastOrderProcessor implements OrderProcessor {
 
 The runtime validates that `FastOrderProcessor` implements `OrderProcessor` at registration time. Consumers receive instances cast to the interface - no reflection.
 
-### Discover and invoke
+### Consume via collection injection (recommended)
+
+Because every `@Extension` provider is a managed bean, the Spring-style way to receive all implementations is to inject a `List<OrderProcessor>` into a `@Controller` or `@Component`. The container populates it with every bean assignable to the interface:
+
+```java
+import org.eclipse.dirigible.sdk.component.Component;
+import java.util.List;
+
+@Component
+public class OrderPipeline {
+
+    private final List<OrderProcessor> processors;
+
+    public OrderPipeline(List<OrderProcessor> processors) {
+        this.processors = processors;
+    }
+
+    public void run(Order order) {
+        for (OrderProcessor p : processors) {
+            p.process(order);
+        }
+    }
+}
+```
+
+### Discover programmatically
+
+When you cannot inject - or want to look up providers at an arbitrary point - `Extensions.find(Class)` returns them directly:
 
 ```java
 import org.eclipse.dirigible.sdk.extensions.Extensions;
@@ -52,6 +79,8 @@ for (OrderProcessor p : processors) {
     p.process(order);
 }
 ```
+
+`Extensions.find` and the string-keyed `Extensions.getExtensions` below also work across runtimes (TypeScript providers, JS/TS module extensions) and remain available for back-compatibility, so prefer them when the consumer must see providers that injection cannot reach.
 
 A complete end-to-end example lives at [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
 
@@ -106,6 +135,8 @@ For typed wiring within a single project, prefer [dependency injection](/help/de
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - [`@ExtensionPoint` / `@Extension`](/sdk/extensions/decorators)
 - [`Extensions`](/sdk/extensions/extensions)
 - [Extension point artefact](/help/artefacts/extensibility/extensionpoint)

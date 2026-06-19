@@ -92,14 +92,17 @@ public class CountryRepository extends JavaRepository<Country> {
 }
 ```
 
-Controllers `@Inject` the repository and call typed methods directly - no `JavaEntityStore`, no `BeanProvider`:
+Controllers inject the repository - constructor injection is preferred - and call typed methods directly, with no `JavaEntityStore` and no `BeanProvider`:
 
 ```java
 @Controller
 public class CountryController {
 
-    @Inject
-    private CountryRepository countries;
+    private final CountryRepository countries;
+
+    public CountryController(CountryRepository countries) {
+        this.countries = countries;
+    }
 
     @Get("/")        public List<Country> list()                          { return countries.findAll(); }
     @Get("/{id}")    public Country       byId(@PathParam("id") Long id)  { return countries.findById(id); }
@@ -107,6 +110,8 @@ public class CountryController {
     @Delete("/{id}") public void          remove(@PathParam("id") Long id) { countries.deleteById(id); }
 }
 ```
+
+Field `@Inject` on the repository works too; see [Dependency injection](/help/develop/dependency-injection).
 
 Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
@@ -131,7 +136,9 @@ Entities are stored in the **default user-data datasource**, which is tenant-iso
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 - [Java SDK - db](/sdk/db/).
 - [TypeScript API - db](/api/db/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - [Dependency injection](/help/develop/dependency-injection).
 - [Working with data](/help/develop/working-with-data).

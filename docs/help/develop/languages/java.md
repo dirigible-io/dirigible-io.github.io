@@ -48,14 +48,17 @@ Save as `/registry/public/demo/com/acme/demo/HelloController.java`. The next syn
 
 ## Dependency injection
 
-`@Inject` resolves against the chain of `DependencyResolver` SPIs - `RepositoryRegistry` (built from `@Repository`-annotated classes) is the primary one. The fan-out order inside one rebuild cycle is `@Entity` → `@Repository` → `@Controller`, so `@Inject CountryRepository` is guaranteed to resolve when the controller is loaded.
+`@Component` makes a class a managed bean - and `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and `@Extension` are all `@Component`s. A single `ComponentContainer` builds every bean per `ClientClassLoader` generation and satisfies constructor, field (`@Inject`), and collection (`List<T>`) injection by type, independent of declaration order - so `CountryRepository` resolves whether you inject it in the constructor or via a field. Constructor injection is preferred.
 
 ```java
 @Controller("/countries")
 public class CountryController {
 
-    @Inject
-    private CountryRepository repository;
+    private final CountryRepository repository;
+
+    public CountryController(CountryRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
     public List<Country> findAll() {
@@ -64,14 +67,16 @@ public class CountryController {
 }
 ```
 
-Client classes are loaded by `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op. For platform beans that have no `@Repository` wrapper, use `BeanProvider.getBean(SomeBean.class)`:
+Client classes are loaded by `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op. To reach platform beans from client code, use the `Beans` facade - `Beans.get(Class)`, `Beans.get(name, Class)`, `Beans.getAll(Class)` - rather than the platform-internal `BeanProvider`:
 
 ```java
-import org.eclipse.dirigible.components.spring.BeanProvider;
-import org.eclipse.dirigible.components.data.store.JavaEntityStore;
+import org.eclipse.dirigible.sdk.component.Beans;
+import org.eclipse.dirigible.components.data.store.java.store.JavaEntityStore;
 
-JavaEntityStore store = BeanProvider.getBean(JavaEntityStore.class);
+JavaEntityStore store = Beans.get(JavaEntityStore.class);
 ```
+
+See [Dependency injection](/help/develop/dependency-injection) for the full model.
 
 ## See also
 

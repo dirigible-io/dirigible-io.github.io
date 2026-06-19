@@ -11,7 +11,9 @@ description: JMS-style listeners over the embedded ActiveMQ broker.
 
 A class with an `onMessage(String)` method, annotated with the queue or topic name and the kind.
 
-**Java:**
+**Java** - two equivalent styles.
+
+Strong interface - a class annotated `@Listener` that implements `MessageHandler`:
 
 ```java
 package com.acme.demo;
@@ -30,7 +32,26 @@ public class OrderListener implements MessageHandler {
 }
 ```
 
-`MessageHandler` is the optional typed contract for the listener callbacks - `onMessage(String)` plus a `default onError(String) {}`. Implementing it gives compile-time signature checking and a direct dispatch path; classes that don't implement it keep working via reflective `onMessage` / `onError` lookup. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
+Method-level - `@Listener` on a method of a `@Component` bean (Spring `@JmsListener` style), so a single bean can hold several listeners and inject collaborators:
+
+```java
+package com.acme.demo;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.messaging.Listener;
+import org.eclipse.dirigible.sdk.messaging.ListenerKind;
+
+@Component
+public class OrderListeners {
+
+    @Listener(name = "queue.orders", kind = ListenerKind.QUEUE)
+    public void onOrder(String body) {
+        // handle message
+    }
+}
+```
+
+`MessageHandler` is the optional typed contract for the listener callbacks - `onMessage(String)` plus a `default onError(String) {}`. Implementing it (or using the method-level annotation) gives compile-time signature checking and a direct dispatch path; otherwise the runtime falls back to reflective `onMessage` / `onError` lookup. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
 
 **TypeScript:**
 
@@ -83,6 +104,8 @@ Listeners are **tenant-isolated** - each tenant gets its own consumer for the sa
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator).
 - [TypeScript API - messaging](/api/).
 - [Java SDK - messaging](/sdk/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - Messaging perspective.

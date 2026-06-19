@@ -11,7 +11,9 @@ description: Server WebSocket endpoints over STOMP.
 
 A class exposing any combination of `onOpen()`, `onMessage(String, String)`, `onError(String)`, `onClose()`.
 
-**Java:**
+**Java** - two equivalent styles.
+
+Strong interface - a class annotated `@Websocket` that implements `WebsocketHandler`:
 
 ```java
 package com.acme.demo;
@@ -31,7 +33,27 @@ public class ChatEndpoint implements WebsocketHandler {
 }
 ```
 
-`WebsocketHandler` is the optional typed contract for the four lifecycle callbacks. All methods are `default` no-ops, so handlers only override what they need - no empty stubs. Classes that don't implement the interface still work via the same method-by-name reflective dispatch. See [`/sdk/net/decorators`](/sdk/net/decorators) for details.
+Method-level - `@Websocket` on a `@Component` bean with the lifecycle callbacks bound by the `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` method annotations, so the bean only declares the callbacks it needs and can inject collaborators:
+
+```java
+package com.acme.demo;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.net.Websocket;
+import org.eclipse.dirigible.sdk.net.OnMessage;
+
+@Component
+@Websocket(name = "chat", endpoint = "chat")
+public class ChatEndpoint {
+
+    @OnMessage
+    public void handle(String message, String sessionId) {
+        // route / broadcast
+    }
+}
+```
+
+`WebsocketHandler` is the optional typed contract for the four lifecycle callbacks. All its methods are `default` no-ops, so handlers only override what they need - no empty stubs. The method-level `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` annotations are the alternative. Classes that use neither still work via the legacy method-by-name reflective dispatch. See [`/sdk/net/decorators`](/sdk/net/decorators) for details.
 
 **TypeScript:**
 
@@ -69,5 +91,7 @@ Both declarations are hot-reloaded - the endpoint is reinstalled on every change
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-websocket-decorator`](https://github.com/dirigiblelabs/sample-java-websocket-decorator).
 - [TypeScript API - net](/api/).
 - [Java SDK - net](/sdk/).
+- [SDK reference](https://www.dirigible.io/sdk/).

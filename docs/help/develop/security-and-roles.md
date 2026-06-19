@@ -84,7 +84,19 @@ boolean admin = User.isInRole("admin");
 String lang  = User.getLanguage();
 ```
 
-The same `UserFacade` underpins `@Roles` dispatch and the `User` SDK class, so the two never diverge.
+The Java `User` API (`org.eclipse.dirigible.sdk.security.User`) exposes the same surface as the TypeScript `user`, with all methods static:
+
+| Method | TypeScript `user` | Java `User` |
+| --- | --- | --- |
+| Current user name | `user.getName()` | `User.getName()` |
+| Role check | `user.isInRole(role)` | `User.isInRole(role)` |
+| All roles | `user.getRoles()` | `User.getRoles()` |
+| Authentication type | `user.getAuthType()` | `User.getAuthType()` |
+| Security token | `user.getSecurityToken()` | `User.getSecurityToken()` |
+| Invocation count | `user.getInvocationCount()` | `User.getInvocationCount()` |
+| UI language | `user.getLanguage()` | `User.getLanguage()` |
+
+The same `UserFacade` underpins `@Roles` dispatch and the `User` SDK class on both languages, so the two never diverge.
 
 ## Declarative URL rules
 
@@ -93,3 +105,4 @@ For URL-pattern-based access that isn't bound to a specific controller method, u
 - See [`/help/artefacts/security/access`](/help/artefacts/security/access).
 - See [`/help/artefacts/security/roles`](/help/artefacts/security/roles).
 - See [`/help/concepts/security-model`](/help/concepts/security-model) for the bigger picture.
+- [SDK reference](https://www.dirigible.io/sdk/).
