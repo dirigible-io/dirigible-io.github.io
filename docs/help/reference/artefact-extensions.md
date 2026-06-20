@@ -53,6 +53,8 @@ These are model artefacts; generation produces runtime artefacts from them.
 
 | Extension | Modeler | Generates |
 | --------- | ------- | --------- |
+| `*.intent` | [Intent Editor](/help/intent/editor) | All the model artefacts below - `.edm` / `.bpmn` / `.form` / `.report` / `.roles` / `.glue` / `.csvim` - one altitude up |
+| `*.glue` | (generated from `*.intent`) | Annotated client-Java glue (`@Listener` / `@Scheduled` / `@Controller`) under `gen/events` |
 | `*.edm`, `*.model` | [Entity Data modeler](/help/ide/modelers/entity-data) | Full CRUD app via `template-application-*` |
 | `*.dsm` | [Database Schema modeler](/help/ide/modelers/database-schema) | `.schema` + `.table` + `.view` |
 | `*.form` | [Form Designer](/help/ide/modelers/form-designer) | HTML form layout |
@@ -60,5 +62,6 @@ These are model artefacts; generation produces runtime artefacts from them.
 
 ## See also
 
+- [Intent](/help/intent/) - the `.intent` authoring layer above these models
 - [Synchronizer model](/help/concepts/synchronizer-model)
 - [Artefacts overview](/help/artefacts/)

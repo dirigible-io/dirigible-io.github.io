@@ -11,6 +11,7 @@ Welcome to the **Eclipse Dirigible** documentation. Dirigible is a high-producti
 
 - **[Get Started](/help/get-started/)** - install Dirigible, log in, and build your first endpoint.
 - **[Concepts](/help/concepts/)** - read these once; everything else makes more sense afterwards.
+- **[Intent](/help/intent/)** - author an entire application from one `.intent` file, with an AI assistant. The [Intent-Driven Application Development](/manifesto/) layer.
 - **[IDE](/help/ide/)** - the in-browser workbench, perspectives, editors, and modelers.
 - **[Develop](/help/develop/)** - building applications with the decorator-driven model.
 - **[Artefacts](/help/artefacts/)** - every file extension and what the platform does with it.

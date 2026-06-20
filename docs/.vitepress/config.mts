@@ -196,6 +196,18 @@ function helpSidebar() {
       ],
     },
     {
+      text: 'Intent',
+      collapsed: true,
+      items: [
+        { text: 'Overview', link: '/help/intent/' },
+        { text: 'The .intent file', link: '/help/intent/intent-file' },
+        { text: 'The Intent Editor', link: '/help/intent/editor' },
+        { text: 'The AI assistant', link: '/help/intent/ai-assistant' },
+        { text: 'Generators and generation', link: '/help/intent/generators' },
+        { text: 'Declarative glue', link: '/help/intent/glue' },
+      ],
+    },
+    {
       text: 'IDE',
       collapsed: true,
       items: [
