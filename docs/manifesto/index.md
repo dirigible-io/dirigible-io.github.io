@@ -7,6 +7,8 @@ description: Business intent, captured as a canonical model, regenerated determi
 
 *Business intent, captured as a canonical model, regenerated deterministically into running software.*
 
+> Looking for the feature, not the philosophy? See the [Intent documentation](/help/intent/) - the `.intent` file, the editor, the AI assistant, and the generators.
+
 ---
 
 ## Preamble
@@ -262,6 +264,8 @@ In practice, for the developer, the whole discipline collapses to this:
 6. Publish. The platform brings the application live exactly as it would for any hand-modelled project.
 
 No modeller expertise required to start. No clicks-and-tweaks tax to pay. No divergence between model and code. The abstraction MDD always promised, reached through a door humans will actually walk through.
+
+For the concrete mechanics of each step - the `.intent` schema, the editor, the AI assistant and the generators - see the [Intent documentation](/help/intent/).
 
 ---
 
