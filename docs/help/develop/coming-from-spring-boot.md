@@ -49,8 +49,15 @@ class OrderListener implements MessageListener {
 Dirigible - implement `MessageHandler` and supply your own `destination()`:
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.messaging.MessageHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Component
 public class OrderListener implements MessageHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
     @Override
     public String destination() { return "java-order-queue"; }
 
@@ -72,6 +79,10 @@ class Invoices {
 Dirigible - `@Listener` on a `@Component` method:
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.messaging.Listener;
+import org.eclipse.dirigible.sdk.messaging.ListenerKind;
+
 @Component
 public class InvoiceListener {
     @Listener(name = "java-invoice-queue", kind = ListenerKind.QUEUE)
@@ -94,8 +105,15 @@ public class CleanupJob implements Job {
 Dirigible - implement `JobHandler` and supply your own `cron()`:
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.job.JobHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Component
 public class CleanupJob implements JobHandler {
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
     @Override
     public String cron() { return "* * * * * ?"; }
 
@@ -117,6 +135,9 @@ class Maintenance {
 Dirigible - `@Scheduled` on a `@Component` method (`expression` instead of `cron`):
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.job.Scheduled;
+
 @Component
 public class Maintenance {
     @Scheduled(expression = "0/45 * * * * ?")
@@ -140,6 +161,9 @@ class ChatHandler extends TextWebSocketHandler {
 Dirigible - implement `WebsocketHandler` and supply your own `endpoint()`; override only what you need:
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.net.WebsocketHandler;
+
 @Component
 public class ChatHandler implements WebsocketHandler {
     @Override
@@ -163,6 +187,10 @@ public class TickerHandler {
 Dirigible - `@Websocket(endpoint = …)` class with `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` (a non-void `@OnMessage` return is sent back to the client):
 
 ```java
+import org.eclipse.dirigible.sdk.net.OnMessage;
+import org.eclipse.dirigible.sdk.net.OnOpen;
+import org.eclipse.dirigible.sdk.net.Websocket;
+
 @Websocket(name = "Java Ticker", endpoint = "java-ticker")
 public class TickerHandler {
     @OnOpen    public void opened() { /* ... */ }
@@ -190,6 +218,10 @@ class CountryController {
 Dirigible - `@Controller`; the return value is serialized as the response body:
 
 ```java
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
+import org.eclipse.dirigible.sdk.http.PathParam;
+
 @Controller
 public class CountryController {
     private final CountryRepository countries;
@@ -213,8 +245,13 @@ interface CountryRepository extends JpaRepository<Country, Long> { }
 Dirigible - a **concrete class** extending `JavaRepository<T>`, marked `@Repository` (typed CRUD plus `query(hql, params)`):
 
 ```java
+import org.eclipse.dirigible.sdk.component.Repository;
+import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
+
 @Repository
-public class CountryRepository extends JavaRepository<Country> { }
+public class CountryRepository extends JavaRepository<Country> {
+    public CountryRepository() { super(Country.class); }
+}
 ```
 
 See [Entities and persistence](/help/develop/entities-and-persistence).
@@ -243,6 +280,11 @@ class InjectingConsumer {
 Dirigible (no dedicated annotation - the `@Component` name is the contribution name):
 
 ```java
+import java.util.List;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.http.Controller;
+
 public interface SampleExtensionPoint { String describe(); }
 
 @Component("sample-contribution")
