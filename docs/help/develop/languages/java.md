@@ -48,7 +48,7 @@ Save as `/registry/public/demo/com/acme/demo/HelloController.java`. The next syn
 
 ## Dependency injection
 
-`@Component` makes a class a managed bean - and `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and `@Extension` are all `@Component`s. A single `ComponentContainer` builds every bean per `ClientClassLoader` generation and satisfies constructor, field (`@Inject`), and collection (`List<T>`) injection by type, independent of declaration order - so `CountryRepository` resolves whether you inject it in the constructor or via a field. Constructor injection is preferred.
+`@Component` makes a class a managed bean - and `@Repository`, `@Controller`, and `@Websocket` are `@Component`s too. Every bean is built once per generation, with constructor, field (`@Inject`), and collection (`List<T>`) injection satisfied by type, independent of declaration order - so `CountryRepository` resolves whether you inject it in the constructor or via a field. Constructor injection is preferred.
 
 ```java
 @Controller("/countries")

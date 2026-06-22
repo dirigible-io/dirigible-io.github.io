@@ -24,15 +24,15 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Scheduled job | `@Scheduled(...)` | `@Component` implementing `JobHandler` (self-describing `cron()`), or `@Scheduled` on a method of a `@Component` |
 | Message listener | `@Listener(...)` | `@Component` implementing `MessageHandler` (self-describing `destination()`/`kind()`), or `@Listener` on a method of a `@Component` |
 | Websocket | `@Websocket(...)` | `@Component` implementing `WebsocketHandler` (self-describing `endpoint()`), or a `@Websocket` class with `@OnOpen`/`@OnMessage`/`@OnError`/`@OnClose` methods |
-| Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
-| Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
+| Extension point | `@ExtensionPoint("description")` on an interface | a plain interface (no annotation) |
+| Extension provider | `@Extension({target: Contract})` | a `@Component` implementing the interface |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
 
 ## How the wiring happens
 
 The mechanism behind each declaration is the same: at class-load time the platform reflects over the annotations and registers the class with the relevant platform service.
 
-On the Java side a single `ComponentContainer` builds all beans per `ClientClassLoader` generation. Because `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and `@Extension` are all meta-annotated `@Component`, they are beans too - the container instantiates them, satisfies constructor / field / collection injection by type, and then registers each with its service (`@Entity` → `JavaEntityManager`, `@Controller` routes → `ControllerRouter`, and so on). Injection is order-independent: any bean can depend on any other regardless of declaration order, so `@Inject CountryRepository` (or a `CountryRepository` constructor parameter) always resolves within the same rebuild cycle.
+On the Java side every bean is built once per generation. `@Repository`, `@Controller`, and `@Websocket` are `@Component`s, so they are beans too; the platform instantiates them, satisfies constructor / field / collection injection by type, and registers each with its service. Injection is order-independent: any bean can depend on any other regardless of declaration order, so `@Inject CountryRepository` (or a `CountryRepository` constructor parameter) always resolves.
 
 ### Two handler styles - never mixed
 
@@ -52,7 +52,7 @@ On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `Entit
 - [Dependency injection](/help/develop/dependency-injection) - `@Component`, `@Inject`, constructor and collection injection, `@Repository`.
 - [Scheduled jobs](/help/develop/scheduled-jobs) - `@Scheduled`.
 - [Message listeners](/help/develop/message-listeners) - `@Listener`.
-- [Extension providers](/help/develop/extension-providers) - `@Extension`.
+- [Extension providers](/help/develop/extension-providers) - interface + `@Component`, collection injection.
 - [Websockets](/help/develop/websockets) - `@Websocket`.
 - [Security and roles](/help/develop/security-and-roles) - `@Roles`.
 
