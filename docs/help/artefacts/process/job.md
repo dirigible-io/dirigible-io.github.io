@@ -39,19 +39,23 @@ The handler module is invoked synchronously on each fire by the Quartz scheduler
 
 ## Java alternative - `@Scheduled`
 
-A Spring `@Component` carrying `@Scheduled(cron = "...")` is auto-discovered by the platform and runs without a `.job` artefact:
+A client-Java `@Component` with a method-level `@Scheduled(expression = "...")` (the Dirigible annotations under `org.eclipse.dirigible.sdk.*`) is scheduled without a `.job` artefact - note the attribute is `expression`, not `cron`:
 
 ```java
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.job.Scheduled;
+
 @Component
 class CleanupJob {
-    @Scheduled(cron = "0/5 * * * * ?")
+
+    @Scheduled(expression = "0/5 * * * * ?")
     void run() {
         // ...
     }
 }
 ```
 
-`.job` is preferred when the schedule, parameters, or handler should be authored in the registry (and reloaded without a restart). Use `@Scheduled` for platform-internal Spring beans.
+Alternatively, a `@Component` implementing the self-describing `JobHandler` interface carries its own schedule - `String cron()` plus `void run()`. `.job` is preferred when the schedule, parameters, or handler should be authored in the registry (and reloaded without a restart).
 
 ## Tenancy
 

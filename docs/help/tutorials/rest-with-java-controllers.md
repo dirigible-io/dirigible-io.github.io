@@ -1,11 +1,11 @@
 ---
 title: REST with Java controllers
-description: Build a REST endpoint in Java using @Controller / @Get / @Post + @Inject.
+description: Build a REST endpoint in Java using @Controller / @Get / @Post + constructor injection.
 ---
 
 # REST with Java controllers
 
-A 5-minute walkthrough: a Java `@Controller` with a JPA-style entity, an `@Inject`ed repository, and full CRUD.
+A 5-minute walkthrough: a Java `@Controller` with a JPA-style entity, a constructor-injected repository, and full CRUD.
 
 ## 1. Create a project
 
@@ -52,47 +52,46 @@ Create `countries-java/com/acme/CountryRepository.java`:
 package com.acme;
 
 import org.eclipse.dirigible.sdk.component.Repository;
-import org.eclipse.dirigible.components.data.store.JavaEntityStore;
-import org.eclipse.dirigible.components.base.spring.BeanProvider;
-
-import java.util.List;
+import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
 
 @Repository
-public class CountryRepository {
+public class CountryRepository extends JavaRepository<Country> {
 
-    private final JavaEntityStore store = BeanProvider.getBean(JavaEntityStore.class);
-
-    public Country save(Country c)        { store.save(c); return c; }
-    public Country update(Country c)      { store.update(c); return c; }
-    public Country get(Long id)           { return store.get(Country.class, id); }
-    public List<Country> list()           { return store.list(Country.class); }
-    public void delete(Long id)           { store.delete(Country.class, id); }
+    public CountryRepository() {
+        super(Country.class);
+    }
 }
 ```
+
+`JavaRepository<T>` ships typed CRUD out of the box - `findAll`, `findById`, `save`, `update`, `delete`, `deleteById`, `count`, `query`/HQL - so the repository needs no body unless you add domain methods.
 
 ## 4. Add a controller
 
 Create `countries-java/com/acme/CountryController.java`:
 
+Constructor injection is the preferred way to receive the repository:
+
 ```java
 package com.acme;
 
 import org.eclipse.dirigible.sdk.http.*;
-import org.eclipse.dirigible.sdk.component.Inject;
 
 import java.util.List;
 
 @Controller("/countries")
 public class CountryController {
 
-    @Inject
-    private CountryRepository repository;
+    private final CountryRepository repository;
+
+    public CountryController(CountryRepository repository) {
+        this.repository = repository;
+    }
 
     @Get
-    public List<Country> list() { return repository.list(); }
+    public List<Country> list() { return repository.findAll(); }
 
     @Get("/{id}")
-    public Country get(@PathParam("id") long id) { return repository.get(id); }
+    public Country get(@PathParam("id") long id) { return repository.findById(id); }
 
     @Post
     public Country create(@Body Country country) { return repository.save(country); }
@@ -104,9 +103,11 @@ public class CountryController {
     }
 
     @Delete("/{id}")
-    public void remove(@PathParam("id") long id) { repository.delete(id); }
+    public void remove(@PathParam("id") long id) { repository.deleteById(id); }
 }
 ```
+
+Field injection with `@Inject` (`org.eclipse.dirigible.sdk.component.Inject`) is also valid; constructor injection is preferred.
 
 ## 5. Publish
 

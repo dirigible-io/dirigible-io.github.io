@@ -9,14 +9,9 @@ Two separate surfaces. Use `io` when you want bytes on the host filesystem. Use 
 
 ## Filesystem IO
 
-```ts
-import { Files, Streams } from "@aerokit/sdk/io";
+Both runtimes expose the same `Files` entry point for host-filesystem access.
 
-if (!Files.exists("/tmp/orders.json")) {
-    Files.writeText("/tmp/orders.json", JSON.stringify({ orders: [] }));
-}
-const data = Files.readText("/tmp/orders.json");
-```
+### Java
 
 ```java
 import org.eclipse.dirigible.sdk.io.Files;
@@ -27,21 +22,28 @@ if (!Files.exists("/tmp/orders.json")) {
 String data = Files.readText("/tmp/orders.json");
 ```
 
+### TypeScript / JavaScript
+
+```ts
+import { Files, Streams } from "@aerokit/sdk/io";
+
+if (!Files.exists("/tmp/orders.json")) {
+    Files.writeText("/tmp/orders.json", JSON.stringify({ orders: [] }));
+}
+const data = Files.readText("/tmp/orders.json");
+```
+
 Paths are resolved against the JVM's working directory - not the registry. For platform-managed storage prefer the registry or repository surface; for transient files inside a tenant prefer CMS.
 
 See [`@aerokit/sdk/io`](/api/io/) and [`org.eclipse.dirigible.sdk.io`](/sdk/io/).
 
 ## CMS (CMIS)
 
-The Documents perspective and the CMIS SDK module both talk to the same `CmsProvider`. Configure once via `DIRIGIBLE_CMS_*` env vars; switch backend by selecting Internal (local folders), S3, or SharePoint.
+The Documents perspective and the CMIS SDK module both talk to the same `CmsProvider`. Configure once via `DIRIGIBLE_CMS_*` env vars; switch backend by selecting Internal (local folders), S3, or SharePoint. Both runtimes obtain the session through `Cmis.getSession()`.
 
-```ts
-import { Cmis } from "@aerokit/sdk/cms";
+### Java
 
-const session = Cmis.getSession();
-const root = session.getRootFolder();
-const doc = root.createDocument({ name: "report.pdf" }, pdfBytes, "application/pdf");
-```
+The Java side returns the raw `org.apache.chemistry.opencmis.client.api.Session` - you get the full Apache Chemistry API surface.
 
 ```java
 import org.eclipse.dirigible.sdk.cms.Cmis;
@@ -54,11 +56,15 @@ Folder root = session.getRootFolder();
 // root.createDocument(properties, contentStream, VersioningState.MAJOR);
 ```
 
-The Java side returns the raw `org.apache.chemistry.opencmis.client.api.Session` - you get the full Apache Chemistry API surface.
+### TypeScript / JavaScript
 
-## Tenant isolation
+```ts
+import { Cmis } from "@aerokit/sdk/cms";
 
-CMS storage is **tenant-isolated** when multi-tenancy is on (default). Each tenant's CMIS root resolves to its own folder under the configured root. See [`/help/concepts/multi-tenancy`](/help/concepts/multi-tenancy).
+const session = Cmis.getSession();
+const root = session.getRootFolder();
+const doc = root.createDocument({ name: "report.pdf" }, pdfBytes, "application/pdf");
+```
 
 ## See also
 

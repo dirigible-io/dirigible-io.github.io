@@ -16,13 +16,14 @@ Dirigible's modern development model is **decorator / annotation driven**: you d
 
 ## Application building blocks
 
+- **[Coming from Spring Boot](/help/develop/coming-from-spring-boot)** - a fast-start map for Spring developers.
 - **[The decorator / annotation model](/help/develop/decorators-model)**
 - **[REST APIs](/help/develop/rest-apis)** - `@Controller` + `@Get` / `@Post` + `@Body` etc.
 - **[Entities and persistence](/help/develop/entities-and-persistence)** - `@Entity`, `JavaEntityStore`.
 - **[Dependency injection](/help/develop/dependency-injection)** - `@Inject` + `@Repository` + `@Component`.
 - **[Scheduled jobs](/help/develop/scheduled-jobs)** - `@Scheduled`.
 - **[Message listeners](/help/develop/message-listeners)** - `@Listener` + `ListenerKind`.
-- **[Extension providers](/help/develop/extension-providers)** - `@Extension`.
+- **[Extension providers](/help/develop/extension-providers)** - interface + `@Component`, collection injection.
 - **[Websockets](/help/develop/websockets)** - `@Websocket`.
 - **[Security and roles](/help/develop/security-and-roles)** - `@Roles` + `UserFacade`.
 

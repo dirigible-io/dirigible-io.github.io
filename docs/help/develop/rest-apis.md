@@ -31,7 +31,64 @@ Type coercion handles `String`, primitive numerics, `UUID`, enums, and `boolean`
 - `String` / `CharSequence` - written as `text/plain`.
 - Anything else - serialized as JSON via Jackson.
 
-## TypeScript and Java side by side
+## Example
+
+### Java
+
+```java
+package demo;
+
+import java.util.List;
+
+import org.eclipse.dirigible.sdk.component.Inject;
+import org.eclipse.dirigible.sdk.http.Body;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Delete;
+import org.eclipse.dirigible.sdk.http.Get;
+import org.eclipse.dirigible.sdk.http.PathParam;
+import org.eclipse.dirigible.sdk.http.Post;
+import org.eclipse.dirigible.sdk.platform.Documentation;
+import org.eclipse.dirigible.sdk.security.Roles;
+
+@Controller
+@Documentation("CRUD over the Country entity")
+@Roles({"DEVELOPER"})
+public class CountryController {
+
+    @Inject
+    private CountryRepository countries;
+
+    @Get("/")
+    @Documentation("Lists every Country")
+    public List<Country> list() {
+        return countries.findAll();
+    }
+
+    @Get("/{id}")
+    @Documentation("Fetches a single country by id")
+    public Country byId(@PathParam("id") Long id) {
+        return countries.findById(id);
+    }
+
+    @Post
+    @Documentation("Creates a new country from a JSON body")
+    public Country create(@Body Country country) {
+        return countries.save(country);
+    }
+
+    @Delete("/{id}")
+    @Documentation("Deletes the country with the given id")
+    public void remove(@PathParam("id") Long id) {
+        countries.deleteById(id);
+    }
+}
+```
+
+A `@Controller` is a managed bean, so it receives its repository or service through the constructor or via field `@Inject` (shown above). See [Dependency injection](/help/develop/dependency-injection) for the full picture.
+
+**Sample project:** [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators) - `CountryController` over a `JavaRepository`-backed `CountryRepository`. SDK reference: [`/sdk/http/`](https://www.dirigible.io/sdk/http/).
+
+### TypeScript / JavaScript
 
 ```ts
 import { Controller, Get, Post, Body, PathParam } from "@aerokit/sdk/http/decorators";
@@ -51,29 +108,7 @@ class CountryController {
 }
 ```
 
-```java
-package com.acme.demo;
-
-import org.eclipse.dirigible.sdk.http.Controller;
-import org.eclipse.dirigible.sdk.http.Get;
-import org.eclipse.dirigible.sdk.http.Post;
-import org.eclipse.dirigible.sdk.http.Body;
-import org.eclipse.dirigible.sdk.http.PathParam;
-
-@Controller("/countries")
-public class CountryController {
-
-    @Get("/{id}")
-    public Country byId(@PathParam("id") long id) {
-        return new Country(id, "...");
-    }
-
-    @Post
-    public Country create(@Body Country country) {
-        return country;
-    }
-}
-```
+API reference: [TypeScript API - http](/api/http/).
 
 ## Role-protected endpoints
 

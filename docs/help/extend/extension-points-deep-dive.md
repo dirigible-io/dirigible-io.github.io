@@ -47,7 +47,7 @@ String[] modules = Extensions.getExtensions("reports.exporter");
 
 ## Contracts
 
-For typed Java extension points the contract is the **interface** the contribution implements. Mark it with `@ExtensionPoint` and document expectations in its Javadoc - consumers receive typed instances from `Extensions.find(Class)` and call contract methods directly.
+For typed Java extension points the contract is the **interface** the contribution implements - a plain interface, no annotation. A contribution is a `@Component` bean that implements it; document expectations in the interface's Javadoc. Consumers receive typed instances by collection injection (`List<ReportExporter>`) or from `Extensions.find(Class)` and call contract methods directly.
 
 For string-keyed extension points the point owner publishes the contract by convention (a README, an `*.extensionpoint` description, a `@Documentation` annotation). Common patterns:
 

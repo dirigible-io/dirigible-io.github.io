@@ -301,6 +301,7 @@ function helpSidebar() {
       collapsed: true,
       items: [
         { text: 'Overview', link: '/help/develop/' },
+        { text: 'Coming from Spring Boot', link: '/help/develop/coming-from-spring-boot' },
         {
           text: 'Languages',
           collapsed: true,
@@ -952,6 +953,7 @@ function sdkSidebar() {
           collapsed: true,
           link: '/sdk/component/',
           items: [
+            { text: 'Beans', link: '/sdk/component/beans' },
             { text: 'Decorators', link: '/sdk/component/decorators' },
           ],
         },

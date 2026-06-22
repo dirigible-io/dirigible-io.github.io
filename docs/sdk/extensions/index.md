@@ -7,15 +7,13 @@
 - source: [extensions/](https://github.com/eclipse/dirigible/tree/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/extensions)
 :::
 
-This module exposes Dirigible's extension-point mechanism to Java code. Extension points are typed contracts: an interface marked with `@ExtensionPoint` defines the methods every contribution implements, and contributions marked with `@Extension(target = Contract.class, ...)` plug in.
+This module exposes Dirigible's extension-point mechanism to Java code. There is no extension annotation: an extension point is a plain Java interface, and a contribution is a [`@Component`](/sdk/component/decorators) that implements it (its `@Component` name is the contribution name).
 
-Contributions come from two sources: typed Java classes annotated with `@Extension` (preferred), or declarative `.extension` artefacts shipped in user projects (legacy). The typed API `Extensions.find(Class)` returns `List<T>` instances cast to the contract interface; the legacy `Extensions.getExtensions(String)` returns module paths by string name.
+Contributions are discovered like any group of beans - inject them all via `List<T>` (preferred), or look them up with `Extensions.find(Class)`. The legacy `Extensions.getExtensions(String)` returns module paths by string name and is kept for TypeScript/JavaScript `.extension` artefacts.
 
 The main components of this module are:
 
-- [`Extensions`](./extensions.md) - runtime discovery: `find(Class)` (typed) and `getExtensions(String)` (legacy).
-- [Decorators](./decorators.md) - the annotation pair:
-  - `@ExtensionPoint` - marks an interface as a typed extension point.
-  - `@Extension(target = ContractInterface.class)` - registers a class as a typed contribution.
+- [`Extensions`](./extensions.md) - runtime discovery: `find(Class)` / `findFirst(Class)` (typed) and `getExtensions(String)` (legacy).
+- [Extension model](./decorators.md) - plain-interface extension points and `@Component` contributions, and collection injection.
 
 ## Classes

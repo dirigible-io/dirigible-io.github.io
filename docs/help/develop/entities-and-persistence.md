@@ -28,7 +28,45 @@ Both paths end up in the same Hibernate `SessionFactory`, rooted at the default 
 | `@UpdatedBy` | Auto-populated with `UserFacade.getName()` on update. |
 | `@Documentation("...")` | Free-text description; surfaces in OpenAPI. |
 
-## TypeScript and Java side by side
+## Defining an entity
+
+### Java
+
+```java
+package demo;
+
+import org.eclipse.dirigible.sdk.db.Column;
+import org.eclipse.dirigible.sdk.db.Entity;
+import org.eclipse.dirigible.sdk.db.GeneratedValue;
+import org.eclipse.dirigible.sdk.db.GenerationType;
+import org.eclipse.dirigible.sdk.db.Id;
+import org.eclipse.dirigible.sdk.db.Table;
+import org.eclipse.dirigible.sdk.platform.Documentation;
+
+@Entity
+@Table(name = "SAMPLE_COUNTRY")
+@Documentation("Sample Country Entity")
+public class Country {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "COUNTRY_ID")
+    @Documentation("Auto-generated primary key")
+    public Long id;
+
+    @Column(name = "COUNTRY_CODE2", length = 2)
+    public String code2;
+
+    @Column(name = "COUNTRY_CODE3", length = 3)
+    public String code3;
+
+    @Column(name = "COUNTRY_NAME", length = 128)
+    @Documentation("Official short name")
+    public String name;
+}
+```
+
+### TypeScript / JavaScript
 
 ```ts
 import { Entity, Table, Id, Generated, Column } from "@aerokit/sdk/db/decorators";
@@ -47,37 +85,13 @@ export class Country {
 }
 ```
 
-```java
-package com.acme.demo;
-
-import org.eclipse.dirigible.sdk.db.Entity;
-import org.eclipse.dirigible.sdk.db.Table;
-import org.eclipse.dirigible.sdk.db.Id;
-import org.eclipse.dirigible.sdk.db.GeneratedValue;
-import org.eclipse.dirigible.sdk.db.GenerationType;
-import org.eclipse.dirigible.sdk.db.Column;
-
-@Entity
-@Table(name = "SAMPLE_COUNTRY")
-public class Country {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "COUNTRY_ID")
-    private Long id;
-
-    @Column(name = "COUNTRY_NAME")
-    private String name;
-
-    // getters and setters
-}
-```
-
 ## Repository pattern
 
 The recommended pattern is to subclass `JavaRepository<T>` (Java) or `Repository<T>` (TypeScript). Both deliver typed CRUD plus `findAll`, `findById`, `save`, `update`, `delete`, `deleteById`, `count`, and `query`/HQL out of the box.
 
-**Java** - `@Repository` registers the class as a singleton; `JavaRepository<T>` is the typed CRUD base:
+### Java
+
+`@Repository` registers the class as a singleton; `JavaRepository<T>` is the typed CRUD base:
 
 ```java
 import org.eclipse.dirigible.sdk.component.Repository;
@@ -92,14 +106,17 @@ public class CountryRepository extends JavaRepository<Country> {
 }
 ```
 
-Controllers `@Inject` the repository and call typed methods directly - no `JavaEntityStore`, no `BeanProvider`:
+Controllers inject the repository - constructor injection is preferred - and call typed methods directly, with no `JavaEntityStore` and no `BeanProvider`:
 
 ```java
 @Controller
 public class CountryController {
 
-    @Inject
-    private CountryRepository countries;
+    private final CountryRepository countries;
+
+    public CountryController(CountryRepository countries) {
+        this.countries = countries;
+    }
 
     @Get("/")        public List<Country> list()                          { return countries.findAll(); }
     @Get("/{id}")    public Country       byId(@PathParam("id") Long id)  { return countries.findById(id); }
@@ -108,9 +125,11 @@ public class CountryController {
 }
 ```
 
-Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
+Field `@Inject` on the repository works too; see [Dependency injection](/help/develop/dependency-injection). Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
-**TypeScript** - `Repository<T>` is auto-generated; subclass it via `@Component`:
+### TypeScript / JavaScript
+
+`Repository<T>` is auto-generated; subclass it via `@Component`:
 
 ```ts
 import { Repository } from "@aerokit/sdk/db";
@@ -125,13 +144,11 @@ export class CountryRepository extends Repository<Country> {
 }
 ```
 
-## Tenancy
-
-Entities are stored in the **default user-data datasource**, which is tenant-isolated when `DIRIGIBLE_MULTI_TENANT_MODE` is on. Each tenant has its own physical (or logical) database; the same `@Entity` is reconciled per tenant.
-
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 - [Java SDK - db](/sdk/db/).
 - [TypeScript API - db](/api/db/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - [Dependency injection](/help/develop/dependency-injection).
 - [Working with data](/help/develop/working-with-data).

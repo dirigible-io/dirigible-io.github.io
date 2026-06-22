@@ -47,7 +47,7 @@ With `DIRIGIBLE_MULTI_TENANT_MODE=true` (the default), tenant-scoped artefacts a
 From client code:
 
 - JS / TS: [`@aerokit/sdk/platform/repository-client`](/api/platform), [`@aerokit/sdk/platform/workspace-client`](/api/platform).
-- Java: `BeanProvider.getBean(IRepository.class)` then `repository.getResource(path)` / `getCollection(path)` / `createResource(...)`.
+- Java: `Beans.get(IRepository.class)` (`org.eclipse.dirigible.sdk.component.Beans`) then `repository.getResource(path)` / `getCollection(path)` / `createResource(...)`.
 
 In HTTP-only integration tests, write fixture files directly via `IRepository.createResource(...)` and then call `SynchronizationProcessor.forceProcessSynchronizers()` to trigger reconciliation synchronously.
 

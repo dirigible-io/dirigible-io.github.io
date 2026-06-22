@@ -23,29 +23,64 @@ A JSON descriptor under the project points at a JS/TS/Java handler module and su
 
 Stop / start / reschedule from the Jobs perspective.
 
-## `@Scheduled` annotation
+## `@Component` job
 
-The modern approach is a class with a no-arg `public void run()` method:
+The modern approach is a `@Component` bean. There are exactly **two** styles. A class uses **one or the other, never both** - the engine rejects a class that mixes them.
 
-**Java:**
+**Java**
+
+**Style 1 - self-describing interface.** A `@Component` that implements `JobHandler`. The interface carries the binding itself: `cron()` returns the schedule and `run()` does the work, so **no class-level `@Scheduled`** is used. This mirrors Spring's `org.quartz.Job`.
 
 ```java
-package com.acme.demo;
+package demo.scheduled;
 
+import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.job.JobHandler;
-import org.eclipse.dirigible.sdk.job.Scheduled;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Scheduled(expression = "0 0 * * * ?")
-public class NightlyJob implements JobHandler {
+@Component
+public class CleanupJob implements JobHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
+    @Override
+    public String cron() {
+        return "* * * * * ?";
+    }
 
     @Override
     public void run() {
-        // work here
+        LOGGER.info("CleanupJob executed!");
     }
 }
 ```
 
-`JobHandler` is the optional typed contract for `run()`. Implementing it gives compile-time signature checking and a direct (non-reflective) dispatch path. Plain `run()` by name still works - the runtime falls back to reflection when the interface isn't implemented. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
+**Style 2 - method-level `@Scheduled`.** `@Scheduled(expression = "…")` on a public no-arg method of a `@Component` (Spring `@Scheduled` style), so a single bean can hold several jobs alongside other logic and inject collaborators:
+
+```java
+package demo.scheduled;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.job.Scheduled;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Component
+public class Maintenance {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
+    @Scheduled(expression = "0/45 * * * * ?")
+    public void purgeTempFiles() {
+        LOGGER.info("Maintenance.purgeTempFiles executed (method-level @Scheduled)!");
+    }
+}
+```
+
+Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
+
+**Sample project:** [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigiblelabs/sample-java-job-decorator) - `CleanupJob` (interface style, fires every second) and `Maintenance` (method-level `@Scheduled`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 **TypeScript:**
 
@@ -79,6 +114,8 @@ Scheduled jobs are **tenant-isolated** - the same `.job` file under one project 
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigiblelabs/sample-java-job-decorator).
 - [TypeScript API - job](/api/job/).
 - [Java SDK - job](/sdk/job/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - [Jobs perspective](/help/ide/perspectives/jobs).

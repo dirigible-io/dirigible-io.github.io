@@ -68,9 +68,9 @@ Swagger UI is at `http://localhost:8080/swagger-ui/index.html`.
 The same endpoint in client Java (`HelloController.java`):
 
 ```java
-import org.eclipse.dirigible.engine.java.annotations.http.Controller;
-import org.eclipse.dirigible.engine.java.annotations.http.Get;
-import org.eclipse.dirigible.engine.java.annotations.http.PathParam;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
+import org.eclipse.dirigible.sdk.http.PathParam;
 
 import java.util.Map;
 

@@ -13,13 +13,9 @@ Client `*.java` sources placed under a project are compiled in-process by [`engi
 
 1. One `javac` task over every client source in the registry.
 2. A single fresh `ClientClassLoader` (parent = platform classloader) replaces the previous generation; old metaspace is GC-reclaimed.
-3. Every loaded class is offered to each `JavaClassConsumer` SPI implementation in `@Order`:
-   - `EntityClassConsumer` (`@Order(100)`) - `@Entity` classes register with Hibernate dynamic-map mode.
-   - `RepositoryClassConsumer` (`@Order(200)`) - `@Repository` classes become singletons in `RepositoryRegistry`.
-   - `ControllerClassConsumer` (`@Order(300)`) - `@Controller` classes register with `ControllerRouter` and publish an OpenAPI fragment.
-   - `HandlerClassConsumer` - `implements JavaHandler` classes register catch-all URL handlers.
+3. A single `ComponentContainer` builds every bean for the new generation. `@Component` makes a class a managed bean - and `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and extension contributions are all `@Component`s. The container instantiates each bean, satisfies constructor, field (`@Inject`), and collection (`List<T>`) injection by type, then registers it with its service: `@Entity` classes with the entity manager (Hibernate dynamic-map mode), `@Controller` routes with the router (plus an OpenAPI fragment), scheduled / listener / websocket beans with their engines.
 
-Cross-file references resolve in user code because every client class shares the same `ClientClassLoader`.
+Injection is order-independent and cross-file references resolve in user code because every client class shares the same `ClientClassLoader` and the same container generation.
 
 ## URL surface
 
@@ -28,38 +24,43 @@ Cross-file references resolve in user code because every client class shares the
 /public/java/{project}/{*classPath}     # anonymous (if enabled)
 ```
 
-`JavaEndpoint.dispatch` tries `ControllerRouter.match` first (longest basePath wins, then most-specific path), then falls through to a `JavaHandler`, then returns 404.
+`JavaEndpoint.dispatch` matches a `@Controller` route first (longest basePath wins, then most-specific path), then falls through to a `JavaHandler`, then returns 404.
 
 ## Annotations
 
-Two annotation packages are on the compile-time classpath of every client `.java`:
+The Java SDK annotations under `org.eclipse.dirigible.sdk.*` are on the compile-time classpath of every client `.java`:
 
-- `org.eclipse.dirigible.engine.java.annotations.*` - persistence: `@Entity`, `@Table`, `@Id`, `@GeneratedValue` (+ `GenerationType`), `@Column`, `@Transient`, `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy`, `@Documentation`, `@Repository`, `@Inject`.
-- `org.eclipse.dirigible.engine.java.annotations.http.*` - REST: `@Controller`, `@Get`, `@Post`, `@Put`, `@Patch`, `@Delete`, `@Body`, `@PathParam`, `@QueryParam`, `@Context`, `@Roles`.
-
-A class may be exactly one of `{handler, controller}`; carrying both shapes is rejected.
+- `org.eclipse.dirigible.sdk.db.*` - persistence: `@Entity`, `@Table`, `@Id`, `@GeneratedValue` (+ `GenerationType`), `@Column`, `@Transient`, `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy`, `@Documentation`.
+- `org.eclipse.dirigible.sdk.component.*` - DI: `@Component`, `@Inject`, `@Repository`, plus the `Beans` facade.
+- `org.eclipse.dirigible.sdk.http.*` - REST: `@Controller`, `@Get`, `@Post`, `@Put`, `@Patch`, `@Delete`, `@Body`, `@PathParam`, `@QueryParam`, `@Context`, `@Roles`.
+- `org.eclipse.dirigible.sdk.job.*`, `.listener.*`, `.websocket.*` - method-level `@Scheduled(expression = …)`, `@Listener(name = …, kind = …)`, the `@Websocket` class marker with `@OnOpen` / `@OnMessage` / `@OnClose` / `@OnError`, and the self-describing `JobHandler` / `MessageHandler` / `WebsocketHandler` interfaces.
+- `org.eclipse.dirigible.sdk.extensions.*` - the `Extensions` facade. (A typed Java extension point is just a plain interface; a contribution is a `@Component` that implements it.)
 
 ## Reaching platform beans
 
-Client classes are loaded via `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op. Use `BeanProvider.getBean(...)` from `components-core-base` to fetch `JavaEntityStore`, `IRepository`, etc. The recommended pattern is `@Inject CountryRepository` - resolved by the `DependencyResolver` chain (`RepositoryRegistry` is the only resolver today).
+Client classes are loaded via `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op. To reach platform services from client code use the `Beans` facade - `Beans.get(Class)`, `Beans.get(name, Class)`, `Beans.getAll(Class)` (`org.eclipse.dirigible.sdk.component.Beans`). For entity CRUD the recommended pattern is a `@Repository extends JavaRepository<T>` injected by constructor (or `@Inject` field) into the controller.
 
 ## Example
 
 ```java
 package demo;
 
-import org.eclipse.dirigible.engine.java.annotations.http.Controller;
-import org.eclipse.dirigible.engine.java.annotations.http.Get;
-import org.eclipse.dirigible.engine.java.annotations.Inject;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
+
+import java.util.List;
 
 @Controller
 public class CountryController {
 
-    @Inject
-    private CountryRepository repository;
+    private final CountryRepository repository;
+
+    public CountryController(CountryRepository repository) {
+        this.repository = repository;
+    }
 
     @Get("/list")
-    public Object list() {
+    public List<Country> list() {
         return repository.findAll();
     }
 }

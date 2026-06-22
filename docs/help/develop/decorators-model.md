@@ -18,31 +18,30 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Primary key | `@Id` + `@Generated("sequence")` | `@Id` + `@GeneratedValue(strategy = GenerationType.SEQUENCE)` |
 | Column | `@Column({name, type})` | `@Column(name=..., length=..., nullable=...)` |
 | Audit fields | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` | `@CreatedAt`, `@UpdatedAt`, `@CreatedBy`, `@UpdatedBy` |
-| Repository / DI | `@Component("CountryRepository")` | `@Repository` |
-| Inject | `@Inject("CountryRepository")` | `@Inject` |
-| Scheduled job | `@Scheduled(...)` | `@Scheduled(expression="0 0 * * * ?")` + optional `implements JobHandler` |
-| Message listener | `@Listener(...)` | `@Listener(name="queue.x", kind=ListenerKind.QUEUE)` + optional `implements MessageHandler` |
-| Websocket | `@Websocket(...)` | `@Websocket(name="chat", endpoint="chat")` + optional `implements WebsocketHandler` |
-| Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
-| Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
+| Managed bean | `@Component("Name")` | `@Component` (optional name) |
+| Repository / DI | `@Component("CountryRepository")` | `@Repository` (a `@Component`) |
+| Inject | `@Inject("CountryRepository")` | `@Inject` (field / constructor / parameter) or constructor injection |
+| Scheduled job | `@Scheduled(...)` | `@Component` implementing `JobHandler` (self-describing `cron()`), or `@Scheduled` on a method of a `@Component` |
+| Message listener | `@Listener(...)` | `@Component` implementing `MessageHandler` (self-describing `destination()`/`kind()`), or `@Listener` on a method of a `@Component` |
+| Websocket | `@Websocket(...)` | `@Component` implementing `WebsocketHandler` (self-describing `endpoint()`), or a `@Websocket` class with `@OnOpen`/`@OnMessage`/`@OnError`/`@OnClose` methods |
+| Extension point | `@ExtensionPoint("description")` on an interface | a plain interface (no annotation) |
+| Extension provider | `@Extension({target: Contract})` | a `@Component` implementing the interface |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
 
 ## How the wiring happens
 
-The mechanism behind each declaration is the same: at class-load time a consumer reflects over the annotations and registers the class with the relevant platform service.
+The mechanism behind each declaration is the same: at class-load time the platform reflects over the annotations and registers the class with the relevant platform service.
 
-On the Java side this is the `JavaClassConsumer` SPI run in fixed `@Order`:
+On the Java side every bean is built once per generation. `@Repository`, `@Controller`, and `@Websocket` are `@Component`s, so they are beans too; the platform instantiates them, satisfies constructor / field / collection injection by type, and registers each with its service. Injection is order-independent: any bean can depend on any other regardless of declaration order, so `@Inject CountryRepository` (or a `CountryRepository` constructor parameter) always resolves.
 
-1. `EntityClassConsumer` (`@Order(100)`) - `@Entity` classes register with `JavaEntityManager`.
-2. `RepositoryClassConsumer` (`@Order(200)`) - `@Repository` classes are instantiated and stored in `RepositoryRegistry`.
-3. `ControllerClassConsumer` (`@Order(300)`) - `@Controller` classes have their `@Inject` fields resolved, then their routes registered with `ControllerRouter`.
-4. `HandlerClassConsumer` - claims `implements JavaHandler`.
+### Two handler styles - never mixed
 
-The ordering guarantees that `@Inject CountryRepository` resolves inside the controller consumer - the repository has already been registered in the same rebuild cycle.
+Jobs, listeners, and websockets each support exactly **two** declaration styles, and a single `@Component` class uses one or the other - **never both** (the engine rejects a class that mixes them):
 
-### Optional typed contracts
+1. **Self-describing interface.** Implement the SDK companion interface (`JobHandler`, `MessageHandler`, `WebsocketHandler`) on a `@Component`. The interface carries the binding itself - `cron()`, `destination()` / `kind()`, `endpoint()` - so **no class-level `@Scheduled` / `@Listener` / `@Websocket`** is used. This mirrors Spring's `org.quartz.Job`, `jakarta.jms.MessageListener`, and `TextWebSocketHandler`. You get compile-time signature checking, IDE autocomplete, and default no-op callbacks.
+2. **Method-level annotation.** Annotate a **method** of a `@Component` bean: `@Scheduled` / `@Listener` on a method (Spring `@Scheduled` / `@JmsListener` style). Websockets are the asymmetric case - `@Websocket(endpoint = "…")` stays a **class** annotation (the endpoint has no method-level home, like Jakarta's `@ServerEndpoint`) and the callbacks are bound by `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose`.
 
-`@Scheduled`, `@Listener`, and `@Websocket` each ship a companion interface in the SDK (`JobHandler`, `MessageHandler`, `WebsocketHandler`). Implementing the interface is opt-in - the runtime falls back to method-by-name reflection when the interface is absent, so existing handlers keep working unchanged. The typed path gives compile-time signature checking, IDE autocomplete and refactoring, default no-op methods for callbacks you don't override (`WebsocketHandler`, `MessageHandler.onError`), and direct (non-reflective) dispatch. See the per-decorator pages under `/sdk/` for details.
+Both styles dispatch directly; there is no reflective by-name fallback. See the per-decorator pages under `/sdk/` for details.
 
 On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `EntitySynchronizer`, `OpenAPISynchronizer`, plus the listener / job / websocket / extension synchronizers) scan files matching `*Component.ts`, `*Entity.ts`, `*Controller.ts`, etc. and do the same registration work.
 
@@ -50,10 +49,10 @@ On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `Entit
 
 - [REST APIs](/help/develop/rest-apis) - `@Controller`, the method verbs, parameter binding, return-value writing.
 - [Entities and persistence](/help/develop/entities-and-persistence) - `@Entity`, `@Id`, `@Column`, audit fields, repository pattern.
-- [Dependency injection](/help/develop/dependency-injection) - `@Inject`, `@Repository`, `@Component`.
+- [Dependency injection](/help/develop/dependency-injection) - `@Component`, `@Inject`, constructor and collection injection, `@Repository`.
 - [Scheduled jobs](/help/develop/scheduled-jobs) - `@Scheduled`.
 - [Message listeners](/help/develop/message-listeners) - `@Listener`.
-- [Extension providers](/help/develop/extension-providers) - `@Extension`.
+- [Extension providers](/help/develop/extension-providers) - interface + `@Component`, collection injection.
 - [Websockets](/help/develop/websockets) - `@Websocket`.
 - [Security and roles](/help/develop/security-and-roles) - `@Roles`.
 

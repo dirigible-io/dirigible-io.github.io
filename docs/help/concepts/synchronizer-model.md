@@ -60,7 +60,7 @@ JS and TS user code is **not** synchronized. `JavascriptEndpoint` and `TypeScrip
 
 ## Special case: client Java
 
-Client `.java` files **are** synchronized, but the heavy work (one `javac` task, one fresh `ClientClassLoader`, consumer fan-out) happens inside `JavaSynchronizer.finishing()`. The `JavaClassConsumer` SPI plugs custom behavior into that fan-out - see [Extensibility](/help/concepts/extensibility).
+Client `.java` files **are** synchronized, but the heavy work (one `javac` task, one fresh `ClientClassLoader`, a single `ComponentContainer` that builds and wires every bean) happens inside `JavaSynchronizer.finishing()`. `@Component` (and the meta-annotated `@Repository` / `@Controller` / `@Scheduled` / `@Listener` / `@Websocket`) drives that wiring - see [Extensibility](/help/concepts/extensibility).
 
 ## Reference
 

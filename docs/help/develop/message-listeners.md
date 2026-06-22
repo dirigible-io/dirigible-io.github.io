@@ -7,30 +7,74 @@ description: JMS-style listeners over the embedded ActiveMQ broker.
 
 `engine-listeners` runs message-bus listeners against the embedded ActiveMQ broker. Two declaration styles are supported.
 
-## `@Listener` annotation
+## `@Component` listener
 
-A class with an `onMessage(String)` method, annotated with the queue or topic name and the kind.
+A listener is a `@Component` bean. There are exactly **two** styles. A class uses **one or the other, never both** - the engine rejects a class that mixes them.
 
-**Java:**
+**Java**
+
+**Style 1 - self-describing interface.** A `@Component` that implements `MessageHandler`. The interface carries the binding itself: `destination()` names the queue or topic, `kind()` (a `default`, `QUEUE`) selects the semantics, and `onMessage(String)` handles the message (plus a `default onError(String)`), so **no class-level `@Listener`** is used. This mirrors `jakarta.jms.MessageListener`.
 
 ```java
-package com.acme.demo;
+package demo.listener;
 
-import org.eclipse.dirigible.sdk.messaging.Listener;
-import org.eclipse.dirigible.sdk.messaging.ListenerKind;
+import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.messaging.MessageHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Listener(name = "queue.orders", kind = ListenerKind.QUEUE)
+@Component
 public class OrderListener implements MessageHandler {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
     @Override
-    public void onMessage(String body) {
-        // handle message
+    public String destination() {
+        return "java-order-queue";
+    }
+
+    @Override
+    public void onMessage(String message) {
+        LOGGER.info("OrderListener received: {}", message);
+    }
+
+    @Override
+    public void onError(String error) {
+        LOGGER.error("OrderListener error: {}", error);
     }
 }
 ```
 
-`MessageHandler` is the optional typed contract for the listener callbacks - `onMessage(String)` plus a `default onError(String) {}`. Implementing it gives compile-time signature checking and a direct dispatch path; classes that don't implement it keep working via reflective `onMessage` / `onError` lookup. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
+`kind()` defaults to `QUEUE`, so a queue listener overrides only `destination()` and `onMessage` (and optionally `onError`).
+
+**Style 2 - method-level `@Listener`.** `@Listener(name = "…", kind = …)` on a public `void m(String)` method of a `@Component` (Spring `@JmsListener` style), so a single bean can hold several listeners and inject collaborators. Here the listener depends on a plain `@Component` collaborator (`Auditor`) injected through the constructor:
+
+```java
+package demo.listener;
+
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.messaging.Listener;
+import org.eclipse.dirigible.sdk.messaging.ListenerKind;
+
+@Component
+public class InvoiceListener {
+
+    private final Auditor auditor;
+
+    public InvoiceListener(Auditor auditor) {
+        this.auditor = auditor;
+    }
+
+    @Listener(name = "java-invoice-queue", kind = ListenerKind.QUEUE)
+    public void onInvoice(String message) {
+        auditor.record("invoice received: " + message);
+    }
+}
+```
+
+Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
+
+**Sample project:** [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator) - `OrderListener` (interface style on `java-order-queue`) and `InvoiceListener` (method-level `@Listener` with an injected `Auditor`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 **TypeScript:**
 
@@ -83,6 +127,8 @@ Listeners are **tenant-isolated** - each tenant gets its own consumer for the sa
 
 ## See also
 
+- Working sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator).
 - [TypeScript API - messaging](/api/).
 - [Java SDK - messaging](/sdk/).
+- [SDK reference](https://www.dirigible.io/sdk/).
 - Messaging perspective.

@@ -55,7 +55,7 @@ JavaScript and TypeScript modules are **not** synchronized - they are loaded on 
 
 ## Special case: client Java
 
-Java is synchronized. The full reconciliation (one `javac` task, one fresh `ClientClassLoader`, all `JavaClassConsumer`s) runs inside `JavaSynchronizer.finishing()` once per cycle. Publish a Java file - it takes up to one cycle to compile and reload.
+Java is synchronized. The full reconciliation (one `javac` task, one fresh `ClientClassLoader`, a single `ComponentContainer` that builds and wires every bean) runs inside `JavaSynchronizer.finishing()` once per cycle. Publish a Java file - it takes up to one cycle to compile and reload.
 
 ## Forcing a sync
 

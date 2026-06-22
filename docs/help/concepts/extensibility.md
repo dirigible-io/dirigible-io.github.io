@@ -33,18 +33,13 @@ export class Greeter {
 
 Use when: you want Spring-style DI inside user TypeScript.
 
-## Java SPI: `JavaClassConsumer`
+## Java DI container
 
-Every client `.java` class loaded by the platform is offered to every registered `JavaClassConsumer`. Four ship in the box:
+Every client `.java` class compiled by the platform is built into a single `ComponentContainer` per `ClientClassLoader` generation. `@Component` makes a class a managed bean - and `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and extension contributions are all `@Component`s. The container instantiates each bean, satisfies constructor / `@Inject` field / collection (`List<T>`) injection by type, and registers it with its service (`@Entity` to the entity manager, `@Controller` routes to the router + OpenAPI, scheduled / listener / websocket beans to their engines).
 
-- `EntityClassConsumer` (`@Order(100)`) - `@Entity` to `JavaEntityManager`.
-- `RepositoryClassConsumer` (`@Order(200)`) - `@Repository` to `RepositoryRegistry`.
-- `ControllerClassConsumer` (`@Order(300)`) - `@Controller` to `ControllerRouter` + OpenAPI.
-- `HandlerClassConsumer` (LOWEST_PRECEDENCE) - `implements JavaHandler` to `JavaClassRegistry`.
+To consume all implementations of a contract from user code, inject a `List<MyInterface>` or call `Extensions.find(MyInterface.class)`.
 
-To react to compiled client classes - say, you want to claim a custom annotation - implement `JavaClassConsumer`, register it as a Spring `@Component` with a `@Order`, and the existing `JavaSynchronizer.finishing()` cycle picks it up. No second synchronizer required.
-
-Use when: you want to attach behavior to a custom Java annotation in user code.
+Use when: you want Spring-style dependency injection inside user Java, or to wire one client class into another.
 
 ## Custom synchronizer (new artefact type)
 
@@ -111,7 +106,7 @@ To add a new perspective, view, editor, or template, follow the layout of an exi
 | --------------------------------------------------- | ------------------------------------------ |
 | Hook user code into a named platform event          | `.extensionpoint` / `.extension`           |
 | DI inside user TypeScript                           | `*Component.ts`                            |
-| React to compiled client Java classes               | `JavaClassConsumer`                        |
+| DI / wiring inside user Java                        | `@Component` + `@Inject`                   |
 | Add a new artefact type / file extension            | Custom synchronizer                        |
 | Add a new runtime engine                            | New `components/engine/<name>/` module     |
 | Expose Java capability to JS / TS                   | Custom `<Area>Facade` + TS bundle          |
@@ -123,6 +118,6 @@ To add a new perspective, view, editor, or template, follow the layout of an exi
 ## Reference
 
 - [/help/extend/](/help/extend/) - extension-surface authoring guides
-- `JavaClassConsumer` SPI - `components/engine/engine-java/src/main/java/org/eclipse/dirigible/engine/java/spi/`
+- [Dependency injection (develop)](/help/develop/dependency-injection) - the client-Java `@Component` container
 - `Synchronizer` / `BaseSynchronizer` - `components/core/core-base/.../synchronizer/`
 - `CmsProvider`, `ISqlDialect`, `CustomSecurityConfigurator`, `TemplateEngine` - platform SPIs
