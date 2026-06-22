@@ -27,8 +27,8 @@ One row per file extension. For full per-artefact docs see the page in the `Arte
 | `expose` (project root) | [Expose static resources](/help/artefacts/services/expose) | `engine-web` | `ExposesSynchronizer` |
 | `*.extensionpoint`, `*.extension` | [Extensions](/help/artefacts/extensibility/) | `core-extensions` | `ExtensionPointsSynchronizer`, `ExtensionsSynchronizer` |
 | `*Component.ts` | [TS component](/help/artefacts/extensibility/component) | `engine-di` | `ComponentSynchronizer` |
-| `*Entity.ts`, `@Entity` Java | Entity persistence | `data-store` / `data-store-java` | `EntitySynchronizer`, `EntityClassConsumer` |
-| `*Controller.ts`, `@Controller` Java | REST controller -> auto OpenAPI | `engine-openapi` | `OpenAPISynchronizer` (+ `ControllerClassConsumer` for Java) |
+| `*Entity.ts`, `@Entity` Java | Entity persistence | `data-store` / `data-store-java` | `EntitySynchronizer` (TS); client-Java built by the `ComponentContainer` |
+| `*Controller.ts`, `@Controller` Java | REST controller -> auto OpenAPI | `engine-openapi` | `OpenAPISynchronizer` (TS); client-Java `@Controller` built by the `ComponentContainer` |
 
 ## Data
 

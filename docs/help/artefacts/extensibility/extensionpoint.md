@@ -44,22 +44,27 @@ String[] modules = Extensions.getExtensions("ide-menu");
 
 ## Typed Java alternative
 
-For Java, the preferred form is the annotation pair `@ExtensionPoint` (on the contract interface) + `@Extension(target = ContractInterface.class)` (on contributing classes). Consumers retrieve typed instances directly:
+For Java there is no extension annotation. The **extension point is a plain Java interface**; a **contribution is a `@Component` bean that implements it**. Consumers retrieve typed instances directly - by collection injection (preferred) or `Extensions.find(Class)`:
 
 ```java
-@ExtensionPoint("Menu contributions")
+import org.eclipse.dirigible.sdk.component.Component;
+import org.eclipse.dirigible.sdk.extensions.Extensions;
+
+// The contract: a plain interface, no annotation.
 public interface MenuContribution {
     List<Map<String, Object>> getItems();
 }
 
-@Extension(target = MenuContribution.class, name = "payments-menu")
+// The contribution: a @Component that implements the interface.
+@Component("payments-menu")
 public class PaymentsMenu implements MenuContribution { /* ... */ }
 
-// Consumer:
+// Consumer - collection injection (preferred): inject a List<MenuContribution>
+// into a @Controller / @Component constructor, or look them up programmatically:
 List<MenuContribution> menus = Extensions.find(MenuContribution.class);
 ```
 
-See [`/sdk/extensions/decorators`](/sdk/extensions/decorators) and [`/sdk/extensions/extensions`](/sdk/extensions/extensions).
+See [`/sdk/extensions/extensions`](/sdk/extensions/extensions) and [Extension providers](/help/develop/extension-providers).
 
 ## Editor
 

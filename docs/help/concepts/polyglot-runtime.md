@@ -43,16 +43,18 @@ The same `DatabaseFacade` backs that call whether it comes from JS, TS, or a Jav
 
 ## Calling Java from Java (client to platform)
 
-Client `.java` classes are loaded by `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op on them. Use `BeanProvider.getBean(...)` to pull platform beans from a `@Controller` or `JavaHandler`:
+Client `.java` classes are loaded by `ClientClassLoader`, not Spring-scanned, so `@Autowired` is a no-op on them. Use the `Beans` facade (`org.eclipse.dirigible.sdk.component.Beans`) to pull platform beans from a `@Controller` or `JavaHandler`:
 
 ```java
-import org.eclipse.dirigible.components.base.spring.BeanProvider;
+import org.eclipse.dirigible.sdk.component.Beans;
 import org.eclipse.dirigible.components.data.store.java.store.JavaEntityStore;
 
-JavaEntityStore store = BeanProvider.getBean(JavaEntityStore.class);
+JavaEntityStore store = Beans.get(JavaEntityStore.class);
 ```
+
+`Beans` exposes `get(Class)`, `get(name, Class)`, and `getAll(Class)`; it is the client-facing entry point.
 
 ## Reference
 
 - JS / TS API surface: [`@aerokit/sdk/*`](/api/)
-- Java surface: [`engine-java` annotations + SPI](/help/concepts/extensibility)
+- Java surface: [`org.eclipse.dirigible.sdk.*`](/sdk/)

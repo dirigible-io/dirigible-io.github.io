@@ -13,7 +13,7 @@ With Dirigible running and a first endpoint published, the deep-dive sections ar
 
 ## Build with code
 
-- **[Develop](/help/develop/)** - the decorator model in TypeScript (`@aerokit/sdk/*`) and Java (`org.eclipse.dirigible.engine.java.annotations.*`). REST controllers, entities, repositories, scheduled jobs, listeners, components.
+- **[Develop](/help/develop/)** - the decorator / annotation model in TypeScript (`@aerokit/sdk/*`) and Java (`org.eclipse.dirigible.sdk.*`). REST controllers, entities, repositories, scheduled jobs, listeners, components.
 - **[Artefacts](/help/artefacts/)** - full catalogue of file extensions the platform recognises (`.job`, `.bpmn`, `.camel`, `.listener`, `.odata`, `.datasource`, `.table`, `.csvim`, ...) and how each is reconciled.
 - **[SDKs](/sdk/)** - Java SDK landing. The [API reference](/api/) covers the TypeScript / JavaScript surface (`@aerokit/sdk/*`).
 

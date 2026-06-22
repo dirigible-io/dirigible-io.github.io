@@ -26,9 +26,9 @@ Java is synchronized by `JavaSynchronizer` (`components/engine/engine-java`), bu
 1. **Parse + persist.** `parseImpl` for each `.java` file upserts the `JavaFile` artefact and enforces global FQN uniqueness. `completeImpl` flips a dirty flag.
 2. **Single `javac` task.** `finishing()` invokes the in-process compiler over **every** client source in one go - cross-file references resolve because they share the same compilation unit.
 3. **Single fresh `ClientClassLoader`.** All compiled classes land in one new classloader, parent = platform classloader. The previous generation becomes unreachable; GC reclaims its Metaspace.
-4. **Consumer fan-out.** Every loaded class is offered to every registered `JavaClassConsumer`, in `@Order` sequence: `EntityClassConsumer` (100), `RepositoryClassConsumer` (200), `ControllerClassConsumer` (300), `HandlerClassConsumer` (LOWEST_PRECEDENCE).
+4. **Container build.** A single `ComponentContainer` builds every bean for the generation. `@Component` (and the meta-annotated `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, plus extension contributions) become beans; the container instantiates each, satisfies constructor / `@Inject` field / collection (`List<T>`) injection by type, then registers it with its service (`@Entity` → entity manager, `@Controller` routes → router + OpenAPI, scheduled / listener / websocket beans → their engines).
 
-Result: cross-file references in client code work, `@Inject CountryRepository` resolves inside `ControllerClassConsumer` because `RepositoryClassConsumer` has already registered every repository for that rebuild generation, and old controllers / handlers are atomically swapped for new ones.
+Result: cross-file references in client code work, injection is order-independent (a `@Controller` can depend on any `@Repository` regardless of declaration order, in the constructor or via `@Inject`), and old controllers / handlers are atomically swapped for new ones.
 
 ## Artefact-based engines: STOP / START via the synchronizer
 
@@ -65,5 +65,5 @@ Runs every synchronizer synchronously on the calling thread. See [Publish and re
 - `JavascriptEndpoint`, `TypeScriptEndpoint` - `components/engine/engine-javascript`, `engine-typescript`
 - `JavaSynchronizer` - `components/engine/engine-java/.../synchronizer/JavaSynchronizer.java`
 - `ClientClassLoader`, `ClassPathIndex` - `components/engine/engine-java/.../runtime/`
-- `JavaClassConsumer` SPI - `components/engine/engine-java/src/main/java/org/eclipse/dirigible/engine/java/spi/`
+- `ComponentContainer` (client-Java DI) - `components/engine/engine-java/.../runtime/`
 - `BaseSynchronizer` lifecycle hooks - `components/core/core-base/.../synchronizer/`

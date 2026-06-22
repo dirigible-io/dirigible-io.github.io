@@ -38,7 +38,7 @@ In Dirigible, you write Java like this:
 2. Save.
 3. `curl /services/java/<project>/demo/Country...`
 
-No `mvn package`. No Spring Boot bootstrap. No `target/` directory. The synchronizer notices the file, the engine batch-compiles every client `.java` in the project with one `javac` invocation, the resulting bytecode lands in a fresh `ClientClassLoader`, and consumers fan out to register your classes with the runtime. The previous classloader becomes unreachable; the JVM reclaims its Metaspace at the next GC. **No restart. Ever.**
+No `mvn package`. No Spring Boot bootstrap. No `target/` directory. The synchronizer notices the file, the engine batch-compiles every client `.java` in the project with one `javac` invocation, the resulting bytecode lands in a fresh `ClientClassLoader`, and a single `ComponentContainer` builds and wires your beans and registers them with the runtime. The previous classloader becomes unreachable; the JVM reclaims its Metaspace at the next GC. **No restart. Ever.**
 
 The Force is strong with this one.
 
@@ -49,7 +49,7 @@ The data layer first. Annotate a plain Java class and Hibernate will weave its t
 ```java
 package demo;
 
-import org.eclipse.dirigible.engine.java.annotations.*;
+import org.eclipse.dirigible.sdk.db.*;
 
 @Entity
 @Table(name = "COUNTRIES")
@@ -92,7 +92,7 @@ The recommended pattern is not to call `JavaEntityStore` directly. Subclass `Jav
 package demo;
 
 import org.eclipse.dirigible.components.data.store.java.repository.JavaRepository;
-import org.eclipse.dirigible.engine.java.annotations.Repository;
+import org.eclipse.dirigible.sdk.component.Repository;
 
 @Repository
 public class CountryRepository extends JavaRepository<Country> {
@@ -102,24 +102,26 @@ public class CountryRepository extends JavaRepository<Country> {
 
 `JavaRepository<T>` ships a typed CRUD surface - `save`, `update`, `findById`, `findOne`, `findAll`, `findAll(limit, offset)`, `delete`, `deleteById`, `count`, `query`. Add your own domain methods and they become available everywhere the repository is injected.
 
-The `@Repository` consumer instantiates one singleton per class and stores it in a registry, ready to be handed out.
+A `@Repository` is itself a managed bean - the container builds one singleton per class, ready to be injected anywhere by type.
 
 ## Episode IV: Revenge of the Inject
 
-Spring's `@Autowired` is famously powerful - and famously unavailable to client classes loaded by a foreign `ClassLoader`. So Dirigible brings its own DI resolver, shaped for the hot-reload world.
+Spring's `@Autowired` is famously powerful - and famously unavailable to client classes loaded by a foreign `ClassLoader`. So Dirigible brings its own DI container, shaped for the hot-reload world. **Constructor injection is the preferred style** - declare the collaborators as constructor parameters and the container fills them in by type:
 
 ```java
 package demo;
 
-import org.eclipse.dirigible.engine.java.annotations.Inject;
-import org.eclipse.dirigible.engine.java.annotations.http.*;
+import org.eclipse.dirigible.sdk.http.*;
 
 @Controller
 @Roles({ "DEVELOPER" })
 public class CountryController {
 
-    @Inject
-    private CountryRepository countries;     // ← engine injects the singleton at load time
+    private final CountryRepository countries;
+
+    public CountryController(CountryRepository countries) {   // ← constructor injection
+        this.countries = countries;
+    }
 
     @Get("/")
     public List<Country> list() { return countries.findAll(); }
@@ -136,9 +138,9 @@ public class CountryController {
 }
 ```
 
-When the controller class is loaded, the engine walks every `@Inject` field, queries each registered `DependencyResolver` in order, and writes the result back via reflection. Today the `RepositoryRegistry` is the only resolver - but the surface is open. Future modules can register their own without touching engine-java.
+A single `ComponentContainer` builds every bean per `ClientClassLoader` generation and satisfies constructor parameters, `@Inject` fields, and collection (`List<T>`) injection points by type - independent of declaration order, so `CountryRepository` always resolves within the same rebuild cycle. Field injection with `@Inject` (`org.eclipse.dirigible.sdk.component.Inject`) is available too; constructor injection is preferred. To reach platform services use the `Beans` facade (`Beans.get(Class)`).
 
-No `BeanFactory`. No component scan. Just a typed field that gets filled in.
+No `BeanFactory`. No component scan. Just a typed dependency that gets filled in.
 
 ## Episode V: The Controller Awakens
 
@@ -206,7 +208,7 @@ Edit `Country.java` to add a new column. Save.
 public Long population;
 ```
 
-The synchronizer notices the file change. `javac` rebuilds every client source. A new `ClientClassLoader` is installed. The entity consumer rebuilds the `SessionFactory` with the updated table. The repository consumer instantiates a fresh singleton. The controller consumer resolves `@Inject` against that fresh singleton. The OpenAPI fragment is rewritten. The previous generation becomes unreachable.
+The synchronizer notices the file change. `javac` rebuilds every client source. A new `ClientClassLoader` is installed and a fresh `ComponentContainer` builds every bean: the `SessionFactory` is rebuilt with the updated table, a fresh `CountryRepository` singleton is created, the controller is wired against it (by constructor or `@Inject`, by type), and the OpenAPI fragment is rewritten. The previous generation becomes unreachable.
 
 Your next HTTP request hits the new code. No `mvn`. No `restart`. No deploy pipeline. The same loop your TypeScript colleagues have been smugly demonstrating in standups - now yours.
 

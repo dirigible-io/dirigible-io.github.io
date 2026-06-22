@@ -35,7 +35,7 @@ description: One-line definitions of platform terms.
 
 **Annotation** - The Java equivalent of a decorator. Same names, same semantics, ships under `org.eclipse.dirigible.sdk.*`.
 
-**Extension point** - A named hook other artefacts can contribute to. Declared by `*.extensionpoint`; satisfied by `*.extension` or `@Extension`-annotated classes.
+**Extension point** - A named hook other artefacts can contribute to. Declared by `*.extensionpoint` (or, for typed Java, a plain interface); satisfied by `*.extension` artefacts or, in Java, by `@Component` beans that implement the interface.
 
 **Component** - A dependency-injected TS singleton declared via `*Component.ts` and the `@Component(...)` decorator. Java counterpart: `@Repository`.
 
