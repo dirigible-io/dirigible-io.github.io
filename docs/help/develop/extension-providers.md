@@ -19,9 +19,10 @@ Two coexisting forms:
 ```java
 import org.eclipse.dirigible.sdk.extensions.ExtensionPoint;
 
-@ExtensionPoint("Order processors")
-public interface OrderProcessor {
-    void process(Order order);
+@ExtensionPoint("Sample Java extension point")
+public interface SampleExtensionPoint {
+
+    String describe();
 }
 ```
 
@@ -30,39 +31,42 @@ public interface OrderProcessor {
 ```java
 import org.eclipse.dirigible.sdk.extensions.Extension;
 
-@Extension(target = OrderProcessor.class, name = "fast-processor")
-public class FastOrderProcessor implements OrderProcessor {
+@Extension(target = SampleExtensionPoint.class, name = "sample-contribution")
+public class SampleContribution implements SampleExtensionPoint {
 
     @Override
-    public void process(Order order) {
-        // ...
+    public String describe() {
+        return "Hello from SampleContribution!";
     }
 }
 ```
 
-The runtime validates that `FastOrderProcessor` implements `OrderProcessor` at registration time. Consumers receive instances cast to the interface - no reflection.
+The runtime validates that `SampleContribution` implements `SampleExtensionPoint` at registration time. Consumers receive instances cast to the interface - no reflection.
 
 ### Consume via collection injection (recommended)
 
-Because every `@Extension` provider is a managed bean, the Spring-style way to receive all implementations is to inject a `List<OrderProcessor>` into a `@Controller` or `@Component`. The container populates it with every bean assignable to the interface:
+Because every `@Extension` provider is a managed bean, the Spring-style way to receive all implementations is to inject a `List<SampleExtensionPoint>` into a `@Controller` or `@Component`. The container populates it with every bean assignable to the interface:
 
 ```java
-import org.eclipse.dirigible.sdk.component.Component;
 import java.util.List;
 
-@Component
-public class OrderPipeline {
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
 
-    private final List<OrderProcessor> processors;
+@Controller
+public class InjectingConsumer {
 
-    public OrderPipeline(List<OrderProcessor> processors) {
-        this.processors = processors;
+    private final List<SampleExtensionPoint> contributions;
+
+    public InjectingConsumer(List<SampleExtensionPoint> contributions) {
+        this.contributions = contributions;
     }
 
-    public void run(Order order) {
-        for (OrderProcessor p : processors) {
-            p.process(order);
-        }
+    @Get("/injected-contributions")
+    public List<String> list() {
+        return contributions.stream()
+                            .map(SampleExtensionPoint::describe)
+                            .toList();
     }
 }
 ```
@@ -72,17 +76,28 @@ public class OrderPipeline {
 When you cannot inject - or want to look up providers at an arbitrary point - `Extensions.find(Class)` returns them directly:
 
 ```java
-import org.eclipse.dirigible.sdk.extensions.Extensions;
+import java.util.List;
 
-List<OrderProcessor> processors = Extensions.find(OrderProcessor.class);
-for (OrderProcessor p : processors) {
-    p.process(order);
+import org.eclipse.dirigible.sdk.extensions.Extensions;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
+
+@Controller
+public class ExtensionConsumer {
+
+    @Get("/contributions")
+    public List<String> listContributions() {
+        return Extensions.find(SampleExtensionPoint.class)
+                         .stream()
+                         .map(SampleExtensionPoint::describe)
+                         .toList();
+    }
 }
 ```
 
 `Extensions.find` and the string-keyed `Extensions.getExtensions` below also work across runtimes (TypeScript providers, JS/TS module extensions) and remain available for back-compatibility, so prefer them when the consumer must see providers that injection cannot reach.
 
-A complete end-to-end example lives at [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
+**Sample project:** [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) - `SampleExtensionPoint` + `SampleContribution`, consumed both by `ExtensionConsumer` (`Extensions.find`) and `InjectingConsumer` (constructor `List<SampleExtensionPoint>` collection injection). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 ## String-keyed artefacts
 

@@ -53,6 +53,19 @@ public class AdminController {
 
 Method-level `@Roles` overrides class-level for that method only. An empty list opens the endpoint up.
 
+In the entity sample the whole CRUD controller is gated to the built-in `DEVELOPER` role with a single class-level annotation:
+
+```java
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.security.Roles;
+
+@Controller
+@Roles({"DEVELOPER"})
+public class CountryController {
+    // every endpoint requires the DEVELOPER (or ADMINISTRATOR) role
+}
+```
+
 ## Built-in super-roles
 
 Two roles always exist and short-circuit any `@Roles` check:
@@ -105,4 +118,8 @@ For URL-pattern-based access that isn't bound to a specific controller method, u
 - See [`/help/artefacts/security/access`](/help/artefacts/security/access).
 - See [`/help/artefacts/security/roles`](/help/artefacts/security/roles).
 - See [`/help/concepts/security-model`](/help/concepts/security-model) for the bigger picture.
+
+## See also
+
+- Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators) - `CountryController` annotated `@Roles({"DEVELOPER"})`.
 - [SDK reference](https://www.dirigible.io/sdk/).

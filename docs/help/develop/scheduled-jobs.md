@@ -32,22 +32,26 @@ The modern approach is a `@Component` bean. There are exactly **two** styles. A 
 **Style 1 - self-describing interface.** A `@Component` that implements `JobHandler`. The interface carries the binding itself: `cron()` returns the schedule and `run()` does the work, so **no class-level `@Scheduled`** is used. This mirrors Spring's `org.quartz.Job`.
 
 ```java
-package com.acme.demo;
+package demo.scheduled;
 
 import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.job.JobHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
-public class NightlyJob implements JobHandler {
+public class CleanupJob implements JobHandler {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
 
     @Override
     public String cron() {
-        return "0 0 * * * ?";
+        return "* * * * * ?";
     }
 
     @Override
     public void run() {
-        // work here
+        LOGGER.info("CleanupJob executed!");
     }
 }
 ```
@@ -55,22 +59,28 @@ public class NightlyJob implements JobHandler {
 **Style 2 - method-level `@Scheduled`.** `@Scheduled(expression = "…")` on a public no-arg method of a `@Component` (Spring `@Scheduled` style), so a single bean can hold several jobs alongside other logic and inject collaborators:
 
 ```java
-package com.acme.demo;
+package demo.scheduled;
 
 import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.job.Scheduled;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
-public class MaintenanceJobs {
+public class Maintenance {
 
-    @Scheduled(expression = "0 0 * * * ?")
-    public void nightly() {
-        // work here
+    private static final Logger LOGGER = LoggerFactory.getLogger("app.out");
+
+    @Scheduled(expression = "0/45 * * * * ?")
+    public void purgeTempFiles() {
+        LOGGER.info("Maintenance.purgeTempFiles executed (method-level @Scheduled)!");
     }
 }
 ```
 
 Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
+
+**Sample project:** [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigiblelabs/sample-java-job-decorator) - `CleanupJob` (interface style, fires every second) and `Maintenance` (method-level `@Scheduled`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 **TypeScript:**
 

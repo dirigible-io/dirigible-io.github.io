@@ -109,24 +109,49 @@ A single `ComponentContainer` builds all beans per `ClientClassLoader` generatio
 
 ### Example
 
+A plain `@Component` service injected into a controller by constructor, with the `Beans` facade as the programmatic-lookup alternative:
+
 ```java
-@Controller
-public class CountryController {
+import org.eclipse.dirigible.sdk.component.Component;
 
-    private final CountryRepository countries;
+@Component
+public class GreetingService {
 
-    public CountryController(CountryRepository countries) {
-        this.countries = countries;
-    }
-
-    @Get("/")
-    public List<Country> list() {
-        return countries.findAll();
+    public String greet(String name) {
+        return "Hello, " + name + "!";
     }
 }
 ```
 
-Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
+```java
+import org.eclipse.dirigible.sdk.component.Beans;
+import org.eclipse.dirigible.sdk.http.Controller;
+import org.eclipse.dirigible.sdk.http.Get;
+import org.eclipse.dirigible.sdk.http.PathParam;
+
+@Controller
+public class GreetingController {
+
+    private final GreetingService greetings;
+
+    public GreetingController(GreetingService greetings) {
+        this.greetings = greetings;
+    }
+
+    @Get("/greet/{name}")
+    public String greet(@PathParam("name") String name) {
+        return greetings.greet(name);
+    }
+
+    @Get("/greet-via-beans/{name}")
+    public String greetViaBeans(@PathParam("name") String name) {
+        return Beans.get(GreetingService.class)
+                    .greet(name);
+    }
+}
+```
+
+**Sample project:** [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators) - `GreetingService` + `GreetingController` (constructor injection and `Beans.get`), and `CountryController` with `@Inject` field injection. SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 ## TypeScript
 
