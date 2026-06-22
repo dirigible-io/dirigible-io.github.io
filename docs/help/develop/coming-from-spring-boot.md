@@ -40,6 +40,10 @@ Each artifact is shown the **Spring way first, then the Dirigible way**, so you 
 **Strong interface.** Spring - implement `jakarta.jms.MessageListener` (the destination is set on the listener container in config):
 
 ```java
+import jakarta.jms.Message;
+import jakarta.jms.MessageListener;
+import org.springframework.stereotype.Component;
+
 @Component
 class OrderListener implements MessageListener {
     public void onMessage(Message message) { /* ... */ }
@@ -69,6 +73,9 @@ public class OrderListener implements MessageHandler {
 **Method-level.** Spring - `@JmsListener` on a bean method:
 
 ```java
+import org.springframework.jms.annotation.JmsListener;
+import org.springframework.stereotype.Component;
+
 @Component
 class Invoices {
     @JmsListener(destination = "java-invoice-queue")
@@ -97,6 +104,9 @@ Sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/diri
 **Strong interface.** Spring - implement Quartz `org.quartz.Job` (the cron lives in a `Trigger` bean):
 
 ```java
+import org.quartz.Job;
+import org.quartz.JobExecutionContext;
+
 public class CleanupJob implements Job {
     public void execute(JobExecutionContext context) { /* ... */ }
 }
@@ -125,6 +135,9 @@ public class CleanupJob implements JobHandler {
 **Method-level.** Spring - `@Scheduled` on a bean method:
 
 ```java
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
 @Component
 class Maintenance {
     @Scheduled(cron = "0/45 * * * * ?")
@@ -152,6 +165,11 @@ Sample: [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigible
 **Strong interface.** Spring - extend `TextWebSocketHandler` (the path is registered in config):
 
 ```java
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
 @Component
 class ChatHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) { /* ... */ }
@@ -177,6 +195,11 @@ public class ChatHandler implements WebsocketHandler {
 **Annotation.** Spring / Jakarta - `@ServerEndpoint` class with `@OnOpen` / `@OnMessage`:
 
 ```java
+import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.Session;
+import jakarta.websocket.server.ServerEndpoint;
+
 @ServerEndpoint("/java-ticker")
 public class TickerHandler {
     @OnOpen    public void opened(Session session) { /* ... */ }
@@ -205,6 +228,10 @@ Sample: [`dirigiblelabs/sample-java-websocket-decorator`](https://github.com/dir
 Spring - `@RestController` with constructor injection:
 
 ```java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 class CountryController {
     private final CountryRepository countries;
@@ -239,6 +266,8 @@ See [REST APIs](/help/develop/rest-apis).
 Spring Data - declare an interface, the framework generates the implementation:
 
 ```java
+import org.springframework.data.jpa.repository.JpaRepository;
+
 interface CountryRepository extends JpaRepository<Country, Long> { }
 ```
 
@@ -263,6 +292,11 @@ The shape is the same in both: an interface, `@Component` implementations, and a
 Spring:
 
 ```java
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
+
 interface SampleExtensionPoint { String describe(); }
 
 @Component
