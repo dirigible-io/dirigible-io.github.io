@@ -40,23 +40,9 @@ Pair a `*.csvim` (the model) with one or more `*.csv` files. See [`/help/artefac
 
 ## Running SQL from user code
 
-Use the SDK's `db` modules.
+Use the SDK's `db` modules. Both runtimes expose the same `Database.getConnection()` entry point.
 
-```ts
-import { Database } from "@aerokit/sdk/db";
-
-const conn = Database.getConnection();
-try {
-    const stmt = conn.prepareStatement("SELECT id, name FROM countries WHERE active = ?");
-    stmt.setBoolean(1, true);
-    const rows = stmt.executeQuery();
-    while (rows.next()) {
-        console.log(rows.getLong("id"), rows.getString("name"));
-    }
-} finally {
-    conn.close();
-}
-```
+### Java
 
 ```java
 import org.eclipse.dirigible.sdk.db.Database;
@@ -76,11 +62,25 @@ try (Connection conn = Database.getConnection()) {
 }
 ```
 
+### TypeScript / JavaScript
+
+```ts
+import { Database } from "@aerokit/sdk/db";
+
+const conn = Database.getConnection();
+try {
+    const stmt = conn.prepareStatement("SELECT id, name FROM countries WHERE active = ?");
+    stmt.setBoolean(1, true);
+    const rows = stmt.executeQuery();
+    while (rows.next()) {
+        console.log(rows.getLong("id"), rows.getString("name"));
+    }
+} finally {
+    conn.close();
+}
+```
+
 For typed entity CRUD use the entity store - see [`/help/develop/entities-and-persistence`](/help/develop/entities-and-persistence).
-
-## Multi-tenancy
-
-User data sources are **tenant-isolated** by default. Each tenant's calls to `Database.getConnection()` resolve to its own pool. The SystemDB stays system-level. See [`/help/concepts/multi-tenancy`](/help/concepts/multi-tenancy).
 
 ## Supported databases
 

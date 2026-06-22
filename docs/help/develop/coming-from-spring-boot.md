@@ -31,6 +31,191 @@ The big mental shift: your `.java` files are **client code** that the platform c
 | Spring Security context / principal | `User` (`sdk.security.User`) | Static accessors for the current user. |
 | `@PostConstruct` / `@PreDestroy` | `@PostConstruct` / `@PreDestroy` (`jakarta.annotation`) | Same lifecycle callbacks. |
 
+## Side-by-side: implementing each artifact
+
+For jobs, listeners, and websockets Dirigible offers **two styles**: a self-describing **strong interface**, or **method-level annotations** on a `@Component`. A single `@Component` class uses one style or the other - never both. Pick the interface style when the class *is* the handler; pick the annotation style when you want several handlers (or injected collaborators) on one bean.
+
+### Listener
+
+**Strong interface** - implement `MessageHandler`, supply your own `destination()`:
+
+```java
+@Component
+public class OrderListener implements MessageHandler {
+
+    @Override
+    public String destination() {
+        return "java-order-queue";
+    }
+
+    @Override
+    public void onMessage(String message) {
+        LOGGER.info("OrderListener received: {}", message);
+    }
+}
+```
+
+**Method-level** - `@Listener` on a `@Component` method (Spring's `@JmsListener` shape):
+
+```java
+@Component
+public class InvoiceListener {
+
+    private final Auditor auditor;
+
+    public InvoiceListener(Auditor auditor) {
+        this.auditor = auditor;
+    }
+
+    @Listener(name = "java-invoice-queue", kind = ListenerKind.QUEUE)
+    public void onInvoice(String message) {
+        auditor.record("invoice received: " + message);
+    }
+}
+```
+
+Sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator) (branch `feat/spring-style-listeners`).
+
+### Job
+
+**Strong interface** - implement `JobHandler`, supply your own `cron()`:
+
+```java
+@Component
+public class CleanupJob implements JobHandler {
+
+    @Override
+    public String cron() {
+        return "* * * * * ?";
+    }
+
+    @Override
+    public void run() {
+        LOGGER.info("CleanupJob executed!");
+    }
+}
+```
+
+**Method-level** - `@Scheduled` on a `@Component` method:
+
+```java
+@Component
+public class Maintenance {
+
+    @Scheduled(expression = "0/45 * * * * ?")
+    public void purgeTempFiles() {
+        LOGGER.info("Maintenance.purgeTempFiles executed!");
+    }
+}
+```
+
+Sample: [`dirigiblelabs/sample-java-job-decorator`](https://github.com/dirigiblelabs/sample-java-job-decorator) (branch `feat/spring-style-jobs`).
+
+### WebSocket
+
+**Strong interface** - implement `WebsocketHandler`, supply your own `endpoint()`; override only the callbacks you need:
+
+```java
+@Component
+public class ChatHandler implements WebsocketHandler {
+
+    @Override
+    public String endpoint() {
+        return "java-chat";
+    }
+
+    @Override
+    public void onMessage(String message, String from) {
+        System.out.println("ChatHandler: " + from + " says: " + message);
+    }
+}
+```
+
+**Annotation** - `@Websocket(endpoint = …)` class with `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` methods (a non-void `@OnMessage` return is sent back to the client):
+
+```java
+@Websocket(name = "Java Ticker", endpoint = "java-ticker")
+public class TickerHandler {
+
+    @OnOpen
+    public void opened() {
+        System.out.println("TickerHandler: client connected");
+    }
+
+    @OnMessage
+    public String message(String message, String from) {
+        return "tick: " + message;
+    }
+}
+```
+
+Sample: [`dirigiblelabs/sample-java-websocket-decorator`](https://github.com/dirigiblelabs/sample-java-websocket-decorator) (branch `feat/spring-style-websockets`).
+
+### Controller
+
+A `@Controller` with method-level verb annotations; the return value is serialized as the response body:
+
+```java
+@Controller
+public class CountryController {
+
+    private final CountryRepository countries;
+
+    public CountryController(CountryRepository countries) {
+        this.countries = countries;
+    }
+
+    @Get("/{id}")
+    public Country find(@PathParam("id") long id) {
+        return countries.findById(id);
+    }
+}
+```
+
+See [REST APIs](/help/develop/rest-apis).
+
+### Repository
+
+A **concrete class** extending `JavaRepository<T>`, marked `@Repository` (not a Spring-Data interface). You get typed CRUD plus `query(hql, params)`:
+
+```java
+@Repository
+public class CountryRepository extends JavaRepository<Country> {
+}
+```
+
+See [Entities and persistence](/help/develop/entities-and-persistence).
+
+### Extension
+
+No annotation: the **extension point is a plain interface**, a **contribution is a `@Component`** implementing it, and consumers receive all contributions via `List<…>` injection:
+
+```java
+public interface SampleExtensionPoint {
+    String describe();
+}
+
+@Component("sample-contribution")
+public class SampleContribution implements SampleExtensionPoint {
+    @Override
+    public String describe() {
+        return "Hello from SampleContribution!";
+    }
+}
+
+@Controller
+public class InjectingConsumer {
+
+    private final List<SampleExtensionPoint> contributions;
+
+    public InjectingConsumer(List<SampleExtensionPoint> contributions) {
+        this.contributions = contributions;
+    }
+}
+```
+
+Sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) (branch `feat/spring-style-extension-injection`). See [Extension providers](/help/develop/extension-providers).
+
 ## Key differences
 
 1. **Two handler styles, never mixed on one `@Component`.** For jobs, listeners, and websockets you either implement the self-describing interface (`JobHandler` / `MessageHandler` / `WebsocketHandler`) **or** use method-level annotations (`@Scheduled` / `@Listener` / `@OnMessage` …). The engine rejects a class that carries both shapes.

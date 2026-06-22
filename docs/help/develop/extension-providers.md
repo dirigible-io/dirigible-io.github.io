@@ -9,17 +9,18 @@ The extensions mechanism lets one piece of code declare a pluggable contract and
 
 Two coexisting forms:
 
-- **Typed Java** - an interface marked with `@ExtensionPoint` defines the contract; classes marked with `@Extension(target = ContractInterface.class)` plug in. Discovered with `Extensions.find(Class)`. Preferred for Java code.
-- **String-keyed artefacts** - `*.extensionpoint` declares a named point; `*.extension` registers a JS / TS / Java module against the named point. Discovered with `Extensions.getExtensions(String)`. Used by older code and by TypeScript-side extensions.
+- **Typed Java** - an **extension point is a plain Java interface**; a **contribution is a `@Component` bean that implements it**. Consumers receive all contributions via collection injection (`List<SampleExtensionPoint>`) or `Extensions.find(Class)`. Preferred for Java code.
+- **String-keyed artefacts** - `*.extensionpoint` declares a named point; `*.extension` registers a JS / TS module against the named point. Discovered with `Extensions.getExtensions(String)`. Used by TypeScript-side extensions and by older code.
 
 ## Typed Java extensions
 
 ### Declare the contract
 
-```java
-import org.eclipse.dirigible.sdk.extensions.ExtensionPoint;
+An extension point is just a plain Java interface - no annotation:
 
-@ExtensionPoint("Sample Java extension point")
+```java
+package demo.extension;
+
 public interface SampleExtensionPoint {
 
     String describe();
@@ -28,10 +29,14 @@ public interface SampleExtensionPoint {
 
 ### Contribute an implementation
 
-```java
-import org.eclipse.dirigible.sdk.extensions.Extension;
+A contribution is a `@Component` bean that implements the interface - no extra annotation. The contribution's name is its `@Component` name:
 
-@Extension(target = SampleExtensionPoint.class, name = "sample-contribution")
+```java
+package demo.extension;
+
+import org.eclipse.dirigible.sdk.component.Component;
+
+@Component("sample-contribution")
 public class SampleContribution implements SampleExtensionPoint {
 
     @Override
@@ -41,13 +46,17 @@ public class SampleContribution implements SampleExtensionPoint {
 }
 ```
 
-The runtime validates that `SampleContribution` implements `SampleExtensionPoint` at registration time. Consumers receive instances cast to the interface - no reflection.
+Consumers receive instances typed as the interface - no reflection, no `Map` payloads.
 
-### Consume via collection injection (recommended)
+### Consume at runtime
 
-Because every `@Extension` provider is a managed bean, the Spring-style way to receive all implementations is to inject a `List<SampleExtensionPoint>` into a `@Controller` or `@Component`. The container populates it with every bean assignable to the interface:
+#### Java
+
+**Collection injection (preferred).** Because every contribution is a `@Component`, the Spring-style way to receive all implementations is to inject a `List<SampleExtensionPoint>` through the constructor of a `@Controller` or `@Component`. The container populates it with every bean assignable to the interface:
 
 ```java
+package demo.extension;
+
 import java.util.List;
 
 import org.eclipse.dirigible.sdk.http.Controller;
@@ -71,11 +80,11 @@ public class InjectingConsumer {
 }
 ```
 
-### Discover programmatically
-
-When you cannot inject - or want to look up providers at an arbitrary point - `Extensions.find(Class)` returns them directly:
+**`Extensions.find(Class)` (programmatic alternative).** When you cannot inject - or want to look up providers at an arbitrary point - `Extensions.find(Class)` returns them directly:
 
 ```java
+package demo.extension;
+
 import java.util.List;
 
 import org.eclipse.dirigible.sdk.extensions.Extensions;
@@ -86,7 +95,7 @@ import org.eclipse.dirigible.sdk.http.Get;
 public class ExtensionConsumer {
 
     @Get("/contributions")
-    public List<String> listContributions() {
+    public List<String> listContributions() throws Exception {
         return Extensions.find(SampleExtensionPoint.class)
                          .stream()
                          .map(SampleExtensionPoint::describe)
@@ -95,9 +104,22 @@ public class ExtensionConsumer {
 }
 ```
 
-`Extensions.find` and the string-keyed `Extensions.getExtensions` below also work across runtimes (TypeScript providers, JS/TS module extensions) and remain available for back-compatibility, so prefer them when the consumer must see providers that injection cannot reach.
+`Extensions.find` also works across runtimes and remains available for back-compatibility, so prefer it when the consumer must see providers that injection cannot reach.
 
-**Sample project:** [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) - `SampleExtensionPoint` + `SampleContribution`, consumed both by `ExtensionConsumer` (`Extensions.find`) and `InjectingConsumer` (constructor `List<SampleExtensionPoint>` collection injection). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
+#### TypeScript / JavaScript
+
+TypeScript-side extensions use the string-keyed artefacts described below; `Extensions.getExtensions(String)` returns the registry paths of the contributing modules:
+
+```ts
+import { Extensions } from "@aerokit/sdk/extensions";
+
+const modules = Extensions.getExtensions("my-app-menu-items");
+for (const m of modules) {
+    // m is the registry path of a contributing module; load and invoke as appropriate
+}
+```
+
+**Sample project:** [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) (branch `feat/spring-style-extension-injection`) - `SampleExtensionPoint` (plain interface) + `SampleContribution` (`@Component("sample-contribution")`), consumed both by `InjectingConsumer` (constructor `List<SampleExtensionPoint>` collection injection) and `ExtensionConsumer` (`Extensions.find`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 ## String-keyed artefacts
 
@@ -134,12 +156,6 @@ for (const m of modules) {
 }
 ```
 
-```java
-import org.eclipse.dirigible.sdk.extensions.Extensions;
-
-String[] modules = Extensions.getExtensions("my-app-menu-items");
-```
-
 ## When to use this
 
 - IDE chrome - pluggable menu items, perspectives, views.
@@ -150,9 +166,8 @@ For typed wiring within a single project, prefer [dependency injection](/help/de
 
 ## See also
 
-- Working sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
+- Working sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) (branch `feat/spring-style-extension-injection`).
 - [SDK reference](https://www.dirigible.io/sdk/).
-- [`@ExtensionPoint` / `@Extension`](/sdk/extensions/decorators)
 - [`Extensions`](/sdk/extensions/extensions)
 - [Extension point artefact](/help/artefacts/extensibility/extensionpoint)
 - [Extension artefact](/help/artefacts/extensibility/extension)
