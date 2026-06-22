@@ -13,13 +13,9 @@ The [Git perspective](/help/ide/perspectives/git) provides the everyday flow: cl
 
 ## From user code
 
-```ts
-import { Git } from "@aerokit/sdk/git";
+Both runtimes expose the same `Git` facade with matching method signatures.
 
-Git.cloneRepository("myws", "https://github.com/acme/svc.git", "user", "token", "main");
-Git.commit("alice", "alice@acme.com", "myws", "svc", "tighten validation", true);
-Git.push("myws", "svc", "user", "token");
-```
+### Java
 
 ```java
 import org.eclipse.dirigible.sdk.git.Git;
@@ -38,7 +34,19 @@ import java.util.List;
 List<GitCommitInfo> history = Git.getHistory("svc", "myws", "src/Main.java");
 ```
 
+### TypeScript / JavaScript
+
+```ts
+import { Git } from "@aerokit/sdk/git";
+
+Git.cloneRepository("myws", "https://github.com/acme/svc.git", "user", "token", "main");
+Git.commit("alice", "alice@acme.com", "myws", "svc", "tighten validation", true);
+Git.push("myws", "svc", "user", "token");
+```
+
 ## File content at a specific revision
+
+The same `Git` facade reads a file at a given revision on both runtimes - the Java form:
 
 ```java
 String content = Git.getFileContent("myws", "svc", "src/Main.java", "HEAD~3");
