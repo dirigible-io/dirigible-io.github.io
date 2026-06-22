@@ -941,6 +941,7 @@ function sdkSidebar() {
           collapsed: true,
           link: '/sdk/component/',
           items: [
+            { text: 'Beans', link: '/sdk/component/beans' },
             { text: 'Decorators', link: '/sdk/component/decorators' },
           ],
         },

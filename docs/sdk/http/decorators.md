@@ -61,7 +61,7 @@ Marks a Java class as a REST controller. Methods annotated with `@Get`, `@Post`,
 
 The base URL is derived from the class's fully-qualified name (the same path used by `JavaEndpoint`): `/services/java/<project>/<package-path>/<ClassName>`. Each method annotation contributes the trailing suffix; the HTTP method comes from the annotation type.
 
-A controller class must be public, have a public no-arg constructor, and must not also implement `JavaHandler` - the two dispatch styles are mutually exclusive.
+A controller is a managed bean - it is registered like a [`@Component`](/sdk/component/decorators) and supports constructor injection (`@Inject` its collaborators), so it does **not** require a no-arg constructor. A controller class must be public and must not also implement `JavaHandler` - the two dispatch styles are mutually exclusive.
 
 ```java
 @Controller
