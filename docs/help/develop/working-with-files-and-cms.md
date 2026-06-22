@@ -66,10 +66,6 @@ const root = session.getRootFolder();
 const doc = root.createDocument({ name: "report.pdf" }, pdfBytes, "application/pdf");
 ```
 
-## Tenant isolation
-
-CMS storage is **tenant-isolated** when multi-tenancy is on (default). Each tenant's CMIS root resolves to its own folder under the configured root. See [`/help/concepts/multi-tenancy`](/help/concepts/multi-tenancy).
-
 ## See also
 
 - [`@aerokit/sdk/io/files`](/api/io/files)

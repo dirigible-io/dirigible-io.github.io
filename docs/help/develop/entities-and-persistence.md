@@ -144,10 +144,6 @@ export class CountryRepository extends Repository<Country> {
 }
 ```
 
-## Tenancy
-
-Entities are stored in the **default user-data datasource**, which is tenant-isolated when `DIRIGIBLE_MULTI_TENANT_MODE` is on. Each tenant has its own physical (or logical) database; the same `@Entity` is reconciled per tenant.
-
 ## See also
 
 - Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
