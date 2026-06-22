@@ -119,7 +119,7 @@ for (const m of modules) {
 }
 ```
 
-**Sample project:** [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) (branch `feat/spring-style-extension-injection`) - `SampleExtensionPoint` (plain interface) + `SampleContribution` (`@Component("sample-contribution")`), consumed both by `InjectingConsumer` (constructor `List<SampleExtensionPoint>` collection injection) and `ExtensionConsumer` (`Extensions.find`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
+**Sample project:** [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) - `SampleExtensionPoint` (plain interface) + `SampleContribution` (`@Component("sample-contribution")`), consumed both by `InjectingConsumer` (constructor `List<SampleExtensionPoint>` collection injection) and `ExtensionConsumer` (`Extensions.find`). SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
 
 ## String-keyed artefacts
 
@@ -166,7 +166,7 @@ For typed wiring within a single project, prefer [dependency injection](/help/de
 
 ## See also
 
-- Working sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) (branch `feat/spring-style-extension-injection`).
+- Working sample: [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator).
 - [SDK reference](https://www.dirigible.io/sdk/).
 - [`Extensions`](/sdk/extensions/extensions)
 - [Extension point artefact](/help/artefacts/extensibility/extensionpoint)
