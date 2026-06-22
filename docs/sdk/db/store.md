@@ -9,7 +9,7 @@
 
 `Store` is the untyped, Hibernate-backed CRUD facade for dynamic entities. Each call addresses an entity by its logical name (matching the `name()` attribute of an `@Entity` annotation on a registered client class) and exchanges data as JSON strings - a convenient shape for scripted callers and for endpoints that proxy arbitrary entity names.
 
-For typed CRUD over an `@Entity`-annotated client class with compile-time field checks, prefer `org.eclipse.dirigible.components.data.store.java.JavaEntityStore` (resolve it through `BeanProvider.getBean(JavaEntityStore.class)` inside a controller method). The two stores sit on the same Hibernate session - changes from one are immediately visible to the other.
+For typed CRUD over an `@Entity`-annotated client class with compile-time field checks, prefer a `@Repository` extending `JavaRepository<T>` and inject it. To reach the underlying `JavaEntityStore` directly, resolve it with `Beans.get(JavaEntityStore.class)` inside a bean method - use the client-facing `Beans` facade, not the platform-internal `BeanProvider`. The two stores sit on the same Hibernate session - changes from one are immediately visible to the other.
 
 ### Key Features:
 - **Entity-by-name addressing**: Operate on any registered `@Entity` without compile-time coupling to its class.
