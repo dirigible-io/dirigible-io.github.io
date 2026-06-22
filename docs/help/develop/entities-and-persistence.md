@@ -28,24 +28,9 @@ Both paths end up in the same Hibernate `SessionFactory`, rooted at the default 
 | `@UpdatedBy` | Auto-populated with `UserFacade.getName()` on update. |
 | `@Documentation("...")` | Free-text description; surfaces in OpenAPI. |
 
-## TypeScript and Java side by side
+## Defining an entity
 
-```ts
-import { Entity, Table, Id, Generated, Column } from "@aerokit/sdk/db/decorators";
-
-@Entity("Country")
-@Table("SAMPLE_COUNTRY")
-export class Country {
-
-  @Id()
-  @Generated("sequence")
-  @Column({ name: "COUNTRY_ID", type: "long" })
-  public id?: number;
-
-  @Column({ name: "COUNTRY_NAME", type: "string" })
-  public name?: string;
-}
-```
+### Java
 
 ```java
 package demo;
@@ -81,11 +66,32 @@ public class Country {
 }
 ```
 
+### TypeScript / JavaScript
+
+```ts
+import { Entity, Table, Id, Generated, Column } from "@aerokit/sdk/db/decorators";
+
+@Entity("Country")
+@Table("SAMPLE_COUNTRY")
+export class Country {
+
+  @Id()
+  @Generated("sequence")
+  @Column({ name: "COUNTRY_ID", type: "long" })
+  public id?: number;
+
+  @Column({ name: "COUNTRY_NAME", type: "string" })
+  public name?: string;
+}
+```
+
 ## Repository pattern
 
 The recommended pattern is to subclass `JavaRepository<T>` (Java) or `Repository<T>` (TypeScript). Both deliver typed CRUD plus `findAll`, `findById`, `save`, `update`, `delete`, `deleteById`, `count`, and `query`/HQL out of the box.
 
-**Java** - `@Repository` registers the class as a singleton; `JavaRepository<T>` is the typed CRUD base:
+### Java
+
+`@Repository` registers the class as a singleton; `JavaRepository<T>` is the typed CRUD base:
 
 ```java
 import org.eclipse.dirigible.sdk.component.Repository;
@@ -119,11 +125,11 @@ public class CountryController {
 }
 ```
 
-Field `@Inject` on the repository works too; see [Dependency injection](/help/develop/dependency-injection).
+Field `@Inject` on the repository works too; see [Dependency injection](/help/develop/dependency-injection). Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
 
-Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
+### TypeScript / JavaScript
 
-**TypeScript** - `Repository<T>` is auto-generated; subclass it via `@Component`:
+`Repository<T>` is auto-generated; subclass it via `@Component`:
 
 ```ts
 import { Repository } from "@aerokit/sdk/db";

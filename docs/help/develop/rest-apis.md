@@ -31,25 +31,9 @@ Type coercion handles `String`, primitive numerics, `UUID`, enums, and `boolean`
 - `String` / `CharSequence` - written as `text/plain`.
 - Anything else - serialized as JSON via Jackson.
 
-## TypeScript and Java side by side
+## Example
 
-```ts
-import { Controller, Get, Post, Body, PathParam } from "@aerokit/sdk/http/decorators";
-
-@Controller("/countries")
-class CountryController {
-
-  @Get("/{id}")
-  public byId(@PathParam("id") id: number) {
-    return { id, name: "..." };
-  }
-
-  @Post("/")
-  public create(@Body country: { name: string }) {
-    return country;
-  }
-}
-```
+### Java
 
 ```java
 package demo;
@@ -102,7 +86,29 @@ public class CountryController {
 
 A `@Controller` is a managed bean, so it receives its repository or service through the constructor or via field `@Inject` (shown above). See [Dependency injection](/help/develop/dependency-injection) for the full picture.
 
-**Sample project:** [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators) - `CountryController` over a `JavaRepository`-backed `CountryRepository`. SDK reference: [`/sdk/`](https://www.dirigible.io/sdk/).
+**Sample project:** [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators) - `CountryController` over a `JavaRepository`-backed `CountryRepository`. SDK reference: [`/sdk/http/`](https://www.dirigible.io/sdk/http/).
+
+### TypeScript / JavaScript
+
+```ts
+import { Controller, Get, Post, Body, PathParam } from "@aerokit/sdk/http/decorators";
+
+@Controller("/countries")
+class CountryController {
+
+  @Get("/{id}")
+  public byId(@PathParam("id") id: number) {
+    return { id, name: "..." };
+  }
+
+  @Post("/")
+  public create(@Body country: { name: string }) {
+    return country;
+  }
+}
+```
+
+API reference: [TypeScript API - http](/api/http/).
 
 ## Role-protected endpoints
 

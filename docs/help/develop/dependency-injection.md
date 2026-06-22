@@ -24,7 +24,7 @@ public class GreetingService {
 }
 ```
 
-`@Repository`, `@Controller`, `@Extension`, `@Scheduled`, `@Listener`, and `@Websocket` are all **meta-annotated** with `@Component`, so every one of them is a bean and participates in injection without any extra annotation.
+`@Repository`, `@Controller`, and `@Websocket` are beans in their own right - you do not add `@Component` to them; they already participate in injection.
 
 ### Constructor injection (preferred)
 
@@ -105,7 +105,11 @@ For entity CRUD the recommended pattern stays `@Repository extends JavaRepositor
 
 ### How it is wired
 
-A single `ComponentContainer` builds all beans per `ClientClassLoader` generation. On each rebuild it discovers the `@Component`-annotated classes (including the meta-annotated `@Repository` / `@Controller` / `@Scheduled` / …), instantiates them, and satisfies constructor, field, and collection injection points by type - so any bean can depend on any other regardless of declaration order. A fresh container is built for every generation; the previous one is discarded with its classloader.
+You only declare the dependencies; the platform wires them. The guarantees you can rely on:
+
+- Beans are **singletons** within the application.
+- Every injection point - constructor parameter, `@Inject` field, or collection - is resolved **by type**, so a bean can depend on any other **regardless of declaration order**.
+- Beans are **rebuilt automatically when you change client code** (hot reload); `@PostConstruct` runs once a bean is fully wired and `@PreDestroy` before the previous version is replaced.
 
 ### Example
 
