@@ -23,22 +23,27 @@ A JSON descriptor under the project points at a JS/TS/Java handler module and su
 
 Stop / start / reschedule from the Jobs perspective.
 
-## `@Scheduled` annotation
+## `@Component` job
 
-The modern approach is a class with a no-arg `public void run()` method:
+The modern approach is a `@Component` bean. There are exactly **two** styles. A class uses **one or the other, never both** - the engine rejects a class that mixes them.
 
-**Java** - two equivalent styles.
+**Java**
 
-Strong interface - a class annotated `@Scheduled` that implements `JobHandler`:
+**Style 1 - self-describing interface.** A `@Component` that implements `JobHandler`. The interface carries the binding itself: `cron()` returns the schedule and `run()` does the work, so **no class-level `@Scheduled`** is used. This mirrors Spring's `org.quartz.Job`.
 
 ```java
 package com.acme.demo;
 
+import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.job.JobHandler;
-import org.eclipse.dirigible.sdk.job.Scheduled;
 
-@Scheduled(expression = "0 0 * * * ?")
+@Component
 public class NightlyJob implements JobHandler {
+
+    @Override
+    public String cron() {
+        return "0 0 * * * ?";
+    }
 
     @Override
     public void run() {
@@ -47,7 +52,7 @@ public class NightlyJob implements JobHandler {
 }
 ```
 
-Method-level - `@Scheduled` on a method of a `@Component` bean (Spring `@Scheduled` style), so a single bean can hold several jobs alongside other logic and inject collaborators:
+**Style 2 - method-level `@Scheduled`.** `@Scheduled(expression = "…")` on a public no-arg method of a `@Component` (Spring `@Scheduled` style), so a single bean can hold several jobs alongside other logic and inject collaborators:
 
 ```java
 package com.acme.demo;
@@ -65,7 +70,7 @@ public class MaintenanceJobs {
 }
 ```
 
-`JobHandler` is the optional typed contract for `run()`. Implementing it (or using the method-level annotation) gives compile-time signature checking and a direct (non-reflective) dispatch path. The legacy plain `run()`-by-name convention still works - the runtime falls back to reflection when neither is present. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
+Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/job/decorators`](/sdk/job/decorators) for details.
 
 **TypeScript:**
 

@@ -21,9 +21,9 @@ Dirigible's modern development model is **decorator-driven on TypeScript** and *
 | Managed bean | `@Component("Name")` | `@Component` (optional name) |
 | Repository / DI | `@Component("CountryRepository")` | `@Repository` (a `@Component`) |
 | Inject | `@Inject("CountryRepository")` | `@Inject` (field / constructor / parameter) or constructor injection |
-| Scheduled job | `@Scheduled(...)` | `@Scheduled` on a class implementing `JobHandler`, or on a method of a `@Component` |
-| Message listener | `@Listener(...)` | `@Listener` on a class implementing `MessageHandler`, or on a method of a `@Component` |
-| Websocket | `@Websocket(...)` | `@Websocket` on a class implementing `WebsocketHandler`, or `@OnOpen`/`@OnMessage`/`@OnError`/`@OnClose` methods of a `@Component` |
+| Scheduled job | `@Scheduled(...)` | `@Component` implementing `JobHandler` (self-describing `cron()`), or `@Scheduled` on a method of a `@Component` |
+| Message listener | `@Listener(...)` | `@Component` implementing `MessageHandler` (self-describing `destination()`/`kind()`), or `@Listener` on a method of a `@Component` |
+| Websocket | `@Websocket(...)` | `@Component` implementing `WebsocketHandler` (self-describing `endpoint()`), or a `@Websocket` class with `@OnOpen`/`@OnMessage`/`@OnError`/`@OnClose` methods |
 | Extension point | `@ExtensionPoint("description")` on an interface | `@ExtensionPoint("description")` on an interface |
 | Extension provider | `@Extension({target: Contract})` | `@Extension(target=Contract.class, name="...")` |
 | Role check | `@Roles(["admin"])` | `@Roles({"admin"})` |
@@ -34,9 +34,14 @@ The mechanism behind each declaration is the same: at class-load time the platfo
 
 On the Java side a single `ComponentContainer` builds all beans per `ClientClassLoader` generation. Because `@Repository`, `@Controller`, `@Scheduled`, `@Listener`, `@Websocket`, and `@Extension` are all meta-annotated `@Component`, they are beans too - the container instantiates them, satisfies constructor / field / collection injection by type, and then registers each with its service (`@Entity` → `JavaEntityManager`, `@Controller` routes → `ControllerRouter`, and so on). Injection is order-independent: any bean can depend on any other regardless of declaration order, so `@Inject CountryRepository` (or a `CountryRepository` constructor parameter) always resolves within the same rebuild cycle.
 
-### Strong interfaces or method-level annotations
+### Two handler styles - never mixed
 
-`@Scheduled`, `@Listener`, and `@Websocket` each ship a companion interface in the SDK (`JobHandler`, `MessageHandler`, `WebsocketHandler`) - implement it for compile-time signature checking, IDE autocomplete, default no-op callbacks, and direct (non-reflective) dispatch. Alternatively, annotate a **method** of a `@Component` bean: `@Scheduled` / `@Listener` on a method (Spring `@Scheduled` / `@JmsListener` style), or `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` for websockets. The legacy method-by-name reflective convention remains as a fallback, so existing handlers keep working unchanged. See the per-decorator pages under `/sdk/` for details.
+Jobs, listeners, and websockets each support exactly **two** declaration styles, and a single `@Component` class uses one or the other - **never both** (the engine rejects a class that mixes them):
+
+1. **Self-describing interface.** Implement the SDK companion interface (`JobHandler`, `MessageHandler`, `WebsocketHandler`) on a `@Component`. The interface carries the binding itself - `cron()`, `destination()` / `kind()`, `endpoint()` - so **no class-level `@Scheduled` / `@Listener` / `@Websocket`** is used. This mirrors Spring's `org.quartz.Job`, `jakarta.jms.MessageListener`, and `TextWebSocketHandler`. You get compile-time signature checking, IDE autocomplete, and default no-op callbacks.
+2. **Method-level annotation.** Annotate a **method** of a `@Component` bean: `@Scheduled` / `@Listener` on a method (Spring `@Scheduled` / `@JmsListener` style). Websockets are the asymmetric case - `@Websocket(endpoint = "…")` stays a **class** annotation (the endpoint has no method-level home, like Jakarta's `@ServerEndpoint`) and the callbacks are bound by `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose`.
+
+Both styles dispatch directly; there is no reflective by-name fallback. See the per-decorator pages under `/sdk/` for details.
 
 On the TypeScript side, dedicated synchronizers (`ComponentSynchronizer`, `EntitySynchronizer`, `OpenAPISynchronizer`, plus the listener / job / websocket / extension synchronizers) scan files matching `*Component.ts`, `*Entity.ts`, `*Controller.ts`, etc. and do the same registration work.
 

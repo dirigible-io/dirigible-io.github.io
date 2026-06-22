@@ -7,23 +7,33 @@ description: JMS-style listeners over the embedded ActiveMQ broker.
 
 `engine-listeners` runs message-bus listeners against the embedded ActiveMQ broker. Two declaration styles are supported.
 
-## `@Listener` annotation
+## `@Component` listener
 
-A class with an `onMessage(String)` method, annotated with the queue or topic name and the kind.
+A listener is a `@Component` bean. There are exactly **two** styles. A class uses **one or the other, never both** - the engine rejects a class that mixes them.
 
-**Java** - two equivalent styles.
+**Java**
 
-Strong interface - a class annotated `@Listener` that implements `MessageHandler`:
+**Style 1 - self-describing interface.** A `@Component` that implements `MessageHandler`. The interface carries the binding itself: `destination()` names the queue or topic, `kind()` (a `default`, `QUEUE`) selects the semantics, and `onMessage(String)` handles the message (plus a `default onError(String)`), so **no class-level `@Listener`** is used. This mirrors `jakarta.jms.MessageListener`.
 
 ```java
 package com.acme.demo;
 
-import org.eclipse.dirigible.sdk.messaging.Listener;
+import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.messaging.ListenerKind;
 import org.eclipse.dirigible.sdk.messaging.MessageHandler;
 
-@Listener(name = "queue.orders", kind = ListenerKind.QUEUE)
+@Component
 public class OrderListener implements MessageHandler {
+
+    @Override
+    public String destination() {
+        return "queue.orders";
+    }
+
+    @Override
+    public ListenerKind kind() {
+        return ListenerKind.QUEUE;
+    }
 
     @Override
     public void onMessage(String body) {
@@ -32,7 +42,7 @@ public class OrderListener implements MessageHandler {
 }
 ```
 
-Method-level - `@Listener` on a method of a `@Component` bean (Spring `@JmsListener` style), so a single bean can hold several listeners and inject collaborators:
+**Style 2 - method-level `@Listener`.** `@Listener(name = "…", kind = …)` on a public `void m(String)` method of a `@Component` (Spring `@JmsListener` style), so a single bean can hold several listeners and inject collaborators:
 
 ```java
 package com.acme.demo;
@@ -51,7 +61,7 @@ public class OrderListeners {
 }
 ```
 
-`MessageHandler` is the optional typed contract for the listener callbacks - `onMessage(String)` plus a `default onError(String) {}`. Implementing it (or using the method-level annotation) gives compile-time signature checking and a direct dispatch path; otherwise the runtime falls back to reflective `onMessage` / `onError` lookup. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
+Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/messaging/decorators`](/sdk/messaging/decorators) for details.
 
 **TypeScript:**
 

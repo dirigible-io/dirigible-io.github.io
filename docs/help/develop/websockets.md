@@ -7,22 +7,27 @@ description: Server WebSocket endpoints over STOMP.
 
 `engine-websockets` exposes user-defined endpoints under `/websockets/stomp/<suffix>`. Two declaration styles are supported.
 
-## `@Websocket` annotation
+## `@Component` endpoint
 
-A class exposing any combination of `onOpen()`, `onMessage(String, String)`, `onError(String)`, `onClose()`.
+An endpoint is a `@Component` bean. There are exactly **two** styles. A class uses **one or the other, never both** - the engine rejects a class that mixes them.
 
-**Java** - two equivalent styles.
+**Java**
 
-Strong interface - a class annotated `@Websocket` that implements `WebsocketHandler`:
+**Style 1 - self-describing interface.** A `@Component` that implements `WebsocketHandler`. The interface carries the binding itself: `endpoint()` returns the path suffix, and the four lifecycle callbacks (`onOpen` / `onMessage` / `onError` / `onClose`) are `default` no-ops you override only as needed, so **no class-level `@Websocket`** is used. This mirrors Spring's `TextWebSocketHandler`.
 
 ```java
 package com.acme.demo;
 
-import org.eclipse.dirigible.sdk.net.Websocket;
+import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.net.WebsocketHandler;
 
-@Websocket(name = "chat", endpoint = "chat")
+@Component
 public class ChatEndpoint implements WebsocketHandler {
+
+    @Override
+    public String endpoint() {
+        return "chat";
+    }
 
     @Override
     public void onMessage(String message, String sessionId) {
@@ -33,17 +38,15 @@ public class ChatEndpoint implements WebsocketHandler {
 }
 ```
 
-Method-level - `@Websocket` on a `@Component` bean with the lifecycle callbacks bound by the `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` method annotations, so the bean only declares the callbacks it needs and can inject collaborators:
+**Style 2 - `@Websocket` class with method-level callbacks.** A `@Websocket(endpoint = "…")` class whose lifecycle callbacks are bound by the `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` method annotations, so the bean only declares the callbacks it needs and can inject collaborators. Note the asymmetry: `@Websocket` remains a **class** annotation here because the endpoint has no method-level home (like Jakarta's `@ServerEndpoint`).
 
 ```java
 package com.acme.demo;
 
-import org.eclipse.dirigible.sdk.component.Component;
 import org.eclipse.dirigible.sdk.net.Websocket;
 import org.eclipse.dirigible.sdk.net.OnMessage;
 
-@Component
-@Websocket(name = "chat", endpoint = "chat")
+@Websocket(endpoint = "chat")
 public class ChatEndpoint {
 
     @OnMessage
@@ -53,7 +56,7 @@ public class ChatEndpoint {
 }
 ```
 
-`WebsocketHandler` is the optional typed contract for the four lifecycle callbacks. All its methods are `default` no-ops, so handlers only override what they need - no empty stubs. The method-level `@OnOpen` / `@OnMessage` / `@OnError` / `@OnClose` annotations are the alternative. Classes that use neither still work via the legacy method-by-name reflective dispatch. See [`/sdk/net/decorators`](/sdk/net/decorators) for details.
+Both styles give compile-time signature checking and a direct dispatch path. There is no reflective by-name fallback. See [`/sdk/net/decorators`](/sdk/net/decorators) for details.
 
 **TypeScript:**
 
