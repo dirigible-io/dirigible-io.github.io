@@ -214,6 +214,19 @@ Every style above ships as a working, cloneable sample - each now exercised by a
 - [`dirigiblelabs/sample-java-websocket-decorator`](https://github.com/dirigiblelabs/sample-java-websocket-decorator) - `WebsocketHandler` and `@Websocket` + `@OnX`.
 - [`dirigiblelabs/sample-java-extension-decorator`](https://github.com/dirigiblelabs/sample-java-extension-decorator) - a plain-interface extension point consumed by collection injection.
 
-The annotations and facades live under `org.eclipse.dirigible.sdk.*`; the full reference is at [`/sdk/`](https://www.dirigible.io/sdk/).
+## Read the docs
+
+Coming to this from a Spring Boot background? Start with the **[Coming from Spring Boot](/help/develop/coming-from-spring-boot)** guide. It is written for exactly that reader: a construct-by-construct map from Spring/Jakarta to Dirigible, with a runnable example of every artifact shown in *both* styles - the fastest way to translate what your fingers already know.
+
+Then go as deep as you need on each piece:
+
+- [Dependency injection](/help/develop/dependency-injection) - `@Component`, constructor / field / collection injection, the `Beans` facade.
+- [REST APIs](/help/develop/rest-apis) - `@Controller` routing, parameter binding, OpenAPI.
+- [Entities and persistence](/help/develop/entities-and-persistence) - `@Entity` / `@Repository` / `JavaRepository<T>`.
+- [Scheduled jobs](/help/develop/scheduled-jobs), [Message listeners](/help/develop/message-listeners), [Websockets](/help/develop/websockets) - the two handler styles for each.
+- [Extension providers](/help/develop/extension-providers) - annotation-free extension points.
+- [Security and roles](/help/develop/security-and-roles) - `@Roles`, anonymous mode, reading the current user.
+
+The annotations and facades live under `org.eclipse.dirigible.sdk.*`; the full API reference is at [`/sdk/`](https://www.dirigible.io/sdk/).
 
 Two languages, one platform, one container. Your Java now thinks in beans - and you already knew how.
