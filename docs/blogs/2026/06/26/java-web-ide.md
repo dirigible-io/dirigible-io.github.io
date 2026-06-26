@@ -18,7 +18,7 @@ Now the editor has caught up - and then some. The Dirigible web IDE now speaks J
 
 Here's what landed.
 
-![The Dirigible web IDE editing a Java controller, with a type-aware completion popup listing the injected service's own methods](../../../../images/java-web-ide/overview.png)
+<video src="../../../../images/java-web-ide/completion.mp4" poster="../../../../images/java-web-ide/overview.png" autoplay loop muted playsinline aria-label="Typing in a Java controller and the type-aware completion popup listing the injected service's own methods"></video>
 
 ## Autocomplete that's actually read your code
 
@@ -80,7 +80,7 @@ Yes, really. Click the glyph margin to drop a breakpoint, and the IDE attaches t
 
 Debugging server-side Java, from a browser, against the very instance you're building in. No remote-debug launch config to hand-assemble.
 
-![Execution paused at a breakpoint: the highlighted current line in the editor, with the call stack, variables and breakpoints in the in-browser debugger](../../../../images/java-web-ide/debug.png)
+<video src="../../../../images/java-web-ide/debug.mp4" poster="../../../../images/java-web-ide/debug.png" autoplay loop muted playsinline aria-label="Attaching the debugger, hitting a breakpoint and stepping: the highlighted line, call stack, variables and breakpoints in the in-browser debugger"></video>
 
 ## Save. That's the whole loop.
 
