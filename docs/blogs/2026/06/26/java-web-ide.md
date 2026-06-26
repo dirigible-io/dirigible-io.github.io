@@ -14,9 +14,11 @@ There was a quiet catch. You were writing all that beautiful, annotated, depende
 
 Now the editor has caught up - and then some. The Dirigible web IDE now speaks Java through [Eclipse JDT Language Server](https://github.com/eclipse-jdtls/eclipse.jdt.ls) (the same engine behind Java tooling in every serious editor), wired straight into Monaco in the browser. IntelliSense, refactoring, Call and Type Hierarchies, a live diagnostics panel, and an honest breakpoint debugger. No plugin to install, no SDK to download, no `JAVA_HOME` to argue with. Open a tab, write Java.
 
+![Return of the Java](../../../../images/java-web-ide/java-jedi.jpg)
+
 Here's what landed.
 
-<!-- ![The Dirigible web IDE editing a Java controller, with completion popup](../../../../images/java-web-ide/overview.png) -->
+![The Dirigible web IDE editing a Java controller, with a type-aware completion popup listing the injected service's own methods](../../../../images/java-web-ide/overview.png)
 
 ## Autocomplete that's actually read your code
 
@@ -34,9 +36,9 @@ The rest of the desktop-IDE comfort blanket is there too:
 
 It feels like a desktop IDE because, under the hood, it's the same language server a desktop IDE would use.
 
-## New → Java, and the boilerplate writes itself
+## Right-click → Java, and the boilerplate writes itself
 
-Right-click a project or folder and there's a proper **New → Java** menu. Not "new empty file" - real scaffolding:
+Right-click a project or folder and there's a dedicated **Java** menu. Not "new empty file" - real scaffolding:
 
 - **Package** - type a dotted name and it creates the nested folders.
 - **Class, Interface, Enum, Annotation, Record, Exception** - with the package declaration and type skeleton already filled in from the fully-qualified name you type.
@@ -44,7 +46,7 @@ Right-click a project or folder and there's a proper **New → Java** menu. Not 
 
 Give it `com.acme.orders.OrderController` and you get the folders, the `package` line, the annotation and the class body - then you start typing logic, not ceremony.
 
-<!-- ![The New > Java context menu with class/interface/controller templates](../../../../images/java-web-ide/new-java.png) -->
+![Right-click Java menu: scaffolding for packages, classes, interfaces, records and ready-made Controller, Repository, Job, Listener and WebSocket skeletons](../../../../images/java-web-ide/new-java.png)
 
 ## Navigate like the codebase is on your machine
 
@@ -62,7 +64,7 @@ And the two headliners, in their own **Java** panel at the bottom:
 
 Tracing "what actually triggers this" used to mean a full-text search and a lot of faith. Now it's a tree you can walk.
 
-<!-- ![Call Hierarchy and Type Hierarchy in the bottom Java panel](../../../../images/java-web-ide/hierarchy.png) -->
+![Type Hierarchy in the bottom Java panel: an interface shown with its two implementors as a navigable tree](../../../../images/java-web-ide/hierarchy.png)
 
 ## See every red squiggle before you hit run
 
@@ -70,7 +72,7 @@ The **Problems** panel grew a dedicated **Java** tab fed by live, workspace-wide
 
 Then the part that's pure Dirigible. When you save, the container rebuilds your beans - and if it *can't*, those **bean-wiring errors land in the same Problems panel**: an unsatisfied dependency, an ambiguous type, a construction cycle, a class that illegally mixed two handler styles. The thing that would be a stack trace buried in a server log on a traditional stack is, here, a clickable problem marker in your browser pointing at the offending file. Compile-time *and* wiring-time mistakes, surfaced the same way, before a single request hits your code.
 
-<!-- ![The Problems panel Java tab listing live compile and bean-wiring diagnostics](../../../../images/java-web-ide/problems.png) -->
+![The Problems panel's Java tab: a live, type-aware compile diagnostic with severity filters and an all-projects / current-file scope toggle](../../../../images/java-web-ide/problems.png)
 
 ## Set a breakpoint. In a browser.
 
@@ -78,7 +80,7 @@ Yes, really. Click the glyph margin to drop a breakpoint, and the IDE attaches t
 
 Debugging server-side Java, from a browser, against the very instance you're building in. No remote-debug launch config to hand-assemble.
 
-<!-- ![A paused breakpoint with the variables view and call stack](../../../../images/java-web-ide/debug.png) -->
+![Execution paused at a breakpoint: the highlighted current line in the editor, with the call stack, variables and breakpoints in the in-browser debugger](../../../../images/java-web-ide/debug.png)
 
 ## Save. That's the whole loop.
 
@@ -114,7 +116,7 @@ public class GreetingController {
 ## Try it
 
 1. Start Dirigible, open the IDE, and create or open a project.
-2. Right-click → **New → Java** → `Controller`. Start typing - watch the completion, the auto-imports, the squiggles.
+2. Right-click → **Java** → `Controller`. Start typing - watch the completion, the auto-imports, the squiggles.
 3. Save. Hit your endpoint. Set a breakpoint and step through it.
 
 Prefer to start from working code? Clone any of the samples and publish:
