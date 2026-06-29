@@ -122,10 +122,36 @@ fields:
 | `required` | NOT NULL; the generated REST controller's required-value validation keys on this |
 | `length` | column length for string types |
 | `defaultValue` | column default |
+| `unique` | a UNIQUE constraint (e.g. a code or a business key) |
+| `precision` / `scale` | override the DECIMAL default (16, 2): `{ name: rate, type: decimal, precision: 18, scale: 6 }` |
+| `calculatedOnCreate` / `calculatedOnUpdate` | an expression the generated repository assigns to the property on insert / update |
+| `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
 
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`.
 
 **Primary keys must be an integer type** (`integer` / `int` / `long`). The Dirigible convention is an integer auto-increment id, and a non-integer auto-increment column is invalid SQL - the parser rejects a `uuid` or string PK. `uuid` is fine for non-PK fields.
+
+`audit: true` on an **entity** adds the four standard audit columns (`CreatedAt`, `CreatedBy`, `UpdatedAt`, `UpdatedBy`), populated by the platform's audit annotations.
+
+### Calculated fields
+
+A field value can be derived on insert / update instead of being entered:
+
+- **`calculatedOnCreate` / `calculatedOnUpdate`** - an expression the generated repository assigns to the property. Prefer a **neutral arithmetic expression** for numeric totals (`"Quantity * Price"`, `"round(Net * 0.2, 2)"`): the SDK `Calc` evaluator runs it on the server and the UI previews it live with the same evaluator. A non-numeric field's expression is emitted verbatim, so it must be valid Java for the Java DAO (e.g. `"java.util.UUID.randomUUID().toString()"`).
+- **`calculatedActionOnCreate` / `calculatedActionOnUpdate`** - a server-side call-out for logic too custom to model (conditional / sequential number generation, lookups). The value names a Java class - a `@Component` implementing `org.eclipse.dirigible.sdk.db.CalculatedField<E, T>` (`T calculate(E entity)`) - that the repository invokes via `Beans.get(<class>.class).calculate(entity)`. It runs **server-side only** (no live preview) and **takes precedence** over the expression on the same slot. The implementation is hand-written by you under `custom/` (never `gen/`); the intent emits no Java.
+
+To reference an action class by simple name, the entity declares `imports:` - a multi-line string of Java `import ...;` lines injected verbatim into the generated repository:
+
+```yaml
+entities:
+  - name: SalesInvoice
+    imports: |
+      import custom.sales_invoices.SalesInvoiceNumberAction;
+    fields:
+      - { name: number, type: string, length: 100, calculatedActionOnCreate: SalesInvoiceNumberAction }
+```
+
+You then add `custom/sales_invoices/SalesInvoiceNumberAction.java`. Alternatively give the fully-qualified class name and omit the import.
 
 ### relations
 
@@ -151,6 +177,43 @@ Composition is **opt-in** - this matches the Dirigible convention where most req
 ```
 
 `kind: setting` marks an entity as nomenclature / configuration. It is generated with `type="SETTING"`, which the template engine routes under the dashboard's global **Settings** perspective instead of giving it its own perspective. Any relation **targeting** a setting entity resolves its dropdown to the `Settings` perspective. Settings are still real entities (own table, seeds, FK columns) - only their UI placement differs. Default `kind` (omitted) is a regular managed entity.
+
+### Cross-model references (`uses`)
+
+A relation can target an entity owned by a **different** project's intent model - master / reference data (`Customer`, `Country`, `Currency`, `UoM`) you do not want to redefine. The owner model owns the single table; this model stores an integer FK and renders a dropdown sourced from the owner's REST service. It does **not** generate the owner's table or API.
+
+Declare the dependencies in a top-level `uses:` block, then point a `manyToOne` / `oneToOne` relation at the alias with `model:`:
+
+```yaml
+name: customers
+uses:
+  - { model: countries }                        # project defaults to the model alias
+  - { model: currencies, project: currencies }   # set project when it differs from the alias
+entities:
+  - name: Customer
+    fields:
+      - { name: id,   type: integer, primaryKey: true, generated: true }
+      - { name: name, type: string,  required: true }
+    relations:
+      - { name: Country,  kind: manyToOne, to: Country,  model: countries }
+      - { name: Currency, kind: manyToOne, to: Currency, model: currencies }
+```
+
+A cross-model relation must be `manyToOne` / `oneToOne`, its `model:` must be listed in `uses:`, and it **cannot** be `composition: true` (a detail cannot be owned across models). Generate the owner (leaf) models before their consumers so the dropdown resolves; each project is its own `.intent` and all must be published to the same runtime. Under the hood this reuses the platform's PROJECTION mechanism.
+
+### Many-to-many
+
+There is no `manyToMany` materialisation. Model n:m as an **explicit intermediate entity** holding a `composition` to one side, a `manyToOne` to the other (which may be cross-model via `model:`), plus any bridge fields:
+
+```yaml
+  - name: SalesInvoiceCustomerPayment
+    fields:
+      - { name: id,     type: integer, primaryKey: true, generated: true }
+      - { name: amount, type: decimal, precision: 18, scale: 2, required: true }   # partial allocation
+    relations:
+      - { name: SalesInvoice,    kind: manyToOne, to: SalesInvoice,    composition: true, required: true }
+      - { name: CustomerPayment, kind: manyToOne, to: CustomerPayment, model: customer-payments, required: true }
+```
 
 ## processes
 

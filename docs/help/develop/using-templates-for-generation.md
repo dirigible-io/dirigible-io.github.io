@@ -11,7 +11,7 @@ Dirigible ships a library of templates that generate either a full application o
 
 | Family | Examples | What it produces |
 | ------ | -------- | ---------------- |
-| **Application** | `template-application-angular`, `…-angular-java`, `…-angular-v2`, `template-application-dao`, `…-rest`, `…-data`, `…-feed`, `…-odata`, `…-schema`, `…-ui-angular` | Full CRUD app: tables, REST endpoints, OData, UI. Driven by an EDM model. |
+| **Application** | `template-application-angular`, `…-angular-java`, `…-ui-harmonia-java`, `…-angular-v2`, `template-application-dao`, `…-rest`, `…-data`, `…-feed`, `…-odata`, `…-schema`, `…-ui-angular` | Full CRUD app: tables, REST endpoints, OData, UI. Driven by an EDM model. |
 | **Single artefact** | `template-bpm`, `template-camel`, `template-camel-cron-route`, `template-camel-http-route`, `template-database-access`, `template-database-table`, `template-database-view`, `template-editor`, `template-extension-perspective`, `template-extension-view`, `template-form`, `template-form-builder-angularjs`, `template-html`, `template-http-client`, `template-job`, `template-listener`, `template-mapping-javascript`, `template-perspective`, `template-react`, `template-typescript`, `template-view`, `template-websocket` | One file or a tight bundle of files for the named artefact. |
 
 Sample-project templates: `template-bookstore`, `template-hello-world`.
@@ -24,7 +24,9 @@ The Entity Data Modeler (`*.edm`) is the canonical input to the application temp
 2. Drag entities, add fields, draw associations.
 3. Right-click the model, choose **Generate Application**, pick a template, set the target project name.
 
-The platform emits tables, OData services, REST endpoints, an Angular UI, and per-entity perspectives.
+The platform emits tables, OData services, REST endpoints, a UI, and per-entity perspectives.
+
+The runtime UI is generated in one of two stacks - **Angular + BlimpKit** (iframe-per-entity perspectives hosted by the dashboard) or **Alpine.js + Harmonia** (a single client-routed SPA). Both consume the same model and the same Java backend. See [Harmonia runtime UI](/help/develop/harmonia-runtime-ui).
 
 ## Generating from a Database Schema model
 

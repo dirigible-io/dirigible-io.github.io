@@ -326,6 +326,7 @@ function helpSidebar() {
         { text: 'Working with files and CMS', link: '/help/develop/working-with-files-and-cms' },
         { text: 'Working with Git', link: '/help/develop/working-with-git' },
         { text: 'Generation from models', link: '/help/develop/using-templates-for-generation' },
+        { text: 'Harmonia runtime UI', link: '/help/develop/harmonia-runtime-ui' },
         { text: 'Debugging JavaScript', link: '/help/develop/debugging-javascript' },
         { text: 'Debugging Java', link: '/help/develop/debugging-java' },
         { text: 'Testing', link: '/help/develop/testing' },
