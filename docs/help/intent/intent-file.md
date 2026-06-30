@@ -153,6 +153,8 @@ entities:
 
 You then add `custom/sales_invoices/SalesInvoiceNumberAction.java`. Alternatively give the fully-qualified class name and omit the import.
 
+The action class **must declare a named package** (e.g. `package custom.sales_invoices;`). A class in the default package cannot be imported or referenced from the generated repository, so the call-out will not resolve. See [Java compilation gotchas](/help/develop/languages/java#compilation-and-publishing-gotchas).
+
 ### relations
 
 ```yaml
