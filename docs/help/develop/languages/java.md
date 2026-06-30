@@ -78,6 +78,14 @@ JavaEntityStore store = Beans.get(JavaEntityStore.class);
 
 See [Dependency injection](/help/develop/dependency-injection) for the full model.
 
+## Compilation and publishing gotchas
+
+Three consequences of the in-process, one-batch compile model that bite in practice:
+
+- **Every class needs a named package.** A type in the default package (no `package` declaration) cannot be imported or referenced from another client class - including from a generated repository. This matters for intent [calculated-field actions](/help/intent/intent-file#calculated-fields): the action class the repository calls (e.g. `custom.sales_invoices.SalesInvoiceNumberAction`) must declare a package, and the entity's `imports:` must import it by that fully-qualified name.
+- **One bad file fails the whole batch.** All client `.java` across all projects compile in a **single `javac` task** per synchronization cycle. A single file that does not compile fails the batch, so **every project's Java endpoints return 404** until it is fixed - not just the broken file's own routes. When Java routes vanish wholesale, look for one uncompilable source.
+- **Deleting a file from the workspace does not unpublish it.** Removing a `.java` from your workspace project leaves the already-published copy in the **registry**, where the synchronizer still compiles and serves it (and a broken lingering copy keeps 404-ing the batch per the point above). You must remove it from the registry too - delete it in the Projects / registry view (or re-publish the project) - or it lingers.
+
 ## See also
 
 - [Java SDK reference](/sdk/) - the full `org.eclipse.dirigible.sdk.*` surface.
