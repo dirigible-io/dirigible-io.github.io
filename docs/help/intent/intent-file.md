@@ -290,6 +290,59 @@ Generates one `<report>.report` per report, in the Dirigible `.report` shape wit
 
 `filter` becomes the `WHERE` with field names rewritten to qualified physical columns. All physical identifiers in the query are double-quoted for Postgres compatibility. Keep entity names non-reserved (avoid `Order` as a bare alias source on reserved-word databases).
 
+### Dashboard KPI widgets (`widget`)
+
+A report may declare a `widget` block that turns it into a KPI tile on the generated Harmonia home dashboard — a meaningful business number ("Overdue Invoices", "Revenue this month") instead of the default per-entity record-count tiles:
+
+```yaml
+reports:
+  - name: OverdueInvoices
+    source: Invoice
+    dimensions: [number, customer.name, due, total]
+    filter: "due <= CURRENT_DATE AND balance > 0"
+    widget: { kind: count, label: Overdue Invoices, icon: alert-triangle }
+
+  - name: RevenueByMonth
+    source: Invoice
+    dimensions: ["month(date)"]
+    measures: ["sum(total)"]
+    widget:
+      value: "sum(total)"              # names a declared measure => kind: value
+      at: { "month(date)": now }       # pin dimensions: the `now` token or a literal
+      label: Revenue (this month)
+      icon: banknote
+
+  - name: SalesByProduct
+    source: SalesInvoiceItem
+    dimensions: [Product]
+    measures: ["sum(quantity)", "sum(total)"]
+    widget: { kind: list, limit: 5, label: Sales by Product }
+```
+
+- `kind: count` (default) — the number of records the report yields.
+- `kind: value` — one aggregate cell: `value` names a declared measure; `at` pins dimension columns with equals conditions. The `now` token resolves at view time, type-aware: current `YYYYMM` on a `month(x)` dimension, current year on `year(x)`, today on a date column. Anything else is a literal.
+- `kind: list` — the report's first `limit` rows (default 5) as a compact table tile.
+
+A widget-bearing report shows the KPI tile **instead of** its dashboard preview tile (clicking still opens the full report), and declaring any widget replaces the auto per-entity count tiles. `dashboard: false` hides both tiles. `label`/`icon` (Lucide name) are optional. The same `widget` block can also be authored by hand for any standalone `.report` file via the Web IDE Report Editor's *Dashboard Widget* panel.
+
+## widgets
+
+Custom dashboard widgets — the dashboard's escape hatch when the report machinery cannot express the content:
+
+```yaml
+widgets:
+  - name: SystemHealth
+    kind: kpi                                    # default: a number tile fed by a REST endpoint
+    url: /services/js/sales/custom/health.js    # GET returns { value, description? }
+    label: System Health
+    icon: activity
+  - name: SalesFunnel
+    kind: page                                   # a large tile embedding an HTML page
+    url: /services/web/sales/custom/funnel/index.html
+```
+
+`kind: kpi` (default) renders a number tile whose value (a number or a display string like `"99.9%"`) comes from the developer's REST endpoint — typically hand-written code under the project's `custom/` folder. `kind: page` embeds the page in an iframe tile, like a report preview. The kind implies how the `url` is consumed, so there is no separate source-type field; the `url` must be a same-origin path (no scheme/host).
+
 ## permissions
 
 ```yaml
