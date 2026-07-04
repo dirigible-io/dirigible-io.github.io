@@ -8,6 +8,10 @@ read_time: 7 min
 publish_date: July 2, 2026
 ---
 
+![A Matrix-style operator assembles glowing module-blocks into a rising structure, a weathered airship drifting overhead in the green code-rain.](../../../../images/composing-a-business-suite/hero.jpg)
+
+You took the red airship, and the first application was only the rabbit hole. The Matrix was never one program - it is countless small ones, each with a job, all speaking to each other. Real software is the same: you do not build one monolith, you compose a world from independent parts, each doing one thing well.
+
 In the [previous article](../01/intent-driven-development.md) we built our first app from a single intent file - one self-contained model. Real business systems are bigger: a billing domain spans invoices, payments and products, and they all lean on the same **shared** master data - customers, currencies, units of measure - used by a dozen apps. You do not want a copy of the `Currency` table in each one.
 
 This article shows how [Eclipse Dirigible](https://www.dirigible.io/) composes a domain out of **independent modules** that reference each other across models, reuse one master-data table everywhere, and assemble into **one shared application shell**. The complete suite lives in the single [sample-intent-multi-model](https://github.com/dirigiblelabs/sample-intent-multi-model) repository, one folder per module.
@@ -115,9 +119,13 @@ exports.getPerspectiveGroup = () => ({
 
 Publish the suite and open the shared shell at `/services/web/application/`: one app, one grouped sidebar - **Partners**, **Sales**, **Payments**, **Settings** - every screen embedded in the one shell.
 
-> 📸 *Screenshot: the shared shell with the grouped sidebar aggregating all modules.*
+![The one shared shell aggregating every module: a grouped sidebar - Partners, Sales, Payments, Reports - over the suite's Sales Invoices list with a detail preview.](../../../../images/composing-a-business-suite/shared-shell.png)
+
+*One shell, every module: the grouped sidebar spans Customers, Products, Sales Invoices, Payments and the cross-module reports - here browsing invoices with a detail preview on the right.*
 
 ## Packaging in practice
+
+![Machines assemble and rig a Dirigible airship from parts in the green code-rain - each module built and shipped on its own, then joined into one craft.](../../../../images/composing-a-business-suite/packaging.jpg)
 
 In the sample, every module is a folder in one repository for convenience. In a real system each module would be its **own repository**, versioned and shipped independently as an **npm module** and consumed by others as a dependency. A consuming module declares what it needs in its `package.json`:
 

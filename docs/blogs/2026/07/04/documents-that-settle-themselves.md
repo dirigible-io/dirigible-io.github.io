@@ -8,6 +8,10 @@ read_time: 8 min
 publish_date: July 4, 2026
 ---
 
+![Two operators soar past a Dirigible airship, dashboards, reports and email icons streaming around them in the green code-rain.](../../../../images/documents-that-settle-themselves/hero.jpg)
+
+You took the red airship, built an app, and composed a suite. This is the part where the world starts moving on its own - payments find their invoices, balances keep themselves, notices send themselves, reports assemble from every module. You do not write the glue between documents anymore; you declare it, and watch the system run itself.
+
 The [first post](../01/intent-driven-development.md) in this series built an app from a single intent file; the [second](../02/composing-a-business-suite.md) composed a billing suite from independent modules that reuse each other's master data. This one is about what happens **between** the documents once the suite runs: a customer pays, and someone has to figure out *which invoices* that payment covers, keep every invoice's paid/outstanding amounts straight, and answer management's "who owes us what?"
 
 In most systems that is reconciliation code, UI event handlers and a reporting tool. On [Eclipse Dirigible](https://www.dirigible.io/) it is a few more blocks in the same intent file.
@@ -89,7 +93,9 @@ The payment-allocation dialog chains three of them into a guided flow: `Customer
 
 That is the manual complement to the auto-settlement above: the machine allocates the obvious cases, and when a human steps in to correct one, the form itself steers them to the right payment with the right amount.
 
-> 📸 *Screenshot: the allocation dialog - customer pre-selected, payments filtered, amount pre-filled.*
+![A settled sales invoice: line items with computed Net, Vat and Total, and a Sales Invoice Customer Payments panel showing the allocated payment - Paid equals Total, Balance is 0, status PAID.](../../../../images/documents-that-settle-themselves/allocation.png)
+
+*A settled invoice: the allocations panel shows the customer payment applied, and the roll-up keeps Paid, Balance and the PAID status in sync.*
 
 ## Reports that join across modules
 
@@ -134,9 +140,13 @@ The three widget kinds are `count` (the row count), `value` (a single aggregate 
 
 And a report can render as a **chart** instead of a table - `MonthlyRevenue` sets `chart: bar` and its page draws one bar per measure across the month buckets (`bar`, `line`, `pie`, `doughnut`, `polarArea` and `radar` are all available). A Table/Chart toggle keeps the filters, CSV export and print working on the same data.
 
-> 📸 *Screenshot: the InvoicesByCustomer report with per-column filters and dashboard tiles.*
+![The shared dashboard: KPI tiles for overdue invoices, revenue this month and sales by product, plus the Invoices By Customer and Invoices By Status report tables and a Monthly Revenue bar chart.](../../../../images/documents-that-settle-themselves/reports-dashboard.png)
+
+*The dashboard aggregates the cross-module reports: KPI tiles up top, the Invoices By Customer and By Status tables, and Monthly Revenue rendered as a bar chart via `chart: bar`.*
 
 ## Paper still happens - printing
+
+![Laser-armed machines etch a glowing Sales Invoice document in the green code-rain - the paperwork rendered server-side, no layout code written.](../../../../images/documents-that-settle-themselves/printing.jpg)
 
 Invoices get sent, reports get handed out. Both print without writing a line of layout code:
 

@@ -8,6 +8,10 @@ read_time: 5 min
 publish_date: July 3, 2026
 ---
 
+![Neo in a Java t-shirt, hand raised, 'The chosen one' glowing in the green code-rain.](../../../../images/custom-java-in-the-web-ide/hero.jpg)
+
+The intent generates the many. But there is always the One - the calculation, the integration, the rule no model can express - and that is where you jack in and write Java yourself.
+
 Model-driven platforms live or die by their **escape hatch**. Ninety percent of an application is CRUD, forms, dropdowns and workflows that you should never hand-write - and the [Eclipse Dirigible](https://www.dirigible.io/) intent layer generates exactly that. But every real system has the other ten percent: a calculation, an integration, a rule that no model can express. The question is whether the platform lets you write it cleanly, or forces you to fight it.
 
 In this article we take the generated `sales-invoices` module from the [multi-module sample](https://github.com/dirigiblelabs/sample-intent-multi-model) - the billing suite composed in the [previous post](../02/composing-a-business-suite.md) - and replace one piece of logic - the invoice **number generation** - with hand-written Java, using the full IDE tooling, without leaving the browser.
@@ -76,7 +80,9 @@ This is where the Dirigible web IDE earns its keep. Editing that class, you get 
 
 Client Java is compiled **in-process** - one `javac` task per synchronization cycle, sharing the JVM with the platform - so `Beans.get(...)` resolves real platform beans and your class is live at the next request.
 
-> 📸 *Screenshot: the web IDE editing the Java action - completion popup over the SDK, Problems view clean.*
+![The web IDE editing SalesInvoiceNumberAction.java, with a JDT completion popup offering java.util.UUID as you type - full language-server assistance in the browser.](../../../../images/custom-java-in-the-web-ide/java-action.png)
+
+*Editing the calculated-field action in the browser: real JDT completion, over the JDK and the `org.eclipse.dirigible.sdk.*` imports alike.*
 
 ## A reusable escape hatch: a workflow delegate
 
@@ -109,7 +115,9 @@ public class DocumentNumberGeneratorDelegate implements JavaDelegate {
 
 The split is deliberate: the *number-formatting* logic (`DocumentNumberGenerator`) is entity-agnostic, so it lives once in the `numbers` module and is reused by every document module; the *delegate* that touches the invoice belongs in the invoice module, because it must go through that entity's generated repository. Custom code, written once, reused across the whole suite - and still never touched by regeneration.
 
-> 📸 *Screenshot: the web IDE editing the delegate - cross-module `import custom.numbers.DocumentNumberGenerator` resolved by the language server.*
+![The web IDE editing DocumentNumberGeneratorDelegate.java, with a completion popup on the reusable DocumentNumberGenerator.generateByType(String type) - the cross-module type resolved by the language server.](../../../../images/custom-java-in-the-web-ide/delegate.png)
+
+*The delegate, completing `DocumentNumberGenerator.generateByType(...)` from the `numbers` module - the cross-project import resolved by the language server, in the browser.*
 
 ## Three things that will save you an hour
 
