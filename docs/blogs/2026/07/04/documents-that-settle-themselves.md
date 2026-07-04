@@ -146,6 +146,8 @@ And a report can render as a **chart** instead of a table - `MonthlyRevenue` set
 
 ## Paper still happens - printing
 
+![Laser-armed machines etch a glowing Sales Invoice document in the green code-rain - the paperwork rendered server-side, no layout code written.](../../../../images/documents-that-settle-themselves/printing.jpg)
+
 Invoices get sent, reports get handed out. Both print without writing a line of layout code:
 
 - **Documents** carry a **Print** button. Generation seeds a *print template* per document entity into the platform's CMS (`Templates/SalesInvoice/Print/en/standard.print`) - a small declarative layout (header, fields, items table, totals footer) that is merged with the live document and rendered **server-side to PDF**. The template is plain text in the CMS: download it from the Documents perspective, adjust the layout or wording (Cyrillic and other scripts render correctly), upload it back - customizations survive regeneration. Add a template per language (`Print/bg/`) and printing follows the user's **Region & Language** setting, offering the language choice when several exist.
