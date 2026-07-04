@@ -10,7 +10,7 @@ publish_date: July 3, 2026
 
 Model-driven platforms live or die by their **escape hatch**. Ninety percent of an application is CRUD, forms, dropdowns and workflows that you should never hand-write - and the [Eclipse Dirigible](https://www.dirigible.io/) intent layer generates exactly that. But every real system has the other ten percent: a calculation, an integration, a rule that no model can express. The question is whether the platform lets you write it cleanly, or forces you to fight it.
 
-In this article we take the generated `sales-invoices` module from the [multi-module sample](https://github.com/dirigiblelabs/sample-intent-multi-model) - the same one built in the [first post in this series](../01/intent-driven-sales-invoices.md) - and replace one piece of logic - the invoice **number generation** - with hand-written Java, using the full IDE tooling, without leaving the browser.
+In this article we take the generated `sales-invoices` module from the [multi-module sample](https://github.com/dirigiblelabs/sample-intent-multi-model) - the billing suite composed in the [previous post](../02/composing-a-business-suite.md) - and replace one piece of logic - the invoice **number generation** - with hand-written Java, using the full IDE tooling, without leaving the browser.
 
 ## The boundary: model vs. code
 
@@ -117,7 +117,7 @@ Because client Java compiles as one in-process batch, a few rules matter in prac
 
 - **Always use a named package.** A class in the default package cannot be imported or referenced from the generated repository - so the calculated action above declares `package custom.sales_invoices;`. The entity's `imports:` must import it by that fully-qualified name (or you give the action's fully-qualified class name directly).
 - **One bad file fails the whole batch.** All client `.java` across all projects compile together each cycle. A single file that does not compile takes down **every** project's Java endpoints with a 404 - not just the broken one. If Java routes vanish wholesale, look for one uncompilable source.
-- **Deleting from the workspace doesn't unpublish.** Removing a `.java` from your project leaves the published copy in the registry, where it is still compiled and served. Remove it from the registry too (or re-publish) or it lingers.
+- **Delete offers to unpublish.** A published `.java` lives in the registry, compiled and served independently of your workspace copy - so deleting the file on its own would leave the served class behind. That is why the IDE **always asks whether to unpublish** when you delete a file: unpublishing removes it from the registry. Accept and the served copy is gone; decline and it lingers until you unpublish (or re-publish).
 
 ## The point
 

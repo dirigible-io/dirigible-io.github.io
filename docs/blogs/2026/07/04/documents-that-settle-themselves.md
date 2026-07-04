@@ -8,7 +8,7 @@ read_time: 8 min
 publish_date: July 4, 2026
 ---
 
-The [first post](../01/intent-driven-sales-invoices.md) in this series built a Sales Invoices app from one intent file; the [second](../02/composing-a-business-suite.md) split the domain into independent modules that reuse each other's master data. This one is about what happens **between** the documents once the suite runs: a customer pays, and someone has to figure out *which invoices* that payment covers, keep every invoice's paid/outstanding amounts straight, and answer management's "who owes us what?"
+The [first post](../01/intent-driven-development.md) in this series built an app from a single intent file; the [second](../02/composing-a-business-suite.md) composed a billing suite from independent modules that reuse each other's master data. This one is about what happens **between** the documents once the suite runs: a customer pays, and someone has to figure out *which invoices* that payment covers, keep every invoice's paid/outstanding amounts straight, and answer management's "who owes us what?"
 
 In most systems that is reconciliation code, UI event handlers and a reporting tool. On [Eclipse Dirigible](https://www.dirigible.io/) it is a few more blocks in the same intent file.
 
