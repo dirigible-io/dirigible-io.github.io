@@ -119,7 +119,9 @@ exports.getPerspectiveGroup = () => ({
 
 Publish the suite and open the shared shell at `/services/web/application/`: one app, one grouped sidebar - **Partners**, **Sales**, **Payments**, **Settings** - every screen embedded in the one shell.
 
-> 📸 *Screenshot: the shared shell with the grouped sidebar aggregating all modules.*
+![The one shared shell aggregating every module: a grouped sidebar - Partners, Sales, Payments, Reports - over the suite's Sales Invoices list with a detail preview.](../../../../images/composing-a-business-suite/shared-shell.png)
+
+*One shell, every module: the grouped sidebar spans Customers, Products, Sales Invoices, Payments and the cross-module reports - here browsing invoices with a detail preview on the right.*
 
 ## Packaging in practice
 

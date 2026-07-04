@@ -89,7 +89,9 @@ The payment-allocation dialog chains three of them into a guided flow: `Customer
 
 That is the manual complement to the auto-settlement above: the machine allocates the obvious cases, and when a human steps in to correct one, the form itself steers them to the right payment with the right amount.
 
-> 📸 *Screenshot: the allocation dialog - customer pre-selected, payments filtered, amount pre-filled.*
+![A settled sales invoice: line items with computed Net, Vat and Total, and a Sales Invoice Customer Payments panel showing the allocated payment - Paid equals Total, Balance is 0, status PAID.](../../../../images/documents-that-settle-themselves/allocation.png)
+
+*A settled invoice: the allocations panel shows the customer payment applied, and the roll-up keeps Paid, Balance and the PAID status in sync.*
 
 ## Reports that join across modules
 
@@ -134,7 +136,9 @@ The three widget kinds are `count` (the row count), `value` (a single aggregate 
 
 And a report can render as a **chart** instead of a table - `MonthlyRevenue` sets `chart: bar` and its page draws one bar per measure across the month buckets (`bar`, `line`, `pie`, `doughnut`, `polarArea` and `radar` are all available). A Table/Chart toggle keeps the filters, CSV export and print working on the same data.
 
-> 📸 *Screenshot: the InvoicesByCustomer report with per-column filters and dashboard tiles.*
+![The shared dashboard: KPI tiles for overdue invoices, revenue this month and sales by product, plus the Invoices By Customer and Invoices By Status report tables and a Monthly Revenue bar chart.](../../../../images/documents-that-settle-themselves/reports-dashboard.png)
+
+*The dashboard aggregates the cross-module reports: KPI tiles up top, the Invoices By Customer and By Status tables, and Monthly Revenue rendered as a bar chart via `chart: bar`.*
 
 ## Paper still happens - printing
 
