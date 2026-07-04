@@ -76,7 +76,9 @@ This is where the Dirigible web IDE earns its keep. Editing that class, you get 
 
 Client Java is compiled **in-process** - one `javac` task per synchronization cycle, sharing the JVM with the platform - so `Beans.get(...)` resolves real platform beans and your class is live at the next request.
 
-> 📸 *Screenshot: the web IDE editing the Java action - completion popup over the SDK, Problems view clean.*
+![The web IDE editing SalesInvoiceNumberAction.java, with a JDT completion popup offering java.util.UUID as you type - full language-server assistance in the browser.](../../../../images/custom-java-in-the-web-ide/java-action.png)
+
+*Editing the calculated-field action in the browser: real JDT completion, over the JDK and the `org.eclipse.dirigible.sdk.*` imports alike.*
 
 ## A reusable escape hatch: a workflow delegate
 
@@ -109,7 +111,9 @@ public class DocumentNumberGeneratorDelegate implements JavaDelegate {
 
 The split is deliberate: the *number-formatting* logic (`DocumentNumberGenerator`) is entity-agnostic, so it lives once in the `numbers` module and is reused by every document module; the *delegate* that touches the invoice belongs in the invoice module, because it must go through that entity's generated repository. Custom code, written once, reused across the whole suite - and still never touched by regeneration.
 
-> 📸 *Screenshot: the web IDE editing the delegate - cross-module `import custom.numbers.DocumentNumberGenerator` resolved by the language server.*
+![The web IDE editing DocumentNumberGeneratorDelegate.java, with a completion popup on the reusable DocumentNumberGenerator.generateByType(String type) - the cross-module type resolved by the language server.](../../../../images/custom-java-in-the-web-ide/delegate.png)
+
+*The delegate, completing `DocumentNumberGenerator.generateByType(...)` from the `numbers` module - the cross-project import resolved by the language server, in the browser.*
 
 ## Three things that will save you an hour
 
