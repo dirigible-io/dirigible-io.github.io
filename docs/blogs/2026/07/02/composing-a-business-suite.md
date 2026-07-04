@@ -8,7 +8,7 @@ read_time: 7 min
 publish_date: July 2, 2026
 ---
 
-In the [previous article](../01/intent-driven-sales-invoices.md) we built a Sales Invoices app from a single intent file. That app defined its own `Customer` and `Currency`. In a real system, though, customers and currencies are **shared** - used by invoices, by payments, by orders, by a dozen apps. You do not want a copy of the `Currency` table in each one.
+In the [previous article](../01/intent-driven-development.md) we built our first app from a single intent file - one self-contained model. Real business systems are bigger: a billing domain spans invoices, payments and products, and they all lean on the same **shared** master data - customers, currencies, units of measure - used by a dozen apps. You do not want a copy of the `Currency` table in each one.
 
 This article shows how [Eclipse Dirigible](https://www.dirigible.io/) composes a domain out of **independent modules** that reference each other across models, reuse one master-data table everywhere, and assemble into **one shared application shell**. The complete suite lives in the single [sample-intent-multi-model](https://github.com/dirigiblelabs/sample-intent-multi-model) repository, one folder per module.
 
