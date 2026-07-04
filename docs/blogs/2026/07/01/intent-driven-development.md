@@ -8,9 +8,15 @@ read_time: 9 min
 publish_date: July 1, 2026
 ---
 
-Most application platforms ask you to model first, then wire, then build a UI, then write the glue. [Eclipse Dirigible](https://www.dirigible.io/) now lets you work **one altitude higher**: you describe the application you want in a single **intent** file, and the platform generates the data model, the persistence, the REST APIs, the UI and the workflow for you.
+![Two airships drift through a rain of green code: a blue one marked MDA, a red one marked IDD.](../../../../images/intent-driven-development/mda-vs-idd.jpg)
 
-In this article we build a real **Library management** application end to end - from an empty project to a running app with an approval workflow - without hand-writing CRUD, REST or UI code. The finished sample lives at [`sample-intent-model`](https://github.com/dirigiblelabs/sample-intent-model).
+This is your last chance. After this, there is no going back.
+
+Take the **blue** airship - **MDA**, Model-Driven Architecture - and the story ends the way it always has. You draw the models by hand, wire the layers, write the glue, and ship the same three-tier application you have shipped a hundred times. It is a known, comfortable world.
+
+Take the **red** airship - **IDD**, Intent-Driven Development - and you stay in Wonderland, and [Eclipse Dirigible](https://www.dirigible.io/) shows you how deep the rabbit hole goes. You describe the application you want in a single **intent** file, and the platform generates the data model, the persistence, the REST APIs, the UI and the workflow for you. Both are airships; only one lets you fly without building the engine first.
+
+This article takes the red one. We build a real **Library management** application end to end - from an empty project to a running app with an approval workflow - without hand-writing CRUD, REST or UI code. The finished sample lives at [`sample-intent-model`](https://github.com/dirigiblelabs/sample-intent-model).
 
 ## The three altitudes
 
