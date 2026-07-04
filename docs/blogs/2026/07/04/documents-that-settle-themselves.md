@@ -8,6 +8,10 @@ read_time: 8 min
 publish_date: July 4, 2026
 ---
 
+![Two operators soar past a Dirigible airship, dashboards, reports and email icons streaming around them in the green code-rain.](../../../../images/documents-that-settle-themselves/hero.jpg)
+
+You took the red airship, built an app, and composed a suite. This is the part where the world starts moving on its own - payments find their invoices, balances keep themselves, notices send themselves, reports assemble from every module. You do not write the glue between documents anymore; you declare it, and watch the system run itself.
+
 The [first post](../01/intent-driven-development.md) in this series built an app from a single intent file; the [second](../02/composing-a-business-suite.md) composed a billing suite from independent modules that reuse each other's master data. This one is about what happens **between** the documents once the suite runs: a customer pays, and someone has to figure out *which invoices* that payment covers, keep every invoice's paid/outstanding amounts straight, and answer management's "who owes us what?"
 
 In most systems that is reconciliation code, UI event handlers and a reporting tool. On [Eclipse Dirigible](https://www.dirigible.io/) it is a few more blocks in the same intent file.
