@@ -181,7 +181,9 @@ forms:
     actions: [approve, reject]
 ```
 
-> 📸 *Screenshot: the Intent Editor - YAML on the left, the live entity + process diagram on the right.*
+![The Intent Editor open on the library app.intent: the YAML source on the left, and on the right the live diagram - the Member, Loan and Book entities with their relations, and the LoanApproval process.](../../../../images/intent-driven-development/intent-editor.png)
+
+*The Intent Editor: YAML on the left, the live entity and process diagram on the right.*
 
 ## Step 5 - Generate
 
@@ -238,7 +240,9 @@ reports:
       icon: alert-triangle
 ```
 
-> 📸 *Screenshot: the running Harmonia app - a Member record with their loans, and the Approve Loan task open in the Process Inbox.*
+![The running Harmonia application generated from the intent: the shared shell with a Books and Members sidebar, a Reports section, and the Loans Due KPI tile driven by the MembersWithLoansDue report.](../../../../images/intent-driven-development/running-app.png)
+
+*The running app: the generated shell, the entity sidebar, and the Loans Due KPI tile from the report - all from the one intent file.*
 
 ## What just happened
 
