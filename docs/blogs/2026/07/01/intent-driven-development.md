@@ -191,6 +191,22 @@ forms:
 
 *The Intent Editor: YAML on the left, the live entity and process diagram on the right.*
 
+## Ask, and it changes
+
+Writing the first draft from a prompt (Step 1) is only half the story. The assistant does not leave once the intent exists - it stays wired into the editor, and you can ask it to **change the running model** in plain language. This is the part that makes the red pill worth taking.
+
+![A Matrix-style operator jacked into a glowing keyboard, an AI cube and a Dirigible airship hovering in the green code-rain behind him.](../../../../images/intent-driven-development/ai-assistant.jpg)
+
+Open the assistant pane and describe the change you want:
+
+> *"Add an `isbn` field to Book, unique. Add a `Reservation` entity linking a Member and a Book with a status. Make Member.email required."*
+
+The assistant does not patch blindly. It returns the **complete proposed `app.intent`** as a **diff** against your current buffer, so you see exactly what changes - a field here, a new entity there, an added relation. You **Accept** or **Reject**. Nothing touches disk or the database until you do; the assistant never writes behind your back.
+
+Accept, then **Save** and **Generate**, and the change ripples through all three altitudes: the model files, the schema, the persistence, the REST APIs, the UI and the workflow all follow. You changed one file, in a sentence, and reviewed a diff - the platform rebuilt the application to match.
+
+That is the real distance between Model-Driven Architecture and Intent-Driven Development. With MDA you hand-edit models across layers and keep them in sync yourself. With IDD you hold a conversation over one reviewable file, and every change stays deterministic, diffable and regenerated end to end. The assistant runs on a configured LLM provider, so the model behind it is yours to choose.
+
 ## Step 5 - Generate
 
 Click **Generate**. The platform writes the model files next to your intent, then chains the model-to-code generation: a Java persistence layer, REST controllers, a **modern Harmonia single-page UI**, the BPMN processes, the forms, the report pages, and the seed data. Alongside the models it also emits the **declarative glue** - annotated client-Java against `org.eclipse.dirigible.sdk.*` - from the terse blocks at the bottom of the intent:
