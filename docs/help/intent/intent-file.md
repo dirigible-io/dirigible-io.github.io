@@ -133,6 +133,21 @@ Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, 
 
 `audit: true` on an **entity** adds the four standard audit columns (`CreatedAt`, `CreatedBy`, `UpdatedAt`, `UpdatedBy`), populated by the platform's audit annotations.
 
+`multilingual: true` on an **entity** makes its string-typed properties translatable - see [multilingual](#multilingual-data-and-ui).
+
+### Control order
+
+By default the generated UI controls (form inputs, list columns, detail rows) follow the declaration order - all fields first, then the to-one relations, so relations land last. Give an entity an `order:` list of property names to sequence them explicitly, interleaving fields and relations for a better form layout:
+
+```yaml
+- name: SalesInvoiceItem
+  order: [Id, SalesInvoice, Product, Name, Quantity, UoM, Price, Total]
+  fields: [ ... ]
+  relations: [ ... ]
+```
+
+Names match the field / relation names (case-insensitive). A **partial** order is fine - any property not listed keeps its default position and is appended after the listed ones.
+
 ### Calculated fields
 
 A field value can be derived on insert / update instead of being entered:
@@ -285,14 +300,32 @@ Generates one `<report>.report` per report, in the Dirigible `.report` shape wit
 
 - a plain field resolves to a source column;
 - a `relation.field` path (`order.orderDate`) adds an `INNER JOIN` to the related entity plus a column on it;
-- a bare to-one relation (`customer`) joins and shows the target's label (`name`-like) field, not the raw FK id - use `customer.id` for the id;
+- a bare to-one relation (`customer`) joins and shows the target's label (`name`-like) field, not the raw FK id - use `customer.id` for the id. A **cross-model** relation joins the owning model's table, so a report can group by an entity another module owns;
+- a time bucket `month(field)` (a sortable `YYYYMM` integer, e.g. `202607`) or `year(field)` - standard-SQL `EXTRACT`, so H2 / PostgreSQL (not SQL Server);
 - a measure `count(*)` / `sum(...)` / `avg` / `min` / `max` becomes an aggregate, and the dimensions become the `GROUP BY`.
 
 `filter` becomes the `WHERE` with field names rewritten to qualified physical columns. All physical identifiers in the query are double-quoted for Postgres compatibility. Keep entity names non-reserved (avoid `Order` as a bare alias source on reserved-word databases).
 
+The report `name`, `description` and column labels are emitted into the generated translation catalog, so they localize per language alongside the rest of the UI (see [multilingual](#multilingual-data-and-ui)).
+
+### Chart
+
+`chart:` renders the report page as a chart instead of a table (the page keeps a Table/Chart toggle, so filters, CSV export and print still work): one of `bar`, `line`, `pie`, `doughnut`, `polarArea`, `radar`. The grouping dimension labels the axis and each measure becomes a series, so a chart report wants exactly one dimension and one or more measures.
+
+```yaml
+reports:
+  - name: MonthlyRevenue
+    source: Order
+    dimensions: ["month(orderDate)"]
+    measures: ["sum(net)", "sum(vat)", "sum(total)"]
+    chart: bar          # bar | line | pie | doughnut | polarArea | radar
+```
+
+A report may declare both a `chart` and a `widget` - they are independent surfaces.
+
 ### Dashboard KPI widgets (`widget`)
 
-A report may declare a `widget` block that turns it into a KPI tile on the generated Harmonia home dashboard — a meaningful business number ("Overdue Invoices", "Revenue this month") instead of the default per-entity record-count tiles:
+A report may declare a `widget` block that turns it into a KPI tile on the generated Harmonia home dashboard - a meaningful business number ("Overdue Invoices", "Revenue this month") instead of the default per-entity record-count tiles:
 
 ```yaml
 reports:
@@ -319,15 +352,15 @@ reports:
     widget: { kind: list, limit: 5, label: Sales by Product }
 ```
 
-- `kind: count` (default) — the number of records the report yields.
-- `kind: value` — one aggregate cell: `value` names a declared measure; `at` pins dimension columns with equals conditions. The `now` token resolves at view time, type-aware: current `YYYYMM` on a `month(x)` dimension, current year on `year(x)`, today on a date column. Anything else is a literal.
-- `kind: list` — the report's first `limit` rows (default 5) as a compact table tile.
+- `kind: count` (default) - the number of records the report yields.
+- `kind: value` - one aggregate cell: `value` names a declared measure; `at` pins dimension columns with equals conditions. The `now` token resolves at view time, type-aware: current `YYYYMM` on a `month(x)` dimension, current year on `year(x)`, today on a date column. Anything else is a literal.
+- `kind: list` - the report's first `limit` rows (default 5) as a compact table tile.
 
 A widget-bearing report shows the KPI tile **instead of** its dashboard preview tile (clicking still opens the full report), and declaring any widget replaces the auto per-entity count tiles. `dashboard: false` hides both tiles. `label`/`icon` (Lucide name) are optional. The same `widget` block can also be authored by hand for any standalone `.report` file via the Web IDE Report Editor's *Dashboard Widget* panel.
 
 ## widgets
 
-Custom dashboard widgets — the dashboard's escape hatch when the report machinery cannot express the content:
+Custom dashboard widgets - the dashboard's escape hatch when the report machinery cannot express the content:
 
 ```yaml
 widgets:
@@ -341,7 +374,7 @@ widgets:
     url: /services/web/sales/custom/funnel/index.html
 ```
 
-`kind: kpi` (default) renders a number tile whose value (a number or a display string like `"99.9%"`) comes from the developer's REST endpoint — typically hand-written code under the project's `custom/` folder. `kind: page` embeds the page in an iframe tile, like a report preview. The kind implies how the `url` is consumed, so there is no separate source-type field; the `url` must be a same-origin path (no scheme/host).
+`kind: kpi` (default) renders a number tile whose value (a number or a display string like `"99.9%"`) comes from the developer's REST endpoint - typically hand-written code under the project's `custom/` folder. `kind: page` embeds the page in an iframe tile, like a report preview. The kind implies how the `url` is consumed, so there is no separate source-type field; the `url` must be a same-origin path (no scheme/host).
 
 ## permissions
 
@@ -357,14 +390,50 @@ Generates `<intent>.roles` (deduped by role name). It deliberately does **not** 
 
 ```yaml
 seeds:
+  - name: order-statuses
+    entity: OrderStatus
+    rows:                                   # inline rows: small nomenclatures
+      - { id: 1, name: DRAFT }
+      - { id: 2, name: ISSUED }
   - name: countries
     entity: Country
+    file: data/countries.csv                # or point at an authored CSV: bulk data
+  - name: uoms-bg
+    entity: UoM
+    language: bg                            # a translation seed for a multilingual entity
     rows:
-      - { id: 1, name: Afghanistan, code2: AF }
-      - { id: 2, name: Albania,     code2: AL }
+      - { id: 8, name: "Килограм" }
 ```
 
 Generates `<seed>.csvim` + `<seed>.csv` per seed. The CSV header carries `<ENTITY>_<FIELD>` upper-snake column names; row order matches the entity's declared field order. The target table only exists after the downstream "Generate from EDM" output is published, so the CSVIM import retries via its own synchronizer until then.
+
+Two seed shapes:
+
+- **`rows:`** - inline seed data, right for small nomenclatures whose values are part of the flow (statuses, methods).
+- **`file: data/<name>.csv`** - an authored CSV under the project (a `data/` subfolder is required), right for bulk nomenclatures and prepopulated demo data. The header uses the entity-derived physical column names (`<ENTITY>_<FIELD>`); a foreign key can be set by the relation name (`Country: 34`). The intent stays lean and the CSV is versioned by the developer.
+
+A seed with `language: <code>` is a **translation** seed: it fills the per-language values of a `multilingual: true` entity (see [multilingual](#multilingual-data-and-ui)) and lands in the entity's `<TABLE>_LANG` table; rows carry the base row's `id` plus the translatable (string/text) fields only.
+
+## Multilingual data and UI
+
+Two independent things get translated: the **data** in multilingual entities, and the generated **UI labels**.
+
+**Data.** Mark an entity `multilingual: true` and its translatable (string-typed) properties gain per-language values in a sibling `<TABLE>_LANG` table (generated by the schema layer). Every read of the generated Java repository overlays the translated values for the caller's `Accept-Language` - the shell's Region & Language setting sends the user's choice on each call, and untranslated content falls back to the default language. Author the translations as [seeds](#seeds) with a `language:` code.
+
+```yaml
+languages: [en, bg]        # top level: the languages THIS module provides translations for
+entities:
+  - name: UoM
+    kind: setting
+    multilingual: true
+    fields:
+      - { name: id, type: integer, primaryKey: true, generated: true }
+      - { name: name, type: string, required: true, length: 100 }
+```
+
+The languages the whole **stack** supports are a platform concern (`DIRIGIBLE_APPLICATION_LANGUAGES`, default `en,bg`) - never defined per module. The top-level `languages:` only declares which languages this module provides; the shell warns about a module missing a platform language.
+
+**UI labels.** Generation also emits a per-project i18n catalog (`translations/<locale>/*.json`) for every generated label: entity names (a humanized singular plus a `_plural` form), field labels, form and report names, report descriptions and column headers. The default locale (`en-US`) is generated for you; a translator adds a sibling locale folder (e.g. `bg-BG`) with the same keys. The Harmonia UI - sidebar, dashboard tiles, list headers, forms and report pages - renders through these keys, falling back to the baked English label for any key a locale has not translated.
 
 ## Naming and tables
 
