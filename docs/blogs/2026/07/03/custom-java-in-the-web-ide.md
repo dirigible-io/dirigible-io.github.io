@@ -8,6 +8,10 @@ read_time: 5 min
 publish_date: July 3, 2026
 ---
 
+![Neo in a Java t-shirt, hand raised, 'The chosen one' glowing in the green code-rain.](../../../../images/custom-java-in-the-web-ide/hero.jpg)
+
+The intent generates the many. But there is always the One - the calculation, the integration, the rule no model can express - and that is where you jack in and write Java yourself.
+
 Model-driven platforms live or die by their **escape hatch**. Ninety percent of an application is CRUD, forms, dropdowns and workflows that you should never hand-write - and the [Eclipse Dirigible](https://www.dirigible.io/) intent layer generates exactly that. But every real system has the other ten percent: a calculation, an integration, a rule that no model can express. The question is whether the platform lets you write it cleanly, or forces you to fight it.
 
 In this article we take the generated `sales-invoices` module from the [multi-module sample](https://github.com/dirigiblelabs/sample-intent-multi-model) - the billing suite composed in the [previous post](../02/composing-a-business-suite.md) - and replace one piece of logic - the invoice **number generation** - with hand-written Java, using the full IDE tooling, without leaving the browser.
