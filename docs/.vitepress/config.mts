@@ -206,6 +206,7 @@ function helpSidebar() {
         { text: 'The AI assistant', link: '/help/intent/ai-assistant' },
         { text: 'Generators and generation', link: '/help/intent/generators' },
         { text: 'Declarative glue', link: '/help/intent/glue' },
+        { text: 'Printing and documents', link: '/help/intent/printing' },
       ],
     },
     {
