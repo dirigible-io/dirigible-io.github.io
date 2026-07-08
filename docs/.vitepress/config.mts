@@ -513,6 +513,7 @@ function helpSidebar() {
         { text: 'Logging', link: '/help/operate/logging' },
         { text: 'Health checks', link: '/help/operate/health-checks' },
         { text: 'Tenant management', link: '/help/operate/tenants' },
+        { text: 'Tenant-aware configuration', link: '/help/operate/tenant-configuration' },
         { text: 'Data transfer', link: '/help/operate/data-transfer' },
         { text: 'Data anonymisation', link: '/help/operate/data-anonymization' },
         { text: 'Backups and export', link: '/help/operate/backups-and-export' },

@@ -12,6 +12,7 @@ Running Dirigible day to day.
 - **[Logging](/help/operate/logging)** - log levels, live tail, log destinations.
 - **[Health checks](/help/operate/health-checks)** - readiness and liveness probes.
 - **[Tenant management](/help/operate/tenants)** - provisioning, lifecycle, isolation.
+- **[Tenant-aware configuration](/help/operate/tenant-configuration)** - per-tenant overrides of selected properties.
 - **[Data transfer](/help/operate/data-transfer)** - moving data between data sources.
 - **[Data anonymisation](/help/operate/data-anonymization)**.
 - **[Backups and export](/help/operate/backups-and-export)**.
