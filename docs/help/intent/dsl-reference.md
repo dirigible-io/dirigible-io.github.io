@@ -449,9 +449,9 @@ Reports, Settings including Region & Language).
 
 ## Planned - recognised but not yet implemented
 
-- **`function: Calendar`** - reserved as an entity presentation role; rejected with a clear "not
-  yet available" message (the `view: calendar|range|slots` pages above are the current calendar
-  surface). Likewise other reserved `function` values for upcoming templates.
+- Other reserved `function` values for upcoming templates are recognised but rejected with a
+  clear "not yet available" message. (`function: Calendar` is now first-class - the role alias
+  for `view: calendar`.)
 - **`manyToMany`** - parsed but never materialized; the supported shape is the explicit
   intermediate entity.
 - **Declarative glue actions beyond the current set**: publish/consume message,
@@ -460,7 +460,7 @@ Reports, Settings including Region & Language).
   inbound webhooks, rollups, settlements, expansions, generates, postings.
 - **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
   be cross-model).
-- **`generates` completion hook** - flipping the source record's status after creating the
-  target is not yet expressible.
+- ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
+  target is created.
 - **Embedded calendar panel for a dependent composition child** inside its master page -
   calendar views require a primary entity today.
