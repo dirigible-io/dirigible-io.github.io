@@ -64,6 +64,7 @@ Model-layer files at the project root are owned by the regeneration pass. **Do n
 
 - [The `.intent` file](/help/intent/intent-file) - the full YAML schema: entities, relations, processes, forms, reports, permissions, seeds, and the semantics that matter.
 - [Multi-model applications](/help/intent/multi-model) - split a domain into several intent modules that reference each other across models, reuse single master-data entities, and contribute to one shared shell.
+- [DSL reference](/help/intent/dsl-reference) - the quick index: one line + one snippet per supported construct, and the planned list.
 - [The Intent Editor](/help/intent/editor) - the split editor, the live diagram, validation, and Generate.
 - [The AI assistant](/help/intent/ai-assistant) - Claude proposes a patch to the intent; you accept or refine.
 - [Generators and generation](/help/intent/generators) - what each generator produces, the regeneration contract, and `.settings`.

@@ -200,7 +200,8 @@ function helpSidebar() {
       collapsed: true,
       items: [
         { text: 'Overview', link: '/help/intent/' },
-        { text: 'The .intent file', link: '/help/intent/intent-file' },
+        { text: 'The Intent file', link: '/help/intent/intent-file' },
+        { text: 'DSL reference', link: '/help/intent/dsl-reference' },
         { text: 'Multi-model applications', link: '/help/intent/multi-model' },
         { text: 'The Intent Editor', link: '/help/intent/editor' },
         { text: 'The AI assistant', link: '/help/intent/ai-assistant' },
