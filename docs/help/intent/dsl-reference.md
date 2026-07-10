@@ -16,7 +16,7 @@ complete worked example.
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
-| [`immutableIn`](#immutablein-status-keyed-immutability) | 409 on user writes in a given status |
+| [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
@@ -118,15 +118,19 @@ authored message.
     - { kind: exactlyOne, fields: [debit, credit], message: "Exactly one of debit/credit" }
 ```
 
-## immutableIn - status-keyed immutability
+## immutableWhen / immutable - user-write immutability
 
 ```yaml
 - name: JournalEntry
-  immutableIn: [2]     # while Status holds seed id 2 (POSTED), REST update/delete return 409
+  immutableWhen: "Status == 2"   # while POSTED, REST update/delete return 409 (join terms with ||)
+- name: InvoiceSnapshot
+  immutable: true                # append-only: e.g. the frozen copy stored when an invoice is SENT
 ```
 
-Requires a `function: EntityStatus` relation. Workflow/system writes through the repository stay
-possible - corrections to an immutable record are flow-generated reversals, never edits.
+`immutableWhen` requires a `function: EntityStatus` relation; `immutable: true` needs none and is
+mutually exclusive with it. Workflow/system writes through the repository stay possible -
+corrections to an immutable record are flow-generated reversals, never edits. (`immutableIn:` is
+the pre-rename spelling, rejected with a migration message.)
 
 ## hierarchy / leafOnly - tree entities
 
