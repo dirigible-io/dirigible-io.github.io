@@ -13,32 +13,32 @@ complete worked example.
 | Construct | What it gives you |
 |---|---|
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
-| [field / relation attributes](#field--relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
-| [`function`](#function---presentation-role) | explicit presentation role (Document, Setting, ...) |
-| [`checks`](#checks---declarative-validations) | cross-field / cross-line validations |
-| [`immutableIn`](#immutablein---status-keyed-immutability) | 409 on user writes in a given status |
-| [`hierarchy` / `leafOnly`](#hierarchy--leafonly---tree-entities) | tree entities, leaf-only references |
-| [`multilingual` / `languages`](#multilingual---translated-master-data) | `_LANG` tables + read-time translation overlay |
-| [calculated fields](#calculated-fields--actions) | server+UI-evaluated expressions, date functions, Java call-outs |
-| [`view`](#view---calendar-range-slots) | calendar / range / slot-booking pages |
-| [`uses`](#uses---cross-model-references) | reuse entities owned by another intent model |
-| [`processes`](#processes---workflows) | BPM workflows with user tasks, decisions, delegates |
-| [`forms`](#forms---task-ui) | task data-entry pages |
-| [`actions`](#actions---custom-buttons) | developer-defined buttons opening custom pages |
-| [`generates`](#generates---create-from) | one-click document-from-document cloning |
-| [`postings`](#postings---source-document-to-ledger) | declarative source-document to balanced-document posting |
-| [`expansions`](#expansions---child-rows-from-a-date-span) | generated child rows per day/week/month |
-| [`rollups`](#rollups---denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
-| [`settlements`](#settlements---payment-allocation) | auto-allocation of payments across open invoices |
-| [`reports`](#reports---read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports |
-| [`widgets`](#widgets---custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
-| [`seeds`](#seeds---initial-data) | initial data, CSV-backed sets, translations |
-| [`notifications`](#notifications---email-on-change) | email on create/update/delete |
-| [`schedules`](#schedules---cron) | cron: notify or generate records per matching row |
-| [`integrations`](#integrations---outbound-http) | outbound HTTP on a data change |
-| [`inbound`](#inbound---webhooks) | webhook that creates records |
-| [`permissions`](#permissions---roles) | roles |
-| [Planned](#planned---recognised-but-not-yet-implemented) | recognised, not yet implemented |
+| [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
+| [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
+| [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
+| [`immutableIn`](#immutablein-status-keyed-immutability) | 409 on user writes in a given status |
+| [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
+| [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
+| [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
+| [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
+| [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
+| [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates |
+| [`forms`](#forms-task-ui) | task data-entry pages |
+| [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
+| [`generates`](#generates-create-from) | one-click document-from-document cloning |
+| [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
+| [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
+| [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
+| [`settlements`](#settlements-payment-allocation) | auto-allocation of payments across open invoices |
+| [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports |
+| [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
+| [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
+| [`notifications`](#notifications-email-on-change) | email on create/update/delete |
+| [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
+| [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
+| [`inbound`](#inbound-webhooks) | webhook that creates records |
+| [`permissions`](#permissions-roles) | roles |
+| [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
 ## entities
 
@@ -152,7 +152,7 @@ entities:
     multilingual: true         # sibling <TABLE>_LANG table; reads overlay per Accept-Language
 ```
 
-Translations are seeds with a `language:` code (see [seeds](#seeds---initial-data)). The
+Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
 
 ## Calculated fields / actions
