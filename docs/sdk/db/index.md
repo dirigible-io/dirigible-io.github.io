@@ -18,6 +18,7 @@ The module covers two styles of database interaction:
 
 - [`Database`](./database.md) - primary entry point for relational-database access; JSON helpers, raw JDBC, sequences, and data-source lookup.
 - [`Store`](./store.md) - untyped Hibernate-backed CRUD over named entities, exchanging data as JSON.
+- [`ValidationException`](./validation-exception.md) - thrown by client-side domain logic (a repository's declarative checks, a capacity guard, or hand-written validation) to signal that a well-formed request violates a business rule; the controller runtime maps it to HTTP 400.
 - [Decorators](./decorators.md) - annotation set used to declare persistent entities:
   - `@Entity` - marks a class as a persistent entity
   - `@Table` - overrides the physical table name

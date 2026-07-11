@@ -106,7 +106,9 @@ Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting` (entit
 
 Row-level `exactlyOne` on every user write; document-level `itemsMin` / `itemsSumEqual` gated on
 a status transition - drafting stays unconstrained, and a failing transition aborts with the
-authored message.
+authored message. A REST create or update that violates a check returns **HTTP 400** with that
+message (via the SDK [`ValidationException`](../../sdk/db/validation-exception.md)); on a workflow
+transition the same check aborts the task completion.
 
 ```yaml
 - name: JournalEntry
