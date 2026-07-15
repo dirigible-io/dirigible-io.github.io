@@ -18,9 +18,11 @@ complete worked example.
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
+| [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
+| [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
 | [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates |
 | [`forms`](#forms-task-ui) | task data-entry pages |
@@ -99,8 +101,9 @@ Optional and authoritative when set; inferred from structure otherwise.
   function: DocumentItem       # its line items (no "*Item" naming needed)
 ```
 
-Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting` (entity);
-`DocumentTitle` (field); `EntityStatus` (relation).
+Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting`, `Calendar` (entity -
+`Calendar` is the role alias for `view: calendar`); `DocumentTitle` (field); `EntityStatus`
+(relation). `Board` / `Gantt` / `Timeline` are reserved and rejected until those templates ship.
 
 ## checks - declarative validations
 
@@ -186,6 +189,47 @@ out.
   slots: { start: startTime }
 ```
 
+## personal / partner - row-scoped surfaces
+
+A record-owning to-one relation can scope an entity to the logged-in staff user or external
+partner, adding a second generated controller with server-side row-level filtering.
+
+```yaml
+- name: Employee
+  identity: email                    # field matched against the login username
+- name: Expense
+  relations:
+    - { name: Employee, kind: manyToOne, to: Employee, personal: true }   # staff owner
+    - { name: Supplier, kind: manyToOne, to: Supplier, partner: true }    # external-partner owner
+  fields:
+    - { name: rate, type: decimal, sensitive: true }   # stripped from the scoped surfaces
+```
+
+`identity` (on the person/partner entity) declares how a login maps to a record. `personal: true`
+(at most one per entity) generates an `<Entity>MyController` filtered to the caller's owned records
+on the personal shell; `partner: true` the mirror `<Entity>PartnerController` on the Partner shell
+(`/services/web/partner/`, gated by the Customer / Supplier / Partner IdP roles). A `sensitive:
+true` field is stripped from those scoped responses and ignored on their writes (enforced
+server-side, not merely hidden). The regular controller is unaffected; an entity may carry both.
+
+## documentItemsLayout: chat - conversation threads
+
+A document master can render its line-items child as a chat thread (message bubbles + a composer)
+instead of the editable items table - support cases, tickets, comment threads. The header, status
+pill, process tasks and print stay as in a normal document.
+
+```yaml
+- name: Case
+  function: Document
+  documentItemsLayout: chat
+- name: CaseMessage
+  function: DocumentItem
+  audit: true                                    # bubble author + timestamp come from audit
+  fields:
+    - { name: body,     type: text,    messageBody: true }      # the bubble text (exactly one)
+    - { name: internal, type: boolean, messageInternal: true }  # internal memo (hidden from partners)
+```
+
 ## uses - cross-model references
 
 Entities owned by another intent model are referenced read-only (a projection + FK + dropdown -
@@ -224,7 +268,10 @@ processes:
 Service-task shapes: `setField` / `setRelationField` (generated handlers), `delegate` (a reusable
 hand-written client `JavaDelegate` with injected `fields`). Decisions may test `relation.field`
 paths (`customer.creditLimit > 10000`) - resolvers are generated. Tasks surface in the Inbox and
-inline on the record's page.
+inline on the record's page. A user task's `assignee` is a role / candidate-group name, or the
+literal `assignee: personal` to route the task to the **record owner's** Inbox (requires the
+trigger entity to declare a `personal:` relation - see
+[personal / partner](#personal-partner-row-scoped-surfaces)).
 
 ## forms - task UI
 
@@ -455,12 +502,17 @@ Reports, Settings including Region & Language).
 - **`manyToMany`** - parsed but never materialized; the supported shape is the explicit
   intermediate entity.
 - **Declarative glue actions beyond the current set**: publish/consume message,
-  `generateDocument` (PDF), `assign`, process-step events, inbound message/file events. Today's
-  implemented glue: triggers, decision/form resolvers, notifications, schedules, integrations,
-  inbound webhooks, rollups, settlements, expansions, generates, postings.
+  event-driven `generateDocument` (produce a PDF on an event), process-step events, inbound
+  message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
+  schedules (notify + generate), integrations, inbound webhooks, rollups, settlements, expansions,
+  generates, postings.
 - **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
   be cross-model).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
   target is created.
-- **Embedded calendar panel for a dependent composition child** inside its master page -
-  calendar views require a primary entity today.
+- ~~Embedded calendar panel for a dependent composition child~~ - landed: a calendar-view
+  composition child renders as an embedded calendar in its master's detail pane (a `scope:`
+  relation filters and prefills by the parent).
+- ~~Owner-based user-task assignment~~ - landed: `assignee: personal` routes a task to the record
+  owner. Arbitrary resolver-path assignment (an assignee resolved from any relation walk) is still
+  planned.
