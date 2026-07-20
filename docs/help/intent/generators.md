@@ -47,7 +47,7 @@ These cover every intent block defined today.
 - `PermissionIntentGenerator` to `<intent>.roles` - deduped roles; no `.access` URL constraints (those belong to the downstream template).
 - `CsvimIntentGenerator` to `<seed>.csvim` + `<seed>.csv` - platform-default CSVIM settings; project-qualified CSV path.
 - `PrintIntentGenerator` to `doc/Templates/<Entity>/Print/en/standard.print` - a printable document template for each document (header-items) master. Unlike the others it writes under `doc/` (not the project root) and is **generate-once** (create-if-absent), so a hand-adapted invoice is never regenerated over. See [printing and documents](/help/intent/printing).
-- `AppTestIntentGenerator` to `<intent>.test` - a UI-test manifest describing the generated entities (drawn from the `.model`), consumed by the app test runner.
+- the test generator to `<intent>.test` - a test manifest describing the generated entities (drawn from the `.model`), consumed by the test runner.
 
 See [the `.intent` file](/help/intent/intent-file) for the authoring shape each consumes, and [declarative glue](/help/intent/glue) for the `.glue` output.
 
