@@ -15,6 +15,7 @@ complete worked example.
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
+| [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
@@ -28,6 +29,7 @@ complete worked example.
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
+| [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
@@ -104,6 +106,21 @@ Optional and authoritative when set; inferred from structure otherwise.
 Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting`, `Calendar` (entity -
 `Calendar` is the role alias for `view: calendar`); `DocumentTitle` (field); `EntityStatus`
 (relation). `Board` / `Gantt` / `Timeline` are reserved and rejected until those templates ship.
+
+## label - stored display name
+
+A stored, read-only `Name` recomputed on every write, so lookups and dropdowns show a meaningful
+label instead of a raw id.
+
+```yaml
+- name: SalesInvoice
+  label: "{Number} - {Date|yyyy MMMM} - {Customer.name}"
+```
+
+Tokens are own fields or **one-hop** to-one relation properties (`{Customer.name}`); `|format` is a
+date pattern for temporal values. Deeper paths are rejected - compose by referencing the related
+entity's own label (`{Parent.Name}`). Not allowed next to an authored `name` field, and a token must
+never reference a `sensitive` field.
 
 ## checks - declarative validations
 
@@ -309,6 +326,24 @@ generates:
 Adds a button on the source view; the clone saves through the target's repository so numbering,
 status init and calculated fields fire.
 
+## transitions - guarded status flips
+
+A per-record button that flips an entity's `function: EntityStatus` relation on demand - void,
+cancel, close, reopen - guarded by the allowed source statuses and an optional condition. A flip from
+any other status (or a failing guard) returns **HTTP 409**; a successful flip publishes the
+`-transitioned` event (which `postings` and integrations can consume).
+
+```yaml
+transitions:
+  - name: VoidInvoice
+    forEntity: Invoice            # must declare a function: EntityStatus relation
+    from: [3, 4]                  # allowed source status seed ids
+    setStatus: 8                  # the target status seed id (not one of `from`)
+    when: "Paid == 0"             # optional guard: <Field> ==|!= <number>
+    label: Void
+    icon: ban
+```
+
 ## postings - source-document to ledger
 
 When a (usually cross-model) source document reaches a status, create one local document with
@@ -505,7 +540,7 @@ Reports, Settings including Region & Language).
   event-driven `generateDocument` (produce a PDF on an event), process-step events, inbound
   message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
   schedules (notify + generate), integrations, inbound webhooks, rollups, settlements, expansions,
-  generates, postings.
+  generates, transitions, postings.
 - **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
   be cross-model).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the

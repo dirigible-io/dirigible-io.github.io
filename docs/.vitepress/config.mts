@@ -917,6 +917,7 @@ function sdkSidebar() {
           items: [
             { text: 'Database', link: '/sdk/db/database' },
             { text: 'Store', link: '/sdk/db/store' },
+            { text: 'ValidationException', link: '/sdk/db/validation-exception' },
             { text: 'Decorators', link: '/sdk/db/decorators' },
           ],
         },
