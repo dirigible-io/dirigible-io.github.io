@@ -74,6 +74,8 @@ entities:
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
 - { name: uuid,  type: uuid, major: false }                            # off the list table
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
+- { name: period, type: month }                                        # YYYY-MM month picker
+- { name: sprint, type: week }                                         # YYYY-Www ISO-week picker
 - { name: number, type: string, function: DocumentTitle }              # the document title/number
 - { name: Currency, kind: manyToOne, to: Currency, size: 4 }           # form width (12-col grid)
 - { name: Payment, kind: manyToOne, to: Payment, show: [date, number] }  # extra read-only lookup columns
@@ -362,6 +364,28 @@ postings:
       - { Account: rule(receivableAccount), debit: "Net + Vat" }
       - { Account: rule(revenueAccount),    credit: "Net" }
       - { Account: rule(vatAccount),        credit: "Vat", when: "Vat != 0" }
+```
+
+A second posting can **reverse** the first (red storno) when the source document is voided - pair it
+with the [`transitions`](#transitions-guarded-status-flips) void that flips the source into its void
+status. The reversal inherits `creates` / `backReference` / `rule` / `map` / `items` from the sibling
+it names, negates every item amount on the **same** side (a red storno, not a swap of debit/credit),
+links back to the original through the `storno` self-relation, and is fail-soft (nothing to reverse
+when the source was never posted).
+
+```yaml
+postings:
+  - name: docPosting
+    event: { onTransition: Doc, when: "Status == 2" }   # posted
+    creates: Entry
+    backReference: Doc
+    items:
+      - { debit: "Amount" }
+      - { credit: "Amount" }
+  - name: docStorno
+    event: { onTransition: Doc, when: "Status == 3" }   # voided
+    reverses: docPosting                                 # inherit + negate the sibling's items
+    storno: Storno                                       # the self-link field on the created Entry
 ```
 
 ## expansions - child rows from a date span
