@@ -126,6 +126,7 @@ fields:
 | `precision` / `scale` | override the DECIMAL default (16, 2): `{ name: rate, type: decimal, precision: 18, scale: 6 }` |
 | `calculatedOnCreate` / `calculatedOnUpdate` | an expression the generated repository assigns to the property on insert / update |
 | `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
+| `sensitive` | strip this field from the personal / partner surface and ignore it on their writes - see [Personal and partner surfaces](#personal-and-partner-surfaces) |
 
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`.
 
@@ -134,6 +135,15 @@ Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, 
 `audit: true` on an **entity** adds the four standard audit columns (`CreatedAt`, `CreatedBy`, `UpdatedAt`, `UpdatedBy`), populated by the platform's audit annotations.
 
 `multilingual: true` on an **entity** makes its string-typed properties translatable - see [multilingual](#multilingual-data-and-ui).
+
+`label:` on an **entity** synthesises a stored, read-only `Name` recomputed on every write, so lookups and dropdowns show a meaningful label instead of a raw id:
+
+```yaml
+- name: SalesInvoice
+  label: "{Number} - {Date|yyyy MMMM} - {Customer.name}"
+```
+
+Tokens are own fields or **one-hop** to-one relation properties (`{Customer.name}`); `|format` is a date pattern for temporal values. Deeper paths are rejected - compose by referencing the related entity's own label (`{Parent.Name}`). It is not allowed next to an authored `name` field, and a token must never reference a `sensitive` field.
 
 ### Control order
 
@@ -194,6 +204,28 @@ Composition is **opt-in** - this matches the Dirigible convention where most req
 ```
 
 `kind: setting` marks an entity as nomenclature / configuration. It is generated with `type="SETTING"`, which the template engine routes under the dashboard's global **Settings** perspective instead of giving it its own perspective. Any relation **targeting** a setting entity resolves its dropdown to the `Settings` perspective. Settings are still real entities (own table, seeds, FK columns) - only their UI placement differs. Default `kind` (omitted) is a regular managed entity.
+
+### Personal and partner surfaces
+
+On top of the regular controller (unaffected), an entity's records can be scoped to the logged-in user - the **My** shell at `/services/web/my/` - or to an external business partner - the **Partner** shell at `/services/web/partner/`.
+
+```yaml
+entities:
+  - name: Employee
+    identity: email                       # the string field matched against the login username
+  - name: Timesheet
+    relations:
+      - { name: Employee, kind: manyToOne, to: Employee, personal: true }   # the record owner
+    fields:
+      - { name: rate, type: decimal, sensitive: true }   # hidden + ignored on the personal surface
+```
+
+- **`identity: <field>`** on the owner entity names the string field (conventionally a unique e-mail) matched against the login username.
+- **`personal: true`** on a record-owning to-one relation generates an additional `<Entity>MyController` on the My shell: reads are filtered to the caller's mapped record, the owner FK is forced server-side on writes, and a foreign record returns 404. At most one `personal:` relation per entity; the target must declare `identity`; never put it on a composition parent - composition children inherit the owner's scope through their parent.
+- **`partner: true`** is the exact mirror for EXTERNAL parties (customers, suppliers) on the Partner shell, whose perspectives register on the disjoint `application-partner-perspectives` extension point and are gated by the IdP roles (`Customer` / `Supplier` / `Partner`). An entity can carry both `personal:` (a staff owner) and `partner:` (an external owner) at once.
+- **`sensitive: true`** on a field (never the PK, the identity field, or the owner FK) strips it from the personal and partner responses and ignores it on their writes - use it for billing rates and amounts the owner must not see.
+
+A user task can also be routed to the record owner's Inbox with the literal `assignee: personal` (it resolves the owner through the `personal:` relation).
 
 ### Cross-model references (`uses`)
 

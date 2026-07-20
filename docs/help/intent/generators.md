@@ -1,6 +1,6 @@
 ---
 title: Generators and generation
-description: The six model generators that turn an .intent into .edm / .bpmn / .form / .report / .roles / .csvim, the regeneration and scrub contract, and the .settings recipe.
+description: The model generators that turn an .intent into .edm / .bpmn / .glue / .form / .report / .roles / .csvim / .print / .test and the custom-action descriptors, plus the regeneration and scrub contract and the .settings recipe.
 ---
 
 # Generators and generation
@@ -13,12 +13,16 @@ Generate runs every registered generator in `@Order`, writes the derived model f
 | --- | --- | --- |
 | `entities` | `<intent>.edm` (XML) + `<intent>.model` (JSON twin) | 200 |
 | `processes[]` | `<process>.bpmn` (one per process) | 300 |
+| triggers, resolvers, glue | `<intent>.glue` | 350 |
 | `forms[]` | `<form>.form` (one per form) | 400 |
+| `actions[]` | `<action>.extension` + `<action>.js` (one per action) | 450 |
+| `generates[]` | `<name>.extension` + `<name>.js` (one per generate action) | 460 |
+| `transitions[]` | `<name>.extension` + `<name>.js` (+ a glue controller) | 470 |
 | `reports[]` | `<report>.report` (one per report) | 500 |
 | `permissions` | `<intent>.roles` | 600 |
 | `seeds[]` | `<seed>.csvim` + `<seed>.csv` (one pair per seed) | 700 |
 | document masters | `doc/Templates/<Entity>/Print/en/standard.print` | 800 |
-| triggers, resolvers, glue | `<intent>.glue` | (with the events template) |
+| `entities` (test manifest) | `<intent>.test` | 900 |
 
 These cover every intent block defined today.
 
@@ -38,10 +42,12 @@ These cover every intent block defined today.
 ### Forms, reports, roles, seeds
 
 - `FormIntentGenerator` to `<form>.form` - typed controls bound to the entity, action buttons coloured by name.
+- `ActionIntentGenerator` / `GeneratesIntentGenerator` / `TransitionsIntentGenerator` to `.extension` + `.js` pairs - the custom-action descriptors that put a button on a view or record: developer-defined pages ([`actions`](/help/intent/intent-file)), one-click document cloning ([`generates`](/help/intent/dsl-reference#generates-create-from)) and guarded status flips ([`transitions`](/help/intent/dsl-reference#transitions-guarded-status-flips)). Transitions and generates also contribute a server-side controller through the [`.glue`](/help/intent/glue) file.
 - `ReportIntentGenerator` to `<report>.report` - the Dirigible `.report` shape with a materialised SQL `query` (joins from `relation.field` paths, `WHERE` from `filter`, default-role `security`). All physical identifiers double-quoted for Postgres.
 - `PermissionIntentGenerator` to `<intent>.roles` - deduped roles; no `.access` URL constraints (those belong to the downstream template).
 - `CsvimIntentGenerator` to `<seed>.csvim` + `<seed>.csv` - platform-default CSVIM settings; project-qualified CSV path.
 - `PrintIntentGenerator` to `doc/Templates/<Entity>/Print/en/standard.print` - a printable document template for each document (header-items) master. Unlike the others it writes under `doc/` (not the project root) and is **generate-once** (create-if-absent), so a hand-adapted invoice is never regenerated over. See [printing and documents](/help/intent/printing).
+- `AppTestIntentGenerator` to `<intent>.test` - a UI-test manifest describing the generated entities (drawn from the `.model`), consumed by the app test runner.
 
 See [the `.intent` file](/help/intent/intent-file) for the authoring shape each consumes, and [declarative glue](/help/intent/glue) for the `.glue` output.
 
@@ -56,7 +62,7 @@ This is the most important operational rule of the intent layer:
 - Generation is **idempotent and diff-stable**: identical input produces byte-identical output; byte-identical content is not rewritten.
 - The **one exception** to root-only, always-rewrite is the print template ([printing and documents](/help/intent/printing)): it is written under `doc/` and **create-if-absent** (never regenerated over), because it is a hand-customized document rather than a derived model file. Everything under `doc/` is seeded into the CMS on publish.
 
-Output extensions are restricted to the model layer: `.edm` / `.model` / `.bpmn` / `.form` / `.report` / `.roles` / `.access` / `.glue` / `.dsm` / `.schema` / `.table` / `.view` / `.csvim` / `.csv`. Anything code-shaped (`*.ts`, `*.java`, `*.html`, `*.sql`, `*.css`) is the template engine's output and is never emitted by an intent generator. The one exception is the declarative-glue layer, which deliberately generates annotated client-Java - see [glue](/help/intent/glue).
+Output extensions are restricted to the model layer plus a few descriptor shapes: `.edm` / `.model` / `.bpmn` / `.form` / `.report` / `.roles` / `.access` / `.glue` / `.dsm` / `.schema` / `.table` / `.view` / `.csvim` / `.csv` / `.print` / `.test`, and the `.extension` + `.js` pair for custom-action descriptors (`actions` / `generates` / `transitions`). Anything else code-shaped (`*.ts`, `*.java`, `*.html`, `*.sql`, `*.css`) is the template engine's output and is never emitted by an intent generator. The one exception is the declarative-glue layer, which deliberately generates annotated client-Java - see [glue](/help/intent/glue).
 
 ## The `.settings` file
 

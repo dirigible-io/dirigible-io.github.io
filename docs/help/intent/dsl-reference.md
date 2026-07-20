@@ -15,17 +15,21 @@ complete worked example.
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
+| [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
+| [`personal` / `partner`](#personal-and-partner-surfaces) | per-user (My) and per-partner record scoping |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
+| [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render document items as a conversation thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
 | [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates |
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
+| [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
@@ -102,6 +106,21 @@ Optional and authoritative when set; inferred from structure otherwise.
 Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting` (entity);
 `DocumentTitle` (field); `EntityStatus` (relation).
 
+## label - stored display name
+
+A stored, read-only `Name` recomputed on every write, so lookups and dropdowns show a meaningful
+label instead of a raw id.
+
+```yaml
+- name: SalesInvoice
+  label: "{Number} - {Date|yyyy MMMM} - {Customer.name}"
+```
+
+Tokens are own fields or **one-hop** to-one relation properties (`{Customer.name}`); `|format` is a
+date pattern for temporal values. Deeper paths are rejected - compose by referencing the related
+entity's own label (`{Parent.Name}`). Not allowed next to an authored `name` field, and a token must
+never reference a `sensitive` field.
+
 ## checks - declarative validations
 
 Row-level `exactlyOne` on every user write; document-level `itemsMin` / `itemsSumEqual` gated on
@@ -161,6 +180,34 @@ entities:
 Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
 
+## personal and partner surfaces
+
+Scope an entity's records to the logged-in user (the **My** shell) or to an external business
+partner (the **Partner** shell), on top of the regular controller which is unaffected.
+
+```yaml
+entities:
+  - name: Employee
+    identity: email                       # the string field matched against the login username
+  - name: Timesheet
+    relations:
+      - { name: Employee, kind: manyToOne, to: Employee, personal: true }   # the record owner
+    fields:
+      - { name: rate, type: decimal, sensitive: true }   # hidden + ignored on the personal surface
+```
+
+- `identity: <field>` on the owner entity names the string field (conventionally a unique e-mail)
+  matched against the login username.
+- `personal: true` on a record-owning to-one (at most one per entity; target must declare `identity`;
+  never on a composition parent - children inherit the scope) generates an additional
+  `<Entity>MyController` served on the **My** shell (`/services/web/my/`): reads filtered to the
+  caller's record, the owner FK forced server-side on writes, foreign records 404.
+- `partner: true` is the exact mirror for EXTERNAL parties (customers, suppliers) on the **Partner**
+  shell (`/services/web/partner/`), gated by the IdP roles (`Customer` / `Supplier` / `Partner`). An
+  entity can carry both `personal:` and `partner:` at once.
+- `sensitive: true` on a field (not the PK, identity, or owner FK) strips it from personal and partner
+  responses and ignores it on their writes - use it for rates and amounts the person must not see.
+
 ## Calculated fields / actions
 
 Neutral arithmetic expressions run on the server and preview live in the UI; date functions
@@ -187,6 +234,31 @@ out.
   view: slots                                      # slot-picker booking page
   slots: { start: startTime }
 ```
+
+## documentItemsLayout: chat - conversation threads
+
+On a document (header-items) master, render the line-items child as a chat thread (message bubbles
+plus a composer) instead of the editable table - the shape for support cases, tickets and comment
+threads. The header, status pill, process tasks and print stay as in a normal document.
+
+```yaml
+- name: Case
+  function: Document
+  documentItemsLayout: chat
+  relations:
+    - { name: Status, kind: manyToOne, to: CaseStatus, function: EntityStatus, init: 1 }
+- name: CaseMessage
+  function: DocumentItem
+  audit: true                                      # bubble author/time come from CreatedBy/CreatedAt
+  fields:
+    - { name: body,     type: text,    messageBody: true }      # the bubble text (exactly one)
+    - { name: internal, type: boolean, messageInternal: true }  # a memo, hidden from the partner surface
+  relations:
+    - { name: Case, kind: manyToOne, to: Case, composition: true, required: true }
+```
+
+The items child must declare `audit: true` and exactly one `messageBody: true` field; own-vs-other
+alignment keys on the audit author against the logged-in user.
 
 ## uses - cross-model references
 
@@ -263,6 +335,24 @@ generates:
 
 Adds a button on the source view; the clone saves through the target's repository so numbering,
 status init and calculated fields fire.
+
+## transitions - guarded status flips
+
+A per-record button that flips an entity's `function: EntityStatus` relation on demand - void,
+cancel, close, reopen - guarded by the allowed source statuses and an optional condition. A flip from
+any other status (or a failing guard) returns **HTTP 409**; a successful flip publishes the
+`-transitioned` event (which `postings` and integrations can consume).
+
+```yaml
+transitions:
+  - name: VoidInvoice
+    forEntity: Invoice            # must declare a function: EntityStatus relation
+    from: [3, 4]                  # allowed source status seed ids
+    setStatus: 8                  # the target status seed id (not one of `from`)
+    when: "Paid == 0"             # optional guard: <Field> ==|!= <number>
+    label: Void
+    icon: ban
+```
 
 ## postings - source-document to ledger
 
@@ -459,10 +549,10 @@ Reports, Settings including Region & Language).
 - **Declarative glue actions beyond the current set**: publish/consume message,
   `generateDocument` (PDF), `assign`, process-step events, inbound message/file events. Today's
   implemented glue: triggers, decision/form resolvers, notifications, schedules, integrations,
-  inbound webhooks, rollups, settlements, expansions, generates, postings.
+  inbound webhooks, rollups, settlements, expansions, generates, transitions, postings.
 - **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
   be cross-model).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
   target is created.
-- **Embedded calendar panel for a dependent composition child** inside its master page -
-  calendar views require a primary entity today.
+- ~~Embedded calendar panel for a dependent composition child~~ - landed: a composition child with a
+  date field renders an embedded calendar panel inside its master page.

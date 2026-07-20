@@ -43,6 +43,9 @@ Consequences:
        <intent>.roles                     permissions
        <intent>.glue                      triggers, resolvers, notifications, schedules, ...
        <seed>.csvim + <seed>.csv          seed data
+       <name>.extension + <name>.js       actions / generates / transitions (custom buttons)
+       doc/Templates/.../standard.print   printable document templates
+       <intent>.test                      app test manifest
 5. Generate once more, one level down: open a generated model and run the template engine, or let the editor chain it.
 6. Publish. The registry receives intent + models + generated code together; the per-artefact synchronizers bring the runtime live as for any project.
 ```
