@@ -19,11 +19,11 @@ complete worked example.
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
+| [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
-| [`personal` / `partner`](#personal-and-partner-surfaces) | per-user (My) and per-partner record scoping |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
-| [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render document items as a conversation thread |
+| [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
 | [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates |
 | [`forms`](#forms-task-ui) | task data-entry pages |
@@ -103,8 +103,9 @@ Optional and authoritative when set; inferred from structure otherwise.
   function: DocumentItem       # its line items (no "*Item" naming needed)
 ```
 
-Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting` (entity);
-`DocumentTitle` (field); `EntityStatus` (relation).
+Values: `Document`, `DocumentItem`, `Master`, `Detail`, `List`, `Setting`, `Calendar` (entity -
+`Calendar` is the role alias for `view: calendar`); `DocumentTitle` (field); `EntityStatus`
+(relation). `Board` / `Gantt` / `Timeline` are reserved and rejected until those templates ship.
 
 ## label - stored display name
 
@@ -125,9 +126,7 @@ never reference a `sensitive` field.
 
 Row-level `exactlyOne` on every user write; document-level `itemsMin` / `itemsSumEqual` gated on
 a status transition - drafting stays unconstrained, and a failing transition aborts with the
-authored message. A REST create or update that violates a check returns **HTTP 400** with that
-message (via the SDK [`ValidationException`](../../sdk/db/validation-exception.md)); on a workflow
-transition the same check aborts the task completion.
+authored message.
 
 ```yaml
 - name: JournalEntry
@@ -180,34 +179,6 @@ entities:
 Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
 
-## personal and partner surfaces
-
-Scope an entity's records to the logged-in user (the **My** shell) or to an external business
-partner (the **Partner** shell), on top of the regular controller which is unaffected.
-
-```yaml
-entities:
-  - name: Employee
-    identity: email                       # the string field matched against the login username
-  - name: Timesheet
-    relations:
-      - { name: Employee, kind: manyToOne, to: Employee, personal: true }   # the record owner
-    fields:
-      - { name: rate, type: decimal, sensitive: true }   # hidden + ignored on the personal surface
-```
-
-- `identity: <field>` on the owner entity names the string field (conventionally a unique e-mail)
-  matched against the login username.
-- `personal: true` on a record-owning to-one (at most one per entity; target must declare `identity`;
-  never on a composition parent - children inherit the scope) generates an additional
-  `<Entity>MyController` served on the **My** shell (`/services/web/my/`): reads filtered to the
-  caller's record, the owner FK forced server-side on writes, foreign records 404.
-- `partner: true` is the exact mirror for EXTERNAL parties (customers, suppliers) on the **Partner**
-  shell (`/services/web/partner/`), gated by the IdP roles (`Customer` / `Supplier` / `Partner`). An
-  entity can carry both `personal:` and `partner:` at once.
-- `sensitive: true` on a field (not the PK, identity, or owner FK) strips it from personal and partner
-  responses and ignores it on their writes - use it for rates and amounts the person must not see.
-
 ## Calculated fields / actions
 
 Neutral arithmetic expressions run on the server and preview live in the UI; date functions
@@ -235,30 +206,46 @@ out.
   slots: { start: startTime }
 ```
 
+## personal / partner - row-scoped surfaces
+
+A record-owning to-one relation can scope an entity to the logged-in staff user or external
+partner, adding a second generated controller with server-side row-level filtering.
+
+```yaml
+- name: Employee
+  identity: email                    # field matched against the login username
+- name: Expense
+  relations:
+    - { name: Employee, kind: manyToOne, to: Employee, personal: true }   # staff owner
+    - { name: Supplier, kind: manyToOne, to: Supplier, partner: true }    # external-partner owner
+  fields:
+    - { name: rate, type: decimal, sensitive: true }   # stripped from the scoped surfaces
+```
+
+`identity` (on the person/partner entity) declares how a login maps to a record. `personal: true`
+(at most one per entity) generates an `<Entity>MyController` filtered to the caller's owned records
+on the personal shell; `partner: true` the mirror `<Entity>PartnerController` on the Partner shell
+(`/services/web/partner/`, gated by the Customer / Supplier / Partner IdP roles). A `sensitive:
+true` field is stripped from those scoped responses and ignored on their writes (enforced
+server-side, not merely hidden). The regular controller is unaffected; an entity may carry both.
+
 ## documentItemsLayout: chat - conversation threads
 
-On a document (header-items) master, render the line-items child as a chat thread (message bubbles
-plus a composer) instead of the editable table - the shape for support cases, tickets and comment
-threads. The header, status pill, process tasks and print stay as in a normal document.
+A document master can render its line-items child as a chat thread (message bubbles + a composer)
+instead of the editable items table - support cases, tickets, comment threads. The header, status
+pill, process tasks and print stay as in a normal document.
 
 ```yaml
 - name: Case
   function: Document
   documentItemsLayout: chat
-  relations:
-    - { name: Status, kind: manyToOne, to: CaseStatus, function: EntityStatus, init: 1 }
 - name: CaseMessage
   function: DocumentItem
-  audit: true                                      # bubble author/time come from CreatedBy/CreatedAt
+  audit: true                                    # bubble author + timestamp come from audit
   fields:
     - { name: body,     type: text,    messageBody: true }      # the bubble text (exactly one)
-    - { name: internal, type: boolean, messageInternal: true }  # a memo, hidden from the partner surface
-  relations:
-    - { name: Case, kind: manyToOne, to: Case, composition: true, required: true }
+    - { name: internal, type: boolean, messageInternal: true }  # internal memo (hidden from partners)
 ```
-
-The items child must declare `audit: true` and exactly one `messageBody: true` field; own-vs-other
-alignment keys on the audit author against the logged-in user.
 
 ## uses - cross-model references
 
@@ -298,7 +285,10 @@ processes:
 Service-task shapes: `setField` / `setRelationField` (generated handlers), `delegate` (a reusable
 hand-written client `JavaDelegate` with injected `fields`). Decisions may test `relation.field`
 paths (`customer.creditLimit > 10000`) - resolvers are generated. Tasks surface in the Inbox and
-inline on the record's page.
+inline on the record's page. A user task's `assignee` is a role / candidate-group name, or the
+literal `assignee: personal` to route the task to the **record owner's** Inbox (requires the
+trigger entity to declare a `personal:` relation - see
+[personal / partner](#personal-partner-row-scoped-surfaces)).
 
 ## forms - task UI
 
@@ -547,12 +537,17 @@ Reports, Settings including Region & Language).
 - **`manyToMany`** - parsed but never materialized; the supported shape is the explicit
   intermediate entity.
 - **Declarative glue actions beyond the current set**: publish/consume message,
-  `generateDocument` (PDF), `assign`, process-step events, inbound message/file events. Today's
-  implemented glue: triggers, decision/form resolvers, notifications, schedules, integrations,
-  inbound webhooks, rollups, settlements, expansions, generates, transitions, postings.
+  event-driven `generateDocument` (produce a PDF on an event), process-step events, inbound
+  message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
+  schedules (notify + generate), integrations, inbound webhooks, rollups, settlements, expansions,
+  generates, transitions, postings.
 - **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
   be cross-model).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
   target is created.
-- ~~Embedded calendar panel for a dependent composition child~~ - landed: a composition child with a
-  date field renders an embedded calendar panel inside its master page.
+- ~~Embedded calendar panel for a dependent composition child~~ - landed: a calendar-view
+  composition child renders as an embedded calendar in its master's detail pane (a `scope:`
+  relation filters and prefills by the parent).
+- ~~Owner-based user-task assignment~~ - landed: `assignee: personal` routes a task to the record
+  owner. Arbitrary resolver-path assignment (an assignee resolved from any relation walk) is still
+  planned.

@@ -60,7 +60,27 @@ schedules:
       body: "This order is stale."
 ```
 
-Generates a `gen/events/<Name>Job.java` `@Scheduled` `JobHandler` that runs a typed `Criteria` query (`where` to typed conditions, `CURRENT_DATE` / `CURRENT_TIMESTAMP` to now) and performs the per-row `notify` (same relation-load + interpolation as notifications). The action is `notify` only for now.
+Generates a `gen/events/<Name>Job.java` `@Scheduled` `JobHandler` that runs a typed `Criteria` query (`where` to typed conditions, `CURRENT_DATE` / `CURRENT_TIMESTAMP` to now) and performs, per matching row, **exactly one of `notify` or `generate`** (the `notify` form uses the same relation-load + interpolation as notifications).
+
+The `generate` variant creates a record through the **target's** repository (so numbering, status init and calculated fields fire); the target may be cross-model via a `uses:` alias, and it may fan out `children` (one child per matching entity, or per working day of the period):
+
+```yaml
+schedules:
+  - name: monthlyTimesheets
+    cron: "0 0 1 1 * ?"
+    entity: Employee
+    where:
+      - { field: status, op: eq, value: ACTIVE }
+    generate:
+      to: EmployeeTimesheet          # cross-model target via a uses: alias
+      map: { Employee: id }
+      defaults: { Period: now }
+      children:
+        - to: EmployeeDayAllocation
+          parent: EmployeeTimesheet
+          forEach: { days: workingDays }   # one child per working day
+          dayField: day
+```
 
 ## integrations
 
@@ -103,25 +123,46 @@ rollups:
 
 Generates two `gen/events/<Name>RollupOn{Create,Delete}.java` `@Listener`s on the child's create / delete topics that recompute the affected parent's count via a typed `Criteria` and write it back. Recompute-on-event (self-healing), so it is **eventually consistent, not transactionally exact** under heavy concurrency. It counts all children (no `where` filter yet) and tracks create / delete only (not re-parenting on update).
 
+With `op: sum` the roll-up instead keeps `field` equal to the sum of the children's `of` field, and can maintain a `balance` (= `capacity - sum`) and flip a `status` relation to `statusWhenFull` / `statusWhenPartial` - the invoice paid / balance / PAID-PARTIAL pattern. Sum roll-ups also compose transitively across a multi-level composition (leaf edit to mid total to top total). See [rollups in the DSL reference](/help/intent/dsl-reference#rollups-denormalised-parent-totals).
+
+```yaml
+rollups:
+  - { name: invoicePaid, entity: Allocation, via: SalesInvoice, field: paid,
+      op: sum, of: amount, capacity: total, balance: balance,
+      status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
+```
+
 ## Lifecycle triggers
 
 A process `trigger` (start a process on an entity event) is the original glue and is documented with [processes](/help/intent/intent-file#processes), including the configurable `businessKey` and `businessKeyStrategy: timestamp`. Decision **resolvers** (load a related entity's field at a gateway) are also glue, emitted into `<intent>.glue`.
 
 ## What one intent can declare today
 
+The event-then-action glue above, plus the data-flow glue documented in the
+[DSL reference](/help/intent/dsl-reference) - [`settlements`](/help/intent/dsl-reference#settlements-payment-allocation),
+[`expansions`](/help/intent/dsl-reference#expansions-child-rows-from-a-date-span),
+[`generates`](/help/intent/dsl-reference#generates-create-from) and
+[`postings`](/help/intent/dsl-reference#postings-source-document-to-ledger) - are all generated as the same annotated client-Java under `gen/events`.
+
 | Glue | Status |
 | --- | --- |
 | Lifecycle triggers (process start, `when` guard, business key + timestamp strategy) | implemented |
-| Decision resolvers (`relation.field` at a gateway) | implemented |
+| Decision / form resolvers (`relation.field` at a gateway or on a task form) | implemented |
 | Notifications (email; literal / field / one-hop relation; `when`) | implemented |
-| Schedules (cron to typed-`Criteria` query to per-row notify) | implemented |
+| Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
 | Inbound webhooks (`@Controller` ingest to entity) | implemented |
-| Rollups (recompute a parent counter) | implemented |
-| Documents (PDF) | planned |
-| Status lifecycle / state machine | planned |
-| Audit / history | planned |
-| Dynamic user-task assignment | planned |
+| Rollups (count, and sum + balance + status) | implemented |
+| Settlements (auto-allocate payments across open invoices) | implemented |
+| Expansions (generate child rows from a date span) | implemented |
+| Generates (one-click document-from-document create) | implemented |
+| Postings (source document to balanced local document) | implemented |
+| Owner-based user-task assignment (`assignee: personal`) | implemented |
+| Standard per-document PDF print templates | implemented (see [Printing](/help/intent/printing)) |
+| Event-driven document generation (produce a PDF on an event) | planned |
+| Status lifecycle / declarative state machine | planned |
+| Audit history (shadow `<Entity>History` entity; audit *columns* via `audit: true` ship today) | planned |
+| Arbitrary resolver-path task assignment (beyond `assignee: personal`) | planned |
 
 ## Guardrails
 
