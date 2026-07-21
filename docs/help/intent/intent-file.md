@@ -280,11 +280,49 @@ processes:
 
 Generates one `<process>.bpmn` (Flowable-flavoured BPMN 2.0) plus the diagram interchange so the BPMN modeler renders it.
 
-Step kinds: `userTask`, `serviceTask`, `decision`, `script`, `end`.
+Step kinds: `userTask`, `serviceTask`, `decision`, `script`, `wait`, `end`.
 
 **Decision steps**: `if` + `then` are mandatory, `else` optional. `then` / `else` must name a declared step or the literal `end`; the parser validates this, so a typo fails at parse time rather than producing a Flowable reject. Without `else`, the gateway default falls through to the next step.
 
 A decision condition can walk **one hop** off the trigger entity (`customer.creditLimit > 10000`): the generator inserts a resolver service task before the gateway that loads the related entity and rewrites the condition to the resolved variable.
+
+### wait - park the process on a data event
+
+A `wait` step parks the process on a BPMN **message intermediate catch event** until an entity lifecycle event resumes it - a support case waiting for the requester's reply, a dunning flow waiting for a payment, an order flow waiting for its goods receipt:
+
+```yaml
+steps:
+  - { name: requestInfo, kind: serviceTask, args: { setRelationField: Status, value: 4, next: awaitReply } }
+  - { name: awaitReply,  kind: wait, args: { onCreate: CaseMessage, via: case, when: "internal == false", next: work } }
+  - { name: work,        kind: userTask, args: { assignee: agent, form: WorkCase } }
+```
+
+- `onCreate | onUpdate: <Entity>` (exactly one; `onDelete` is rejected - a deleted record cannot resume a wait) names the resuming event of a declared entity.
+- `via: <relation>` - when the event entity is not the trigger entity itself: the **event** entity's to-one relation that walks to the trigger entity (here `CaseMessage.case`). Omitted when the event entity *is* the trigger entity; same-model relations only.
+- `when:` - the single-comparison guard over the **event record** (`field ==|!= literal`), so e.g. an internal note does not resume the wait.
+
+The generated glue is a `MessageHandler` on the event entity's topic that resolves the record carrying the parked instance's `ProcessId` (through `via:`, or the event record itself) and calls `Process.correlateMessageEvent(processId, message)`. Correlation rides the `ProcessId` the trigger listener already writes back - which is why a `wait` requires the process to declare a `trigger:`. **Fail-soft:** no `ProcessId`, no matching parked instance, or an instance already past the wait is a no-op, never an error.
+
+### timeout / expire - boundary timers on a user task
+
+Two optional map attributes on a `userTask`'s args give generated flows a notion of time. Both route `then` like a decision branch (a declared step or `end`; route the main flow around the branch steps with `next`):
+
+```yaml
+steps:
+  - name: approve
+    kind: userTask
+    args:
+      assignee: approver
+      form: ApproveQuotation
+      timeout: { after: P3D, then: remind }              # non-cancelling: the task STAYS
+      expire:  { until: validUntil, then: markExpired }  # cancelling: the task is WITHDRAWN
+      next: done
+```
+
+- `timeout: { after: <ISO-8601 duration>, then: <step> }` - a **non-cancelling** boundary timer (`PT4H`, `P3D`): after the duration the `then` branch runs (a reminder / SLA escalation) while the task stays claimable.
+- `expire: { until: <field>, then: <step> }` - a **cancelling** boundary timer driven by a `date` / `timestamp` field of the trigger entity (a quotation's `validUntil`): when the moment passes, the task is withdrawn and the flow continues at `then`.
+
+The expire date is **re-read at task entry** by a generated loader delegate inserted before the task, so editing the date mid-flow moves the timer. A `date` field names the *last valid day* - the timer fires at the start of the day after it; a `timestamp` fires at its instant; a `null` value arms a far-future date so the timer never effectively fires. The Flowable async job executor (always active) runs the timer jobs - no configuration needed.
 
 ### trigger
 

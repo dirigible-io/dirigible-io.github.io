@@ -136,6 +136,13 @@ rollups:
 
 A process `trigger` (start a process on an entity event) is the original glue and is documented with [processes](/help/intent/intent-file#processes), including the configurable `businessKey` and `businessKeyStrategy: timestamp`. Decision **resolvers** (load a related entity's field at a gateway) are also glue, emitted into `<intent>.glue`.
 
+## Waits and boundary timers
+
+The process-side "observe the outside world" primitives ([`wait`, `timeout:`, `expire:`](/help/intent/intent-file#processes)) each generate their own glue class under `gen/events`:
+
+- a **wait listener** (`<Process><Step>Wait.java`, the `waits` collection) - a `MessageHandler` on the event entity's topic that applies the `when:` guard, resolves the record carrying the parked instance's `ProcessId` (through the `via:` back-reference, or the event record itself), and correlates the catch event's message fail-soft;
+- an **expire date loader** (`Load<Process><Task>Expire.java`, the `timerLoaders` collection) - a `JavaDelegate` inserted before the user task that re-reads the trigger entity's date field at task entry and publishes the `java.util.Date` process variable the cancelling boundary timer arms from.
+
 ## What one intent can declare today
 
 The event-then-action glue above, plus the data-flow glue documented in the
@@ -158,6 +165,8 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Generates (one-click document-from-document create) | implemented |
 | Postings (source document to balanced local document) | implemented |
 | Owner-based user-task assignment (`assignee: personal`) | implemented |
+| Waits (`wait` step - park on an entity event, correlate by `ProcessId`) | implemented |
+| Boundary timers (userTask `timeout:` reminder / `expire:` date-driven withdrawal) | implemented |
 | Standard per-document PDF print templates | implemented (see [Printing](/help/intent/printing)) |
 | Event-driven document generation (produce a PDF on an event) | planned |
 | Status lifecycle / declarative state machine | planned |

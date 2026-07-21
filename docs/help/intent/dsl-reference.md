@@ -25,7 +25,7 @@ complete worked example.
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
 | [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
-| [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates |
+| [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates, waits and boundary timers |
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
@@ -291,6 +291,27 @@ inline on the record's page. A user task's `assignee` is a role / candidate-grou
 literal `assignee: personal` to route the task to the **record owner's** Inbox (requires the
 trigger entity to declare a `personal:` relation - see
 [personal / partner](#personal-partner-row-scoped-surfaces)).
+
+A running process can also **observe the outside world**:
+
+```yaml
+steps:
+  - name: review
+    kind: userTask
+    args:
+      assignee: reviewer
+      timeout: { after: P3D, then: remind }              # non-cancelling reminder / SLA escalation
+      expire:  { until: validUntil, then: markExpired }  # cancelling, date-field-driven expiry
+      next: awaitReply
+  - { name: awaitReply, kind: wait, args: { onCreate: CaseMessage, via: case, when: "internal == false", next: work } }
+```
+
+A **`wait`** step parks the flow on a message intermediate catch event until an entity event resumes
+it (a reply arrives, a payment lands, a goods receipt posts) - the generated listener correlates on
+the trigger entity's stamped `ProcessId`, through the `via:` back-reference when the event entity is
+a different one. **`timeout:`** / **`expire:`** are boundary timers on a user task: `after:` an
+ISO-8601 duration for a non-cancelling reminder, `until:` a `date`/`timestamp` field re-read at task
+entry for a cancelling expiry. Details: [processes](/help/intent/intent-file#processes).
 
 ## forms - task UI
 
