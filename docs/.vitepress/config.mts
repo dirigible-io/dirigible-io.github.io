@@ -1092,6 +1092,14 @@ function sdkSidebar() {
           ],
         },
         {
+          text: 'org.eclipse.dirigible.sdk.numbering',
+          collapsed: true,
+          link: '/sdk/numbering/',
+          items: [
+            { text: 'DocumentNumbers', link: '/sdk/numbering/documentnumbers' },
+          ],
+        },
+        {
           text: 'org.eclipse.dirigible.sdk.pdf',
           collapsed: true,
           link: '/sdk/pdf/',
