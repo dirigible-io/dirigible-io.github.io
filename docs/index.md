@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: Eclipse Dirigible
-  text: High-Productivity Application Platform
-  tagline: In-system development tools and a runtime environment for the full lifecycle of cloud applications
+  text: Open Intent Driven Development Platform
+  tagline: The reference implementation of the open <a href="https://intentfile.org">Intent File Specification</a>, transforming executable business intent into enterprise applications through models, workflows, integrations and cloud-native runtime.
   image:
     src: /img/logo/dirigible.svg
     alt: Eclipse Dirigible
@@ -20,21 +20,29 @@ hero:
       link: https://github.com/eclipse/dirigible
 
 features:
+  - title: Intent-Driven Development
+    details: Transform executable business intents into complete enterprise applications using models, workflows, integrations and AI-assisted composition based on the Intent File Specification.
+    link: /help/intent/
+    linkText: Learn more
   - title: In-System Programming
     details: Develop and modify running applications through the browser IDE - no restarts, no deployments, immediate feedback
-    link: /help/development/concepts/dynamic-applications
+    link: /help/concepts/platform-overview
     linkText: Learn more
   - title: Model-Driven Development
     details: Design entity domain models visually, generate full-stack applications in minutes with built-in templates
-    link: /help/tutorials/modeling/generate-application-from-model
+    link: /help/ide/modelers/
     linkText: Learn more
   - title: Full-Stack Runtime
     details: JavaScript, TypeScript, Java execution engines alongside BPM, Camel integration, OData, and more - all in one platform
-    link: /help/overview/engines
+    link: /help/concepts/polyglot-runtime
+    linkText: Learn more
+  - title: Enterprise Integration
+    details: Connect enterprise systems, APIs, databases and messaging platforms through built-in integration, automation and workflow capabilities.
+    link: /help/setup/
     linkText: Learn more
   - title: Open & Extensible
     details: Eclipse Public License 2.0, fully open source on GitHub. Extend with custom facades, templates, and perspectives
-    link: /help/development/extensions/
+    link: /help/extend/
     linkText: Learn more
 ---
 
