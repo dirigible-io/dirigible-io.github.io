@@ -127,6 +127,23 @@ The Monitoring perspective is at `ide/perspectives/monitoring.md` + three views 
 - **Cross-links are absolute** — `/help/...`, `/api/...`, `/sdk/...`, `/sdks/...`. `ignoreDeadLinks: true` is on; that masks broken links at build time, so run the dead-link scanner manually (see "Operational scripts" below) before publishing significant changes.
 - **Frontmatter on every page** — `---\ntitle: ...\ndescription: ...\n---`. If `description` starts with `@` (e.g. `@Inject`) quote it: `description: "@Inject + @Repository"`. Bare `@` at the start of a YAML scalar fails to parse.
 
+## Intent spec docs sync (intentfile.org + this site)
+
+`intentfile.org` (repo `IntentFile/intentfile.github.io`) is THE intent **specification** - a
+vendor-neutral, normative doc site. Its DSL is implemented by the `engine-intent` reference
+implementation in the platform. This site (`dirigible.io`) carries the platform-branded intent
+docs under `/help/intent/`.
+
+**Directive (normative):** any intent DSL addition/change updates BOTH sites in the same effort:
+
+- **`intentfile.org`** - open a PR and **leave it OPEN (do NOT merge)**; the maintainer
+  reviews/merges the public spec. Neutral wording ONLY: no vendor/platform names (no Dirigible /
+  Eclipse / product names), and NEVER a `CLAUDE.md` / `MEMORY.md` or any AI/meta file in that repo.
+- **`dirigible.io`** (this repo) - open a PR and **merge it**.
+
+Derive the neutral wording for the spec from the platform docs (or vice versa); the two must stay
+in lockstep with the parser/generators.
+
 ## SDK organisation
 
 The two SDKs are siblings, not parent/child:
