@@ -141,6 +141,48 @@ authored message.
     - { kind: exactlyOne, fields: [debit, credit], message: "Exactly one of debit/credit" }
 ```
 
+## checks: kind: guard - precondition over an aggregate
+
+```yaml
+- name: StockMovement
+  checks:
+    - kind: guard
+      aggregate: onHand                 # an `aggregates` entry whose `of` is THIS entity
+      minimum: 0                        # recomputed total (prior rows + this row) stays >= minimum
+      message: "Insufficient stock"
+      enabledBy: BLOCK_NEGATIVE_STOCK   # optional: enforced only while the config key is "true"
+- name: SalesOrder
+  checks:
+    - kind: guard
+      aggregate: openExposure
+      minimum: 0
+      outcome: task                     # accept the write, mark it for a human step
+      marker: withinCredit
+- name: LeaveRequest
+  checks:
+    - kind: guard
+      aggregate: remaining
+      minimum: 0
+      outcome: reject                   # accept the write, file it already rejected
+      setStatus: 4
+```
+
+| `outcome` | Companion | A violating write |
+| --- | --- | --- |
+| `block` (default) | - | throws `ValidationException`, mapped to 4xx; nothing stored |
+| `task` | `marker:` boolean field | stored; the marker is set false (true whenever the guard holds) |
+| `reject` | `setStatus:` status seed id | stored; the `function: EntityStatus` FK is set to that value |
+
+Emitted into the generated repository's save and update paths. The total is recomputed
+SYNCHRONOUSLY from the guarded entity's own rows for the incoming key-tuple (excluding the row being
+updated), not read from the materialised aggregate target, so the decision cannot race the aggregate
+handler. Guard and aggregate are therefore two independent computations of the same total, and the
+guard is the authoritative one.
+
+`outcome: task` stamps a flag; it does not create or route to a task. A process `decision` step
+reads the marker and routes the record. `outcome: reject` requires an `EntityStatus` relation. A
+companion attribute belonging to another outcome is a generation error, not ignored.
+
 ## immutableWhen / immutable - user-write immutability
 
 ```yaml
@@ -478,6 +520,62 @@ rollups:
 
 Roll-ups compose transitively across a multi-level composition (leaf edit → mid total → top
 total); recomputation stops when values stop changing.
+
+## aggregates - keyed cross-entity totals
+
+```yaml
+aggregates:
+  - name: onHand
+    of: StockMovement           # the source rows
+    op: sum                     # sum (default) | count
+    sum: quantity               # the summed field
+    by: [Product, Store]        # the grouping keys (to-one relations of BOTH source and target)
+    into: ProductAvailability   # the target entity, keyed by the same relations
+    field: onHand               # the target field holding the total
+```
+
+Where `rollups` write a total onto the parent of a composition (one key, the child's own parent
+relation), an aggregate is keyed by SEVERAL relations and lands in its own entity, so the total is a
+real row other records can reference and pickers can point at: on-hand per product and store, open
+exposure per customer, remaining allowance per employee and year.
+
+Emits three `gen/events/<module>/<Name>AggregateOn{Create,Update,Delete}.java` handlers on the
+source's topics. Each upserts the target row for the incoming row's key-tuple and recomputes the
+field from every source row sharing it (idempotent, self-healing), then writes ONLY the aggregate
+column through the target repository's `updateDerived` - so a concurrent edit to another column of
+the target row is never reverted. A source row with any grouping key null is ignored.
+
+Eventually consistent, not transactionally exact. Editing a grouping key recomputes the tuple the
+row moved INTO; recomputing the tuple it left is a known limitation (append-only ledgers, the
+primary use, are unaffected).
+
+## posts - derived rows on an event
+
+```yaml
+posts:
+  - name: goodsReceiptLedger
+    event: POSTED               # a status value of the source, or `create`
+    forEach: items              # the composition child to iterate (omit for one row per record)
+    into: StockMovement         # the target entity (local or cross-model)
+    idempotentBy: GoodsReceipt  # the target's back-reference FK to the source
+    set:
+      Date:         Receipt.Date
+      Store:        Receipt.Store
+      Product:      item.Product
+      Quantity:     item.Quantity
+      Direction:    1
+      GoodsReceipt: Receipt.Id
+```
+
+A `set` value is a constant, `<Source>.<field>`, `item.<field>`, or a `Calc` expression over those
+(`-item.Quantity` for a sign flip). Several entries under one event emit several rows per item: a
+stock transfer posts an OUT and an IN movement from one document.
+
+Emits a `MessageHandler` on the source's `-transitioned` topic (or the create topic for
+`event: create`) that re-loads the source, skips when target rows already carry the
+`idempotentBy` back-reference, and writes each row through the target repository - so the target's
+own numbering, `checks:` and derived fields fire. The declarative form of the hand-written
+document-to-ledger delegate; contrast `generates`, which creates ONE document from a user action.
 
 ## settlements - payment allocation
 

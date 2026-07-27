@@ -132,6 +132,38 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+## aggregates
+
+A total over one entity's rows grouped by SEVERAL to-one relations, materialised into its own
+entity keyed by the same relations (on-hand per product and store, exposure per customer):
+
+```yaml
+aggregates:
+  - { name: onHand, of: StockMovement, op: sum, sum: quantity,
+      by: [Product, Store], into: ProductAvailability, field: onHand }
+```
+
+Three handlers per aggregate (source create / update / delete) upsert the target row for the
+incoming row's key-tuple and recompute from every source row sharing it. The write is targeted
+(`updateDerived`), so only the aggregate column is persisted. Unlike `rollups`, the total lives in
+a referenceable entity rather than on a composition parent. See the
+[DSL reference](/help/intent/dsl-reference).
+
+## posts
+
+Derived rows into a ledger on a document status event, mapped from the document and its items,
+idempotent by a declared back-reference:
+
+```yaml
+posts:
+  - { name: goodsReceiptLedger, event: POSTED, forEach: items, into: StockMovement,
+      idempotentBy: GoodsReceipt, set: { Product: item.Product, Quantity: item.Quantity } }
+```
+
+The generated handler listens on the source's `-transitioned` topic, skips when rows already
+back-reference the source, and writes through the target repository so its numbering and checks
+still fire.
+
 ## Lifecycle triggers
 
 A process `trigger` (start a process on an entity event) is the original glue and is documented with [processes](/help/intent/intent-file#processes), including the configurable `businessKey` and `businessKeyStrategy: timestamp`. Decision **resolvers** (load a related entity's field at a gateway) are also glue, emitted into `<intent>.glue`.
