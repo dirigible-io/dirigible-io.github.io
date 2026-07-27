@@ -132,6 +132,12 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+
+The parent may be owned by another model: with a cross-model `via` the handler resolves the parent's
+package and perspective from the owner's `.model` and writes through the owner's repository. The
+model must be declared in `uses:`, and an unresolvable roll-up is surfaced in the generate
+response's issues rather than dropped.
+
 ## aggregates
 
 A total over one entity's rows grouped by SEVERAL to-one relations, materialised into its own
