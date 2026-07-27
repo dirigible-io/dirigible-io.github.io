@@ -521,6 +521,15 @@ rollups:
 Roll-ups compose transitively across a multi-level composition (leaf edit → mid total → top
 total); recomputation stops when values stop changing.
 
+The parent may live in ANOTHER model: when `via` is a cross-model relation the child stays local (it
+owns the event the handler binds to) and the parent's package + perspective are resolved from the
+owner's `.model`, so the generated handler imports `gen.<owner>.data.<perspective>.<Parent>Repository`
+and writes through it. The relation's model must be declared in `uses:`; the parent field is checked
+against the owner's model at generation time, and a roll-up that cannot be resolved (undeclared model,
+unknown field) is surfaced in the generate response's issues instead of being dropped silently.
+`capacity` / `balance` / `status` stay local-only - they read the parent's own limit and status seeds
+and stamp the capacity guard on the child.
+
 ## aggregates - keyed cross-entity totals
 
 ```yaml
