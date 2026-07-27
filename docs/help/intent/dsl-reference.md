@@ -545,9 +545,17 @@ field from every source row sharing it (idempotent, self-healing), then writes O
 column through the target repository's `updateDerived` - so a concurrent edit to another column of
 the target row is never reverted. A source row with any grouping key null is ignored.
 
-Eventually consistent, not transactionally exact. Editing a grouping key recomputes the tuple the
-row moved INTO; recomputing the tuple it left is a known limitation (append-only ledgers, the
-primary use, are unaffected).
+Eventually consistent, not transactionally exact.
+
+Editing a grouping key MOVES the row between tuples and both sides are repaired. The tuple it moved
+into is recomputed off the `-updated` event; for the tuple it LEFT the generated DAO re-reads the row
+before the write, compares every grouping key, and - only when one actually moved - publishes the
+PREVIOUS row on `<project>-<perspective>-<Entity>-rekeyed`, which a fourth handler
+(`<Name>AggregateOnRekey`) recomputes. Only aggregate handlers listen on that topic, so no roll-up,
+notification or integration sees a phantom event. A tuple whose last contributing row leaves keeps
+its target row with a zero total. A grouping key changed through a TARGETED write
+(`updateProperty` / `updateProperties`, e.g. a workflow setter) moves no tuple, because those paths
+raise no entity event at all.
 
 ## posts - derived rows on an event
 
