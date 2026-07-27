@@ -143,8 +143,10 @@ aggregates:
       by: [Product, Store], into: ProductAvailability, field: onHand }
 ```
 
-Three handlers per aggregate (source create / update / delete) upsert the target row for the
-incoming row's key-tuple and recompute from every source row sharing it. The write is targeted
+Four handlers per aggregate (source create / update / delete, plus rekey) upsert the target row for
+the incoming row's key-tuple and recompute from every source row sharing it. The rekey handler
+receives the PREVIOUS row on a dedicated `-rekeyed` topic, published by the DAO only when a grouping
+key actually moved, and repairs the tuple the row left behind. The write is targeted
 (`updateDerived`), so only the aggregate column is persisted. Unlike `rollups`, the total lives in
 a referenceable entity rather than on a composition parent. See the
 [DSL reference](/help/intent/dsl-reference).
