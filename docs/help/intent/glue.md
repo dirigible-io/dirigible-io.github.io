@@ -43,6 +43,50 @@ notifications:
 
 Generates a `gen/events/<Name>Notification.java` `@Listener` using `sdk.mail.Mail`, bound to the entity's create / `-updated` / `-deleted` topic. `to` and `{placeholder}` resolve a literal, a direct field, or a **one-hop `relation.field`** of a to-one relation (the listener loads the related entity once by FK id). `when:` supports a single `field ==|!= literal` guard. Multi-hop paths (`a.b.c`) are the remaining gap; the parser rejects them with a clear message.
 
+## The notify block - and `attach: print`, sending the document itself
+
+`to` / `subject` / `body` is one reusable **notify block**, not a shape peculiar to `notifications`. The same block is authored at every place an intent can act on a record:
+
+| Where | The record it is about | Generated as |
+| --- | --- | --- |
+| `notifications[]` | the event record | `<Name>Notification.java` (`@Listener`) |
+| `schedules[].notify` | each matched row | `<Name>Job.java` (`@Scheduled`) |
+| `transitions[].notify` | the transitioned record | inside `<Name>Transition.java`, after the flip |
+| a `serviceTask`'s `args.notify` | the process's trigger record | `<Process><Step>Send.java`, a `JavaDelegate` the BPMN binds |
+
+Add **`attach: print`** and the message carries the record's **own document**: the generated `<Entity>PrintFeeder` assembles the `{document, items}` payload through the repositories and `sdk.print.Print` renders it to PDF server-side - the same two steps the snapshot delegate takes - and the result rides along as an `application/pdf` part. This is the declarative form of the most common outbound action a business document has: the invoice to its customer, the payslip to its employee, a dunning reminder carrying the invoice it is about.
+
+```yaml
+    notify:
+      to: Customer.email                 # literal / direct field / one-hop relation.field
+      subject: "Invoice {number}"        # {field} and {relation.field} interpolation
+      body: "Dear {Customer.name}, please find invoice {number} attached."
+      attach: print                      # render THIS record's .print template and attach it
+      language: bg                       # optional print-template language (default en)
+```
+
+`attach`'s only value is `print`, and the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
+
+::: tip Failure semantics, per call site
+A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
+:::
+
+A sending `serviceTask` stands alone: `notify` cannot be combined with `setField` / `setRelationField` / `call` / `delegate` on the same step - give the send its own step and route to it with `next`.
+
+```yaml
+processes:
+  - name: InvoiceIssue
+    trigger: { onCreate: Invoice }
+    steps:
+      - { name: issue, kind: userTask, args: { assignee: issuer, setRelationField: Status, value: 3, next: mailIt } }
+      - name: mailIt
+        kind: serviceTask
+        args:
+          notify: { to: Customer.email, subject: "Invoice {number}", body: "Attached.", attach: print }
+          next: end
+      - { name: end, kind: end }
+```
+
 ## schedules
 
 Cron reminders / cleanups - query an entity and act per matching row.
@@ -196,6 +240,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Lifecycle triggers (process start, `when` guard, business key + timestamp strategy) | implemented |
 | Decision / form resolvers (`relation.field` at a gateway or on a task form) | implemented |
 | Notifications (email; literal / field / one-hop relation; `when`) | implemented |
+| Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
 | Inbound webhooks (`@Controller` ingest to entity) | implemented |
@@ -208,7 +253,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Waits (`wait` step - park on an entity event, correlate by `ProcessId`) | implemented |
 | Boundary timers (userTask `timeout:` reminder / `expire:` date-driven withdrawal) | implemented |
 | Standard per-document PDF print templates | implemented (see [Printing](/help/intent/printing)) |
-| Event-driven document generation (produce a PDF on an event) | planned |
+| Event-driven document generation (produce a PDF on an event) | implemented - mailed by `attach: print`, stored by `function: Snapshot` |
 | Status lifecycle / declarative state machine | planned |
 | Audit history (shadow `<Entity>History` entity; audit *columns* via `audit: true` ship today) | planned |
 | Arbitrary resolver-path task assignment (beyond `assignee: personal`) | planned |

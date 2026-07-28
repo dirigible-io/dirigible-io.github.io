@@ -38,6 +38,7 @@ complete worked example.
 | [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
 | [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
 | [`notifications`](#notifications-email-on-change) | email on create/update/delete |
+| [the notify block / `attach: print`](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself) | send a message about a record - with the record's own document attached - from a process step, a transition or a schedule |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
 | [`inbound`](#inbound-webhooks) | webhook that creates records |
@@ -447,7 +448,16 @@ transitions:
     when: "Paid == 0"             # optional guard: <Field> ==|!= <number>
     label: Void
     icon: ban
+    notify:                       # optional: mail the counterparty after the flip commits
+      to: Customer.email          # (fail-soft - a mail problem cannot fail the flip)
+      subject: "Invoice {number} was voided"
+      body: "The invoice has been cancelled."
+      attach: print               # optionally with the document itself attached
 ```
+
+The `notify:` block is the same shape a notification or a schedule uses, and `attach: print` mails the
+record's own rendered document - see
+[the notify block](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself).
 
 ## postings - source-document to ledger
 
