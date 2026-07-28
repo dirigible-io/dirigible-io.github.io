@@ -71,6 +71,32 @@ Add **`attach: print`** and the message carries the record's **own document**: t
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
 :::
 
+### One message per related row: `forEach`
+
+Some sends are per-row rather than per-record - a payroll run mails every payslip to its own employee.
+`forEach:` names a related entity and the block sends ONE message per row of it; from then on every path
+(recipient, placeholders, `attach: print`) resolves against the **ROW**.
+
+```yaml
+    notify:
+      forEach: Payslip                              # rows whose to-one FK points at this record
+      to: Employee.email                            # the ROW's employee
+      subject: "Payslip {PayrollRun.month}"         # one hop from the ROW
+      body: "Dear {Employee.name}, net pay {net}."  # the ROW's own field
+      attach: print                                 # the ROW's own document
+```
+
+The row entity must have exactly **one** to-one relation back to the record - none means the rows are
+unrelated, several make the intended set ambiguous, and both are parse-time errors rather than a
+silently wrong list of recipients. The generated code loops the rows with the loop variable named
+`entity`, so the same pre-rendered expressions serve both shapes.
+
+::: warning A fan-out never fails its activity
+Fail-soft per row at every call site, including a `serviceTask` (which otherwise fails): a row with no
+recipient is skipped, a delivery failure is logged, and the step completes with a per-row summary.
+Retrying would resend to every recipient already served - a partial fan-out cannot be made idempotent.
+:::
+
 A sending `serviceTask` stands alone: `notify` cannot be combined with `setField` / `setRelationField` / `call` / `delegate` on the same step - give the send its own step and route to it with `next`.
 
 ```yaml
