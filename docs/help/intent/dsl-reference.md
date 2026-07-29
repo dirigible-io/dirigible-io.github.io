@@ -99,6 +99,17 @@ entities:
 - { name: City,  kind: manyToOne, to: City, dependsOn: { relation: Country, filterBy: Country } }
 - { name: UoM,   kind: manyToOne, to: UoM,  dependsOn: { relation: Product, valueFrom: UoM } }
 - { name: price, type: decimal,             dependsOn: { relation: Product, valueFrom: price } }
+# Conditional auto-populate (field only): the copied property picked by a classifier - an own
+# property, a one-hop Relation.property, or a path starting at the composition parent relation
+# (the open document header). No matching case and no default = no copy.
+- name: price
+  type: decimal
+  dependsOn:
+    relation: Product
+    valueFrom:
+      by: SalesOrder.Customer.priceLevel     # the open document's customer carries the classifier
+      cases: { 1: wholesalePrice, 2: retailPrice }
+      default: retailPrice
 # Static option filter - e.g. only stock-tracked products:
 - { name: Product, kind: manyToOne, to: Product, where: { Type: 1 } }
 ```
@@ -1136,6 +1147,21 @@ shape the conditional `dependsOn` `valueFrom` uses. Quote it (it carries colons 
 classifier's seed ids and values are columns of the rule entity; `default` (optional) is the fallback.
 No match and no default - or a null selected column - skips the posting to the unposted worklist. A
 conditional cell already branches the account, so it cannot also carry a row `when`.
+
+The trigger is `onTransition` — a status write, with the `when` status guard mandatory — or **`onCreate`**, for a source document with **no status lifecycle at all**: a booked payment's only event is being created, and it is exactly the document an accountant expects posted. `when` stays optional there as a plain `<Property> == <number>` guard; an `onCreate` posting reacts to the source's create event.
+
+```yaml
+postings:
+  - name: customerPaymentPosting
+    event: { onCreate: CustomerPayment, model: customer-payments }   # no status, no guard
+    creates: JournalEntry
+    backReference: CustomerPayment
+    map: { entryDate: date, reason: "Payment {number}" }
+    rule: { entity: PostingRule, match: { documentType: "Customer Payment" } }
+    items:
+      - { Account: rule(bankAccount),       debit: "Amount" }
+      - { Account: rule(receivableAccount), credit: "Amount" }
+```
 
 A second posting can **reverse** the first (red storno) when the source document is voided - pair it
 with the [`transitions`](#transitions-guarded-status-flips) void that flips the source into its void
