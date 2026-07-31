@@ -75,7 +75,7 @@ entities:
 ```yaml
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
 - { name: uuid,  type: uuid, major: false }                            # auto-filled on create, off the list table
-- { name: Number, type: string, number: { series: SalesInvoice, format: "SI-{seq:06}" } }  # document number
+- { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
 - { name: period, type: month }                                        # YYYY-MM month picker
 - { name: sprint, type: week }                                         # YYYY-Www ISO-week picker
@@ -245,38 +245,68 @@ a calculated action - the platform owns a gap-free sequence for you.
 ## number - document numbering
 
 Turns a string field into a platform-numbered document field. The platform owns a **gap-free,
-per-tenant sequence per series**, renders it through the `format`, and stamps the field
-automatically - no hand-written number action or delegate.
+per-tenant sequence per series** and stamps the field automatically - no hand-written number action
+or delegate. The intent declares only a **reference to a series** - never how the number looks.
 
 ```yaml
 # stamped on create (the number exists the moment the record is saved):
-- { name: Number, type: string, number: { series: Proforma, format: "PF{seq:08}", stampOn: create } }
+- { name: Number, type: string, number: { series: Proforma, stampOn: create } }
 
-# stamped at a modeled issue step (a UUID placeholder holds the field until then):
+# partitioned per company, stamped at a modeled issue step (a UUID placeholder holds the field until then):
 - name: Number
   type: string
   number:
-    series: SalesInvoice          # documents sharing a sequence pass the same series
-    format: "SI-{year}-{seq:05}"  # {seq} / {seq:0N} / {series} / scope tokens {year},{<Field>}
-    scope: [year]                 # partitions the counter (and feeds {year}); omit for one continuous sequence
-    stampOn: issue                # create | issue
+    series: Sales Invoice   # documents sharing one legal range pass the same series
+    per: Company            # optional: a to-one relation whose value partitions the sequence
+    stampOn: issue          # create | issue
 ```
 
-- **`series`** (default: the entity name) - the sequence identity. Give several document types
-  (invoice, credit note, debit note) the **same series** to share one running number.
-- **`format`** (default `{series}-{seq:06}`) - `{seq}`, `{seq:0N}` (zero-padded), `{series}`, and
-  scope tokens `{year}` / `{<Field>}`.
-- **`scope`** - `year` and/or sibling field names; partitions the counter and supplies the format's
-  scope tokens. Omit for a single continuous sequence.
+- **`series`** (mandatory) - the sequence identity. Give several document types (invoice, credit
+  note, debit note) the **same series** to share one running number.
+- **`per`** (optional) - a to-one relation of the entity whose value **partitions** the series:
+  each partition value gets its own sequence, prefix and width. The canonical use is
+  `per: Company` - two legal entities in one tenant each owe their own sequential range and must
+  never share a counter. Identical numbers across partitions are correct; the partition only
+  selects which sequence to draw from and never appears in the number. An `EntityStatus` relation
+  cannot partition a series.
 - **`stampOn`** - `create` stamps the real number on insert; `issue` puts a UUID placeholder on the
   field at create and generates a `gen/events/<Entity>NumberStamp` delegate that stamps the real
   number when the process reaches the step wired with `delegate: gen.events.<Entity>NumberStamp`.
   Stamping is **idempotent** - re-issuing after an amend keeps the same number.
 
+### The series is tenant configuration, not model
+
+A number series is a **tenant-level business object**, not a module asset. A number renders as **a
+literal prefix plus the sequence zero-padded to a total width** (`SI00000042`) - there is no token
+grammar, and neither the prefix nor the width is authored in the intent: baking a format into the
+model would force a market that numbers documents differently to fork and regenerate the
+application.
+
+A module declares the series it needs in a **`.numbers` artefact** at the project root - a
+requirement declaration, exactly as `.roles` declares roles (authored by hand, never generated):
+
+```json
+{"series": [{"name": "Sales Invoice", "prefix": "SI", "size": 10}]}
+```
+
+At publish, the `.numbers` synchronizer provisions each declared series **per tenant** when the
+tenant has none yet - an existing series keeps its live counter and whatever shape its
+administrator configured. Two modules may declare the same series only **identically** (a shared
+legal range provisions once); a differing re-declaration fails that artefact loudly, naming both
+modules. Unpublishing a module never removes a series or its counter - allocated ranges are
+business history.
+
+Sequences are **continuous and never auto-reset**. A jurisdiction that restarts numbering each year
+does it by an administrator setting the prefix and the next value (e.g. prefix `2027-`, next `1`,
+in January) in the application shell's **Document Numbering** settings - visible and auditable,
+rather than a hidden reset rule that could mint the same number twice. Allocating from a series no
+`.numbers` artefact declares fails loudly - a document must never carry a number in a shape nobody
+chose.
+
 The field is read-only in the UI, and the create-time UUID placeholder is hidden in document titles
-until the real number is stamped. Counters are visible and adjustable in the application shell's
-**Document Numbering** settings, and are reachable from bespoke code through the Java SDK
-[`DocumentNumbers`](/sdk/numbering/documentnumbers) facade.
+until the real number is stamped. Each series' prefix, total width and next value are configured
+per tenant in the **Document Numbering** settings, and series are reachable from bespoke code
+through the Java SDK [`DocumentNumbers`](/sdk/numbering/documentnumbers) facade.
 
 ## view - calendar, range, slots
 
