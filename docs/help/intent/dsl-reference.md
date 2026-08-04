@@ -296,6 +296,23 @@ legal range provisions once); a differing re-declaration fails that artefact lou
 modules. Unpublishing a module never removes a series or its counter - allocated ranges are
 business history.
 
+A **partitioned** series (`per:`) may additionally declare its **partition source** - the physical
+table its partition values come from, with the key and display-label columns (authored physical
+coordinates, exactly like a `.csvim`'s table and columns):
+
+```json
+{"series": [{"name": "Sales Invoice", "prefix": "SI", "size": 10,
+             "partitions": {"table": "CRM_COMPANY", "key": "COMPANY_ID", "label": "COMPANY_NAME"}}]}
+```
+
+With a partition source declared, the **Document Numbering** settings label each partition row by
+the entity's display name ("Sales Invoice — ACME Ltd." instead of a raw id) and list a row for
+**every** partition value before its first allocation - so an operator seeds a company's starting
+number before its first document is issued; saving such a row provisions it exactly as the first
+allocation would have (the base row's shape, then the edit). The identifiers must be plain SQL
+names (validated at parse), and a differing cross-module re-declaration fails the artefact just
+like a differing shape.
+
 Sequences are **continuous and never auto-reset**. A jurisdiction that restarts numbering each year
 does it by an administrator setting the prefix and the next value (e.g. prefix `2027-`, next `1`,
 in January) in the application shell's **Document Numbering** settings - visible and auditable,

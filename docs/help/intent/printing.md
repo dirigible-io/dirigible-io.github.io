@@ -105,7 +105,24 @@ doc/Templates/SalesInvoice/Print/en/standard.print
 doc/Templates/SalesInvoice/Print/bg/standard.print
 ```
 
-When several languages exist, the Print button asks which to use; otherwise it prints the only one. The default follows the user's Region &amp; Language setting.
+When several languages exist, the Print button asks which to use; otherwise it prints the only one. The default follows the user's Region &amp; Language setting. The Print button always renders **live** - current master data, the language just chosen. The immutable copy of an issued document is a separate, first-class surface: see below.
+
+## The issued copy and its language
+
+A document may declare a `function: Snapshot` composition child - an **immutable, versioned PDF copy** minted by the process (typically right after Issue) and served by a read-only files panel on the document page, with a per-version **Open** and **Download**. Printing and the stored copy answer different questions: Print renders the document as it is *now*; the snapshot panel serves the document as it was *issued* - both stay one click apart on the same page.
+
+The language a copy is **minted** in is a knob on the snapshot child:
+
+```yaml
+- name: SalesInvoiceCopy
+  function: Snapshot
+  languageFrom: customer.language      # per record - the customer decides the invoice's language
+  # or: language: bg                   # fixed
+  relations:
+    - { name: salesInvoice, kind: manyToOne, to: SalesInvoice, composition: true }
+```
+
+`languageFrom` is a one-hop path on the document master - a to-one relation and a string field of its target holding the language code; it works across models like any other cross-model reference. `language` fixes the code; the two are mutually exclusive. Absent both (or when the resolved value is blank), the mint uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) - so a tenant configured `bg,en` mints Bulgarian copies with no intent change, provided a `bg` template exists.
 
 ## Printing at runtime
 
