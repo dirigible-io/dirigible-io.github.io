@@ -749,7 +749,7 @@ Per matching row, exactly one of `notify` or `generate`:
 schedules:
   - name: monthlyTimesheets
     cron: "0 0 1 1 * ?"
-    entity: Employee                          # the schedule's SOURCE must be local
+    entity: Employee                          # SOURCE - local, or cross-model via `model:`
     where:
       - { field: status, op: eq, value: ACTIVE }
     generate:
@@ -757,6 +757,8 @@ schedules:
       map: { Employee: id }
       defaults: { Period: now }
 ```
+
+The source may live in another model via `model: <uses alias>` (generate action only; a `forEach` collection may carry its own `model:` too) - see [glue › cross-model source](/help/intent/glue#cross-model-source-model).
 
 ## integrations - outbound HTTP
 
@@ -799,8 +801,8 @@ Reports, Settings including Region & Language).
   message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
   schedules (notify + generate), integrations, inbound webhooks, rollups, settlements, expansions,
   generates, transitions, postings, numbering (the `number:{stampOn:issue}` stamp delegate).
-- **Cross-model schedule source** - a schedule's `entity` must be local (the generate target may
-  be cross-model).
+- ~~Cross-model schedule source~~ - landed: a schedule's `entity` (and a `forEach` collection) may
+  live in another model via `model: <uses alias>` (generate action only).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
   target is created.
 - ~~Embedded calendar panel for a dependent composition child~~ - landed: a calendar-view

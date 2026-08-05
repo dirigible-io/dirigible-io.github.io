@@ -153,6 +153,38 @@ schedules:
           dayField: day
 ```
 
+### Cross-model source (`model:`)
+
+The source `entity` is a local entity by default. Add `model: <uses alias>` to read the source from another (owner) model, so the schedule can live with the module that owns the CREATED rows instead of being forced into the source's module with a back-reference. The generated `JobHandler` imports the owner's `gen.<owner>.data...` classes and only READS them (a schedule never writes its source). A `forEach` collection may likewise be cross-model with its own `model:` alias. Both aliases must be declared under `uses:`.
+
+```yaml
+uses:
+  - { model: projects }
+
+schedules:
+  - name: monthlyProjectTimesheets
+    cron: "0 0 2 1 * ?"
+    entity: Project
+    model: projects                    # the source Project lives in the projects model
+    where:
+      - { field: Status, op: eq, value: 2 }
+    generate:
+      to: ProjectTimesheet             # LOCAL - owned by this model, no uses: needed
+      map: { Project: id, Customer: Customer }
+      defaults: { Period: now }
+      children:
+        - to: EmployeeTimesheet
+          parent: ProjectTimesheet
+          forEach:
+            entity: EmployeeProjectAssignment
+            model: projects            # the forEach collection is also cross-model
+            match: { Project: id }
+          map: { Employee: Employee }
+```
+
+- **`generate` only.** A cross-model source with a `notify` action is rejected at parse - notify needs the source's relation metadata, which only a local entity carries. Keep such a schedule in the source's model, or drop `model:`.
+- **Validation split** (the same one relations use): that `model:` names a declared `uses:` alias is checked at parse; the source entity's existence and the `where` / `map` / `match` field references are checked at **generation** against the owner's `.model` (generate the owner model first, or install/publish its prebuilt module). A missing owner or a mistyped field drops that schedule with a warning in the generate response - it never emits a job that cannot compile.
+
 ## integrations
 
 Tell another system on an event (outbound HTTP).
