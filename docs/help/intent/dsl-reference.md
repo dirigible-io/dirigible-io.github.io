@@ -527,6 +527,21 @@ postings:
       - { Account: rule(vatAccount),        credit: "Vat", when: "Vat != 0" }
 ```
 
+**Conditional rule column.** When the account column must be chosen by a source value (a payment posts
+to the bank account for a transfer, the cash account for cash), a single item row selects the rule
+column by a classifier instead of duplicating the row per case - the same `by` / `cases` / `default`
+shape the conditional `dependsOn` `valueFrom` uses. Quote it (it carries colons and braces):
+
+```yaml
+    items:
+      - { Account: "rule(by: Method, cases: { 1: BankAccount, 2: CashAccount }, default: SuspenseAccount)", debit: "Amount" }
+```
+
+`by` is a source field/relation compared as a number (like a `when` guard); `cases` keys are the
+classifier's seed ids and values are columns of the rule entity; `default` (optional) is the fallback.
+No match and no default - or a null selected column - skips the posting to the unposted worklist. A
+conditional cell already branches the account, so it cannot also carry a row `when`.
+
 A second posting can **reverse** the first (red storno) when the source document is voided - pair it
 with the [`transitions`](#transitions-guarded-status-flips) void that flips the source into its void
 status. The reversal inherits `creates` / `backReference` / `rule` / `map` / `items` from the sibling
