@@ -1105,6 +1105,26 @@ roll-ups and status flips fire unchanged.
 `prompt:` cannot be combined with [`event:`](#event-driven-creation-event) - an event-driven
 create-from runs with nobody there to answer the form.
 
+`items` has two mutually-exclusive shapes. As an **object** (above) it **mirrors** each source
+child row 1:1. As a **list** it builds **computed** synthetic lines whose cells are expressions
+over the **source** record - use it when a create-from must produce a computed line (e.g. one
+invoice line carrying a period's rolled-up total) rather than a 1:1 clone. The target's line-items
+child is resolved automatically (never named):
+
+```yaml
+    items:                                 # computed synthetic lines over the SOURCE record
+      - name: "Services for {period}"      # string: {field} interpolation (or a source-field copy / literal)
+        quantity: 1                        # numeric: an arithmetic expression over the source, rounded to
+        price: BillableAmount              #   the target field's scale (a bare literal is a trivial one)
+        when: "BillableAmount != 0"        # optional guard: <SourceField> ==|!= <number>
+```
+
+A **numeric** cell is an arithmetic expression evaluated exactly as a calculated field or a posting
+item amount is (source identifiers are the PascalCase field names; a null reads as 0); a **string**
+cell interpolates `{field}` placeholders, copies a bare source property, or is a plain quoted
+literal; a **to-one relation** cell copies the raw source foreign key; a `when` cell guards the
+whole line. The list form is not available on a `schedules[].generate`.
+
 ## transitions - guarded status flips
 
 A per-record button that flips an entity's `function: EntityStatus` relation on demand - void,
