@@ -444,6 +444,23 @@ a different one. **`timeout:`** / **`expire:`** are boundary timers on a user ta
 ISO-8601 duration for a non-cancelling reminder, `until:` a `date`/`timestamp` field re-read at task
 entry for a cancelling expiry. Details: [processes](/help/intent/intent-file#processes).
 
+A **`parallel`** step runs branch steps **concurrently** and rejoins before `next` - two independent
+reviews of one order at once instead of one after the other:
+
+```yaml
+steps:
+  - { name: reviews, kind: parallel, args: { branches: [techReview, commercialReview], next: consolidate } }
+  - { name: techReview,       kind: userTask, args: { assignee: engineer, form: ReviewOrder } }
+  - { name: commercialReview, kind: userTask, args: { assignee: sales,    form: ReviewOrder } }
+  - { name: consolidate,      kind: serviceTask, args: { setRelationField: Status, value: 2, next: end } }
+```
+
+It emits a BPMN parallel-gateway fork/join: the fork fans an unconditioned flow to each branch, and a
+synthesized converging gateway waits for **all** branches before the single flow to `next`. At least
+two `branches`, each a single declared task step (`userTask` / `serviceTask` / `script`) that joins
+directly; `next` is a declared step or `end`. A branch that chains onward (its own `next`/`then`/timer)
+or is itself `parallel` (nested) is a planned follow-up, not yet supported.
+
 ## forms - task UI
 
 ```yaml
