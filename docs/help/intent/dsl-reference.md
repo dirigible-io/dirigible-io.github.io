@@ -456,10 +456,37 @@ steps:
 ```
 
 It emits a BPMN parallel-gateway fork/join: the fork fans an unconditioned flow to each branch, and a
-synthesized converging gateway waits for **all** branches before the single flow to `next`. At least
-two `branches`, each a single declared task step (`userTask` / `serviceTask` / `script`) that joins
-directly; `next` is a declared step or `end`. A branch that chains onward (its own `next`/`then`/timer)
-or is itself `parallel` (nested) is a planned follow-up, not yet supported.
+synthesized converging gateway waits for **all** branches before the single flow to `next`.
+
+A branch is a **chain**, not a single step: it continues through that step's own routing - its
+`next`, a decision's `then`/`else`, a boundary `timeout`/`expire` - and it may itself be a nested
+`parallel` with its own fork/join pair:
+
+```yaml
+steps:
+  - { name: reviews, kind: parallel, args: { branches: [techReview, commercial], next: consolidate } }
+  # a two-step chain - the second step declares no routing, so it joins
+  - { name: techReview,  kind: userTask,    args: { assignee: engineer, form: ReviewOrder, next: techSignoff } }
+  - { name: techSignoff, kind: serviceTask, args: { setRelationField: TechStatus, value: 2 } }
+  # a nested fork - no `next`, so its join flows into the enclosing one
+  - { name: commercial,  kind: parallel,    args: { branches: [pricing, legal] } }
+  - { name: pricing,     kind: decision,    args: { if: "amount > 1000", then: escalate, else: join } }
+  - { name: escalate,    kind: userTask,    args: { assignee: manager, form: ReviewOrder } }
+  - { name: legal,       kind: userTask,    args: { assignee: legal,   form: ReviewOrder } }
+```
+
+Everything a branch reaches is off the linear chain, so its declaration order carries no meaning -
+and inside a branch there is **no positional fall-through**: a step routes explicitly, or, declaring
+no routing at all, is a branch **terminal** and flows into the join. Route to the literal **`join`**
+to converge on the enclosing join gateway explicitly - that is how a decision inside a branch rejoins
+from both arms.
+
+At least two distinct `branches`, each a declared step. `join` is valid only inside a branch, and no
+step may be named `join`. A branch must never route to `end` - the join would wait forever for a
+token that ended. A step may belong to only one branch, and a branch is entered through its fork
+only, so a branch converges on `join`, never on the fork's own `next`. A top-level fork declares
+`next` (a declared step or `end`); a **nested** fork may omit it, and then joins into its enclosing
+join.
 
 ## forms - task UI
 
