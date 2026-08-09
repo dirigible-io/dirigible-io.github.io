@@ -339,26 +339,25 @@ through the Java SDK [`DocumentNumbers`](/sdk/numbering/documentnumbers) facade.
   slots: { start: startTime }
 ```
 
-### A calendar is an additional page
+### A view adds a page
 
-`view: calendar` and `view: range` **add** a page - they never take one away. The entity keeps the
-layout its structure implies (a list, a master-detail, or a document editor) and the calendar joins
-it:
+`view: calendar`, `view: range` and `view: slots` **add** a page - they never take one away. The
+entity keeps the layout its structure implies (a list, a master-detail, or a document editor) and the
+view joins it:
 
 | Route | Page |
 |---|---|
-| `/<Entity>` | the calendar |
+| `/<Entity>` | the calendar, or the slot picker |
 | `/<Entity>/list` | the entity's own browse page (list / master / document list) |
 | `/<Entity>/create`, `/<Entity>/{id}/edit` | the entity's own editor |
 
-Both browse pages carry a switch to the other, and clicking a day or an event on the calendar opens
-the entity's own editor. So `function: Document` and `view: calendar` compose: the documents are
-browsed on a calendar and still edited on the document page, with their line items, Print button and
-inline process tasks. The personal (My) surface mirrors it - `/my/<Entity>` is the calendar,
+Both browse pages carry a switch to the other, and choosing a day, an event or a free slot opens the
+entity's own editor. So `function: Document` composes with `view: calendar` **and** with
+`view: slots`: the documents are browsed on a calendar (or booked from a picker) and still edited on
+the document page, with their line items, Print button and inline process tasks. A picker is how a
+record is *created*; the list or document page is how it is worked with afterwards, and an author
+needs both. The personal (My) surface mirrors the calendar - `/my/<Entity>` is the calendar,
 `/my/<Entity>/list` the list.
-
-`view: slots` is the exception: a slot picker is an authoring surface - pick a free slot, create a
-record - rather than a second way to browse the same records, so it does replace the browse page.
 
 ### A document's line items on a calendar
 
