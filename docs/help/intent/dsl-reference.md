@@ -22,7 +22,7 @@ complete worked example.
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
-| [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
+| [`view`](#view-calendar-range-slots) | an additional calendar / range page, or a slot-booking page |
 | [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
 | [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates, waits and boundary timers |
@@ -338,6 +338,51 @@ through the Java SDK [`DocumentNumbers`](/sdk/numbering/documentnumbers) facade.
   view: slots                                      # slot-picker booking page
   slots: { start: startTime }
 ```
+
+### A calendar is an additional page
+
+`view: calendar` and `view: range` **add** a page - they never take one away. The entity keeps the
+layout its structure implies (a list, a master-detail, or a document editor) and the calendar joins
+it:
+
+| Route | Page |
+|---|---|
+| `/<Entity>` | the calendar |
+| `/<Entity>/list` | the entity's own browse page (list / master / document list) |
+| `/<Entity>/create`, `/<Entity>/{id}/edit` | the entity's own editor |
+
+Both browse pages carry a switch to the other, and clicking a day or an event on the calendar opens
+the entity's own editor. So `function: Document` and `view: calendar` compose: the documents are
+browsed on a calendar and still edited on the document page, with their line items, Print button and
+inline process tasks. The personal (My) surface mirrors it - `/my/<Entity>` is the calendar,
+`/my/<Entity>/list` the list.
+
+`view: slots` is the exception: a slot picker is an authoring surface - pick a free slot, create a
+record - rather than a second way to browse the same records, so it does replace the browse page.
+
+### A document's line items on a calendar
+
+When the entity declaring `view: calendar` is a document's **line-items** child, the document's items
+pane *is* the calendar instead of the row grid - the shape for a day-grained line, such as a booked
+day or an allocated hour:
+
+```yaml
+- name: Roster
+  function: Document
+- name: RosterItem
+  function: DocumentItem
+  view: calendar
+  calendar: { start: day, title: Person }
+  fields:
+    - { name: day,   type: date, required: true }
+    - { name: hours, type: decimal, precision: 18, scale: 2 }
+```
+
+The document keeps its header, totals and Print; only the items pane changes. Clicking an event edits
+that line in the usual line dialog, clicking an empty day adds one with that date filled in, and
+Delete moves into the dialog (a calendar has no per-row menu). It cannot be combined with
+[`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads), which claims the same
+pane.
 
 ## personal / partner - row-scoped surfaces
 
