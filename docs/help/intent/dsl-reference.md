@@ -535,8 +535,8 @@ any other status (or a failing guard) returns **HTTP 409**; a successful flip pu
 transitions:
   - name: VoidInvoice
     forEntity: Invoice            # must declare a function: EntityStatus relation
-    from: [3, 4]                  # allowed source status seed ids
-    setStatus: 8                  # the target status seed id (not one of `from`)
+    from: [ISSUED, SENT]          # allowed source statuses (seeded names, or ids)
+    setStatus: VOIDED             # the target status (not one of `from`)
     when: "Paid == 0"             # optional guard: <Field> ==|!= <number>
     label: Void
     icon: ban
@@ -741,6 +741,7 @@ reports:
     dimensions: ["month(orderDate)"]          # month()/year() bucket dates; relation.field joins
     measures: ["count(*)", "sum(total)"]
     filter: "total > 0"
+    scope: live                               # which lifecycle rows to count - see below
     chart: bar                                # render as a chart page
     widget: { value: "sum(total)", at: { "month(orderDate)": now }, label: Revenue (this month) }
   - name: TrialBalance
@@ -755,6 +756,56 @@ reports:
 
 In `filter:`, reference relations via `relation.field` (translated to a JOIN); a bare relation
 name passes into the SQL untranslated.
+
+### scope - which lifecycle rows an aggregate counts
+
+An aggregation over an entity that carries a lifecycle (a `function: EntityStatus` relation) is
+**wrong by default**: drafts nobody has issued, cancelled documents and voided ones all land in the
+sum. Classify the status nomenclature with [`stage:`](#stage-what-a-status-means-to-the-lifecycle)
+and the report expresses "the rows that count" declaratively, instead of as a predicate over status
+ids:
+
+```yaml
+reports:
+  - name: RevenueByMonth
+    source: SalesInvoice
+    # no scope: an aggregation over a stage-classified lifecycle counts the LIVE rows
+    dimensions: ["month(date)"]
+    measures: ["sum(total)"]
+
+  - name: InvoicesByStatus
+    source: SalesInvoice
+    scope: all                    # explicit opt-out: this report is ABOUT the lifecycle
+    dimensions: [Status]
+    measures: ["count(*)"]
+
+  - name: VoidedInvoices
+    source: SalesInvoice
+    scope: void                   # a stage name selects the statuses classified with it
+    measures: ["count(*)", "sum(total)"]
+```
+
+`scope` is `all` or one stage name, and requires the source to declare a `function: EntityStatus`
+relation. A stage scope adds `WHERE <alias>."<STATUS FK>" IN (<the stage's seed ids>)` to the
+generated query, ANDed onto any `filter:`.
+
+**With no `scope`, a report counts the live rows only when all three hold:** it aggregates (has
+`measures`, or is a balance report); its nomenclature is stage-classified; and neither its dimensions
+nor its `filter` mention the status. The last condition matters - a breakdown **by** status keeps its
+draft rows, and a hand-written status predicate stays authoritative rather than being combined with an
+implicit one. Anything else counts every row, exactly as before.
+
+::: warning Classify your statuses
+When the nomenclature carries no `stage:` markers there is nothing to resolve, so **Generate reports a
+warning** naming the report and its status relation - shown in the Intent Editor's notes strip and in
+the Builder shell's publish panel, and returned as `warnings` from
+`POST /services/ide/intent/generate`. That warning is the only signal the omission has: the report
+still generates and the tile still renders a number. Treat it as a bug in the model.
+:::
+
+A nomenclature owned by **another model** (`uses:`) is seeded there, so its stages cannot be resolved
+from this file; a `scope` over it is rejected at parse with a message pointing at an explicit
+`filter:`.
 
 ## widgets - custom dashboard tiles
 
@@ -771,8 +822,8 @@ seeds:
   - name: statuses
     entity: OrderStatus
     rows:
-      - { id: 1, name: DRAFT }
-      - { id: 2, name: POSTED }
+      - { id: 1, name: DRAFT, stage: draft }  # what the status MEANS to the lifecycle
+      - { id: 2, name: POSTED, stage: live }
   - name: cities
     entity: City
     rows:
@@ -788,6 +839,53 @@ seeds:
 ```
 
 Row keys must match a field or relation name exactly (case-sensitive).
+
+### stage - what a status means to the lifecycle
+
+A seed row of a **status nomenclature** (the target of a `function: EntityStatus` relation) should
+classify itself with `stage`:
+
+| Stage | Meaning |
+| --- | --- |
+| `draft` | Nobody has issued it yet - visible to its author, not yet economically real. |
+| `live` | It counts: issued, sent, paid - anything in normal circulation. |
+| `cancelled` | Withdrawn before it ever became live. |
+| `void` | Deliberately retired while keeping its number (анулиране) - out of circulation by design. |
+
+`stage` is **metadata, not data**: it never becomes a column, so the generated CSV and the imported
+table are unchanged. It exists so that "the rows that count" is declared once, where the nomenclature
+lives, instead of being re-derived as a magic-number predicate in every report and guard - see
+[`scope`](#scope-which-lifecycle-rows-an-aggregate-counts).
+
+A classified row must also carry its `id` (the stage classifies that id), the value must be one of the
+four, and an entity that declares its own `stage` field cannot be classified this way - the collision
+is reported rather than guessed at.
+
+### Statuses by name, not by id
+
+Everywhere the intent names a status - `transitions[].from` / `setStatus`, a relation's `init:`, a
+`setRelationField` step's `value:`, `abortOn.status`, a check's `status` / `setStatus`,
+`immutableWhen`, a posting's `event.when`, a report's `filter:` - write the seeded **name** instead of
+the number:
+
+```yaml
+transitions:
+  - { name: VoidInvoice, forEntity: Invoice, from: [ISSUED, SENT], setStatus: VOIDED, when: "Paid == 0" }
+reports:
+  - { name: OverdueInvoices, source: Invoice, filter: "balance > 0 AND Status != VOIDED", measures: ["sum(total)"] }
+```
+
+Names are resolved to ids at parse time, so nothing downstream changes and numeric ids keep working.
+Prefer names: **a status id is positional.** Inserting a status into the middle of a nomenclature
+shifts every later id, and every guard authored against the old numbering keeps generating valid code
+that now means a different status - nothing can tell, because the emitted constant is well-formed.
+This is not hypothetical: it is how a red-storno posting guarded on the pre-insertion id stopped
+matching the Void it was written for, leaving a general ledger holding a receivable for a document
+that no longer existed.
+
+An unknown name fails Generate with the known statuses listed. A name has no ordering, so
+`Status >= ISSUED` is rejected - use a report `scope:` for "the rows that count". A status owned by
+another model must still be referenced by its numeric id, since its seeds live in that model.
 
 ## notifications - email on change
 
@@ -855,6 +953,9 @@ Reports, Settings including Region & Language).
   for `view: calendar`.)
 - **`manyToMany`** - parsed but never materialized; the supported shape is the explicit
   intermediate entity.
+- **Cross-model status names and stage scopes** - a status nomenclature owned by another model is
+  seeded there, so neither its `stage:` classification nor its names can be resolved from the
+  referencing intent; both are rejected with the numeric-id fallback named.
 - **Declarative glue actions beyond the current set**: publish/consume message,
   event-driven `generateDocument` (produce a PDF on an event), process-step events, inbound
   message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
