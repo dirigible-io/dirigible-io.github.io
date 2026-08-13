@@ -221,6 +221,31 @@ mutually exclusive with it. Workflow/system writes through the repository stay p
 corrections to an immutable record are flow-generated reversals, never edits. (`immutableIn:` is
 the pre-rename spelling, rejected with a migration message.)
 
+## locksWithMaster - a child collection that outlives its master's lock
+
+```yaml
+- name: SalesInvoice
+  immutableWhen: "Status == 3"        # ISSUED: the document's own content freezes
+- name: SalesInvoiceCustomerPayment
+  locksWithMaster: false              # ...but money keeps being recorded against it
+  relations:
+    - { name: SalesInvoice, kind: manyToOne, to: SalesInvoice, composition: true, required: true }
+```
+
+A master's immutability locks **that entity**. A composition child is a different entity with its
+own generated controller - which already accepts the writes - so freezing its panel too was the
+generated UI extending a rule the model never declared: the Add button and row actions on the
+allocations panel existed only while the invoice was DRAFT, i.e. never in the state where
+allocations matter.
+
+`locksWithMaster: false` keeps that panel's affordances alive while the master is locked. Content
+and settlement are different lifecycles on the same document.
+
+Default `true`. Parse-validated on both halves - it must be a composition child, and its master must
+actually declare `immutableWhen` / `immutable`, so an inert declaration fails at generate time
+instead of quietly doing nothing. A document's own **line items** are unaffected: they render in the
+items pane, not a child panel, and stay locked.
+
 ## hierarchy / leafOnly - tree entities
 
 ```yaml
