@@ -77,6 +77,7 @@ entities:
 - { name: uuid,  type: uuid, major: false }                            # auto-filled on create, off the list table
 - { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
+- { name: hours, type: decimal, required: true, defaultValue: 8 }        # default value (see below)
 - { name: period, type: month }                                        # YYYY-MM month picker
 - { name: sprint, type: week }                                         # YYYY-Www ISO-week picker
 - { name: number, type: string, function: DocumentTitle }              # the document title/number
@@ -96,6 +97,27 @@ columns; `duplicable: true` adds a Duplicate button on a document (clones header
 the normal create path); `imports: |` injects Java import lines into the generated repository
 (pairs with calculated actions); `aggregate: true` on a document master's numeric field keeps it
 equal to the sum of the items' same-named field (the totals footer).
+
+## defaultValue - field defaults
+
+```yaml
+- { name: hours,    type: decimal, required: true, defaultValue: 8 }
+- { name: billable, type: boolean, defaultValue: true }
+```
+
+One key, three effects:
+
+* the column's **DB DEFAULT**;
+* it **satisfies `required`** - the generated controller does not demand a value the model already
+  guarantees (`isRequiredProperty && !dataDefaultValue`);
+* it **seeds a new row in the generated UI** - the document item dialog opens on the default
+  instead of on a blank (`def` on the column in the detail registry).
+
+Applied on **create only**. An existing row is never re-defaulted: a value the user cleared is a
+value the user chose, and re-applying the default on the next edit would silently undo it.
+
+The to-one relation equivalent is `init: <seed id>`, which names a seeded record rather than a
+literal.
 
 ## function - presentation role
 
