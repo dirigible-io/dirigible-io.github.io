@@ -806,6 +806,54 @@ Emits a `MessageHandler` on the source's `-transitioned` topic (or the create to
 own numbering, `checks:` and derived fields fire. The declarative form of the hand-written
 document-to-ledger delegate; contrast `generates`, which creates ONE document from a user action.
 
+## resolves - fill a relation from a register valid on a date
+
+```yaml
+resolves:
+  - name: identifyDriver
+    event: { onCreate: Fine }               # onCreate or onUpdate, optional `when` guard
+    set: driver                             # the to-one of Fine this fills
+    from: VehicleAssignment                 # the register
+    match: { vehicle: vehicle }             # register property <- record property (one or more)
+    between: { start: validFrom, end: validTo, value: violationAt }
+    outcome: resolution                     # optional string field: found / notFound / ambiguous
+    found:     { setStatus: IDENTIFIED }
+    notFound:  { setStatus: UNRESOLVED }
+    ambiguous: { setStatus: UNRESOLVED }
+```
+
+The register says "X applied to Y from A to B" - a vehicle assignment, a price list, a contract in
+force, an org assignment - and the record carries the match key(s) and the date. `dependsOn` cannot
+express it (it is an authoring-time copy matched by equality), a `decision` condition is a single
+comparison, and a `setField` step writes a constant.
+
+**All three outcomes are first-class.** Exactly one covering row fills the relation; NO covering row
+and MORE THAN ONE covering row both leave it unset - a lookup never picks one of two candidates,
+because a silently-wrong driver (or price, or approver) is worse than an unresolved record. Route
+each outcome with `setStatus` (a seed id or a [status name](#statuses-by-name-not-by-id)) and record
+it with `outcome:`, so the unresolved records are a filterable worklist a person can finish and a
+process `decision` can branch on.
+
+| Key | Meaning |
+| --- | --- |
+| `event` | `{ onCreate: <Record> }` or `{ onUpdate: <Record> }`, plus an optional `when: "<Field> == <value>"` guard. `onDelete` is rejected - there is nothing left to fill |
+| `set` | the to-one relation of the record the lookup fills |
+| `from` | the register entity (declared in this model) |
+| `match` | equality keys, `<registerProperty>: <recordProperty>`; at least one |
+| `between` | `start` / `end` are `date`/`timestamp` fields of the register (either may be omitted = open-ended), `value` the record's date the period must cover |
+| `outcome` | optional `string` field of the record stamped `found` / `notFound` / `ambiguous` |
+| `found` / `notFound` / `ambiguous` | optional `{ setStatus: <id or name> }`; needs a `function: EntityStatus` relation on the record |
+
+The value copied is derived, not authored: the register must have exactly ONE to-one relation to the
+same entity as `set:` - zero or two is a generation error naming the register, since a lookup with a
+choice of columns to copy is exactly the ambiguity this construct refuses. A record that already
+carries the relation is skipped, so a manual correction is never overwritten and a re-delivered event
+is a no-op. The end of a period is inclusive, and a date-only bound covers its whole day.
+
+Generates a `MessageHandler` under `gen/events` that queries the register with a typed `Criteria`,
+keeps the covering rows, and writes the resolved relation, the outcome and the status in ONE targeted
+`updateProperties` - nothing else of the record is touched and no `-updated` event re-fires.
+
 ## settlements - payment allocation
 
 ```yaml
