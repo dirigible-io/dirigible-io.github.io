@@ -303,6 +303,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
 | Inbound webhooks (`@Controller` ingest to entity) | implemented |
+| Event-driven create-from (`generates` with `event:`, at most once per source) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |
 | Expansions (generate child rows from a date span) | implemented |
