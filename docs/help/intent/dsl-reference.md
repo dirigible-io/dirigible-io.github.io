@@ -18,6 +18,7 @@ complete worked example.
 | [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
+| [`lifecycle`](#lifecycle-the-legal-status-graph) | the whole legal status graph, enforced on every status write |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
@@ -221,6 +222,58 @@ companion attribute belonging to another outcome is a generation error, not igno
 mutually exclusive with it. Workflow/system writes through the repository stay possible -
 corrections to an immutable record are flow-generated reversals, never edits. (`immutableIn:` is
 the pre-rename spelling, rejected with a migration message.)
+
+## lifecycle - the legal status graph
+
+Every other status construct states one edge at a time: `init:` says where a record starts, a
+`transitions` button guards the flips a user performs *through that button*, a workflow step sets a
+status, a `checks` rejection files a record in another. Nothing states which moves are legal at all -
+so a workflow branch, a glue action or a plain REST call can move a document from any status to any
+other, and the model has no opinion about it.
+
+`lifecycle:` states the whole graph, once:
+
+```yaml
+- name: SalesInvoice
+  lifecycle:
+    edges:
+      - { from: DRAFT,  to: [ISSUED, CANCELLED] }
+      - { from: ISSUED, to: [PAID, VOIDED] }
+  relations:
+    - { name: status, kind: manyToOne, to: SalesInvoiceStatus, function: EntityStatus, init: DRAFT }
+```
+
+- One entry per **source** status, listing every status reachable from it. Either side accepts a
+  seeded status name or its id (see [Statuses by name](#statuses-by-name-not-by-id)).
+- The graph is always over the entity's `function: EntityStatus` relation, so it names no column.
+  (An `on:` key would be redundant - and YAML reads a bare `on` as the boolean `true`, so it could
+  never bind; it is rejected rather than silently dropped.)
+- The nomenclature must be seeded in the same intent. A status entity owned by another model is
+  seeded there, and so is its lifecycle.
+- A status that is no edge's `from` is terminal.
+
+**Where it is enforced.** In the generated **repository** - the one place every status write passes
+through, whoever performs it: the REST update, the transition controller's targeted write, a workflow
+`setRelationField`, a rollup or a hand-written custom action. An unmodeled move is rejected with
+**HTTP 400** and a message naming both statuses ("This SalesInvoice cannot move from ISSUED to DRAFT
+- that is not a step its lifecycle allows"), and the record is left untouched. Guarding the
+transition endpoints alone would leave every other writer free to jump anywhere, which is the hole
+the declaration closes.
+
+Where the status relation declares `init:`, the graph also fixes where a record may **enter** it: a
+create carrying any other status is refused, since entering mid-lifecycle skips the graph rather than
+travelling it. (The system's own create-time filing - an aggregate guard's `outcome: reject` - runs
+after that check, so it still files the record where the model says it belongs.)
+
+**What it makes impossible at generate time.** With a lifecycle declared, `transitions` become
+presentation over its edges: each `from` status of a button must reach its `setStatus` along a
+declared edge, and a status written by a workflow step or forced by a check's rejection must be one
+some edge reaches. A reject path transiting through an approved status is reported when the intent is
+read, not discovered in production.
+
+`lifecycle:` composes with [`stage:`](#stage-what-a-status-means-to-the-lifecycle): a stage says what
+a status *means* (draft / live / cancelled / void) and keeps a draft or voided document out of a
+revenue total; the lifecycle says how a record may *move*.
 
 ## locksWithMaster - a child collection that outlives its master's lock
 
@@ -642,6 +695,10 @@ transitions:
       attach: print               # optionally with the document itself attached
 ```
 
+When the entity declares a [`lifecycle`](#lifecycle-the-legal-status-graph), a transition is
+presentation over its edges: its `from`/`setStatus` pair must be one of them, and the graph is what
+every OTHER writer is held to as well.
+
 The `notify:` block is the same shape a notification or a schedule uses, and `attach: print` mails the
 record's own rendered document - see
 [the notify block](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself).
@@ -1008,7 +1065,7 @@ is reported rather than guessed at.
 
 Everywhere the intent names a status - `transitions[].from` / `setStatus`, a relation's `init:`, a
 `setRelationField` step's `value:`, `abortOn.status`, a check's `status` / `setStatus`,
-`immutableWhen`, a posting's `event.when`, a report's `filter:` - write the seeded **name** instead of
+`immutableWhen`, a `lifecycle` edge, a posting's `event.when`, a report's `filter:` - write the seeded **name** instead of
 the number:
 
 ```yaml

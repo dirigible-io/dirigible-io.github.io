@@ -339,7 +339,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Boundary timers (userTask `timeout:` reminder / `expire:` date-driven withdrawal) | implemented |
 | Standard per-document PDF print templates | implemented (see [Printing](/help/intent/printing)) |
 | Event-driven document generation (produce a PDF on an event) | implemented - mailed by `attach: print`, stored by `function: Snapshot` |
-| Status lifecycle / declarative state machine | planned |
+| Status lifecycle / declarative state machine (`lifecycle:` - the whole legal status graph, enforced on every status write) | implemented (see [DSL reference](/help/intent/dsl-reference#lifecycle-the-legal-status-graph)) |
 | Audit history (shadow `<Entity>History` entity; audit *columns* via `audit: true` ship today) | planned |
 | Arbitrary resolver-path task assignment (beyond `assignee: personal`) | planned |
 
