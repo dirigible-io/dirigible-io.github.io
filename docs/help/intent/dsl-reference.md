@@ -29,6 +29,7 @@ complete worked example.
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
+| [`generates.event`](#event-driven-creation-event) | mint the document on a source event instead of a click, at most once |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
@@ -570,6 +571,53 @@ generates:
 
 Adds a button on the source view; the clone saves through the target's repository so numbering,
 status init and calculated fields fire.
+
+### Event-driven creation - `event:`
+
+A create-from may declare an `event:` and run by itself when the source reaches a state, instead of
+waiting for someone to press the button. The canonical case is a document that arrives from outside and
+is completed by an earlier step: a fine ingested by an [inbound webhook](#inbound-webhooks), whose
+responsible person is identified by a [transition](#transitions-guarded-status-flips), must produce a
+declaration document from the fine and that person.
+
+```yaml
+generates:
+  - name: declaration-from-fine
+    from: Fine
+    to: Declaration
+    event: { onTransition: Fine, when: "Status == IDENTIFIED" }   # or { onCreate: Fine }
+    map:
+      Fine: id                       # REQUIRED with an event - the back-reference, i.e. the guard
+      Vehicle: Vehicle
+    defaults: { declaredAt: now }
+    items:                           # a whole document - header AND items
+      - { name: "Fine {number}", amount: Amount }
+```
+
+- Exactly one trigger: `onTransition` (a status write - the `when: "<StatusRelation> == <status>"` guard
+  is **mandatory**; the status may be its seeded name) or `onCreate` (the source's insert - the guard is
+  optional, for a source with no status lifecycle). The entity named there must be the one `from:`
+  declares; the owning model is never repeated (`fromUses:` declares it).
+- **`map:` must copy the source's `id` onto the target's to-one relation back to the source.** That
+  back-reference is the at-most-once guard: the create-from looks for a target already back-referencing
+  the source and returns it instead of creating a second one, so a redelivered event - or a click
+  afterwards - is a no-op. Declaring an `event` without it is rejected at parse.
+- **The button is dropped by default**; add `button: true` to keep both triggers. They share one
+  generated create-from, and therefore one guard. `button: false` without an `event` is rejected - the
+  action would have no trigger at all.
+- `sourceStatus:` composes unchanged (the flip happens once the target exists, and cannot re-trigger the
+  create-from because the guard has already claimed the source).
+
+Generated artifacts: `gen/events/<module>/<ClassName>GenerateOnEvent.java`, a `MessageHandler` on the
+source's `<project>-<perspective>-<Entity>-transitioned` topic (or its bare create topic for
+`onCreate`) that re-reads the source by id, applies the guard, and calls the create-from in
+`<ClassName>Generate.java`. Without `button: true` that class carries no `@Controller`/`@Post` - there is
+no endpoint, because nothing links to one.
+
+Prefer this over [`posts`](#posts-derived-rows-on-an-event) when the result is a document with line
+items: `posts` writes flat mapped rows and cannot reference the freshly created header. Prefer it over a
+button plus a `wait` step when the step is really waiting for a person to remember to click - an
+unclicked record parks its process instance indefinitely.
 
 ## transitions - guarded status flips
 
