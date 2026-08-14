@@ -275,6 +275,30 @@ The generated handler listens on the source's `-transitioned` topic, skips when 
 back-reference the source, and writes through the target repository so its numbering and checks
 still fire.
 
+## resolves
+
+A to-one filled from the row of a **register** whose validity period covers a date the record
+carries - the driver from a vehicle-assignment register on the violation date, the price from the
+list in force on the order date, the approver from the org assignment on the request date:
+
+```yaml
+resolves:
+  - { name: identifyDriver, event: { onCreate: Fine }, set: driver, from: VehicleAssignment,
+      match: { vehicle: vehicle },
+      between: { start: validFrom, end: validTo, value: violationAt },
+      outcome: resolution, found: { setStatus: IDENTIFIED }, notFound: { setStatus: UNRESOLVED },
+      ambiguous: { setStatus: UNRESOLVED } }
+```
+
+The generated handler listens on the record's event topic, queries the register by the `match` keys
+with a typed `Criteria`, and keeps the rows whose period covers the date. All three outcomes are
+first-class: exactly one covering row fills the relation, while none and more than one both leave it
+unset - it never picks one of two candidates. Each outcome may flip the record's status, and
+`outcome:` stamps `found` / `notFound` / `ambiguous` into a string field, which is what makes the
+unresolved ones a worklist rather than a silent gap. The relation, the outcome and the status go out
+in one targeted `updateProperties`. See the
+[DSL reference](/help/intent/dsl-reference#resolves-fill-a-relation-from-a-register-valid-on-a-date).
+
 ## Lifecycle triggers
 
 A process `trigger` (start a process on an entity event) is the original glue and is documented with [processes](/help/intent/intent-file#processes), including the configurable `businessKey` and `businessKeyStrategy: timestamp`. Decision **resolvers** (load a related entity's field at a gateway) are also glue, emitted into `<intent>.glue`.
@@ -309,6 +333,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Expansions (generate child rows from a date span) | implemented |
 | Generates (one-click document-from-document create) | implemented |
 | Postings (source document to balanced local document) | implemented |
+| Effective-dated register lookup (`resolves` - fill a to-one from the row valid on a date) | implemented |
 | Owner-based user-task assignment (`assignee: personal`) | implemented |
 | Waits (`wait` step - park on an entity event, correlate by `ProcessId`) | implemented |
 | Boundary timers (userTask `timeout:` reminder / `expire:` date-driven withdrawal) | implemented |
