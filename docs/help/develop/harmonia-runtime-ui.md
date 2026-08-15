@@ -73,6 +73,7 @@ These are the invariants the generated SPA relies on:
 - **REST base** - `restBase` = `/services/java/<project>/gen/<javaGenFolderName>/api`; each entity page uses a relative `apiPath` = `/<javaPerspectiveName>/<Entity>Controller` and the fetch client prepends `restBase` exactly once. The path uses the **Java-sanitised** folder / perspective names (`sales-order` -> `sales_order`), since the backend package is sanitised. Absolute URLs (relationship dropdowns) pass `{ baseUrl: '' }`.
 - **Neutral form contract** - a `.form`'s `code` is the body of `formController(ctx)` with `ctx.{ model, params, http, task: { id, processInstanceId, complete() }, notify, close }`. BPM task forms complete via `ctx.task.complete()`.
 - **Master-detail registry** - each detail registers its metadata via `App.registerDetail(<master>, ...)`, so masters render detail panels without enumerating details at generation time.
+- **Context-locked parent** - a detail panel opens the child's form with the parent's foreign key named in the URL (`?<Fk>=<id>`), on edit and preview as well as on create. A form opened that way renders that relation as the parent record's label, read-only: the parent is implied by where you are standing, so it cannot be re-pointed mid-flow. Reached with nothing implying a parent - the child's own top-level create - the same control is an ordinary dropdown.
 - **Dates** - forms convert HTML date / datetime / time widget values to the backend `java.time` format on submit and back for edit display.
 
 ## Embedding
