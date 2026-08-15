@@ -1,6 +1,6 @@
 ---
 title: Declarative glue
-description: notifications, schedules, integrations, inbound webhooks, rollups and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
+description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
 ---
 
 # Declarative glue
@@ -11,7 +11,7 @@ Beyond the model artefacts, the intent declares **glue**: common integrations an
 
 Three axes:
 
-- **Event** - an entity `onCreate` / `onUpdate` / `onDelete` (with an optional `when:` guard), a schedule (`cron`), or an inbound webhook.
+- **Event** - an entity `onCreate` / `onUpdate` / `onDelete` (with an optional `when:` guard), a **process step** reached or completed, a schedule (`cron`), or an inbound arrival (a webhook, a message, a dropped file).
 - **Action** - notify (email), call out (HTTP), ingest into an entity, recompute a counter, start a process.
 - **Binding** - the **resolver path grammar** (`customer.name`, `member.email`): one-hop relation walks off the triggering entity, validated at parse time exactly like a decision's `then` / `else`.
 
@@ -27,9 +27,50 @@ The author-facing fields are translated to Java by shared support classes (`Even
 An event-binding key is `event:`, never `on:` - YAML 1.1 resolves a bare `on` (also `off` / `yes` / `no`) to the boolean `true`, so an `on:` key is silently swallowed. An action key is `do:`.
 :::
 
+## The event axis - lifecycle and process-step events
+
+A glue entry that reacts (`notifications`, `integrations`) declares **exactly one** `event:`, on one of two axes:
+
+| Axis | Shape | Fires when |
+| --- | --- | --- |
+| entity lifecycle | `{ onCreate\|onUpdate\|onDelete: <Entity> }` | a record is created / updated / deleted |
+| process step | `{ onStepReached\|onStepCompleted: { process, step } }` | a running process arrives at that step / has just finished it |
+
+```yaml
+processes:
+  - name: LoanApproval
+    trigger: { onCreate: Loan }
+    steps:
+      - { name: librarianReview, kind: userTask,    args: { assignee: librarian, next: activate } }
+      - { name: activate,        kind: serviceTask, args: { setField: status, value: ACTIVE } }
+
+notifications:
+  # "when the review task becomes available, tell the member's branch manager"
+  - name: reviewPending
+    event: { onStepReached: { process: LoanApproval, step: librarianReview } }
+    to: member.branch.managerEmail
+    subject: "Loan {id} is waiting for review"
+    body: "A librarian must approve it."
+
+integrations:
+  # "when the loan has been activated, tell the partner system"
+  - name: pushActivation
+    event: { onStepCompleted: { process: LoanApproval, step: activate } }
+    method: POST
+    url: "@config:PARTNER_URL"
+```
+
+A step event is an event **about the record the process runs on** - the process's `trigger` entity - so every action parameter reads exactly as it does for a lifecycle event: the same `to:` recipient rule, the same `{placeholder}` interpolation, the same `when:` guard, the same forwarded body. That is not a coincidence: the generator inserts a small `JavaDelegate` (`<Process><Step>Reached`/`Completed`, the `stepEvents` glue collection) at the step's boundary, which loads the record by the id in the process context and publishes it on the entity's own topic plus a step suffix - `<project>-<perspective>-<Entity>-step-<process>-<step>-reached`. The notification / integration listener binds to that topic and consumes an ordinary entity payload; nothing in the action layer knows which axis fired it.
+
+::: warning What is rejected at Generate
+An undeclared process or step; a step that occupies no observable moment (only a `userTask` or a `serviceTask` does - not a decision, a wait or the end); a process with no `trigger`, since there is then no record the event could be about.
+:::
+
+`onStepReached` fires the moment the execution arrives - for a user task, when it becomes available in the Inbox. `onStepCompleted` fires after the step finished **and** after its writes are persisted (the task form's edits via the writer delegate, a `setField`), and the publish itself is deferred to after commit, so a consumer that re-loads the record never observes it stale. Any number of entries may observe the same moment: the emitter is generated once and publishes once. A branch that jumps back into an observed step re-enters it, so its `onStepReached` observers fire again.
+
 ## notifications
 
-Email on an entity lifecycle event.
+Email on an event of the axis above.
 
 ```yaml
 notifications:
@@ -237,18 +278,36 @@ integrations:
 
 Generates a `gen/events/<Name>Integration.java` `@Listener` that forwards the entity-event JSON to the URL via `sdk.http.HttpClient`. The `@config:KEY` sugar resolves to `Configurations.get` so endpoints and secrets stay out of the source. The body forwards the whole entity for now (custom body mapping and headers are later).
 
-## inbound
+## inbound - arrivals from outside
 
-Another system tells us - a webhook that ingests a JSON payload into an entity.
+Another system tells us - a JSON record shaped like the entity, ingested into it. What differs between the three forms is only **where the record arrives**; the action is the same `create`, through the same repository.
 
 ```yaml
 inbound:
-  - name: ingestOrder
-    path: /ingest
-    create: Order
+  # HTTP - an endpoint the other system posts to
+  - { name: ingestOrder,  path: /ingest, create: Order }
+  # message - every record arriving on a queue (point-to-point) or a topic (broadcast)
+  - { name: ordersQueue,  source: { queue: orders.inbound }, create: Order }
+  - { name: ordersFeed,   source: { topic: crm.orders }, create: Order }
+  # file - every file dropped into a folder, polled on the cron
+  - { name: ordersDrop,   source: { folder: /data/inbox/orders, cron: "0 */5 * * * ?" }, create: Order }
 ```
 
-Generates a `gen/events/<Name>Webhook.java` `@Controller` with a `@Post("<path>")` that deserialises the body into the entity and saves it, returning the saved JSON. Served at `/services/java/<project>/gen/events/<Name>Webhook<path>`. The v1 action is `create` (ingest).
+An entry declares **exactly one arrival**: a `path`, or a `source` naming exactly one of `queue` / `topic` / `folder` - both, neither, or two channels fails at Generate. What each one generates under `gen/events`:
+
+| Arrival | Generated class | Shape |
+| --- | --- | --- |
+| `path` | `<Name>Webhook.java` | a `@Controller` with a `@Post("<path>")`, served at `/services/java/<project>/gen/events/<module>/<Name>Webhook<path>` |
+| `source: { queue \| topic }` | `<Name>Consumer.java` | a self-describing `MessageHandler` (`destination()` / `kind()`) on the platform broker |
+| `source: { folder, cron }` | `<Name>FileImport.java` | a self-describing `JobHandler` (`cron()`) polling the folder |
+
+Whichever it is, the record is saved through the entity's **generated repository**, so validations, translations and the create event fire exactly as for any other write - the arrival is a transport, not a second data path.
+
+::: warning A folder is polled, not watched
+That is why a `folder` source requires its `cron` (and why a `cron` on the other sources is rejected). A file holds one record or an array of them; a file modified within the last few seconds is left for the next tick (it may still be being copied in); and every read file leaves the drop folder - into `processed/` or, if it could not be ingested, `failed/` - so nothing is ever ingested twice and a rejected file stays inspectable.
+:::
+
+Conversation-shaped transports - acknowledgements, retries with backoff, certificates, SFTP - stay outside the intent by design: use a [Camel route](/help/ide/modelers/integrations-karavan) in the same project, feeding the entity's ordinary write path.
 
 ## rollups
 
@@ -364,7 +423,8 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
-| Inbound webhooks (`@Controller` ingest to entity) | implemented |
+| Process-step events (`onStepReached` / `onStepCompleted` on a notification or an integration) | implemented |
+| Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
 | Event-driven create-from (`generates` with `event:`, at most once per source) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |

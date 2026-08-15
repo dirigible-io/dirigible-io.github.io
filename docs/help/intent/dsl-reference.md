@@ -46,7 +46,8 @@ complete worked example.
 | [the notify block / `attach: print`](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself) | send a message about a record - with the record's own document attached - from a process step, a transition or a schedule |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
-| [`inbound`](#inbound-webhooks) | webhook that creates records |
+| [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
+| [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`permissions`](#permissions-roles) | roles |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
@@ -754,7 +755,7 @@ status init and calculated fields fire.
 
 A create-from may declare an `event:` and run by itself when the source reaches a state, instead of
 waiting for someone to press the button. The canonical case is a document that arrives from outside and
-is completed by an earlier step: a fine ingested by an [inbound webhook](#inbound-webhooks), whose
+is completed by an earlier step: a fine ingested by an [inbound arrival](#inbound-arrivals-from-outside), whose
 responsible person is identified by a [transition](#transitions-guarded-status-flips), must produce a
 declaration document from the fine and that person.
 
@@ -1288,11 +1289,19 @@ integrations:
   - { name: pushNewMember, event: { onCreate: Member }, method: POST, url: "https://api.example.com/members" }
 ```
 
-## inbound - webhooks
+## inbound - arrivals from outside
+
+Exactly one arrival per entry: an HTTP `path`, or a `source` naming exactly one of `queue` / `topic` /
+`folder`. All three deserialise the JSON into `create:` and save it through the entity's repository; a
+`folder` is polled (hence the mandatory `cron`), and every read file leaves the drop folder. See
+[Declarative glue](/help/intent/glue#inbound-arrivals-from-outside).
 
 ```yaml
 inbound:
-  - { name: leadHook, path: /webhooks/lead, create: Lead }
+  - { name: leadHook,  path: /webhooks/lead, create: Lead }
+  - { name: leadQueue, source: { queue: leads.inbound }, create: Lead }
+  - { name: leadFeed,  source: { topic: crm.leads }, create: Lead }
+  - { name: leadDrop,  source: { folder: /data/inbox/leads, cron: "0 */5 * * * ?" }, create: Lead }
 ```
 
 ## permissions - roles
@@ -1320,11 +1329,13 @@ Reports, Settings including Region & Language).
 - **Cross-model status names and stage scopes** - a status nomenclature owned by another model is
   seeded there, so neither its `stage:` classification nor its names can be resolved from the
   referencing intent; both are rejected with the numeric-id fallback named.
-- **Declarative glue actions beyond the current set**: publish/consume message,
-  event-driven `generateDocument` (produce a PDF on an event), process-step events, inbound
-  message/file events. Today's implemented glue: triggers, decision/form resolvers, notifications,
-  schedules (notify + generate), integrations, inbound webhooks, rollups, settlements, expansions,
-  generates, transitions, postings, numbering (the `number:{stampOn:issue}` stamp delegate).
+- **Declarative glue actions beyond the current set**: publish a message on an event,
+  event-driven `generateDocument` (produce a PDF on an event). Today's implemented glue: triggers,
+  decision/form resolvers, notifications, schedules (notify + generate), integrations, ~~process-step
+  events~~ (landed: `onStepReached` / `onStepCompleted` on a notification or an integration), inbound
+  arrivals (webhook, and - landed - ~~message/file events~~ queue/topic and polled-folder sources),
+  rollups, settlements, expansions, generates, transitions, postings, numbering (the
+  `number:{stampOn:issue}` stamp delegate).
 - ~~Cross-model schedule source~~ - landed: a schedule's `entity` (and a `forEach` collection) may
   live in another model via `model: <uses alias>` (generate action only).
 - ~~`generates` completion hook~~ - landed: `sourceStatus` flips the source's status after the
