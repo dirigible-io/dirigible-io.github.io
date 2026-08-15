@@ -99,3 +99,18 @@ A `@Repository` is a managed bean in its own right - it is injected exactly like
 
 - Inject a repository wherever you need it: `@Inject CountryRepository countries` (constructor or field).
 - `JavaRepository<T>` provides `findAll`, `findAll(limit, offset)`, `findById(id)`, `findOne(id)`, `save(entity)`, `update(entity)`, `delete(entity)`, `deleteById(id)`, `count()`, and `query(hql, params)`. Sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
+- An id that is not there is an ordinary outcome, not a failure: `findById(id)` returns `null` and `findOne(id)` returns an empty `Optional`. Neither throws, so you decide what absence means - answer `404` from a controller, or skip the row in an event handler:
+
+```java
+@Get("/{id}")
+public Object byId(@PathParam("id") Long id) {
+    Country country = countries.findById(id);
+    if (country == null) {
+        Response.setStatus(404);
+        return Map.of("error", "No country with id " + id);
+    }
+    return country;
+}
+```
+
+Write a body along with the status - a controller method that returns `null` answers `204 No Content`, which would overwrite the `404` you just set.

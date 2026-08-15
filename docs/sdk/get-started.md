@@ -88,7 +88,7 @@ public class CountryRepository extends JavaRepository<Country> {
 }
 ```
 
-`JavaRepository<T>` is the recommended client-code pattern. Subclassing it gives you `findAll()`, `findById(id)`, `save(entity)`, `update(entity)`, `delete(entity)`, `deleteById(id)`, `count()`, and `query(hql, params)` out of the box - controllers never need to touch `JavaEntityStore` or `BeanProvider` directly.
+`JavaRepository<T>` is the recommended client-code pattern. Subclassing it gives you `findAll()`, `findById(id)`, `findOne(id)`, `save(entity)`, `update(entity)`, `delete(entity)`, `deleteById(id)`, `count()`, and `query(hql, params)` out of the box - controllers never need to touch `JavaEntityStore` or `BeanProvider` directly. An id that is not there is an ordinary outcome: `findById(id)` returns `null` and `findOne(id)` an empty `Optional`, so absence is yours to answer ([details](/sdk/component/decorators)).
 
 ### 3. Controller
 
