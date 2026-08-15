@@ -41,7 +41,8 @@ complete worked example.
 | [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
 | [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
 | [`notifications`](#notifications-email-on-change) | email on create/update/delete |
-| [`notify.forEach`](/help/intent/glue#one-message-per-related-row-foreach) | fan a notify block out over a related collection: one message per row, resolved against the row |
+| [`notify.forEach`](/help/intent/glue#one-message-per-related-row-foreach) | fan a notify block out over a related collection: one message per row, every bare path resolved against the row |
+| [`attach: recordPrint`](/help/intent/glue#one-document-many-recipients-attach-recordprint) | in a fan-out: attach the ANCHOR record's document, rendered once, to every recipient (`{record.<field>}` addresses that record) |
 | [the notify block / `attach: print`](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself) | send a message about a record - with the record's own document attached - from a process step, a transition or a schedule |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
