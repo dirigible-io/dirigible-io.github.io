@@ -225,7 +225,7 @@ entities:
 - **`partner: true`** is the exact mirror for EXTERNAL parties (customers, suppliers) on the Partner shell, whose perspectives register on the disjoint `application-partner-perspectives` extension point and are gated by the IdP roles (`Customer` / `Supplier` / `Partner`). An entity can carry both `personal:` (a staff owner) and `partner:` (an external owner) at once.
 - **`sensitive: true`** on a field (never the PK, the identity field, or the owner FK) strips it from the personal and partner responses and ignores it on their writes - use it for billing rates and amounts the owner must not see.
 
-A user task can also be routed to the record owner's Inbox with the literal `assignee: personal` (it resolves the owner through the `personal:` relation).
+A user task can also be routed to the record owner's Inbox with the literal `assignee: personal` (it resolves the owner through the `personal:` relation), or to whoever a **relation walk** off the trigger record names - `assignee: { path: employee.manager, fallback: manager }`. Every segment is a to-one relation and the walk ends at an entity declaring `identity:`; the required `fallback` names the candidate group that keeps the task claimable when the walk resolves to nobody. See the [DSL reference](/help/intent/dsl-reference#processes).
 
 ### Cross-model references (`uses`)
 
