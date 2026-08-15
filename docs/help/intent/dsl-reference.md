@@ -22,7 +22,7 @@ complete worked example.
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
-| [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
+| [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay, on entity reads and report columns alike |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
 | [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
@@ -401,6 +401,13 @@ entities:
 
 Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
+
+A [report](#reports-read-only-aggregations) column bound to a translatable property is served in
+the caller's language too - the generated query LEFT-joins `<TABLE>_LANG` on a bound `:language`
+parameter and falls back to the base value - so a report grouping by a multilingual nomenclature
+shows the same term as the list page beside it. Report **filters** (`filter:`, `scope:`, per-column
+conditions) stay on the base table, so translating content never changes which rows a report
+returns.
 
 ## Calculated fields / actions
 
