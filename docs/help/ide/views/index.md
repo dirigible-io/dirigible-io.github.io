@@ -12,6 +12,7 @@ Views are reusable side / bottom panels. Most perspectives compose a few of them
 - **[Terminal](/help/ide/views/terminal)** - full shell in the browser (ttyd-backed).
 - **[Search](/help/ide/views/search)** - repository-wide text search.
 - **[Problems](/help/ide/views/problems)** - compilation / validation problems.
+- **[Assistant](/help/ide/views/assistant)** - AI help for the hand-written Java under `custom/`.
 - **[Logs](/help/ide/views/logs)** - live log stream.
 - **[JavaScript debugger](/help/ide/views/debugger-js)** - Graalium debugger UI.
 - **[Java debugger](/help/ide/views/debugger-java)** - JDWP + DAP bridge for client Java code.

@@ -275,6 +275,7 @@ function helpSidebar() {
             { text: 'Terminal', link: '/help/ide/views/terminal' },
             { text: 'Search', link: '/help/ide/views/search' },
             { text: 'Problems', link: '/help/ide/views/problems' },
+            { text: 'Assistant', link: '/help/ide/views/assistant' },
             { text: 'Logs', link: '/help/ide/views/logs' },
             { text: 'JavaScript debugger', link: '/help/ide/views/debugger-js' },
             { text: 'Java debugger', link: '/help/ide/views/debugger-java' },
