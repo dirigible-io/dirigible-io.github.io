@@ -335,13 +335,13 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Postings (source document to balanced local document) | implemented |
 | Effective-dated register lookup (`resolves` - fill a to-one from the row valid on a date) | implemented |
 | Owner-based user-task assignment (`assignee: personal`) | implemented |
+| Resolver-path task assignment (`assignee: { path, fallback }` - a to-one walk off the trigger record) | implemented (see [DSL reference](/help/intent/dsl-reference#processes)) |
 | Waits (`wait` step - park on an entity event, correlate by `ProcessId`) | implemented |
 | Boundary timers (userTask `timeout:` reminder / `expire:` date-driven withdrawal) | implemented |
 | Standard per-document PDF print templates | implemented (see [Printing](/help/intent/printing)) |
 | Event-driven document generation (produce a PDF on an event) | implemented - mailed by `attach: print`, stored by `function: Snapshot` |
 | Status lifecycle / declarative state machine (`lifecycle:` - the whole legal status graph, enforced on every status write) | implemented (see [DSL reference](/help/intent/dsl-reference#lifecycle-the-legal-status-graph)) |
 | Audit history (shadow `<Entity>History` entity; audit *columns* via `audit: true` ship today) | planned |
-| Arbitrary resolver-path task assignment (beyond `assignee: personal`) | planned |
 
 ## Guardrails
 

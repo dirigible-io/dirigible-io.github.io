@@ -576,7 +576,28 @@ paths (`customer.creditLimit > 10000`) - resolvers are generated. Tasks surface 
 inline on the record's page. A user task's `assignee` is a role / candidate-group name, or the
 literal `assignee: personal` to route the task to the **record owner's** Inbox (requires the
 trigger entity to declare a `personal:` relation - see
-[personal / partner](#personal-partner-row-scoped-surfaces)).
+[personal / partner](#personal-partner-row-scoped-surfaces)), or a **relation walk** off the trigger
+record:
+
+```yaml
+- name: approve
+  kind: userTask
+  args:
+    assignee: { path: employee.manager, fallback: manager }
+    form: ApproveRequest
+```
+
+Every segment of `path` is a **to-one relation** - the first of the trigger entity, each further one
+of the previous target - and the walk ends at an entity that declares `identity:`, which is what maps
+the record to a login. A **cross-model** relation may only be the **last** segment (a projection
+carries the target's own properties but not its relations). Every hop is validated at parse time, so
+a dangling segment fails Generate rather than the running process.
+
+`fallback` is **required** and names the candidate group. The walk is resolved at **task entry** -
+later than `assignee: personal`, which is fixed at process start, so a relation an earlier step of
+the same process set is visible - and when it resolves to nobody (a null hop, a deleted record, a
+blank identity) the task is created unassigned and the fallback group can still claim it. That is
+what stops an unresolvable path from minting a task nobody can see.
 
 A running process can also **observe the outside world**:
 
@@ -1262,5 +1283,6 @@ Reports, Settings including Region & Language).
   composition child renders as an embedded calendar in its master's detail pane (a `scope:`
   relation filters and prefills by the parent).
 - ~~Owner-based user-task assignment~~ - landed: `assignee: personal` routes a task to the record
-  owner. Arbitrary resolver-path assignment (an assignee resolved from any relation walk) is still
-  planned.
+  owner.
+- ~~Resolver-path task assignment~~ - landed: `assignee: { path, fallback }` routes a task to the
+  person a to-one relation walk off the trigger record names, resolved at task entry.
