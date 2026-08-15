@@ -225,6 +225,16 @@ mutually exclusive with it. Workflow/system writes through the repository stay p
 corrections to an immutable record are flow-generated reversals, never edits. (`immutableIn:` is
 the pre-rename spelling, rejected with a migration message.)
 
+**The lock reaches the document's lines.** A composition child declares no immutability of its own -
+the lock belongs to the document - but its writes recompute the master's totals, so a line write on
+a locked document would rewrite exactly what the lock protects: after the number was stamped, after
+the immutable PDF snapshot was taken, after the entry posted to the ledger. Creating, editing or
+deleting a line of a locked master is therefore refused with the same **409** by the child's own
+controller, on every REST surface (the power controller and the partner / personal ones). The
+generated UI already withheld the affordance; this is the server agreeing with it. Declare
+[`locksWithMaster: false`](#lockswithmaster-a-child-collection-that-outlives-its-master-s-lock) on a
+collection that must go on being recorded past the lock.
+
 ## lifecycle - the legal status graph
 
 Every other status construct states one edge at a time: `init:` says where a record starts, a
@@ -288,19 +298,26 @@ revenue total; the lifecycle says how a record may *move*.
     - { name: SalesInvoice, kind: manyToOne, to: SalesInvoice, composition: true, required: true }
 ```
 
-A master's immutability locks **that entity**. A composition child is a different entity with its
-own generated controller - which already accepts the writes - so freezing its panel too was the
-generated UI extending a rule the model never declared: the Add button and row actions on the
-allocations panel existed only while the invoice was DRAFT, i.e. never in the state where
-allocations matter.
+A master's immutability covers the document's own content, and by default it
+[reaches the document's lines](#immutablewhen-immutable-user-write-immutability) - a child collection
+freezes with its master, in the panel *and* at the REST layer. For some collections that is wrong:
+the Add button and row actions on an invoice's allocations panel then exist only while the invoice
+is DRAFT, i.e. never in the state where allocations matter.
 
-`locksWithMaster: false` keeps that panel's affordances alive while the master is locked. Content
-and settlement are different lifecycles on the same document.
+`locksWithMaster: false` says so in the model: this collection keeps its user writes past the
+master's lock, affordances and endpoints together. Content and settlement are different lifecycles
+on the same document - an issued invoice's lines are frozen while money keeps arriving against it
+for months.
+
+One declaration governs both halves, so the screen and the server can never disagree about a given
+collection. Engine-level writers are unaffected either way: auto-settlement, roll-ups, workflow
+delegates and the void transition write through the repository rather than the controller, exactly
+as the master's own guard already assumes.
 
 Default `true`. Parse-validated on both halves - it must be a composition child, and its master must
 actually declare `immutableWhen` / `immutable`, so an inert declaration fails at generate time
-instead of quietly doing nothing. A document's own **line items** are unaffected: they render in the
-items pane, not a child panel, and stay locked.
+instead of quietly doing nothing. A document's own **line items** are unaffected by the flag: they
+render in the items pane, not a child panel, and stay locked with the document.
 
 ## history - the shadow change trail
 
