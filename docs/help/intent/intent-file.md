@@ -127,6 +127,7 @@ fields:
 | `calculatedOnCreate` / `calculatedOnUpdate` | an expression the generated repository assigns to the property on insert / update |
 | `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
 | `sensitive` | strip this field from the personal / partner surface and ignore it on their writes - see [Personal and partner surfaces](#personal-and-partner-surfaces) |
+| `visibleTo` | a list of roles: the field is stripped from every REST response and ignored on every write for anyone else - see the [DSL reference](/help/intent/dsl-reference#visibleto-role-scoped-fields) |
 
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`, `month`, `week`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`. `month` (a `YYYY-MM` string) and `week` (a `YYYY-Www` ISO-week string) are stored as short `VARCHAR`s and render as the Harmonia month / week pickers.
 
@@ -224,6 +225,7 @@ entities:
 - **`personal: true`** on a record-owning to-one relation generates an additional `<Entity>MyController` on the My shell: reads are filtered to the caller's mapped record, the owner FK is forced server-side on writes, and a foreign record returns 404. At most one `personal:` relation per entity; the target must declare `identity`; never put it on a composition parent - composition children inherit the owner's scope through their parent.
 - **`partner: true`** is the exact mirror for EXTERNAL parties (customers, suppliers) on the Partner shell, whose perspectives register on the disjoint `application-partner-perspectives` extension point and are gated by the IdP roles (`Customer` / `Supplier` / `Partner`). An entity can carry both `personal:` (a staff owner) and `partner:` (an external owner) at once.
 - **`sensitive: true`** on a field (never the PK, the identity field, or the owner FK) strips it from the personal and partner responses and ignores it on their writes - use it for billing rates and amounts the owner must not see.
+- **`visibleTo: [Role, ...]`** on a field is the ROLE-scoped counterpart, and it holds on every surface, this one included: the value is stripped from the responses and ignored on the writes unless the caller holds one of the listed roles, because owning a record is not the same as being allowed to see every column of it. See the [DSL reference](/help/intent/dsl-reference#visibleto-role-scoped-fields).
 
 A user task can also be routed to the record owner's Inbox with the literal `assignee: personal` (it resolves the owner through the `personal:` relation), or to whoever a **relation walk** off the trigger record names - `assignee: { path: employee.manager, fallback: manager }`. Every segment is a to-one relation and the walk ends at an entity declaring `identity:`; the required `fallback` names the candidate group that keeps the task claimable when the walk resolves to nobody. See the [DSL reference](/help/intent/dsl-reference#processes).
 

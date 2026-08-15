@@ -21,6 +21,7 @@ complete worked example.
 | [`lifecycle`](#lifecycle-the-legal-status-graph) | the whole legal status graph, enforced on every status write |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
+| [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | calendar / range / slot-booking pages |
@@ -536,6 +537,58 @@ on the personal shell; `partner: true` the mirror `<Entity>PartnerController` on
 (`/services/web/partner/`, gated by the Customer / Supplier / Partner IdP roles). A `sensitive:
 true` field is stripped from those scoped responses and ignored on their writes (enforced
 server-side, not merely hidden). The regular controller is unaffected; an entity may carry both.
+
+## visibleTo - role-scoped fields
+
+A salary, a cost price, a margin is readable by everyone who may read the entity. `visibleTo`
+scopes a single field to a list of roles: it is stripped from every REST response and ignored on
+every write unless the caller holds one of them.
+
+```yaml
+permissions:
+  - { role: Payroll }
+  - { role: Administrator }
+
+- name: Employee
+  fields:
+    - { name: name,      type: string,  required: true }
+    - { name: dailyRate, type: decimal, visibleTo: [Payroll, Administrator] }
+```
+
+Holding **any one** of the listed roles is enough. Every role must be declared in `permissions:` -
+a role no permission grants would hide the field from everybody, which is a typo far more often
+than an intention, so Generate refuses it and names the roles the model does declare.
+
+It is an **allow-list**, never the inverse "hidden for these roles": a role added to the
+application later sees nothing until it is listed, and a misspelled role hides the value instead of
+exposing it.
+
+**What it does**
+
+- **Reads** - the property comes back `null` for a caller outside the roles, on the regular
+  controller *and* on the `personal` / `partner` ones (owning the record is not the same as being
+  allowed to see every column of it).
+- **Writes** - a create drops the value, an update keeps the stored one. No error: the field simply
+  is not the caller's to set.
+- **Change history** - a `history: true` entity leaves the field's entries out of the trail for
+  that caller; it records the before/after of every write, so it would otherwise hand out exactly
+  what the record withholds.
+- **Derived totals** - a roll-up, an `aggregate: true` master field or an `aggregates:` target fed
+  by a restricted field inherits its allow-list. A sum of hidden figures is that same figure one
+  entity out.
+- **The generated UI** - the pages ask the controller which fields it withholds from the caller
+  (`GET .../restricted`) and leave those columns, inputs, totals, filters and CSV columns out. The
+  browser is never told a role name, and the redaction on the wire remains the enforcement - the
+  hiding is only so nobody stares at a permanently empty control.
+
+**Not allowed on** the primary key, the entity's `identity` field or the document title: hiding
+those does not produce a restricted field, it produces a broken page. A field referenced by a
+`label:` is refused for the same reason - the generated `Name` is an ordinary column everyone gets.
+
+**Reports are not scoped.** A report over a restricted field re-serves the figure to everyone who
+may open the report, so Generate emits a warning naming the report, the field and its roles. That
+is a legitimate thing to author - a payroll report over payroll data is the point - as long as the
+report's own roles say who may open it.
 
 ## documentItemsLayout: chat - conversation threads
 
