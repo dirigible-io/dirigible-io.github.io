@@ -25,6 +25,25 @@ Returning the whole file and diffing it locally was chosen over LLM-authored uni
 
 The assistant's system prompt is an **externalised, reviewable resource** (`intent-assistant-guide.md`, loaded from the classpath), not an inline string - so it can be maintained as documentation and kept in lockstep with what the parser enforces. It documents the full schema, including the [declarative-glue catalog](/help/intent/glue) and the trigger `businessKey` / `businessKeyStrategy`, plus the recipient grammar (literal / direct field / one-hop `relation.field`, no braces).
 
+## The boundary, and what happens at it
+
+There is a line in the DSL, and it is a design decision rather than a gap: **the intent models what the application *means*; protocol, algorithm and statutory form are *how*, and live outside it.** When a requirement crosses that line the assistant must **report it**, never quietly substitute the nearest thing the DSL can express - silently turning "the system identifies the driver" into "an officer identifies the driver" changes the contract where the developer cannot see it.
+
+Three categories, and the extension point that carries each:
+
+| Category | Examples | Where it goes |
+| --- | --- | --- |
+| **Protocol adaptation** | certificates, acknowledgements, retries, batch or file transports (an SFTP drop, a signed archive, polling) | a **Camel route** in the same project, feeding the entity's ordinary write path. `integrations:` and `inbound:` are deliberately one-line call-outs |
+| **Algorithm** | checksums (national identifiers, account numbers), fuzzy matching, scoring, policy-driven tie-breaking | **`calculatedActionOnCreate` / `calculatedActionOnUpdate`** on a field or to-one relation, or a serviceTask **`delegate:`** - both implemented under `custom/` |
+| **Statutory or designed form** | the exact legally mandated print layout | the [`.print` template](/help/intent/printing), generated create-if-absent by design and adapted by hand |
+
+When it hits one, the answer has three parts: name the category and why; propose the **intent-side wiring** for the extension point (the serviceTask with its `delegate:`, the field with its `calculatedActionOnCreate:`) rather than a semantic downgrade; and report it in the tool call's `boundaries` array - `{ requirement, why, extensionKind, suggestedClass }`. The editor and the Builder render each entry as its **own bubble**, not buried in prose, so it survives being read quickly and can be forwarded verbatim.
+
+Two things follow the report:
+
+- **The stub is generated.** A named `calculatedAction*` the project would own gets a generate-once `custom/<Class>.java` scaffold, so the boundary is a file to open rather than a repository referencing a class nobody wrote. It is scaffolded only when the class is unqualified or under `custom.`, and only when the entity's `imports:` do not already bring that name in from elsewhere.
+- **The other assistant takes over.** The intent assistant **never emits Java, TypeScript or SQL**; the [Workbench Assistant view](/help/ide/views/assistant) helps write the `custom/` class, in its own conversation. The boundary is explicit in the product, not only in the prose.
+
 ## Transcript discipline
 
 The browser keeps two lists: a display log (which may hold errors and UI notes) and a clean alternating user/assistant transcript sent as `history`. The current YAML is embedded fresh in every latest user turn, so the model always diffs against ground truth even after an Accept. Tool calls are not replayed. A failed turn pops its dangling user turn so the next request stays alternating.
@@ -46,6 +65,7 @@ The whole feature is one server-side bridge (`IntentAgentService` + `IntentAgent
 ## See also
 
 - [The Intent Editor](/help/intent/editor)
+- [The Workbench Assistant view](/help/ide/views/assistant) - the same contract, for the hand-written Java past the boundary
 - [The `.intent` file](/help/intent/intent-file)
 - [Intent-Driven Application Development Manifesto](/manifesto/)
 - [Environment variables](/help/setup/environment-variables)
