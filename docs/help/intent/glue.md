@@ -113,6 +113,33 @@ Add **`attach: print`** and the message carries the record's **own document**: t
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
 :::
 
+### Links back to the application: `{recordUrl}`, `{inboxUrl}`, `{appUrl}`
+
+"You have an approval waiting" is useless without the way back to the record, so `subject:` and `body:` accept three reserved link placeholders alongside the field ones:
+
+| Placeholder | Resolves to |
+| --- | --- |
+| `{recordUrl}` | the record the message is about, opened in the generated application |
+| `{inboxUrl}` | the recipient's process Inbox |
+| `{appUrl}` | the application's external base URL - the origin only |
+
+```yaml
+    notify:
+      to: Approver.email
+      subject: "Approval needed: invoice {number}"
+      body: "Open it here: {recordUrl}\nEverything waiting on you: {inboxUrl}"
+```
+
+All three names are reserved at every notify call site, so an entity field of the same name never shadows them (and declaring one is a mistake worth avoiding). **Never hand-type a route into a body**: `{recordUrl}` and `{inboxUrl}` are resolved for you to the complete address - `<base>/services/web/<project>/gen/<model>/index.html#/<Entity>/<id>/edit` and `.../index.html#/inbox` respectively. `{appUrl}` yields the origin alone; reach for it only for an address the other two cannot express, such as a page of your own.
+
+The origin comes from the **`DIRIGIBLE_APP_BASE_URL`** configuration, which is tenant-overridable - the same instance mails each tenant its own host - and is read per dispatch inside the sending tenant's configuration scope. Leave it unset and the links render relative to nothing; set it to the externally reachable origin of the instance (`https://apps.example.com`).
+
+::: tip Why the intent never writes the path
+The routes belong to the template that renders the application, not to the model. An intent that spelled one would encode a layout it does not own - correct only until that layout changes, and silently wrong afterwards. The intent layer contributes the entity and its key; the events template composes the address, exactly as it already does for the task form's `__entityUrl`.
+:::
+
+Inside a [`forEach`](#one-message-per-related-row-foreach) fan-out `{recordUrl}` links the **row**, like every other bare path in the block - the row is what that message is about, while `{record.<field>}` reads the anchor record.
+
 ### One message per related row: `forEach`
 
 Some sends are per-row rather than per-record - a payroll run mails every payslip to its own employee.
