@@ -513,6 +513,13 @@ Two seed shapes:
 
 A seed with `language: <code>` is a **translation** seed: it fills the per-language values of a `multilingual: true` entity (see [multilingual](#multilingual-data-and-ui)) and lands in the entity's `<TABLE>_LANG` table; rows carry the base row's `id` plus the translatable (string/text) fields only.
 
+**Row keys are the entity's own names, matched exactly.** A field name, a **to-one** relation name (a collection has no column to set), or the lifecycle `stage:` marker - nothing else. A key matching none of them fails validation naming the nearest declared name, because accepting it would drop that column silently, and a dropped NOT NULL foreign key makes the import skip **every** row - a nomenclature that lands as zero rows behind a fully green pipeline:
+
+```
+seed [rates] row references [contributionScheme] which is not a field or a to-one relation of [Rate]
+  - did you mean [ContributionScheme]? (names are case-sensitive)
+```
+
 ## Multilingual data and UI
 
 Two independent things get translated: the **data** in multilingual entities, and the generated **UI labels**.
@@ -548,6 +555,21 @@ The languages the whole **stack** supports are a platform concern (`DIRIGIBLE_AP
 - **No tags** (already enforced by `SafeConstructor`).
 - **Quote unquoted braces in scalars.** `to: {member.email}` is parsed by YAML as an object, not a string - write `to: member.email` (braces are only for `{...}` interpolation inside `subject` / `body`).
 - An event-binding key is `event:`, never `on:` - YAML 1.1 resolves a bare `on` to boolean `true`. An action key is `do:`.
+- **Only the documented keys exist, and they are case-sensitive** - see below.
+
+### Unknown keys are errors, never silent
+
+A key the intent does not declare - an invented one, or a case slip (`Required:` for `required:`) - **fails validation**. It is never accepted and ignored, because that silence is the worst outcome available: the typed mapping drops the key, parse returns 200, Generate 200, code generation 201, publish 200, and the only symptom is that the promise you wrote is simply absent at runtime.
+
+The message names the key, where it sits and the nearest declared name, and appears wherever validation does - the Intent Editor's inline strip, the Builder's issue list, and the `POST /services/ide/intent/parse` response (422):
+
+```
+unknown key [requird] at [entities[Rate].relations[Scheme]] - did you mean [required]?
+```
+
+Two shapes are checked. The **intent's own keys** are matched against the DSL schema, at every level (root, entities, fields, relations, processes, reports, glue blocks and their nested blocks). A **seed row's** keys are matched against the target entity's own field and to-one relation names (see [seeds](#seeds)).
+
+Maps whose keys come from the model you are describing - a `map:` projection, a relation's `where:`, a widget's `at:`, a step's `args:` - are checked by the validators that own that vocabulary, not against the DSL schema.
 
 ## See also
 
