@@ -569,9 +569,16 @@ The message names the key, where it sits and the nearest declared name, and appe
 unknown key [requird] at [entities[Rate].relations[Scheme]] - did you mean [required]?
 ```
 
-Two shapes are checked. The **intent's own keys** are matched against the DSL schema, at every level (root, entities, fields, relations, processes, reports, glue blocks and their nested blocks). A **seed row's** keys are matched against the target entity's own field and to-one relation names (see [seeds](#seeds)).
+Three shapes are checked. The **intent's own keys** are matched against the DSL schema, at every level (root, entities, fields, relations, processes, reports, glue blocks and their nested blocks). A **seed row's** keys are matched against the target entity's own field and to-one relation names (see [seeds](#seeds)). And a **fixed-vocabulary block written as a mapping** - a process `trigger:` / `abortOn:`, a glue `event:` binding (including a step binding's `{ process, step }`), a posting's `rule:`, a `forEach:`, a lookup's `between:` / `found:` / `notFound:` / `ambiguous:`, and the boundary-timer and notify blocks nested in a step - is matched against its own vocabulary.
 
-Maps whose keys come from the model you are describing - a `map:` projection, a relation's `where:`, a widget's `at:`, a step's `args:` - are checked by the validators that own that vocabulary, not against the DSL schema.
+**A step's `args:` are matched per kind.** Both an invented argument and one belonging to another kind are errors, because a step reads neither:
+
+```
+process [InvoiceApproval] step [approve] declares unknown arg [assigne] - did you mean [assignee]?
+process [InvoiceApproval] step [approve] declares arg [if] but is a userTask - if is a decision argument
+```
+
+Only maps whose keys are names from the application you are describing stay free-form: a `map:` / `defaults:` projection, a relation's `where:`, a widget's `at:`, and a delegate's injected `fields:`.
 
 ## See also
 
