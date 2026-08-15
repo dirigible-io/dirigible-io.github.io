@@ -31,6 +31,7 @@ complete worked example.
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
 | [`generates.event`](#event-driven-creation-event) | mint the document on a source event instead of a click, at most once |
+| [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
@@ -724,6 +725,45 @@ Prefer this over [`posts`](#posts-derived-rows-on-an-event) when the result is a
 items: `posts` writes flat mapped rows and cannot reference the freshly created header. Prefer it over a
 button plus a `wait` step when the step is really waiting for a person to remember to click - an
 unclicked record parks its process instance indefinitely.
+
+### Prompted input - `prompt:`
+
+When the target needs a value or two that cannot be derived from the source, `prompt:` declares a
+small input form shown before the target is created. The canonical case is manual payment allocation
+on an issued invoice - which payment, and how much (an allocation is often partial). It also reaches
+a child record on an **immutable** document, because per-record action buttons are not gated on
+mutability the way the document's own panels are (the same reason Void works on an issued invoice) -
+the action-shaped sibling of
+[`locksWithMaster: false`](#lockswithmaster-a-child-collection-that-outlives-its-master-s-lock),
+which reopens the child's own panel: use the panel when the rows are ordinary data entry, and a
+prompted action when the create is a guided one - a narrowed form over values the source mostly
+derives.
+
+```yaml
+generates:
+  - name: allocate-payment
+    from: SalesInvoice
+    to: SalesInvoiceCustomerPayment  # must be a composition child of forEntity (local, scope entity)
+    label: Allocate Payment
+    icon: link
+    map:
+      SalesInvoice: id               # the clicked record becomes the child's master FK
+      Customer: Customer             # derived values stay mapped - prompt only what cannot be derived
+    prompt:
+      - { field: CustomerPayment, required: true }   # a to-one relation of the target -> a dropdown
+      - { field: amount, required: true }            # a field of the target -> a typed input
+```
+
+Each `prompt` entry names a **field or to-one relation of the target**, so the dialog's controls are
+typed from the target's own definitions and the target's `dependsOn:` declarations apply unchanged
+(the payment list narrows to the invoice's customer, `amount` defaults to the picked payment's
+amount). `required: true` is enforced in the dialog and again by the generated controller (HTTP 400
+before anything is written). A property may not be both prompted and mapped/defaulted - exactly one
+writer. The create still goes through the target's repository, so the ordinary `-created` event,
+roll-ups and status flips fire unchanged.
+
+`prompt:` cannot be combined with [`event:`](#event-driven-creation-event) - an event-driven
+create-from runs with nobody there to answer the form.
 
 ## transitions - guarded status flips
 
