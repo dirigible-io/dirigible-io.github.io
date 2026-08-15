@@ -550,8 +550,40 @@ entities:
       - { name: Country, kind: manyToOne, to: Country, model: countries }
 ```
 
-Many-to-many is an explicit intermediate entity (composition to one side + `manyToOne` to the
-other, plus bridge fields); `manyToMany` is parsed but never materialized.
+## manyToMany - the intermediate entity, materialized
+
+An n:m is always an intermediate (link) entity - one row per link. `kind: manyToMany` writes that
+entity for you:
+
+```yaml
+entities:
+  - name: Order
+    relations:
+      - { name: products, kind: manyToMany, to: Product }        # through: OrderLine to name it
+```
+
+materializes, before validation and Generate:
+
+```yaml
+  - name: OrderProduct                       # <Declaring><Target>, or the authored `through:`
+    fields:
+      - { name: id, type: integer, primaryKey: true, generated: true }
+    relations:
+      - { name: Order,   kind: manyToOne, to: Order, composition: true, required: true }
+      - { name: Product, kind: manyToOne, to: Product, required: true }
+```
+
+so the link gets a real table, a detail grid under the declaring entity's page (dropdown for the
+target), and can be seeded, reported on and referenced like any other entity. The target may be
+cross-model (`model:`); the target-picker attributes (`where` / `show` / `major` / `size` /
+`leafOnly`) travel onto the link's target relation.
+
+**Author the intermediate entity yourself** (composition to one side + `manyToOne` to the other,
+exactly as above) when the link carries **bridge fields** - a quantity, a partial `amount`, a
+valid-from date - or a lifecycle of its own; then drop the `manyToMany`. Declare an n:m on **one**
+side only, and note that a relation attribute describing a hand-authored to-one (`composition`,
+`function`, `init`, `dependsOn`, a calculated action, `personal`, `partner`) is rejected on a
+`manyToMany` rather than silently dropped.
 
 ## processes - workflows
 
@@ -1265,8 +1297,8 @@ Reports, Settings including Region & Language).
 - Other reserved `function` values for upcoming templates are recognised but rejected with a
   clear "not yet available" message. (`function: Calendar` is now first-class - the role alias
   for `view: calendar`.)
-- **`manyToMany`** - parsed but never materialized; the supported shape is the explicit
-  intermediate entity.
+- **Bridge fields on a generated `manyToMany` link** - the materialized link entity carries only its
+  key and the two FKs; a link with data of its own is authored as an explicit intermediate entity.
 - **Cross-model status names and stage scopes** - a status nomenclature owned by another model is
   seeded there, so neither its `stage:` classification nor its names can be resolved from the
   referencing intent; both are rejected with the numeric-id fallback named.

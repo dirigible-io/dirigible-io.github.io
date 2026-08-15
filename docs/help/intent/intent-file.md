@@ -189,7 +189,7 @@ relations:
   - { name: order,    kind: manyToOne, to: Order, composition: true }
 ```
 
-Relation kinds: `oneToMany`, `manyToOne`, `oneToOne`, `manyToMany`. The FK lives on the to-one side; the EDM generator ignores `oneToMany` / `manyToMany` (navigation-only) since the column is on the child.
+Relation kinds: `oneToMany`, `manyToOne`, `oneToOne`, `manyToMany`. The FK lives on the to-one side; an `oneToMany` is navigation-only (the column is on the child), and a `manyToMany` is [materialised into its link entity](#many-to-many) at parse time.
 
 - **`required: true` on a to-one** makes the FK NOT NULL but keeps the entity a top-level entity with its own perspective (a plain dropdown).
 - **`composition: true` on a to-one** makes it a master-detail composition: the owning entity becomes DEPENDENT (managed as details under its parent's perspective), and the FK is NOT NULL (so `required` need not also be set). Only a `manyToOne` / `oneToOne` can be a composition; an entity's first `composition` to-one is its composition parent. Declare the inverse `oneToMany` on the master so the child is managed as a detail of it.
@@ -252,7 +252,34 @@ A cross-model relation must be `manyToOne` / `oneToOne`, its `model:` must be li
 
 ### Many-to-many
 
-There is no `manyToMany` materialisation. Model n:m as an **explicit intermediate entity** holding a `composition` to one side, a `manyToOne` to the other (which may be cross-model via `model:`), plus any bridge fields:
+An n:m is always an **intermediate (link) entity** - one row per link, holding a `composition` to one side and a `manyToOne` to the other (which may be cross-model via `model:`). It is a real entity: its own table, a detail grid with a dropdown under the declaring entity's page, and it can be seeded, reported on and referenced like any other.
+
+**`kind: manyToMany` writes that entity for you:**
+
+```yaml
+  - name: Order
+    relations:
+      - { name: products, kind: manyToMany, to: Product }                  # link entity OrderProduct
+      - { name: tags,     kind: manyToMany, to: Tag, through: OrderTag }   # named link entity
+      - { name: parts,    kind: manyToMany, to: Part, model: parts }       # cross-model target
+```
+
+`Order.products` materialises, before validation and Generate:
+
+```yaml
+  - name: OrderProduct                    # <Declaring><Target>, or the name given by `through:`
+    fields:
+      - { name: id, type: integer, primaryKey: true, generated: true }
+    relations:
+      - { name: Order,   kind: manyToOne, to: Order, composition: true, required: true }
+      - { name: Product, kind: manyToOne, to: Product, required: true }
+```
+
+and the authored relation becomes the navigation-only `oneToMany` to the link entity, so the model holds exactly one representation of the n:m.
+
+Rules: declare the n:m on **one** side only (it is one link table); the target-picker attributes `where` / `show` / `major` / `size` / `leafOnly` are allowed and travel onto the link's target relation; `composition`, `function`, `init`, `dependsOn`, `calculatedActionOn*`, `personal` and `partner` are rejected on a `manyToMany` (they describe a hand-authored to-one) rather than accepted and ignored; `through:` is valid on `manyToMany` only, and a link name that collides with a declared entity is an error, not a silent merge. A self-referencing n:m is legitimate and its two ends are named apart.
+
+**Author the intermediate entity yourself** when the link carries **bridge fields** - a quantity, a partial amount, a valid-from date - or a lifecycle of its own; then drop the `manyToMany`:
 
 ```yaml
   - name: SalesInvoiceCustomerPayment

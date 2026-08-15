@@ -50,7 +50,15 @@ See [cross-model references in the `.intent` file](/help/intent/intent-file#cros
 
 ### Many-to-many across models
 
-`SalesInvoice` (in `sales-invoices`) is settled by many `CustomerPayment`s (in `customer-payments`), and a payment spans many invoices. Model it as an **explicit intermediate entity** with a local `composition` to one side and a cross-model `manyToOne` to the other, carrying the bridge field:
+An n:m whose target lives in another model works exactly as a local one: `kind: manyToMany` with `model:` materialises the link entity locally, with the cross-model association on its target end.
+
+```yaml
+- name: Order
+  relations:
+    - { name: parts, kind: manyToMany, to: Part, model: parts }   # link entity OrderPart, local
+```
+
+When the link carries a **bridge field**, author the intermediate entity instead - a local `composition` to one side, a cross-model `manyToOne` to the other. `SalesInvoice` (in `sales-invoices`) is settled by many `CustomerPayment`s (in `customer-payments`), and a payment spans many invoices, each link carrying its partial `amount`:
 
 ```yaml
 - name: SalesInvoiceCustomerPayment
