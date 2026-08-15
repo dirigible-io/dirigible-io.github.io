@@ -66,7 +66,7 @@ Add **`attach: print`** and the message carries the record's **own document**: t
       # or per record: languageFrom: Customer.locale  (a one-hop relation.field holding the code)
 ```
 
-`attach`'s only value is `print`, and the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes the print-template language; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
+`attach` is `print` - the record the block is about - or, inside a fan-out, [`recordPrint`](#one-document-many-recipients-attach-recordprint). With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes the print-template language; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
 
 ::: tip Failure semantics, per call site
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
@@ -91,6 +91,44 @@ The row entity must have exactly **one** to-one relation back to the record - no
 unrelated, several make the intended set ambiguous, and both are parse-time errors rather than a
 silently wrong list of recipients. The generated code loops the rows with the loop variable named
 `entity`, so the same pre-rendered expressions serve both shapes.
+
+A fan-out is generated on a `transitions[].notify` and a `serviceTask`'s `args.notify`. A
+`schedules[].notify` already runs once per matched row and a `notifications[]` entry is about the event
+record, so a `forEach` on either is a parse-time error rather than a declaration that is quietly
+ignored while a different message goes out.
+
+### One document, many recipients: `attach: recordPrint`
+
+The mirror shape: the related rows are only the **recipient list** and the document belongs to the
+record they hang off - a request for quotation mailed to each invited supplier, an agenda mailed to
+each participant. `attach: print` cannot express it (it renders the ROW, which is nobody's document);
+`attach: recordPrint` renders the fan-out's **anchor record** - the record the block is about - ONCE,
+before the loop, and attaches the same PDF to every message.
+
+```yaml
+    notify:
+      forEach: InvitedSupplier                      # the rows: the recipient list
+      to: Supplier.email                            # the ROW's supplier - the rows ARE the recipients
+      subject: "RFQ {record.number}"                # {record.<field>} = the ANCHOR RECORD's field
+      body: "Dear {Supplier.name}, please quote by {record.deadline}."   # bare = the ROW
+      attach: recordPrint                           # the RECORD's document, rendered once
+```
+
+`recordPrint` needs a `forEach` (without one, `attach: print` already renders that very record) and it
+is the **anchor** that must be a document - the row need not be. `language:` / `languageFrom:` then
+select the anchor's render language, read off the anchor: the generated delegate calls a
+`renderDocument(source)` before the loop - and not at all when the fan-out has no rows, so an empty
+recipient list costs no render and cannot fail a step for nobody.
+
+::: warning Which record a path reads is authored, never inferred
+Inside a fan-out a **bare** path - the recipient, `{field}`, `{Relation.field}` - resolves against the
+**ROW**, and the reserved prefix `record.` is the only way to address the anchor record:
+`{record.<field>}` names ONE field of it (a walk on from the record is rejected). The recipient may
+never be record-scoped: the rows *are* the recipients, so a record-scoped address would mail the same
+person once per row. `record.` outside a fan-out is rejected too - there the bare placeholder already
+IS the record's. All of it is checked at parse time, because nothing in a rendered message would show
+that the wrong record had been read.
+:::
 
 ::: warning A fan-out never fails its activity
 Fail-soft per row at every call site, including a `serviceTask` (which otherwise fails): a row with no
