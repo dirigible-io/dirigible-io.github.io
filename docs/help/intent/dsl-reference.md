@@ -58,6 +58,7 @@ entities:
   - name: Member
     icon: user
     audit: true                # adds CreatedAt/CreatedBy/UpdatedAt/UpdatedBy
+    history: true              # every write recorded as field-level deltas (see below)
     group: master-data         # nav group in the shared application shell
     fields:
       - { name: id,   type: integer, primaryKey: true, generated: true }
@@ -299,6 +300,58 @@ Default `true`. Parse-validated on both halves - it must be a composition child,
 actually declare `immutableWhen` / `immutable`, so an inert declaration fails at generate time
 instead of quietly doing nothing. A document's own **line items** are unaffected: they render in the
 items pane, not a child panel, and stay locked.
+
+## history - the shadow change trail
+
+```yaml
+- name: Contract
+  audit: true
+  history: true                  # every write recorded as field-level deltas
+  fields:
+    - { name: id,     type: integer, primaryKey: true }
+    - { name: amount, type: decimal }
+```
+
+`audit: true` keeps only the LAST writer and time, in four columns of the row itself. `history: true`
+keeps the whole trail: the entity gains a sibling `<TABLE>_HISTORY` shadow table - the same pattern as
+the multilingual `<TABLE>_LANG` table - shaped
+`GUID, Id, Operation, Property, OldValue, NewValue, ChangedAt, ChangedBy, Source`, and the generated
+repository appends **one row per property whose value actually changed** on every write path it owns:
+create (`null -> value`), update, the event-free system update, the targeted `updateProperty` /
+`updateProperties` writes, a document master's totals recalculation, and delete (`value -> null`).
+
+`Source` is `USER` or `SYSTEM`. The user-facing paths record `USER`; every targeted / system write -
+a roll-up total, a workflow write-back, a process trigger stamping `ProcessId` - records `SYSTEM`.
+Once a number the application moved and an amount a person typed sit in the same column, nothing
+downstream can tell them apart, and "who changed this" is the first question asked of a trail.
+
+The trail is read-only end to end. The entity's own controller exposes `GET /{id}/history` (404 on an
+unknown record - never an empty trail a caller could read as "nothing happened here"), and the
+generated manage form and document view render it as a **History** card in the right sidebar. No
+create, update or delete verb exists for the shadow table on any surface, which is what makes it
+append-only by construction rather than by policy.
+
+What is deliberately NOT recorded:
+
+- the **primary key** (it never changes) and the **audit columns** (they restate what the entry
+  already carries - who and when);
+- values that differ only in representation - a recomputed decimal of a different scale, a
+  translated overlay of a stored value. The before-image is read WITHOUT the multilingual overlay, so
+  a translated read never reports an edit nobody made;
+- rows written outside the generated repository: **CSVIM seeds** and direct database writes have no
+  history, which is correct - nobody wrote them.
+
+The **personal and partner surfaces expose no history endpoint**. A scoped controller strips
+`sensitive:` fields from its responses, so handing it a trail carrying those fields' old and new
+values would leak exactly what the scoping hides. When a scoped History panel is wanted it arrives
+with its per-property filter.
+
+The append happens after the entity write, on its own connection - the store commits every operation
+in its own transaction, so there is no enclosing transaction to join. A failure to append is logged at
+ERROR and does not fail the business write, which has already been persisted.
+
+Use it for the entities a regulated domain must be able to reconstruct, and only for those: it
+multiplies the write volume of the entity.
 
 ## hierarchy / leafOnly - tree entities
 
