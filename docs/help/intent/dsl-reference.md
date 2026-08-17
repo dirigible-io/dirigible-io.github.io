@@ -48,6 +48,7 @@ complete worked example.
 | [the notify block / `attach: print`](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself) | send a message about a record - with the record's own document attached - from a process step, a transition or a schedule |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
+| [`integrations.payload`](#integrations-outbound-http) | the declared envelope a message carries, instead of the record as stored |
 | [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`permissions`](#permissions-roles) | roles |
@@ -1391,6 +1392,28 @@ The source may live in another model via `model: <uses alias>` (generate action 
 ```yaml
 integrations:
   - { name: pushNewMember, event: { onCreate: Member }, method: POST, url: "https://api.example.com/members" }
+```
+
+An optional `payload:` replaces the raw record with the envelope the receiver's contract actually
+specifies. Values are a literal, a direct field, a one-hop `relation.field`, `@config:KEY`, or one of the
+four context tokens `{uuid}` / `{now}` / `{tenant}` / `{user}`; interpolated text, nested values,
+multi-hop paths and unknown tokens are parse errors, and a payload needs a method that carries a body.
+See [Declarative glue › payload](/help/intent/glue#payload-the-declared-envelope).
+
+```yaml
+integrations:
+  - name: announceMember
+    event: { onCreate: Member }
+    method: POST
+    url: "@config:ANNOUNCE_URL"
+    payload:
+      type: "member.registered"
+      version: 1
+      messageId: "{uuid}"
+      tenantId: "{tenant}"
+      email: email
+      country: country.name
+      registeredAt: "{now}"
 ```
 
 ## inbound - arrivals from outside

@@ -303,7 +303,51 @@ integrations:
     url: "@config:WAREHOUSE_URL"
 ```
 
-Generates a `gen/events/<Name>Integration.java` `@Listener` that forwards the entity-event JSON to the URL via `sdk.http.HttpClient`. The `@config:KEY` sugar resolves to `Configurations.get` so endpoints and secrets stay out of the source. The body forwards the whole entity for now (custom body mapping and headers are later).
+Generates a `gen/events/<module>/<Name>Integration.java` self-describing `MessageHandler` that calls the URL via `sdk.http.HttpClient`. The `@config:KEY` sugar resolves to `Configurations.get` so endpoints and secrets stay out of the source. Custom headers are still a later increment.
+
+### payload - the declared envelope
+
+Without a `payload`, the request body is the record as stored. That is only right when the receiver accepts the entity, and it has a cost even then: every column becomes a public contract, so adding a field silently changes what the outside world receives. A real integration contract is usually an *envelope* - a type, a version, an idempotency key, a timestamp, an identifier of the sender - which no arrangement of entity columns can produce.
+
+`payload` declares that envelope, key by key:
+
+```yaml
+integrations:
+  - name: requestUserAssignment
+    event: { onCreate: UserInvitation }
+    method: POST                          # a payload needs POST / PUT / PATCH
+    url: "@config:ASSIGNMENT_URL"
+    payload:
+      type: "user.assignment.requested"   # literal
+      version: 1
+      messageId: "{uuid}"                 # minted per message
+      tenantId: "{tenant}"                # execution context
+      appId: "@config:APP_ID"             # configuration
+      email: email                        # a field of the record
+      role: role.name                     # one hop off a to-one relation
+      requestedAt: "{now}"
+```
+
+The generated handler then reads the record, loads each referenced relation once (the same one-hop mechanism a notification uses), builds the map in the authored key order and posts `Json.stringify(payload)` - so what the model says is exactly what goes on the wire.
+
+The value forms are the ones [`notify`](#the-notify-block-and-attach-print-sending-the-document-itself) already resolves, deliberately borrowed rather than invented: a **literal**, a **direct field**, or a **one-hop `relation.field`** of a to-one relation. `@config:KEY` reads the configuration, as it does in `url`. The **context tokens** are a closed set of four:
+
+| token | resolves to |
+| --- | --- |
+| `{uuid}` | `java.util.UUID.randomUUID()` - the idempotency key a receiver deduplicates on |
+| `{now}` | `java.time.Instant.now()`, as an ISO-8601 string |
+| `{tenant}` | `sdk.core.Tenant.getId()` - the tenant the send runs for |
+| `{user}` | `sdk.security.User.getName()` - the user behind the change |
+
+The cap is the point: three value forms and four tokens express a frozen contract without the block becoming a transformation language. What is refused, and refused at **parse**, not silently at run time:
+
+- **Interpolated text.** `"Order {id} placed"` is rejected - a payload value is one whole value, not a template.
+- **A nested object or list.** Same reason.
+- **A multi-hop path.** `customer.country.name` is rejected, exactly as in a notify recipient.
+- **An unknown context token.** `{today}` fails the parse rather than shipping an empty value.
+- **A payload on a method with no body.** GET and DELETE send nothing, so a payload there would be built and discarded.
+
+One thing to know about literals: a bare word that names no field and no to-one relation of the record is a **literal** (that is how `source: erp` and `type: "order.placed"` work at all - YAML quoting does not survive the parse). When you mean a reference and want the parser to check it, brace it: `email: "{email}"`.
 
 ## inbound - arrivals from outside
 
