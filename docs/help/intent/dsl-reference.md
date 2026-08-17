@@ -491,6 +491,31 @@ a different one. **`timeout:`** / **`expire:`** are boundary timers on a user ta
 ISO-8601 duration for a non-cancelling reminder, `until:` a `date`/`timestamp` field re-read at task
 entry for a cancelling expiry. Details: [processes](/help/intent/intent-file#processes).
 
+A `delegate:` step's failure is modelled too - **`retry:`** re-attempts it on a declared cycle,
+**`onError:`** routes the exhausted (or non-retried) failure like a decision branch, and a
+`setField` value of **`{error}`** records the final attempt's message on the record. Declared step
+data (`vars:` + `produces:` / `uses:`) makes the variables a delegate exchanges part of the model,
+and `clearAfter:` removes a produced secret once its consuming step completes:
+
+```yaml
+vars:
+  - { name: dbPassword, clearAfter: provisionApp }
+steps:
+  - name: createSchema
+    kind: serviceTask
+    args: { delegate: SchemaProvisioner, produces: [dbPassword], retry: { count: 3, every: PT30S }, onError: recordFailure }
+  - name: provisionApp
+    kind: serviceTask
+    args: { delegate: AppProvisioner, uses: [dbPassword], retry: { count: 5, every: PT1M }, onError: recordFailure, next: done }
+  - { name: recordFailure, kind: serviceTask, args: { setField: failureMessage, value: "{error}", next: end } }
+  - { name: done, kind: end }
+```
+
+`retry.count` is how many **further** attempts follow the first (an integer >= 1), `retry.every` an
+ISO-8601 duration; an undeclared `produces` / `uses` name is a parse error, and `{error}` is valid
+only on a step reachable from an `onError` route. Both `retry` and `onError` apply to `delegate:`
+service tasks only. Details: [retry / onError](/help/intent/intent-file#retry-onerror-step-resilience-on-a-delegate-service-task).
+
 A **`parallel`** step runs branch steps **concurrently** and rejoins before `next` - two independent
 reviews of one order at once instead of one after the other:
 
