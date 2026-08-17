@@ -665,6 +665,49 @@ side only, and note that a relation attribute describing a hand-authored to-one 
 `function`, `init`, `dependsOn`, a calculated action, `personal`, `partner`) is rejected on a
 `manyToMany` rather than silently dropped.
 
+## related - the records that reference this entity
+
+A generated page shows its own fields, and a document shows its composition items. An entity that is
+the **target** of associations had no way to show the records pointing at it - a project-month and
+its per-employee timesheet lines, a customer and its invoices, an account and its journal entries.
+`related:` declares that register, on the referenced entity:
+
+```yaml
+entities:
+  - name: ProjectTimesheet
+    related:
+      - entity: EmployeeTimesheet          # the referencing entity
+        model: employee-timesheets         # omit when it is declared in this model
+        via: projectTimesheet              # omit when it points here exactly once
+        label: Employee Timesheets         # omit for the pluralized entity name
+        show: [number, employee, totalHours, status]   # omit for the source's own list columns
+```
+
+The register renders as a read-only grid on the referenced record's form / document / master page,
+filtered to that record, and each row opens the referencing record's own page (in the shared record
+dialog, so the open form keeps its unsaved edits - and so a source owned by another project works
+the same way).
+
+It is a **window, not an owner**: the listed records have their own lifecycle, pages and processes,
+so there is no add, edit or delete. That is the whole difference from a composition child, which IS
+edited in place as a detail / document-items collection - and why a composition child is rejected
+here rather than rendered a second time.
+
+**The declaration lives on the referenced side because that is the only side that can know.**
+Generation is per model and leaf-first, so the model being referenced is generated before - and
+generally knows nothing about - the models that reference it.
+
+Rules: `entity` is required; a cross-model `model:` must be listed in `uses:`; `via:` is required
+only when the source reaches this entity through more than one relation (an invoice naming the same
+company as both issuer and recipient), which is refused rather than guessed; every `show:` name must
+be a field or relation of the source. A cross-model source is resolved against the owner model's
+generated `.model` (workspace, else the published registry copy) and fails loudly when it is not
+there, exactly like a cross-model relation.
+
+Scope today: the power surfaces (the personal / partner surfaces render no registers yet), the
+filtered set without paging - like the detail panels - and `sensitive:` columns marked exactly as
+the source's own lists mark them.
+
 ## processes - workflows
 
 ```yaml
