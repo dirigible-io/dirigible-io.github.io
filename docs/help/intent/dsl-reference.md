@@ -198,9 +198,10 @@ label instead of a raw id.
 ```
 
 Tokens are own fields or **one-hop** to-one relation properties (`{Customer.name}`); `|format` is a
-date pattern for temporal values. Deeper paths are rejected - compose by referencing the related
-entity's own label (`{Parent.Name}`). Not allowed next to an authored `name` field, and a token must
-never reference a `sensitive` field.
+date pattern for temporal values - a `month` field's `YYYY-MM` value formats through it too
+(`{period|yyyy MMMM}` renders "2026 July"). Deeper paths are rejected - compose by referencing the
+related entity's own label (`{Parent.Name}`). Not allowed next to an authored `name` field, and a
+token must never reference a `sensitive` field.
 
 ## checks - declarative validations
 
@@ -589,6 +590,18 @@ on the personal shell; `partner: true` the mirror `<Entity>PartnerController` on
 (`/services/web/partner/`, gated by the Customer / Supplier / Partner IdP roles). A `sensitive:
 true` field is stripped from those scoped responses and ignored on their writes (enforced
 server-side, not merely hidden). The regular controller is unaffected; an entity may carry both.
+`personalReadOnly: true` (with `personal: true`) makes the personal surface see-only - the scoped
+writes are refused and the pages render no new/edit/delete - for records the owner may see but
+never author (a balance, a payslip); composition children inherit it through the parent.
+
+**Act as (delegated entry).** At runtime an ADMINISTRATOR can arm an *acting identity* for their
+session (`/services/core/actas`; the shells offer it as "Enter data as..." / "Act as...") and work
+the personal surfaces in that identity's name - the manager-does-the-entry mode for users who never
+touch a computer. Only the identity resolution and the Inbox's assignee-task query read the
+override: authentication, roles and audit stamping stay the real user's, so a delegated record
+carries the acting person as its owner **and** the real user in `CreatedBy`/`UpdatedBy`;
+`sensitive` stripping and `personalReadOnly` refusals hold unchanged. Requires nothing in the
+intent - every `personal: true` surface inherits the mode.
 
 ## visibleTo - role-scoped fields
 
@@ -923,7 +936,10 @@ generates:
 ```
 
 Adds a button on the source view; the clone saves through the target's repository so numbering,
-status init and calculated fields fire.
+status init and calculated fields fire. `map` copies a source value; `defaults` sets a constant -
+`now` means "today", rendered in the **target field's own shape** (a `date` field gets today's
+date, a `month` field the current `YYYY-MM`, a `week` field the current `YYYY-Www`). The same
+rule applies to a `schedules[].generate` defaults block.
 
 ### Event-driven creation - `event:`
 
