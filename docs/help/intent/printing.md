@@ -35,6 +35,7 @@ The template is a tree of layout tags. The ones you will use most:
 | `<total align="right">` | the emphasized document total |
 | `<line/>` | a horizontal rule |
 | `<if source="...">` | keep the children only when the value is present |
+| `filter="..."` / `match="..."` | row filtering on `table`/`for`, value matching on `if` |
 
 Values are Mustache placeholders. A two-column header with the seller on the left and invoice meta on the right:
 
@@ -62,6 +63,33 @@ Values are Mustache placeholders. A two-column header with the seller on the lef
 ```
 
 Decimal values print in the money pattern (`### ### ### ##0.00`); an unresolved placeholder renders empty (a printout never shows raw braces). Wrap an optional field in `<if source="...">` so its label does not print when the value is blank.
+
+### Row filtering - grouped tables over one collection
+
+A `table` (or a row-expanding `for`) can filter the collection it renders - a declarative value match, never an expression: `filter="<path>"` keeps the rows whose path, resolved in the row's own scope, is truthy, and adding `match="A | B"` keeps only the rows whose value equals one of the `|`-separated literals. The same `match` on an `<if>` compares its resolved `source` against the listed values instead of testing truthiness.
+
+One fed collection can this way render into several purpose-grouped tables - a payslip's earnings and deductions columns, a journal entry's debit and credit sides, a VAT summary per rate:
+
+```xml
+<row gap="16">
+  <stack>
+    <text style="subtitle">Earnings</text>
+    <table source="items" filter="Kind" match="BASE | ENTRY">
+      <column width="3*" label="Earning">{{Name}}</column>
+      <column width="*" align="right" label="Amount">{{Amount}}</column>
+    </table>
+  </stack>
+  <stack>
+    <text style="subtitle">Deductions</text>
+    <table source="items" filter="Kind" match="CONTRIBUTION | TAX">
+      <column width="3*" label="Deduction">{{Name}}</column>
+      <column width="*" align="right" label="Amount">{{Amount}}</column>
+    </table>
+  </stack>
+</row>
+```
+
+A null or unresolved value never matches a `match` list; a runtime that predates the attributes ignores them and renders all rows, so a filtered template degrades gracefully instead of failing.
 
 ## The data contract - the print feeder
 
