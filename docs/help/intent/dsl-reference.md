@@ -99,9 +99,43 @@ entities:
 - { name: City,  kind: manyToOne, to: City, dependsOn: { relation: Country, filterBy: Country } }
 - { name: UoM,   kind: manyToOne, to: UoM,  dependsOn: { relation: Product, valueFrom: UoM } }
 - { name: price, type: decimal,             dependsOn: { relation: Product, valueFrom: price } }
+# Conditional auto-populate (field only): the copied property picked by a classifier - an own
+# property, a one-hop Relation.property, or a path starting at the composition parent relation
+# (the open document header). No matching case and no default = no copy.
+- name: price
+  type: decimal
+  dependsOn:
+    relation: Product
+    valueFrom:
+      by: SalesOrder.Customer.priceLevel     # the open document's customer carries the classifier
+      cases: { 1: wholesalePrice, 2: retailPrice }
+      default: retailPrice
+# Header-mediated auto-populate (field on a document item): a two-segment relation path
+# <composition parent>.<parent relation> copies from the record the open HEADER points at,
+# so a line defaults from the document's counterparty. valueFrom is required (no option list).
+- { name: discount, type: decimal, dependsOn: { relation: SalesOrder.Customer, valueFrom: standardDiscount } }
+# Input format (string / text fields only): the regex reaches the HTML input's pattern attribute
+# AND a server-side check in the generated controller, so an API caller cannot bypass the form.
+- { name: email, type: string, length: 320, pattern: '^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$' }
+- { name: iban,  type: string, length: 34,  pattern: '^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{11,30}$' }
 # Static option filter - e.g. only stock-tracked products:
 - { name: Product, kind: manyToOne, to: Product, where: { Type: 1 } }
 ```
+
+`pattern` is a FORMAT check: it says what a value must look like, not what it must mean. A rule
+that differs per jurisdiction (a national identifier) or that needs a checksum is not expressible
+as one regular expression - leave those fields unpatterned rather than encode one country's rule
+as if it were universal. On a numeric field the attribute already means the DISPLAY format, so the
+parser rejects a regex there. The emitted controller splices the regex into a Java string literal,
+so backslashes are escaped for you.
+
+A `required` field that also carries a default (`defaultValue`, or `init:` on a relation) is NOT
+demanded from the caller: the database default supplies the value, and create validation that also
+insisted on it in the payload would make the record uncreatable through the API. The create
+response echoes the PERSISTED row, so the defaulted values come back to the caller.
+
+A header-mediated `dependsOn` copies once, when a NEW line is opened - an existing line is never
+re-copied, so changing the header later leaves already-entered lines untouched.
 
 ## unique - a business key over more than one field
 
@@ -1136,6 +1170,21 @@ shape the conditional `dependsOn` `valueFrom` uses. Quote it (it carries colons 
 classifier's seed ids and values are columns of the rule entity; `default` (optional) is the fallback.
 No match and no default - or a null selected column - skips the posting to the unposted worklist. A
 conditional cell already branches the account, so it cannot also carry a row `when`.
+
+The trigger is `onTransition` — a status write, with the `when` status guard mandatory — or **`onCreate`**, for a source document with **no status lifecycle at all**: a booked payment's only event is being created, and it is exactly the document an accountant expects posted. `when` stays optional there as a plain `<Property> == <number>` guard; an `onCreate` posting reacts to the source's create event.
+
+```yaml
+postings:
+  - name: customerPaymentPosting
+    event: { onCreate: CustomerPayment, model: customer-payments }   # no status, no guard
+    creates: JournalEntry
+    backReference: CustomerPayment
+    map: { entryDate: date, reason: "Payment {number}" }
+    rule: { entity: PostingRule, match: { documentType: "Customer Payment" } }
+    items:
+      - { Account: rule(bankAccount),       debit: "Amount" }
+      - { Account: rule(receivableAccount), credit: "Amount" }
+```
 
 A second posting can **reverse** the first (red storno) when the source document is voided - pair it
 with the [`transitions`](#transitions-guarded-status-flips) void that flips the source into its void
