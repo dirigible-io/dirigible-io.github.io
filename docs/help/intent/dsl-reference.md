@@ -1413,6 +1413,25 @@ schedules:
 
 The source may live in another model via `model: <uses alias>` (generate action only; a `forEach` collection may carry its own `model:` too) - see [glue › cross-model source](/help/intent/glue#cross-model-source-model).
 
+A `where` value is a literal or a **moment**: `CURRENT_DATE` / `CURRENT_TIMESTAMP` (`NOW`), optionally
+offset by a single signed ISO-8601 duration resolved against the clock of the run that fires - which is
+what makes a staleness sweep expressible. Exactly one offset on one token, and the token's shape must
+match the queried field's (a `date` takes `CURRENT_DATE` and a date-only amount, a `timestamp` takes
+`CURRENT_TIMESTAMP` and any); a mismatch, a second offset, a non-ISO offset or a non-temporal field is
+an authoring error rather than a query that never matches. See
+[glue › a where value relative to now](/help/intent/glue#a-where-value-relative-to-now-the-staleness-sweep).
+
+```yaml
+schedules:
+  - name: stuckProvisioning
+    cron: "0 */5 * * * ?"
+    entity: TenantApplication
+    where:
+      - { field: provisioningStatus, op: eq, value: Provisioning }
+      - { field: changedAt,          op: lt, value: "CURRENT_TIMESTAMP-PT30M" }
+    notify: { to: ops@example.com, subject: "Application {id} has been provisioning for over 30 minutes" }
+```
+
 ## integrations - outbound HTTP
 
 ```yaml
