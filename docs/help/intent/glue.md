@@ -239,6 +239,49 @@ schedules:
 
 Generates a `gen/events/<Name>Job.java` `@Scheduled` `JobHandler` that runs a typed `Criteria` query (`where` to typed conditions, `CURRENT_DATE` / `CURRENT_TIMESTAMP` to now) and performs, per matching row, **exactly one of `notify` or `generate`** (the `notify` form uses the same relation-load + interpolation as notifications).
 
+### A `where` value relative to now - the staleness sweep
+
+The archetypal schedule is a **staleness sweep**: rows still provisioning after 30 minutes, quotations unanswered for a week, carts abandoned for an hour. Everything about such a sweep is a schedule already - except *how old is too old*, which needs a moment **relative** to now. Write the token with one signed [ISO-8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations):
+
+```yaml
+schedules:
+  - name: stuckProvisioning
+    cron: "0 */5 * * * ?"
+    entity: TenantApplication
+    where:
+      - { field: provisioningStatus, op: eq, value: Provisioning }
+      - { field: changedAt,          op: lt, value: "CURRENT_TIMESTAMP-PT30M" }   # stuck for 30 minutes
+    notify:
+      to: ops@example.com
+      subject: "Application {id} has been provisioning for over 30 minutes"
+      body: "It may need an operator."
+
+  - name: unansweredQuotations
+    cron: "0 0 8 * * ?"
+    entity: Quotation
+    where:
+      - { field: status, op: eq, value: Sent }
+      - { field: sentOn, op: lt, value: "CURRENT_DATE-P7D" }                      # no answer for a week
+    notify: { to: owner.email, subject: "Quotation {id} has had no answer for a week" }
+```
+
+The offset resolves against the clock of **the run that fires**, not of the generation - the emitted query is `Criteria.create().lt("ChangedAt", java.time.LocalDateTime.now().minus(java.time.Duration.parse("PT30M")))`. The forward form (`+`) is admitted symmetrically, for "falls due within the next week".
+
+The comparison happens in the **queried field's own shape**, so the token and the field have to agree:
+
+| Field type | Token | Offset amounts |
+| --- | --- | --- |
+| `date` | `CURRENT_DATE` | date-only: `P7D`, `P1W`, `P1M`, `P1Y` |
+| `timestamp` | `CURRENT_TIMESTAMP` (or `NOW`) | any: `PT30M`, `PT12H`, `P7D`, `P1M` |
+
+::: warning A moment vocabulary, not an expression language
+Exactly one offset on one token. No arithmetic between fields, no nesting, no other operators. Each of the following is an authoring **error** at Generate rather than a query that quietly never matches: a token of the other shape than the field (`CURRENT_TIMESTAMP` against a `date` column), a time offset on a `date` field (`CURRENT_DATE-PT30M`), a second offset (`CURRENT_TIMESTAMP-P7D-P1D`), an offset that is not an ISO-8601 duration (`-30M`), and a moment compared with a non-temporal field.
+
+Note the shape check applies to a **bare** token too, since "compared in the field's own shape" is the rule for the whole value form - so a model that compared a `date` column with `CURRENT_TIMESTAMP` (previously a silent never-match) now says so.
+:::
+
+A field the source does not declare is left alone, which is what lets a sweep query an `audit: true` column (`updatedAt`) or a field of a cross-model source: there the token decides the shape, as it always did. And note what this construct replaces - a stored "deadline" column every writer has to keep up to date, i.e. modelling the clock into the data.
+
 The `generate` variant creates a record through the **target's** repository (so numbering, status init and calculated fields fire); the target may be cross-model via a `uses:` alias, and it may fan out `children` (one child per matching entity, or per working day of the period):
 
 ```yaml
