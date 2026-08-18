@@ -29,7 +29,7 @@ An event-binding key is `event:`, never `on:` - YAML 1.1 resolves a bare `on` (a
 
 ## The event axis - lifecycle and process-step events
 
-A glue entry that reacts (`notifications`, `integrations`) declares **exactly one** `event:`, on one of two axes:
+A glue entry that reacts (`notifications`, `integrations`, `outbound` departures, an event-driven [`generates`](./dsl-reference.md#event-driven-creation-event) create-from) declares **exactly one** `event:`, on one of two axes:
 
 | Axis | Shape | Fires when |
 | --- | --- | --- |
@@ -65,6 +65,16 @@ A step event is an event **about the record the process runs on** - the process'
 ::: warning What is rejected at Generate
 An undeclared process or step; a step that occupies no observable moment (only a `userTask` or a `serviceTask` does - not a decision, a wait or the end); a process with no `trigger`, since there is then no record the event could be about.
 :::
+
+An event-driven [create-from](./dsl-reference.md#the-process-step-axis) binds to the same axis, with one
+narrowing of its own: the process must run **on** the create-from's `from:` entity, since the step event
+is about the record its process runs on and that record is the one the create-from reads. It also adds
+its own `onTransition` lifecycle event, and a [`mode:`](./dsl-reference.md#cardinality-mode-once-append)
+that decides whether the trigger mints one target per source or appends one per delivered event.
+
+Delivery is **at-least-once** on both axes: the record is published after commit, not transactionally
+with the write, so a redelivery re-notifies, re-forwards, and (under `mode: append`) appends a second
+row.
 
 `onStepReached` fires the moment the execution arrives - for a user task, when it becomes available in the Inbox. `onStepCompleted` fires after the step finished **and** after its writes are persisted (the task form's edits via the writer delegate, a `setField`), and the publish itself is deferred to after commit, so a consumer that re-loads the record never observes it stale. Any number of entries may observe the same moment: the emitter is generated once and publishes once. A branch that jumps back into an observed step re-enters it, so its `onStepReached` observers fire again.
 
@@ -595,10 +605,10 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
-| Process-step events (`onStepReached` / `onStepCompleted` on a notification or an integration) | implemented |
+| Process-step events (`onStepReached` / `onStepCompleted` on a notification, an integration, a departure or a create-from) | implemented |
 | Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
 | Outbound departures (event to a queue / topic via `Producer`, with the declared envelope) | implemented |
-| Event-driven create-from (`generates` with `event:`, at most once per source) | implemented |
+| Event-driven create-from (`generates` with `event:`, on either axis, `mode: once` or `append`) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |
 | Expansions (generate child rows from a date span) | implemented |

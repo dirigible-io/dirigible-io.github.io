@@ -32,7 +32,8 @@ complete worked example.
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
-| [`generates.event`](#event-driven-creation-event) | mint the document on a source event instead of a click, at most once |
+| [`generates.event`](#event-driven-creation-event) | mint the document on a source event - a status write, a create, or a process step |
+| [`generates.event.mode`](#cardinality-mode-once-append) | one target per source (`once`, default) or one per delivered event (`append`) |
 | [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
@@ -1041,14 +1042,16 @@ generates:
       - { name: "Fine {number}", amount: Amount }
 ```
 
-- Exactly one trigger: `onTransition` (a status write - the `when: "<StatusRelation> == <status>"` guard
-  is **mandatory**; the status may be its seeded name) or `onCreate` (the source's insert - the guard is
-  optional, for a source with no status lifecycle). The entity named there must be the one `from:`
-  declares; the owning model is never repeated (`fromUses:` declares it).
-- **`map:` must copy the source's `id` onto the target's to-one relation back to the source.** That
-  back-reference is the at-most-once guard: the create-from looks for a target already back-referencing
-  the source and returns it instead of creating a second one, so a redelivered event - or a click
-  afterwards - is a no-op. Declaring an `event` without it is rejected at parse.
+- Exactly one trigger, from either axis. The **lifecycle** axis: `onTransition` (a status write - the
+  `when: "<StatusRelation> == <status>"` guard is **mandatory**; the status may be its seeded name) or
+  `onCreate` (the source's insert - the guard is optional, for a source with no status lifecycle). The
+  entity named there must be the one `from:` declares; the owning model is never repeated (`fromUses:`
+  declares it). The **process-step** axis is described [below](#the-process-step-axis).
+- **`map:` must copy the source's `id` onto the target's to-one relation back to the source.** Under the
+  default cardinality that back-reference is the at-most-once guard: the create-from looks for a target
+  already back-referencing the source and returns it instead of creating a second one, so a redelivered
+  event - or a click afterwards - is a no-op. Declaring an `event` without it is rejected at parse; see
+  [`mode:`](#cardinality-mode-once-append) for its second role.
 - **The button is dropped by default**; add `button: true` to keep both triggers. They share one
   generated create-from, and therefore one guard. `button: false` without an `event` is rejected - the
   action would have no trigger at all.
@@ -1057,9 +1060,64 @@ generates:
 
 Generated artifacts: `gen/events/<module>/<ClassName>GenerateOnEvent.java`, a `MessageHandler` on the
 source's `<project>-<perspective>-<Entity>-transitioned` topic (or its bare create topic for
-`onCreate`) that re-reads the source by id, applies the guard, and calls the create-from in
-`<ClassName>Generate.java`. Without `button: true` that class carries no `@Controller`/`@Post` - there is
-no endpoint, because nothing links to one.
+`onCreate`, or the step-scoped topic for a step binding) that re-reads the source by id, applies the
+guard, and calls the create-from in `<ClassName>Generate.java`. Without `button: true` that class
+carries no `@Controller`/`@Post` - there is no endpoint, because nothing links to one.
+
+#### The process-step axis
+
+The `event:` map also takes the [process-step binding](./glue.md#the-event-axis-lifecycle-and-process-step-events)
+that notifications, integrations and departures use - `onStepReached` / `onStepCompleted:
+{ process: <Process>, step: <step> }`. Use it when the follow-up document belongs to a **moment in a
+flow** rather than to a status, and as the route around a source whose write publishes no transition
+at all.
+
+```yaml
+generates:
+  - name: log-activation
+    from: Claim
+    to: LogEntry
+    event: { onStepCompleted: { process: ClaimApproval, step: activate }, mode: append }
+    map:
+      Claim: id                # the back-reference: required on both axes and in both modes
+      amount: amount
+    defaults:
+      step: "activate"         # which moment this row records - a literal per generates block
+      date: now
+```
+
+The process must run **on the source**: its `trigger:` entity has to be the `from:` entity, because a
+step event is delivered as a message about the record the process runs on, and that record is the one
+the create-from reads by id. The step must be a `userTask` or a `serviceTask` (a decision, a wait or an
+end occupies no moment), and the source must be local - a process and its steps belong to the model
+that declares them, so a `fromUses:` source is rejected. `when:` stays optional here: the step is the
+moment. The step emitter is generated once per observed moment even when a create-from is its only
+consumer.
+
+#### Cardinality - `mode: once|append`
+
+`mode:` inside the `event:` map declares how many targets the trigger may produce.
+
+| `mode` | Behaviour |
+| --- | --- |
+| `once` (default) | at most one target per source - the existing-target lookup above |
+| `append` | one target per **delivered event** - no lookup at all |
+
+`append` is what expresses a log entry per step, a protocol line per transition, an activity record per
+delivery: rows that accumulate by design. The back-reference stays required - it is the appended row's
+**provenance** rather than a dedup key - and two appending rules may deliberately share a target and a
+back-reference, each recording a different moment.
+
+::: warning `append` is the absence of a guard, not a state-aware one
+Step and lifecycle events are published after commit and are not transactional with the write, so
+delivery is at-least-once: under `append` a redelivery appends a duplicate row. It is therefore the
+wrong answer to "I voided the document and cannot regenerate it" - that needs a state-aware guard on
+`mode: once`, not a cardinality that would also mint a document on every later qualifying event.
+Anything that must exist at most once per source keeps `mode: once`.
+:::
+
+An intent that declares no `mode:` and no step binding regenerates byte-identical output - the default
+is today's behaviour.
 
 Prefer this over [`posts`](#posts-derived-rows-on-an-event) when the result is a document with line
 items: `posts` writes flat mapped rows and cannot reference the freshly created header. Prefer it over a
