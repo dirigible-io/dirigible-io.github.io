@@ -378,6 +378,17 @@ Whichever it is, the record is saved through the entity's **generated repository
 That is why a `folder` source requires its `cron` (and why a `cron` on the other sources is rejected). A file holds one record or an array of them; a file modified within the last few seconds is left for the next tick (it may still be being copied in); and every read file leaves the drop folder - into `processed/` or, if it could not be ingested, `failed/` - so nothing is ever ingested twice and a rejected file stays inspectable.
 :::
 
+::: warning A queue or topic name is tenant-scoped unless you say otherwise
+A destination is renamed per tenant on the broker (`<tenantId>###<name>`), which is what keeps one tenant's messages out of another's - and what makes a name another *deployment* publishes to unreachable, since it knows nothing of your tenants. When the queue or topic is a contract with a system outside this deployment, mark it `global:`:
+
+```yaml
+inbound:
+  - { name: ordersFromMarketplace, source: { queue: "global:codbex.orders" }, create: Order }
+```
+
+`global:codbex.orders` resolves to the physical destination `codbex.orders` in every tenant, so the other side binds to the plain name it was given, and the arrival is subscribed once for the deployment rather than once per tenant. A name without the marker stays the application's own, which is the right default for anything published from within the same instance. See [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs: the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload.
+:::
+
 Conversation-shaped transports - acknowledgements, retries with backoff, certificates, SFTP - stay outside the intent by design: use a [Camel route](/help/ide/modelers/integrations-karavan) in the same project, feeding the entity's ordinary write path.
 
 ## rollups

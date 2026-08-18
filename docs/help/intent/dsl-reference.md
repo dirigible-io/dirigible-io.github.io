@@ -1429,7 +1429,13 @@ inbound:
   - { name: leadQueue, source: { queue: leads.inbound }, create: Lead }
   - { name: leadFeed,  source: { topic: crm.leads }, create: Lead }
   - { name: leadDrop,  source: { folder: /data/inbox/leads, cron: "0 */5 * * * ?" }, create: Lead }
+  # a contract with a system outside this deployment - never tenant-scoped
+  - { name: leadFeedExternal, source: { queue: "global:codbex.leads" }, create: Lead }
 ```
+
+A `queue` / `topic` name is scoped to the tenant on the broker unless it is prefixed `global:`, which
+resolves it to the bare name for every tenant and every deployment bound to it - see
+[global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system).
 
 ## permissions - roles
 
