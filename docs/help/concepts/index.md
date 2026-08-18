@@ -16,4 +16,5 @@ Read these in order. They define the mental model used everywhere else in the do
 - **[Multi-tenancy](/help/concepts/multi-tenancy)** - default on; what's isolated and what isn't.
 - **[Security model](/help/concepts/security-model)** - roles, access rules, anonymous mode, super-roles.
 - **[Lifecycle and hot-reload](/help/concepts/lifecycle-and-hot-reload)** - how edits propagate without redeploy.
+- **[How dependency versions are decided](/help/concepts/dependency-resolution)** - mediation, shadowing, the lockfile and frozen mode.
 - **[Extensibility](/help/concepts/extensibility)** - extension points and SPI surfaces.

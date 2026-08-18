@@ -32,6 +32,7 @@ Dirigible's modern development model is **decorator / annotation driven**: you d
 - **[Working with data](/help/develop/working-with-data)** - data sources, schemas, CSVIM.
 - **[Working with files and CMS](/help/develop/working-with-files-and-cms)** - IO + CMIS.
 - **[Working with Git](/help/develop/working-with-git)**.
+- **[Maven dependencies](/help/develop/maven-dependencies)** - third-party libraries declared in `project.json`, activated without a restart.
 - **[Generation from models](/help/develop/using-templates-for-generation)**.
 
 ## Quality
