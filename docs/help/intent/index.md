@@ -71,7 +71,7 @@ Model-layer files at the project root are owned by the regeneration pass. **Do n
 - [The Intent Editor](/help/intent/editor) - the split editor, the live diagram, validation, and Generate.
 - [The AI assistant](/help/intent/ai-assistant) - Claude proposes a patch to the intent; you accept or refine.
 - [Generators and generation](/help/intent/generators) - what each generator produces, the regeneration contract, and `.settings`.
-- [Declarative glue](/help/intent/glue) - notifications, schedules, integrations, inbound webhooks, rollups and lifecycle triggers, generated as annotated client-Java.
+- [Declarative glue](/help/intent/glue) - notifications, schedules, integrations, inbound arrivals, outbound departures, rollups and lifecycle triggers, generated as annotated client-Java.
 - [Printing and documents](/help/intent/printing) - the generated `.print` template, the `doc/` CMS-seed folder, the relation-aware print feeder, customization and multi-language.
 
 ## See also

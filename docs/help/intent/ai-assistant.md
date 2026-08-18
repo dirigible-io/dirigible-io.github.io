@@ -33,7 +33,7 @@ Three categories, and the extension point that carries each:
 
 | Category | Examples | Where it goes |
 | --- | --- | --- |
-| **Protocol adaptation** | certificates, acknowledgements, retries, batch or file transports (an SFTP drop, a signed archive, polling) | a **Camel route** in the same project, feeding the entity's ordinary write path. `integrations:` and `inbound:` are deliberately one-line call-outs |
+| **Protocol adaptation** | certificates, acknowledgements, retries, batch or file transports (an SFTP drop, a signed archive, polling) | a **Camel route** in the same project, feeding the entity's ordinary write path. `integrations:`, `inbound:` and `outbound:` are deliberately one-line call-outs |
 | **Algorithm** | checksums (national identifiers, account numbers), fuzzy matching, scoring, policy-driven tie-breaking | **`calculatedActionOnCreate` / `calculatedActionOnUpdate`** on a field or to-one relation, or a serviceTask **`delegate:`** - both implemented under `custom/` |
 | **Statutory or designed form** | the exact legally mandated print layout | the [`.print` template](/help/intent/printing), generated create-if-absent by design and adapted by hand |
 

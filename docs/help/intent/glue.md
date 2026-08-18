@@ -1,6 +1,6 @@
 ---
 title: Declarative glue
-description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
+description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), outbound departures (queue, topic), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
 ---
 
 # Declarative glue
@@ -12,7 +12,7 @@ Beyond the model artefacts, the intent declares **glue**: common integrations an
 Three axes:
 
 - **Event** - an entity `onCreate` / `onUpdate` / `onDelete` (with an optional `when:` guard), a **process step** reached or completed, a schedule (`cron`), or an inbound arrival (a webhook, a message, a dropped file).
-- **Action** - notify (email), call out (HTTP), ingest into an entity, recompute a counter, start a process.
+- **Action** - notify (email), call out (HTTP), emit a message (queue/topic), ingest into an entity, recompute a counter, start a process.
 - **Binding** - the **resolver path grammar** (`customer.name`, `member.email`): one-hop relation walks off the triggering entity, validated at parse time exactly like a decision's `then` / `else`.
 
 ## Glue is generated annotated client-Java
@@ -391,6 +391,53 @@ inbound:
 
 Conversation-shaped transports - acknowledgements, retries with backoff, certificates, SFTP - stay outside the intent by design: use a [Camel route](/help/ide/modelers/integrations-karavan) in the same project, feeding the entity's ordinary write path.
 
+## outbound - departures to another system
+
+The mirror of `inbound`: the application **raises a business event** for something outside it, on a queue or a topic. Reach for `integrations` when you are calling someone's API and want their answer; reach for `outbound` when you are announcing that something happened and nobody answers. That difference in failure semantics - a failed call versus a missed announcement - is why these are two blocks rather than one with a transport switch.
+
+```yaml
+outbound:
+  # the record's own JSON, on a queue - one consumer takes each message
+  - name: publishOrder
+    event: { onCreate: Order }
+    to: { queue: "codbex.orders" }
+
+  # a declared envelope, on a topic - every subscriber gets it
+  - name: announceActivation
+    event: { onStepCompleted: { process: OrderApproval, step: activate }, when: "channel != internal" }
+    to: { topic: "codbex.order-activations" }
+    payload:
+      type: "order.activated"
+      version: 1
+      messageId: "{uuid}"
+      tenantId: "{tenant}"
+      reference: number
+      customer: customer.name
+```
+
+An entry declares **exactly one channel**: `to:` names a `queue` or a `topic` - both, neither, or two fails at Generate, which is the arrival rule above read backwards. It binds to the same [event axis](#the-event-axis-lifecycle-and-process-step-events) as everything else on this page, including its `when:` guard, and takes the same [`payload`](#payload-the-declared-envelope) envelope as an integration. Without a `payload` the body is the record's own JSON - exactly what an integration forwards over HTTP today.
+
+What it generates under `gen/events`:
+
+| Departure | Generated class | Shape |
+| --- | --- | --- |
+| `to: { queue \| topic }` | `<Name>Publisher.java` | a self-describing `MessageHandler` subscribed to the record's own event topic, re-publishing through `sdk.messaging.Producer.sendToQueue` / `sendToTopic` |
+
+The publisher being a **subscriber** is the whole design. Every generated repository already publishes each write on an internal topic - that is what the rest of this page listens to - so a departure needs no new mechanism and no touch to the write path: it subscribes where a notification would, and sends instead of mailing.
+
+::: warning Delivery semantics - stated, not implied
+The message is published **after** the write that raised the event is persisted, and is **not** transactional with it. A failed publish is logged and the write stands - the same rule the notify block sets. There is no outbox, no exactly-once delivery and no ordering guarantee. If a contract needs any of those, it needs a real integration platform, not this block.
+:::
+
+A departure destination follows the same naming rule as an arrival: without a marker it is the application's own and is renamed per tenant on the broker, which is right for a channel this deployment both publishes and consumes. When the queue or topic **is a contract with a system outside the deployment**, mark it `global:` so the other side binds to the plain name it was given:
+
+```yaml
+outbound:
+  - { name: publishOrder, event: { onCreate: Order }, to: { topic: "global:codbex.orders" } }
+```
+
+See the `global:` note under [inbound](#inbound-arrivals-from-outside) above, and [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs - the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload (a `tenantId: "{tenant}"` key in the declared envelope is exactly that).
+
 ## rollups
 
 Maintain a denormalized counter on a parent.
@@ -507,6 +554,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Integrations (event to `HttpClient`) | implemented |
 | Process-step events (`onStepReached` / `onStepCompleted` on a notification or an integration) | implemented |
 | Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
+| Outbound departures (event to a queue / topic via `Producer`, with the declared envelope) | implemented |
 | Event-driven create-from (`generates` with `event:`, at most once per source) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |
