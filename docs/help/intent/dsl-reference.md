@@ -51,6 +51,7 @@ complete worked example.
 | [`integrations.payload`](#integrations-outbound-http) | the declared envelope a message carries, instead of the record as stored |
 | [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
+| [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
 | [`permissions`](#permissions-roles) | roles |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
@@ -1431,6 +1432,28 @@ inbound:
   - { name: leadDrop,  source: { folder: /data/inbox/leads, cron: "0 */5 * * * ?" }, create: Lead }
 ```
 
+## outbound - departures to another system
+
+The mirror of `inbound`: on an event of the same axis, emit a message. `to:` names **exactly one** of
+`queue` / `topic` - both or neither fails at Generate. `payload:` is the same declared envelope
+`integrations` takes; without it the body is the record's own JSON. The publish happens after the write
+is persisted and is **not** transactional with it - a failure is logged and the write stands, and there
+is no outbox, exactly-once delivery or ordering guarantee. See
+[Declarative glue](/help/intent/glue#outbound-departures-to-another-system).
+
+```yaml
+outbound:
+  - { name: publishOrder, event: { onCreate: Order }, to: { queue: "codbex.orders" } }
+  - name: announceActivation
+    event: { onStepCompleted: { process: OrderApproval, step: activate }, when: "channel != internal" }
+    to: { topic: "codbex.order-activations" }
+    payload:
+      type: "order.activated"
+      messageId: "{uuid}"
+      tenantId: "{tenant}"
+      reference: number
+```
+
 ## permissions - roles
 
 ```yaml
@@ -1456,12 +1479,13 @@ Reports, Settings including Region & Language).
 - **Cross-model status names and stage scopes** - a status nomenclature owned by another model is
   seeded there, so neither its `stage:` classification nor its names can be resolved from the
   referencing intent; both are rejected with the numeric-id fallback named.
-- **Declarative glue actions beyond the current set**: publish a message on an event,
-  event-driven `generateDocument` (produce a PDF on an event). Today's implemented glue: triggers,
+- **Declarative glue actions beyond the current set**: event-driven `generateDocument` (produce a PDF
+  on an event). Today's implemented glue: triggers,
   decision/form resolvers, notifications, schedules (notify + generate), integrations, ~~process-step
-  events~~ (landed: `onStepReached` / `onStepCompleted` on a notification or an integration), inbound
-  arrivals (webhook, and - landed - ~~message/file events~~ queue/topic and polled-folder sources),
-  rollups, settlements, expansions, generates, transitions, postings, numbering (the
+  events~~ (landed: `onStepReached` / `onStepCompleted` on a notification, an integration or a
+  departure), inbound arrivals (webhook, and - landed - ~~message/file events~~ queue/topic and
+  polled-folder sources), ~~publish a message on an event~~ (landed: `outbound`), rollups,
+  settlements, expansions, generates, transitions, postings, numbering (the
   `number:{stampOn:issue}` stamp delegate).
 - ~~Cross-model schedule source~~ - landed: a schedule's `entity` (and a `forEach` collection) may
   live in another model via `model: <uses alias>` (generate action only).

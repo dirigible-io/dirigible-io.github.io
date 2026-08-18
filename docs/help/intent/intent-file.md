@@ -88,7 +88,7 @@ seeds:
       - { id: 2, name: Albania,     code2: AL }
 ```
 
-Plus the [declarative-glue blocks](/help/intent/glue) (`notifications`, `schedules`, `integrations`, `inbound`, `rollups`).
+Plus the [declarative-glue blocks](/help/intent/glue) (`notifications`, `schedules`, `integrations`, `inbound`, `outbound`, `rollups`).
 
 Every collection defaults to empty, so a partial intent (entities only) parses cleanly. Field names are camelCase.
 

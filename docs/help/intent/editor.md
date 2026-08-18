@@ -23,7 +23,7 @@ Below the diagram, the forms / reports / roles / seeds are summarised as plain b
 
 - **Entities** - one card per entity (name over its field list, PK marked), laid out left-to-right. A solid edge is a required relation, a dashed edge an optional one.
 - **One flowchart per process** - slate start/end ellipses, blue user-task and green service-task rounded rectangles, an amber decision rhombus. A decision emits a conditioned edge (`if`) to `then` and a default edge to `else`, exactly as the generated BPMN does.
-- **Glue and Outputs** - one card per form / report / notification / schedule / integration / inbound webhook / rollup, each badged with a platform icon and edged to the entity it binds to.
+- **Glue and Outputs** - one card per form / report / notification / schedule / integration / inbound arrival / outbound departure / rollup, each badged with a platform icon and edged to the entity it binds to.
 
 The cells use **fixed brand colours** chosen to read on both the light and dark IDE themes, painted on a transparent canvas. The diagram therefore looks identical in either theme and does not recolour on a theme switch. It is read-only: there is no selection or editing. Authoring is the YAML pane plus the AI assistant - the diagram confirms, it does not capture.
 
