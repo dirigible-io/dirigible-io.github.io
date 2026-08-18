@@ -58,6 +58,21 @@ For the install-oriented subset see [`/help/setup/environment-variables`](/help/
 | `DIRIGIBLE_SYNCHRONIZER_CROSS_RETRY_COUNT` | Retry budget for cross-synchronizer dependencies. |
 | `DIRIGIBLE_SYNCHRONIZER_CROSS_RETRY_INTERVAL_MILLIS` | Retry interval. |
 
+## Dynamic dependencies
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `DIRIGIBLE_DEPENDENCIES_DYNAMIC` | `true` | Runtime resolution of `project.json` maven declarations. Disable on immutable production images. |
+| `DIRIGIBLE_DEPENDENCIES_FROZEN` | `false` | Activate the lockfile's set only - checksum-verified, no re-mediation, network never consulted. |
+| `DIRIGIBLE_DEPENDENCIES_DIR` | `~/.dirigible/resolved-modules` | Directory the resolved jars are linked into (the launch-classpath seed). |
+| `DIRIGIBLE_DEPENDENCIES_LOCKFILE` | `project-lock.json` in the dependencies dir | Lockfile location. |
+| `DIRIGIBLE_MAVEN_REPOSITORIES` | Maven Central | Comma-separated `id=url` pairs; an entry with id `central` overrides the default Central URL. |
+| `DIRIGIBLE_MAVEN_[ID]_USERNAME` / `..._PASSWORD` |  | Credentials per repository id (uppercased, non-alphanumerics become `_`). |
+| `DIRIGIBLE_MAVEN_LOCAL_REPO` | `~/.m2/repository` when present | Local Maven repository the artifacts resolve into. |
+| `DIRIGIBLE_MAVEN_OFFLINE` | `false` | Resolve from the local repository only. |
+
+See [Maven dependencies](/help/develop/maven-dependencies) and [How dependency versions are decided](/help/concepts/dependency-resolution).
+
 ## Debuggers and language tooling
 
 | Variable | Default | Purpose |

@@ -22,6 +22,7 @@ Views are reusable side / bottom panels. Most perspectives compose a few of them
 - **[Jobs](/help/ide/views/jobs)** - scheduler state.
 - **[Listeners](/help/ide/views/listeners)** - message listener state.
 - **[Extensions](/help/ide/views/extensions)** - discovered extension points and contributions.
+- **[Dependencies](/help/ide/views/dependencies)** - per-artifact state of the runtime Maven dependency layer.
 - **[Websockets](/help/ide/views/websockets)** - active WebSocket sessions.
 - **[Registry](/help/ide/views/registry)** - published artefacts at `/registry/public/`.
 - **[Repository](/help/ide/views/repository)** - raw platform repository tree.
