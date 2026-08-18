@@ -122,7 +122,7 @@ fields:
 | `required` | NOT NULL; the generated REST controller's required-value validation keys on this |
 | `length` | column length for string types |
 | `defaultValue` | column default |
-| `unique` | a UNIQUE constraint (e.g. a code or a business key) |
+| `unique` | a UNIQUE constraint on this one column; a key spanning several is declared on the entity - see below |
 | `precision` / `scale` | override the DECIMAL default (16, 2): `{ name: rate, type: decimal, precision: 18, scale: 6 }` |
 | `calculatedOnCreate` / `calculatedOnUpdate` | an expression the generated repository assigns to the property on insert / update |
 | `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
@@ -132,6 +132,16 @@ fields:
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`, `month`, `week`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`. `month` (a `YYYY-MM` string) and `week` (a `YYYY-Www` ISO-week string) are stored as short `VARCHAR`s and render as the Harmonia month / week pickers.
 
 **Primary keys must be an integer type** (`integer` / `int` / `long`). The Dirigible convention is an integer auto-increment id, and a non-integer auto-increment column is invalid SQL - the parser rejects a `uuid` or string PK. `uuid` is fine for non-PK fields.
+
+`unique:` on an **entity** declares a business key spanning more than one column - one row per `(tenant, application)`:
+
+```yaml
+- name: TenantApplication
+  unique:
+    - { fields: [tenant, application], message: "This application is already provisioned for the tenant" }
+```
+
+`fields:` names fields or to-one relations (a relation contributes its foreign-key column), and a colliding write is answered with 409 Conflict carrying the message. See the [DSL reference](/help/intent/dsl-reference#unique-a-business-key-over-more-than-one-field).
 
 `audit: true` on an **entity** adds the four standard audit columns (`CreatedAt`, `CreatedBy`, `UpdatedAt`, `UpdatedBy`), populated by the platform's audit annotations.
 

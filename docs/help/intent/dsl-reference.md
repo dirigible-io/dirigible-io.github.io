@@ -14,6 +14,7 @@ complete worked example.
 |---|---|
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
+| [`unique`](#unique-a-business-key-over-more-than-one-field) | a business key spanning more than one field or relation |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
 | [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
@@ -101,6 +102,48 @@ entities:
 # Static option filter - e.g. only stock-tracked products:
 - { name: Product, kind: manyToOne, to: Product, where: { Type: 1 } }
 ```
+
+## unique - a business key over more than one field
+
+`unique: true` on a field covers one column. When what makes a row unique spans several - one row
+per `(tenant, application)`, one assignment per `(tenant, user)`, one price per
+`(product, priceList, validFrom)` - declare it on the entity:
+
+```yaml
+entities:
+  - name: TenantApplication
+    unique:
+      - { fields: [tenant, application], message: "This application is already provisioned for the tenant" }
+    fields:
+      - { name: id,   type: integer, primaryKey: true, generated: true }
+      - { name: plan, type: string }
+    relations:
+      - { name: tenant,      kind: manyToOne, to: Tenant, required: true }
+      - { name: application, kind: manyToOne, to: Application, required: true }
+```
+
+`fields:` names fields **or to-one relations** - a relation contributes its foreign-key column,
+which is what a pair like `(tenant, application)` means. The key is the *combination* of those
+columns, so the order you write them is how the key reads, not which rows collide. A colliding
+write is answered with **409 Conflict** carrying your `message`, so a caller can tell a duplicate
+from a generic failure; omit `message:` and one is derived from the field names.
+
+The point of declaring it is that the rule ends up in the **database**, where it holds for every
+writer at once. Left unmodelled, it lives in a read-then-write in hand-written code - a race, and
+one that every writer (an import, an inbound message, a scheduled create) has to repeat - or in a
+constraint added to the generated schema by hand, which the next Generate knows nothing about.
+
+::: warning Rules Generate enforces
+Every name must resolve to a field or a **to-one** relation of the same entity: a to-many has no
+column on this side to constrain. A cross-model relation is rejected. A single-name key is rejected
+too, naming `unique: true` on the field itself - two ways to say one thing is how the two drift
+apart.
+:::
+
+::: tip Existing tables are not altered
+The constraint is created with the table. A key added to an entity whose table already exists does
+not retrofit itself onto that table - the same caveat every schema change carries.
+:::
 
 Entity-level extras: `order: [Id, Product, Quantity, ...]` sequences form controls and list
 columns; `duplicable: true` adds a Duplicate button on a document (clones header + items through
