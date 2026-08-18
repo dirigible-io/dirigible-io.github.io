@@ -777,6 +777,31 @@ a different one. **`timeout:`** / **`expire:`** are boundary timers on a user ta
 ISO-8601 duration for a non-cancelling reminder, `until:` a `date`/`timestamp` field re-read at task
 entry for a cancelling expiry. Details: [processes](/help/intent/intent-file#processes).
 
+A `delegate:` step's failure is modelled too - **`retry:`** re-attempts it on a declared cycle,
+**`onError:`** routes the exhausted (or non-retried) failure like a decision branch, and a
+`setField` value of **`{error}`** records the final attempt's message on the record. Declared step
+data (`vars:` + `produces:` / `uses:`) makes the variables a delegate exchanges part of the model,
+and `clearAfter:` removes a produced secret once its consuming step completes:
+
+```yaml
+vars:
+  - { name: dbPassword, clearAfter: provisionApp }
+steps:
+  - name: createSchema
+    kind: serviceTask
+    args: { delegate: SchemaProvisioner, produces: [dbPassword], retry: { count: 3, every: PT30S }, onError: recordFailure }
+  - name: provisionApp
+    kind: serviceTask
+    args: { delegate: AppProvisioner, uses: [dbPassword], retry: { count: 5, every: PT1M }, onError: recordFailure, next: done }
+  - { name: recordFailure, kind: serviceTask, args: { setField: failureMessage, value: "{error}", next: end } }
+  - { name: done, kind: end }
+```
+
+`retry.count` is how many **further** attempts follow the first (an integer >= 1), `retry.every` an
+ISO-8601 duration; an undeclared `produces` / `uses` name is a parse error, and `{error}` is valid
+only on a step reachable from an `onError` route. Both `retry` and `onError` apply to `delegate:`
+service tasks only. Details: [retry / onError](/help/intent/intent-file#retry-onerror-step-resilience-on-a-delegate-service-task).
+
 A **`parallel`** step runs branch steps **concurrently** and rejoins before `next` - two independent
 reviews of one order at once instead of one after the other:
 
@@ -1430,7 +1455,13 @@ inbound:
   - { name: leadQueue, source: { queue: leads.inbound }, create: Lead }
   - { name: leadFeed,  source: { topic: crm.leads }, create: Lead }
   - { name: leadDrop,  source: { folder: /data/inbox/leads, cron: "0 */5 * * * ?" }, create: Lead }
+  # a contract with a system outside this deployment - never tenant-scoped
+  - { name: leadFeedExternal, source: { queue: "global:codbex.leads" }, create: Lead }
 ```
+
+A `queue` / `topic` name is scoped to the tenant on the broker unless it is prefixed `global:`, which
+resolves it to the bare name for every tenant and every deployment bound to it - see
+[global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system).
 
 ## outbound - departures to another system
 
@@ -1452,7 +1483,14 @@ outbound:
       messageId: "{uuid}"
       tenantId: "{tenant}"
       reference: number
+  # a contract with a system outside this deployment - never tenant-scoped
+  - { name: publishOrderExternal, event: { onCreate: Order }, to: { topic: "global:codbex.orders" } }
 ```
+
+The same `global:` prefix applies to a departure: without it the destination is scoped to the tenant
+that raised the event, which is right for a channel the application owns and wrong for one that is a
+contract with someone else - see
+[global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system).
 
 ## permissions - roles
 

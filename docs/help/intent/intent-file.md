@@ -353,6 +353,46 @@ steps:
 
 The expire date is **re-read at task entry** by a generated loader delegate inserted before the task, so editing the date mid-flow moves the timer. A `date` field names the *last valid day* - the timer fires at the start of the day after it; a `timestamp` fires at its instant; a `null` value arms a far-future date so the timer never effectively fires. The Flowable async job executor (always active) runs the timer jobs - no configuration needed.
 
+### retry / onError - step resilience on a delegate service task
+
+A `delegate:` service task that talks to something remote - provision a schema, register a client in an identity provider, call a partner API - fails sometimes, and what happens then is part of the model, not the runtime's default. Two optional args, both on `delegate:` steps only:
+
+```yaml
+processes:
+  - name: TenantProvisioning
+    trigger: { onCreate: TenantApplication }
+    vars:
+      - { name: dbPassword, clearAfter: provisionApp }
+    steps:
+      - name: createSchema
+        kind: serviceTask
+        args: { delegate: SchemaProvisioner, produces: [dbPassword], retry: { count: 3, every: PT30S }, onError: recordFailure }
+      - name: provisionApp
+        kind: serviceTask
+        args: { delegate: AppProvisioner, uses: [dbPassword], retry: { count: 5, every: PT1M }, onError: recordFailure, next: done }
+      - { name: recordFailure, kind: serviceTask, args: { setField: failureMessage, value: "{error}", next: markFailed } }
+      - { name: markFailed,    kind: serviceTask, args: { setRelationField: Status, value: Failed, next: end } }
+      - { name: done, kind: end }
+```
+
+- `retry: { count: <n>, every: <ISO-8601 duration> }` - re-attempt the failed step `count` **further** times, spaced by `every` (the same vocabulary as `timeout.after`; `count` is an integer >= 1). Emitted as a Flowable failed-job retry cycle on the generated task, so each failed attempt rolls back cleanly and re-runs after the declared spacing. Absent, the step keeps today's behaviour - existing files generate byte-identically.
+- `onError: <step | end>` - where the **exhausted** (or, with no `retry`, the first) failure routes, validated like `next` / `then`. Emitted as an error boundary event on the task; the runtime converts the final failed attempt into the caught BPMN error, so the token leaves through the boundary instead of dead-lettering. Route the main flow around the error steps with `next`, exactly like decision branches. Absent, an exhausted failure becomes the runtime's own incident, as before.
+- `{error}` - the failure message. A `setField` value of exactly `{error}` (the whole value, nothing around it) writes the final attempt's message onto the record. It is only resolvable on a step reachable from some `onError` route - nothing else ever populates it - and the parser rejects it anywhere else.
+
+The failed attempt that routes to `onError` commits the error-path writes (the message variable, the status set) like any caught BPMN error; the intermediate retried attempts roll back as plain job failures.
+
+### vars - declared step data
+
+`vars:` declares the process variables the steps exchange, so step data is written down instead of invented ad hoc inside a delegate:
+
+```yaml
+vars:
+  - { name: dbPassword, clearAfter: provisionApp }
+```
+
+- A step's `produces: [name, ...]` / `uses: [name, ...]` lists which declared vars its delegate sets and reads (the delegate still calls `execution.setVariable` / `getVariable` itself - the declaration is the contract). **An undeclared name in either list is a parse error.**
+- `clearAfter: <step>` removes the value from the instance data once that serviceTask / userTask completes normally - a generated credential does not survive in the process data or its history. A var name must be a plain identifier.
+
 ### trigger
 
 `trigger: { onCreate | onUpdate | onDelete: <Entity>, when: "<expr>" }` starts the process on that entity's lifecycle event. Fully wired:

@@ -125,6 +125,65 @@ producer.queue("queue.orders").send(JSON.stringify({ id: 1 }));
 
 Listeners are **tenant-isolated** - each tenant gets its own consumer for the same `.listener` file.
 
+Isolation is physical, not a filter: the name you write is *logical*, and the platform renames it on
+the broker to `<tenantId>###<name>` for every tenant except the default one. A producer resolves that
+name from the tenant current at send time, a consumer from the tenant it subscribes in, so the two
+meet without either side spelling a prefix - and one tenant's messages can never reach another's
+consumers, not even on a queue with competing consumers.
+
+Every message is additionally stamped with a `tenant_id` property, which is what re-establishes the
+tenant on the broker thread before your handler runs.
+
+### Global destinations - a contract with another system
+
+Tenant scoping is right for a destination that belongs to the application. It is wrong for one that
+**is a contract with someone else** - an integration queue two products agreed on. The other side
+neither knows your tenant nor should have to, and cannot subscribe to a prefixed name.
+
+Prefix such a name with `global:` and it is never tenant-scoped:
+
+```java
+@Component
+public class OrderIntake implements MessageHandler {
+
+    @Override
+    public String destination() {
+        return "global:codbex.orders";     // physically: codbex.orders
+    }
+
+    @Override
+    public void onMessage(String message) {
+        // ...
+    }
+}
+```
+
+The marker is understood **everywhere a destination name is resolved** - a producer, a synchronous
+receive, a `.listener` descriptor's `name`, a `MessageHandler.destination()`, a `@Listener(name =
+...)`, and the `source: { queue | topic }` of an [intent `inbound`
+arrival](/help/intent/glue#inbound-arrivals-from-outside). `global:codbex.orders` resolves to the
+physical destination `codbex.orders` in every tenant, so a consumer in another deployment binds to
+the plain name it was given.
+
+::: tip Name it for the contract, not for your app
+Convention is `global:<vendor>.<purpose>` - `global:codbex.orders`, `global:acme.invoices.posted`. A
+global destination is by definition shared with something the platform cannot see, and only a
+namespaced name keeps two products off each other's queues.
+:::
+
+Three consequences worth knowing before you reach for it:
+
+- **The destination no longer says which tenant a message belongs to.** A message published to a
+  global destination carries the **default** tenant's id in `tenant_id`, so a foreign consumer
+  re-establishes a valid context from it. If the business tenant matters downstream, it has to travel
+  in the payload.
+- **Using the marker outside the default tenant is logged at WARN** - once per tenant and
+  destination. It is legitimate, but it is a contract decision, so it is visible in the log rather
+  than silent.
+- **A global destination is subscribed once for the whole deployment**, not once per tenant. Fanning
+  it out would put one consumer per tenant on the very same physical destination - competing for a
+  queue's messages, or handling a topic's message once per tenant.
+
 ## See also
 
 - Working sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator).

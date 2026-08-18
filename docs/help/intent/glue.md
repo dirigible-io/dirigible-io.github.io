@@ -378,6 +378,17 @@ Whichever it is, the record is saved through the entity's **generated repository
 That is why a `folder` source requires its `cron` (and why a `cron` on the other sources is rejected). A file holds one record or an array of them; a file modified within the last few seconds is left for the next tick (it may still be being copied in); and every read file leaves the drop folder - into `processed/` or, if it could not be ingested, `failed/` - so nothing is ever ingested twice and a rejected file stays inspectable.
 :::
 
+::: warning A queue or topic name is tenant-scoped unless you say otherwise
+A destination is renamed per tenant on the broker (`<tenantId>###<name>`), which is what keeps one tenant's messages out of another's - and what makes a name another *deployment* publishes to unreachable, since it knows nothing of your tenants. When the queue or topic is a contract with a system outside this deployment, mark it `global:`:
+
+```yaml
+inbound:
+  - { name: ordersFromMarketplace, source: { queue: "global:codbex.orders" }, create: Order }
+```
+
+`global:codbex.orders` resolves to the physical destination `codbex.orders` in every tenant, so the other side binds to the plain name it was given, and the arrival is subscribed once for the deployment rather than once per tenant. A name without the marker stays the application's own, which is the right default for anything published from within the same instance. See [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs: the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload.
+:::
+
 Conversation-shaped transports - acknowledgements, retries with backoff, certificates, SFTP - stay outside the intent by design: use a [Camel route](/help/ide/modelers/integrations-karavan) in the same project, feeding the entity's ordinary write path.
 
 ## outbound - departures to another system
@@ -418,9 +429,14 @@ The publisher being a **subscriber** is the whole design. Every generated reposi
 The message is published **after** the write that raised the event is persisted, and is **not** transactional with it. A failed publish is logged and the write stands - the same rule the notify block sets. There is no outbox, no exactly-once delivery and no ordering guarantee. If a contract needs any of those, it needs a real integration platform, not this block.
 :::
 
-::: tip A destination name is application-owned, and therefore tenant-scoped
-The platform prefixes a destination with the tenant that touches it, which is right for a queue belonging to the application and wrong for one that **is a contract with someone else**. So a departure works as declared everywhere inside one deployment - its own `inbound` arrivals included - while two separate deployments sharing a broker need the platform's external-contract destination marker, which is [tracked separately](https://github.com/eclipse-dirigible/dirigible/issues/6766). Until it lands, cross-deployment emission works on the default tenant only.
-:::
+A departure destination follows the same naming rule as an arrival: without a marker it is the application's own and is renamed per tenant on the broker, which is right for a channel this deployment both publishes and consumes. When the queue or topic **is a contract with a system outside the deployment**, mark it `global:` so the other side binds to the plain name it was given:
+
+```yaml
+outbound:
+  - { name: publishOrder, event: { onCreate: Order }, to: { topic: "global:codbex.orders" } }
+```
+
+See the `global:` note under [inbound](#inbound-arrivals-from-outside) above, and [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs - the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload (a `tenantId: "{tenant}"` key in the declared envelope is exactly that).
 
 ## rollups
 
