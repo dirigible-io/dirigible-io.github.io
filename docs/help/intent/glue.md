@@ -444,6 +444,42 @@ inbound:
 
 Conversation-shaped transports - acknowledgements, retries with backoff, certificates, SFTP - stay outside the intent by design: use a [Camel route](/help/ide/modelers/integrations-karavan) in the same project, feeding the entity's ordinary write path.
 
+### When the payload is an envelope, not the record
+
+Everything above assumes the arriving JSON already **is** the entity, field for field. A real arrival contract is not - it is an envelope, with a type, a version, some business keys and only then a few record fields:
+
+```json
+{ "messageId": "9f9d1c9e-...", "type": "user.assignment.requested", "version": 1,
+  "tenantId": "acme", "email": "new.user@example.com", "role": "User" }
+```
+
+Two optional keys read that envelope. Both work on **any** of the three arrivals - what the payload looks like has nothing to do with what it travelled on - and an entry that declares neither behaves exactly as described above:
+
+```yaml
+inbound:
+  - name: userAssignments
+    source: { queue: "global:codbex.user-assignment-requests" }
+    accept: { type: user.assignment.requested, version: 1 }
+    create: TenantUserAssignment
+    map:
+      messageId: messageId
+      email:     email
+      tenant:      { lookup: Tenant,         by: tenantId, from: tenantId }
+      role:        { lookup: AssignmentRole, by: name,     from: role }
+```
+
+**`map:`** projects the envelope's keys onto the record's own - a key the map does not name is not the record's business. Each value is either an envelope key or a **lookup**.
+
+**`lookup:`** is the one that matters most. The envelope says `tenantId: "acme"` and the record stores the `Tenant` foreign key; resolving one to the other is the single most common requirement of any arrival, and on its own the reason a fully modelled arrival still needed a hand-written consumer. `from:` is the envelope key, `lookup:` the entity to read, `by:` the field of it the business key matches.
+
+::: warning `by:` must be unique, and a miss rejects the arrival
+`by:` names a `unique: true` field of the looked-up entity (or its primary key). A lookup that could match several rows would silently pick one, which is worse than failing - so a non-unique `by:` fails at Generate rather than in production. And a lookup that matches **nothing** rejects the arrival, logging the value it could not resolve: a webhook answers 400, a queue message is logged and dropped, a drop file moves to `failed/` whole so it can be re-dropped rather than half-ingested. What it never does is store the record with a null relation.
+:::
+
+**`accept:`** gates on the envelope keys it names. A message that does not match is **acknowledged and ignored** with a warning - never failed. Failing it would only have it redelivered, and a sender rolling out `version: 2` must not fill this receiver's error queue with messages it will keep sending. A webhook answers **202 Accepted** (the sender did nothing wrong; this receiver simply does not handle it), and a record inside a drop file is skipped while the file still counts as processed.
+
+Whichever keys are declared, the record still saves through the entity's **generated repository**, so validations, translations and the create event fire as for any other write. Two boundaries to know: do not map the primary key - it is generated on insert, so give the arrival's own identifier a field of its own with `unique: true` (which is also what makes a redelivery refuse itself) - and a lookup reads an entity declared in the **same** model; a cross-model lookup is not supported yet.
+
 ## outbound - departures to another system
 
 The mirror of `inbound`: the application **raises a business event** for something outside it, on a queue or a topic. Reach for `integrations` when you are calling someone's API and want their answer; reach for `outbound` when you are announcing that something happened and nobody answers. That difference in failure semantics - a failed call versus a missed announcement - is why these are two blocks rather than one with a transport switch.

@@ -1721,6 +1721,46 @@ A `queue` / `topic` name is scoped to the tenant on the broker unless it is pref
 resolves it to the bare name for every tenant and every deployment bound to it - see
 [global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system).
 
+### accept and map - when the payload is an envelope
+
+The shape above only works when the sender's JSON already **is** the entity, field for field. A real
+arrival contract is an envelope, and these two optional keys read it. Both work on all three arrivals -
+what the payload looks like has nothing to do with what it travelled on - and omitting them keeps the
+behaviour above exactly.
+
+```yaml
+inbound:
+  - name: userAssignments
+    source: { queue: "global:codbex.user-assignment-requests" }
+    accept: { type: user.assignment.requested, version: 1 }   # anything else: warn and ignore
+    create: TenantUserAssignment
+    map:
+      messageId: messageId                                     # entity field <- envelope key
+      email:     email
+      tenant:      { lookup: Tenant,         by: tenantId, from: tenantId }   # business key -> FK
+      role:        { lookup: AssignmentRole, by: name,     from: role }
+```
+
+| Key | Means |
+| --- | --- |
+| `accept: { <envelopeKey>: <value>, ... }` | Gate on the declared keys. A message that does not match is **acknowledged and ignored** with a warning - never failed, since failing it would only have it redelivered and a sender rolling out a new version must not fill this receiver's error queue. A webhook answers **202**; a record in a drop file is skipped and the file still counts as processed. |
+| `map: { <field>: <envelopeKey> }` | Fill an entity field or relation from an envelope key. A key the map does not name is not the record's business. |
+| `map: { <relation>: { lookup, by, from } }` | Resolve a **business key to a relation**: read `<envelopeKey>` (`from`), find the `lookup` entity whose `by` field matches, store its id. |
+
+Rules worth knowing:
+
+- **`by:` must be unique.** It names a `unique: true` field of the looked-up entity (or its primary
+  key), because a lookup that could match several rows would silently pick one - so a non-unique `by`
+  fails at Generate rather than in production. It must be a string or integer field.
+- **A lookup that matches nothing rejects the arrival**, with a log naming the value it could not
+  resolve - never a stored record with a null relation. A webhook answers 400; a drop file moves to
+  `failed/` whole, so it can be re-dropped rather than half-ingested.
+- **Everything still saves through the entity's repository**, so validations, translations and the
+  create event fire exactly as for any other write.
+- Do not map the primary key - it is generated on insert. Give the arrival's own identifier a field of
+  its own and declare `unique: true` on it, which is also what makes a redelivery refuse itself.
+- A lookup reads an entity declared in the **same** model; a cross-model lookup is not supported yet.
+
 ## outbound - departures to another system
 
 The mirror of `inbound`: on an event of the same axis, emit a message. `to:` names **exactly one** of
