@@ -503,7 +503,9 @@ rollups:
     field: orderCount     # the parent field to write
 ```
 
-Generates two `gen/events/<Name>RollupOn{Create,Delete}.java` `@Listener`s on the child's create / delete topics that recompute the affected parent's count via a typed `Criteria` and write it back. Recompute-on-event (self-healing), so it is **eventually consistent, not transactionally exact** under heavy concurrency. It counts all children (no `where` filter yet) and tracks create / delete only (not re-parenting on update).
+Generates three `gen/events/<Name>RollupOn{Create,Update,Delete}.java` `@Listener`s on the child's create / update / delete topics that recompute the affected parent's count via a typed `Criteria` and write it back. Recompute-on-event (self-healing), so it is **eventually consistent, not transactionally exact** under heavy concurrency. It counts all children (no `where` filter yet).
+
+The update listener is what keeps a count right when a child changes parents: moving a child is an ordinary edit of its parent relation, and that edit recomputes the parent it moved *to* straight away. The parent it moved *away from* is corrected the next time one of its own children changes.
 
 With `op: sum` the roll-up instead keeps `field` equal to the sum of the children's `of` field, and can maintain a `balance` (= `capacity - sum`) and flip a `status` relation to `statusWhenFull` / `statusWhenPartial` - the invoice paid / balance / PAID-PARTIAL pattern. Sum roll-ups also compose transitively across a multi-level composition (leaf edit to mid total to top total). See [rollups in the DSL reference](/help/intent/dsl-reference#rollups-denormalised-parent-totals).
 

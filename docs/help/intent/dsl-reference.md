@@ -1313,6 +1313,10 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+Every `op` - `count`, `sum` and `latest` alike - recomputes on the child's create, **update** and
+delete. The update pass matters for a plain count too: a child changes parents by an ordinary edit of
+its parent relation, so without it the parent that received the child would never count it.
+
 Roll-ups compose transitively across a multi-level composition (leaf edit → mid total → top
 total); recomputation stops when values stop changing.
 
