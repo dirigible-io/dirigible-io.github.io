@@ -1300,11 +1300,20 @@ expansions:
     count: periods
 ```
 
-A span change replaces the generated child set; never mix hand-entered rows into an expanded
-child. Deleting the master deletes the rows it generated: the expansion owns that set, and a
-foreign key is never a database constraint in Dirigible (referential integrity is checked in the
-generated repository), so nothing else would stop the rows from outliving the record they belong to
-and going on feeding roll-ups and reports. The rows are removed one by one through the child's
+A span change is **reconciled as a diff**: the missing periods are inserted, the rows whose period
+fell out of the span are deleted, and every row the span still covers is kept - with its identifier
+and with whatever was edited on it. A generated handler has no transaction boundary (each write
+commits on its own), so deleting the whole set first and recreating it meant a failure partway
+through the recreation destroyed rows that were already committed; the diff only touches what
+actually changed. With `spread`, a kept row's share is recomputed for the new row count.
+
+Never mix hand-entered rows into an expanded child: a row on a period the span does not cover is
+deleted as stale, and a second row on an already covered period is deleted as a duplicate.
+
+Deleting the master deletes the rows it generated: the expansion owns that set, and a foreign key is
+never a database constraint in Dirigible (referential integrity is checked in the generated
+repository), so nothing else would stop the rows from outliving the record they belong to and going
+on feeding roll-ups and reports. The rows are removed one by one through the child's
 repository, so each row's delete event still fires and the roll-ups and guards downstream of it run
 exactly as they would for a hand-deleted row.
 
