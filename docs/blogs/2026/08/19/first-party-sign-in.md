@@ -59,8 +59,6 @@ DIRIGIBLE_SECURITY_LOGIN_PAGE=/public/web/my-app/login.html
 
 Unauthenticated browsers now land on your page instead of the provider's. Unset, nothing changes - the feature is fully opt-in. And because the page is plain web content served by the platform, it works everywhere your application does:
 
-![The sign-in page on a phone](../../../../images/first-party-sign-in/login-mobile.png)
-
 ## Try it
 
 - The reference login page - credential form, MFA round-trip, SSO deep link, in about a hundred lines of dependency-free HTML - lives at [dirigiblelabs/sample-native-login](https://github.com/dirigiblelabs/sample-native-login).
