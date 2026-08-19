@@ -539,9 +539,11 @@ rollups:
     field: orderCount     # the parent field to write
 ```
 
-Generates three `gen/events/<Name>RollupOn{Create,Update,Delete}.java` `@Listener`s on the child's create / update / delete topics that recompute the affected parent's count via a typed `Criteria` and write it back. Recompute-on-event (self-healing), so it is **eventually consistent, not transactionally exact** under heavy concurrency. It counts all children (no `where` filter yet).
+Generates four `gen/events/<Name>RollupOn{Create,Update,Delete,Rekey}.java` `@Listener`s on the child's create / update / delete / rekey topics that recompute the affected parent's count via a typed `Criteria` and write it back. Recompute-on-event (self-healing), so it is **eventually consistent, not transactionally exact** under heavy concurrency. It counts all children (no `where` filter yet).
 
-The update listener is what keeps a count right when a child changes parents: moving a child is an ordinary edit of its parent relation, and that edit recomputes the parent it moved *to* straight away. The parent it moved *away from* is corrected the next time one of its own children changes.
+Moving a child to another parent is an ordinary edit of its parent relation, and both parents end up right. The update listener recomputes the parent it moved *to*; the rekey listener recomputes the one it moved *away from*, fed the child's PREVIOUS row on the dedicated `-rekeyed` topic that the DAO publishes whenever a grouping column actually moves. Every handler recomputes the parent the payload names, so the same class repairs either side.
+
+The `-rekeyed` publish is not tied to the form submit. A **targeted** write - a process step's `setRelationField`, a `resolves:` lookup, a task form persisting the fields it edited - moves that column too and deliberately raises no `-updated` event, so it publishes both the previous and the written row on `-rekeyed`: the only topic the roll-up and aggregate handlers subscribe to, which is how both sides are repaired without re-firing every reaction bound to the record.
 
 With `op: sum` the roll-up instead keeps `field` equal to the sum of the children's `of` field, and can maintain a `balance` (= `capacity - sum`) and flip a `status` relation to `statusWhenFull` / `statusWhenPartial` - the invoice paid / balance / PAID-PARTIAL pattern. Sum roll-ups also compose transitively across a multi-level composition (leaf edit to mid total to top total). See [rollups in the DSL reference](/help/intent/dsl-reference#rollups-denormalised-parent-totals).
 
@@ -570,10 +572,11 @@ aggregates:
 ```
 
 Four handlers per aggregate (source create / update / delete, plus rekey) upsert the target row for
-the incoming row's key-tuple and recompute from every source row sharing it. The rekey handler
-receives the PREVIOUS row on a dedicated `-rekeyed` topic, published by the DAO only when a grouping
-key actually moved, and repairs the tuple the row left behind. The write is targeted
-(`updateDerived`), so only the aggregate column is persisted. Unlike `rollups`, the total lives in
+the incoming row's key-tuple and recompute from every source row sharing it. The rekey handler is fed
+a row whose grouping moved, on a dedicated `-rekeyed` topic the DAO publishes only when a grouping key
+actually changed: the PREVIOUS row, which repairs the tuple the row left behind, and - on the targeted
+write path, which raises no `-updated` at all - the written row too, which repairs the tuple it moved
+into. The write is targeted (`updateDerived`), so only the aggregate column is persisted. Unlike `rollups`, the total lives in
 a referenceable entity rather than on a composition parent. See the
 [DSL reference](/help/intent/dsl-reference).
 
