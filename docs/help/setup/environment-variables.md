@@ -17,6 +17,7 @@ The full reference (every variable, every default) is at [`/help/reference/envir
 | `DIRIGIBLE_HOME_URL` | `services/web/shell-ide/` | Where `/` redirects to. |
 | `DIRIGIBLE_BASIC_USERNAME` | `admin` | Default basic-auth user. |
 | `DIRIGIBLE_BASIC_PASSWORD` | `admin` | Default basic-auth password. |
+| `DIRIGIBLE_SECURITY_LOGIN_PAGE` | - | Application-owned login page for the OAuth2 profiles; unauthenticated browsers are redirected there instead of the identity provider. See [First-Party Sign-In](/help/setup/authentication/first-party-sign-in). |
 
 ## Repository
 

@@ -35,7 +35,17 @@ Cognito groups map onto platform roles by name. Add the user to the `DEVELOPER` 
 
 One user pool per tenant works well for strict tenant isolation. For shared user pools, use a custom claim to identify the tenant and map it onto the request tenant context.
 
+## First-party sign-in
+
+Since 14.30 the application can host its own credential form instead of the Cognito hosted UI - see [First-Party Sign-In](/help/setup/authentication/first-party-sign-in) for the endpoint contract, the IdP deep links and the login page property. Cognito specifics:
+
+- The platform authenticates over `USER_SRP_AUTH` - the password is used only to compute a zero-knowledge proof and never crosses the wire from the platform to AWS. The app client must allow the flow (`ALLOW_USER_SRP_AUTH`, enabled by default on new app clients).
+- Everything is derived from the client registration (client id/secret, pool coordinates from the issuer URI) - no additional configuration.
+- Pools with threat protection keep their risk scoring when the login page forwards the client-side collector blob as `userContextData`.
+- The native flow needs no registered callback URLs; only the federated deep link and logout still do (they complete through the hosted endpoints).
+
 ## See also
 
+- [First-Party Sign-In](/help/setup/authentication/first-party-sign-in)
 - [Authentication overview](/help/setup/authentication/)
 - [Security model](/help/concepts/security-model)
