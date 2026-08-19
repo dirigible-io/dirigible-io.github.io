@@ -1301,7 +1301,12 @@ expansions:
 ```
 
 A span change replaces the generated child set; never mix hand-entered rows into an expanded
-child.
+child. Deleting the master deletes the rows it generated: the expansion owns that set, and a
+foreign key is never a database constraint in Dirigible (referential integrity is checked in the
+generated repository), so nothing else would stop the rows from outliving the record they belong to
+and going on feeding roll-ups and reports. The rows are removed one by one through the child's
+repository, so each row's delete event still fires and the roll-ups and guards downstream of it run
+exactly as they would for a hand-deleted row.
 
 ## rollups - denormalised parent totals
 
