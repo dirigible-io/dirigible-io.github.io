@@ -409,7 +409,9 @@ vars:
 
 - the parser validates at most one event kind, and that the target is a declared entity;
 - the EDM generator adds a `ProcessId` back-reference column to the entity (so the process starts at most once);
-- `template-application-events-java` emits a `gen/events/<Process>Trigger.java` `@Listener` that loads the entity, applies the `when` guard, calls `Process.start(...)`, and writes the instance id back.
+- `template-application-events-java` emits a `gen/events/<Process>Trigger.java` self-describing `MessageHandler` that loads the entity, applies the `when` guard, calls `Process.start(...)`, and writes the instance id back to `ProcessId`.
+
+That stamped `ProcessId` is what keeps the process starting **at most once**, and the start and the write-back commit separately - so the listener is ordered to leave as little as possible between them. Everything the instance needs is prepared first: a minted business key is persisted **before** the start, and every process variable (the entity locators a task form reads back, a resolved personal assignee) rides the start payload instead of a `setVariable` afterwards. The write-back is then the only step that follows the start, and no document `checks:` gate can refuse it (a gate guards what somebody authored, and by then the instance is already running), and if it still does not land - the record was deleted in the meantime, or the write failed - the just-started instance is **cancelled** and the failure logged, rather than left running with nothing pointing at it.
 
 `when` supports a single `field ==|!= literal` guard. The **business key** defaults to the entity PK but is configurable:
 
@@ -417,7 +419,7 @@ vars:
 trigger: { onCreate: Order, businessKey: orderNo, businessKeyStrategy: timestamp }
 ```
 
-`businessKey` names which field becomes the started instance's business key; `businessKeyStrategy: timestamp` mints a `yyyyMMddHHmmss` value into that field when it is blank (the field must be `string` / `text`). The strategy is the extension point for richer pluggable number generators later.
+`businessKey` names which field becomes the started instance's business key; `businessKeyStrategy: timestamp` mints a `yyyyMMddHHmmss` value into that field when it is blank (the field must be `string` / `text`) and stores it before starting the instance that correlates on it. The strategy is the extension point for richer pluggable number generators later.
 
 ## forms
 
