@@ -1050,8 +1050,10 @@ generates:
 - **`map:` must copy the source's `id` onto the target's to-one relation back to the source.** Under the
   default cardinality that back-reference is the at-most-once guard: the create-from looks for a target
   already back-referencing the source and returns it instead of creating a second one, so a redelivered
-  event - or a click afterwards - is a no-op. Declaring an `event` without it is rejected at parse; see
-  [`mode:`](#cardinality-mode-once-append) for its second role.
+  event - or a click afterwards - is a no-op. That holds for the **lifetime of the target**, not merely
+  for a redelivery of one event, unless the target is retired - see
+  [superseding a retired target](#superseding-a-retired-target). Declaring an `event` without it is
+  rejected at parse; see [`mode:`](#cardinality-mode-once-append) for its second role.
 - **The button is dropped by default**; add `button: true` to keep both triggers. They share one
   generated create-from, and therefore one guard. `button: false` without an `event` is rejected - the
   action would have no trigger at all.
@@ -1094,6 +1096,48 @@ that declares them, so a `fromUses:` source is rejected. `when:` stays optional 
 moment. The step emitter is generated once per observed moment even when a create-from is its only
 consumer.
 
+#### Superseding a retired target
+
+"At most one target per source" is a claim about targets that still count, not about rows that exist.
+Void the generated document and the source must be able to produce a replacement - "void and reissue"
+is an ordinary business flow, and the voided document is kept for the audit trail rather than edited
+back into shape.
+
+Nothing on the create-from declares this. The guard reads what the target's statuses **mean**, which
+is already declared once where the nomenclature is seeded - the
+[`stage:`](#stage-what-a-status-means-to-the-lifecycle) classification a report's `scope:` resolves
+through:
+
+```yaml
+entities:
+  - name: Declaration
+    relations:
+      - { name: Fine,  kind: manyToOne, to: Fine }              # the back-reference / guard
+      - { name: State, kind: manyToOne, to: DeclarationState, function: EntityStatus, init: DRAFT }
+
+seeds:
+  - name: declaration-states
+    entity: DeclarationState
+    rows:
+      - { id: 1, name: DRAFT,     stage: draft }
+      - { id: 2, name: FILED,     stage: live }
+      - { id: 3, name: CANCELLED, stage: cancelled }   # a target in either of these
+      - { id: 4, name: VOIDED,    stage: void }        # no longer blocks its source
+```
+
+- A target whose status is classified `cancelled` or `void` is **retired**: the guard steps over it, so
+  the next qualifying event - or a click - mints a fresh document. Both rows stay; the new one carries
+  its own number and its own trail.
+- A `draft` or `live` target still blocks, so idempotence under redelivery is unchanged: a redelivered
+  event keeps finding the document it created.
+- A target that carries **no** status lifecycle keeps the existence-only guard - there is no state that
+  could retire it.
+- A target that carries a lifecycle whose nomenclature **nobody classified** also keeps the
+  existence-only guard, and Generate says so: that is the case where the guard looks state-aware and is
+  not, and a voided document would silently block its replacement forever. Classify the seeds to fix it.
+- A **cross-model** target is seeded in its owner model, so no classification is resolvable at the
+  consumer - the same limit [`scope:`](#scope-which-lifecycle-rows-an-aggregate-counts) has.
+
 #### Cardinality - `mode: once|append`
 
 `mode:` inside the `event:` map declares how many targets the trigger may produce.
@@ -1111,9 +1155,10 @@ back-reference, each recording a different moment.
 ::: warning `append` is the absence of a guard, not a state-aware one
 Step and lifecycle events are published after commit and are not transactional with the write, so
 delivery is at-least-once: under `append` a redelivery appends a duplicate row. It is therefore the
-wrong answer to "I voided the document and cannot regenerate it" - that needs a state-aware guard on
-`mode: once`, not a cardinality that would also mint a document on every later qualifying event.
-Anything that must exist at most once per source keeps `mode: once`.
+wrong answer to "I voided the document and cannot regenerate it" - that is what
+[superseding a retired target](#superseding-a-retired-target) does, on `mode: once`, rather than a
+cardinality that would also mint a document on every later qualifying event. Anything that must exist
+at most once per source keeps `mode: once`.
 :::
 
 An intent that declares no `mode:` and no step binding regenerates byte-identical output - the default
@@ -1607,7 +1652,9 @@ classify itself with `stage`:
 `stage` is **metadata, not data**: it never becomes a column, so the generated CSV and the imported
 table are unchanged. It exists so that "the rows that count" is declared once, where the nomenclature
 lives, instead of being re-derived as a magic-number predicate in every report and guard - see
-[`scope`](#scope-which-lifecycle-rows-an-aggregate-counts).
+[`scope`](#scope-which-lifecycle-rows-an-aggregate-counts) for what an aggregate counts, and
+[superseding a retired target](#superseding-a-retired-target) for when a generated document stops
+blocking its source.
 
 A classified row must also carry its `id` (the stage classifies that id), the value must be one of the
 four, and an entity that declares its own `stage` field cannot be classified this way - the collision
