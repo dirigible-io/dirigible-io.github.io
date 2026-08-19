@@ -36,8 +36,13 @@ Keycloak realm roles map directly onto platform roles - `UserFacade.isInRole("ad
 
 For multi-tenant deployments either declare one realm per tenant in Keycloak, or use the same realm with tenant-scoped client IDs. Bind the tenant id to the OIDC subject claim if possible.
 
+## First-party sign-in
+
+Since 14.30 the `keycloak` profile supports the [First-Party Sign-In](/help/setup/authentication/first-party-sign-in) building blocks: `DIRIGIBLE_SECURITY_LOGIN_PAGE` redirects unauthenticated browsers to an application page, and the `kc_idp_hint` passthrough deep-links federated users straight to their IdP. The native credential endpoint currently ships for Cognito; the Keycloak implementation can follow through the same internal contract.
+
 ## See also
 
+- [First-Party Sign-In](/help/setup/authentication/first-party-sign-in)
 - [Keycloak addon](/help/setup/kubernetes/addons/keycloak)
 - [Authentication overview](/help/setup/authentication/)
 - [Security model](/help/concepts/security-model)

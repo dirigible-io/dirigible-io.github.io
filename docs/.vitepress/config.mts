@@ -502,6 +502,7 @@ function helpSidebar() {
             { text: 'Keycloak', link: '/help/setup/authentication/keycloak' },
             { text: 'Cognito', link: '/help/setup/authentication/cognito' },
             { text: 'Snowflake', link: '/help/setup/authentication/snowflake' },
+            { text: 'First-Party Sign-In', link: '/help/setup/authentication/first-party-sign-in' },
           ],
         },
         { text: 'Multi-tenancy', link: '/help/setup/multi-tenancy' },
