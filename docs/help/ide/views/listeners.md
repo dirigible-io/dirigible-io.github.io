@@ -5,7 +5,7 @@ description: Active message listeners.
 
 # Listeners
 
-Lists the message listeners currently registered against the embedded ActiveMQ broker.
+Lists the message listeners currently registered against the platform's ActiveMQ broker.
 
 ## Columns
 

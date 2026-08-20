@@ -41,7 +41,7 @@ description: One-line definitions of platform terms.
 
 **Job** - A scheduled task. Declared as a `.job` artefact or with the `@Scheduled(...)` annotation. Backed by Quartz.
 
-**Listener** - A message-bus subscriber. Declared as a `.listener` artefact or with the `@Listener(...)` annotation. Backed by the embedded ActiveMQ broker.
+**Listener** - A message-bus subscriber. Declared as a `.listener` artefact or with the `@Listener(...)` annotation. Backed by ActiveMQ - the embedded broker, or an external one when `DIRIGIBLE_MESSAGING_BROKER_URL` is set.
 
 **Route** - A Camel integration route declared as a `.camel` artefact.
 

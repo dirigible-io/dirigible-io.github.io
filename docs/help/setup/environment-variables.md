@@ -67,6 +67,19 @@ The full reference (every variable, every default) is at [`/help/reference/envir
 | `DIRIGIBLE_SYNCHRONIZER_CROSS_RETRY_COUNT` |  | Retry budget for cross-synchronizer dependencies. |
 | `DIRIGIBLE_SYNCHRONIZER_CROSS_RETRY_INTERVAL_MILLIS` |  | Retry interval. |
 
+## Messaging
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `DIRIGIBLE_MESSAGING_BROKER_URL` |  | External ActiveMQ broker to use instead of the embedded one, e.g. `tcp://activemq:61616`. Unset keeps the embedded broker. |
+| `DIRIGIBLE_MESSAGING_BROKER_USERNAME` |  | Broker username. Unset connects anonymously. |
+| `DIRIGIBLE_MESSAGING_BROKER_PASSWORD` |  | Broker password. |
+| `DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE` | `true` | Persist the embedded broker's messages in the system database. Ignored with an external broker. |
+
+Point several nodes or deployments at one broker to share destinations between them. The broker has to
+be reachable when the server starts, and the Messaging perspective works only against the embedded
+broker. See [Message listeners](/help/develop/message-listeners#broker-embedded-or-external).
+
 ## Mail / Flowable / SharePoint / S3
 
 | Variable | Purpose |

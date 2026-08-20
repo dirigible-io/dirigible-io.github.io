@@ -1,11 +1,11 @@
 ---
 title: Message listeners
-description: JMS-style listeners over the embedded ActiveMQ broker.
+description: JMS-style listeners over an embedded or external ActiveMQ broker.
 ---
 
 # Message listeners
 
-`engine-listeners` runs message-bus listeners against the embedded ActiveMQ broker. Two declaration styles are supported.
+`engine-listeners` runs message-bus listeners against ActiveMQ - the broker the platform starts itself, or an [external one](#broker-embedded-or-external). Two declaration styles are supported.
 
 ## `@Component` listener
 
@@ -108,9 +108,48 @@ A JSON descriptor pointing at a JS/TS/Java handler module. `ListenerSynchronizer
 
 Hot-reload auto-restarts the consumer when the handler or descriptor changes. Deleting the file detaches the consumer.
 
+## Broker - embedded or external
+
+By default the platform starts its own ActiveMQ inside the server process and attaches to it over
+`vm://localhost`. Nothing has to be configured, and `DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE`
+(default `true`) persists that broker's messages in the system database.
+
+Set a broker URL and it connects to a broker it does not own instead - a dockerized ActiveMQ, Amazon
+MQ, any ActiveMQ Classic endpoint:
+
+```properties
+DIRIGIBLE_MESSAGING_BROKER_URL=tcp://activemq:61616
+DIRIGIBLE_MESSAGING_BROKER_USERNAME=dirigible
+DIRIGIBLE_MESSAGING_BROKER_PASSWORD=...
+```
+
+`ssl://` and `failover:(tcp://one:61616,tcp://two:61616)` URLs work as well. Credentials are optional;
+without them the connection is anonymous.
+
+Nothing in your code changes - both declaration styles, the `.listener` artefact, the producer SDK and
+a synchronous receive all go through the same connection, so they follow the broker the server was
+configured with.
+
+::: tip Why point at an external broker
+So that separate deployments can meet on the same destination. One broker plus a
+[`global:` destination](#global-destinations-a-contract-with-another-system) is what lets a queue be a
+contract between two products rather than an internal detail of one server. It is also the right shape
+for several nodes of one deployment, which cannot share an in-process broker at all.
+:::
+
+Three things behave differently in this mode:
+
+- **The Messaging perspective is unavailable.** It reads the in-process broker object directly, so with
+  an external broker its endpoints are not registered and return `404`. Use that broker's own console.
+- **`DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE` is ignored** and logged as such. Persistence is the
+  external broker's own configuration.
+- **The server fails to start if the broker is unreachable.** This is deliberate - messaging that is
+  quietly dead is worse than a deployment that refuses to come up. In Docker Compose or Kubernetes,
+  gate the server on the broker being healthy.
+
 ## Browsing the broker
 
-The Messaging perspective in the IDE surfaces queues and topics, their pending counters, and the in-memory messages on a queue (non-destructive browse). Purge and per-message delete actions are available too.
+The Messaging perspective in the IDE surfaces queues and topics, their pending counters, and the in-memory messages on a queue (non-destructive browse). Purge and per-message delete actions are available too. It reflects the **embedded** broker only.
 
 ## Producing messages
 
@@ -186,6 +225,7 @@ Three consequences worth knowing before you reach for it:
 
 ## See also
 
+- [Messaging environment variables](/help/reference/environment-variables#messaging).
 - Working sample: [`dirigiblelabs/sample-java-listener-decorator`](https://github.com/dirigiblelabs/sample-java-listener-decorator).
 - [TypeScript API - messaging](/api/).
 - [Java SDK - messaging](/sdk/).

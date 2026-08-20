@@ -101,6 +101,27 @@ See [Maven dependencies](/help/develop/maven-dependencies) and [How dependency v
 | `DIRIGIBLE_FLOWABLE_DATABASE_*` | Flowable's own data source. |
 | `DIRIGIBLE_FLOWABLE_MAIL_*` | Flowable mail settings. |
 
+## Messaging
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `DIRIGIBLE_MESSAGING_BROKER_URL` |  | Connect to an **external** ActiveMQ broker instead of the embedded one - `tcp://activemq:61616`, `ssl://b-....mq.eu-central-1.amazonaws.com:61617`, `failover:(tcp://one:61616,tcp://two:61616)`. Unset or blank starts the embedded broker and attaches over `vm://localhost`. |
+| `DIRIGIBLE_MESSAGING_BROKER_USERNAME` |  | Broker username. Unset connects anonymously. |
+| `DIRIGIBLE_MESSAGING_BROKER_PASSWORD` |  | Broker password. |
+| `DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE` | `true` | Persist the **embedded** broker's messages in the system database. Ignored (and logged as such) when a broker URL is set - an external broker owns its own persistence. |
+
+Setting a broker URL replaces the in-process broker entirely: nothing is started locally, and every
+producer and consumer - `.listener` artefacts, `@Component` listeners, the messaging SDK - connects to
+the configured broker. Two consequences to plan for:
+
+- **The Messaging perspective goes dark.** It reads the in-process broker object, so its endpoints are
+  not registered against an external broker and return `404`. Administer that broker from its own
+  console.
+- **An unreachable broker fails startup**, deliberately, rather than leaving messaging silently
+  inoperative.
+
+See [Message listeners](/help/develop/message-listeners#broker-embedded-or-external).
+
 ## CMS / S3 / SharePoint
 
 | Variable | Purpose |
