@@ -7,14 +7,14 @@
 - source: [messaging/Producer.java](https://github.com/eclipse/dirigible/blob/master/components/api/api-modules-java/src/main/java/org/eclipse/dirigible/sdk/messaging/Producer.java)
 :::
 
-Sends a message into the embedded ActiveMQ broker. `sendToQueue(String, String)` delivers to a queue (point-to-point - one listener receives the message), `sendToTopic(String, String)` delivers to a topic (pub/sub - all active subscribers receive the message).
+Sends a message into the platform's ActiveMQ broker. `sendToQueue(String, String)` delivers to a queue (point-to-point - one listener receives the message), `sendToTopic(String, String)` delivers to a topic (pub/sub - all active subscribers receive the message).
 
 Both methods are non-blocking past the broker's acknowledgement; the broker handles persistence and at-least-once delivery semantics. Pair with a `@Listener`-annotated class on the receiving side, or with `Consumer.receiveFromQueue(String, long)` when you want to pull messages synchronously.
 
 ### Key Features:
 - **Queue and Topic Support**: Two static methods cover the two JMS-style delivery semantics - point-to-point queues and publish-subscribe topics.
-- **Embedded Broker**: Talks to the ActiveMQ broker that ships in-process with every Dirigible runtime - no broker URL, no client configuration.
-- **Cross-language Interoperability**: Every component running on the platform - in any supported language - targets the same embedded broker, so producers and consumers interoperate transparently.
+- **No client plumbing**: Talks to whichever broker the runtime is configured with - the in-process one by default, or an [external ActiveMQ](/help/develop/message-listeners#broker-embedded-or-external) when `DIRIGIBLE_MESSAGING_BROKER_URL` is set. The calling code names a destination and nothing else.
+- **Cross-language Interoperability**: Every component running on the platform - in any supported language - targets the same broker, so producers and consumers interoperate transparently.
 
 ### Example Usage:
 ```java

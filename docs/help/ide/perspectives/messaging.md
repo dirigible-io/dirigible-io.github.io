@@ -5,7 +5,7 @@ description: Devops surface for the embedded ActiveMQ broker - destinations, cou
 
 # Messaging
 
-`perspective-messaging` (id `messaging`) is the devops and debug surface for the embedded ActiveMQ broker. Inspect destinations, browse pending messages without consuming them, purge queues, remove destinations.
+`perspective-messaging` (id `messaging`) is the devops and debug surface for the embedded ActiveMQ broker. Inspect destinations, browse pending messages without consuming them, purge queues, remove destinations. It covers the [embedded broker only](#embedded-broker-only).
 
 ## Layout
 
@@ -37,7 +37,16 @@ All endpoints live under `/services/ide/messaging-monitoring/` and require one o
 
 JMS topics do not retain non-persistent messages. The destinations view still shows live counters for topics, but the message browser shows an empty list - there is nothing pending to inspect. Use a durable subscriber to retain messages.
 
+## Embedded broker only
+
+The perspective reads broker state straight off the in-process `BrokerService` - the broker runs with
+JMX disabled, so there is nothing to introspect remotely. A deployment configured against an
+[external broker](/help/develop/message-listeners#broker-embedded-or-external) with
+`DIRIGIBLE_MESSAGING_BROKER_URL` has no such object: the endpoints above are not registered and answer
+`404`, and the views stay empty. Inspect that broker through its own console.
+
 ## Related
 
 - [Listeners artefact](/help/artefacts/process/listener)
+- [Message listeners](/help/develop/message-listeners)
 - [`@aerokit/sdk/messaging`](/api/messaging/)

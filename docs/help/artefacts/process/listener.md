@@ -5,11 +5,11 @@ description: ActiveMQ queue / topic consumer. *.listener artefact.
 
 # Message listener
 
-`*.listener` binds a JS / TS handler to a queue or topic on the embedded ActiveMQ broker.
+`*.listener` binds a JS / TS handler to a queue or topic on the platform's ActiveMQ broker.
 
 - **File format.** JSON descriptor.
 - **Synchronizer.** `ListenerSynchronizer` (tenant-isolated).
-- **Broker.** Embedded ActiveMQ.
+- **Broker.** ActiveMQ - embedded by default, or [external](/help/develop/message-listeners#broker-embedded-or-external) via `DIRIGIBLE_MESSAGING_BROKER_URL`.
 - **Editor.** [Listeners editor](/help/ide/editors/listeners).
 - **JS / TS API.** [`@aerokit/sdk/messaging`](/api/messaging/consumer) - producer side, plus consumer helpers.
 - **See also.** [Java `@MessageListener`](/help/develop/message-listeners) - annotation-based alternative for client Java.
