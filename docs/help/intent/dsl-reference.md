@@ -1190,9 +1190,10 @@ other end.
   (a `DRAFT` for correction) and nothing fires until a person moves it forward - which is how a reissue
   that should be reviewed is modelled.
 
-Refused where it could never fire, at parse: without `sourceStatus:` (there is nothing to invert), when
-it names the same status (a write that changes nothing announces nothing), on `mode: append` (no guard,
-so no slot), for a target with no status lifecycle or an unclassified nomenclature, and for a cross-model
+Refused where it could never fire, at parse: without an `event:` (a button-only create-from carries no
+guard, so nothing blocks a replacement and the button is already the reissue - there is no trigger to
+re-fire), without `sourceStatus:` (there is nothing to invert), when it names the same status (a write
+that changes nothing announces nothing), on `mode: append` (no guard, so no slot), for a target with no status lifecycle or an unclassified nomenclature, and for a cross-model
 target (its statuses are classified in the owner model). And when the source declares a `lifecycle:`, the
 graph must declare the edge from `sourceStatus` back - that is exactly where the source stands when the
 retirement arrives, so a missing edge would fail the flip at runtime.
