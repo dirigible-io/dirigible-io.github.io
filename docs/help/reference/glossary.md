@@ -17,7 +17,7 @@ description: One-line definitions of platform terms.
 
 **Project** - A folder of artefacts. Holds zero or one `project.json` and any number of artefact files.
 
-**Tenant** - An isolated unit in a multi-tenant deployment. Identified by subdomain. Gets its own data sources, CMS root, jobs, listeners, OData services.
+**Tenant** - An isolated unit in a multi-tenant deployment. Resolved from the request host or from the signed-in user's identity provider groups, depending on `DIRIGIBLE_TENANT_RESOLUTION_STRATEGY`. Gets its own data sources, CMS root, jobs, listeners, OData services.
 
 **Perspective** - A configured set of editors + views for a single task (Workbench, Database, Git, Operations, Messaging, ...).
 

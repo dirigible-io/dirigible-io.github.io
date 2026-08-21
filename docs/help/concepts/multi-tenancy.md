@@ -1,6 +1,6 @@
 ---
 title: Multi-tenancy
-description: Multi-tenancy is on by default. Tenants are resolved by subdomain. Some artefact types are tenant-isolated; some are system-level.
+description: Multi-tenancy is on by default. A tenant is resolved either from the request host or from the signed-in user's identity provider groups. Some artefact types are tenant-isolated; some are system-level.
 ---
 
 # Multi-tenancy
@@ -9,11 +9,13 @@ Dirigible runs in **multi-tenant mode by default** (`DIRIGIBLE_MULTI_TENANT_MODE
 
 ## Tenant resolution
 
-Tenants are resolved from the HTTP request's host header, matched against `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX`. The first capture group is the tenant subdomain. For example, with a regex like `^([a-z0-9-]+)\.example\.com$`, requests to `acme.example.com` resolve to tenant `acme`.
+Which tenant a request belongs to is decided by `DIRIGIBLE_TENANT_RESOLUTION_STRATEGY`, and there are two answers.
+
+**By host** (`SUBDOMAIN`, the default). The request's host header is matched against `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX`, and the first capture group is the tenant subdomain. With a regex like `^([a-z0-9-]+)\.example\.com$`, requests to `acme.example.com` resolve to tenant `acme`. Every tenant needs a host of its own.
+
+**By identity** (`TOKEN_GROUPS`). One host serves every tenant, and the tenant is the one the signed-in user selected. What a user may select is carried by their identity provider groups, named `<tenantId>.<appId>.<role>`, so the identity provider remains the single place where access is granted and the host says nothing about the tenant. See [`/help/setup/multi-tenancy`](/help/setup/multi-tenancy#tenant-resolution) for how to configure either one.
 
 The current tenant is exposed through `TenantContext` (`components/core/core-base/.../tenant/`). User code reaches it via [`@aerokit/sdk/security`](/api/security) (JS / TS) or by injecting `TenantContext` into a Java service.
-
-Authentication backends (Keycloak, Cognito) have single-realm options if you want one realm per tenant or a shared realm.
 
 ## What is tenant-isolated
 
@@ -48,11 +50,12 @@ When you need tenant awareness inside a system-level artefact, read `TenantConte
 
 ## Switching modes off
 
-`DIRIGIBLE_MULTI_TENANT_MODE=false` collapses everything to a single default tenant. Useful for single-tenant deployments where the subdomain routing is irrelevant.
+`DIRIGIBLE_MULTI_TENANT_MODE=false` collapses everything to a single default tenant. Useful for single-tenant deployments, where tenant resolution is irrelevant whichever strategy is configured.
 
 ## Reference
 
 - `Tenant`, `TenantContext`, `TenantResult<T>` - `components/core/core-base/.../tenant/`
 - `MultitenantBaseSynchronizer` - `components/core/core-base/.../synchronizer/`
 - `TenantProvisioningStep`, `TenantPostProvisioningStep` - onboarding hooks for new tenants
+- `DIRIGIBLE_TENANT_RESOLUTION_STRATEGY` - `SUBDOMAIN` or `TOKEN_GROUPS`
 - `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` - tenant provisioning cadence

@@ -43,7 +43,7 @@ When the platform misbehaves, start at the symptom and walk to the right view.
 
 ## Tenant-isolation surprises
 
-- An OData service / data source / scheduled job is **tenant-scoped** by default. Test as the right tenant via subdomain.
+- An OData service / data source / scheduled job is **tenant-scoped** by default. Test as the right tenant: through that tenant's host under the `SUBDOMAIN` strategy, or by selecting it under `TOKEN_GROUPS`.
 - BPMN, Camel, Extensions, Git workspaces are **system-level** - one global instance.
 
 See [`/help/concepts/multi-tenancy`](/help/concepts/multi-tenancy) for the full isolation matrix.

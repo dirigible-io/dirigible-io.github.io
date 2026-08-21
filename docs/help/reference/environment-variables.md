@@ -47,8 +47,13 @@ For the install-oriented subset see [`/help/setup/environment-variables`](/help/
 | Variable | Default | Purpose |
 | -------- | ------- | ------- |
 | `DIRIGIBLE_MULTI_TENANT_MODE` | `true` | Multi-tenant switch. |
-| `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX` |  | Tenant resolution regex. |
-| `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` |  | Provisioning poll cadence. |
+| `DIRIGIBLE_TENANT_RESOLUTION_STRATEGY` | `SUBDOMAIN` | How a request's tenant is determined. `SUBDOMAIN` matches the host header against `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX`, so each tenant needs a host of its own. `TOKEN_GROUPS` serves every tenant from one host and takes the tenant the signed-in user selected, out of those their identity provider groups grant. |
+| `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX` |  | Host pattern the tenant subdomain is captured from, under the `SUBDOMAIN` strategy. Unused by `TOKEN_GROUPS`. |
+| `DIRIGIBLE_APP_ID` |  | This deployment's application id, the middle part of the group names `<tenantId>.<appId>.<role>`. Groups naming another application are ignored, so one identity provider can serve several applications. Required under `TOKEN_GROUPS`, and it must not contain a dot. |
+| `DIRIGIBLE_TENANT_GROUPS_CLAIM` | `cognito:groups` | The token claim the user's groups are read from. Set it explicitly on Keycloak - a claim that carries no groups is not an error, the user simply appears to have no tenants. |
+| `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` | `900` | Provisioning poll cadence, in seconds. |
+
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
 
 ## Synchronizers
 

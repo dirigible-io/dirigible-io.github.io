@@ -46,8 +46,13 @@ The full reference (every variable, every default) is at [`/help/reference/envir
 | Variable | Default | Purpose |
 | -------- | ------- | ------- |
 | `DIRIGIBLE_MULTI_TENANT_MODE` | `true` | Multi-tenant switch. |
-| `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX` |  | Tenant resolution regex. |
-| `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` |  | Provisioning poll cadence. |
+| `DIRIGIBLE_TENANT_RESOLUTION_STRATEGY` | `SUBDOMAIN` | How a request's tenant is determined: `SUBDOMAIN` (a host per tenant) or `TOKEN_GROUPS` (one host, the tenant the signed-in user selected). |
+| `DIRIGIBLE_TENANT_SUBDOMAIN_REGEX` |  | Host pattern the tenant subdomain is captured from, under the `SUBDOMAIN` strategy. |
+| `DIRIGIBLE_APP_ID` |  | This deployment's application id in the group names `<tenantId>.<appId>.<role>`. Required under `TOKEN_GROUPS`, and it must not contain a dot. |
+| `DIRIGIBLE_TENANT_GROUPS_CLAIM` | `cognito:groups` | The token claim the user's groups are read from. Set it explicitly on Keycloak. |
+| `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` | `900` | Provisioning poll cadence, in seconds. |
+
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
 
 ## Debuggers
 

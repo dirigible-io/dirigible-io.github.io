@@ -76,6 +76,8 @@ helm upgrade --install dirigible dirigible/dirigible \
     --namespace dirigible -f values.production.yaml
 ```
 
+The subdomain regex and the wildcard `ingress.host` above belong to the `SUBDOMAIN` tenant resolution strategy, which gives every tenant a host of its own. A deployment that resolves tenants from identity provider groups instead needs neither: one hostname and one certificate serve every tenant. See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
+
 ## Probes
 
 The chart wires Kubernetes liveness / readiness probes to the platform's Actuator endpoints (`/actuator/health/liveness`, `/actuator/health/readiness`). See [`/help/operate/health-checks`](/help/operate/health-checks).
