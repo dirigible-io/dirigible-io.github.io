@@ -20,12 +20,15 @@ In AWS Cognito:
 
 ```bash
 SPRING_PROFILES_ACTIVE=cognito
-DIRIGIBLE_COGNITO_REGION=eu-west-1
+DIRIGIBLE_COGNITO_REGION_ID=eu-west-1
 DIRIGIBLE_COGNITO_USER_POOL_ID=<pool-id>
 DIRIGIBLE_COGNITO_CLIENT_ID=<client-id>
 DIRIGIBLE_COGNITO_CLIENT_SECRET=<client-secret>
 DIRIGIBLE_COGNITO_DOMAIN=https://<your-domain>.auth.eu-west-1.amazoncognito.com
+DIRIGIBLE_HOST=https://dirigible.example.com
 ```
+
+`DIRIGIBLE_COGNITO_REGION_ID` and `DIRIGIBLE_COGNITO_USER_POOL_ID` compose the issuer the ID token is validated against; `DIRIGIBLE_COGNITO_DOMAIN` is the hosted UI the browser is sent to. `DIRIGIBLE_HOST` is where Cognito sends the user back, so the callback URL is `<host>/login/oauth2/code/cognito`.
 
 ## Role mapping
 
@@ -33,7 +36,7 @@ Cognito groups map onto platform roles by name. Add the user to the `DEVELOPER` 
 
 ## Multi-tenant deployments
 
-One user pool per tenant works well for strict tenant isolation. For shared user pools, use a custom claim to identify the tenant and map it onto the request tenant context.
+One user pool per tenant works well for strict tenant isolation. To serve every tenant from one pool and one host instead, name the groups `<tenantId>.<appId>.<role>` and let the signed-in user pick which of their tenants to work in. Cognito already puts groups in `cognito:groups`, which is the default value of `DIRIGIBLE_TENANT_GROUPS_CLAIM`, so no extra claim configuration is needed. A group with no dots in it, such as `ADMINISTRATOR`, stays a platform-wide role. See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
 
 ## First-party sign-in
 
@@ -47,5 +50,6 @@ Since 14.30 the application can host its own credential form instead of the Cogn
 ## See also
 
 - [First-Party Sign-In](/help/setup/authentication/first-party-sign-in)
+- [Multi-tenancy setup](/help/setup/multi-tenancy)
 - [Authentication overview](/help/setup/authentication/)
 - [Security model](/help/concepts/security-model)
