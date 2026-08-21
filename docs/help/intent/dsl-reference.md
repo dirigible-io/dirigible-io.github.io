@@ -1175,10 +1175,13 @@ already there - and nothing new declares what "retired" means: it is the same
 [`stage:`](#stage-what-a-status-means-to-the-lifecycle) classification the guard reads, asked from the
 other end.
 
-- It **acts only while the source still stands at this rule's `sourceStatus`.** That is the whole
-  guard - which is what makes it idempotent with no marker column: a redelivered retirement finds the
-  source already returned, and a source that has travelled further down its own lifecycle is not dragged
-  back.
+- It **acts only while the source still stands at this rule's `sourceStatus`**, so a source that has
+  travelled further down its own lifecycle is never dragged back - **and only while no target of that
+  source still counts**, which is the create-from's own guard asked from this end, over the same
+  classification. That second condition is what closes redelivery: lifecycle events are delivered
+  at-least-once, so a void can arrive again *after* the replacement exists - and by then the source is
+  standing at `sourceStatus` once more, because the reissue put it there. The reopen runs exactly when a
+  creation would be allowed through, which is what makes it idempotent with no marker column.
 - It writes **only the status**, through the targeted single-column primitive, with the `-transitioned`
   notice riding that write - so the flip and its announcement commit together and the create-from's own
   listener cannot miss the moment that frees it. The retired document is left exactly as it is.
