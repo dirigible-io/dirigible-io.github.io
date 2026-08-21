@@ -1058,7 +1058,9 @@ generates:
   generated create-from, and therefore one guard. `button: false` without an `event` is rejected - the
   action would have no trigger at all.
 - `sourceStatus:` composes unchanged (the flip happens once the target exists, and cannot re-trigger the
-  create-from because the guard has already claimed the source).
+  create-from because the guard has already claimed the source) - but note that a source it has flipped
+  can no longer re-qualify on its own, so an event-only rule needs
+  [`sourceStatusOnRetire:`](#reissuing-automatically-sourcestatusonretire) to be reissuable at all.
 
 Generated artifacts: `gen/events/<module>/<ClassName>GenerateOnEvent.java`, a `MessageHandler` on the
 source's `<project>-<perspective>-<Entity>-transitioned` topic (or its bare create topic for
@@ -1137,6 +1139,64 @@ seeds:
   not, and a voided document would silently block its replacement forever. Classify the seeds to fix it.
 - A **cross-model** target is seeded in its owner model, so no classification is resolvable at the
   consumer - the same limit [`scope:`](#scope-which-lifecycle-rows-an-aggregate-counts) has.
+
+#### Reissuing automatically - `sourceStatusOnRetire`
+
+Superseding frees the source's slot. Where the rule also declares a `sourceStatus:` completion hook,
+nothing can refill it - and this is the one combination where an event-driven create-from stops being
+event-driven after its first document.
+
+The hook exists to move the source **off** the status its own trigger qualifies on, so that the
+guard-claimed source stops matching. Once it has run the source stands at the post-generation status, and
+the [lifecycle graph](#lifecycle-the-legal-status-graph) declares no edge back, so the source never
+transitions through the qualifying status again and no qualifying event is ever published. Void the
+target and the slot is free with nobody able to knock. With `button: true` a person can click; an
+event-only rule has no reissue path at all.
+
+`sourceStatusOnRetire:` is the hook's **inverse** - where the source returns when a target this rule
+produced is retired:
+
+```yaml
+generates:
+  - name: invoice-from-proforma
+    from: Proforma
+    to: Invoice
+    event: { onTransition: Proforma, when: "Status == APPROVED" }
+    map: { Proforma: id }
+    sourceStatus: INVOICED           # forward: the proforma is done once the invoice exists
+    sourceStatusOnRetire: APPROVED   # back: voiding the invoice returns it - and the trigger re-fires
+```
+
+Voiding the invoice returns the proforma to APPROVED - a real transition of the proforma, published on
+its own [`-transitioned` channel](./glue.md#the-event-axis-lifecycle-and-process-step-events) like a
+transition somebody performed. The ordinary trigger re-fires, the guard steps over the retired invoice,
+and the replacement is minted. **The reissue is the ordinary path**, built from machinery that was
+already there - and nothing new declares what "retired" means: it is the same
+[`stage:`](#stage-what-a-status-means-to-the-lifecycle) classification the guard reads, asked from the
+other end.
+
+- It **acts only while the source still stands at this rule's `sourceStatus`.** That is the whole
+  guard - which is what makes it idempotent with no marker column: a redelivered retirement finds the
+  source already returned, and a source that has travelled further down its own lifecycle is not dragged
+  back.
+- It writes **only the status**, through the targeted single-column primitive, with the `-transitioned`
+  notice riding that write - so the flip and its announcement commit together and the create-from's own
+  listener cannot miss the moment that frees it. The retired document is left exactly as it is.
+- **Whether the replacement is immediate is the trigger's decision, not the reopen's.** Return the source
+  to the status the trigger qualifies on and the reissue happens at once. Return it to an earlier status
+  (a `DRAFT` for correction) and nothing fires until a person moves it forward - which is how a reissue
+  that should be reviewed is modelled.
+
+Refused where it could never fire, at parse: without `sourceStatus:` (there is nothing to invert), when
+it names the same status (a write that changes nothing announces nothing), on `mode: append` (no guard,
+so no slot), for a target with no status lifecycle or an unclassified nomenclature, and for a cross-model
+target (its statuses are classified in the owner model). And when the source declares a `lifecycle:`, the
+graph must declare the edge from `sourceStatus` back - that is exactly where the source stands when the
+retirement arrives, so a missing edge would fail the flip at runtime.
+
+Generated artifact: `gen/events/<module>/<ClassName>GenerateReopen.java`, a `MessageHandler` on the
+**target's** `-transitioned` topic. An intent that declares no `sourceStatusOnRetire:` regenerates
+byte-identical output.
 
 #### Cardinality - `mode: once|append`
 
