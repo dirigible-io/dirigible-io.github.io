@@ -166,6 +166,51 @@ The language a copy is **minted** in is a knob on the snapshot child:
 
 `languageFrom` is a one-hop path on the document master - a to-one relation and a string field of its target holding the language code; it works across models like any other cross-model reference. `language` fixes the code; the two are mutually exclusive. Absent both (or when the resolved value is blank), the mint uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) - so a tenant configured `bg,en` mints Bulgarian copies with no intent change, provided a `bg` template exists.
 
+## Naming the rendered file - `fileName`
+
+Both server-side renders - the copy a snapshot mints and the PDF a `notify` block attaches with `attach: print` - accept a **`fileName`** pattern: literal text and `{token}` interpolations over the record being rendered. A real archive wants a self-describing name (`SI0000042_20260822_MyCompany_AcmeLtd.pdf`), not `Order 42 v1.pdf`.
+
+```yaml
+- name: SalesInvoiceCopy
+  function: Snapshot
+  languageFrom: customer.language
+  fileName: "{number}_{date:yyyyMMdd}_{company.shortName|company.name}"
+  relations:
+    - { name: salesInvoice, kind: manyToOne, to: SalesInvoice, composition: true }
+```
+
+```yaml
+transitions:
+  - name: SendInvoice
+    forEntity: SalesInvoice
+    from: [DRAFT]
+    setStatus: SENT
+    notify:
+      to: customer.email
+      subject: "Invoice {number}"
+      body: "Please find the invoice attached."
+      attach: print
+      fileName: "{number}_{customer.name}"
+```
+
+| Token | Renders |
+| --- | --- |
+| `{field}` | a field of the rendered record |
+| `{relation.field}` | a field of a one-hop to-one relation of it |
+| `{field:pattern}` | a `date` or `timestamp` field through a `DateTimeFormatter` pattern |
+| `{A\|B}` | the first non-blank of the listed operands, left to right |
+| `{Version}` | the copy's version - a snapshot only |
+
+Tokens name the **authored** field and relation names, exactly as a notify `subject` or `body` does; the generated entity's PascalCase property is what the emitted code reads. A snapshot's pattern resolves against its **document master** (the copy row itself only carries the stored file's coordinates); a notify block's against the record that block renders. `.pdf` is appended automatically.
+
+**Values are sanitized, separators are yours.** Each interpolated value is trimmed, internal whitespace becomes one `_`, and path/control characters (`/ \ : * ? " < > |`) are removed - business data can never produce a name the file system, the CMS or a mail client rejects. Non-ASCII is deliberately kept: a document in a local language legitimately carries a non-Latin name, and keeping names Latin is an application data convention, not the platform's guess. The literal text between tokens is emitted verbatim.
+
+**Versions.** A snapshot pattern that places `{Version}` itself decides where the version goes; one that does not gets `_v<n>` appended, because two versions of a copy must never share a name.
+
+**Absent a pattern**, the name is the document's own number when the entity declares a `number:` field, else `<Entity> <id>` - plus the version on a snapshot. Note this is a **behaviour change**: the mint previously named the file after the numeric primary key (`Order 42 v1.pdf`) while the mail already used the document number, so the same document reached the archive and the customer's inbox under two different names. Both now use the same expression. Already-stored copies are untouched.
+
+**What is rejected at Generate** (not rendered empty): an unknown field or relation, a multi-hop path, unbalanced or nested braces, a date format on a non-date field, a format string `DateTimeFormatter` will not accept, a pattern that interpolates nothing, and `{Version}` on a mailed copy. A token that silently dropped would produce archive names nobody can tell apart - the failure the knob exists to fix. Two further rules: on a notify block `fileName` needs an `attach:` (a plain-text message has no file to name), and with `attach: recordPrint` only fields of the anchor are readable, because that document is rendered once before the per-row loop.
+
 ## Printing at runtime
 
 In a generated document view, the **Print** button (available while editing a record) calls the feeder for the current record, then posts the payload to the print service, which resolves the template from the CMS, binds the data, and returns a PDF:
