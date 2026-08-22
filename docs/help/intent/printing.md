@@ -64,6 +64,20 @@ Values are Mustache placeholders. A two-column header with the seller on the lef
 
 Decimal values print in the money pattern (`### ### ### ##0.00`); an unresolved placeholder renders empty (a printout never shows raw braces). Wrap an optional field in `<if source="...">` so its label does not print when the value is blank.
 
+### Alternative operands - a fallback inside the placeholder
+
+A placeholder may list several paths separated by a vertical bar, and the **first one resolving to a non-blank value wins**, left to right:
+
+```xml
+<field label="Customer">{{document.Customer.NameLocal|document.Customer.Name}}</field>
+```
+
+Every operand obeys the same path rules as a single one (the `document.` and `items.` scopes, and the row scope inside a table). "Blank" means null, missing, or whitespace-only. Any number of operands is allowed, and that is the whole grammar: no literals, no expressions.
+
+The **last** operand is rendered whatever it holds, so a lone path behaves exactly as it always has and all-blank alternatives render empty. An existing template is therefore byte-identical until it adopts the syntax.
+
+This exists because an optional twin field is the normal shape of business data. A partner record may carry a locally registered `NameLocal` next to the canonical `Name`, filled for some partners and not for others; without a fallback the template has to pick one, and every record that happens to have the other filled prints a hole in a legal document.
+
 ### Row filtering - grouped tables over one collection
 
 A `table` (or a row-expanding `for`) can filter the collection it renders - a declarative value match, never an expression: `filter="<path>"` keeps the rows whose path, resolved in the row's own scope, is truthy, and adding `match="A | B"` keeps only the rows whose value equals one of the `|`-separated literals. The same `match` on an `<if>` compares its resolved `source` against the listed values instead of testing truthiness.
