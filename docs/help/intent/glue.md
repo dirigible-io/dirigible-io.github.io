@@ -95,7 +95,7 @@ notifications:
 
 Generates a `gen/events/<Name>Notification.java` `@Listener` using `sdk.mail.Mail`, bound to the entity's create / `-updated` / `-deleted` topic. `to` and `{placeholder}` resolve a literal, a direct field, or a **one-hop `relation.field`** of a to-one relation (the listener loads the related entity once by FK id). `when:` supports a single `field ==|!= literal` guard. Multi-hop paths (`a.b.c`) are the remaining gap; the parser rejects them with a clear message.
 
-## The notify block - and `attach: print`, sending the document itself
+## The notify block - and `attach:`, sending the document or a report
 
 `to` / `subject` / `body` is one reusable **notify block**, not a shape peculiar to `notifications`. The same block is authored at every place an intent can act on a record:
 
@@ -118,7 +118,7 @@ Add **`attach: print`** and the message carries the record's **own document**: t
       # or per record: languageFrom: Customer.locale  (a one-hop relation.field holding the code)
 ```
 
-`attach` is `print` - the record the block is about - or, inside a fan-out, [`recordPrint`](#one-document-many-recipients-attach-recordprint). With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes the print-template language; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
+`attach` is `print` - the record the block is about - inside a fan-out [`recordPrint`](#one-document-many-recipients-attach-recordprint), or the map form [`{ report, bind }`](#mail-a-report-attach-report-bind) for a parameterized report render. With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes the print-template language; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
 
 ::: tip Failure semantics, per call site
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
@@ -214,6 +214,80 @@ Fail-soft per row at every call site, including a `serviceTask` (which otherwise
 recipient is skipped, a delivery failure is logged, and the step completes with a per-row summary.
 Retrying would resend to every recipient already served - a partial fan-out cannot be made idempotent.
 :::
+
+### Mail a REPORT: `attach: { report, bind }`
+
+`attach: print` carries the record's **own** document. Its sibling carries a **report** - the mailed
+artifact is a *period of rows* rather than one record's document: the customer statement, the supplier
+activity list, the monthly usage summary. A notify block names a declared report and binds its
+[`parameters:`](/help/intent/dsl-reference#reports-read-only-aggregations) from the recipient row.
+
+```yaml
+reports:
+  - name: CustomerStatement
+    source: SalesInvoice
+    dimensions: [issuedOn]
+    measures: ["sum(total)"]
+    parameters:
+      - { name: fromDate, target: issuedOn, op: ge }
+      - { name: toDate, target: issuedOn, op: le }
+      - { name: customer, target: Customer.name, op: eq, initial: "-" }
+
+schedules:
+  - name: monthly-statements
+    cron: "0 0 7 1 * ?"
+    entity: Customer
+    where: [{ field: openBalance, op: gt, value: 0 }]
+    notify:
+      to: email
+      subject: "Your statement"
+      body: "Please find attached your account statement."
+      attach:
+        report: CustomerStatement
+        bind: { customer: name, fromDate: periodStart, toDate: periodEnd }
+```
+
+`bind:` maps a **report parameter** to a field of the record the message is about, or a one-hop
+`relation.field` path on it - the same vocabulary a `{placeholder}` uses, resolved against the same
+record (inside a `forEach`, against the ROW). The report runs once per recipient with those values
+bound, and the rendered PDF is attached.
+
+`language:` / `languageFrom:` / `fileName:` work exactly as they do for a document attachment, all
+resolved against the record the message is about; absent a `fileName:` pattern the name is
+`<Report> <record>.pdf`.
+
+::: warning Every parameter that declares an `initial` must be bound
+A report parameter is bound on **every** call, so an unbound one rides its `initial` - one FIXED slice,
+identical for every recipient. That is the failure mode this rule exists for: the mail goes out, the
+attachment *is* a report, and nothing about it says it is the wrong customer's ledger. A parameter with
+no `initial` is one whose comparison has a neutral any-value default (a date window bound, a `like`
+search), so omitting it legitimately means "the whole range" - and a balance report's own `fromDate` /
+`toDate` are bindable and optional for the same reason. A bound name that is not a parameter of that
+report is a parse error too: a typo would otherwise land in the request as a key the generated
+repository never reads, and the report would be mailed unfiltered.
+:::
+
+**The layout is a `.print` template of the report's own**, seeded once per mailed report at
+`doc/Templates/<Report>/Print/en/standard.print` and developer-owned afterwards - exactly like the
+document scaffold, because a statement sent to a customer is a formatted business artifact and a later
+Generate must not overwrite a designed one. The scaffold binds the **bound parameters as the header**
+and the report's rows as the table - one placeholder per column alias the report SELECTs, so no cell can
+render empty:
+
+```xml
+<section>
+    <text>From Date: {{document.fromDate}}</text>       <!-- the bound parameters -->
+    <text>Customer: {{document.customer}}</text>
+</section>
+<table source="items">                                  <!-- the report's rows -->
+    <column width="2*" label="Issued On">{{Issued On}}</column>
+    <column width="*" align="right" label="Sum Total">{{Sum Total}}</column>
+</table>
+```
+
+The header is what states which slice the PDF is, since a table of rows never does. The template is
+written only for reports something actually mails - see [printing](/help/intent/printing) for the
+template language itself.
 
 A sending `serviceTask` stands alone: `notify` cannot be combined with `setField` / `setRelationField` / `call` / `delegate` on the same step - give the send its own step and route to it with `next`.
 
@@ -384,7 +458,7 @@ integrations:
 
 The generated handler then reads the record, loads each referenced relation once (the same one-hop mechanism a notification uses), builds the map in the authored key order and posts `Json.stringify(payload)` - so what the model says is exactly what goes on the wire.
 
-The value forms are the ones [`notify`](#the-notify-block-and-attach-print-sending-the-document-itself) already resolves, deliberately borrowed rather than invented: a **literal**, a **direct field**, or a **one-hop `relation.field`** of a to-one relation. `@config:KEY` reads the configuration, as it does in `url`. The **context tokens** are a closed set of four:
+The value forms are the ones [`notify`](#the-notify-block-and-attach-sending-the-document-or-a-report) already resolves, deliberately borrowed rather than invented: a **literal**, a **direct field**, or a **one-hop `relation.field`** of a to-one relation. `@config:KEY` reads the configuration, as it does in `url`. The **context tokens** are a closed set of four:
 
 | token | resolves to |
 | --- | --- |
@@ -745,6 +819,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Decision / form resolvers (`relation.field` at a gateway or on a task form) | implemented |
 | Notifications (email; literal / field / one-hop relation; `when`) | implemented |
 | Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
+| Mail a **report** render, scoped to its recipient (`attach: { report, bind }` - the customer statement) | implemented |
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |
 | Integrations (event to `HttpClient`) | implemented |
 | Process-step events (`onStepReached` / `onStepCompleted` on a notification, an integration, a departure or a create-from) | implemented |

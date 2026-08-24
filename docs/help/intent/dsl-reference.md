@@ -48,7 +48,8 @@ complete worked example.
 | [notify link placeholders](/help/intent/glue#links-back-to-the-application-recordurl-inboxurl-appurl) | `{recordUrl}` / `{inboxUrl}` / `{appUrl}` - a message that carries the way back into the application |
 | [`notify.forEach`](/help/intent/glue#one-message-per-related-row-foreach) | fan a notify block out over a related collection: one message per row, every bare path resolved against the row |
 | [`attach: recordPrint`](/help/intent/glue#one-document-many-recipients-attach-recordprint) | in a fan-out: attach the ANCHOR record's document, rendered once, to every recipient (`{record.<field>}` addresses that record) |
-| [the notify block / `attach: print`](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself) | send a message about a record - with the record's own document attached - from a process step, a transition or a schedule |
+| [`attach: { report, bind }`](/help/intent/glue#mail-a-report-attach-report-bind) | attach a rendered REPORT instead of a document, its declared `parameters:` bound from the recipient row - the customer statement |
+| [the notify block / `attach:`](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report) | send a message about a record - with the record's own document, or a report scoped to it, attached - from a process step, a transition or a schedule |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
 | [`integrations.payload`](#integrations-outbound-http) | the declared envelope a message carries, instead of the record as stored |
@@ -1461,9 +1462,9 @@ When the entity declares a [`lifecycle`](#lifecycle-the-legal-status-graph), a t
 presentation over its edges: its `from`/`setStatus` pair must be one of them, and the graph is what
 every OTHER writer is held to as well.
 
-The `notify:` block is the same shape a notification or a schedule uses, and `attach: print` mails the
-record's own rendered document - see
-[the notify block](/help/intent/glue#the-notify-block-and-attach-print-sending-the-document-itself).
+The `notify:` block is the same shape a notification or a schedule uses: `attach: print` mails the
+record's own rendered document, and `attach: { report, bind }` a report render scoped to it - see
+[the notify block](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report).
 
 ## postings - source-document to ledger
 
