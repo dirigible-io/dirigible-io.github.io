@@ -19,6 +19,7 @@ complete worked example.
 | [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
+| [`period` / `immutableInPeriod`](#period-immutableinperiod-date-based-immutability) | 409 on user writes to a record dated in a closed fiscal period |
 | [`lifecycle`](#lifecycle-the-legal-status-graph) | the whole legal status graph, enforced on every status write |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
@@ -319,6 +320,93 @@ controller, on every REST surface (the power controller and the partner / person
 generated UI already withheld the affordance; this is the server agreeing with it. Declare
 [`locksWithMaster: false`](#lockswithmaster-a-child-collection-that-outlives-its-master-s-lock) on a
 collection that must go on being recorded past the lock.
+
+## period / immutableInPeriod - date-based immutability
+
+`immutableWhen` freezes a record for what it **is**: a journal entry stops being editable because
+its own status says POSTED. Accounting also needs the other axis - freezing a record for **when it
+falls**. Once the accountant closes March, nothing dated in March may be created, edited or deleted
+any more, whatever status the individual record carries: not a draft nobody posted, not a document
+someone was still correcting, not a line added to an already-issued invoice. The close is the point
+at which the month's figures were reported, and they have to stop moving.
+
+Two declarations, because the two facts live in two places. A fiscal period is an ordinary entity -
+two dates and a lifecycle - so the **register** states what only the register knows:
+
+```yaml
+- name: AccountingPeriod
+  period:
+    start: startDate
+    end: endDate                       # inclusive
+    closedWhen: "Status == CLOSED"     # the immutableWhen grammar; seeded names or ids
+  fields:
+    - { name: id,        type: integer, primaryKey: true, generated: true }
+    - { name: name,      type: string, length: 100 }
+    - { name: startDate, type: date, required: true }
+    - { name: endDate,   type: date, required: true }
+  relations:
+    - { name: Status, kind: manyToOne, to: PeriodStatus, function: EntityStatus, init: OPEN }
+```
+
+...and each **guarded** entity spends one line naming the register plus which of its own dates
+decides the window it falls in:
+
+```yaml
+- name: JournalEntry
+  immutableInPeriod: { period: AccountingPeriod, date: entryDate }
+```
+
+Which date counts is a modelling decision, not a convention - the issue date, the tax event date and
+the posting date are three different answers, and different jurisdictions pick different ones - so
+it is authored, never inferred.
+
+Closing a period needs no new machinery: it is a status transition, so a
+[`transitions`](#transitions-guarded-status-flips) button, a `lifecycle` edge or a workflow
+step does it. Nothing in this construct ever writes the register.
+
+### What the lock refuses
+
+While the register row covering the record's date is closed, the REST surface answers **409**:
+
+| operation | refused because |
+| --- | --- |
+| update / delete of a record dated inside a closed window | its figures were reported |
+| **create** dated inside a closed window | this is most of what closing a period means - and unlike `immutableWhen`, which has no create to guard (a fresh record has no status yet) |
+| update that **moves** a record into a closed window | checked against the incoming date as well as the stored one, or the guard would protect only what was already there |
+
+Workflow and system writes through the repository stay possible, exactly as for `immutableWhen`: a
+correction to a closed period is a reversal booked in an open one, never an edit of the original,
+and the flow that books it has to be able to write.
+
+The `GET /{id}/mutable` pre-check the status lock already exposes answers for this guard too, so a
+directly typed `/edit` URL opens read-only instead of failing on Save. The browse tables keep their
+**baked** per-row status check, which a data-driven period lock cannot join - a row's Edit opens a
+read-only form rather than being hidden.
+
+### Rules
+
+- **A date covered by no period is open.** Periods are opened as they are needed, and an undeclared
+  future month must not freeze what is booked into it, so "no covering row" can only mean open. A
+  record whose date is unset falls in no period and stays writable.
+- **Both bounds are `date` fields and both are required.** A timestamp bound would make "the period
+  covering this date" depend on a time of day nobody authored. The end bound is inclusive.
+- `closedWhen` is the `immutableWhen` grammar over the register's **own** `function: EntityStatus`
+  relation - terms `<Status> == <seed id>` joined with `||`, [seeded
+  names](#statuses-by-name-not-by-id) accepted. A register with no such relation, or with no
+  `closedWhen`, is a validation error: nothing would ever close it.
+- **More than one covering row is not an error.** If any covering row is closed, the record is
+  frozen. Overlapping periods are a data question, not a modelling one.
+- The guarded `date` must be a `date` field of the guarded entity itself.
+- **The lock reaches the document's lines**, exactly as the status lock does - a line write
+  recomputes the master's totals, so a document dated in a closed period freezes its lines with it.
+  [`locksWithMaster: false`](#lockswithmaster-a-child-collection-that-outlives-its-master-s-lock) is
+  the same opt-out.
+- `immutableInPeriod` and `immutableWhen` **compose**: an entity may declare either, both or
+  neither, and a record frozen by either is frozen.
+- **The register is an entity of the same model.** The guard is generated alongside what it guards
+  and reads the register directly; a register owned by another model is emitted as a read-only
+  projection with no repository to query, so it is refused at generate time rather than silently
+  producing a guard that never fires.
 
 ## lifecycle - the legal status graph
 
