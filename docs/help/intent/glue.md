@@ -560,6 +560,34 @@ package and perspective from the owner's `.model` and writes through the owner's
 model must be declared in `uses:`, and an unresolvable roll-up is surfaced in the generate
 response's issues rather than dropped.
 
+The **child** may be the foreign one instead - the direction an n:m pairing forces, because a link
+entity lives with the document that owns one side of it while the other side's total belongs to the
+module that owns that side. Name the owner with `model:` and the local entity the total lands on with
+`parent:`:
+
+```yaml
+uses:
+  - { model: sales-invoices }
+rollups:
+  # CustomerPayment.allocated = the sum of the payment's allocation rows, owned by sales-invoices;
+  # unapplied = amount - allocated, the figure "is this payment fully applied?" actually asks for.
+  - { name: paymentAllocated, entity: SalesInvoiceCustomerPayment, model: sales-invoices,
+      parent: CustomerPayment, via: CustomerPayment, field: allocated,
+      op: sum, of: amount, capacity: amount, balance: unapplied }
+```
+
+The handler subscribes to the OWNER project's topic and reads the rows back through the owner's
+repository; the owner model is unchanged and unaware, and the dependency edge stays one-way. `via`
+names the foreign child's own to-one relation to the parent, and `via` / `of` / `by` are checked
+against the owner's generated model at Generate time - a property it does not declare, or a `via`
+that references some other entity, drops the roll-up with an issue rather than silently summing the
+wrong rows. Two limits worth knowing: `capacity` / `balance` / `status` are maintained (they are
+writes on the local parent) but the overdraw **guard** is not installed, because that check belongs
+to the child's own write path in the owner module - Generate says so; and moving a foreign row
+between parents repairs the parent it moved TO immediately, while the one it left is repaired only if
+the owner model publishes a re-key notice for that relation (deleting and re-creating the row is
+exact either way).
+
 ## aggregates
 
 A total over one entity's rows grouped by SEVERAL to-one relations, materialised into its own

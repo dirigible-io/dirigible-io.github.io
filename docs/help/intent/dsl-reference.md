@@ -1537,8 +1537,33 @@ owner's `.model`, so the generated handler imports `gen.<owner>.data.<perspectiv
 and writes through it. The relation's model must be declared in `uses:`; the parent field is checked
 against the owner's model at generation time, and a roll-up that cannot be resolved (undeclared model,
 unknown field) is surfaced in the generate response's issues instead of being dropped silently.
-`capacity` / `balance` / `status` stay local-only - they read the parent's own limit and status seeds
-and stamp the capacity guard on the child.
+`capacity` / `balance` / `status` stay local-only in that direction - they read the parent's own limit
+and status seeds and stamp the capacity guard on the child.
+
+The CHILD may be the foreign side instead, which is what an n:m allocation needs: the link entity
+belongs to the module that owns one side of the pairing, while the other side's total belongs to the
+module that owns it. Declare it on the parent's module with `model:` (the owner's `uses:` alias) plus
+`parent:` (the local entity the total lands on - authored, because a foreign child's relations are not
+in this document for `via` to be walked through):
+
+```yaml
+uses:
+  - { model: sales-invoices }
+rollups:
+  - { name: paymentAllocated, entity: SalesInvoiceCustomerPayment, model: sales-invoices,
+      parent: CustomerPayment, via: CustomerPayment, field: allocated,
+      op: sum, of: amount, capacity: amount, balance: unapplied }
+```
+
+`parent:` must be a local entity (a total landing in a third model is that model's roll-up to
+declare), `via` must be a to-one relation of the foreign child that references that parent, and
+`via` / `of` / `by` are validated against the owner's generated model - an unknown property, or a
+`via` pointing at another entity, drops the roll-up with an issue instead of keying the total on the
+wrong rows. Here `capacity` / `balance` / `status` DO work (they are writes on the local parent), but
+the overdraw guard is not installed - it belongs to the child's write path, which the owner module
+generates, and Generate reports that. Re-parenting a foreign row corrects the parent it moved to at
+once; the parent it left is corrected only when the owner model publishes a re-key notice for that
+relation.
 
 ## aggregates - keyed cross-entity totals
 
