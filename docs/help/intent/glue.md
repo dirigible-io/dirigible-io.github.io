@@ -34,6 +34,7 @@ A glue entry that reacts (`notifications`, `integrations`, `outbound` departures
 | Axis | Shape | Fires when |
 | --- | --- | --- |
 | entity lifecycle | `{ onCreate\|onUpdate\|onDelete: <Entity> }` | a record is created / updated / deleted |
+| entity enrichment | `{ onPhase: <Entity>, phase: <name> }` | a listener announces a declared [phase](#phases-the-enrichment-axis) of the record |
 | process step | `{ onStepReached\|onStepCompleted: { process, step } }` | a running process arrives at that step / has just finished it |
 
 ```yaml
@@ -618,6 +619,78 @@ unset - it never picks one of two candidates. Each outcome may flip the record's
 unresolved ones a worklist rather than a silent gap. The relation, the outcome and the status go out
 in one targeted `updateProperties`. See the
 [DSL reference](/help/intent/dsl-reference#resolves-fill-a-relation-from-a-register-valid-on-a-date).
+
+## phases - the enrichment axis
+
+Some of what a record needs is not known when the row is inserted. A stock movement's cost comes out
+of a moving-average pool; a snapshot column is copied from a register; an identifier comes back from
+an external system. Those values are computed by a listener on the record's own create event and
+written back afterwards - and that write-back must **not** publish, or it would re-fire every
+`onUpdate` consumer for a change the user never made.
+
+So the enrichment is silent, and that is where it used to go wrong. A posting bound to `onCreate`
+runs as a **sibling** of the enrichment listener, and two listeners on one topic have no defined
+order between them: each is its own durable subscriber. The posting could therefore read the row
+before the cost was written, and post a perfectly balanced journal entry for a null amount - with the
+parse, the generation, the compile and the publish all green. Nothing anywhere said the value was not
+ready yet.
+
+A **phase** gives that write its own channel. The entity declares the moments it announces:
+
+```yaml
+entities:
+  - name: StockMovement
+    phases: [costed]
+    fields:
+      - { name: id,        type: integer, primaryKey: true, generated: true }
+      - { name: costValue, type: decimal, precision: 18, scale: 2 }
+```
+
+The generated `StockMovementRepository` then carries one `announce<Phase>` method per declared phase,
+and the enriching listener writes **through it**:
+
+```java
+new StockMovementRepository().announceCosted(movement.Id, java.util.Map.of("CostValue", cost));
+```
+
+That is a single targeted write which also publishes the phase's topic, recorded in the tenant's
+event outbox inside the write's own transaction - so the value and the notice commit together and no
+consumer can ever observe one without the other. Any glue consumer binds the phase instead of the
+insert:
+
+```yaml
+postings:
+  - name: cogsPosting
+    event: { onPhase: StockMovement, phase: costed }
+    creates: JournalEntry
+    backReference: StockMovement
+    rule: { entity: PostingRule, match: { documentType: "Goods Issue" } }
+    items:
+      - { Account: rule(costOfSalesAccount), debit: "CostValue" }
+      - { Account: rule(inventoryAccount),   credit: "CostValue" }
+```
+
+`onPhase` is accepted by `postings`, `notifications`, `integrations`, `outbound` departures and an
+event-driven `generates`. Its `when:` guard is optional - the phase already **is** one moment, where a
+transition is any status write.
+
+::: tip Why a method and not a topic string
+The `announce<Phase>` method exists so the channel is never hand-typed. A mistyped topic string binds
+to something nothing publishes to, and the consumer simply never fires - the very silence the phase
+axis removes. A mistyped `announceCosted` is a compile error the Problems view shows.
+:::
+
+::: warning What is rejected at Generate
+A phase name that is not a lower-camel identifier (it becomes both a method name and a topic); a phase
+named after one of the platform's own channels (`updated`, `deleted`, `transitioned`, `rekeyed` -
+announcing it would re-fire that channel's consumers); a duplicate; a `phase:` key on any other axis;
+and a consumer binding a phase the entity does not declare. A cross-model source declares its phases in
+its own model, so the name cannot be checked from the consumer's side there.
+:::
+
+Declare a phase only for what a listener adds **after** the insert. A `calculatedOnCreate` expression,
+a `calculatedActionOnCreate` action, a `number:` stamp and a document's own totals are all in the row
+the create event already carries.
 
 ## Lifecycle triggers
 

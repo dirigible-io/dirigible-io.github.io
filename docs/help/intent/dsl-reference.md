@@ -460,6 +460,60 @@ read, not discovered in production.
 a status *means* (draft / live / cancelled / void) and keeps a draft or voided document out of a
 revenue total; the lifecycle says how a record may *move*.
 
+## phases - a moment an enrichment announces
+
+Not everything a record needs is known when the row is inserted. A stock movement's cost comes from a
+moving-average pool, a snapshot column is copied from a register, an identifier comes back from an
+external system - all computed by a listener on the record's create event and written back afterwards.
+That write-back must not publish an update event, or it re-fires every `onUpdate` consumer for a change
+the user never made; so it is silent, and a consumer bound to `onCreate` **races** it. Two listeners on
+one event have no order between them, so the consumer may read the row before the value is there and
+produce a plausible-looking record computed from a null.
+
+`phases:` declares the moments an entity announces, and the enrichment gets a channel of its own:
+
+```yaml
+entities:
+  - name: StockMovement
+    phases: [costed]
+    fields:
+      - { name: id,        type: integer, primaryKey: true, generated: true }
+      - { name: costValue, type: decimal, precision: 18, scale: 2 }
+```
+
+The generated repository gains one `announce<Phase>(id, values)` method per declared phase. The
+enriching listener writes through it - one targeted write carrying both the values and the notice, so
+they commit together:
+
+```java
+new StockMovementRepository().announceCosted(movement.Id, java.util.Map.of("CostValue", cost));
+```
+
+Consumers bind the phase instead of the insert:
+
+```yaml
+postings:
+  - name: cogsPosting
+    event: { onPhase: StockMovement, phase: costed }
+    creates: JournalEntry
+    backReference: StockMovement
+    rule: { entity: PostingRule, match: { documentType: "Goods Issue" } }
+    items:
+      - { Account: rule(costOfSalesAccount), debit: "CostValue" }
+      - { Account: rule(inventoryAccount),   credit: "CostValue" }
+```
+
+`onPhase` is accepted by `postings`, `notifications`, `integrations`, `outbound` and an event-driven
+`generates`; its `when:` guard is optional there, the phase already being one moment. A phase name is a
+lower-camel identifier and may not be one of the platform channels (`updated`, `deleted`,
+`transitioned`, `rekeyed`). A consumer binding a phase the entity does not declare fails the parse; a
+cross-model source declares its phases in its own model, so the name is not checked from the consumer's
+side there.
+
+Declare a phase only for what a listener adds after the insert - a `calculatedOnCreate` expression, a
+`calculatedActionOnCreate` action, a `number:` stamp and a document's own totals are already in the row
+the create event carries. See [the enrichment axis](/help/intent/glue#phases-the-enrichment-axis).
+
 ## locksWithMaster - a child collection that outlives its master's lock
 
 ```yaml
@@ -1447,6 +1501,8 @@ No match and no default - or a null selected column - skips the posting to the u
 conditional cell already branches the account, so it cannot also carry a row `when`.
 
 The trigger is `onTransition` — a status write, with the `when` status guard mandatory — or **`onCreate`**, for a source document with **no status lifecycle at all**: a booked payment's only event is being created, and it is exactly the document an accountant expects posted. `when` stays optional there as a plain `<Property> == <number>` guard; an `onCreate` posting reacts to the source's create event.
+
+A third trigger is [`onPhase: <Source>, phase: <name>`](#phases-a-moment-an-enrichment-announces), a declared enrichment moment of the source. It is the only trigger a posting may bind when the amount it posts is computed by a listener after the source row is inserted: bound to `onCreate` the posting races that listener and can post from a null. `when` is optional there too, the phase already being one moment.
 
 ```yaml
 postings:
