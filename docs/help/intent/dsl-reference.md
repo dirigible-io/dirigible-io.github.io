@@ -40,7 +40,7 @@ complete worked example.
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
 | [`settlements`](#settlements-payment-allocation) | auto-allocation of payments across open invoices |
-| [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports |
+| [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports, user-set parameters |
 | [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
 | [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
 | [`notifications`](#notifications-email-on-change) | email on create/update/delete |
@@ -1602,6 +1602,9 @@ reports:
     dimensions: ["month(orderDate)"]          # month()/year() bucket dates; relation.field joins
     measures: ["count(*)", "sum(total)"]
     filter: "total > 0"
+    parameters:                               # user-set inputs above the report - see below
+      - { name: fromDate, target: orderDate, op: ge }
+      - { name: toDate, target: orderDate, op: le }
     scope: live                               # which lifecycle rows to count - see below
     chart: bar                                # render as a chart page
     widget: { value: "sum(total)", at: { "month(orderDate)": now }, label: Revenue (this month) }
@@ -1617,6 +1620,53 @@ reports:
 
 In `filter:`, reference relations via `relation.field` (translated to a JOIN); a bare relation
 name passes into the SQL untranslated.
+
+### parameters - user-set inputs
+
+A report is often read for a period, a threshold or a name the reader chooses. `filter:` cannot do
+that - it is fixed when the report is generated - and the report page's per-column filter panel can
+only narrow the columns the report already displays. `parameters:` declares the inputs:
+
+```yaml
+reports:
+  - name: Revenue
+    source: SalesInvoice
+    dimensions: [date, Customer.name]
+    measures: ["sum(total)"]
+    parameters:
+      - { name: fromDate, target: date, op: ge }                 # From picker
+      - { name: toDate, target: date, op: le }                   # To picker
+      - { name: minTotal, target: total, op: ge, initial: "0" }  # amount threshold
+      - { name: customer, target: Customer.name, op: like }      # name search
+```
+
+Each parameter renders as an input above the report and is bound into the generated query:
+
+| key | meaning |
+| --- | ------- |
+| `name` | the input's label source and the name the value is sent under. A plain identifier. |
+| `target` | the field it filters: a field of the source, or a one-hop `relation.field` path (joined exactly like a dimension, so a parameter may filter by a column the report does not display) |
+| `op` | `ge`, `le`, `eq` or `like`. `like` matches anywhere in the value. |
+| `type` | optional: `date`, `timestamp`, `number` or `string`. The target field already types the parameter; when declared, this is checked against it. |
+| `initial` | the value bound when the input is left empty - what the report shows before the reader touches it |
+
+**A parameter is bound on every call**, so `initial` is what makes the untouched report the
+unfiltered one. Two comparisons have a neutral "any value" default and need no `initial`: a date
+`ge`/`le` bound (widened to all time) and a `like` search (the empty pattern, which matches
+everything). An `eq` selector and a numeric bound have none - declare the value the report opens
+with, e.g. `initial: "0"` for an amount threshold.
+
+A `timestamp` target is compared as a date, so a `le` bound includes the whole day chosen. A row
+holding **no** value in the target column still appears while the input is empty; once a value is
+set, that row is outside the filter.
+
+The target must be a **field**. A relation itself is not one (name a field of it: `Customer.name`),
+and `boolean` and `text` fields are not parameterizable. The name must be a plain identifier that is
+not a Java keyword and not one the platform already uses (`language`, `filter`, `limit`, `offset`,
+`repository`).
+
+A [balance report](#reports-read-only-aggregations) declares its own `fromDate`/`toDate` window; it
+may add further parameters, but not redeclare those two.
 
 ### kind: statement - balance sheets and income statements
 
