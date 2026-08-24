@@ -1668,6 +1668,97 @@ not a Java keyword and not one the platform already uses (`language`, `filter`, 
 A [balance report](#reports-read-only-aggregations) declares its own `fromDate`/`toDate` window; it
 may add further parameters, but not redeclare those two.
 
+### kind: statement - balance sheets and income statements
+
+A balance report answers "what is the balance of each account". A statutory statement asks something
+one altitude up: **what are the lines of the form, and which accounts make up each one**. The line
+structure is prescribed by the jurisdiction, the mapping from accounts to lines by the chart, and
+neither can be derived from the ledger - so `kind: statement` declares them:
+
+```yaml
+reports:
+  - name: BalanceSheet
+    kind: statement
+    source: JournalEntryItem              # the ledger line items - as for kind: balance
+    date: journalEntry.entryDate          # the date the runtime From/To pickers apply to
+    debit: debit
+    credit: credit
+    account: account.code                 # the account CODE the lines select on (a string field)
+    filter: "journalEntry.status == 2"    # only posted entries count
+    lines:
+      - { code: A.I,  label: Fixed assets, accounts: "20*,21*", measure: closingNetDebit }
+      - { code: A.II, label: Receivables,  accounts: "41*",     measure: closingNetDebit }
+      - { code: A,    label: Total assets, sum: [A.I, A.II] }
+      - { code: B.I,  label: Payables,     accounts: "40-49",   measure: closingNetCredit }
+      - { code: B,    label: Net assets,   sum: [A], less: [B.I] }
+```
+
+The report's rows are the declared `lines`, in the authored order, as three columns - **Code**,
+**Label**, **Amount** - and it carries the same runtime From/To date parameters a balance report does,
+with the same window meaning.
+
+A line is either a **leaf** or **computed**, never both. A leaf reads the ledger: `accounts` selects
+the accounts, `measure` says which of their balances to take. A computed line is arithmetic over other
+lines of the same statement, named by their `code` - `sum:` adds them, `less:` subtracts them, and a
+line may carry both. Subtotals compose, so a total may reference other totals.
+
+#### accounts - the selector
+
+Comma-separated terms over the account code; an account matching any term contributes:
+
+| term    | selects                                                                        |
+| ------- | ------------------------------------------------------------------------------ |
+| `20*`   | every account whose code starts with `20`                                       |
+| `4110`  | exactly that account                                                            |
+| `60-69` | every account starting inside the range - `601` and `6999` included             |
+
+A range compares equally long code prefixes, which is why its bounds must be the same length: a plain
+comparison of whole codes would drop `601`, since `601` sorts after `69`. An account code may hold
+letters, digits, dot and underscore; the hyphen is the range separator and a trailing asterisk makes a
+prefix.
+
+#### measure - which balance the line takes
+
+Twelve names, `opening` / `period` / `closing` crossed with `Debit`, `Credit`, `NetDebit` and
+`NetCredit`:
+
+```
+openingDebit  openingCredit  openingNetDebit  openingNetCredit
+periodDebit   periodCredit   periodNetDebit   periodNetCredit
+closingDebit  closingCredit  closingNetDebit  closingNetCredit
+```
+
+The plain four sum the raw side, which is a **turnover** - what an income statement's gross movement
+lines want. The `Net` four **net an account's two sides before the line sums it** and keep only what is
+left on the named side, which is what a balance-sheet line almost always wants:
+
+::: tip Why netting happens per account
+A settlement account is an asset when it is in debit and a liability when it is in credit, and which
+one it is this period is a fact about the data, not about the model. Put `closingNetDebit` on the
+asset line and `closingNetCredit` on the liability line and each account files itself on the right
+side - a debit balance contributes to the first and exactly nothing to the second. Netting after the
+sum instead of per account would report the section's gross turnover and silently place every
+both-type account on whichever side the section happened to be.
+:::
+
+#### Rules
+
+- `dimensions` and `measures` must be empty - the lines *are* the rows.
+- `date` must be a `date` field (a `timestamp` is rejected, as for a balance report); `debit` and
+  `credit` numeric fields of the source; `account` a `string` field, its own or one hop away.
+- Line codes are unique; every `sum`/`less` code names a declared line; the references must not form
+  a cycle.
+- A line whose accounts hold nothing renders as **zero**, not as a missing row - the structure is the
+  statement.
+- `filter:` and `scope:` restrict which ledger rows count, exactly as for a balance report.
+
+::: info The print layout stays yours
+A statement report computes the statement's **numbers**. The legally mandated form - its typography,
+its column blocks, its comparative prior-year column on paper - stays a hand-authored
+[print template](/help/intent/printing) over that result. That boundary is
+deliberate: the model expresses the mapping, a document designer expresses the form.
+:::
+
 ### scope - which lifecycle rows an aggregate counts
 
 An aggregation over an entity that carries a lifecycle (a `function: EntityStatus` relation) is
