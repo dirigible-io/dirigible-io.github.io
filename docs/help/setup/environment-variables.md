@@ -51,8 +51,9 @@ The full reference (every variable, every default) is at [`/help/reference/envir
 | `DIRIGIBLE_APP_ID` |  | This deployment's application id in the group names `<tenantId>.<appId>.<role>`. Required under `TOKEN_GROUPS`, and it must not contain a dot. |
 | `DIRIGIBLE_TENANT_GROUPS_CLAIM` | `cognito:groups` | The token claim the user's groups are read from. Set it explicitly on Keycloak. |
 | `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` | `900` | Provisioning poll cadence, in seconds. |
+| `DIRIGIBLE_TENANT_PROVISIONING_API_ENABLED` | `false` | Exposes the [tenant provisioning API](/help/setup/tenant-provisioning-api), through which an external service provisions tenants into this deployment. Off means absent, not closed. |
 
-See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution) and [Tenant provisioning API](/help/setup/tenant-provisioning-api).
 
 ## Debuggers
 
