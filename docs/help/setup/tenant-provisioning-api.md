@@ -20,23 +20,11 @@ tenant.
 DIRIGIBLE_TENANT_PROVISIONING_API_ENABLED=true
 ```
 
-Without it the API is **absent**, not merely closed: no endpoint answers under
-`/services/tenant-provisioning/` and none of its beans exist. It accepts database credentials over
-HTTP, so a deployment has to ask for it.
-
-::: warning
-Require TLS end to end. Real database credentials transit this API.
-:::
-
 ## The state a tenant sits in
 
-`PENDING_ACTIVATION` is the window between a tenant being registered and being activated. It is
-invisible to both halves of the built-in flow:
-
-| Mechanism | Acts on | So a `PENDING_ACTIVATION` tenant |
-| --------- | ------- | -------------------------------- |
-| The tenant provisioner | `INITIAL` | never gets a second database user and schema created for it |
-| `executeForEachTenant` | `PROVISIONED` | is never reached by a synchronizer, job or listener before its data source exists |
+`PENDING_ACTIVATION` is the window between a tenant being registered and being activated. The
+platform leaves such a tenant alone: it neither provisions it, since it only provisions `INITIAL`
+tenants, nor serves it, since synchronizers, jobs and listeners only run for `PROVISIONED` ones.
 
 That is what lets an external provisioner own a tenant end to end without racing the platform.
 `DELETE /services/security/tenants/{id}` accepts the state too, which is the rollback path when
@@ -67,8 +55,7 @@ have completed, and re-running the whole sequence has to converge rather than co
 
 ## Endpoints
 
-All of them are `@RolesAllowed({TENANT_PROVISIONER, ADMINISTRATOR, OPERATOR})`, and the prefix
-`/services/tenant-provisioning/**` is gated on the same three roles.
+Every endpoint below requires one of the roles `TENANT_PROVISIONER`, `ADMINISTRATOR` or `OPERATOR`.
 
 ### Register a tenant
 
@@ -119,17 +106,9 @@ PUT /services/tenant-provisioning/tenants/{tenantId}/datasources/default
 { "username": "u_acme", "password": "<secret>", "schema": "ACME" }
 ```
 
-**Credentials only.** The URL, the driver and the connection properties always come from the
-application's own default data source, so the tenant lives in the same database as the application,
-exactly as it does under the built-in flow. The definition is registered as `<tenantId>_DefaultDB`
-with location `TENANT_DEFAULT`.
-
-::: warning Why there is no `url` field
-A JDBC URL and driver properties are executable surface: an H2 URL carries
-`INIT=RUNSCRIPT FROM '<url>'` and a PostgreSQL connection property can name a `socketFactory` class.
-Accepting either from a caller would turn "may register a tenant's credentials" into "may run code on
-the application server", so they are not part of the API. A caller that sends them is ignored.
-:::
+**Credentials only.** The URL, the driver and the connection properties come from the application's
+own default data source, so the tenant lives in the same database as the application. Its data source
+is registered as `<tenantId>_DefaultDB`.
 
 | Status | Meaning |
 | ------ | ------- |
@@ -138,14 +117,9 @@ the application server", so they are not part of the API. A caller that sends th
 | `404` | there is no such tenant |
 | `502` | the credentials do not work; the body carries the database's own message, and nothing is stored |
 
-Re-registering **replaces the definition and evicts the live connection pool**. That matters: an
-initialized pool keeps the credentials it was built with whatever its definition later says, so a
-rotated password would otherwise take effect only at the next restart.
-
-The credentials are tried before they are stored, by building the pool the application will use and
-asking the driver whether the connection is usable. No SQL of the platform's own is issued, so the
-per-database validation query applies and a database whose dialect rejects a bare `SELECT 1` is not
-refused for it.
+Re-registering replaces the previous registration and rebuilds the tenant's connections, so a
+rotated password takes effect at once rather than at the next restart. The credentials are tried
+before they are stored, so a wrong password is refused and nothing is registered.
 
 ### Activate and poll
 
@@ -154,38 +128,34 @@ POST /services/tenant-provisioning/tenants/{tenantId}/activation
 GET  /services/tenant-provisioning/tenants/{tenantId}/activation
 ```
 
-`POST` answers **`202`** with a `Location` header pointing at the `GET`. It is asynchronous because
-initialization is a full multitenant synchronization pass, which takes tens of seconds to minutes -
-beyond a sane HTTP timeout.
+`POST` activates the tenant and answers **`202`** with a `Location` header pointing at the `GET`.
+It answers before the work is done, because creating a tenant's tables, jobs and listeners takes tens
+of seconds to minutes - too long for one request. Poll the `GET` until it settles.
 
-Synchronously, before answering, it validates the preconditions (`404` for an unknown tenant, `400`
-when the data source is not registered yet), moves the tenant to `PROVISIONED` and marks the
-per-tenant definitions for reprocessing. Then it hands the pass to a background executor.
+| Status | Meaning |
+| ------ | ------- |
+| `202` | accepted; the tenant is active and its initialization has started |
+| `400` | the tenant's data source is not registered yet |
+| `404` | there is no such tenant |
 
-Re-posting is safe. On an already-active tenant it is a deliberate re-initialization, which is how a
-failed one is retried.
+Re-posting is safe: on an already-active tenant it re-runs the initialization, which is how a failed
+one is retried.
 
 `GET` answers `{ "status": ..., "error": ... }`:
 
 | Status | Returned when |
 | ------ | ------------- |
-| `NOT_STARTED` | the tenant is not `PROVISIONED`: registered, perhaps with a data source, but never activated |
-| `IN_PROGRESS` | the tenant is active and some per-tenant definitions are still awaiting the pass |
-| `COMPLETED` | the tenant is active and everything reprocessed cleanly |
-| `FAILED` | something is in a persisted error state; the failures are aggregated into `error` |
+| `NOT_STARTED` | the tenant was registered, perhaps with a data source, but never activated |
+| `IN_PROGRESS` | the tenant is active and its artefacts are still being created |
+| `COMPLETED` | everything was created |
+| `FAILED` | something could not be created; `error` says what |
 
-The status is **derived, not tracked**. It is computed from durable rows every node of a cluster
-shares - the tenant's status, the synchronizer bookkeeping in `DIRIGIBLE_DEFINITIONS`, and the
-lifecycle of the artefacts themselves - so the answer is the same from any instance and survives a
-restart. There is no run registry that could disagree with reality.
+The status is worked out from what the platform has actually recorded, so every instance of a
+cluster gives the same answer and a restart does not lose it.
 
-Two consequences are worth knowing:
-
-- The signal is **batch-wide**. Tenants activated inside one synchronization window share it, so each
-  reads `IN_PROGRESS` until the window closes, and a definition error is reported to all of them
-  because definition errors are global.
-- An instance with **no per-tenant artefacts** answers `COMPLETED` at once. It has nothing to
-  materialize, which is the truth for such a deployment.
+Two things follow. Tenants activated at about the same time share one initialization, so each reads
+`IN_PROGRESS` until all of them are done, and a failure is reported for all of them. And a deployment
+with no tenant-specific artefacts has nothing to create, so it answers `COMPLETED` straight away.
 
 ## Errors
 
@@ -198,22 +168,21 @@ A refusal answers with the reason in the body, which is what a calling process b
 
 ## Authorizing the caller
 
-The caller is a machine. It presents an OAuth **client-credentials** token, and its scope becomes a
-Dirigible role through `ScopeRoleJwtAuthoritiesConverter`, which every resource-server configuration
-shares.
+The caller is a machine, so it presents an OAuth client-credentials token. The token's scope becomes
+the role that opens this API.
 
-The rule has one trap: **a scope value must contain a `/`**. Everything after the last `/` is taken
-as the scope name; a value with no separator is ignored and grants nothing. So a resource server
-named `codbex-apps` with a scope `TENANT_PROVISIONER` yields the token value
-`codbex-apps/TENANT_PROVISIONER`, whose scope name is `TENANT_PROVISIONER`.
-
-A scope name with no `.scopes` mapping becomes a role of the same name, so that alone is enough:
+A scope value has to be qualified with a `/`, and the part after the last one is the name that
+counts. A resource server `codbex-apps` with a scope `TENANT_PROVISIONER` gives the token value
+`codbex-apps/TENANT_PROVISIONER`, which grants the role `TENANT_PROVISIONER`:
 
 ```
 scope codbex-apps/TENANT_PROVISIONER  ->  role TENANT_PROVISIONER
 ```
 
-To have one scope grant several roles, declare a `.scopes` artefact:
+A scope value with no `/` grants nothing, so a bare `TENANT_PROVISIONER` will not work.
+
+That is all this API needs. To have one scope grant several roles instead, declare a `.scopes`
+artefact:
 
 ```json
 [
@@ -225,12 +194,8 @@ To have one scope grant several roles, declare a `.scopes` artefact:
 ]
 ```
 
-::: tip
-`TENANT_PROVISIONER` is deliberately **not** one of the platform's built-in roles. Trial mode
-(`DIRIGIBLE_TRIAL_ENABLED`) grants every built-in role to everyone, and a role that provisions
-tenants and accepts database credentials must never be handed out that way. Under basic
-authentication it therefore has to be created as a role explicitly.
-:::
+`TENANT_PROVISIONER` is not one of the platform's built-in roles, so a deployment using basic
+authentication has to create it as a role of its own.
 
 ## See also
 
