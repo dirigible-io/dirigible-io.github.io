@@ -83,6 +83,8 @@ DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS=30
 
 The default is `900` (15 minutes), so a freshly registered tenant becomes usable some minutes after it is created. Tenant lifecycle is driven by `TenantProvisioningStep` / `TenantPostProvisioningStep` SPI implementations. See [`/help/operate/tenants`](/help/operate/tenants).
 
+A deployment whose tenants are provisioned by an external service, rather than by the platform, can instead opt into the [tenant provisioning API](/help/setup/tenant-provisioning-api): the caller registers the tenant, hands over a database user and schema it created itself, activates it and polls the initialization.
+
 ## Authentication providers and tenants
 
 Which identity provider you use is independent of how tenants are resolved. With `TOKEN_GROUPS` the provider carries the tenant assignments as groups, so one realm or user pool serves every tenant; see [Keycloak](/help/setup/authentication/keycloak) and [Cognito](/help/setup/authentication/cognito) for the claim each one emits and what a realm needs. With `SUBDOMAIN` the provider need not know about tenants at all.
@@ -104,4 +106,5 @@ Which identity provider you use is independent of how tenants are resolved. With
 
 - [Multi-tenancy (concepts)](/help/concepts/multi-tenancy)
 - [Tenant management (operate)](/help/operate/tenants)
+- [Tenant provisioning API](/help/setup/tenant-provisioning-api)
 - [Environment variables](/help/setup/environment-variables#multi-tenancy)

@@ -52,8 +52,9 @@ For the install-oriented subset see [`/help/setup/environment-variables`](/help/
 | `DIRIGIBLE_APP_ID` |  | This deployment's application id, the middle part of the group names `<tenantId>.<appId>.<role>`. Groups naming another application are ignored, so one identity provider can serve several applications. Required under `TOKEN_GROUPS`, and it must not contain a dot. |
 | `DIRIGIBLE_TENANT_GROUPS_CLAIM` | `cognito:groups` | The token claim the user's groups are read from. Set it explicitly on Keycloak - a claim that carries no groups is not an error, the user simply appears to have no tenants. |
 | `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` | `900` | Provisioning poll cadence, in seconds. |
+| `DIRIGIBLE_TENANT_PROVISIONING_API_ENABLED` | `false` | Exposes the [tenant provisioning API](/help/setup/tenant-provisioning-api) under `/services/tenant-provisioning/`, through which an external service registers a tenant, registers its data source from credentials it created itself, and activates it. Off by default and off means absent: no endpoint answers and none of its beans exist. The API accepts database credentials over HTTP, so a deployment has to opt in. |
 
-See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution) and [Tenant provisioning API](/help/setup/tenant-provisioning-api).
 
 ## Synchronizers
 
