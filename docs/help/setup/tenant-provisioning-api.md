@@ -181,22 +181,6 @@ scope codbex-apps/TENANT_PROVISIONER  ->  role TENANT_PROVISIONER
 
 A scope value with no `/` grants nothing, so a bare `TENANT_PROVISIONER` will not work.
 
-That is all this API needs. To have one scope grant several roles instead, declare a `.scopes`
-artefact:
-
-```json
-[
-  {
-    "scope": "provisioning",
-    "roles": ["TENANT_PROVISIONER", "OPERATOR"],
-    "description": "The provisioning service"
-  }
-]
-```
-
-`TENANT_PROVISIONER` is not one of the platform's built-in roles, so a deployment using basic
-authentication has to create it as a role of its own.
-
 ## See also
 
 - [Tenant management](/help/operate/tenants)
