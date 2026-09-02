@@ -555,6 +555,17 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+A status the roll-up sets, it also lets go of. The first move into `statusWhenFull` /
+`statusWhenPartial` remembers the status it displaces in a hidden `Displaced<Status>` column the
+generator adds to the parent, and a sum that returns to zero - the only allocation deleted, amended
+to 0 or re-parented away - restores it. A paid invoice whose allocation is removed is CONFIRMED again,
+or ISSUED if it was paid straight from there - not PAID with nothing paid, invisible to the
+settlement. Only a status the roll-up itself set is relinquished: a document voided or cancelled by
+hand while partially paid stays that way when its allocation goes. There is no `statusWhenEmpty` -
+a declared return status is wrong for every document that entered the paid region from a different
+status than the declared one, and the remembered status never is. With a `lifecycle:` on the parent,
+the moves back must be declared edges just like the moves in.
+
 
 The parent may be owned by another model: with a cross-model `via` the handler resolves the parent's
 package and perspective from the owner's `.model` and writes through the owner's repository. The

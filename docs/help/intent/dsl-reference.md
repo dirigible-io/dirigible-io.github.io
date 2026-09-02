@@ -1580,6 +1580,14 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+With `capacity`, a `sum` roll-up also keeps `balance` (= `capacity - sum`) and drives the parent's
+`status` relation: `statusWhenFull` once `sum >= capacity`, `statusWhenPartial` while
+`0 < sum < capacity`. At zero it gives the status back: the first move into one of those two
+statuses remembers the status it displaced in a hidden `Displaced<Status>` column on the parent, and
+a sum that returns to zero restores it - so an invoice whose only allocation is deleted, amended to 0
+or re-parented away is CONFIRMED (or ISSUED) again rather than PAID with nothing paid. Only a status
+the roll-up itself set is ever relinquished; there is no `statusWhenEmpty`.
+
 Every `op` - `count`, `sum` and `latest` alike - recomputes on the child's create, **update** and
 delete. The update pass matters for a plain count too: a child changes parents by an ordinary edit of
 its parent relation, so without it the parent that received the child would never count it.
