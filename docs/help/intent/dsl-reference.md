@@ -56,7 +56,7 @@ complete worked example.
 | [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
-| [`permissions`](#permissions-roles) | roles |
+| [`permissions`](#permissions-roles-and-access-gates) | roles, and the access gates the generated app enforces |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
 ## entities
@@ -2181,12 +2181,71 @@ that raised the event, which is right for a channel the application owns and wro
 contract with someone else - see
 [global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system).
 
-## permissions - roles
+## permissions - roles and access gates
 
 ```yaml
 permissions:
-  - { role: Librarian, can: [Member:read, Member:write, Loan:approve] }
+  - { role: Librarian, description: Runs the desk, can: [Member:read, Member:write, Loan:create] }
+  - { role: Member,    can: [Book:read] }
 ```
+
+Each entry declares one role - emitted into `<intent>.roles`, which the platform's role
+synchronizer picks up - and the resources that role may act on.
+
+The `can: [Resource:action]` tokens are **what the generated application enforces**. A resource a
+token names is gated by the roles declared here; a resource no token names keeps the platform's
+convention gates (`<project>.<perspective>.<Entity>ReadOnly` / `<Entity>FullAccess`), which stay
+declared and grantable, so partial coverage is fine.
+
+| action | gate it grants |
+| --- | --- |
+| `read`, `view`, `list` | read |
+| `write`, `create`, `update`, `edit`, `delete`, `manage` | write, **and read with it** |
+| `*`, `all` | both |
+| anything else (`approve`, `start`, ...) | none - reported as a Generate advisory |
+
+Rules worth knowing before you author a block:
+
+- **A grant is an allow-list.** If no role may write a resource a token names, nothing may: the
+  write gate names a role that is never declared. Read-only grants mean read-only.
+- **A write grant carries the read gate**, because a caller who may change a record has to be able
+  to load it first.
+- **A composition child inherits its master's grants** when it carries none of its own. A
+  document's line items must be reachable to exactly the roles the document is.
+- **A business action has no generated URL behind it.** `Loan:approve` maps to no read/write gate,
+  so Generate names it as an advisory rather than dropping it silently; enforce it in the process
+  that owns the step, or in a hand-written constraint under `custom/`.
+- **A resource the intent does not declare is a Generate issue** - it would gate nothing, which is
+  a typo far more often than an intention. `Resource` may be an entity or a report for a
+  gate-bearing token, and a process or a form for a business action.
+- **A token that is not a `Resource:action` pair is refused at parse.** There is nothing to bind it
+  to and no reading of it that could be right.
+
+### The URL constraints (`.access`)
+
+The gates above are enforced by the generated controllers. The paths the templates publish - the
+controller subtrees, the generated pages, the report pages - are additionally gated by an
+`<intent>.access` artefact, which is **opt-in** through the project's `.settings`:
+
+```json
+{
+  "access": { "generate": true }
+}
+```
+
+It carries one constraint set per covered resource, with the resource's read roles and HTTP method
+`*`: the artefact decides whether a caller may reach the endpoint or the page at all, while the
+read-versus-write split stays in the controller, where the operation semantics live. (The method
+stays `*` deliberately - the generated controllers read through `POST .../search` and
+`POST .../count`, so a "POST means write" split would lock a read-only role out of every list.)
+It lives in `.settings` rather than in the intent because the paths belong to the templates that
+project's own generation recipes name.
+
+::: warning A hand-authored `.access` at the project root is deleted by the next Generate
+`.access` is an intent-owned extension, so the generation pass scrubs any root-level one it did not
+write. Hand-written constraints - a custom action's URL, a non-CRUD gate - belong under `custom/`,
+which the scrub never touches.
+:::
 
 ## Print, tests and the shell (generated automatically)
 
