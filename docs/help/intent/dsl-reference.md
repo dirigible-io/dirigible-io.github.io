@@ -25,6 +25,7 @@ complete worked example.
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay, on entity reads and report columns alike |
+| [`translatable: false`](#a-key-is-not-a-label-translatable-false) | keeps a key of a multilingual entity out of the `_LANG` table, so what a rule matches on cannot be translated out from under it |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | an additional calendar / range page, or a slot-booking page |
 | [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
@@ -631,6 +632,41 @@ parameter and falls back to the base value - so a report grouping by a multiling
 shows the same term as the list page beside it. Report **filters** (`filter:`, `scope:`, per-column
 conditions) stay on the base table, so translating content never changes which rows a report
 returns.
+
+### A key is not a label (`translatable: false`)
+
+Translatability is derived from the **type**, so on a multilingual entity every string property
+gets a `_LANG` column. That is right for a label and wrong for a **key** - the column a
+[posting](#postings-source-document-to-ledger)'s `rule.match` selects on, the
+business key an [arrival](/help/intent/glue#inbound-arrivals-from-outside)'s `lookup` / `by`
+resolves a relation by, a code another model refers to. Mark such a field `translatable: false`:
+
+```yaml
+entities:
+  - name: PostingRule
+    kind: setting
+    multilingual: true
+    fields:
+      - { name: id,           type: integer, primaryKey: true, generated: true }
+      - { name: name,         type: string }                       # a label - translated
+      - { name: documentType, type: string, translatable: false }  # a key - never translated
+```
+
+The field then has no `_LANG` column at all, which is the only place a translation can live: it is
+never overlaid on a read, a report column bound to it reads the stored value, and a translation
+seed that sets it is refused.
+
+::: warning Why this matters
+Without the marker the match is on a moving target. The read overlay shows the translated value,
+saving the record from the UI writes that value into the **base** column (translations are
+maintained through seeds, not the generated forms), and from then on the literal the intent was
+authored with matches nothing. Nothing fails: the posting simply never fires again for that
+language and the document sits on the unposted worklist with no explanation.
+:::
+
+Generate refuses a `rule.match` column and a lookup `by:` field that is translated, naming this
+marker - and refuses the marker itself where it cannot mean anything (a non-multilingual entity, a
+non-string field), rather than accepting it and ignoring it.
 
 ## Calculated fields / actions
 
