@@ -88,6 +88,8 @@ entities:
 
 ```yaml
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
+- { name: nationalId, type: string, label: National ID }               # the label, not the humanized name
+- { name: iban,  type: string, label: IBAN, countryLabels: { BG: ЕГН } }  # a label the tenant's country resolves
 - { name: uuid,  type: uuid, major: false }                            # auto-filled on create, off the list table
 - { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
@@ -139,6 +141,53 @@ response echoes the PERSISTED row, so the defaulted values come back to the call
 
 A header-mediated `dependsOn` copies once, when a NEW line is opened - an existing line is never
 re-copied, so changing the header later leaves already-entered lines untouched.
+
+## label / countryLabels - what a field is called
+
+A field's caption is the humanized form of its name, which cannot produce an acronym, a unit or a
+term of art: `nationalId` renders as "National Id". `label:` states it instead - and it is the
+label everywhere the field is rendered (the form caption, the list column header, the read-only
+details block), seeding the field's entry in the generated `i18n/en-US/<model>.model.json` catalog,
+so it is translated exactly like any other label. Before this the only correction was to edit that
+catalog by hand, which the next Generate overwrote.
+
+```yaml
+fields:
+  - { name: nationalId, type: string, label: National ID }
+  - { name: iban,       type: string, label: IBAN }
+```
+
+Some terms are fixed by the **company's country**, not by the language its users read the UI in. A
+national identification number is called ЕГН in Bulgaria and Steuer-ID in Germany - so the label
+cannot live in the language catalogs: an English-reading accountant at a Bulgarian company would
+see the generic term on the same record where their Bulgarian-reading colleague sees the correct
+local one, and reversing the assignment only moves the error. Declare such a label per country:
+
+```yaml
+- name: nationalId
+  type: string
+  label: National ID
+  countryLabels:
+    BG: ЕГН
+    DE: Steuer-ID
+```
+
+Keys are ISO 3166-1 alpha-2 country codes, and the tenant's country resolves them:
+**`DIRIGIBLE_APPLICATION_COUNTRY`** (blank by default), which is tenant-overridable like
+`DIRIGIBLE_APPLICATION_LANGUAGES` - set it per tenant in the application shell's *Settings > Tenant
+Configuration* page. A matching variant wins over `label:` **in every language**, since a
+country-resolved term is not a translation; a country that declares none falls back to `label:`,
+and a field that declares no label to the humanized name. A model that declares neither generates
+byte-identical output, and an application that declares no variant makes no extra request at
+runtime.
+
+A key that is not a country code (a language code, say) is rejected at Generate: it could never
+match a tenant, so the base label would keep rendering with nothing reported. A blank `label:` and
+a variant with no label are rejected for the same reason.
+
+The labels of [report](#reports-read-only-aggregations) columns are deliberately not covered: a
+report column's label is also the alias its SQL query gives the column and the `{{alias}}` key a
+print template interpolates.
 
 ## unique - a business key over more than one field
 
