@@ -830,6 +830,27 @@ through the Java SDK [`DocumentNumbers`](/sdk/numbering/documentnumbers) facade.
   slots: { start: startTime }
 ```
 
+### A calendar scoped to one record
+
+`calendar.scope` names a to-one relation the calendar filters by. The calendar page then reads
+`?<Relation>=<id>` off its own route, shows only the records of that parent, and prefills the
+relation when a day is clicked - one timesheet's day allocations rather than everybody's:
+
+```yaml
+- name: EmployeeDayAllocation
+  view: calendar
+  calendar: { start: day, title: hours, scope: timesheet }
+  relations:
+    - { name: timesheet, kind: manyToOne, to: EmployeeTimesheet, required: true }
+```
+
+The record the calendar is scoped **by** links into it: `EmployeeTimesheet`'s own surfaces - its
+form, its document header and the record pane of its browse list or master - each carry an
+"Employee Day Allocations" button that opens the calendar already filtered to that timesheet.
+Nothing is authored for the link; declaring `scope:` is enough. The scope relation must belong to
+this model, since the pages carrying the button are generated from it; a cross-model scope still
+filters, but generates no button.
+
 ### A view adds a page
 
 `view: calendar`, `view: range` and `view: slots` **add** a page - they never take one away. The
