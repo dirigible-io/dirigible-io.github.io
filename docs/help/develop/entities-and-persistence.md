@@ -144,6 +144,40 @@ export class CountryRepository extends Repository<Country> {
 }
 ```
 
+## Transactions
+
+Every repository call is its own transaction. That is right for a single write and wrong for an operation built out of several - creating a document header, its lines, and flipping the status of the record it was created from. If the third write fails, the first two are already durable: a document that exists, counts as the period's billing, and is missing exactly what it was for.
+
+Wrap such an operation in a unit of work and it becomes one transaction - all of it, or none of it:
+
+```java
+import org.eclipse.dirigible.components.data.store.java.repository.UnitOfWork;
+
+public Invoice createFrom(Integer timesheetId) {
+    return UnitOfWork.call(() -> {
+        Invoice invoice = invoices.save(header(timesheetId));
+        for (TimesheetLine line : lines.findAll(Criteria.create().eq("Timesheet", timesheetId))) {
+            items.save(item(invoice, line));
+        }
+        timesheets.updateProperty(timesheetId, "Status", INVOICED);
+        return invoice;
+    });
+}
+```
+
+`UnitOfWork.run(...)` is the same thing for a block with no result. What to know:
+
+- It is bound to the thread, so every repository the block reaches joins it - you do not pass anything around. Blocks nest, and the outermost one owns the commit.
+- Reads inside the block see the block's own uncommitted writes, so a guard that re-reads the row it just wrote behaves as it would after a commit.
+- The events the writes publish ride the same transaction and reach the broker only once the whole unit committed - never for work that was rolled back. An announcement about the unit's own outcome therefore belongs after the block, because the commit is what makes it true.
+- The change history and document-number allocation deliberately stay outside the unit, each on its own connection: a rolled-back unit can leave a history row and consume a number. Both record an attempt, not business state.
+
+### Required values
+
+A write that leaves a `NOT NULL` column empty is refused before it reaches the database, with a `ValidationException` naming the property - `SalesInvoiceItem.Quantity is required` - which the controller runtime answers as `400`. The alternative is the driver's own constraint violation as a `500`, carrying a physical column name the caller cannot map back to anything they can fix.
+
+A column carrying a `DEFAULT` is exempt: the database supplies its value, so leaving it empty is not the same as leaving it missing.
+
 ## See also
 
 - Working sample: [`dirigiblelabs/sample-java-entity-decorators`](https://github.com/dirigiblelabs/sample-java-entity-decorators).
