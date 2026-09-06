@@ -1666,6 +1666,19 @@ postings:
       - { Account: rule(receivableAccount), credit: "Amount" }
 ```
 
+**An amended source rewrites its post.** A document that is rejected, corrected and issued again
+reaches the posting's moment a SECOND time, and what was posted the first time no longer describes
+it. The handler therefore derives the whole content and compares it with the post the source already
+carries: identical is a redelivery and does nothing, different rewrites that post in place - the
+header assignments re-applied, the items replaced. There is never a second document for one source.
+
+The rewrite stops where the created document's own lifecycle says somebody has taken it over: it is
+rewritable only while its `function: EntityStatus` relation still holds the `init:` value the
+posting's own create wrote (a created document with no status lifecycle has nothing to act on, so it
+is always rewritable). Past that - the entry is posted, approved, closed - the divergence is logged
+naming both documents and the entry is left alone: unwinding a document somebody has acted on is a
+correcting entry's job, not a silent overwrite.
+
 A second posting can **reverse** the first (red storno) when the source document is voided - pair it
 with the [`transitions`](#transitions-guarded-status-flips) void that flips the source into its void
 status. The reversal inherits `creates` / `backReference` / `rule` / `map` / `items` from the sibling
