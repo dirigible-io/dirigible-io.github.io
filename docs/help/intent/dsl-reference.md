@@ -1876,6 +1876,15 @@ at the original figure. An amount corrected below what the payment already cover
 back, newest allocation first, and the `paid` roll-up follows it down. Because every delivery
 recomputes rather than appends, a re-delivered or replayed event changes nothing.
 
+**Deleting the payment takes its allocation with it.** A further handler is bound to the payment's
+delete event and removes every junction row of that payment through the junction repository, so the
+`paid` roll-up recomputes and the invoice relinquishes PAID / PARTIAL exactly as it does when an
+allocation row is deleted by hand. Nothing else could do it: a foreign key never becomes a database
+constraint on this platform, so there is no cascade, and when the payment lives in another module
+its owner knows nothing of this settlement and does not own the junction rows. Without it the rows
+outlived the payment as orphans pointing at an id that no longer existed, and the invoice stayed
+settled forever.
+
 ## reports - read-only aggregations
 
 ```yaml
