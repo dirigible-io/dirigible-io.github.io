@@ -1268,6 +1268,49 @@ status init and calculated fields fire. `map` copies a source value; `defaults` 
 date, a `month` field the current `YYYY-MM`, a `week` field the current `YYYY-Www`). The same
 rule applies to a `schedules[].generate` defaults block.
 
+### Guarding the click - `fromStatus`
+
+A create-from mints a document, and most sources can only produce one. The button, however, is offered
+on every record of the source view and the endpoint behind it answers every call the same way - so a
+proforma that has already been invoiced kept a live **Generate Invoice** button, and a double-click, or
+a second visit the next day, issued a **second invoice to the same customer**. Nothing failed; the
+duplicate is an ordinary-looking document with a number of its own.
+
+`fromStatus:` names the statuses the source may stand in for the action to run at all - the
+[`from:` of a transition](#transitions-guarded-status-flips), spelled differently only because `from:`
+on a create-from already names the source **entity**:
+
+```yaml
+generates:
+  - name: invoice-from-proforma
+    from: ProformaInvoice
+    to: SalesInvoice
+    forEntity: ProformaInvoice
+    fromStatus: [CONFIRMED]          # the source statuses this action may run from
+    sourceStatus: INVOICED           # where the proforma lands once the invoice exists
+    map: { Customer: Customer, ProformaInvoice: id }
+```
+
+- The endpoint answers **409** from any other status, naming the action and the source's current
+  status, and does so **before** anything is created - a guard asked after the document exists is not a
+  guard.
+- The contributed button carries the same guard, so it stops offering itself on a record the endpoint
+  would refuse. The 409 remains the contract: the affordance follows enforcement, it does not replace it
+  (any other caller of the endpoint meets the same refusal).
+- **A declared `sourceStatus:` implies the guard against itself.** A source standing where the
+  completion hook put it has been generated from, so that one status is refused with no `fromStatus:`
+  at all - which is what corrects a model carrying this defect today without an authoring change. An
+  explicit `fromStatus:` states the whole rule and replaces the implied one.
+- Statuses are seeded names or ids, as everywhere a status is named.
+- The guard is on the **click**. An [event-driven](#event-driven-creation-event) create-from carries the
+  at-most-once back-reference guard and qualifies its moment with `event.when:`, so `fromStatus:` on a
+  create-from that contributes no button is rejected at parse rather than silently ignored - qualify the
+  event, or add `button: true` to keep the click and its guard.
+- Also rejected at parse: `scope: page` (a whole-view action has no record whose status could be read),
+  a source declaring no `function: EntityStatus` relation (nothing to read), and a `fromStatus:` list
+  that contains the `sourceStatus` the action itself writes (it re-opens exactly the duplicate the guard
+  removes).
+
 ### Event-driven creation - `event:`
 
 A create-from may declare an `event:` and run by itself when the source reaches a state, instead of
