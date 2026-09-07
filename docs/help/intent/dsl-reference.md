@@ -291,9 +291,9 @@ token must never reference a `sensitive` field.
 
 ## checks - declarative validations
 
-Row-level `exactlyOne` / `compare` on every user write; document-level `itemsMin` / `itemsSumEqual`
-gated on a status transition - drafting stays unconstrained, and a failing transition aborts with the
-authored message.
+Row-level `exactlyOne` / `compare` / `requiredWhen` on every user write; document-level `itemsMin` /
+`itemsSumEqual` - and a `requiredWhen` that names a status - gated on a status transition, so
+drafting stays unconstrained and a failing transition aborts with the authored message.
 
 ```yaml
 - name: JournalEntry
@@ -307,6 +307,8 @@ authored message.
   checks:
     - { kind: compare, field: due,  op: ge, than: date,  message: "Due cannot be before the invoice date" }
     - { kind: compare, field: paid, op: le, than: total, message: "Paid cannot exceed the total" }
+    - { kind: requiredWhen, field: Customer.email, when: "sentMethod == 1", status: SENT,
+        message: "Sent Method is E-mail but the customer has no e-mail address" }
 ```
 
 ## checks: kind: compare - two values of one row
@@ -331,6 +333,59 @@ the moment a due date is entered behind the date.
 The alternative - a `calculatedActionOnCreate` / `calculatedActionOnUpdate` class that recomputes
 the offending value - *corrects* instead of refusing, so the person who typed the date is never told
 it was overruled, and every document type needs its own class for one comparison.
+:::
+
+## checks: kind: requiredWhen - a value required only under a condition
+
+`required: true` says a value must always be there. Most rules about a missing value are not like
+that: the value is needed for ONE way of handling the record and meaningless for the others. An
+invoice sent by e-mail needs the customer's e-mail address; one sent by post does not, and one
+handed over needs neither - so `required` on the address is not the rule, and until this kind
+existed the real one could not be declared at all. An e-mailed invoice whose customer carried no
+address therefore reached status SENT with nobody to send it to: the mail step logged a no-op for a
+recipient it did not have, nothing was stamped on the record, and the clerk who pressed the button
+was told it had succeeded.
+
+```yaml
+- name: SalesInvoice
+  checks:
+    # the value lives on the related customer, and is needed at the status that sends the document
+    - { kind: requiredWhen, field: Customer.email, when: "sentMethod == 1", status: SENT,
+        message: "Sent Method is E-mail but the customer has no e-mail address" }
+    # ...and a rule about the record's own field, holding from the first save
+    - { kind: requiredWhen, field: reference, when: "kind == 'export'",
+        message: "An export needs a reference" }
+```
+
+`field:` is the value that must be present: a field of the record, or a one-hop `Relation.field`
+over a to-one - including a relation whose target is owned by another model, walked by the same
+resolver a notification placeholder and a register lookup use. The related record is loaded and the
+field read from it, so a relation that is not set counts as an absent value and the check fires: the
+value the rule is about cannot be reached.
+
+`when:` is the condition - one or more `<Property> ==|!= <literal>` comparisons over the record's
+own properties, ANDed when given as a list. It compares strings, integers, booleans and a to-one's
+key, the types an equality is exact on; a decimal, a double or a date is refused rather than
+compared for equality. A literal that is not a value of the compared property's type is refused too,
+as is a condition without the comparison shape at all - reading an uninterpretable condition as
+"always true" would turn the entry into an unconditional `required` nobody authored, and as "always
+false" would switch the rule off, both silently. A status may be named by its seeded name, as
+everywhere else a status is referenced.
+
+`status:` is optional, and its presence decides WHEN the rule is evaluated. Without it the rule
+holds on every user write, enforced by every generated controller as an HTTP 400 carrying the
+message. With it the rule is the generated repository's and runs when the record is persisted
+carrying that status - the transition that sends the document, not the drafting before it, which is
+what makes the rule expressible at all: a record being typed has not chosen how it will be sent.
+The refusal travels on the synchronous transition path, so it reaches the person who completed the
+task rather than a background failure nobody is watching.
+
+::: tip
+The alternative is a hand-written step: a class that reads the record, a decision that branches on
+its answer, a hold task the record parks on, a form for that task and a label for it - roughly
+fifteen declarative lines plus a class for one sentence of rule, and it lands the clerk on a hold
+task instead of a refusal on the button they pressed. Placing that step AFTER the sending action is
+worse: by then the document has been sent, and the refusal has nowhere to go.
 :::
 
 ## checks: kind: guard - precondition over an aggregate
