@@ -291,8 +291,8 @@ token must never reference a `sensitive` field.
 
 ## checks - declarative validations
 
-Row-level `exactlyOne` on every user write; document-level `itemsMin` / `itemsSumEqual` gated on
-a status transition - drafting stays unconstrained, and a failing transition aborts with the
+Row-level `exactlyOne` / `compare` on every user write; document-level `itemsMin` / `itemsSumEqual`
+gated on a status transition - drafting stays unconstrained, and a failing transition aborts with the
 authored message.
 
 ```yaml
@@ -303,7 +303,35 @@ authored message.
 - name: JournalEntryItem
   checks:
     - { kind: exactlyOne, fields: [debit, credit], message: "Exactly one of debit/credit" }
+- name: SalesInvoice
+  checks:
+    - { kind: compare, field: due,  op: ge, than: date,  message: "Due cannot be before the invoice date" }
+    - { kind: compare, field: paid, op: le, than: total, message: "Paid cannot exceed the total" }
 ```
+
+## checks: kind: compare - two values of one row
+
+`compare` relates two of the record's own fields, read as `field <op> than`, where `op` is `ge`,
+`gt`, `le`, `lt`, `eq` or `ne`. It states the rule every business document has and no other kind
+can express: a due date never before the invoice date, a validity `to` never before its `from`, a
+delivery date never before the order date, an amount paid never above the total.
+
+Being row-level it holds from the first save and takes no `status` gate - it is refused with the
+authored message (HTTP 400) on every generated surface the record can be written through. Both
+operands are the entity's own **fields** (a comparison of two foreign keys means nothing) and must
+be in one comparison family: both dates, both timestamps, or both numbers of any width - numbers
+compare by value, so a `decimal` against a `long` is exact. A date against a timestamp is refused
+rather than coerced, as are a string / boolean / month operand and a field compared with itself.
+
+An **absent operand is not a violation**: a comparison is about two values that exist, and whether
+a field may be empty at all is `required:`. A record carrying no `due` passes, and starts failing
+the moment a due date is entered behind the date.
+
+::: tip
+The alternative - a `calculatedActionOnCreate` / `calculatedActionOnUpdate` class that recomputes
+the offending value - *corrects* instead of refusing, so the person who typed the date is never told
+it was overruled, and every document type needs its own class for one comparison.
+:::
 
 ## checks: kind: guard - precondition over an aggregate
 
