@@ -753,7 +753,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Glue | Status |
 | --- | --- |
 | Lifecycle triggers (process start, `when` guard, business key + timestamp strategy) | implemented |
-| Decision / form resolvers (`relation.field` at a gateway or on a task form) | implemented |
+| Decision / form resolvers (`relation.field` at a gateway or on a task form, local or **cross-model**) | implemented |
 | Notifications (email; literal / field / one-hop relation; `when`) | implemented |
 | Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
 | Schedules (cron to typed-`Criteria` query; per-row `notify` or `generate`) | implemented |

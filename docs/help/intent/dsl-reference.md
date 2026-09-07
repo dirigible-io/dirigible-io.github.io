@@ -1323,6 +1323,17 @@ forms:
     actions: [approve, reject]                    # complete the BPM task
 ```
 
+A `relation.field` entry is read-only: a resolver step generated for the process loads the related
+record before the task and publishes the field as the `<relation>_<field>` process variable the
+control binds to (a task form's model is the process variables, and the form itself - a standalone
+iframe - fetches nothing). The relation **may be cross-model**, which is what lets a document's form
+show a field of the entity another module owns - an invoice's Send form showing the customer's
+address, so the clerk sees an empty one before pressing Send. The relation's `model:` must be
+declared in [`uses`](#uses-cross-model-references), the field is checked against the **owner's**
+`.model` at generation (a field it does not declare is a 422, never a control bound to a variable
+nothing sets), and the generated resolver loads the owner's own entity. Cross-model or not, the
+control renders read-only; a multi-hop path (`a.b.c`) is rejected.
+
 ## actions - custom buttons
 
 ```yaml
