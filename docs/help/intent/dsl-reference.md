@@ -596,6 +596,62 @@ actually declare `immutableWhen` / `immutable`, so an inert declaration fails at
 instead of quietly doing nothing. A document's own **line items** are unaffected by the flag: they
 render in the items pane, not a child panel, and stay locked with the document.
 
+## whenMasterDeleted - deleting a master and the children it owns
+
+```yaml
+- name: SalesOrderItem
+  relations:
+    # deleted with the order - the default, so the key may be omitted
+    - { name: order, kind: manyToOne, to: SalesOrder, composition: true, required: true, whenMasterDeleted: cascade }
+
+- name: SalesOrderCopy
+  relations:
+    # the order cannot be deleted while a copy of it exists
+    - { name: order, kind: manyToOne, to: SalesOrder, composition: true, required: true, whenMasterDeleted: refuse }
+```
+
+`composition: true` declares ownership: the child is a detail of its master, managed under it, with a
+NOT NULL foreign key because it cannot exist without it. So a delete of the master must not leave
+those rows behind, and an orphan is a bad kind of invisible - no page renders it, since a detail is
+reached through its master and the master is gone, while every report, roll-up and aggregate over the
+child keeps counting it. A deleted vacation request left its five days charging the entitlement,
+which stayed EXHAUSTED with the request itself no longer openable.
+
+The cascade is generated for **every** composition, whether or not the key is authored, because it is
+what composition means:
+
+- Each child is deleted **through its own repository**, so its delete event fires (roll-ups and
+  aggregates over the child relinquish what they counted), its `history` trail records the deletion,
+  and its own composition children go with it - a chain of any depth unwinds level by level.
+- The master's delete and the children's are **one transaction**. A repository call is otherwise its
+  own transaction, so a failure half-way through would commit some of the children and keep the
+  record - the orphan state the cascade exists to prevent.
+- The enforcement sits in the generated repository, not in the controller, so it holds for every
+  writer: a reaction, a schedule and a cascade from a further master reach the same rows.
+
+`whenMasterDeleted: refuse` is the author's alternative for a collection that must be removed
+deliberately - a printed copy, an archived attachment. The master's delete is rejected while any such
+child exists, with a message naming both entities:
+
+```
+This Sales Order still has Sales Order Copy records - delete those first
+```
+
+That is a 400 with the message, like every other repository-enforced refusal (`checks:`, the
+`lifecycle` graph) - the generated UI surfaces it on the Delete action. Once the children are gone
+the master deletes normally.
+
+Default `cascade`. Parse-validated: the key belongs on a `composition: true` to-one, and on the
+entity's **first** composition (its ownership edge) - a later composition is emitted as a plain
+association, so the key there would ask for a cascade that never runs. Any value other than
+`cascade` / `refuse` is refused by name. A model that authors nothing generates byte-identically to
+before, save the cascade itself.
+
+Deleting a record that is under a workflow is the same question one altitude up: a process's
+`whenDeleted: abort | refuse` retires or protects the in-flight instance, while `whenMasterDeleted`
+decides the data below it. They are independent - a document under approval with lines and a
+`refuse` on either side is refused by that side.
+
 ## history - the shadow change trail
 
 ```yaml
