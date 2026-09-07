@@ -501,13 +501,19 @@ reports:
     dimensions: [Product]
     measures: ["sum(quantity)", "sum(total)"]
     widget: { kind: list, limit: 5, label: Sales by Product }
+
+  - name: RequestsByStatus
+    source: VacationRequest
+    dimensions: [Status]
+    measures: ["count(*)", "sum(days)"]     # count(*) is what the count tile sums
+    widget: { kind: count, label: Vacation Requests, icon: tree-palm }
 ```
 
-- `kind: count` (default) - the number of records the report yields.
+- `kind: count` (default) - the number of records the report yields. An **aggregating** report (one that declares `measures`) yields one row per group, so its record count is its `count(*)` measure summed over those rows - a report dimensioned by status shows 14 requests, not the 4 statuses they fall into. Such a report must therefore declare a `count(*)` measure; without one the tile has no honest number to show and generation refuses it, naming the fix. A report that does not aggregate needs nothing: one of its rows is one record.
 - `kind: value` - one aggregate cell: `value` names a declared measure; `at` pins dimension columns with equals conditions. The `now` token resolves at view time, type-aware: current `YYYYMM` on a `month(x)` dimension, current year on `year(x)`, today on a date column. Anything else is a literal.
 - `kind: list` - the report's first `limit` rows (default 5) as a compact table tile.
 
-A widget-bearing report shows the KPI tile **instead of** its dashboard preview tile (clicking still opens the full report), and declaring any widget replaces the auto per-entity count tiles. `dashboard: false` hides both tiles. `label`/`icon` (Lucide name) are optional. The same `widget` block can also be authored by hand for any standalone `.report` file via the Web IDE Report Editor's *Dashboard Widget* panel.
+A widget-bearing report shows the KPI tile **instead of** its dashboard preview tile (clicking still opens the full report), and declaring any widget replaces the auto per-entity count tiles. `dashboard: false` hides both tiles. `label`/`icon` (Lucide name) are optional. The same `widget` block can also be authored by hand for any standalone `.report` file via the Web IDE Report Editor's *Dashboard Widget* panel. The editor's panel offers the same choice: a `count` tile picks the *Count column* it sums, or leaves it empty for a report that does not aggregate.
 
 ## widgets
 
