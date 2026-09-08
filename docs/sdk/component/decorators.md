@@ -82,6 +82,7 @@ Requests dependency injection at the marked point. Valid on a **field**, a **con
 - The declared type is matched against the beans of the current generation.
 - **Collection injection**: an injection point typed as `List<T>`, `Set<T>`, or `Collection<T>` receives **every** bean assignable to `T`. This is the idiomatic way to gather all contributions to an interface (see the [extensions](/sdk/extensions/) model).
 - Unlike Spring's `@Autowired`, this injection happens through the engine's own container - client classes are not Spring-scanned, so `@Autowired` would silently no-op.
+- A BPMN [`JavaDelegate`](/help/artefacts/process/bpmn) is injected too, and is the one client class that must **not** be `@Component`: the process engine creates it, so it never becomes a bean, and annotating it builds a second fully-injected singleton that never runs.
 
 ## @Repository
 

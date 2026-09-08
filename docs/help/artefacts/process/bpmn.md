@@ -46,9 +46,33 @@ The `handler` field is a registry path to a `.js` / `.mjs` / `.ts` module. The m
 </serviceTask>
 ```
 
-The handler FQN must implement `org.flowable.engine.delegate.JavaDelegate` and have a public no-arg constructor. Compiled in the same `engine-java` cycle as all other client `.java` - it can reference sibling client classes by FQN.
+The handler FQN must implement `org.flowable.engine.delegate.JavaDelegate`. Compiled in the same `engine-java` cycle as all other client `.java` - it can reference sibling client classes by FQN.
 
-Pure Flowable binding via `flowable:class="com.acme.MyJavaTask"` is also wired. **Caveat:** `flowable:class` resolves the first generation of the class only - restart to pick up a recompiled handler. Use `${JavaTask}` for hot-reload.
+Pure Flowable binding via `flowable:class="com.acme.MyJavaTask"` is also wired, and only `flowable:class` lets Flowable inject the declared `<flowable:field>` values as delegate fields. Both bindings pick up a recompiled handler without a restart.
+
+### Collaborators
+
+A delegate takes its collaborators by **injection**, on both bindings - declare a constructor (or `@Inject` fields) and the client bean container wires the instance the engine builds:
+
+```java
+public class IssueInvoice implements JavaDelegate {
+
+    private final DocumentNumbering numbering;   // a @Component
+
+    public IssueInvoice(DocumentNumbering numbering) {
+        this.numbering = numbering;
+    }
+
+    @Override
+    public void execute(DelegateExecution execution) { ... }
+}
+```
+
+::: warning Never annotate a delegate `@Component`
+The engine creates a delegate, so it never becomes a managed bean. Annotating one makes the container build a *second*, fully-injected singleton that never runs, beside the un-injected instance that does - and the fields read `null` at runtime while the container looks correctly wired.
+:::
+
+A delegate with a plain public no-arg constructor and nothing to inject keeps working exactly as before, and `Beans.get(...)` inside `execute` remains available for a lookup that must be lazy. An `<flowable:field>` value is applied after injection, so a field name declared in the BPMN must not collide with an injected member. A dependency the container cannot satisfy unambiguously is refused, and the refusal fails that **step** - it never blocks a publish.
 
 ## Variables, gateways, user tasks, messages
 
