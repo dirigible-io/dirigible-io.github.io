@@ -34,6 +34,7 @@ complete worked example.
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
 | [`generates`](#generates-create-from) | one-click document-from-document cloning |
+| [`generates.items.where`](#which-source-rows-become-lines-where-refuse) | which of the source document's rows become target lines - and what an unqualified one costs |
 | [`generates.event`](#event-driven-creation-event) | mint the document on a source event - a status write, a create, or a process step |
 | [`generates.event.mode`](#cardinality-mode-once-append) | one target per source (`once`, default) or one per delivered event (`append`) |
 | [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
@@ -1465,6 +1466,69 @@ generates:
   a source declaring no `function: EntityStatus` relation (nothing to read), and a `fromStatus:` list
   that contains the `sourceStatus` the action itself writes (it re-opens exactly the duplicate the guard
   removes).
+
+### Which source rows become lines - `where:` / `refuse:`
+
+The mirror `items:` form above clones **every** row of the source document, which is only right when
+the whole document qualifies. Usually it does not: an unapproved member timesheet must not reach the
+customer's invoice, and one with no hours at all is a line the target refuses outright - so a single
+unfinished row used to stop the whole month from being invoiced, with nothing the model could say
+about it.
+
+`where:` is the source-row rule:
+
+```yaml
+generates:
+  - name: invoice-from-timesheet
+    from: ProjectTimesheet
+    to: SalesInvoice
+    items:
+      from: EmployeeTimesheet
+      to: SalesInvoiceItem
+      where:
+        - { field: Status,     op: eq, value: APPROVED }   # only approved member timesheets
+        - { field: totalHours, op: gt, value: 0 }          # an empty one is not a line
+      map: { Name: employeeName, Quantity: totalHours, Price: rate }
+```
+
+Every condition must hold for a row to become a line. It is the same `{ field, op, value }` triple a
+[`schedules[].where`](#schedules-cron) carries: `op` is `eq` / `ne` / `gt` / `ge` /
+`lt` / `le` / `like`, and the value may be a [moment](#schedules-cron)
+(`CURRENT_DATE`, `CURRENT_TIMESTAMP-PT30M`), resolved against the clock of the run that generates.
+The conditions narrow the very query that selects the source's rows by their master foreign key, so
+an unqualified row is never loaded at all.
+
+`field:` names a field or a to-one relation of the items `from:` entity; a condition on its own
+`function: EntityStatus` relation may use the **seeded status name**, as every other status
+reference may. It is resolved on the ITEM's nomenclature, not the document header's. An absent value
+never matches, which is what makes `gt 0` say "an empty row is not a line" directly.
+
+**Skipping is the default; `refuse:` is the other reading.** A rejected line quietly dropped from an
+invoice and a rejected line quietly billed are both wrong, for different months, so the document
+declares which it means:
+
+```yaml
+    items:
+      from: EmployeeTimesheet
+      to: SalesInvoiceItem
+      where:
+        - { field: Status, op: eq, value: APPROVED }
+      refuse: "Member timesheet is not approved"
+      map: { Name: employeeName, Quantity: totalHours, Price: rate }
+```
+
+With it, an unqualified row refuses the whole create-from with **400** carrying that message and the
+keys of the offending rows - which of a hundred lines to go and fix is the caller's whole question.
+Nothing is created: the header, its lines and the source's `sourceStatus:` flip are one transaction.
+`refuse:` without `where:` is rejected at parse - with no conditions no row is ever unqualified.
+
+**A rule that qualifies no row refuses either way.** An invoice with no lines is not the invoice that
+was asked for, and it is the harder failure to notice - it exists and counts as the period's
+billing - so the run answers 400 rather than committing the header.
+
+The rule belongs to the mirror form. The computed form - `items` as a LIST, described below - has
+no source rows to select from and guards each synthetic line with its own `when` cell instead. An
+items block that declares no `where:` regenerates byte-identical output.
 
 ### Event-driven creation - `event:`
 
