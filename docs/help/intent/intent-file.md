@@ -363,9 +363,9 @@ steps:
 
 The expire date is **re-read at task entry** by a generated loader delegate inserted before the task, so editing the date mid-flow moves the timer. A `date` field names the *last valid day* - the timer fires at the start of the day after it; a `timestamp` fires at its instant; a `null` value arms a far-future date so the timer never effectively fires. The Flowable async job executor (always active) runs the timer jobs - no configuration needed.
 
-### retry / onError - step resilience on a delegate service task
+### retry / onError - step resilience on a delegate or a notify service task
 
-A `delegate:` service task that talks to something remote - provision a schema, register a client in an identity provider, call a partner API - fails sometimes, and what happens then is part of the model, not the runtime's default. Two optional args, both on `delegate:` steps only:
+A service task that talks to something remote - provision a schema, register a client in an identity provider, call a partner API, send a mail - fails sometimes, and what happens then is part of the model, not the runtime's default. Two optional args, on the two service-task shapes whose work is such a call: `delegate:` and `notify:`.
 
 ```yaml
 processes:
@@ -380,6 +380,15 @@ processes:
       - name: provisionApp
         kind: serviceTask
         args: { delegate: AppProvisioner, uses: [dbPassword], retry: { count: 5, every: PT1M }, onError: recordFailure, next: done }
+      # a send takes the same two keys: its whole work is the message, so a delivery failure
+      # fails the task - and SMTP blinks exactly as any of the calls above does
+      - name: notifyOwner
+        kind: serviceTask
+        args:
+          notify: { to: owner.email, subject: "Tenant {title} is ready", body: "..." }
+          retry: { count: 3, every: PT30S }
+          onError: recordFailure
+          next: done
       - { name: recordFailure, kind: serviceTask, args: { setField: failureMessage, value: "{error}", next: markFailed } }
       - { name: markFailed,    kind: serviceTask, args: { setRelationField: Status, value: Failed, next: end } }
       - { name: done, kind: end }
@@ -390,6 +399,16 @@ processes:
 - `{error}` - the failure message. A `setField` value of exactly `{error}` (the whole value, nothing around it) writes the final attempt's message onto the record. It is only resolvable on a step reachable from some `onError` route - nothing else ever populates it - and the parser rejects it anywhere else.
 
 The failed attempt that routes to `onError` commits the error-path writes (the message variable, the status set) like any caught BPMN error; the intermediate retried attempts roll back as plain job failures.
+
+#### Why a send, and where the keys are refused
+
+A `notify:` step's whole work is the message, so unlike a transition's notify it **fails the task** on a delivery error. Without the two keys that failure takes the engine's default path and ends as an incident on the JOB - so a record whose real work completed sat in its in-progress status with no error message and no failure status, and the only way to contain the damage was to make the send the **last** step of the process. Declaring `retry:` recovers a transient SMTP failure by itself, and `onError:` puts the exhausted one on the record - which is what lets the send sit wherever the domain wants it.
+
+Both keys are refused, at parse time, wherever the declaration could never fire:
+
+- **on a `setField` / `setRelationField` step** - a status write is refused by the model's own gates (`checks:`, `lifecycle:`), and a gated one runs inside the transaction of the user action that reached it precisely so the refusal reaches the person who acted; routing it away would take that message out of their hands, and re-attempting a deterministic refusal recovers nothing;
+- **on a `call:` step or a bare service task** (neither `delegate:` nor `notify:`) - not covered; bind the handler with `delegate:` if it needs resilience;
+- **on a fan-out send** (a `notify:` carrying `forEach:`) - a fan-out is fail-soft **per row** by construction, since one unreachable mailbox must not abort the rows after it and re-attempting the whole step would mail everyone who already received the message a second time. The step never fails, so neither key could fire. Observe those deliveries instead: `outcome: <string field>` stamps `sent` / `failed: <reason>` per row, and `event: { onNotifyFailed: <Entity> }` is the axis a reaction binds to.
 
 ### vars - declared step data
 

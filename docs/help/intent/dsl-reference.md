@@ -1054,11 +1054,11 @@ a different one. **`timeout:`** / **`expire:`** are boundary timers on a user ta
 ISO-8601 duration for a non-cancelling reminder, `until:` a `date`/`timestamp` field re-read at task
 entry for a cancelling expiry. Details: [processes](/help/intent/intent-file#processes).
 
-A `delegate:` step's failure is modelled too - **`retry:`** re-attempts it on a declared cycle,
-**`onError:`** routes the exhausted (or non-retried) failure like a decision branch, and a
-`setField` value of **`{error}`** records the final attempt's message on the record. Declared step
-data (`vars:` + `produces:` / `uses:`) makes the variables a delegate exchanges part of the model,
-and `clearAfter:` removes a produced secret once its consuming step completes:
+A step's failure is modelled too - **`retry:`** re-attempts it on a declared cycle, **`onError:`**
+routes the exhausted (or non-retried) failure like a decision branch, and a `setField` value of
+**`{error}`** records the final attempt's message on the record. Declared step data (`vars:` +
+`produces:` / `uses:`) makes the variables a delegate exchanges part of the model, and `clearAfter:`
+removes a produced secret once its consuming step completes:
 
 ```yaml
 vars:
@@ -1076,8 +1076,13 @@ steps:
 
 `retry.count` is how many **further** attempts follow the first (an integer >= 1), `retry.every` an
 ISO-8601 duration; an undeclared `produces` / `uses` name is a parse error, and `{error}` is valid
-only on a step reachable from an `onError` route. Both `retry` and `onError` apply to `delegate:`
-service tasks only. Details: [retry / onError](/help/intent/intent-file#retry-onerror-step-resilience-on-a-delegate-service-task).
+only on a step reachable from an `onError` route. Both keys apply to a `delegate:` and to a
+`notify:` service task - a send's whole work is the message, so a delivery failure fails the task
+and, undeclared, ends as an incident on the job rather than on the record. They are refused on a
+setter step (a gated status write is refused synchronously to the person who acted), on a `call:` or
+bare service task, and on a **fan-out** send, which is fail-soft per row and never fails at all -
+use `outcome:` and `onNotifyFailed` there.
+Details: [retry / onError](/help/intent/intent-file#retry-onerror-step-resilience-on-a-delegate-or-a-notify-service-task).
 
 A **`parallel`** step runs branch steps **concurrently** and rejoins before `next` - two independent
 reviews of one order at once instead of one after the other:
