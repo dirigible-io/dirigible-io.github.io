@@ -1891,6 +1891,13 @@ it. The handler therefore derives the whole content and compares it with the pos
 carries: identical is a redelivery and does nothing, different rewrites that post in place - the
 header assignments re-applied, the items replaced. There is never a second document for one source.
 
+The rewrite is **one transaction**: the rows it replaces, the header and every derived line either
+all become durable or none of them does. Written as separate transactions, a line a validation
+refuses halfway leaves a header with a partial set of lines - an unbalanced entry - and nothing ever
+comes back to repair it, because the source has already reached its moment and raises no further
+event. That is worse than the stale but balanced post the rewrite set out to fix, so the whole post
+is written together or not at all.
+
 The rewrite stops where the created document's own lifecycle says somebody has taken it over: it is
 rewritable only while its `function: EntityStatus` relation still holds the `init:` value the
 posting's own create wrote (a created document with no status lifecycle has nothing to act on, so it
