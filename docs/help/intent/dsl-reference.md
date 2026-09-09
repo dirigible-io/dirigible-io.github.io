@@ -1853,6 +1853,12 @@ postings:
       - { Account: rule(vatAccount),        credit: "Vat", when: "Vat != 0" }
 ```
 
+`rule.match` is a single `column: literal` selector, and the literal has to say something. It is
+rendered into the generated handler AS the authored literal, so a blank one looks up the empty string:
+it matches no rule row, and the posting then skips every source document to the unposted worklist with
+nothing failing anywhere - the intent, the generation and the publish are all green. An empty or
+omitted match value is therefore refused when the intent is read.
+
 **Conditional rule column.** When the account column must be chosen by a source value (a payment posts
 to the bank account for a transfer, the cash account for cash), a single item row selects the rule
 column by a classifier instead of duplicating the row per case - the same `by` / `cases` / `default`
