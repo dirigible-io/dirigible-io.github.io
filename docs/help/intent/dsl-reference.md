@@ -235,9 +235,54 @@ not retrofit itself onto that table - the same caveat every schema change carrie
 
 Entity-level extras: `order: [Id, Product, Quantity, ...]` sequences form controls and list
 columns; `duplicable: true` adds a Duplicate button on a document (clones header + items through
-the normal create path); `imports: |` injects Java import lines into the generated repository
-(pairs with calculated actions); `aggregate: true` on a document master's numeric field keeps it
-equal to the sum of the items' same-named field (the totals footer).
+the normal create path - see [duplicable](#duplicable-what-a-copy-does-not-carry-over)); `imports: |`
+injects Java import lines into the generated repository (pairs with calculated actions);
+`aggregate: true` on a document master's numeric field keeps it equal to the sum of the items'
+same-named field (the totals footer).
+
+## duplicable - what a copy does not carry over
+
+```yaml
+- name: SalesInvoice
+  duplicable:
+    defaults: { date: now }        # constants written into the clone
+    reset: [due, taxEventDate]     # dropped, so the entity's own create-time rule refills them
+```
+
+`duplicable: true` puts a **Duplicate** button on a document. It clones the header plus its line
+items into a new draft and opens it, through the normal create path, so the number, the initial
+status, the audit columns and every calculated or aggregate field are reassigned by the server.
+
+Everything else is copied - which is wrong for exactly the fields a business rule says must be
+fresh. Copied verbatim, "same invoice as last month" opens dated last month, due last month, with
+last month's tax event. A `calculatedActionOnCreate` cannot repair that: those fill an **empty**
+value and respect a present one, which is precisely what makes the copied value stick.
+
+The object form states the difference:
+
+* **`reset:`** - for a field that HAS a create-time rule (a `calculatedActionOnCreate`, a
+  `defaultValue`). Each name is dropped from the clone, so the create fills it exactly as it would
+  on a hand-made document.
+* **`defaults:`** - for a field that has none, where the copy needs a value stated here. `now` is
+  today in the field's own shape (a `date` field -> `YYYY-MM-DD`, a `month` field -> `YYYY-MM`, a
+  `week` field -> `YYYY-Www`) - the same token `generates.defaults` takes; any other value is a
+  literal coerced to the property's type. Written after the resets.
+
+Both keys name the entity's own fields and to-one relations; no `relation.field` paths. Anything
+not named is copied, as before, and `duplicable: true` on its own generates exactly what it always
+did.
+
+::: warning Refused at parse
+A name that is neither a field nor a to-one relation of the entity; one that is dropped anyway (the
+primary key, the `number:` field, the `function: EntityStatus` relation, a `readOnly` or an
+`aggregate` field) - naming it would let you believe you control something the Duplicate decided
+long before reading this block; the same name in both lists; `now` on a property that is not a date
+/ month / week; and a `reset` on a **required** field with neither a `defaultValue` nor a
+create-time rule, which would make every duplicate fail on the server's own "field is required".
+:::
+
+The copy is made by the document page, one request per line, and is not atomic: a line that fails
+leaves a half-copied draft, which the user can complete or delete.
 
 ## defaultValue - field defaults
 
