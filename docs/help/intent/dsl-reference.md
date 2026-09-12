@@ -21,6 +21,7 @@ complete worked example.
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`period` / `immutableInPeriod`](#period-immutableinperiod-date-based-immutability) | 409 on user writes to a record dated in a closed fiscal period |
 | [`lifecycle`](#lifecycle-the-legal-status-graph) | the whole legal status graph, enforced on every status write |
+| [a status the flow writes](#a-status-the-flow-writes-is-the-flows-own) | 409 on a direct create/update of a status a `processes:` flow drives |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
@@ -593,6 +594,49 @@ read, not discovered in production.
 `lifecycle:` composes with [`stage:`](#stage-what-a-status-means-to-the-lifecycle): a stage says what
 a status *means* (draft / live / cancelled / void) and keeps a draft or voided document out of a
 revenue total; the lifecycle says how a record may *move*.
+
+## A status the flow writes is the flow's own
+
+An entity whose status is driven by a `processes:` flow declares, by declaring the flow, who moves
+that column. Until the generated controllers knew that, the `function: EntityStatus` relation was an
+ordinary writable property on every REST surface, and a direct write moved the document anywhere:
+
+```
+PUT /.../VacationRequestController/7
+{ ..., "Status": 3 }          # 3 = APPROVED
+-> 200
+```
+
+The record is APPROVED with the flow bypassed end to end - the capacity check never ran, no manager
+ever saw a task, the delegate that charges the employee's leave account never ran. The document reads
+approved and the accounts do not know about it.
+
+So when a `processes:` step writes the status (`setRelationField`), every generated controller -
+power, personal and partner - refuses a create or update that sets or changes that column:
+
+```
+409  'Status' changes through the workflow, not a direct edit
+```
+
+Nothing the model declares loses a way to move the status: a workflow step and a
+[`transitions`](#transitions-guarded-status-flips) button write the column through the targeted
+write path, never through a whole-record create or update.
+
+**What is deliberately not refused:**
+
+- **An absent value.** A caller sends the fields its form edits, so a payload that does not mention
+  the status keeps the stored one - which is also what stops a partial update from erasing it.
+- **A create carrying the declared start.** With `init:` on the status relation, a create naming
+  exactly that status is accepted; any other value is refused, as is any value at all when no `init:`
+  is declared. A record cannot be created in the middle of its own flow.
+
+**A `transitions` button alone does not claim the column.** A button is a user action over a status a
+person may also hold otherwise, and the construct that guards every other hand write is
+[`lifecycle:`](#lifecycle-the-legal-status-graph) - enforced in the repository precisely because
+writers other than the button exist. Closing the plain write wherever a button exists would leave an
+unmodeled move reachable from nowhere and the state machine's refusal observable from nowhere.
+
+An entity whose status no flow writes generates exactly as before.
 
 ## phases - a moment an enrichment announces
 
