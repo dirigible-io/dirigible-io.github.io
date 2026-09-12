@@ -1057,9 +1057,17 @@ on the personal shell; `partner: true` the mirror `<Entity>PartnerController` on
 (`/services/web/partner/`, gated by the Customer / Supplier / Partner IdP roles). A `sensitive:
 true` field is stripped from those scoped responses and ignored on their writes (enforced
 server-side, not merely hidden). The regular controller is unaffected; an entity may carry both.
-`personalReadOnly: true` (with `personal: true`) makes the personal surface see-only - the scoped
-writes are refused and the pages render no new/edit/delete - for records the owner may see but
-never author (a balance, a payslip); composition children inherit it through the parent.
+`personalReadOnly: true` makes a personal surface see-only - the scoped writes are refused and the
+pages render no new/edit/delete. Alongside `personal: true` it closes the declaring entity's own
+surface, for records the owner may see but never author (a balance, a payslip). On a **composition
+relation** it closes only that child's inherited surface while the parent stays writable - the scope
+still comes from the parent, the writes do not - which is the shape of a header the owner authors
+whose lines a generator writes (a leave request whose day rows the approval flow charges against an
+entitlement): the child's `<Child>MyController` answers 403 and the parent's my/document page renders
+no Add on that items panel, no row actions and no Add on that child panel, while the header keeps its
+Save and Delete. The key is refused where it would be carried nowhere - on a relation that is neither
+`personal: true` nor a composition, on a second composition of the same entity, or on a child whose
+master has no personal surface to inherit.
 
 **Act as (delegated entry).** At runtime an ADMINISTRATOR can arm an *acting identity* for their
 session (`/services/core/actas`; the shells offer it as "Enter data as..." / "Act as...") and work
