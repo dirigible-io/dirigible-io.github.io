@@ -277,8 +277,9 @@ A name that is neither a field nor a to-one relation of the entity; one that is 
 primary key, the `number:` field, the `function: EntityStatus` relation, a `readOnly` or an
 `aggregate` field) - naming it would let you believe you control something the Duplicate decided
 long before reading this block; the same name in both lists; `now` on a property that is not a date
-/ month / week; and a `reset` on a **required** field with neither a `defaultValue` nor a
-create-time rule, which would make every duplicate fail on the server's own "field is required".
+/ month / week; and a `reset` on a **required** value the create cannot fill on its own - a field
+with neither a `defaultValue` nor a create-time rule, or a to-one relation with no `init:` - which
+would make every duplicate fail on the server's own "field is required".
 :::
 
 The copy is made by the document page, one request per line, and is not atomic: a line that fails
