@@ -570,7 +570,10 @@ the moves back must be declared edges just like the moves in.
 The parent may be owned by another model: with a cross-model `via` the handler resolves the parent's
 package and perspective from the owner's `.model` and writes through the owner's repository. The
 model must be declared in `uses:`, and an unresolvable roll-up is surfaced in the generate
-response's issues rather than dropped.
+response's issues rather than dropped. `capacity` and `balance` work there too, overdraw guard
+included - the capacity is read off the foreign parent and the guard that refuses an overdrawing row
+is emitted into the child's repository, which is local on that direction. Only `status` stays
+local-only, since it moves the parent through the owner's own status seeds.
 
 The **child** may be the foreign one instead - the direction an n:m pairing forces, because a link
 entity lives with the document that owns one side of it while the other side's total belongs to the
