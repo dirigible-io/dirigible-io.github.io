@@ -2086,8 +2086,16 @@ owner's `.model`, so the generated handler imports `gen.<owner>.data.<perspectiv
 and writes through it. The relation's model must be declared in `uses:`; the parent field is checked
 against the owner's model at generation time, and a roll-up that cannot be resolved (undeclared model,
 unknown field) is surfaced in the generate response's issues instead of being dropped silently.
-`capacity` / `balance` / `status` stay local-only in that direction - they read the parent's own limit
-and status seeds and stamp the capacity guard on the child.
+
+`capacity` and `balance` work in that direction, **overdraw guard included**: the capacity is a read
+of one numeric column of the foreign parent, the balance is a second column on the targeted write the
+sum already makes, and the guard that refuses a child row overdrawing the parent is emitted into the
+CHILD's repository - which is local here, since the child owns the event. That is what lets both sides
+of an allocation be guarded from the module that owns the link rows ("an invoice cannot be paid past
+its payable" and "a payment cannot be applied past its amount" are one sentence for the business).
+`capacity` / `balance` are checked against the owner's model like `field`, and a `balance` with no
+`capacity` is refused at parse (the balance IS `capacity - sum`). `status` stays local-only: it moves
+the parent through the owner's own status seeds and its displaced-status column.
 
 The CHILD may be the foreign side instead, which is what an n:m allocation needs: the link entity
 belongs to the module that owns one side of the pairing, while the other side's total belongs to the
