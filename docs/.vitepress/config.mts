@@ -503,6 +503,7 @@ function helpSidebar() {
             { text: 'Cognito', link: '/help/setup/authentication/cognito' },
             { text: 'Snowflake', link: '/help/setup/authentication/snowflake' },
             { text: 'First-Party Sign-In', link: '/help/setup/authentication/first-party-sign-in' },
+            { text: 'External Frontends', link: '/help/setup/authentication/external-frontends' },
           ],
         },
         { text: 'Multi-tenancy', link: '/help/setup/multi-tenancy' },

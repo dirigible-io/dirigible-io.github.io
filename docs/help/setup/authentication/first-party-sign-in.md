@@ -132,5 +132,6 @@ The page itself must be publicly served, which takes three artefacts in the host
 
 - [Amazon Cognito](/help/setup/authentication/cognito) - profile setup and the SRP specifics
 - [Keycloak](/help/setup/authentication/keycloak) - profile setup
+- [External Frontends](/help/setup/authentication/external-frontends) - a frontend hosted elsewhere, calling the platform with bearer tokens and exchanging one for a session
 - [Environment variables](/help/setup/environment-variables)
 - [sample-native-login](https://github.com/dirigiblelabs/sample-native-login) - the reference login page
