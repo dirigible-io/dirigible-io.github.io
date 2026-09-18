@@ -73,6 +73,8 @@ client.activate();
 
 Every frame is authorized: a CONNECT needs a principal (the bearer token, or the cookie session of a page served by the platform), a client may subscribe to its own `/user/queue/**` destinations only and send to the application destinations under `/ws/**` only. Anything else - an anonymous CONNECT, a subscription to `/topic/**` or to another user's queue, a direct publish to a broker destination - is answered with an ERROR frame reading `Unauthorized` and the connection is closed. A session opened with a token ends when the token expires.
 
+Connect over the WebSocket transport, as the example does, or over SockJS: the endpoint at `/stomp` checks origins itself, against the same list, and answers its own CORS - with credentials, as the SockJS transports require, whatever `DIRIGIBLE_CORS_ALLOW_CREDENTIALS` says for the rest of the platform. A script running on the platform reaches a Dirigible broker through the `websockets` API with the CONNECT headers as the third argument: `Websockets.createWebsocket(uri, handler, { Authorization: "Bearer " + idToken })` - see [Websockets](/api/net/websockets).
+
 ## Exchange a token for a session
 
 The platform's cookie-based surfaces - the IDE, a generated application shell - can be opened by a token client as the same user through `POST /login/token`:
@@ -99,6 +101,8 @@ The session is filed under the profile's client registration (`cognito` or `keyc
 
 The cookie is meant for pages served by the platform itself. Its attributes are unchanged - in particular there is no `SameSite=None` - so a page on another site cannot use it cross-site, which is intended.
 
+The session is not consulted with the identity provider again. A hosted-login session is re-validated through its refresh token whenever the access token expires. A token-minted session has none and lives until the ID token's `exp`, so a user disabled at the provider keeps it until then - exactly as long as the token itself would be accepted as a bearer. Keep the lifetime of ID tokens short accordingly.
+
 ## What changes for existing deployments
 
 These apply without any configuration:
@@ -106,7 +110,7 @@ These apply without any configuration:
 - An ID token presented as a bearer token used to pass on signature and expiry alone and to act as its `sub` with no roles. It is now verified like a login and acts as the user it names: the user name is the principal claim (`email` on Cognito, `preferred_username` on Keycloak) and the roles are those of its groups. An ID token of another application of the same user pool or realm is refused (audience check), as is one without the principal claim, one whose `email` is the name but is not verified (`DIRIGIBLE_OAUTH2_JWT_REQUIRE_VERIFIED_EMAIL`), and a Keycloak token whose `typ` is neither `ID` nor `Bearer` - or that carries no `typ` at all, since Keycloak types every token it issues and an untyped one is another issuer's. A deployment that keyed data on the `sub` of such tokens sees the user name change.
 - Access tokens keep their rules (signature, expiry, `sub` as the name, roles from scopes) and are additionally checked against the issuer of the profile - `DIRIGIBLE_OAUTH2_JWT_ISSUER_URI` overrides it where the tokens name the provider by another URL.
 - On the `basic` and `snowflake` profiles, cross-origin requests no longer carry credentials - a bearer token still works from any origin.
-- The STOMP broker requires an authenticated CONNECT and restricts destinations as described above. Anonymous STOMP clients stop working.
+- The STOMP broker requires an authenticated CONNECT and restricts destinations as described above. Anonymous STOMP clients stop working - the platform's own `websockets` API client included, which connects with a bare CONNECT unless it is given the headers: `Websockets.createWebsocket(uri, handler, { Authorization: "Bearer " + token })`.
 - On the OAuth2 profiles a bearer or anonymous request no longer creates a session.
 - In the single-pool and single-realm multi-tenant modes an ID token must carry the `custom:tenant` claim of the host's tenant - an access token without the claim passes as before.
 
