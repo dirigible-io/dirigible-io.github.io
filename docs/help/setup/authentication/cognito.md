@@ -47,9 +47,14 @@ Since 14.30 the application can host its own credential form instead of the Cogn
 - Pools with threat protection keep their risk scoring when the login page forwards the client-side collector blob as `userContextData`.
 - The native flow needs no registered callback URLs; only the federated deep link and logout still do (they complete through the hosted endpoints).
 
+## External frontends
+
+A frontend hosted elsewhere calls the platform with the tokens Cognito issued to it: allow its origin with `DIRIGIBLE_CORS_ALLOWED_ORIGINS` and send the **ID token** as a bearer token to act as the user - see [External Frontends](/help/setup/authentication/external-frontends). ID tokens must be issued for `DIRIGIBLE_COGNITO_CLIENT_ID` and carry a verified e-mail address. Machine-to-machine (M2M) access tokens keep working as before, and are held to their `client_id` only once `DIRIGIBLE_OAUTH2_JWT_AUDIENCES` is set.
+
 ## See also
 
 - [First-Party Sign-In](/help/setup/authentication/first-party-sign-in)
+- [External Frontends](/help/setup/authentication/external-frontends)
 - [Multi-tenancy setup](/help/setup/multi-tenancy)
 - [Authentication overview](/help/setup/authentication/)
 - [Security model](/help/concepts/security-model)
