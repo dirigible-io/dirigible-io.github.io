@@ -15,7 +15,7 @@ Everything below is opt-in. A deployment that sets none of the variables behaves
 DIRIGIBLE_CORS_ALLOWED_ORIGINS=https://app.example.com,capacitor://localhost,tauri://localhost
 ```
 
-Origin patterns are accepted (`https://*.example.com`). A pattern must name a host to be usable with credentials or on the STOMP handshake - a bare `*` or `https://*` serves bearer clients over HTTP and nothing else. The other `DIRIGIBLE_CORS_*` variables carry sensible defaults - the `Authorization` header is granted, credentials are not. See [Environment variables](/help/reference/environment-variables#cors).
+Origin patterns are accepted (`https://*.example.com`). A pattern must name a host to be usable with credentials or on the STOMP handshake - a pattern whose host is only wildcards (`*`, `https://*`, `https://**`) serves bearer clients over HTTP and nothing else. The other `DIRIGIBLE_CORS_*` variables carry sensible defaults - the `Authorization` header is granted, credentials are not. See [Environment variables](/help/reference/environment-variables#cors).
 
 ::: warning Credentials are not for token clients
 `DIRIGIBLE_CORS_ALLOW_CREDENTIALS=true` lets the listed origins send the session cookie. The platform runs without CSRF tokens, so such an origin is fully trusted with the sessions of signed-in users. A client that sends bearer tokens never needs it, and it is refused together with a wildcard origin.
