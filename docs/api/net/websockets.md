@@ -26,12 +26,13 @@ The Websockets module provides an API for managing WebSocket clients and handlin
 ```ts
 import { Websockets } from "@aerokit/sdk/net";
 
-// Create a new WebSocket client connection
+// Create a new WebSocket client connection and send to a STOMP destination of the broker
 const client = Websockets.createWebsocket("ws://example.com/socket", "myHandler");
-client.send("Hello, WebSocket!");
+client.send("Hello, WebSocket!", "/app/greetings");
 
-// A Dirigible broker needs the CONNECT frame authenticated
+// A Dirigible broker needs the CONNECT frame authenticated; its application destinations are /ws/stomp/<endpoint>
 const dirigible = Websockets.createWebsocket("wss://dirigible.example.com/stomp", "myHandler", { Authorization: "Bearer " + idToken });
+dirigible.send("hello", "/ws/stomp/my-endpoint");
 
 // Access event details in an 'onmessage' handler
 if (Websockets.isOnMessage()) {
@@ -214,3 +215,28 @@ Checks if the current event context is 'onclose'.
 > - **Type**: `boolean`
 > - **Description**: True if the method is 'onclose'.
 >   :::
+
+### WebsocketClient
+
+The wrapper `createWebsocket()`, `getClient()` and `getClientByHandler()` return - the connected STOMP session.
+
+#### send()
+
+Sends a text message over the connection.
+
+> ```ts
+> send(text: string, destination?: string): void;
+> ```
+>
+> | Parameter     | Type     | Description                                                                                                                                                                                                                           |
+> | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+> | `text`        | `string` | The message to send.                                                                                                                                                                                                                  |
+> | `destination` | `string` | Optional STOMP destination. A Dirigible broker routes its application destinations `/ws/stomp/<endpoint>` to the handler of that endpoint. Without it the connection URI is sent as the destination, which no broker routes anywhere. |
+
+#### close()
+
+Closes the connection.
+
+> ```ts
+> close(): void;
+> ```

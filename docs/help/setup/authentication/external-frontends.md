@@ -15,7 +15,7 @@ Everything below is opt-in. A deployment that sets none of the variables behaves
 DIRIGIBLE_CORS_ALLOWED_ORIGINS=https://app.example.com,capacitor://localhost,tauri://localhost
 ```
 
-Origin patterns are accepted (`https://*.example.com`). The other `DIRIGIBLE_CORS_*` variables carry sensible defaults - the `Authorization` header is granted, credentials are not. See [Environment variables](/help/reference/environment-variables#cors).
+Origin patterns are accepted (`https://*.example.com`). A pattern must name a host to be usable with credentials or on the STOMP handshake - a bare `*` or `https://*` serves bearer clients over HTTP and nothing else. The other `DIRIGIBLE_CORS_*` variables carry sensible defaults - the `Authorization` header is granted, credentials are not. See [Environment variables](/help/reference/environment-variables#cors).
 
 ::: warning Credentials are not for token clients
 `DIRIGIBLE_CORS_ALLOW_CREDENTIALS=true` lets the listed origins send the session cookie. The platform runs without CSRF tokens, so such an origin is fully trusted with the sessions of signed-in users. A client that sends bearer tokens never needs it, and it is refused together with a wildcard origin.
@@ -36,6 +36,8 @@ A Keycloak client library hands you both tokens. Send the ID token to act as the
 
 Under the `TOKEN_GROUPS` tenant resolution strategy a bearer request runs in the default tenant with the user's global roles only.
 A user with no global role is refused. Selecting a tenant on a bearer request is not supported yet.
+
+Bearer tokens are validated against the profile's identity provider only - the issuer and the JWKS of the `cognito` or `keycloak` registration, or the `DIRIGIBLE_OAUTH2_JWT_ISSUER_URI` and `DIRIGIBLE_OAUTH2_JWT_JWK_SET_URI` overrides. A custom client registration (`DIRIGIBLE_OAUTH_CUSTOM_CLIENTS`) with another issuer cannot present bearer tokens. A token must be signed with an asymmetric algorithm the provider publishes a key for (RS256/384/512, PS256/384/512, ES256/384/512). The keys are cached for five minutes and refetched at most once every thirty seconds when a token names a key that is not cached.
 
 ## What an unauthenticated call gets back
 
@@ -71,9 +73,9 @@ client.onConnect = () => {
 client.activate();
 ```
 
-Every frame is authorized: a CONNECT needs a principal (the bearer token, or the cookie session of a page served by the platform), a client may subscribe to its own `/user/queue/**` destinations only and send to the application destinations under `/ws/**` only. Anything else - an anonymous CONNECT, a subscription to `/topic/**` or to another user's queue, a direct publish to a broker destination - is answered with an ERROR frame reading `Unauthorized` and the connection is closed. A session opened with a token ends when the token expires.
+Every frame is authorized: a CONNECT needs a principal (the bearer token, or the cookie session of a page served by the platform or by a listed origin), a client may subscribe to its own `/user/queue/**` destinations only and send to the application destinations under `/ws/**` only. Anything else - an anonymous CONNECT, a subscription to any other destination, another user's queue included, a direct publish to a broker destination - is answered with an ERROR frame reading `Unauthorized` and the connection is closed. A session opened with a token ends when the token expires.
 
-Connect over the WebSocket transport, as the example does, or over SockJS: the endpoint at `/stomp` checks origins itself, against the same list, and answers its own CORS - with credentials, as the SockJS transports require, whatever `DIRIGIBLE_CORS_ALLOW_CREDENTIALS` says for the rest of the platform. A script running on the platform reaches a Dirigible broker through the `websockets` API with the CONNECT headers as the third argument: `Websockets.createWebsocket(uri, handler, { Authorization: "Bearer " + idToken })` - see [Websockets](/api/net/websockets).
+Connect over the WebSocket transport, as the example does, or over SockJS: the endpoint at `/stomp` checks origins itself, against the configured origins that name a host - a wildcard never reaches the handshake, which carries the session cookie, so list the origins that may open a socket - and answers its own CORS - with credentials, as the SockJS transports require, whatever `DIRIGIBLE_CORS_ALLOW_CREDENTIALS` says for the rest of the platform. A script running on the platform reaches a Dirigible broker through the `websockets` API with the CONNECT headers as the third argument: `Websockets.createWebsocket(uri, handler, { Authorization: "Bearer " + idToken })` - see [Websockets](/api/net/websockets).
 
 ## Exchange a token for a session
 
@@ -90,12 +92,12 @@ Authorization: Bearer <ID token>
 
 The response sets the session cookie. The session carries exactly the identity and roles of the token, is a fresh one (whatever session the request carried is discarded first) and ends when the token expires. Only an ID token qualifies:
 
-| Outcome             | HTTP status | Meaning                                                                    |
-| ------------------- | ----------- | -------------------------------------------------------------------------- |
-| `AUTHENTICATED`     | 200         | Session established, cookie set.                                           |
-| `UNAUTHENTICATED`   | 401         | No validated bearer token on the request.                                  |
-| `ID_TOKEN_REQUIRED` | 403         | The token is an access token.                                              |
-| -                   | 404         | The active profile does not accept bearer tokens (`basic`, `github`, ...). |
+| Outcome             | HTTP status | Meaning                                                                                                                          |
+| ------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `AUTHENTICATED`     | 200         | Session established, cookie set.                                                                                                 |
+| `UNAUTHENTICATED`   | 401         | No validated bearer token on the request.                                                                                        |
+| `ID_TOKEN_REQUIRED` | 403         | The token is an access token.                                                                                                    |
+| -                   | 404         | The active profile does not accept bearer tokens (`github`). On `basic` the path is not permitted at all and answers 401 or 403. |
 
 The session is filed under the profile's client registration (`cognito` or `keycloak`) - the one whose identity provider the tokens are validated against.
 
