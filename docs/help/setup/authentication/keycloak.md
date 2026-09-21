@@ -61,7 +61,7 @@ Since 14.30 the `keycloak` profile supports the [First-Party Sign-In](/help/setu
 
 ## External frontends
 
-A frontend hosted elsewhere calls the platform with the tokens Keycloak issued to it: allow its origin with `DIRIGIBLE_CORS_ALLOWED_ORIGINS` and send the **ID token** as a bearer token to act as the user - see [External Frontends](/help/setup/authentication/external-frontends). ID tokens must be issued for `DIRIGIBLE_KEYCLOAK_CLIENT_ID`. Access tokens of service accounts keep working as before, and are held to an audience only once `DIRIGIBLE_OAUTH2_JWT_AUDIENCES` is set (Keycloak access tokens carry `aud=account` unless the client has an audience mapper).
+A frontend hosted elsewhere calls the platform with the tokens Keycloak issued to it: allow its origin with `DIRIGIBLE_CORS_ALLOWED_ORIGINS` and send the **ID token** as a bearer token to act as the user - see [External Frontends](/help/setup/authentication/external-frontends). ID tokens must be issued for `DIRIGIBLE_KEYCLOAK_CLIENT_ID`. Access tokens of service accounts keep working as before, and are held to an audience only once `DIRIGIBLE_OAUTH2_JWT_AUDIENCES` is set (Keycloak access tokens carry `aud=account` unless the client has an audience mapper). Under the `TOKEN_GROUPS` tenant resolution strategy such a client names the tenant it works in with the `X-Tenant-Id` header.
 
 ## See also
 
