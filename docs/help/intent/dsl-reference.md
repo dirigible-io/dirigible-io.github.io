@@ -2482,6 +2482,17 @@ notifications:
     body: "Your membership is active."
 ```
 
+Any notify block (a `notifications[]` entry, `schedules[].notify`, `transitions[].notify`, a
+`serviceTask`'s `args.notify`) may add `html:`, the same message marked up, sent with `body` as one
+`multipart/alternative`. `body` stays required and `html` may not be blank; the markup is sent as
+written and every `{placeholder}` value is HTML-escaped. See
+[glue › a styled message](/help/intent/glue#a-styled-message-html).
+
+```yaml
+    body: "Your membership is active."
+    html: "<p>Your membership is <strong>active</strong>.</p>"
+```
+
 ## schedules - cron
 
 Per matching row, exactly one of `notify` or `generate`:
