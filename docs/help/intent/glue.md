@@ -151,6 +151,27 @@ The routes belong to the template that renders the application, not to the model
 
 Inside a [`forEach`](#one-message-per-related-row-foreach) fan-out `{recordUrl}` links the **row**, like every other bare path in the block - the row is what that message is about, while `{record.<field>}` reads the anchor record.
 
+### A styled message: `html:`
+
+A message to someone outside the organisation (a welcome, a confirmation, an invitation) usually wants more than plain text. `html:` is the **same message marked up**, a sibling of `body:` on any notify block:
+
+```yaml
+    notify:
+      to: requestedByEmail
+      subject: "Your {Application.name} workspace is ready"
+      body: "Your {Application.name} workspace for {Tenant.name} is ready. Sign in at {appUrl}"
+      html: |
+        <p>Your <strong>{Application.name}</strong> workspace for <strong>{Tenant.name}</strong> is ready.</p>
+        <p><a href="{appUrl}">Open the workspace</a></p>
+```
+
+The two travel as **one** message, `multipart/alternative` with the plain part first and the HTML part last, so a mail client shows whichever it renders; an attachment sits beside them (`multipart/mixed( multipart/alternative( text/plain, text/html ), application/pdf )`). The rules:
+
+- **`body` stays required.** A text-only client, a preview pane and a search index read the plain part, so `html` without `body` fails Generate naming the missing key, and a blank `html` fails likewise.
+- **The markup is sent as written; every interpolated value is HTML-escaped** (`&`, `<`, `>`, `"`, `'`). A customer named `Smith & Sons <Ltd>` arrives in the HTML part as `Smith &amp; Sons &lt;Ltd&gt;` and in the plain part as written. The link placeholders are values too and are escaped the same way, which is what makes `href="{recordUrl}"` safe.
+- **Placeholders follow exactly the `body` rules**: the same field and one-hop `relation.field` paths, the `record.` scope inside a [fan-out](#one-message-per-related-row-foreach), `{escalation.<field>}` on an escalating schedule, and the same rejections for an unknown field or a multi-hop path.
+- It works at all four call sites. A block without `html` generates exactly what it did before.
+
 ### One message per related row: `forEach`
 
 Some sends are per-row rather than per-record - a payroll run mails every payslip to its own employee.
