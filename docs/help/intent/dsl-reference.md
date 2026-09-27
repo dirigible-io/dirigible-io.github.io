@@ -14,6 +14,7 @@ complete worked example.
 |---|---|
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
+| [`pickable`](#pickable-which-target-rows-a-picker-offers) | which target rows a to-one's picker offers: a failing row listed disabled with a message, or left out |
 | [`unique`](#unique-a-business-key-over-more-than-one-field) | a business key spanning more than one field or relation |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
 | [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
@@ -127,6 +128,8 @@ entities:
 - { name: iban,  type: string, length: 34,  pattern: '^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{11,30}$' }
 # Static option filter - e.g. only stock-tracked products:
 - { name: Product, kind: manyToOne, to: Product, where: { Type: 1 } }
+# Which target rows the picker offers (see pickable below):
+- { name: Customer, kind: manyToOne, to: Customer, pickable: { when: [registrationNumber != null], message: "Registration data incomplete" } }
 ```
 
 `pattern` is a FORMAT check: it says what a value must look like, not what it must mean. A rule
@@ -143,6 +146,73 @@ response echoes the PERSISTED row, so the defaulted values come back to the call
 
 A header-mediated `dependsOn` copies once, when a NEW line is opened - an existing line is never
 re-copied, so changing the header later leaves already-entered lines untouched.
+
+## pickable - which target rows a picker offers
+
+A to-one's dropdown used to render every target row the same way, and most rules about WHICH row
+may be picked are not a filter on one value - they are a completeness rule over the target row. An
+invoice can only go out to a customer who carries a registration number and an address; a customer
+created with only a name is a legitimate row, so it cannot be refused at creation. Without a way to
+say so on the picker, a clerk picked it onto an invoice, typed twenty lines, and learned only at
+Issue that the invoice could not go out. `where:` narrows by one static value and
+`dependsOn.filterBy` by another control's value; neither says "offer this row only while it is
+complete", and neither can say why a row is not offered.
+
+```yaml
+- name: SalesInvoice
+  relations:
+    - { name: Customer, kind: manyToOne, to: Customer, model: customers, required: true,
+        pickable: { when: [registrationNumber != null, address != null],
+                    else: mark, message: "Registration data incomplete" } }
+    - { name: Product, kind: manyToOne, to: Product,
+        pickable: { when: "active == true", else: hide } }
+```
+
+`when:` is the condition over the TARGET row - one term, or a list of terms, which is their AND. A
+term is `<target property> ==|!= <literal>` (the same typed guard terms a check's `when` takes:
+a string, integer or boolean field, or a to-one's key, with a literal of that type) or
+`<target property> ==|!= null`: `== null` means absent, `!= null` means present - neither null nor
+blank - on a field of any type. A term reads the target row itself, its own fields and to-one
+relations; a path is refused. Several terms are written as a list: `"a != null && b != null"` in one
+string is refused, and the message points at the list form.
+
+`else:` decides what the picker does with a row that fails the condition:
+
+- **`mark`** (the default) lists it dimmed and not choosable, with `message:` as a muted second line
+  under its name - so the clerk learns why before choosing. Without an authored message the
+  condition text itself is shown: a marked row always says why.
+- **`hide`** leaves it out of the list.
+
+Either way, a value the record already holds keeps its label and stays listed, disabled, with the
+reason, even when it now fails the rule - a customer whose data was removed after the invoice was
+drafted never turns into a bare key or an empty control. The rule applies on every generated picker
+that builds its own options: the manage form, the document header and its line dialog, and the
+personal and partner forms and documents. A Depends-On re-filter applies it too, and auto-selects
+only when exactly one remaining row is pickable.
+
+::: warning The picker only, never the server
+A REST client, an import or an automated create never sees a picker, so `pickable:` does not gate
+any write. Declare the write-side rule next to it as a `checks:` entry - typically a
+[`requiredWhen`](#checks-kind-requiredwhen-a-value-required-only-under-a-condition) gated on the
+status that needs the value:
+
+```yaml
+- name: SalesInvoice
+  checks:
+    - { kind: requiredWhen, field: Customer.registrationNumber, when: "taxInvoice == true", status: ISSUED,
+        message: "A tax invoice needs the customer's registration number" }
+```
+:::
+
+`pickable:` is refused on anything but a `manyToOne` / `oneToOne`, on a composition parent (preset
+by the layout, never picked), on a `function: EntityStatus` relation (a read-only badge), on a
+`kind: subset`, and together with `leafOnly` (the hierarchy picker is built without it, so the rule
+would look enforced while it is not). `else:` accepts only `mark` and `hide`, and `when:` is
+required. A same-model target's properties are checked when the intent is read; a cross-model
+target is held to the grammar there and its properties are checked against the owner `.model` at
+Generate. Delivered in
+[eclipse-dirigible/dirigible#7514](https://github.com/eclipse-dirigible/dirigible/pull/7514)
+(issue [#7496](https://github.com/eclipse-dirigible/dirigible/issues/7496)).
 
 ## label / countryLabels - what a field is called
 
