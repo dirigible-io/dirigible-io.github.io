@@ -506,6 +506,54 @@ task instead of a refusal on the button they pressed. Placing that step AFTER th
 worse: by then the document has been sent, and the refusal has nowhere to go.
 :::
 
+## checks: severity: warn - warn and confirm instead of refuse
+
+Every check kind above refuses the write. Some rules are not refusals: a second customer with the
+same name is legitimate (two companies may share a registered name under different registration
+numbers), yet the person typing it should be asked first; a document line at price zero may be a
+gift, or a typing mistake. The soft tier states those rules - the write stays possible, and the
+person saving it is told and confirms.
+
+```yaml
+- name: Customer
+  checks:
+    - { kind: duplicate, fields: [name], message: "A customer with this name already exists: {match}" }
+    - { kind: compare, field: discount, op: le, value: 50, severity: warn, message: "A discount above 50%" }
+- name: SalesInvoice
+  checks:
+    # asked ONCE per document save, for all the lines that break it
+    - { kind: itemsCompare, field: price, op: gt, value: 0, message: "{count} line(s) at price zero" }
+```
+
+- `severity: warn` softens an ungated row-level check (`compare`, `requiredWhen`, `forbidWhen`,
+  `exactlyOne`, `agree`). A check with a `status` gate runs inside a workflow transition, where
+  nobody can answer a question, so the two are refused together; a `guard` has its own soft
+  outcomes (`task`, `reject`).
+- `duplicate` - another record already carries the same `fields` (own fields or to-one relations).
+  A `string` or `text` field is compared **ignoring case and surrounding spaces**, so "ACME Ltd" is
+  asked about when "Acme Ltd " exists: the rule is the same name typed again, which rarely matches
+  byte for byte, and a false positive only costs a confirmation. A to-one and a number compare
+  exactly. `{match}` in the message is replaced with the existing record's label (its `name`, else
+  its id), so the warning says which record it collides with. Always a warning; the hard version is
+  `unique:`.
+- `itemsCompare` - on the document: every item's `field` compared with `op` to the `value` literal.
+  `{count}` in the message is the number of lines that break it. Always a warning; the hard version
+  is a `compare` on the items entity.
+
+The warning is enforced by the server, so a REST client is told the same thing a form is: an
+unconfirmed write is answered `428 Precondition Required` listing the warnings, and nothing is
+written.
+
+```json
+{ "errorType": "ConfirmationRequired",
+  "warnings": [ { "code": "Customer.duplicate.0", "message": "A customer with this name already exists: Acme Ltd" } ] }
+```
+
+The caller repeats the same request with the codes in the `X-Confirm-Warnings` header
+(comma-separated); a confirmation covers only the codes it names, so a warning that appears only on
+the repeat is asked again. The generated forms turn the 428 into one confirm dialog and the repeat.
+A process step or a job writes on nobody's behalf and is never stopped by a warning.
+
 ## checks: kind: guard - precondition over an aggregate
 
 ```yaml
