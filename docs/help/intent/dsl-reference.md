@@ -2676,6 +2676,7 @@ inbound:
 | `accept: { <envelopeKey>: <value>, ... }` | Gate on the declared keys. A message that does not match is **acknowledged and ignored** with a warning - never failed, since failing it would only have it redelivered and a sender rolling out a new version must not fill this receiver's error queue. A webhook answers **202**; a record in a drop file is skipped and the file still counts as processed. |
 | `map: { <field>: <envelopeKey> }` | Fill an entity field or relation from an envelope key. A key the map does not name is not the record's business. |
 | `map: { <relation>: { lookup, by, from } }` | Resolve a **business key to a relation**: read `<envelopeKey>` (`from`), find the `lookup` entity whose `by` field matches, store its id. |
+| `map: { <oneToMany>: { from, max?, map } }` | Fill the rows of a one-to-many relation from an **envelope array** - see [collections](#collections-an-envelope-array-onto-composition-children) below. |
 
 Rules worth knowing:
 
@@ -2690,6 +2691,77 @@ Rules worth knowing:
 - Do not map the primary key - it is generated on insert. Give the arrival's own identifier a field of
   its own and declare `unique: true` on it, which is also what makes a redelivery refuse itself.
 - A lookup reads an entity declared in the **same** model; a cross-model lookup is not supported yet.
+
+### collections - an envelope array onto composition children
+
+A `map:` key that names a **one-to-many** relation of `create:` takes a collection, which turns an
+array in the envelope into child rows saved with the record. See
+[Declarative glue](/help/intent/glue#when-the-envelope-carries-a-list) for the walkthrough.
+
+```yaml
+map:
+  orderNumber: orderNumber
+  lines:                                             # PurchaseOrder.lines -> PurchaseOrderLine
+    from: lines                                      # the envelope key holding the array
+    max: 100
+    map:
+      quantity: qty                                  # child field <- element key
+      product:  { lookup: Product, by: sku, from: sku }
+  tags: { from: tags, map: { label: "." } }          # "." is the element itself
+```
+
+| Key | Means |
+| --- | --- |
+| `from` | The envelope key holding the array. Required, and never `"."`. |
+| `map` | The element map: each child field or to-one relation, filled from an **element key**, from `"."` (the element itself, for an array of bare values), or from a lookup `{ lookup, by, from }` whose `from` is an element key or `"."`. Required. |
+| `max` | Optional. A whole number from 1 to 10000; more elements reject the arrival. |
+
+Rules worth knowing:
+
+- **The target is a composition child** of `create:`, declared in the same model, and each child
+  relation takes at most one collection.
+- **One bad element rejects the whole arrival**, the way a failed lookup does: the key is not an array,
+  an element is null or of the wrong shape, there are more than `max`, an element lacks a key a lookup
+  reads, or a lookup matches no single row. Nothing is stored; a webhook answers 400 and a drop file
+  moves to `failed/`.
+- **The record and its children are saved in one unit of work**, and the create events fire after it
+  commits, so one arrival starts one process that already sees every child. The change history and
+  document numbering stay outside the unit, and a drop file saves one unit per record.
+- An absent or empty array means no children. Elements are kept as sent; a child `unique:` is what
+  refuses a duplicate.
+- The element map cannot fill the child's primary key or its back-reference to the record, and an
+  element cannot hold a collection of its own.
+
+Generate refuses a collection that cannot work, with one of these messages. `<p>` stands for
+`inbound [<name>] map [<key>]`, `<E>` for the entity of `create:` and `<C>` for the child:
+
+| Message | When |
+| --- | --- |
+| `<p> is not a field, a to-one or a one-to-many relation of [<E>]` | the key names nothing on `<E>` (the one-to-many part appears only when `<E>` has one) |
+| `<p> declares both lookup and map - a value is either a lookup or a collection` | one value carries both |
+| `<p> is a one-to-many relation of [<E>] - it is filled by a collection { from, map }, not by an envelope key or a lookup` | a one-to-many is given a key or a lookup |
+| `<p> is not a one-to-many relation of [<E>] - a collection { from, map } fills the rows of a one-to-many relation` | a collection is given to anything else |
+| `<p> must be an envelope key or a lookup { lookup, by, from }, not a list - an envelope array is mapped by a collection { from, map } on a one-to-many relation` | the value is a YAML list |
+| `<p> declares unknown key [<k>] - a collection names from, map and max` | a key other than `from`, `map`, `max` |
+| `<p> has no from - the envelope key holding the array` | `from` is missing |
+| `<p> reads its array from [.] - a collection's from names an envelope key` | `from: "."` |
+| `<p> max [<v>] must be a whole number from 1 to 10000` | `max` out of range or not whole |
+| `<p> fills [<C>], which must be an entity declared in this model (cross-model collections are not supported)` | a cross-model child |
+| `<p> fills unknown entity [<C>]` | the child is not declared |
+| `<p> fills [<C>], which is not a composition child of [<E>]; an arrival creates only rows it owns` | the child is not a composition child of `<E>` |
+| `<p> fills [<C>] a second time - one collection per child relation` | two collections fill one child |
+| `<p> has no map - the element map filling each [<C>] row` | `map` is missing or empty |
+| `<p> element [<k>] is not a field or a to-one relation of [<C>]` | an element key names nothing on `<C>` |
+| `<p> element [<k>] fills the primary key of [<C>], which is generated on insert` | the element map names the child's key |
+| `<p> element [<k>] fills the composition back-reference, which is filled from the saved [<E>]` | the element map names the back-reference |
+| `<p> element [<k>] is a nested collection - nested collections are not supported in this revision` | a collection inside the element map |
+| `<p> element [<k>] must be an element key, [.] or a lookup { lookup, by, from }` | any other element value |
+| `<p> mixes [.] with named element keys - an element is either a value or an object` | `"."` beside named keys |
+| `<p> element [<k>] has no value - name the element key it is filled from, or [.] for the element itself` | an element key with no value |
+
+A lookup inside the element map is held to the same rules as any other lookup. Delivered in
+[eclipse-dirigible/dirigible#7594](https://github.com/eclipse-dirigible/dirigible/pull/7594)
+(issue [#7593](https://github.com/eclipse-dirigible/dirigible/issues/7593)).
 
 ## outbound - departures to another system
 

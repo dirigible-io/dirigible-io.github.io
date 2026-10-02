@@ -7,7 +7,8 @@ description: Provision tenants into a running application from an external servi
 
 Off by default. An opt-in REST API through which an **external** provisioner registers a tenant,
 hands the platform a database user and schema it created itself, activates the tenant and polls its
-initialization.
+initialization. It also keeps the application's copy of the tenant's users, which the
+[Settings -> Users](/help/setup/tenant-users) section shows.
 
 The built-in flow provisions a tenant the other way round: you register it, and the platform creates
 its database user and schema for you (see [`/help/operate/tenants`](/help/operate/tenants)). That
@@ -157,6 +158,87 @@ Two things follow. Tenants activated at about the same time share one initializa
 `IN_PROGRESS` until all of them are done, and a failure is reported for all of them. And a deployment
 with no tenant-specific artefacts has nothing to create, so it answers `COMPLETED` straight away.
 
+### Push the users
+
+```
+PUT /services/tenant-provisioning/tenants/{tenantId}/users
+{ "complete": false, "revision": 1042, "users": [ ... ] }
+```
+
+The provisioner owns the tenant's membership, and this is how it hands the application the current
+state of some users or all of them: a **full snapshot** of each one, which the
+[Settings -> Users](/help/setup/tenant-users) section shows. Nothing else writes these users; the
+application only records each person's last sign-in.
+
+```json
+{
+  "email": "ann@example.com",
+  "revision": 1042,
+  "status": "ASSIGNED",
+  "roles": [
+    { "role": "Owner", "state": "ADDING" },
+    { "role": "User",  "state": "GRANTED", "grantedBy": "bob@example.com", "grantedAt": "2026-09-20T08:00:31Z" }
+  ],
+  "invitedBy": "bob@example.com", "invitedAt": "2026-09-20T08:00:00Z",
+  "lastChangedBy": "bob@example.com", "lastChangedAt": "2026-09-30T10:15:03Z",
+  "lastError": null
+}
+```
+
+| Field | Means |
+| ----- | ----- |
+| `complete` | `true` when `users` is the tenant's whole list - a resync |
+| `revision` | the provisioner's revision counter for the tenant, as it read it |
+| `users[].revision` | the counter's value at the person's last change, at least `1` |
+| `users[].status` | `PENDING`, `INVITED`, `ASSIGNED`, `FAILED` or `REMOVED` |
+| `users[].roles` | the roles held or being added; a role absent here is not held. `state` is `GRANTED`, `ADDING` (requested, not applied yet; no `grantedBy` / `grantedAt`) or `REMOVING` (held, removal requested) |
+| `users[].lastError` | `{ "code", "message" }` when the person's latest change was not applied, or `null` |
+
+An absent field means `null`. Emails are lower-cased.
+
+| Status | Meaning |
+| ------ | ------- |
+| `200` | `{ "applied": n, "ignored": n, "removed": n, "storedRevision": 1042 }` |
+| `400` | the body is not valid; one message names every offending field |
+| `404` | there is no such tenant |
+
+How a snapshot is applied:
+
+- **Only a higher revision wins.** A user whose `revision` is not higher than the stored one is counted
+  as `ignored`, and the call still answers `200`. A late or repeated push therefore never undoes a
+  newer one, and the provisioner never has to retry it.
+- **An applied user is replaced completely**: status, roles and their states, who and when, and
+  `lastError`. Only the last sign-in is kept.
+- **`REMOVED` leaves a hidden tombstone.** The roles go and the row stays with its revision, so an
+  older snapshot arriving late cannot bring the person back. A newer live snapshot does, and clears the
+  last sign-in, so a sign-in from the old membership does not make the new one look active.
+- **`complete: true` is a resync.** Every live user it does not name, whose revision is at or below the
+  body's `revision`, becomes a tombstone stamped with that revision. A user with a higher revision was
+  written after the provisioner read its list, and is kept. A resync that changes nothing writes
+  nothing.
+- **Each user is applied on its own**, so one that fails leaves the others applied.
+
+`storedRevision` is the highest revision the application now holds for the tenant, and is left out
+when it holds no user of the tenant at all. A provisioner can compare it with its own counter, for
+example after restoring its database.
+
+The `400` names every problem at once, joined with `; `:
+
+```json
+{ "status": 400, "error": "Bad Request",
+  "message": "users[0].status: must be one of PENDING, INVITED, ASSIGNED, FAILED, REMOVED; users[1].roles[0]: a role being added has no grantedBy or grantedAt yet" }
+```
+
+The same path answers `GET`, with the users as stored and their last sign-in, for diagnostics. Add
+`?includeRemoved=true` to see the tombstones.
+
+```
+GET /services/tenant-provisioning/tenants/{tenantId}/users[?includeRemoved=true]
+```
+
+The endpoint is there whenever the API is enabled, whether or not the
+[Settings -> Users](/help/setup/tenant-users) section is.
+
 ## Errors
 
 A refusal answers with the reason in the body, which is what a calling process branches on:
@@ -184,6 +266,7 @@ A scope value with no `/` grants nothing, so a bare `TENANT_PROVISIONER` will no
 ## See also
 
 - [Tenant management](/help/operate/tenants)
+- [Tenant users](/help/setup/tenant-users)
 - [Multi-tenancy (setup)](/help/setup/multi-tenancy)
 - [Multi-tenancy (concepts)](/help/concepts/multi-tenancy)
 - [Environment variables](/help/setup/environment-variables#multi-tenancy)

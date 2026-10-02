@@ -63,6 +63,10 @@ Under `TOKEN_GROUPS` the tenant is chosen after sign-in:
 
 Machine-to-machine calls, bearer-token requests and anonymous traffic carry no selection and always run in the default tenant.
 
+## Users
+
+Under `TOKEN_GROUPS` who may use a tenant, and in which roles, is decided by the identity provider groups. A deployment whose groups are managed by an external provisioning system can let each tenant's owners take part: the **Settings -> Users** section of the application shell invites a person with one or more roles, changes a member's roles and removes a member. It publishes each action as a change request for the external system, and shows the tenant's users as that system reports them back through the [tenant provisioning API](/help/setup/tenant-provisioning-api). See [Tenant users](/help/setup/tenant-users).
+
 ## Single-tenant mode
 
 For local development or single-org deployments, disable resolution:
@@ -107,4 +111,5 @@ Which identity provider you use is independent of how tenants are resolved. With
 - [Multi-tenancy (concepts)](/help/concepts/multi-tenancy)
 - [Tenant management (operate)](/help/operate/tenants)
 - [Tenant provisioning API](/help/setup/tenant-provisioning-api)
+- [Tenant users](/help/setup/tenant-users)
 - [Environment variables](/help/setup/environment-variables#multi-tenancy)
