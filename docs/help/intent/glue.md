@@ -502,6 +502,48 @@ inbound:
 
 Whichever keys are declared, the record still saves through the entity's **generated repository**, so validations, translations and the create event fire as for any other write. Two boundaries to know: do not map the primary key - it is generated on insert, so give the arrival's own identifier a field of its own with `unique: true` (which is also what makes a redelivery refuse itself) - and a lookup reads an entity declared in the **same** model; a cross-model lookup is not supported yet.
 
+### When the envelope carries a list
+
+An envelope often carries a set: an order and its lines, a record and its tags. **`map:`** can fill a one-to-many relation of the created entity from an array in the envelope, so the record and its rows arrive together:
+
+```json
+{ "orderNumber": "PO-1001",
+  "lines": [ { "sku": "A", "qty": 2 }, { "sku": "B", "qty": 1 } ],
+  "tags": [ "urgent", "export" ] }
+```
+
+```yaml
+inbound:
+  - name: orders
+    source: { queue: shop.orders }
+    create: PurchaseOrder
+    map:
+      orderNumber: orderNumber
+      lines:                       # PurchaseOrder.lines -> PurchaseOrderLine, a composition child
+        from: lines                # the envelope key holding the array
+        max: 100                   # optional: more elements reject the arrival
+        map:
+          quantity: qty            # child field <- element key
+          product:  { lookup: Product, by: sku, from: sku }   # a lookup per element
+      tags:                        # an array of bare values
+        from: tags
+        map: { label: "." }        # "." is the element itself
+```
+
+The key under `map:` names a one-to-many relation of `create:` whose target is a **composition child** of it, declared in the same model. `from:` is the envelope key holding the array. The element map fills each child row's fields and to-one relations the way `map:` fills the record: with an element key, a lookup (whose `from: "."` reads the element itself), or `"."` for an array of bare values. `max:` caps the number of elements, from 1 to 10000. It works on all three arrivals.
+
+**Everything is resolved first, and nothing is written until then.** One bad element rejects the **whole** arrival exactly as a failed lookup does, logged with the element's index and with nothing stored: a webhook answers 400, a queue message is not ingested, a drop file moves to `failed/`. It is rejected when the key is not an array, an element is null or of the wrong shape (an object for named element keys, a value for `"."`), there are more elements than `max`, an element lacks the key a lookup reads, or a lookup matches no single row.
+
+**The record and its children are saved in one unit of work**, and the create events are dispatched after it commits. A process the record's `onCreate` starts therefore already sees every child, and one arrival starts **one** process instance, however many elements it carried.
+
+An absent or empty array means no children. Elements are kept **as sent**: the construct takes no position on duplicates, so declare `unique:` on the child to refuse one at save, like any other constraint.
+
+::: warning What the unit does not cover
+The change history and document numbering run outside the unit of work, as they do for every unit of work. A drop file saves one unit per record, so a bad element in its third record fails the file after the first two were saved. Nested collections, an array inside an element, are not supported.
+:::
+
+Delivered in [eclipse-dirigible/dirigible#7594](https://github.com/eclipse-dirigible/dirigible/pull/7594) (issue [#7593](https://github.com/eclipse-dirigible/dirigible/issues/7593)).
+
 ## outbound - departures to another system
 
 The mirror of `inbound`: the application **raises a business event** for something outside it, on a queue or a topic. Reach for `integrations` when you are calling someone's API and want their answer; reach for `outbound` when you are announcing that something happened and nobody answers. That difference in failure semantics - a failed call versus a missed announcement - is why these are two blocks rather than one with a transport switch.

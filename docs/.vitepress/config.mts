@@ -508,6 +508,7 @@ function helpSidebar() {
         },
         { text: 'Multi-tenancy', link: '/help/setup/multi-tenancy' },
         { text: 'Tenant provisioning API', link: '/help/setup/tenant-provisioning-api' },
+        { text: 'Tenant users', link: '/help/setup/tenant-users' },
         { text: 'Environment variables', link: '/help/setup/environment-variables' },
       ],
     },
