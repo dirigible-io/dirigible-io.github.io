@@ -79,7 +79,7 @@ How the OAuth2 login profiles treat a token presented in the `Authorization: Bea
 | `DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS` | `900`            | Provisioning poll cadence, in seconds.                                                                                                                                                                    |
 | `DIRIGIBLE_TENANT_PROVISIONING_API_ENABLED`        | `false`          | Exposes the [tenant provisioning API](/help/setup/tenant-provisioning-api), through which an external service provisions tenants into this deployment. Off means absent, not closed.                      |
 | `DIRIGIBLE_TENANT_USERS_ENABLED`                   | `false`          | Shows the [Settings -> Users](/help/setup/tenant-users) section, through which a tenant's owners invite, change and remove its users. Requires `TOKEN_GROUPS`.                                            |
-| `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE`              |                  | The `global:` queue the section publishes its change requests to. Replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE` in 14.71.0.                                                                             |
+| `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE`              |                  | The `global:` queue the section publishes its change requests to. Replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE`.                                                                                        |
 
 See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant provisioning API](/help/setup/tenant-provisioning-api) and [Tenant users](/help/setup/tenant-users).
 

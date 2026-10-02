@@ -165,9 +165,9 @@ PUT /services/tenant-provisioning/tenants/{tenantId}/users
 { "complete": false, "revision": 1042, "users": [ ... ] }
 ```
 
-Since 14.71.0. The provisioner owns the tenant's membership, and this is how it hands the
-application the current state of some users or all of them: a **full snapshot** of each one, which
-the [Settings -> Users](/help/setup/tenant-users) section shows. Nothing else writes these users; the
+The provisioner owns the tenant's membership, and this is how it hands the application the current
+state of some users or all of them: a **full snapshot** of each one, which the
+[Settings -> Users](/help/setup/tenant-users) section shows. Nothing else writes these users; the
 application only records each person's last sign-in.
 
 ```json

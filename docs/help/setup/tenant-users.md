@@ -7,8 +7,7 @@ description: Let a tenant's owners invite people, change their roles and remove 
 
 Off by default. The **Settings -> Users** section of the application shell lets a tenant's owners
 manage who may use the tenant: invite a person with one or more roles, change a member's roles, or
-remove a member. Generated application shells mount the same section. This page describes it as of
-14.71.0.
+remove a member. Generated application shells mount the same section.
 
 ```bash
 DIRIGIBLE_TENANT_USERS_ENABLED=true
@@ -143,7 +142,7 @@ Any other code is shown with its `message` as sent.
 | Variable | Default | Purpose |
 | -------- | ------- | ------- |
 | `DIRIGIBLE_TENANT_USERS_ENABLED` | `false` | Shows the section and opens its endpoints. |
-| `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE` | | The `global:` queue the change requests are published to. It replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE` in 14.71.0. |
+| `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE` | | The `global:` queue the change requests are published to. It replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE`. |
 
 With the section on, the application **refuses to start** unless:
 
