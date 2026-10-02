@@ -192,7 +192,7 @@ application only records each person's last sign-in.
 | `users[].revision` | the counter's value at the person's last change, at least `1` |
 | `users[].status` | `PENDING`, `INVITED`, `ASSIGNED`, `FAILED` or `REMOVED` |
 | `users[].roles` | the roles held or being added; a role absent here is not held. `state` is `GRANTED`, `ADDING` (requested, not applied yet; no `grantedBy` / `grantedAt`) or `REMOVING` (held, removal requested) |
-| `users[].lastError` | `{ "code", "message" }` when the person's latest change was not applied, or `null`. The [codes the screen translates](/help/setup/tenant-users#what-the-external-system-sends-back) |
+| `users[].lastError` | `{ "code", "message" }` when the person's latest change was not applied, or `null` |
 
 An absent field means `null`. Emails are lower-cased.
 
