@@ -16,6 +16,7 @@ complete worked example.
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`pickable`](#pickable-which-target-rows-a-picker-offers) | which target rows a to-one's picker offers: a failing row listed disabled with a message, or left out |
 | [`unique`](#unique-a-business-key-over-more-than-one-field) | a business key spanning more than one field or relation |
+| [`renamedFrom` / `dropped`](#renamedfrom-dropped-evolving-a-table-that-already-holds-data) | rename a live column in place so its values follow the new field name / drop retired columns explicitly - a field merely deleted from the file keeps its column and data |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
 | [`label`](#label-stored-display-name) | a stored, read-only display name for lookups and dropdowns |
 | [`checks`](#checks-declarative-validations) | cross-field / cross-line validations |
@@ -354,6 +355,52 @@ would make every duplicate fail on the server's own "field is required".
 
 The copy is made by the document page, one request per line, and is not atomic: a line that fails
 leaves a half-copied draft, which the user can complete or delete.
+
+## renamedFrom / dropped - evolving a table that already holds data
+
+```yaml
+entities:
+  - name: Invoice
+    dropped: [legacyCode]
+    fields:
+      - { name: id, type: integer, primaryKey: true, generated: true }
+      - { name: issueDate, type: date, renamedFrom: invoiceDate }
+```
+
+Once an application holds data, renaming a field and retiring one look alike in the file: a name
+disappears and, for a rename, another appears. Two keys say which it is, so the table can evolve
+expand/contract style without losing rows:
+
+* **`renamedFrom: <old field name>`** (field) - the publish renames the live column in place, so
+  the existing values move with the new name instead of staying behind in the old column while the
+  new field starts empty. It acts only while the old column exists and the new one does not, so it
+  is harmless to leave in the file after the rename ran. On a database without an in-place column
+  rename (SQL Server) the new column is added nullable, the values are copied into it, and the old
+  column is kept.
+* **`dropped: [names]`** (entity) - former field / to-one relation names whose columns the publish
+  removes, **data included**. This is the explicit contract step: first remove the field from the
+  file (its column and values stay), then list it under `dropped:` once nothing reads it any more.
+
+A field simply deleted from the file is **not** dropped - its column and its values are kept. The
+publish logs it at WARN, naming the table, the column and the artefact that owns the table, and
+counts it in the `orphanColumns` detail of the `artefacts` health component at `/actuator/health`.
+A kept NOT NULL column is relaxed to nullable on H2, PostgreSQL and Snowflake, so inserts that no
+longer set it keep working; on MySQL, MariaDB, SQL Server and HANA it is left NOT NULL, and a WARN
+says that inserts omitting it will be refused - list it under `dropped:` (or rename it with
+`renamedFrom:`) there.
+
+::: tip Dev instances: drop every undeclared column
+`DIRIGIBLE_DATABASE_DROP_UNDECLARED_COLUMNS=true` makes the publish drop every column the table's
+definition no longer declares, data included, without a `dropped:` entry. It is an operator opt-in
+meant for development instances, where a table is rebuilt freely; leave it off where the data
+matters.
+:::
+
+::: warning Refused at Generate
+A `dropped:` name or a `renamedFrom:` source that the entity still declares as a field or a
+relation (compared by the column the name maps to); a field `renamedFrom` its own name; a `renamedFrom` source also listed under `dropped:`; two
+fields `renamedFrom` the same name; and an empty name in either key.
+:::
 
 ## defaultValue - field defaults
 
