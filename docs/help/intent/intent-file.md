@@ -128,6 +128,7 @@ fields:
 | `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
 | `sensitive` | strip this field from the personal / partner surface and ignore it on their writes - see [Personal and partner surfaces](#personal-and-partner-surfaces) |
 | `visibleTo` | a list of roles: the field is stripped from every REST response and ignored on every write for anyone else - see the [DSL reference](/help/intent/dsl-reference#visibleto-role-scoped-fields) |
+| `renamedFrom` | the field's former name: the publish renames the live column so its values follow the rename; retired columns are dropped with the entity-level `dropped: [names]` - see the [DSL reference](/help/intent/dsl-reference#renamedfrom-dropped-evolving-a-table-that-already-holds-data) |
 
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`, `month`, `week`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`. `month` (a `YYYY-MM` string) and `week` (a `YYYY-Www` ISO-week string) are stored as short `VARCHAR`s and render as the Harmonia month / week pickers.
 
