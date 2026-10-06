@@ -365,6 +365,7 @@ function helpSidebar() {
             { text: 'Table', link: '/help/artefacts/data/table' },
             { text: 'View', link: '/help/artefacts/data/view' },
             { text: 'CSV import model', link: '/help/artefacts/data/csvim' },
+            { text: 'Migration', link: '/help/artefacts/data/migration' },
           ],
         },
         {

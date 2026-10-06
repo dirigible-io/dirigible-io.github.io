@@ -17,7 +17,7 @@ For every reconciled artefact type the platform provides:
 2. **A synchronizer** - a Spring bean extending `BaseSynchronizer<A, ID>` (single-tenant) or `MultitenantBaseSynchronizer<A, ID>`. It scans the repository for a file extension or pattern, parses each match, upserts the entity, and reacts to lifecycle events.
 3. **An engine, service, or endpoint** - the runtime consumer of the live artefact. Quartz for `.job`, Flowable for `.bpmn`, Camel for `.camel`, Spring MVC for `*Controller.ts`, etc.
 
-Existing implementations (grep `extends BaseSynchronizer` / `extends MultitenantBaseSynchronizer` in the codebase) give the full inventory: `Job`, `Bpmn`, `Camel`, `Listener`, `Csvim`, `DataSource`, `Table`, `View`, `Schema`, `Access`, `Roles`, `Expose`, `ExtensionPoint`, `Extension`, `Markdown`, `Confluence`, `Proxy`, `Websocket`, `OData`, `OpenAPI`, `Component`, `Entity`, `Java`.
+Existing implementations (grep `extends BaseSynchronizer` / `extends MultitenantBaseSynchronizer` in the codebase) give the full inventory: `Job`, `Bpmn`, `Camel`, `Listener`, `Csvim`, `DataSource`, `Table`, `View`, `Schema`, `Access`, `Roles`, `Expose`, `ExtensionPoint`, `Extension`, `Markdown`, `Confluence`, `Proxy`, `Websocket`, `OData`, `OpenAPI`, `Component`, `Entity`, `Java`, `Migration`.
 
 ## Lifecycle phases
 
@@ -33,7 +33,7 @@ A typical UPDATE pass is `STOP` (on the previous version) then `START` (on the n
 
 ## Ordering
 
-Synchronizer execution order is fixed across types via constants in `SynchronizersOrder`. This matters for cross-artefact dependencies - a `*.table` must materialize before a `*.csvim` references it, a `*.datasource` must exist before a `*.table` targets it, and so on.
+Synchronizer execution order is fixed across types via constants in `SynchronizersOrder`. This matters for cross-artefact dependencies - a `*.table` must materialize before a `*.csvim` references it, a `*.datasource` must exist before a `*.table` targets it, a [`*.migration`](/help/artefacts/data/migration) backfills columns the `*.table` pass has just added and runs before the `*.csvim` seed, and so on.
 
 Within a single artefact type, ordering is governed by per-entity topological sort when an artefact declares dependencies (see `TopologicallySortable` / `TopologicallyDepletable` in `core-base`).
 
