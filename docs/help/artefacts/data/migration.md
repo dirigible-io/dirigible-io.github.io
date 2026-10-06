@@ -17,11 +17,11 @@ Each migration is applied **exactly once per database** and recorded in a ledger
 
 | Part | Rule |
 | ---- | ---- |
-| `<version>` | One or more dot-separated numbers, optionally prefixed with `V`: `1`, `001`, `V2`, `V1.2`, `20261006`. Versions order **numerically** per segment, so `2` precedes `10` and `1` precedes `1.0`. |
+| `<version>` | One or more dot-separated numbers, optionally prefixed with `V`: `1`, `001`, `V2`, `V1.2`, `20261006`. Versions order **numerically** per segment, so `2` precedes `10` and `1` precedes `1.0`. Leading zeros are not part of the version: `001` and `1` are the same version, so renaming `V001__backfill` to `V1__backfill` keeps its ledger row and does not apply it again. |
 | `__` | Two underscores separate the version from the description. |
 | `<description>` | Letters, digits, `_`, `.` and `-`; starts with a letter or digit. Not interpreted. |
 
-The file must live inside a project (any folder under it, `migrations/` by convention). Two files of one project may not claim the same version. Examples:
+The file must live inside a project (any folder under it, `migrations/` by convention). Two files of one project may not claim the same version, however they spell it (`V001__a` and `V1__b` are refused together). Examples:
 
 ```
 orders/migrations/V1__backfill_status.migration
@@ -46,7 +46,7 @@ UPDATE "ORDERS" SET "CLOSED_AT" = "UPDATED_AT" WHERE "STATUS" = 'CLOSED' AND "CL
 | `-- idempotent:` | `false` (default) | An edit of the file after it was applied **fails** the artefact. The migration is not re-run. |
 |  | `true` | An edit of the file after it was applied **re-applies** it, and the ledger row is updated with the new checksum. Declare it only when running the statements again is safe. |
 
-Headers are read from the comment lines **before the first statement**; a `--` comment after a statement is SQL, not a header. A header with an unknown value (`-- tenant: all`) is a parse error.
+Headers are read from the comment lines **before the first statement**; a `--` comment after a statement is SQL, not a header. A header with an unknown value (`-- tenant: all`) is a parse error, and so is a line that names a header but does not parse: `-- tenant: system -- once`, `-- tenant = system` and `-- idempotent: true (safe to re-run)` are each refused, never read as a plain comment. Keep the value alone on its line. A comment that only mentions the word (`-- tenant data moves per schema`) is not a header.
 
 Statements are split on `;`, with comments and quoted literals handled. The whole file runs in **one transaction**: a failing statement rolls back the statements before it and records nothing, and the artefact is `FAILED` with the database's message.
 
@@ -67,7 +67,7 @@ Every database a migration changes carries its own ledger table, `DIRIGIBLE_MIGR
 | Column | Content |
 | ------ | ------- |
 | `MIGRATION_KEY` | `<project>/<version>`, the primary key. |
-| `MIGRATION_PROJECT`, `MIGRATION_VERSION` | The project and the version from the file name. |
+| `MIGRATION_PROJECT`, `MIGRATION_VERSION` | The project and the version from the file name, leading zeros stripped per segment (`001` is recorded as `1`). |
 | `MIGRATION_LOCATION` | The registry-relative path of the file that was applied. |
 | `MIGRATION_CHECKSUM` | SHA-256 of the content that was applied. Line-ending conversion is ignored, so a checkout that converts them is not an edit. |
 | `MIGRATION_TENANT` | The tenant id, or `system`. |
