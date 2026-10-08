@@ -15,6 +15,7 @@ complete worked example.
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`pickable`](#pickable-which-target-rows-a-picker-offers) | which target rows a to-one's picker offers: a failing row listed disabled with a message, or left out |
+| [`inlineCreate`](#inlinecreate-a-picker-of-existing-rows-only) | `false` removes the "New &lt;Entity&gt;" button beside a to-one's picker |
 | [`unique`](#unique-a-business-key-over-more-than-one-field) | a business key spanning more than one field or relation |
 | [`renamedFrom` / `dropped`](#renamedfrom-dropped-evolving-a-table-that-already-holds-data) | rename a live column in place so its values follow the new field name / drop retired columns explicitly - a field merely deleted from the file keeps its column and data |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
@@ -41,6 +42,7 @@ complete worked example.
 | [`generates.event`](#event-driven-creation-event) | mint the document on a source event - a status write, a create, or a process step |
 | [`generates.event.mode`](#cardinality-mode-once-append) | one target per source (`once`, default) or one per delivered event (`append`) |
 | [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
+| [`generates.link`](#recorded-from-the-document-it-settles-link) | write the source's link row (an allocation) to the new target in the same transaction |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
@@ -215,6 +217,32 @@ Generate. Delivered in
 [eclipse-dirigible/dirigible#7514](https://github.com/eclipse-dirigible/dirigible/pull/7514)
 (issue [#7496](https://github.com/eclipse-dirigible/dirigible/issues/7496)).
 
+
+## inlineCreate - a picker of existing rows only
+
+A to-one dropdown on a generated form, document header or document line dialog offers a
+**New &lt;Entity&gt;** button that creates a target row on the spot. That row is saved on its own,
+before the record you are editing, so everything that reacts to its creation runs first. Under an
+[auto-settlement](#settlements-payment-allocation) that is wrong, not just early: a payment created
+from an allocation row's picker is spread over the customer's oldest open invoice before the
+allocation you are entering is saved, and that allocation is then refused. `inlineCreate: false`
+keeps the picker to existing rows:
+
+```yaml
+- name: SalesInvoiceCustomerPayment
+  relations:
+    - { name: SalesInvoice, kind: manyToOne, to: SalesInvoice, composition: true, required: true }
+    - { name: CustomerPayment, kind: manyToOne, to: CustomerPayment, model: customer-payments,
+        required: true, inlineCreate: false }
+```
+
+The button disappears from the form, the document header and the document item dialog; the value a
+record already holds still shows its label. Record such a target from the document it belongs to
+instead, with a [create-from that writes the link row](#recorded-from-the-document-it-settles-link).
+Absent, the generated UI decides as before (offered for any target outside Settings).
+`inlineCreate` is refused on a collection relation (it has no picker) and on a `kind: subset`.
+Delivered in
+[eclipse-dirigible/dirigible#7756](https://github.com/eclipse-dirigible/dirigible/pull/7756).
 ## label / countryLabels - what a field is called
 
 A field's caption is the humanized form of its name, which cannot produce an acronym, a unit or a
@@ -1975,7 +2003,7 @@ derives.
 generates:
   - name: allocate-payment
     from: SalesInvoice
-    to: SalesInvoiceCustomerPayment  # must be a composition child of forEntity (local, scope entity)
+    to: SalesInvoiceCustomerPayment  # a composition child of forEntity: its own form metadata types the dialog
     label: Allocate Payment
     icon: link
     map:
@@ -1994,8 +2022,68 @@ before anything is written). A property may not be both prompted and mapped/defa
 writer. The create still goes through the target's repository, so the ordinary `-created` event,
 roll-ups and status flips fire unchanged.
 
+An entry may declare `default: <source property>`: the input starts from that value of the record
+the action runs on (an amount from the invoice's `balance`), and the generated controller applies the
+same default to an input left empty, so a defaulted required input is never missing. It names a
+field of the source of the same type, or, for a prompted to-one, a to-one of the source to the same
+entity.
+
+A target that is a composition child of `forEntity` renders the dialog from its own generated form
+metadata, `dependsOn:` cascade included. Any other target, a standalone entity or one owned by another
+model (`uses:`), renders it from controls the generated action carries: the field's type and caption
+and, for a to-one, the picker of its target (a third model's included). Those controls carry no
+`dependsOn:` cascade. The action needs `scope: entity` (the default), and a `timestamp` field cannot be
+prompted yet.
+
 `prompt:` cannot be combined with [`event:`](#event-driven-creation-event) - an event-driven
 create-from runs with nobody there to answer the form.
+
+### Recorded from the document it settles - `link:`
+
+A payment is often recorded from the invoice it pays, and must stay on that invoice. With an
+[auto-settlement](#settlements-payment-allocation) a payment saved on its own is spread over the
+customer's open invoices oldest first, so creating it and then allocating it in a second step lets it
+land on the wrong invoice. `link:` writes the allocation in the **same transaction** as the payment:
+
+```yaml
+generates:
+  - name: record-payment
+    from: SalesInvoice
+    to: CustomerPayment
+    uses: customer-payments
+    label: Record payment
+    fromStatus: [3, 4, 5, 6]
+    map: { Customer: Customer, Currency: Currency, Company: Company }
+    defaults: { date: now }
+    prompt:
+      - { field: amount, required: true, default: balance }   # starts from the invoice's balance
+      - { field: Method, required: true }
+      - { field: reference }
+    link:
+      entity: SalesInvoiceCustomerPayment   # a composition child of SalesInvoice, in this model
+      map: { amount: amount }               # link field <- created payment field (same type)
+```
+
+The link row's composition relation is set to the invoice, its to-one to the payment to the payment
+just created (name it with `relation:` when the link entity has more than one to-one to the target),
+and its mapped fields are copied from the payment. It is saved through the link entity's generated
+repository after the payment and any lines, so everything that repository enforces holds, the
+[roll-up capacity guard](#rollups-denormalised-parent-totals) among them, and a refused row rolls the
+payment back with it (HTTP 400, nothing saved). The payment's `-created` event is published only once
+the whole transaction has committed, so the settlement finds it fully allocated and touches nothing.
+
+::: warning Controller-only checks
+The row checks that carry no `status:` (`compare`, `agree`, `forbidWhen`, `requiredWhen`) are run by
+the generated REST controller, not by the repository, so a link row written by the create-from does
+not meet them. Express the limit the link must respect as a roll-up `capacity:` or a status-gated
+check.
+:::
+
+The link entity must live in the source's model, so a create-from with a cross-model source
+(`fromUses:`) cannot declare `link:`. Pair it with
+[`inlineCreate: false`](#inlinecreate-a-picker-of-existing-rows-only) on the allocation's payment
+picker, so the one path that would race the settlement is not offered at all. Delivered in
+[eclipse-dirigible/dirigible#7756](https://github.com/eclipse-dirigible/dirigible/pull/7756).
 
 `items` has two mutually-exclusive shapes. As an **object** (above) it **mirrors** each source
 child row 1:1. As a **list** it builds **computed** synthetic lines whose cells are expressions
