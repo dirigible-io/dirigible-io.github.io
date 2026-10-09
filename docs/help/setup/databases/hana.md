@@ -5,7 +5,7 @@ description: SAP HANA (Cloud and on-premise) setup.
 
 # SAP HANA
 
-Supported via `database-sql-hana`. The SAP HANA JDBC driver (`ngdbc`) ships on the platform classpath.
+Supported via `database-sql-hana`. The SAP HANA JDBC driver (`com.sap.cloud.db.jdbc:ngdbc`) is **not bundled** in Dirigible; add it to the launch classpath first, see [Adding a JDBC driver](/help/setup/databases/#adding-a-jdbc-driver).
 
 ## As the default database
 
