@@ -53,7 +53,6 @@ Pick from the left rail. The most-used ones:
 | Server logs | **Logs** tab in the bottom panel |
 | Java debugger | **Java Debug** view in the Workbench left sidebar; attaches to the JVM over JDWP |
 | JS / TS debugger | Chrome DevTools - connect to the Graalium port (default `8081`) |
-| Spring Boot Admin | `http://localhost:8080/spring-admin/` |
 | Actuator probes | `/actuator/health/liveness`, `/actuator/health/readiness` |
 
 ## Detailed pages

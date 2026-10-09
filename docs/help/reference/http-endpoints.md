@@ -26,7 +26,6 @@ The platform serves everything off a single HTTP port (default `8080`, env `DIRI
 | `/websockets/...` | WebSocket endpoints, including `/websockets/stomp/<endpoint>` for user-authored handlers and `/websockets/ide/java-debug?workspace=<name>` for the Java debugger bridge. |
 | `/swagger-ui/index.html` | Swagger UI for built-in REST endpoints. |
 | `/api-docs` | Raw OpenAPI document for the built-in endpoints. |
-| `/spring-admin/` | Spring Boot Admin server console. |
 | `/actuator/health/readiness`, `/actuator/health/liveness` | Health probes for orchestrators. |
 | `/actuator/info`, `/actuator/metrics`, `/actuator/loggers` | Other Actuator endpoints. |
 | `/` | Redirects to `DIRIGIBLE_HOME_URL` (default `services/web/shell-ide/`). |

@@ -1,21 +1,11 @@
 ---
 title: Observability
-description: Spring Boot Admin and Actuator for live ops introspection.
+description: Actuator endpoints and the in-IDE views for live ops introspection.
 ---
 
 # Observability
 
-Dirigible exposes two standard JVM observability surfaces:
-
-## Spring Boot Admin
-
-A web console aggregating Spring Boot Actuator data from one or more JVMs.
-
-- URL: `/spring-admin/`
-- The server profile is enabled by default - the runtime is its own Admin server.
-- Inspect bean wiring, environment, mappings, metrics, log levels, scheduled tasks.
-
-For multi-instance deployments point the additional pods at a single Admin server via the Boot Admin Client.
+Dirigible exposes two observability surfaces: the Spring Boot Actuator endpoints and the in-IDE views built on them.
 
 ## Actuator endpoints
 

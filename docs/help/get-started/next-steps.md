@@ -31,7 +31,7 @@ Pick the closest one to what you want to build:
 ## Operating
 
 - **[Setup](/help/setup/)** - environment variables, authentication providers, multi-tenancy, external databases, Kubernetes specifics.
-- **Observability** - Spring Boot Admin at `/spring-admin/`, actuator health probes at `/actuator/health/*`, the Operations perspective for runtime introspection.
+- **Observability** - actuator endpoints and health probes at `/actuator/health/*`, the Operations perspective for runtime introspection.
 
 ## Reference
 
