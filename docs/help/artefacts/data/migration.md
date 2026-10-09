@@ -76,7 +76,7 @@ Every database a migration changes carries its own ledger table, `DIRIGIBLE_MIGR
 The ledger, not the artefact's lifecycle, decides whether a database has a migration. That is what makes every re-run safe:
 
 - **A second boot** against a system database that already has the artefacts re-parses the files and finds every database done.
-- **A new tenant** is provisioned: the platform re-synchronizes every multitenant artefact, which migrates the new tenant's schema and finds the existing tenants done.
+- **A new tenant** is provisioned: the platform applies every multitenant artefact to that tenant alone, which migrates the new tenant's schema and leaves the existing tenants' schemas as they are.
 - **Two nodes** apply the same migration at the same time: the ledger's primary key lets only one record it, and the other node's transaction, statements included, rolls back.
 - **A restored backup** carries the ledger that matches its data.
 
