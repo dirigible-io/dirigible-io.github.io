@@ -37,7 +37,7 @@ The provisioner polls the tenant table at this cadence and drives `INITIAL` tena
 Two SPI hooks let modules plug into the lifecycle:
 
 - `TenantProvisioningStep` - runs while the tenant is still `INITIAL`, before it is marked `PROVISIONED`. Used by data-source provisioning, CMS root setup, etc.
-- `TenantPostProvisioningStep` - runs after the tenant is `PROVISIONED`. Used for "after the lights are on" tasks like seed data. The platform's own step re-synchronizes every multitenant artefact, which is how the new tenant's schema receives its tables, its CSV seeds and its [data migrations](/help/artefacts/data/migration).
+- `TenantPostProvisioningStep` - runs after the tenant is `PROVISIONED`, and is handed the ids of the tenants just provisioned. Used for "after the lights are on" tasks like seed data. The platform's own step applies every multitenant artefact to those tenants only, which is how a new tenant's schema receives its tables, its CSV seeds and its [data migrations](/help/artefacts/data/migration) while the existing tenants are left as they are.
 
 Implementations are discovered as Spring beans. Order via `@Order`.
 
