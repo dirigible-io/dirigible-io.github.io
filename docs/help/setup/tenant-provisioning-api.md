@@ -159,7 +159,9 @@ Each tenant is initialized on its own. Activating a tenant creates that tenant's
 its seed data, and leaves every other tenant as it is: their tables, their data and their status.
 Tenants activated at about the same time are initialized one after the other, each reads
 `IN_PROGRESS` until its own initialization ends, and a failure is reported only for the tenant it
-happened in. A deployment with no tenant-specific artefacts has nothing to create, so its tenants read
+happened in. The exception is a tenant-specific artefact file the platform cannot parse at all: it
+belongs to no single tenant, so every active tenant reads `FAILED`, naming the file, until it is
+fixed. A deployment with no tenant-specific artefacts has nothing to create, so its tenants read
 `COMPLETED` almost at once.
 
 ### Push the users
