@@ -5,7 +5,7 @@ description: MariaDB setup.
 
 # MariaDB
 
-Supported via `database-sql-mariadb`. The MariaDB JDBC driver ships on the platform classpath.
+Supported via `database-sql-mariadb`. The MariaDB JDBC driver (`org.mariadb.jdbc:mariadb-java-client`) is **not bundled** in Dirigible; add it to the launch classpath first, see [Adding a JDBC driver](/help/setup/databases/#adding-a-jdbc-driver).
 
 ## As the default database
 
