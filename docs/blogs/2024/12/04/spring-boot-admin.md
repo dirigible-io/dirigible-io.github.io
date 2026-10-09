@@ -7,6 +7,11 @@ author_avatar: https://avatars.githubusercontent.com/u/5058839?v=4
 read_time: 5 min
 publish_date: December 04, 2024
 ---
+
+::: warning
+The embedded Spring Boot Admin server and client were removed from Dirigible ([eclipse-dirigible/dirigible#7781](https://github.com/eclipse-dirigible/dirigible/issues/7781)). The `spring-boot-admin-*` profiles and `/spring-admin/` no longer exist; use the Actuator endpoints and the Monitoring perspective instead. This post is kept for reference.
+:::
+
 ## Overview
 Modern applications demand robust observability and monitoring tools to ensure reliability, performance, and security. To address this, [Eclipse Dirigible](https://www.dirigible.io/) introduces seamless integration with [Spring Boot Admin (SBA)](https://docs.spring-boot-admin.com/). By embedding SBA's server and client capabilities, Dirigible provides an intuitive UI to monitor the health, performance metrics, and logs of applications. This feature eliminates the need for external monitoring setups, making it easier for developers to manage their applications directly from within Dirigible. This blog explores how to configure and use this integration to enhance your observability toolkit.
 

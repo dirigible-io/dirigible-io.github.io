@@ -12,7 +12,6 @@ Dirigible logs through SLF4J / Logback. Default configuration lives in `applicat
 Change a logger level without restart from:
 
 - The [Logs view](/help/ide/views/logs) - one-click level toggles per logger.
-- Spring Boot Admin under `/spring-admin/`.
 - The Actuator endpoint at `/actuator/loggers/<name>` (`POST` with `{"configuredLevel":"DEBUG"}`).
 
 ## Log output destinations
