@@ -139,8 +139,8 @@ of seconds to minutes - too long for one request. Poll the `GET` until it settle
 | `400` | the tenant's data source is not registered yet |
 | `404` | there is no such tenant |
 
-Re-posting is safe: on an already-active tenant it re-runs the initialization, which is how a failed
-one is retried.
+Re-posting is safe: on an already-active tenant it re-runs that tenant's initialization, which is how
+a failed one is retried.
 
 `GET` answers `{ "status": ..., "error": ... }`:
 
@@ -152,11 +152,17 @@ one is retried.
 | `FAILED` | something could not be created; `error` says what |
 
 The status is worked out from what the platform has actually recorded, so every instance of a
-cluster gives the same answer and a restart does not lose it.
+cluster gives the same answer and a restart does not lose it. An initialization that a restart
+interrupted is resumed once the application is up again.
 
-Two things follow. Tenants activated at about the same time share one initialization, so each reads
-`IN_PROGRESS` until all of them are done, and a failure is reported for all of them. And a deployment
-with no tenant-specific artefacts has nothing to create, so it answers `COMPLETED` straight away.
+Each tenant is initialized on its own. Activating a tenant creates that tenant's artefacts and imports
+its seed data, and leaves every other tenant as it is: their tables, their data and their status.
+Tenants activated at about the same time are initialized one after the other, each reads
+`IN_PROGRESS` until its own initialization ends, and a failure is reported only for the tenant it
+happened in. The exception is a tenant-specific artefact file the platform cannot parse at all: it
+belongs to no single tenant, so every active tenant reads `FAILED`, naming the file, until it is
+fixed. A deployment with no tenant-specific artefacts has nothing to create, so its tenants read
+`COMPLETED` almost at once.
 
 ### Push the users
 
