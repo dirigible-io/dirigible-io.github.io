@@ -109,6 +109,7 @@ See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant pr
 | `DIRIGIBLE_MESSAGING_BROKER_USERNAME`      |         | Broker username. Unset connects anonymously.                                                                               |
 | `DIRIGIBLE_MESSAGING_BROKER_PASSWORD`      |         | Broker password.                                                                                                           |
 | `DIRIGIBLE_MESSAGING_USE_DEFAULT_DATABASE` | `true`  | Persist the embedded broker's messages in the system database. Ignored with an external broker.                            |
+| `DIRIGIBLE_MESSAGING_LISTENER_CONNECTIONS` | `shared` | How listeners attach to the broker: `shared` opens one connection per tenant for the Java listeners (plus one for `global:` destinations and one for all `.listener` artefacts), each subscription a session on it; `per-listener` opens a connection per subscription per tenant. See [Message listeners](/help/develop/message-listeners#connections-one-per-tenant-not-one-per-listener). |
 
 Point several nodes or deployments at one broker to share destinations between them. The broker has to
 be reachable when the server starts, and the Messaging perspective works only against the embedded
