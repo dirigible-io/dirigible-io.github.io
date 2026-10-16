@@ -46,7 +46,7 @@ complete worked example.
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
 | [`settlements`](#settlements-payment-allocation) | auto-allocation of payments across open invoices |
-| [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports, user-set parameters |
+| [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports, financial and cash-flow statements, user-set parameters |
 | [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
 | [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
 | [`notifications`](#notifications-email-on-change) | email on create/update/delete |
@@ -2506,6 +2506,81 @@ still generates and the tile still renders a number. Treat it as a bug in the mo
 A nomenclature owned by **another model** (`uses:`) is seeded there, so its stages cannot be resolved
 from this file; a `scope` over it is rejected at parse with a message pointing at an explicit
 `filter:`.
+
+### statement - financial statements and the cash-flow statement
+
+`kind: statement` reads the same signed ledger as a balance report, but its rows are the FIXED lines
+of a statutory form - a balance sheet, an income statement - where every line is a formula over the
+chart of accounts and some lines are subtotals of others. The report has three columns, **Code**,
+**Label** and **Amount**, and the same runtime From/To window as a balance report.
+
+```yaml
+reports:
+  - name: BalanceSheet
+    kind: statement
+    source: JournalEntryItem
+    date: journalEntry.entryDate
+    debit: debit
+    credit: credit
+    account: account.code                     # the account CODE the lines select on
+    filter: "journalEntry.status == 2"
+    lines:
+      - { code: A.I,  label: Fixed assets, accounts: "20*,21*", measure: closingNetDebit }
+      - { code: A.II, label: Receivables,  accounts: "41*",     measure: closingNetDebit }
+      - { code: A,    label: Total assets, sum: [A.I, A.II] }
+      - { code: B.I,  label: Payables,     accounts: "40-49",   measure: closingNetCredit }
+      - { code: B,    label: Net assets,   sum: [A], less: [B.I] }
+```
+
+A line either reads the ledger (`accounts` + `measure`) or is arithmetic over other lines
+(`sum` adds, `less` subtracts, by `code`), never both. The `accounts` selector is comma-separated:
+`20*` a prefix, `4110` one account, `60-69` a range of equally long code prefixes (so it takes `601`
+and `6999` too). The `measure` is one of `opening`/`period`/`closing` x `Debit`/`Credit`/`NetDebit`/`NetCredit`;
+the `Net` ones net each account's two sides before the line sums it, which is what files a both-type
+settlement account as a receivable when it is in debit and a payable when it is in credit.
+
+The line classification is generated as a `<REPORT>_LINES` database view next to the `.report`, so
+the statement's structure is a named object other reports and tools can read.
+
+**The cash-flow statement - `cashAccounts:`.** The direct-method cash-flow statement classifies cash
+movements by their counter-side: receipts from customers are the credits to the receivable accounts
+in entries that debit cash. Name the cash accounts and the statement switches to the cash basis:
+
+```yaml
+reports:
+  - name: CashFlow
+    kind: statement
+    source: JournalEntryItem
+    date: journalEntry.entryDate              # must go through the entry relation
+    debit: debit
+    credit: credit
+    account: account.code
+    cashAccounts: "50*"                       # the cash and bank accounts
+    filter: "journalEntry.status == 2"
+    lines:
+      - { code: A.1, label: Receipts from customers, accounts: "41*", measure: periodCredit }
+      - { code: A.2, label: Payments to suppliers,   accounts: "40*", measure: periodDebit }
+      - { code: A,   label: Operating activities,    sum: [A.1], less: [A.2] }
+      - { code: B.1, label: Purchases of equipment,  accounts: "20*", measure: periodDebit }
+      - { code: B,   label: Investing activities,    less: [B.1] }
+      - { code: C.1, label: Borrowings,              accounts: "15*", measure: periodCredit }
+      - { code: C,   label: Financing activities,    sum: [C.1] }
+      - { code: N,   label: Net cash flow,           sum: [A, B, C] }
+```
+
+On the cash basis a line's `accounts` are counter-accounts: `periodCredit` is the cash received from
+them and `periodDebit` the cash paid to them. When an entry's cash covers only part of its counter
+side, the cash is spread over it by amount (100 cash against 75 receivable and 25 sales gives the
+customer 75 and sales 25). Over balanced entries, operating + investing + financing therefore equals
+the change in the cash accounts' balance for the window. A transfer between two cash accounts is no
+cash flow, and an entry that touches no cash account is not read. The per-entry cash totals are a
+second generated view, `<REPORT>_CASH_TOTALS`.
+
+::: tip Rules
+Only the four `period*` measures apply on the cash basis (a cash flow is a movement within the
+window), and `date` must be a `<relation>.<field>` path over the item's relation to its journal entry,
+because the cash an entry moved is a fact about the entry.
+:::
 
 ## widgets - custom dashboard tiles
 
