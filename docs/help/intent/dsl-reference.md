@@ -41,6 +41,7 @@ complete worked example.
 | [`generates.event`](#event-driven-creation-event) | mint the document on a source event - a status write, a create, or a process step |
 | [`generates.event.mode`](#cardinality-mode-once-append) | one target per source (`once`, default) or one per delivered event (`append`) |
 | [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
+| [`reversals`](#reversals-reverse-a-booked-document-red-storno) | a manual Reverse on a posted document - its negated twin, linked both ways |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
@@ -2017,6 +2018,52 @@ item amount is (source identifiers are the PascalCase field names; a null reads 
 cell interpolates `{field}` placeholders, copies a bare source property, or is a plain quoted
 literal; a **to-one relation** cell copies the raw source foreign key; a `when` cell guards the
 whole line. The list form is not available on a `schedules[].generate`.
+
+## reversals - reverse a booked document (red storno)
+
+A manual **Reverse** on a posted document that has no source event to void - the hand-written journal
+entry. One click creates the document's **negated twin**: every line is copied onto the SAME side
+with the declared amounts negated, the twin points at the original and the original at the twin, so
+the pair nets to zero and each record names the other. (A document a [posting](#postings-source-document-to-ledger)
+created is reversed on its source's void by `postings: reverses:` instead.)
+
+```yaml
+reversals:
+  - name: reverseEntry
+    forEntity: JournalEntry
+    when: "Status == POSTED"            # offered and accepted only here (409 elsewhere)
+    label: Reverse
+    icon: undo-2
+    link: Storno                        # the twin's to-one to the original
+    backLink: ReversedBy                # optional: the original's to-one to its twin
+    negate: [debit, credit, currencyAmount]   # decimal fields of the header and/or its lines
+    defaults: { date: now }             # header values set instead of copied
+    refuse:                             # conditions over the original, each answered with 409 + message
+      - { when: "ReversedBy != null", message: "This entry is already reversed" }
+      - { when: "Storno != null",     message: "A reversal cannot be reversed - reverse the original entry" }
+```
+
+A reversal is a [create-from](#generates-create-from) of the entity onto itself, so the twin is
+saved through the generated repositories in one transaction with its lines and the back-link:
+checks, document numbering, the init status, the entity's process and the
+[period lock](#period-immutableinperiod-date-based-immutability) all apply. The twin starts at the
+init status (a draft the accountant can still re-date before posting it the usual way), and a twin
+dated into a CLOSED period is refused with nothing written.
+
+- **Copied** - every field and to-one of the header and of its lines as it stands. **Not copied** -
+  the key, `unique` fields, a `number:` field (the twin draws its own), calculated and `aggregate`
+  fields, the `function: EntityStatus` relation, a `personal` owner, `link` / `backLink`, the line's
+  composition foreign key (re-pointed at the twin) and every `defaults:` key.
+- `link` and `backLink` are to-ones of `forEntity` to itself. The back-link is written on the original
+  as a system write, past `immutableWhen` (which guards user writes) - the original stays as it was.
+- `when` compares the entity's `function: EntityStatus` relation with one status (a seeded name or its
+  id) and also hides the button in every other status. Any other precondition is a `refuse:` entry: one
+  comparison or an ANDed list over the entity's own fields and to-ones (`<field> ==|!= <value | null>`),
+  decided under a row lock on the original, so two concurrent clicks cannot both reverse it.
+- `negate` names `decimal` fields only - a rate or a quantity that multiplies an amount is copied, not
+  negated.
+- The endpoint is `/services/java/<project>/gen/events/<module>/<Name>Generate/run` (body `{"id": n}`)
+  and answers the created twin.
 
 ## transitions - guarded status flips
 
