@@ -60,6 +60,7 @@ complete worked example.
 | [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
+| [`exports`](/help/intent/glue#exports-a-file-in-an-exacting-format-over-a-query) | a fixed-width, delimited or XML file over an entity or a report, every run recorded on a ledger |
 | [`permissions`](#permissions-roles-and-access-gates) | roles, and the access gates the generated app enforces |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
