@@ -1,6 +1,6 @@
 ---
 title: Declarative glue
-description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), outbound departures (queue, topic), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
+description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), file imports (CSV, MT940, camt.053), outbound departures (queue, topic), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
 ---
 
 # Declarative glue
@@ -544,6 +544,83 @@ The change history and document numbering run outside the unit of work, as they 
 
 Delivered in [eclipse-dirigible/dirigible#7594](https://github.com/eclipse-dirigible/dirigible/pull/7594) (issue [#7593](https://github.com/eclipse-dirigible/dirigible/issues/7593)).
 
+## imports - a file uploaded into rows
+
+`inbound` takes a JSON record another system sends. `imports` takes a **file** a person uploads - a bank statement, a price list, another system's CSV export - and makes each of its records a row of an entity. It reads three formats: CSV with locale rules, SWIFT **MT940** and ISO 20022 **camt.053**.
+
+```yaml
+imports:
+  - name: bankCsv
+    into: StatementLine            # the entity whose rows the file becomes
+    format: csv                    # csv | mt940 | camt053
+    encoding: windows-1251         # csv / mt940, default UTF-8
+    csv:                           # csv only, every key optional
+      separator: ";"               # default ","
+      decimal: ","                 # default "."
+      grouping: "."                # default none - "1.234,56" needs it
+      dateFormat: dd.MM.yyyy       # default yyyy-MM-dd
+      skipLines: 1                 # lines before the header (a bank's preamble)
+    map:                           # <entity field>: <source>
+      statementId: _file           # _file = the uploaded file's name
+      lineNumber:  _line           # _line = the record's position in the file
+      bookedOn:    Дата            # a header column
+      amount:      Сума
+      details:     Основание
+    duplicateKey: [statementId, lineNumber]
+  - name: swift
+    into: StatementLine
+    format: mt940
+    map: { statementId: statementId, lineNumber: lineNumber, bookedOn: valueDate, amount: amount, details: details }
+    duplicateKey: [statementId, lineNumber]
+```
+
+A CSV source is a column of the header, or its 1-based position under `csv: { header: false }`. An MT940 or camt.053 file is read into one record per statement line (`:61:` / `Ntry`), and both formats share one vocabulary, so the same `map:` reads either:
+
+| Key | Meaning |
+| --- | --- |
+| `statementId`, `sequence`, `account`, `currency` | the statement the line belongs to (`:20:`, `:28C:`, `:25:`, the opening balance's currency / `Stmt/Id`, `ElctrncSeqNb`, `Acct`) |
+| `lineNumber` | the line's position in its statement, from 1 |
+| `valueDate`, `bookingDate` | ISO dates (an MT940 line without an entry date has no `bookingDate`) |
+| `mark`, `amount` | `C` / `D`, and the amount signed by it - a debit (and a reversed credit) is negative |
+| `transactionType`, `reference`, `bankReference` | the transaction code and the two references |
+| `details` | the `:86:` text / the remittance information |
+| `supplementary` | MT940 only - the second line of `:61:` |
+| `counterpartyName`, `counterpartyAccount` | camt.053 only - the other side of the entry |
+
+Each import generates `gen/events/<module>/<Name>Import.java`:
+
+- an **upload** endpoint, `POST /services/java/<project>/gen/events/<module>/<Name>Import/upload`, taking a multipart form with one file, or the raw file as the body with `?fileName=`. It is gated by the entity's own write role, the one its REST controller checks;
+- a bean method `importFile(fileName, bytes)` a job injects and calls to import a file it fetched itself (from an SFTP folder, a bank API).
+
+The answer is the import's outcome as JSON - `status`, `records`, `message`, `checksum`.
+
+::: tip A file is imported whole, or not at all
+Every record is read and converted first, and the `duplicateKey` is checked against the rows already imported and against the other records of the same file - only then are all rows saved, in one transaction. An unreadable value answers **400** (`REJECTED`) and a repeated key **409** (`DUPLICATE`), naming the record; either way nothing is saved. Uploading the same statement twice is therefore harmless. Declare a `unique:` over the same fields as well when two uploads of one statement at the same moment must be impossible too.
+:::
+
+::: warning Encodings and numbers are read strictly
+A file that is not valid in the declared encoding is refused - a windows-1251 statement uploaded to an import declaring UTF-8 is rejected, never stored with its Cyrillic garbled. A number using a separator the `csv:` rules do not declare is refused rather than guessed: with `decimal: ","` and no `grouping`, `1.234` is ambiguous and rejects the file.
+:::
+
+**The import ledger.** Every attempt - imported, refused as a duplicate, rejected - is recorded in a sibling `<TABLE>_IMPORTS` table of the entity: the import's name, the file's name and SHA-256 checksum, how many records it saved, the status and the reason, who imported it and when. The schema generates it for every entity an import writes into.
+
+**After the import - matching rules.** Matching statement lines to invoices is logic, not intent, so it is a hook: every `@Component` implementing `<Name>Import.Hook` is called with the import's outcome and its saved rows once they are committed. A failing hook is logged and reported as a warning in the answer; it does not undo the import.
+
+```java
+package custom;
+
+@Component
+public class MatchStatementLines implements BankCsvImport.Hook {
+
+    @Override
+    public void afterImport(ImportResult result, List<StatementLineEntity> rows) {
+        // match each row against the open invoices
+    }
+}
+```
+
+An import fills **fields only**: the target is a local entity that is not a composition child and has no required to-one relation, `map:` covers every required field without a default and never the primary key, and `duplicateKey` lists mapped fields - all checked at Generate. Looking a related record up from a value in the file (an IBAN to a bank account) is not part of the construct yet; do it in a hook.
+
 ## outbound - departures to another system
 
 The mirror of `inbound`: the application **raises a business event** for something outside it, on a queue or a topic. Reach for `integrations` when you are calling someone's API and want their answer; reach for `outbound` when you are announcing that something happened and nobody answers. That difference in failure semantics - a failed call versus a missed announcement - is why these are two blocks rather than one with a transport switch.
@@ -823,6 +900,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Integrations (event to `HttpClient`) | implemented |
 | Process-step events (`onStepReached` / `onStepCompleted` on a notification, an integration, a departure or a create-from) | implemented |
 | Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
+| File imports (uploaded CSV / MT940 / camt.053 into rows, duplicate key, import ledger, post-import hook) | implemented |
 | Outbound departures (event to a queue / topic via `Producer`, with the declared envelope) | implemented |
 | Event-driven create-from (`generates` with `event:`, on either axis, `mode: once` or `append`) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
