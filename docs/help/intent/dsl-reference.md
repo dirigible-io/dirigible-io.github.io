@@ -59,6 +59,7 @@ complete worked example.
 | [`integrations.payload`](#integrations-outbound-http) | the declared envelope a message carries, instead of the record as stored |
 | [the event axis](/help/intent/glue#the-event-axis-lifecycle-and-process-step-events) | what a notification / integration binds to: an entity lifecycle event, or a process step reached / completed |
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
+| [`imports`](#imports-a-file-uploaded-into-rows) | an uploaded file (CSV with locale rules, MT940, camt.053) read into rows, with a duplicate key, an import ledger and a post-import hook |
 | [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
 | [`permissions`](#permissions-roles-and-access-gates) | roles, and the access gates the generated app enforces |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
@@ -2809,6 +2810,31 @@ Generate refuses a collection that cannot work, with one of these messages. `<p>
 A lookup inside the element map is held to the same rules as any other lookup. Delivered in
 [eclipse-dirigible/dirigible#7594](https://github.com/eclipse-dirigible/dirigible/pull/7594)
 (issue [#7593](https://github.com/eclipse-dirigible/dirigible/issues/7593)).
+
+## imports - a file uploaded into rows
+
+An uploaded file - CSV with locale rules, MT940 or camt.053 - read into rows of `into:`, generated as
+`gen/events/<module>/<Name>Import.java`: an upload endpoint gated by the entity's write role, and an
+`importFile(fileName, bytes)` method a job calls. A file is imported whole or not at all (400 for an
+unreadable value, 409 for a repeated `duplicateKey`), every attempt is recorded in the entity's
+`<TABLE>_IMPORTS` ledger, and `<Name>Import.Hook` beans run after the commit. See
+[Declarative glue](/help/intent/glue#imports-a-file-uploaded-into-rows) for the statement vocabulary and the rules.
+
+```yaml
+imports:
+  - name: bankCsv
+    into: StatementLine
+    format: csv                       # csv | mt940 | camt053
+    encoding: windows-1251
+    csv: { separator: ";", decimal: ",", grouping: ".", dateFormat: dd.MM.yyyy, skipLines: 1 }
+    map: { statementId: _file, lineNumber: _line, bookedOn: Дата, amount: Сума, details: Основание }
+    duplicateKey: [statementId, lineNumber]
+  - name: swift
+    into: StatementLine
+    format: mt940
+    map: { statementId: statementId, lineNumber: lineNumber, bookedOn: valueDate, amount: amount, details: details }
+    duplicateKey: [statementId, lineNumber]
+```
 
 ## outbound - departures to another system
 
