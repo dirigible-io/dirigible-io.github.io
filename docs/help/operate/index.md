@@ -7,7 +7,7 @@ description: Run Dirigible in production - observability, multi-tenancy, trouble
 
 Running Dirigible day to day.
 
-- **[Observability](/help/operate/observability)** - Spring Boot Admin and Actuator.
+- **[Observability](/help/operate/observability)** - Actuator endpoints and the in-IDE views.
 - **[OpenTelemetry](/help/operate/opentelemetry)** - traces and metrics.
 - **[Logging](/help/operate/logging)** - log levels, live tail, log destinations.
 - **[Health checks](/help/operate/health-checks)** - readiness and liveness probes.
