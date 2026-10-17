@@ -15,6 +15,7 @@ complete worked example.
 | [`entities`](#entities) | tables + CRUD UI + generated Java repository/REST |
 | [field / relation attributes](#field-relation-attributes) | uniqueness, layout, read-only, dropdown filtering, cascades |
 | [`pickable`](#pickable-which-target-rows-a-picker-offers) | which target rows a to-one's picker offers: a failing row listed disabled with a message, or left out |
+| [`inlineCreate`](#inlinecreate-a-picker-of-existing-rows-only) | `false` removes the "New &lt;Entity&gt;" button beside a to-one's picker |
 | [`unique`](#unique-a-business-key-over-more-than-one-field) | a business key spanning more than one field or relation |
 | [`renamedFrom` / `dropped`](#renamedfrom-dropped-evolving-a-table-that-already-holds-data) | rename a live column in place so its values follow the new field name / drop retired columns explicitly - a field merely deleted from the file keeps its column and data |
 | [`function`](#function-presentation-role) | explicit presentation role (Document, Setting, ...) |
@@ -41,6 +42,7 @@ complete worked example.
 | [`generates.event`](#event-driven-creation-event) | mint the document on a source event - a status write, a create, or a process step |
 | [`generates.event.mode`](#cardinality-mode-once-append) | one target per source (`once`, default) or one per delivered event (`append`) |
 | [`generates.prompt`](#prompted-input-prompt) | collect a couple of values in a dialog before the create |
+| [`generates.link`](#recorded-from-the-document-it-settles-link) | write the source's link row (an allocation) to the new target in the same transaction |
 | [`reversals`](#reversals-reverse-a-booked-document-red-storno) | a manual Reverse on a posted document - its negated twin, linked both ways |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
@@ -62,6 +64,7 @@ complete worked example.
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`imports`](#imports-a-file-uploaded-into-rows) | an uploaded file (CSV with locale rules, MT940, camt.053) read into rows, with a duplicate key, an import ledger and a post-import hook |
 | [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
+| [`exports`](/help/intent/glue#exports-a-file-in-an-exacting-format-over-a-query) | a fixed-width, delimited or XML file over an entity or a report, every run recorded on a ledger |
 | [`permissions`](#permissions-roles-and-access-gates) | roles, and the access gates the generated app enforces |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 
@@ -217,6 +220,32 @@ Generate. Delivered in
 [eclipse-dirigible/dirigible#7514](https://github.com/eclipse-dirigible/dirigible/pull/7514)
 (issue [#7496](https://github.com/eclipse-dirigible/dirigible/issues/7496)).
 
+
+## inlineCreate - a picker of existing rows only
+
+A to-one dropdown on a generated form, document header or document line dialog offers a
+**New &lt;Entity&gt;** button that creates a target row on the spot. That row is saved on its own,
+before the record you are editing, so everything that reacts to its creation runs first. Under an
+[auto-settlement](#settlements-payment-allocation) that is wrong, not just early: a payment created
+from an allocation row's picker is spread over the customer's oldest open invoice before the
+allocation you are entering is saved, and that allocation is then refused. `inlineCreate: false`
+keeps the picker to existing rows:
+
+```yaml
+- name: SalesInvoiceCustomerPayment
+  relations:
+    - { name: SalesInvoice, kind: manyToOne, to: SalesInvoice, composition: true, required: true }
+    - { name: CustomerPayment, kind: manyToOne, to: CustomerPayment, model: customer-payments,
+        required: true, inlineCreate: false }
+```
+
+The button disappears from the form, the document header and the document item dialog; the value a
+record already holds still shows its label. Record such a target from the document it belongs to
+instead, with a [create-from that writes the link row](#recorded-from-the-document-it-settles-link).
+Absent, the generated UI decides as before (offered for any target outside Settings).
+`inlineCreate` is refused on a collection relation (it has no picker) and on a `kind: subset`.
+Delivered in
+[eclipse-dirigible/dirigible#7756](https://github.com/eclipse-dirigible/dirigible/pull/7756).
 ## label / countryLabels - what a field is called
 
 A field's caption is the humanized form of its name, which cannot produce an acronym, a unit or a
@@ -554,6 +583,54 @@ fifteen declarative lines plus a class for one sentence of rule, and it lands th
 task instead of a refusal on the button they pressed. Placing that step AFTER the sending action is
 worse: by then the document has been sent, and the refusal has nowhere to go.
 :::
+
+## checks: severity: warn - warn and confirm instead of refuse
+
+Every check kind above refuses the write. Some rules are not refusals: a second customer with the
+same name is legitimate (two companies may share a registered name under different registration
+numbers), yet the person typing it should be asked first; a document line at price zero may be a
+gift, or a typing mistake. The soft tier states those rules - the write stays possible, and the
+person saving it is told and confirms.
+
+```yaml
+- name: Customer
+  checks:
+    - { kind: duplicate, fields: [name], message: "A customer with this name already exists: {match}" }
+    - { kind: compare, field: discount, op: le, value: 50, severity: warn, message: "A discount above 50%" }
+- name: SalesInvoice
+  checks:
+    # asked ONCE per document save, for all the lines that break it
+    - { kind: itemsCompare, field: price, op: gt, value: 0, message: "{count} line(s) at price zero" }
+```
+
+- `severity: warn` softens an ungated row-level check (`compare`, `requiredWhen`, `forbidWhen`,
+  `exactlyOne`, `agree`). A check with a `status` gate runs inside a workflow transition, where
+  nobody can answer a question, so the two are refused together; a `guard` has its own soft
+  outcomes (`task`, `reject`).
+- `duplicate` - another record already carries the same `fields` (own fields or to-one relations).
+  A `string` or `text` field is compared **ignoring case and surrounding spaces**, so "ACME Ltd" is
+  asked about when "Acme Ltd " exists: the rule is the same name typed again, which rarely matches
+  byte for byte, and a false positive only costs a confirmation. A to-one and a number compare
+  exactly. `{match}` in the message is replaced with the existing record's label (its `name`, else
+  its id), so the warning says which record it collides with. Always a warning; the hard version is
+  `unique:`.
+- `itemsCompare` - on the document: every item's `field` compared with `op` to the `value` literal.
+  `{count}` in the message is the number of lines that break it. Always a warning; the hard version
+  is a `compare` on the items entity.
+
+The warning is enforced by the server, so a REST client is told the same thing a form is: an
+unconfirmed write is answered `428 Precondition Required` listing the warnings, and nothing is
+written.
+
+```json
+{ "errorType": "ConfirmationRequired",
+  "warnings": [ { "code": "Customer.duplicate.0", "message": "A customer with this name already exists: Acme Ltd" } ] }
+```
+
+The caller repeats the same request with the codes in the `X-Confirm-Warnings` header
+(comma-separated); a confirmation covers only the codes it names, so a warning that appears only on
+the repeat is asked again. The generated forms turn the 428 into one confirm dialog and the repeat.
+A process step or a job writes on nobody's behalf and is never stopped by a warning.
 
 ## checks: kind: guard - precondition over an aggregate
 
@@ -1977,7 +2054,7 @@ derives.
 generates:
   - name: allocate-payment
     from: SalesInvoice
-    to: SalesInvoiceCustomerPayment  # must be a composition child of forEntity (local, scope entity)
+    to: SalesInvoiceCustomerPayment  # a composition child of forEntity: its own form metadata types the dialog
     label: Allocate Payment
     icon: link
     map:
@@ -1996,8 +2073,68 @@ before anything is written). A property may not be both prompted and mapped/defa
 writer. The create still goes through the target's repository, so the ordinary `-created` event,
 roll-ups and status flips fire unchanged.
 
+An entry may declare `default: <source property>`: the input starts from that value of the record
+the action runs on (an amount from the invoice's `balance`), and the generated controller applies the
+same default to an input left empty, so a defaulted required input is never missing. It names a
+field of the source of the same type, or, for a prompted to-one, a to-one of the source to the same
+entity.
+
+A target that is a composition child of `forEntity` renders the dialog from its own generated form
+metadata, `dependsOn:` cascade included. Any other target, a standalone entity or one owned by another
+model (`uses:`), renders it from controls the generated action carries: the field's type and caption
+and, for a to-one, the picker of its target (a third model's included). Those controls carry no
+`dependsOn:` cascade. The action needs `scope: entity` (the default), and a `timestamp` field cannot be
+prompted yet.
+
 `prompt:` cannot be combined with [`event:`](#event-driven-creation-event) - an event-driven
 create-from runs with nobody there to answer the form.
+
+### Recorded from the document it settles - `link:`
+
+A payment is often recorded from the invoice it pays, and must stay on that invoice. With an
+[auto-settlement](#settlements-payment-allocation) a payment saved on its own is spread over the
+customer's open invoices oldest first, so creating it and then allocating it in a second step lets it
+land on the wrong invoice. `link:` writes the allocation in the **same transaction** as the payment:
+
+```yaml
+generates:
+  - name: record-payment
+    from: SalesInvoice
+    to: CustomerPayment
+    uses: customer-payments
+    label: Record payment
+    fromStatus: [3, 4, 5, 6]
+    map: { Customer: Customer, Currency: Currency, Company: Company }
+    defaults: { date: now }
+    prompt:
+      - { field: amount, required: true, default: balance }   # starts from the invoice's balance
+      - { field: Method, required: true }
+      - { field: reference }
+    link:
+      entity: SalesInvoiceCustomerPayment   # a composition child of SalesInvoice, in this model
+      map: { amount: amount }               # link field <- created payment field (same type)
+```
+
+The link row's composition relation is set to the invoice, its to-one to the payment to the payment
+just created (name it with `relation:` when the link entity has more than one to-one to the target),
+and its mapped fields are copied from the payment. It is saved through the link entity's generated
+repository after the payment and any lines, so everything that repository enforces holds, the
+[roll-up capacity guard](#rollups-denormalised-parent-totals) among them, and a refused row rolls the
+payment back with it (HTTP 400, nothing saved). The payment's `-created` event is published only once
+the whole transaction has committed, so the settlement finds it fully allocated and touches nothing.
+
+::: warning Controller-only checks
+The row checks that carry no `status:` (`compare`, `agree`, `forbidWhen`, `requiredWhen`) are run by
+the generated REST controller, not by the repository, so a link row written by the create-from does
+not meet them. Express the limit the link must respect as a roll-up `capacity:` or a status-gated
+check.
+:::
+
+The link entity must live in the source's model, so a create-from with a cross-model source
+(`fromUses:`) cannot declare `link:`. Pair it with
+[`inlineCreate: false`](#inlinecreate-a-picker-of-existing-rows-only) on the allocation's payment
+picker, so the one path that would race the settlement is not offered at all. Delivered in
+[eclipse-dirigible/dirigible#7756](https://github.com/eclipse-dirigible/dirigible/pull/7756).
 
 `items` has two mutually-exclusive shapes. As an **object** (above) it **mirrors** each source
 child row 1:1. As a **list** it builds **computed** synthetic lines whose cells are expressions
@@ -2160,6 +2297,13 @@ it. The handler therefore derives the whole content and compares it with the pos
 carries: identical is a redelivery and does nothing, different rewrites that post in place - the
 header assignments re-applied, the items replaced. There is never a second document for one source.
 
+The rewrite is **one transaction**: the rows it replaces, the header and every derived line either
+all become durable or none of them does. Written as separate transactions, a line a validation
+refuses halfway leaves a header with a partial set of lines - an unbalanced entry - and nothing ever
+comes back to repair it, because the source has already reached its moment and raises no further
+event. That is worse than the stale but balanced post the rewrite set out to fix, so the whole post
+is written together or not at all.
+
 The rewrite stops where the created document's own lifecycle says somebody has taken it over: it is
 rewritable only while its `function: EntityStatus` relation still holds the `init:` value the
 posting's own create wrote (a created document with no status lifecycle has nothing to act on, so it
@@ -2251,8 +2395,16 @@ owner's `.model`, so the generated handler imports `gen.<owner>.data.<perspectiv
 and writes through it. The relation's model must be declared in `uses:`; the parent field is checked
 against the owner's model at generation time, and a roll-up that cannot be resolved (undeclared model,
 unknown field) is surfaced in the generate response's issues instead of being dropped silently.
-`capacity` / `balance` / `status` stay local-only in that direction - they read the parent's own limit
-and status seeds and stamp the capacity guard on the child.
+
+`capacity` and `balance` work in that direction, **overdraw guard included**: the capacity is a read
+of one numeric column of the foreign parent, the balance is a second column on the targeted write the
+sum already makes, and the guard that refuses a child row overdrawing the parent is emitted into the
+CHILD's repository - which is local here, since the child owns the event. That is what lets both sides
+of an allocation be guarded from the module that owns the link rows ("an invoice cannot be paid past
+its payable" and "a payment cannot be applied past its amount" are one sentence for the business).
+`capacity` / `balance` are checked against the owner's model like `field`, and a `balance` with no
+`capacity` is refused at parse (the balance IS `capacity - sum`). `status` stays local-only: it moves
+the parent through the owner's own status seeds and its displaced-status column.
 
 The CHILD may be the foreign side instead, which is what an n:m allocation needs: the link entity
 belongs to the module that owns one side of the pairing, while the other side's total belongs to the
@@ -2504,6 +2656,97 @@ not a Java keyword and not one the platform already uses (`language`, `filter`, 
 A [balance report](#reports-read-only-aggregations) declares its own `fromDate`/`toDate` window; it
 may add further parameters, but not redeclare those two.
 
+### kind: statement - balance sheets and income statements
+
+A balance report answers "what is the balance of each account". A statutory statement asks something
+one altitude up: **what are the lines of the form, and which accounts make up each one**. The line
+structure is prescribed by the jurisdiction, the mapping from accounts to lines by the chart, and
+neither can be derived from the ledger - so `kind: statement` declares them:
+
+```yaml
+reports:
+  - name: BalanceSheet
+    kind: statement
+    source: JournalEntryItem              # the ledger line items - as for kind: balance
+    date: journalEntry.entryDate          # the date the runtime From/To pickers apply to
+    debit: debit
+    credit: credit
+    account: account.code                 # the account CODE the lines select on (a string field)
+    filter: "journalEntry.status == 2"    # only posted entries count
+    lines:
+      - { code: A.I,  label: Fixed assets, accounts: "20*,21*", measure: closingNetDebit }
+      - { code: A.II, label: Receivables,  accounts: "41*",     measure: closingNetDebit }
+      - { code: A,    label: Total assets, sum: [A.I, A.II] }
+      - { code: B.I,  label: Payables,     accounts: "40-49",   measure: closingNetCredit }
+      - { code: B,    label: Net assets,   sum: [A], less: [B.I] }
+```
+
+The report's rows are the declared `lines`, in the authored order, as three columns - **Code**,
+**Label**, **Amount** - and it carries the same runtime From/To date parameters a balance report does,
+with the same window meaning.
+
+A line is either a **leaf** or **computed**, never both. A leaf reads the ledger: `accounts` selects
+the accounts, `measure` says which of their balances to take. A computed line is arithmetic over other
+lines of the same statement, named by their `code` - `sum:` adds them, `less:` subtracts them, and a
+line may carry both. Subtotals compose, so a total may reference other totals.
+
+#### accounts - the selector
+
+Comma-separated terms over the account code; an account matching any term contributes:
+
+| term    | selects                                                                        |
+| ------- | ------------------------------------------------------------------------------ |
+| `20*`   | every account whose code starts with `20`                                       |
+| `4110`  | exactly that account                                                            |
+| `60-69` | every account starting inside the range - `601` and `6999` included             |
+
+A range compares equally long code prefixes, which is why its bounds must be the same length: a plain
+comparison of whole codes would drop `601`, since `601` sorts after `69`. An account code may hold
+letters, digits, dot and underscore; the hyphen is the range separator and a trailing asterisk makes a
+prefix.
+
+#### measure - which balance the line takes
+
+Twelve names, `opening` / `period` / `closing` crossed with `Debit`, `Credit`, `NetDebit` and
+`NetCredit`:
+
+```
+openingDebit  openingCredit  openingNetDebit  openingNetCredit
+periodDebit   periodCredit   periodNetDebit   periodNetCredit
+closingDebit  closingCredit  closingNetDebit  closingNetCredit
+```
+
+The plain four sum the raw side, which is a **turnover** - what an income statement's gross movement
+lines want. The `Net` four **net an account's two sides before the line sums it** and keep only what is
+left on the named side, which is what a balance-sheet line almost always wants:
+
+::: tip Why netting happens per account
+A settlement account is an asset when it is in debit and a liability when it is in credit, and which
+one it is this period is a fact about the data, not about the model. Put `closingNetDebit` on the
+asset line and `closingNetCredit` on the liability line and each account files itself on the right
+side - a debit balance contributes to the first and exactly nothing to the second. Netting after the
+sum instead of per account would report the section's gross turnover and silently place every
+both-type account on whichever side the section happened to be.
+:::
+
+#### Rules
+
+- `dimensions` and `measures` must be empty - the lines *are* the rows.
+- `date` must be a `date` field (a `timestamp` is rejected, as for a balance report); `debit` and
+  `credit` numeric fields of the source; `account` a `string` field, its own or one hop away.
+- Line codes are unique; every `sum`/`less` code names a declared line; the references must not form
+  a cycle.
+- A line whose accounts hold nothing renders as **zero**, not as a missing row - the structure is the
+  statement.
+- `filter:` and `scope:` restrict which ledger rows count, exactly as for a balance report.
+
+::: info The print layout stays yours
+A statement report computes the statement's **numbers**. The legally mandated form - its typography,
+its column blocks, its comparative prior-year column on paper - stays a hand-authored
+[print template](/help/intent/printing) over that result. That boundary is
+deliberate: the model expresses the mapping, a document designer expresses the form.
+:::
+
 ### scope - which lifecycle rows an aggregate counts
 
 An aggregation over an entity that carries a lifecycle (a `function: EntityStatus` relation) is
@@ -2627,6 +2870,49 @@ second generated view, `<REPORT>_CASH_TOTALS`.
 Only the four `period*` measures apply on the cash basis (a cash flow is a movement within the
 window), and `date` must be a `<relation>.<field>` path over the item's relation to its journal entry,
 because the cash an entry moved is a fact about the entry.
+:::
+
+### ledger - the account analysis (account card)
+
+`kind: ledger` lists the posted lines of ONE account in date order with a running balance - the
+account card an accountant reconciles with. A balance report sums per account; a ledger shows what
+makes up one account's figure.
+
+```yaml
+reports:
+  - name: AccountAnalysis
+    kind: ledger
+    source: JournalEntryItem
+    date: journalEntry.entryDate
+    debit: debit
+    credit: credit
+    account: account                          # the RELATION to the account - chosen at runtime
+    columns: [journalEntry.number, journalEntry.reason, Customer, note]
+    correspondence: account.code              # optional: each line's counter-side accounts
+    filter: "journalEntry.status == 2"
+```
+
+The report opens with an **Opening balance** row (everything before the From date), lists the lines
+of the window ordered by date, entry and line - each with its own **Debit**, **Credit** and a
+running **Balance** - and ends with a **Closing balance** row carrying the window's turnover. The
+window is the balance report's, so opening + debit - credit = closing, the same figure a
+`kind: balance` report shows for that account. Besides From/To the report takes an **account**
+parameter (the account's id); until one is chosen it shows an empty card.
+
+When the account entity declares `hierarchy:`, choosing a **group account** lists the lines of every
+account below it - a generated `<REPORT>_ACCOUNT_TREE` database view walks the chart - so a group's
+balance is the sum of its leaves'. The query pages in the database: a busy account loads one page at a
+time, and every page carries the running balance of the whole window.
+
+`columns` are the per-line columns shown between the date and the amounts: a field of the item, a
+one-hop `relation.field`, or a to-one relation (shown by its label). `correspondence` lists, per line,
+the accounts on the other side of its entry (`411, 453` for a compound entry).
+
+::: tip Rules
+`account` must be a to-one relation of the source, not one of its fields, and the source needs a
+`primaryKey` (the running balance accumulates line by line in key order). A ledger takes no
+`dimensions`, `measures`, `lines`, `cashAccounts`, `widget` or `chart` - its rows are the account's
+lines.
 :::
 
 ## widgets - custom dashboard tiles

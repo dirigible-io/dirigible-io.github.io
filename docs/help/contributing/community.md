@@ -16,7 +16,7 @@ description: Where to ask questions, report bugs, follow the project.
 
 File an issue on the main [GitHub repository](https://github.com/eclipse/dirigible/issues). Include:
 
-- Platform version (visible in Spring Boot Admin under `/spring-admin/`).
+- Platform version (reported by `/actuator/info`).
 - Database backend.
 - Steps to reproduce.
 - Relevant log output.

@@ -147,6 +147,29 @@ Three things behave differently in this mode:
   quietly dead is worse than a deployment that refuses to come up. In Docker Compose or Kubernetes,
   gate the server on the broker being healthy.
 
+## Connections - one per tenant, not one per listener
+
+A broker meters connections, not subscriptions - the smaller Amazon MQ classes admit 300, and each one
+costs broker heap. By default (`DIRIGIBLE_MESSAGING_LISTENER_CONNECTIONS=shared`) a server therefore
+opens one connection per tenant for all its Java listeners, one more for their `global:` destinations,
+and one for all its `.listener` artefacts; every subscription is a session on the connection of its
+scope. A server with 130 listeners and three tenants holds five connections, not 390, and a tenant
+provisioned at runtime adds one.
+
+Set `DIRIGIBLE_MESSAGING_LISTENER_CONNECTIONS=per-listener` to give every subscription a connection
+of its own in every tenant, the shape earlier releases had. A value that names neither mode refuses
+to start.
+
+::: warning Switching modes on a running deployment
+A durable topic subscription is remembered by the broker under a client id, and the two modes derive
+that id differently (the subscription's own in `per-listener`, the tenant's in `shared`). Switching an
+existing deployment resumes nothing: the new mode starts fresh durable subscriptions, and the old
+ones stay offline - the broker keeps holding messages for them - until its offline-subscriber timeout
+reclaims them. The embedded broker reclaims after seven days; on an external ActiveMQ set
+`offlineDurableSubscriberTimeout`, whose default is never, or remove the old subscriptions from its
+console.
+:::
+
 ## Browsing the broker
 
 The Messaging perspective in the IDE surfaces queues and topics, their pending counters, and the in-memory messages on a queue (non-destructive browse). Purge and per-message delete actions are available too. It reflects the **embedded** broker only.

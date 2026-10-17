@@ -5,7 +5,7 @@ description: MySQL setup.
 
 # MySQL
 
-Supported via `database-sql-mysql`. The official MySQL Connector/J driver is on the platform classpath.
+Supported via `database-sql-mysql`. The MySQL Connector/J driver (`com.mysql:mysql-connector-j`) is **not bundled** in Dirigible; add it to the launch classpath first, see [Adding a JDBC driver](/help/setup/databases/#adding-a-jdbc-driver).
 
 ## As the default database
 
