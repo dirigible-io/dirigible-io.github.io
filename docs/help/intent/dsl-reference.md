@@ -63,6 +63,7 @@ complete worked example.
 | [`inbound`](#inbound-arrivals-from-outside) | records arriving from outside: a webhook, a queue/topic message, a dropped file |
 | [`imports`](#imports-a-file-uploaded-into-rows) | an uploaded file (CSV with locale rules, MT940, camt.053) read into rows, with a duplicate key, an import ledger and a post-import hook |
 | [`outbound`](#outbound-departures-to-another-system) | a record emitted on a queue or a topic when an event fires |
+| [`exports`](/help/intent/glue#exports-a-file-in-an-exacting-format-over-a-query) | a fixed-width, delimited or XML file over an entity or a report, every run recorded on a ledger |
 | [`permissions`](#permissions-roles-and-access-gates) | roles, and the access gates the generated app enforces |
 | [Planned](#planned-recognised-but-not-yet-implemented) | recognised, not yet implemented |
 

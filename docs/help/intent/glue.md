@@ -668,6 +668,88 @@ outbound:
 
 See the `global:` note under [inbound](#inbound-arrivals-from-outside) above, and [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs - the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload (a `tenantId: "{tenant}"` key in the declared envelope is exactly that).
 
+## exports - a file in an exacting format over a query
+
+Every statutory filing a business application produces - a VAT ledger, a payroll declaration, an annual
+return - and every feed into a third-party ledger is the same thing: a file in an exacting format over a
+query. `exports` declares one, so a new format is a block in `app.intent` rather than a hand-written writer.
+
+```yaml
+entities:
+  - name: ExportRun              # the run ledger: declared with NO fields, its columns are injected
+
+exports:
+  - name: VatPurchaseLedger
+    source: PurchaseInvoice      # an entity, or a plain report of this intent
+    format: fixedWidth           # fixedWidth | delimited | xml
+    encoding: windows-1251       # UTF-8 when omitted
+    ledger: ExportRun
+    fileName: "VAT-{fromDate}.txt"
+    orderBy: [documentDate, number]
+    parameters:
+      - { name: fromDate, field: documentDate, op: ge, required: true }
+      - { name: toDate,   field: documentDate, op: le }
+    records:
+      - type: header             # once, before the rows
+        fields:
+          - { literal: 'H', width: 1 }
+          - { param: fromDate, width: 8, pattern: ddMMyyyy }
+      - type: line               # once per row
+        fields:
+          - { from: supplier.vatNumber, width: 15 }
+          - { from: documentDate, width: 8, pattern: ddMMyyyy }
+          - { from: taxBase, width: 15, scale: 2, align: right, pad: '0' }
+      - type: trailer            # once, after the rows
+        fields:
+          - { literal: 'TOTAL', width: 5 }
+          - { from: count(), width: 6, align: right, pad: '0' }
+          - { from: sum(taxBase), width: 15, scale: 2, align: right }
+```
+
+A field takes exactly one of `from:` (a field, a one-hop `relation.field`, or a total `sum(x)` / `count()`),
+`literal:` or `param:`. A header or trailer is written once, so it reads literals, parameters and totals,
+never a row.
+
+| Option | Applies to | Meaning |
+| --- | --- | --- |
+| `width`, `align: left\|right`, `pad`, `truncate` | `fixedWidth` | every field needs a width; `truncate: true` cuts a longer value instead of failing |
+| `lineEnding: crlf\|lf` | `fixedWidth`, `delimited` | CRLF by default |
+| `delimiter`, `quote`, `quoting: minimal\|all` | `delimited` | `,` and `"` by default; an empty `quote` quotes nothing |
+| `root`, record `element`, field `name`, `attribute: true` | `xml` | the document element, each record's element, each field's element or attribute |
+| `scale`, `decimalSeparator` | any | a decimal rounded half-up; an empty separator writes an implied point |
+| `pattern` | any | a date in a `DateTimeFormatter` pattern |
+
+Over a **report**, `from:` names one of the report's `dimensions` / `measures` exactly as declared
+(`supplier.name`, `count(*)`), a total over a measure is `sum(sum(taxBase))`, and a parameter names one of
+the report's own parameters. `kind: balance` and `kind: statement` reports are refused. Over an **entity**,
+a parameter filters `field:` (a field or a to-one relation, its own name by default) by `op:`
+`eq|ne|gt|ge|lt|le`, and `orderBy:` orders the rows (the primary key when omitted).
+
+### What it generates
+
+One class per export, `gen/events/<module>/<Export>Export.java`, which is both:
+
+- the **download** - `GET /services/java/<project>/gen/events/<module>/<Export>Export/download?fromDate=2026-03-01`
+  answers the file, with `X-Export-Run` and `X-Export-Checksum` headers, and
+- a **bean** a job or `custom/` code injects and calls - `export.run(Map.of("fromDate", "2026-03-01"))`
+  returns the recorded run.
+
+Every run is recorded on the `ledger:` entity: `Export`, `Format`, `Parameters` (JSON), `Outcome`
+(`SUCCEEDED` / `FAILED`), `RecordCount`, `Checksum` (SHA-256), `ErrorMessage`, the stored file (`FileName`,
+`ContentType`, `FileSize`, `StoragePath`) and who ran it when. Ledger rows are append-only and each serves its
+own file at `/{id}/download`. Who may run an export is `<Export>:read` in `permissions`; with no token naming
+it, any signed-in user may.
+
+::: warning Nothing is written approximately
+A value wider than its field, a character the encoding cannot represent, or one XML does not allow fails the
+run: it is recorded `FAILED` with the reason and the download answers 422. A missing or unreadable parameter
+is refused with 400 and records nothing.
+:::
+
+The signed submission of the file to an authority (`submit:`) is planned and refused for now. Hops into
+another model, nested XML hierarchies and XSD validation are not supported yet - export over a report that
+joins the data you need.
+
 ## rollups
 
 Maintain a denormalized counter on a parent.
@@ -905,6 +987,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
 | File imports (uploaded CSV / MT940 / camt.053 into rows, duplicate key, import ledger, post-import hook) | implemented |
 | Outbound departures (event to a queue / topic via `Producer`, with the declared envelope) | implemented |
+| Exports (a fixed-width / delimited / XML file over an entity or a report, every run on a ledger) | implemented |
 | Event-driven create-from (`generates` with `event:`, on either axis, `mode: once` or `append`) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |
