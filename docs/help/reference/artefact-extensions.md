@@ -39,6 +39,7 @@ One row per file extension. For full per-artefact docs see the page in the `Arte
 | `*.table` | [Single-table DDL](/help/artefacts/data/table) | `TablesSynchronizer` |
 | `*.view` | [View DDL](/help/artefacts/data/view) | `ViewsSynchronizer` |
 | `*.csvim`, `*.csv` | [CSV import model](/help/artefacts/data/csvim) | `CsvimSynchronizer` |
+| `*.migration` | [Data migration](/help/artefacts/data/migration) | `MigrationsSynchronizer` |
 
 ## Documentation
 

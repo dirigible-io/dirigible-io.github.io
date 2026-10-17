@@ -1,11 +1,11 @@
 ---
 title: Microsoft SQL Server
-description: MSSQL setup - CI-validated.
+description: MSSQL setup.
 ---
 
 # Microsoft SQL Server
 
-CI runs the integration suite against **MSSQL 2022**. The official Microsoft JDBC driver ships on the platform classpath.
+Supported via `database-sql-mssql`. The Microsoft JDBC driver (`com.microsoft.sqlserver:mssql-jdbc`) is **not bundled** in Dirigible; add it to the launch classpath first, see [Adding a JDBC driver](/help/setup/databases/#adding-a-jdbc-driver). CI does not run the integration suite on MSSQL; it runs on H2 and PostgreSQL.
 
 ## As the default database
 

@@ -24,6 +24,7 @@ Sequence operations (`nextval`, `createSequence`, `dropSequence`) work across H2
 - **Data-source aware**: Every operation accepts an optional `datasourceName` to target any registered `.datasource`.
 - **Named parameters**: `queryNamed` / `updateNamed` variants support `:name`-style bindings.
 - **Cross-dialect sequences**: `nextval`, `createSequence`, and `dropSequence` translate to the underlying database's dialect.
+- **Cross-dialect users and schemas**: `createUser`, `setUserPassword`, `dropUser`, `existsUser`, `createSchema`, `dropSchema` and `existsSchema` translate the same way - useful when an application manages database principals of its own.
 - **SqlFactory access**: `getDefaultSqlFactory` and `getNativeSqlFactory` expose the fluent SQL builder for dialect-aware query construction.
 
 ### Example Usage:
@@ -548,6 +549,243 @@ Drops a sequence on the named data source.
 >
 > ::: info Returns
 > - **Type**: `void`
+> :::
+
+### createUser(userId, password)
+Creates a database user on the default data source.
+
+::: tip Dialects
+What a user *is* differs between databases and the dialect absorbs it. On Microsoft SQL Server a user is a server login plus a database user, so this emits two statements and [`dropUser`](#dropuser-userid) removes both.
+:::
+
+> ```java
+> public static void createUser(String userId, String password) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `password` | `String` | The user's password. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### createUser(userId, password, datasourceName)
+Creates a database user on the named data source.
+
+> ```java
+> public static void createUser(String userId, String password, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `password` | `String` | The user's password. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### setUserPassword(userId, password)
+Changes the password of an existing database user on the default data source.
+
+> ```java
+> public static void setUserPassword(String userId, String password) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `password` | `String` | The new password. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### setUserPassword(userId, password, datasourceName)
+Changes the password of an existing database user on the named data source.
+
+> ```java
+> public static void setUserPassword(String userId, String password, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `password` | `String` | The new password. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### dropUser(userId)
+Drops a database user from the default data source.
+
+> ```java
+> public static void dropUser(String userId) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### dropUser(userId, datasourceName)
+Drops a database user from the named data source.
+
+> ```java
+> public static void dropUser(String userId, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### existsUser(userId)
+Whether a database user exists on the default data source.
+
+::: warning Not portable
+SQL standardises `information_schema` for schemata but not for principals, so every database keeps its users in a catalog of its own. This is implemented for **PostgreSQL**, **H2** and **Microsoft SQL Server**; on any other database it throws `java.sql.SQLFeatureNotSupportedException` rather than answering a wrong `false`.
+:::
+
+> ```java
+> public static boolean existsUser(String userId) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+>
+> ::: info Returns
+> - **Type**: `boolean`
+> - **Description**: `true` when the user exists.
+> :::
+
+### existsUser(userId, datasourceName)
+Whether a database user exists on the named data source.
+
+> ```java
+> public static boolean existsUser(String userId, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `userId` | `String` | The user name. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `boolean`
+> - **Description**: `true` when the user exists.
+> :::
+
+### createSchema(schema, owner)
+Creates a schema on the default data source, optionally owned by a database user.
+
+> ```java
+> public static void createSchema(String schema, String owner) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+> | `owner` | `String` | The database user to own the schema, or `null` to leave ownership to the database. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### createSchema(schema, owner, datasourceName)
+Creates a schema on the named data source, optionally owned by a database user.
+
+> ```java
+> public static void createSchema(String schema, String owner, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+> | `owner` | `String` | The database user to own the schema, or `null` to leave ownership to the database. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### dropSchema(schema, cascade)
+Drops a schema from the default data source.
+
+> ```java
+> public static void dropSchema(String schema, boolean cascade) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+> | `cascade` | `boolean` | Whether to drop the objects the schema contains as well. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### dropSchema(schema, cascade, datasourceName)
+Drops a schema from the named data source.
+
+> ```java
+> public static void dropSchema(String schema, boolean cascade, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+> | `cascade` | `boolean` | Whether to drop the objects the schema contains as well. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `void`
+> :::
+
+### existsSchema(schema)
+Whether a schema exists on the default data source.
+
+> ```java
+> public static boolean existsSchema(String schema) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+>
+> ::: info Returns
+> - **Type**: `boolean`
+> - **Description**: `true` when the schema exists.
+> :::
+
+### existsSchema(schema, datasourceName)
+Whether a schema exists on the named data source.
+
+> ```java
+> public static boolean existsSchema(String schema, String datasourceName) throws Throwable;
+> ```
+>
+> | Parameter | Type | Description |
+> | ------ | ------ | ------ |
+> | `schema` | `String` | Schema name. |
+> | `datasourceName` | `String` | Logical name of a registered `.datasource` artefact. |
+>
+> ::: info Returns
+> - **Type**: `boolean`
+> - **Description**: `true` when the schema exists.
 > :::
 
 ### getDefaultSqlFactory()

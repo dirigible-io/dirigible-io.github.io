@@ -1,6 +1,6 @@
 ---
 title: Declarative glue
-description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), outbound departures (queue, topic), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
+description: notifications, schedules, integrations, inbound arrivals (webhook, message, file), file imports (CSV, MT940, camt.053), outbound departures (queue, topic), rollups, process-step events and lifecycle triggers - declared in the intent, generated as annotated client-Java, no hand-written code.
 ---
 
 # Declarative glue
@@ -118,7 +118,7 @@ Add **`attach: print`** and the message carries the record's **own document**: t
       # or per record: languageFrom: Customer.locale  (a one-hop relation.field holding the code)
 ```
 
-`attach` is `print` - the record the block is about - inside a fan-out [`recordPrint`](#one-document-many-recipients-attach-recordprint), or the map form [`{ report, bind }`](#mail-a-report-attach-report-bind) for a parameterized report render. With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes the print-template language; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
+`attach` is `print` - the record the block is about - inside a fan-out [`recordPrint`](#one-document-many-recipients-attach-recordprint), or the map form [`{ report, bind }`](#mail-a-report-attach-report-bind) for a parameterized report render. With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes it; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. It selects the print template **and** the language the attached document's own data is read in ([the issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language)); it does not govern the mail's `subject` and `body`, which are the covering message rather than the document. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
 
 ::: tip Failure semantics, per call site
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
@@ -143,13 +143,34 @@ A recipient that resolves to no address is a logged **no-op** - a record with no
 
 All three names are reserved at every notify call site, so an entity field of the same name never shadows them (and declaring one is a mistake worth avoiding). **Never hand-type a route into a body**: `{recordUrl}` and `{inboxUrl}` are resolved for you to the complete address - `<base>/services/web/<project>/gen/<model>/index.html#/<Entity>/<id>/edit` and `.../index.html#/inbox` respectively. `{appUrl}` yields the origin alone; reach for it only for an address the other two cannot express, such as a page of your own.
 
-The origin comes from the **`DIRIGIBLE_APP_BASE_URL`** configuration, which is tenant-overridable - the same instance mails each tenant its own host - and is read per dispatch inside the sending tenant's configuration scope. Leave it unset and the links render relative to nothing; set it to the externally reachable origin of the instance (`https://apps.example.com`).
+The origin comes from the **`DIRIGIBLE_APP_BASE_URL`** configuration, which is tenant-overridable - the same instance mails each tenant its own host - and is read per dispatch inside the sending tenant's configuration scope. Leave it unset and the links fall back to **`DIRIGIBLE_HOST`** - the instance origin an OAuth login already needs - so a single-host instance sets nothing more; set it when a tenant is served from a host of its own, or when the mail links must point somewhere else than the login does (`https://apps.example.com`). A trailing `/` is dropped from either value, and the links render relative only when neither key is set.
 
 ::: tip Why the intent never writes the path
 The routes belong to the template that renders the application, not to the model. An intent that spelled one would encode a layout it does not own - correct only until that layout changes, and silently wrong afterwards. The intent layer contributes the entity and its key; the events template composes the address, exactly as it already does for the task form's `__entityUrl`.
 :::
 
 Inside a [`forEach`](#one-message-per-related-row-foreach) fan-out `{recordUrl}` links the **row**, like every other bare path in the block - the row is what that message is about, while `{record.<field>}` reads the anchor record.
+
+### A styled message: `html:`
+
+A message to someone outside the organisation (a welcome, a confirmation, an invitation) usually wants more than plain text. `html:` is the **same message marked up**, a sibling of `body:` on any notify block:
+
+```yaml
+    notify:
+      to: requestedByEmail
+      subject: "Your {Application.name} workspace is ready"
+      body: "Your {Application.name} workspace for {Tenant.name} is ready. Sign in at {appUrl}"
+      html: |
+        <p>Your <strong>{Application.name}</strong> workspace for <strong>{Tenant.name}</strong> is ready.</p>
+        <p><a href="{appUrl}">Open the workspace</a></p>
+```
+
+The two travel as **one** message, `multipart/alternative` with the plain part first and the HTML part last, so a mail client shows whichever it renders; an attachment sits beside them (`multipart/mixed( multipart/alternative( text/plain, text/html ), application/pdf )`). The rules:
+
+- **`body` stays required.** A text-only client, a preview pane and a search index read the plain part, so `html` without `body` fails Generate naming the missing key, and a blank `html` fails likewise.
+- **The markup is sent as written; every interpolated value is HTML-escaped** (`&`, `<`, `>`, `"`, `'`). A customer named `Smith & Sons <Ltd>` arrives in the HTML part as `Smith &amp; Sons &lt;Ltd&gt;` and in the plain part as written. The link placeholders are values too and are escaped the same way, which is what makes `href="{recordUrl}"` safe.
+- **Placeholders follow exactly the `body` rules**: the same field and one-hop `relation.field` paths, the `record.` scope inside a [fan-out](#one-message-per-related-row-foreach), `{escalation.<field>}` on an escalating schedule, and the same rejections for an unknown field or a multi-hop path.
+- It works at all four call sites. A block without `html` generates exactly what it did before.
 
 ### One message per related row: `forEach`
 
@@ -555,6 +576,125 @@ inbound:
 
 Whichever keys are declared, the record still saves through the entity's **generated repository**, so validations, translations and the create event fire as for any other write. Two boundaries to know: do not map the primary key - it is generated on insert, so give the arrival's own identifier a field of its own with `unique: true` (which is also what makes a redelivery refuse itself) - and a lookup reads an entity declared in the **same** model; a cross-model lookup is not supported yet.
 
+### When the envelope carries a list
+
+An envelope often carries a set: an order and its lines, a record and its tags. **`map:`** can fill a one-to-many relation of the created entity from an array in the envelope, so the record and its rows arrive together:
+
+```json
+{ "orderNumber": "PO-1001",
+  "lines": [ { "sku": "A", "qty": 2 }, { "sku": "B", "qty": 1 } ],
+  "tags": [ "urgent", "export" ] }
+```
+
+```yaml
+inbound:
+  - name: orders
+    source: { queue: shop.orders }
+    create: PurchaseOrder
+    map:
+      orderNumber: orderNumber
+      lines:                       # PurchaseOrder.lines -> PurchaseOrderLine, a composition child
+        from: lines                # the envelope key holding the array
+        max: 100                   # optional: more elements reject the arrival
+        map:
+          quantity: qty            # child field <- element key
+          product:  { lookup: Product, by: sku, from: sku }   # a lookup per element
+      tags:                        # an array of bare values
+        from: tags
+        map: { label: "." }        # "." is the element itself
+```
+
+The key under `map:` names a one-to-many relation of `create:` whose target is a **composition child** of it, declared in the same model. `from:` is the envelope key holding the array. The element map fills each child row's fields and to-one relations the way `map:` fills the record: with an element key, a lookup (whose `from: "."` reads the element itself), or `"."` for an array of bare values. `max:` caps the number of elements, from 1 to 10000. It works on all three arrivals.
+
+**Everything is resolved first, and nothing is written until then.** One bad element rejects the **whole** arrival exactly as a failed lookup does, logged with the element's index and with nothing stored: a webhook answers 400, a queue message is not ingested, a drop file moves to `failed/`. It is rejected when the key is not an array, an element is null or of the wrong shape (an object for named element keys, a value for `"."`), there are more elements than `max`, an element lacks the key a lookup reads, or a lookup matches no single row.
+
+**The record and its children are saved in one unit of work**, and the create events are dispatched after it commits. A process the record's `onCreate` starts therefore already sees every child, and one arrival starts **one** process instance, however many elements it carried.
+
+An absent or empty array means no children. Elements are kept **as sent**: the construct takes no position on duplicates, so declare `unique:` on the child to refuse one at save, like any other constraint.
+
+::: warning What the unit does not cover
+The change history and document numbering run outside the unit of work, as they do for every unit of work. A drop file saves one unit per record, so a bad element in its third record fails the file after the first two were saved. Nested collections, an array inside an element, are not supported.
+:::
+
+Delivered in [eclipse-dirigible/dirigible#7594](https://github.com/eclipse-dirigible/dirigible/pull/7594) (issue [#7593](https://github.com/eclipse-dirigible/dirigible/issues/7593)).
+
+## imports - a file uploaded into rows
+
+`inbound` takes a JSON record another system sends. `imports` takes a **file** a person uploads - a bank statement, a price list, another system's CSV export - and makes each of its records a row of an entity. It reads three formats: CSV with locale rules, SWIFT **MT940** and ISO 20022 **camt.053**.
+
+```yaml
+imports:
+  - name: bankCsv
+    into: StatementLine            # the entity whose rows the file becomes
+    format: csv                    # csv | mt940 | camt053
+    encoding: windows-1251         # csv / mt940, default UTF-8
+    csv:                           # csv only, every key optional
+      separator: ";"               # default ","
+      decimal: ","                 # default "."
+      grouping: "."                # default none - "1.234,56" needs it
+      dateFormat: dd.MM.yyyy       # default yyyy-MM-dd
+      skipLines: 1                 # lines before the header (a bank's preamble)
+    map:                           # <entity field>: <source>
+      statementId: _file           # _file = the uploaded file's name
+      lineNumber:  _line           # _line = the record's position in the file
+      bookedOn:    Дата            # a header column
+      amount:      Сума
+      details:     Основание
+    duplicateKey: [statementId, lineNumber]
+  - name: swift
+    into: StatementLine
+    format: mt940
+    map: { statementId: statementId, lineNumber: lineNumber, bookedOn: valueDate, amount: amount, details: details }
+    duplicateKey: [statementId, lineNumber]
+```
+
+A CSV source is a column of the header, or its 1-based position under `csv: { header: false }`. An MT940 or camt.053 file is read into one record per statement line (`:61:` / `Ntry`), and both formats share one vocabulary, so the same `map:` reads either:
+
+| Key | Meaning |
+| --- | --- |
+| `statementId`, `sequence`, `account`, `currency` | the statement the line belongs to (`:20:`, `:28C:`, `:25:`, the opening balance's currency / `Stmt/Id`, `ElctrncSeqNb`, `Acct`) |
+| `lineNumber` | the line's position in its statement, from 1 |
+| `valueDate`, `bookingDate` | ISO dates (an MT940 line without an entry date has no `bookingDate`) |
+| `mark`, `amount` | `C` / `D`, and the amount signed by it - a debit (and a reversed credit) is negative |
+| `transactionType`, `reference`, `bankReference` | the transaction code and the two references |
+| `details` | the `:86:` text / the remittance information |
+| `supplementary` | MT940 only - the second line of `:61:` |
+| `counterpartyName`, `counterpartyAccount` | camt.053 only - the other side of the entry |
+
+Each import generates `gen/events/<module>/<Name>Import.java`:
+
+- an **upload** endpoint, `POST /services/java/<project>/gen/events/<module>/<Name>Import/upload`, taking a multipart form with one file, or the raw file as the body with `?fileName=`. It is gated by the entity's own write role, the one its REST controller checks;
+- a bean method `importFile(fileName, bytes)` a job injects and calls to import a file it fetched itself (from an SFTP folder, a bank API).
+
+The answer is the import's outcome as JSON - `status`, `records`, `message`, `checksum`.
+
+::: tip A file is imported whole, or not at all
+Every record is read and converted first, and the `duplicateKey` is checked against the rows already imported and against the other records of the same file - only then are all rows saved, in one transaction. An unreadable value answers **400** (`REJECTED`) and a repeated key **409** (`DUPLICATE`), naming the record; either way nothing is saved. Uploading the same statement twice is therefore harmless. Declare a `unique:` over the same fields as well when two uploads of one statement at the same moment must be impossible too.
+:::
+
+::: warning Encodings and numbers are read strictly
+A file that is not valid in the declared encoding is refused - a windows-1251 statement uploaded to an import declaring UTF-8 is rejected, never stored with its Cyrillic garbled. A number using a separator the `csv:` rules do not declare is refused rather than guessed: with `decimal: ","` and no `grouping`, `1.234` is ambiguous and rejects the file.
+:::
+
+**The import ledger.** Every attempt - imported, refused as a duplicate, rejected - is recorded in a sibling `<TABLE>_IMPORTS` table of the entity: the import's name, the file's name and SHA-256 checksum, how many records it saved, the status and the reason, who imported it and when. The schema generates it for every entity an import writes into.
+
+**After the import - matching rules.** Matching statement lines to invoices is logic, not intent, so it is a hook: every `@Component` implementing `<Name>Import.Hook` is called with the import's outcome and its saved rows once they are committed. A failing hook is logged and reported as a warning in the answer; it does not undo the import.
+
+```java
+package custom;
+
+@Component
+public class MatchStatementLines implements BankCsvImport.Hook {
+
+    @Override
+    public void afterImport(ImportResult result, List<StatementLineEntity> rows) {
+        // match each row against the open invoices
+    }
+}
+```
+
+An import fills **fields only**: the target is a local entity that is not a composition child and has no required to-one relation, `map:` covers every required field without a default and never the primary key, and `duplicateKey` lists mapped fields - all checked at Generate. Looking a related record up from a value in the file (an IBAN to a bank account) is not part of the construct yet; do it in a hook.
+
 ## outbound - departures to another system
 
 The mirror of `inbound`: the application **raises a business event** for something outside it, on a queue or a topic. Reach for `integrations` when you are calling someone's API and want their answer; reach for `outbound` when you are announcing that something happened and nobody answers. That difference in failure semantics - a failed call versus a missed announcement - is why these are two blocks rather than one with a transport switch.
@@ -602,6 +742,88 @@ outbound:
 
 See the `global:` note under [inbound](#inbound-arrivals-from-outside) above, and [Message listeners - global destinations](/help/develop/message-listeners#global-destinations-a-contract-with-another-system) for what the marker costs - the destination no longer carries the tenant, so a business tenant that matters downstream has to travel in the payload (a `tenantId: "{tenant}"` key in the declared envelope is exactly that).
 
+## exports - a file in an exacting format over a query
+
+Every statutory filing a business application produces - a VAT ledger, a payroll declaration, an annual
+return - and every feed into a third-party ledger is the same thing: a file in an exacting format over a
+query. `exports` declares one, so a new format is a block in `app.intent` rather than a hand-written writer.
+
+```yaml
+entities:
+  - name: ExportRun              # the run ledger: declared with NO fields, its columns are injected
+
+exports:
+  - name: VatPurchaseLedger
+    source: PurchaseInvoice      # an entity, or a plain report of this intent
+    format: fixedWidth           # fixedWidth | delimited | xml
+    encoding: windows-1251       # UTF-8 when omitted
+    ledger: ExportRun
+    fileName: "VAT-{fromDate}.txt"
+    orderBy: [documentDate, number]
+    parameters:
+      - { name: fromDate, field: documentDate, op: ge, required: true }
+      - { name: toDate,   field: documentDate, op: le }
+    records:
+      - type: header             # once, before the rows
+        fields:
+          - { literal: 'H', width: 1 }
+          - { param: fromDate, width: 8, pattern: ddMMyyyy }
+      - type: line               # once per row
+        fields:
+          - { from: supplier.vatNumber, width: 15 }
+          - { from: documentDate, width: 8, pattern: ddMMyyyy }
+          - { from: taxBase, width: 15, scale: 2, align: right, pad: '0' }
+      - type: trailer            # once, after the rows
+        fields:
+          - { literal: 'TOTAL', width: 5 }
+          - { from: count(), width: 6, align: right, pad: '0' }
+          - { from: sum(taxBase), width: 15, scale: 2, align: right }
+```
+
+A field takes exactly one of `from:` (a field, a one-hop `relation.field`, or a total `sum(x)` / `count()`),
+`literal:` or `param:`. A header or trailer is written once, so it reads literals, parameters and totals,
+never a row.
+
+| Option | Applies to | Meaning |
+| --- | --- | --- |
+| `width`, `align: left\|right`, `pad`, `truncate` | `fixedWidth` | every field needs a width; `truncate: true` cuts a longer value instead of failing |
+| `lineEnding: crlf\|lf` | `fixedWidth`, `delimited` | CRLF by default |
+| `delimiter`, `quote`, `quoting: minimal\|all` | `delimited` | `,` and `"` by default; an empty `quote` quotes nothing |
+| `root`, record `element`, field `name`, `attribute: true` | `xml` | the document element, each record's element, each field's element or attribute |
+| `scale`, `decimalSeparator` | any | a decimal rounded half-up; an empty separator writes an implied point |
+| `pattern` | any | a date in a `DateTimeFormatter` pattern |
+
+Over a **report**, `from:` names one of the report's `dimensions` / `measures` exactly as declared
+(`supplier.name`, `count(*)`), a total over a measure is `sum(sum(taxBase))`, and a parameter names one of
+the report's own parameters. `kind: balance` and `kind: statement` reports are refused. Over an **entity**,
+a parameter filters `field:` (a field or a to-one relation, its own name by default) by `op:`
+`eq|ne|gt|ge|lt|le`, and `orderBy:` orders the rows (the primary key when omitted).
+
+### What it generates
+
+One class per export, `gen/events/<module>/<Export>Export.java`, which is both:
+
+- the **download** - `GET /services/java/<project>/gen/events/<module>/<Export>Export/download?fromDate=2026-03-01`
+  answers the file, with `X-Export-Run` and `X-Export-Checksum` headers, and
+- a **bean** a job or `custom/` code injects and calls - `export.run(Map.of("fromDate", "2026-03-01"))`
+  returns the recorded run.
+
+Every run is recorded on the `ledger:` entity: `Export`, `Format`, `Parameters` (JSON), `Outcome`
+(`SUCCEEDED` / `FAILED`), `RecordCount`, `Checksum` (SHA-256), `ErrorMessage`, the stored file (`FileName`,
+`ContentType`, `FileSize`, `StoragePath`) and who ran it when. Ledger rows are append-only and each serves its
+own file at `/{id}/download`. Who may run an export is `<Export>:read` in `permissions`; with no token naming
+it, any signed-in user may.
+
+::: warning Nothing is written approximately
+A value wider than its field, a character the encoding cannot represent, or one XML does not allow fails the
+run: it is recorded `FAILED` with the reason and the download answers 422. A missing or unreadable parameter
+is refused with 400 and records nothing.
+:::
+
+The signed submission of the file to an authority (`submit:`) is planned and refused for now. Hops into
+another model, nested XML hierarchies and XSD validation are not supported yet - export over a report that
+joins the data you need.
+
 ## rollups
 
 Maintain a denormalized counter on a parent.
@@ -629,11 +851,25 @@ rollups:
       status: Status, statusWhenFull: 7, statusWhenPartial: 6 }
 ```
 
+A status the roll-up sets, it also lets go of. The first move into `statusWhenFull` /
+`statusWhenPartial` remembers the status it displaces in a hidden `Displaced<Status>` column the
+generator adds to the parent, and a sum that returns to zero - the only allocation deleted, amended
+to 0 or re-parented away - restores it. A paid invoice whose allocation is removed is CONFIRMED again,
+or ISSUED if it was paid straight from there - not PAID with nothing paid, invisible to the
+settlement. Only a status the roll-up itself set is relinquished: a document voided or cancelled by
+hand while partially paid stays that way when its allocation goes. There is no `statusWhenEmpty` -
+a declared return status is wrong for every document that entered the paid region from a different
+status than the declared one, and the remembered status never is. With a `lifecycle:` on the parent,
+the moves back must be declared edges just like the moves in.
+
 
 The parent may be owned by another model: with a cross-model `via` the handler resolves the parent's
 package and perspective from the owner's `.model` and writes through the owner's repository. The
 model must be declared in `uses:`, and an unresolvable roll-up is surfaced in the generate
-response's issues rather than dropped.
+response's issues rather than dropped. `capacity` and `balance` work there too, overdraw guard
+included - the capacity is read off the foreign parent and the guard that refuses an overdrawing row
+is emitted into the child's repository, which is local on that direction. Only `status` stays
+local-only, since it moves the parent through the owner's own status seeds.
 
 The **child** may be the foreign one instead - the direction an n:m pairing forces, because a link
 entity lives with the document that owns one side of it while the other side's total belongs to the
@@ -816,7 +1052,7 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Glue | Status |
 | --- | --- |
 | Lifecycle triggers (process start, `when` guard, business key + timestamp strategy) | implemented |
-| Decision / form resolvers (`relation.field` at a gateway or on a task form) | implemented |
+| Decision / form resolvers (`relation.field` at a gateway or on a task form, local or **cross-model**) | implemented |
 | Notifications (email; literal / field / one-hop relation; `when`) | implemented |
 | Send a document by e-mail (a notify block with `attach: print`, on a process step / transition / schedule) | implemented |
 | Mail a **report** render, scoped to its recipient (`attach: { report, bind }` - the customer statement) | implemented |
@@ -824,7 +1060,9 @@ The event-then-action glue above, plus the data-flow glue documented in the
 | Integrations (event to `HttpClient`) | implemented |
 | Process-step events (`onStepReached` / `onStepCompleted` on a notification, an integration, a departure or a create-from) | implemented |
 | Inbound arrivals (webhook `@Controller`, queue/topic `MessageHandler`, polled-folder `JobHandler`) | implemented |
+| File imports (uploaded CSV / MT940 / camt.053 into rows, duplicate key, import ledger, post-import hook) | implemented |
 | Outbound departures (event to a queue / topic via `Producer`, with the declared envelope) | implemented |
+| Exports (a fixed-width / delimited / XML file over an entity or a report, every run on a ledger) | implemented |
 | Event-driven create-from (`generates` with `event:`, on either axis, `mode: once` or `append`) | implemented |
 | Rollups (count, and sum + balance + status) | implemented |
 | Settlements (auto-allocate payments across open invoices) | implemented |

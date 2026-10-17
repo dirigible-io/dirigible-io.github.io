@@ -117,7 +117,7 @@ The template binds against data supplied by a generated **print feeder** - a sma
 {{<Property>}}                     a line-item field (inside <table source="items">)
 ```
 
-The feeder walks the document master's whole reachable to-one graph (two hops within the same model, one hop into a referenced module) and is regenerated with the application, so the generated Java is an exact, auditable record of everything a print receives. Because it loads through the repositories and is called by the browser as the signed-in user, it inherits the multilingual translation overlay (the document prints in the caller's language) and the caller's authorization and tenant - no server-side data fetching or credential forwarding. Date and timestamp fields are supplied as ISO strings; numbers are left raw so the template's money formatting applies.
+The feeder walks the document master's whole reachable to-one graph (two hops within the same model, one hop into a referenced module) and is regenerated with the application, so the generated Java is an exact, auditable record of everything a print receives. Because it loads through the repositories and is called by the browser as the signed-in user, it inherits the multilingual translation overlay and the caller's authorization and tenant - no server-side data fetching or credential forwarding. The overlay resolves in the **render language**, not the UI locale: the Print flow pins the feeder call's `Accept-Language` to the language chosen for the render, so a Bulgarian template never comes back over English values. Date and timestamp fields are supplied as ISO strings; numbers are left raw so the template's money formatting applies.
 
 ## The `doc/` folder and CMS seeding
 
@@ -149,6 +149,10 @@ doc/Templates/SalesInvoice/Print/bg/standard.print
 
 When several languages exist, the Print button asks which to use; otherwise it prints the only one. The default follows the user's Region &amp; Language setting. The Print button always renders **live** - current master data, the language just chosen. The immutable copy of an issued document is a separate, first-class surface: see below.
 
+::: tip The language selects the template and the data
+The chosen language does not only pick the template folder. It is also the language the document's **data** is read in, so every multilingual nomenclature the document reaches - payment method, delivery method, status - resolves in it. A document rendered in one language is in that language throughout; the two halves cannot disagree.
+:::
+
 ## The issued copy and its language
 
 A document may declare a `function: Snapshot` composition child - an **immutable, versioned PDF copy** minted by the process (typically right after Issue) and served by a read-only files panel on the document page, with a per-version **Open** and **Download**. Printing and the stored copy answer different questions: Print renders the document as it is *now*; the snapshot panel serves the document as it was *issued* - both stay one click apart on the same page.
@@ -165,6 +169,8 @@ The language a copy is **minted** in is a knob on the snapshot child:
 ```
 
 `languageFrom` is a one-hop path on the document master - a to-one relation and a string field of its target holding the language code; it works across models like any other cross-model reference. `language` fixes the code; the two are mutually exclusive. Absent both (or when the resolved value is blank), the mint uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) - so a tenant configured `bg,en` mints Bulgarian copies with no intent change, provided a `bg` template exists.
+
+The mint language names the **template and the data**, exactly as the interactive Print does. This one needs saying because the two paths get there differently: the browser carries an `Accept-Language` header and a process step does not, so a snapshot minted by a workflow - and a PDF attached by a `notify` block, which runs in the same caller-less place - used to render a Bulgarian template over base-language values. The generated delegates now bind the render language for the duration of the feed and the render (`User.setLanguage(...)` around it, cleared in a `finally` so a pooled worker thread never leaks it), so the multilingual overlay the repositories apply resolves in the copy's own language. The archived copy and the copy the counterparty receives are the two nobody re-reads before they leave, which is exactly why they must not be the ones that disagree.
 
 ## Naming the rendered file - `fileName`
 

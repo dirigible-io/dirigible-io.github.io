@@ -58,10 +58,15 @@ Under `TOKEN_GROUPS` the tenant is chosen after sign-in:
 - A user whose groups grant exactly **one** tenant enters it without being asked.
 - A user with **several** is sent to the tenant picker at `/tenant-selection.html`, and lands in the application once they choose. Open the picker again with `/tenant-selection.html?switch=true` to change tenant; no new sign-in is needed, and the roles change with the tenant. Without the parameter the page sends a user who already has a tenant straight on, so it is safe to link to from an application.
 - A tenant the user was granted but that this instance has **not provisioned yet** is listed on the picker and cannot be entered until provisioning finishes. See [`/help/operate/tenants`](/help/operate/tenants).
+- A tenant the user was granted that this instance has **never been registered with at all** is listed too, but as unavailable rather than as pending: nothing here is preparing it, so waiting will not help. It is left visible on purpose — the identity provider is the authority on who belongs to what, and a membership it granted should not vanish without explanation — and the server logs a warning naming the user, the tenant and the application id, which is where to look. The usual causes are a tenant that was never provisioned into this instance, a registration that was lost, and a typo in a group name.
 - Someone whose groups grant **no** tenant of this application cannot use it. Staff who hold only platform-wide roles are an exception: they keep working in the default tenant, which is where the IDE and the administration pages live.
 - A programmatic caller that would have been sent to the picker is answered with a `409` naming the tenants to choose from, instead of being redirected.
 
 Machine-to-machine calls, bearer-token requests and anonymous traffic carry no selection and always run in the default tenant.
+
+## Users
+
+Under `TOKEN_GROUPS` who may use a tenant, and in which roles, is decided by the identity provider groups. A deployment whose groups are managed by an external provisioning system can let each tenant's owners take part: the **Settings -> Users** section of the application shell invites a person with one or more roles, changes a member's roles and removes a member. It publishes each action as a change request for the external system, and shows the tenant's users as that system reports them back through the [tenant provisioning API](/help/setup/tenant-provisioning-api). See [Tenant users](/help/setup/tenant-users).
 
 ## Single-tenant mode
 
@@ -82,6 +87,8 @@ DIRIGIBLE_TENANTS_PROVISIONING_FREQUENCY_SECONDS=30
 ```
 
 The default is `900` (15 minutes), so a freshly registered tenant becomes usable some minutes after it is created. Tenant lifecycle is driven by `TenantProvisioningStep` / `TenantPostProvisioningStep` SPI implementations. See [`/help/operate/tenants`](/help/operate/tenants).
+
+A deployment whose tenants are provisioned by an external service, rather than by the platform, can instead opt into the [tenant provisioning API](/help/setup/tenant-provisioning-api): the caller registers the tenant, hands over a database user and schema it created itself, activates it and polls the initialization.
 
 ## Authentication providers and tenants
 
@@ -104,4 +111,6 @@ Which identity provider you use is independent of how tenants are resolved. With
 
 - [Multi-tenancy (concepts)](/help/concepts/multi-tenancy)
 - [Tenant management (operate)](/help/operate/tenants)
+- [Tenant provisioning API](/help/setup/tenant-provisioning-api)
+- [Tenant users](/help/setup/tenant-users)
 - [Environment variables](/help/setup/environment-variables#multi-tenancy)

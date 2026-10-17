@@ -20,12 +20,12 @@ The platform serves everything off a single HTTP port (default `8080`, env `DIRI
 | `/services/openapi` | Aggregated OpenAPI document (TS + Java controllers). |
 | `/services/ide/...` | IDE-side backend endpoints (workspaces, git, terminal, java-debug, monitoring, messaging-monitoring, etc.). |
 | `/services/data/...` | Data-tooling endpoints (transfer, anonymise). |
+| `/services/core/migrations` | The [data migration](/help/artefacts/data/migration) ledger of the caller's tenant (plus the system ledger for a default-tenant caller); roles `ADMINISTRATOR`, `OPERATOR`. |
 | `/services/native-apps-proxy/v1/<basePath>/...` | Reverse-proxied native-app endpoints. |
 | `/odata/v2/...` | OData V2 services (Apache CXF). |
 | `/websockets/...` | WebSocket endpoints, including `/websockets/stomp/<endpoint>` for user-authored handlers and `/websockets/ide/java-debug?workspace=<name>` for the Java debugger bridge. |
 | `/swagger-ui/index.html` | Swagger UI for built-in REST endpoints. |
 | `/api-docs` | Raw OpenAPI document for the built-in endpoints. |
-| `/spring-admin/` | Spring Boot Admin server console. |
 | `/actuator/health/readiness`, `/actuator/health/liveness` | Health probes for orchestrators. |
 | `/actuator/info`, `/actuator/metrics`, `/actuator/loggers` | Other Actuator endpoints. |
 | `/` | Redirects to `DIRIGIBLE_HOME_URL` (default `services/web/shell-ide/`). |

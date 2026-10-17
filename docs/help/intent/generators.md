@@ -19,7 +19,7 @@ Generate runs every registered generator in `@Order`, writes the derived model f
 | `generates[]` | `<name>.extension` + `<name>.js` (one per generate action) | 460 |
 | `transitions[]` | `<name>.extension` + `<name>.js` (+ a glue controller) | 470 |
 | `reports[]` | `<report>.report` (one per report) | 500 |
-| `permissions` | `<intent>.roles` | 600 |
+| `permissions` | `<intent>.roles`, and `<intent>.access` when the project's `.settings` asks | 600 |
 | `seeds[]` | `<seed>.csvim` + `<seed>.csv` (one pair per seed) | 700 |
 | document masters | `doc/Templates/<Entity>/Print/en/standard.print` | 800 |
 | `entities` (test manifest) | `<intent>.test` | 900 |
@@ -44,7 +44,7 @@ These cover every intent block defined today.
 - `FormIntentGenerator` to `<form>.form` - typed controls bound to the entity, action buttons coloured by name.
 - `ActionIntentGenerator` / `GeneratesIntentGenerator` / `TransitionsIntentGenerator` to `.extension` + `.js` pairs - the custom-action descriptors that put a button on a view or record: developer-defined pages ([`actions`](/help/intent/intent-file)), one-click document cloning ([`generates`](/help/intent/dsl-reference#generates-create-from)) and guarded status flips ([`transitions`](/help/intent/dsl-reference#transitions-guarded-status-flips)). Transitions and generates also contribute a server-side controller through the [`.glue`](/help/intent/glue) file.
 - `ReportIntentGenerator` to `<report>.report` - the Dirigible `.report` shape with a materialised SQL `query` (joins from `relation.field` paths, `WHERE` from `filter`, default-role `security`). All physical identifiers double-quoted for Postgres.
-- `PermissionIntentGenerator` to `<intent>.roles` - deduped roles; no `.access` URL constraints (those belong to the downstream template).
+- `PermissionIntentGenerator` to `<intent>.roles` - deduped roles - plus the read / write gates the `can:` tokens authorize (emitted on the entity / report itself) and, when the project's `.settings` asks, the `<intent>.access` URL constraints over the paths the templates publish. See [permissions](/help/intent/dsl-reference#permissions-roles-and-access-gates).
 - `CsvimIntentGenerator` to `<seed>.csvim` + `<seed>.csv` - platform-default CSVIM settings; project-qualified CSV path.
 - `PrintIntentGenerator` to `doc/Templates/<Entity>/Print/en/standard.print` - a printable document template for each document (header-items) master. Unlike the others it writes under `doc/` (not the project root) and is **generate-once** (create-if-absent), so a hand-adapted invoice is never regenerated over. See [printing and documents](/help/intent/printing).
 - the test generator to `<intent>.test` - a test manifest describing the generated entities (drawn from the `.model`), consumed by the test runner.

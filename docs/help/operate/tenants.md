@@ -9,16 +9,20 @@ Multi-tenancy is on by default - see [`/help/concepts/multi-tenancy`](/help/conc
 
 ## Tenant lifecycle
 
-A tenant has two states:
+A tenant has three states:
 
 | State | Meaning |
 | ----- | ------- |
 | `INITIAL`      | Tenant registered, provisioning not finished. |
 | `PROVISIONED`  | All provisioning steps completed; the tenant is serving. |
+| `PENDING_ACTIVATION` | Registered by an external provisioner, which owns the tenant's database user, schema and data source. Invisible to the provisioner below and to `executeForEachTenant`, so nothing acts on the tenant until that provisioner activates it. See [Tenant provisioning API](/help/setup/tenant-provisioning-api). |
 
 A tenant is registered explicitly, through the tenants API or the Security perspective, and enters `INITIAL`. The provisioner picks it up on its next pass and moves it to `PROVISIONED` once every step has run; a step that fails leaves the tenant `INITIAL` and the next pass retries it. Nothing creates a tenant implicitly, so an unknown tenant is never provisioned by being asked for.
 
 Until a tenant is `PROVISIONED` it cannot be entered. Under the `TOKEN_GROUPS` resolution strategy a user who has been granted it sees it on the tenant picker but cannot select it yet; see [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
+
+A tenant may only be deleted while nothing has been materialized for it, which means `INITIAL` or
+`PENDING_ACTIVATION`. Deleting a `PROVISIONED` tenant would be deprovisioning, and is refused.
 
 ## Provisioning cadence
 
@@ -33,7 +37,7 @@ The provisioner polls the tenant table at this cadence and drives `INITIAL` tena
 Two SPI hooks let modules plug into the lifecycle:
 
 - `TenantProvisioningStep` - runs while the tenant is still `INITIAL`, before it is marked `PROVISIONED`. Used by data-source provisioning, CMS root setup, etc.
-- `TenantPostProvisioningStep` - runs after the tenant is `PROVISIONED`. Used for "after the lights are on" tasks like seed data.
+- `TenantPostProvisioningStep` - runs after the tenant is `PROVISIONED`, and is handed the ids of the tenants just provisioned. Used for "after the lights are on" tasks like seed data. The platform's own step applies every multitenant artefact to those tenants only, which is how a new tenant's schema receives its tables, its CSV seeds and its [data migrations](/help/artefacts/data/migration) while the existing tenants are left as they are.
 
 Implementations are discovered as Spring beans. Order via `@Order`.
 
@@ -66,3 +70,4 @@ All artefacts resolve against the default tenant.
 - [Multi-tenancy (concepts)](/help/concepts/multi-tenancy)
 - [Multi-tenancy (setup)](/help/setup/multi-tenancy)
 - [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution)
+- [Tenant provisioning API](/help/setup/tenant-provisioning-api)
