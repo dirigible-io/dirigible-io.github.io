@@ -2818,6 +2818,49 @@ window), and `date` must be a `<relation>.<field>` path over the item's relation
 because the cash an entry moved is a fact about the entry.
 :::
 
+### ledger - the account analysis (account card)
+
+`kind: ledger` lists the posted lines of ONE account in date order with a running balance - the
+account card an accountant reconciles with. A balance report sums per account; a ledger shows what
+makes up one account's figure.
+
+```yaml
+reports:
+  - name: AccountAnalysis
+    kind: ledger
+    source: JournalEntryItem
+    date: journalEntry.entryDate
+    debit: debit
+    credit: credit
+    account: account                          # the RELATION to the account - chosen at runtime
+    columns: [journalEntry.number, journalEntry.reason, Customer, note]
+    correspondence: account.code              # optional: each line's counter-side accounts
+    filter: "journalEntry.status == 2"
+```
+
+The report opens with an **Opening balance** row (everything before the From date), lists the lines
+of the window ordered by date, entry and line - each with its own **Debit**, **Credit** and a
+running **Balance** - and ends with a **Closing balance** row carrying the window's turnover. The
+window is the balance report's, so opening + debit - credit = closing, the same figure a
+`kind: balance` report shows for that account. Besides From/To the report takes an **account**
+parameter (the account's id); until one is chosen it shows an empty card.
+
+When the account entity declares `hierarchy:`, choosing a **group account** lists the lines of every
+account below it - a generated `<REPORT>_ACCOUNT_TREE` database view walks the chart - so a group's
+balance is the sum of its leaves'. The query pages in the database: a busy account loads one page at a
+time, and every page carries the running balance of the whole window.
+
+`columns` are the per-line columns shown between the date and the amounts: a field of the item, a
+one-hop `relation.field`, or a to-one relation (shown by its label). `correspondence` lists, per line,
+the accounts on the other side of its entry (`411, 453` for a compound entry).
+
+::: tip Rules
+`account` must be a to-one relation of the source, not one of its fields, and the source needs a
+`primaryKey` (the running balance accumulates line by line in key order). A ledger takes no
+`dimensions`, `measures`, `lines`, `cashAccounts`, `widget` or `chart` - its rows are the account's
+lines.
+:::
+
 ## widgets - custom dashboard tiles
 
 ```yaml
