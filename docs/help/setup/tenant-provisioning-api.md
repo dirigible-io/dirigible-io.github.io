@@ -260,16 +260,7 @@ The endpoint is there whenever the API is enabled, whether or not the
 DELETE /services/tenant-provisioning/tenants/{tenantId}
 ```
 
-Removes the tenant and everything the application holds for it, and answers once that is done:
-
-- what runs for it: its jobs, its listeners, and its running processes, with their history;
-- its data source and the connections to its schema;
-- its initialization record, its users, as pushed above, and its platform users;
-- its documents;
-- the tenant itself.
-
-What it leaves is the tenant's **database schema and database user**. The provisioner created them, so
-it drops them, and only **after** this call answers, once no connection into the schema is left.
+Removes the tenant and everything the application holds for it, and answers once that is done.
 
 | Status | Meaning |
 | ------ | ------- |
