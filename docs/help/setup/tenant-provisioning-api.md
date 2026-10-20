@@ -260,30 +260,15 @@ The endpoint is there whenever the API is enabled, whether or not the
 DELETE /services/tenant-provisioning/tenants/{tenantId}
 ```
 
-Removes the tenant and everything the application holds for it, and answers once that is done.
+Removes the tenant and everything the application holds for it. The call is idempotent: repeating it
+is safe, and finishes a removal that did not complete.
 
 | Status | Meaning |
 | ------ | ------- |
-| `204` | removed, **or there was no such tenant** - a retry after a lost answer is safe |
-| `400` | the id is not a valid tenant id, or it is the default tenant, which can never be removed |
-| `409` | the tenant is still being activated; retry once its initialization has settled |
-| `500` | a part of the removal failed; the message names it. The tenant stays `DEPROVISIONING`, and repeating the call finishes the removal |
-
-Because an unknown tenant answers `204`, a `404` from this route can only mean that the application
-does not offer it - an older platform, or the API switched off. A provisioner should treat that as a
-failure, never as "already removed".
-
-While a removal is under way, the tenant's data source, activation and users endpoints answer `409`.
-
-A stuck initialization does not hold a removal off for ever. One that has been open for longer than
-the bound below is taken as stuck, and the tenant is removed anyway:
-
-```bash
-DIRIGIBLE_TENANT_PROVISIONING_DEPROVISION_ACTIVATION_STALE_MINUTES=30
-```
-
-What runs for the tenant is stopped in the instance that answers the call, so run the application as a
-single instance when tenants are removed this way.
+| `204` | removed, or there was no such tenant |
+| `400` | the id is not a valid tenant id, or it is the default tenant |
+| `409` | the tenant is still being activated; retry later |
+| `500` | the removal did not complete; the message says why. Repeat the call |
 
 ## Errors
 
