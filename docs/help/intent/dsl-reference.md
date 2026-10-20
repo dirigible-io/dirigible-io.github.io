@@ -24,7 +24,7 @@ complete worked example.
 | [`immutableWhen` / `immutable`](#immutablewhen-immutable-user-write-immutability) | 409 on user writes in a status / append-only snapshots |
 | [`period` / `immutableInPeriod`](#period-immutableinperiod-date-based-immutability) | 409 on user writes to a record dated in a closed fiscal period |
 | [`lifecycle`](#lifecycle-the-legal-status-graph) | the whole legal status graph, enforced on every status write |
-| [a status the flow writes](#a-status-the-flow-writes-is-the-flows-own) | 409 on a direct create/update of a status a `processes:` flow drives |
+| [a status the flow writes](#a-status-the-flow-writes-is-the-flow-s-own) | 409 on a direct create/update of a status a `processes:` flow drives |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
@@ -854,7 +854,8 @@ The record is APPROVED with the flow bypassed end to end - the capacity check ne
 ever saw a task, the delegate that charges the employee's leave account never ran. The document reads
 approved and the accounts do not know about it.
 
-So when a `processes:` step writes the status (`setRelationField`), every generated controller -
+So when a `processes:` step writes the status (`setRelationField`, on the trigger entity or
+[one hop away](#processes-workflows) on a related one), every generated controller -
 power, personal and partner - refuses a create or update that sets or changes that column:
 
 ```
@@ -1573,6 +1574,35 @@ later than `assignee: personal`, which is fixed at process start, so a relation 
 the same process set is visible - and when it resolves to nobody (a null hop, a deleted record, a
 blank identity) the task is created unassigned and the fallback group can still claim it. That is
 what stops an unresolvable path from minting a task nobody can see.
+
+A setter can also write **one hop away**: the path of a `setField`, `clearField` or
+`setRelationField` may be `<relation>.<member>`, through a to-one relation of the trigger entity. A
+flow started by one record can then move the record it belongs to - an approval request moving its
+order, a shipment moving its order - without a hand-written delegate:
+
+```yaml
+processes:
+  - name: OrderApprovalRequest
+    trigger: { onCreate: ApprovalRequest }          # ApprovalRequest has a manyToOne `order`
+    steps:
+      - { name: markOrderApproved, kind: serviceTask, args: { setRelationField: order.Status, value: APPROVED, next: noteIt } }
+      - { name: noteIt,            kind: serviceTask, args: { setField: order.approvalNote, value: "approved by request", next: end } }
+      - { name: end,               kind: end }
+```
+
+- **One hop only**, through a local `manyToOne` or `oneToOne` relation of the trigger entity. A longer
+  path, a collection, a field as the first segment and a cross-model relation are refused at Generate,
+  and so is an unknown member or a value the member's type cannot take.
+- **The target's own rules apply.** A status name is resolved against the target's nomenclature, and a
+  move the target's `lifecycle:` cannot make is refused at Generate. At run time the write goes through
+  the target's own write path, so its `lifecycle:`, its `stampOn:` fields and its history apply, and a
+  refused move fails the step (where `retry:` and `onError:` take over).
+- **A status move publishes the target's `-transitioned` event** after the write commits, so the
+  target's own flows react to it.
+- **An unset relation writes nothing.** The step logs a warning naming the process, the step and the
+  record, and the flow goes on.
+- **The column becomes the flow's** on the target too: a direct edit of a status a flow writes one hop
+  away is refused like a status the trigger's own steps write (see [A status the flow writes is the flow's own](#a-status-the-flow-writes-is-the-flow-s-own)).
 
 A running process can also **observe the outside world**:
 

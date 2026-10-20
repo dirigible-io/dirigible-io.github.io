@@ -124,6 +124,45 @@ Add **`attach: print`** and the message carries the record's **own document**: t
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
 :::
 
+### Copies, and recipients a step worked out: `cc:`, `bcc:`, `@var:`
+
+Every notify block takes **`cc:`** and **`bcc:`** beside `to:`, in the forms `to:` takes - a literal, a
+field, a one-hop `relation.field` or `@config:KEY`. A value may be a **comma-separated list**, and every
+address in it receives the message; a `bcc:` address appears in no delivered header. The message is sent
+when **any** of `to`, `cc` and `bcc` resolves to an address, so `to:` may be left out - a block with only
+an archive `bcc:` still sends. When all three resolve to nothing, it is the logged no-op above. In a
+[`forEach`](#one-message-per-related-row-foreach) fan-out the copies resolve per row, like `to:`.
+
+On a process step, a recipient can also be **`@var:<name>`**: a process variable an earlier step put
+there. That is the form for a list no field carries, such as the approvers of a document a delegate
+looked up:
+
+```yaml
+processes:
+  - name: ContractReview
+    trigger: { onCreate: Contract }
+    vars:
+      - { name: approverEmails }
+    steps:
+      - { name: findApprovers, kind: serviceTask, args: { delegate: ContractApprovers, produces: [approverEmails], next: tellThem } }
+      - name: tellThem
+        kind: serviceTask
+        args:
+          notify:
+            to: "@var:approverEmails"              # comma-separated, set by findApprovers
+            bcc: "@config:CONTRACT_ARCHIVE_EMAIL"  # the archive mailbox, in no delivered header
+            subject: "Contract {number} needs your approval"
+            body: "Open it here: {recordUrl}"
+          uses: [approverEmails]
+          next: end
+      - { name: end, kind: end }
+```
+
+The variable must be declared under the process's [`vars:`](/help/intent/intent-file#processes) **and**
+listed in the step's `uses:`; either one missing is refused at Generate. `@var:` exists only on a
+process step - a transition, a schedule and a `notifications[]` entry run outside any process instance,
+so there it is refused too.
+
 ### Links back to the application: `{recordUrl}`, `{inboxUrl}`, `{appUrl}`
 
 "You have an approval waiting" is useless without the way back to the record, so `subject:` and `body:` accept three reserved link placeholders alongside the field ones:
