@@ -7,7 +7,7 @@ description: Provision tenants into a running application from an external servi
 
 Off by default. An opt-in REST API through which an **external** provisioner registers a tenant,
 hands the platform a database user and schema it created itself, activates the tenant and polls its
-initialization. It also keeps the application's copy of the tenant's users, which the
+initialization, and removes the tenant again when it is no longer needed. It also keeps the application's copy of the tenant's users, which the
 [Settings -> Users](/help/setup/tenant-users) section shows.
 
 The built-in flow provisions a tenant the other way round: you register it, and the platform creates
@@ -29,11 +29,16 @@ tenants, nor serves it, since synchronizers, jobs and listeners only run for `PR
 
 That is what lets an external provisioner own a tenant end to end without racing the platform.
 `DELETE /services/security/tenants/{id}` accepts the state too, which is the rollback path when
-provisioning is abandoned before activation. Deleting a `PROVISIONED` tenant is still refused.
+provisioning is abandoned before activation. That endpoint still refuses a `PROVISIONED` tenant: an
+active tenant is removed through [this API](#remove-a-tenant), which also stops what runs for it.
+
+`DEPROVISIONING` is the window while a tenant is being removed. Like `PENDING_ACTIVATION`, the platform
+leaves it alone, and it survives a restart, so a removal that stopped half way is finished by repeating
+the call. A removed tenant is gone, not a state.
 
 ## The sequence
 
-Register the tenant, register its data source, activate, poll.
+Register the tenant, register its data source, activate, poll. Remove it when it is no longer needed.
 
 ```bash
 BASE=https://app.example.com/services/tenant-provisioning/tenants
@@ -49,6 +54,9 @@ curl -X PUT "$BASE/acme/datasources/default" -H 'Content-Type: application/json'
 # 3. activate, then poll
 curl -X POST "$BASE/acme/activation"
 curl "$BASE/acme/activation"
+
+# 4. when the tenant is no longer needed: remove it, then drop its schema and database user
+curl -X DELETE "$BASE/acme"
 ```
 
 **Every call is idempotent**, because the caller is a retrying process: a step that timed out may
@@ -207,6 +215,7 @@ An absent field means `null`. Emails are lower-cased.
 | `200` | `{ "applied": n, "ignored": n, "removed": n, "storedRevision": 1042 }` |
 | `400` | the body is not valid; one message names every offending field |
 | `404` | there is no such tenant |
+| `409` | the tenant is being removed |
 
 How a snapshot is applied:
 
@@ -245,9 +254,51 @@ GET /services/tenant-provisioning/tenants/{tenantId}/users[?includeRemoved=true]
 The endpoint is there whenever the API is enabled, whether or not the
 [Settings -> Users](/help/setup/tenant-users) section is.
 
+### Remove a tenant
+
+```
+DELETE /services/tenant-provisioning/tenants/{tenantId}
+```
+
+Removes the tenant and everything the application holds for it, and answers once that is done:
+
+- what runs for it: its jobs, its listeners, and its running processes, with their history;
+- its data source and the connections to its schema;
+- its initialization record, its users, as pushed above, and its platform users;
+- its documents;
+- the tenant itself.
+
+What it leaves is the tenant's **database schema and database user**. The provisioner created them, so
+it drops them, and only **after** this call answers, once no connection into the schema is left.
+
+| Status | Meaning |
+| ------ | ------- |
+| `204` | removed, **or there was no such tenant** - a retry after a lost answer is safe |
+| `400` | the id is not a valid tenant id, or it is the default tenant, which can never be removed |
+| `409` | the tenant is still being activated; retry once its initialization has settled |
+| `500` | a part of the removal failed; the message names it. The tenant stays `DEPROVISIONING`, and repeating the call finishes the removal |
+
+Because an unknown tenant answers `204`, a `404` from this route can only mean that the application
+does not offer it - an older platform, or the API switched off. A provisioner should treat that as a
+failure, never as "already removed".
+
+While a removal is under way, the tenant's data source, activation and users endpoints answer `409`.
+
+A stuck initialization does not hold a removal off for ever. One that has been open for longer than
+the bound below is taken as stuck, and the tenant is removed anyway:
+
+```bash
+DIRIGIBLE_TENANT_PROVISIONING_DEPROVISION_ACTIVATION_STALE_MINUTES=30
+```
+
+What runs for the tenant is stopped in the instance that answers the call, so run the application as a
+single instance when tenants are removed this way.
+
 ## Errors
 
-A refusal answers with the reason in the body, which is what a calling process branches on:
+A refusal answers with the reason in the body, which is what a calling process branches on. A `409`
+means "not now" (a removal or an activation is under way) and is worth retrying; a `400` will not
+change by retrying.
 
 ```json
 { "status": 502, "error": "Bad Gateway",

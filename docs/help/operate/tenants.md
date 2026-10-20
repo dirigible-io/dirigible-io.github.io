@@ -16,13 +16,16 @@ A tenant has three states:
 | `INITIAL`      | Tenant registered, provisioning not finished. |
 | `PROVISIONED`  | All provisioning steps completed; the tenant is serving. |
 | `PENDING_ACTIVATION` | Registered by an external provisioner, which owns the tenant's database user, schema and data source. Invisible to the provisioner below and to `executeForEachTenant`, so nothing acts on the tenant until that provisioner activates it. See [Tenant provisioning API](/help/setup/tenant-provisioning-api). |
+| `DEPROVISIONING` | Being removed by an external provisioner. Invisible to `executeForEachTenant` like `PENDING_ACTIVATION`; the row goes when the removal finishes. See [Remove a tenant](/help/setup/tenant-provisioning-api#remove-a-tenant). |
 
 A tenant is registered explicitly, through the tenants API or the Security perspective, and enters `INITIAL`. The provisioner picks it up on its next pass and moves it to `PROVISIONED` once every step has run; a step that fails leaves the tenant `INITIAL` and the next pass retries it. Nothing creates a tenant implicitly, so an unknown tenant is never provisioned by being asked for.
 
 Until a tenant is `PROVISIONED` it cannot be entered. Under the `TOKEN_GROUPS` resolution strategy a user who has been granted it sees it on the tenant picker but cannot select it yet; see [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution).
 
 A tenant may only be deleted while nothing has been materialized for it, which means `INITIAL` or
-`PENDING_ACTIVATION`. Deleting a `PROVISIONED` tenant would be deprovisioning, and is refused.
+`PENDING_ACTIVATION`. Deleting a `PROVISIONED` tenant would be deprovisioning, and is refused here. A
+tenant an external provisioner activated is removed through the
+[tenant provisioning API](/help/setup/tenant-provisioning-api#remove-a-tenant) instead.
 
 ## Provisioning cadence
 

@@ -326,6 +326,8 @@ Step kinds: `userTask`, `serviceTask`, `decision`, `script`, `wait`, `end`.
 
 A decision condition can walk **one hop** off the trigger entity (`customer.creditLimit > 10000`): the generator inserts a resolver service task before the gateway that loads the related entity and rewrites the condition to the resolved variable.
 
+A setter step can write one hop away as well: `setRelationField: order.Status` moves the status of the record the trigger entity belongs to, through that record's own write path, so its `lifecycle:`, `stampOn:` fields and history apply. The rules are in the [DSL reference](/help/intent/dsl-reference#processes-workflows).
+
 ### wait - park the process on a data event
 
 A `wait` step parks the process on a BPMN **message intermediate catch event** until an entity lifecycle event resumes it - a support case waiting for the requester's reply, a dunning flow waiting for a payment, an order flow waiting for its goods receipt:
@@ -422,6 +424,7 @@ vars:
 
 - A step's `produces: [name, ...]` / `uses: [name, ...]` lists which declared vars its delegate sets and reads (the delegate still calls `execution.setVariable` / `getVariable` itself - the declaration is the contract). **An undeclared name in either list is a parse error.**
 - `clearAfter: <step>` removes the value from the instance data once that serviceTask / userTask completes normally - a generated credential does not survive in the process data or its history. A var name must be a plain identifier.
+- A `notify:` step can mail the addresses a var holds: `to: "@var:<name>"` (or `cc:` / `bcc:`), with the var listed in the step's `uses:` - see [copies and computed recipients](/help/intent/glue#copies-and-recipients-a-step-worked-out-cc-bcc-var).
 
 ### trigger
 
