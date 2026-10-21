@@ -1,20 +1,24 @@
 ---
 title: TypeScript
-description: Strongly typed source, transpiled on save by the platform.
+description: Strongly typed source, transpiled by the platform.
 ---
 
 # TypeScript
 
-TypeScript is the default authoring language for new Dirigible projects. `engine-typescript` transpiles `.ts` files on save and serves them via the same JS endpoint machinery.
+TypeScript is the default authoring language for new Dirigible projects. `engine-typescript` transpiles published `.ts` files and serves them via the same JS endpoint machinery.
 
 ## File layout
 
 ```
-/registry/public/<project>/tsconfig.json
+/registry/public/tsconfig.json          # written by the platform
 /registry/public/<project>/<file>.ts
 ```
 
-A `tsconfig.json` at the project root drives compilation. The platform reads it; you do not run `tsc` yourself.
+A `tsc --watch` process over the registry transpiles every published `.ts` file to the `.js` the engine runs. The platform writes its `tsconfig.json` at the registry root whenever it starts the watcher. You do not run `tsc` yourself, but it must be on the `PATH` (`npm install -g typescript`; the Docker image ships it).
+
+::: tip Java-only instances
+The watcher starts only when the registry holds TypeScript sources: at startup, after a project is published, or within 30 seconds of sources arriving another way. An instance running only Java projects starts no Node process. Set `DIRIGIBLE_TSC_WATCH_SERVICE_ENABLED=false` to keep the watcher off even when TypeScript sources are present.
+:::
 
 Served at:
 

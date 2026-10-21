@@ -86,13 +86,14 @@ See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant pr
 
 ## Debuggers
 
-| Variable                                     | Default            | Purpose                               |
-| -------------------------------------------- | ------------------ | ------------------------------------- |
-| `DIRIGIBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT` | `8081`             | Graalium JS debugger port.            |
-| `DIRIGIBLE_GRAALIUM_ENABLE_DEBUG`            | `true` (in Docker) | Toggle JS debug.                      |
-| `DIRIGIBLE_JAVA_DEBUG_JDWP_PORT`             | `8000`             | JDWP port for the Java debugger view. |
-| `DIRIGIBLE_JAVA_LSP_ENABLED`                 |                    | Toggle JDT.LS.                        |
-| `DIRIGIBLE_JAVA_LSP_INSTALL_DIR`             |                    | JDT.LS install directory.             |
+| Variable                                     | Default | Purpose                                                                                                                                                                                                              |
+| -------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DIRIGIBLE_JAVASCRIPT_GRAALVM_DEBUGGER_PORT` | `8081`  | Graalium JS debugger port.                                                                                                                                                                                           |
+| `DIRIGIBLE_GRAALIUM_ENABLE_DEBUG`            | `false` | Toggle JS debug.                                                                                                                                                                                                     |
+| `DIRIGIBLE_JAVA_DEBUG_JDWP_PORT`             | `8000`  | JDWP port for the Java debugger view.                                                                                                                                                                                |
+| `DIRIGIBLE_JAVA_LSP_ENABLED`                 |         | Toggle JDT.LS.                                                                                                                                                                                                       |
+| `DIRIGIBLE_JAVA_LSP_INSTALL_DIR`             |         | JDT.LS install directory.                                                                                                                                                                                            |
+| `DIRIGIBLE_TSC_WATCH_SERVICE_ENABLED`        | `true`  | Allows the `tsc --watch` process that transpiles TypeScript sources. It runs only while the registry holds TypeScript sources; `false` keeps it off even then. See [TypeScript](/help/develop/languages/typescript). |
 
 ## Synchronizers
 
