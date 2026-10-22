@@ -52,6 +52,7 @@ For the full env-var inventory see [`/help/reference/environment-variables`](/he
 
 - `latest` - the current main build.
 - `<version>` - tagged release. Pin in production.
+- `latest-java` / `<version>-java` - the Java edition: the platform and its IDE without the JavaScript and TypeScript stack. See [Migrating from TypeScript to Java](/help/develop/migrate-typescript-to-java#the-java-edition).
 
 ## See also
 

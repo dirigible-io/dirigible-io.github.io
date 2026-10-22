@@ -5,6 +5,10 @@ description: Strongly typed source, transpiled by the platform.
 
 # TypeScript
 
+::: warning Deprecated
+Server-side JavaScript and TypeScript are deprecated and will be removed in 16.0. Write new back-end code in Java, and see [Migrating from TypeScript to Java](/help/develop/migrate-typescript-to-java) to move existing code. Browser-side JavaScript is not affected.
+:::
+
 TypeScript is the default authoring language for new Dirigible projects. `engine-typescript` transpiles published `.ts` files and serves them via the same JS endpoint machinery.
 
 ## File layout
