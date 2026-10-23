@@ -5,6 +5,10 @@ description: ES6+ over GraalJS with a synchronous programming model, CommonJS an
 
 # JavaScript
 
+::: warning Deprecated
+Server-side JavaScript and TypeScript are deprecated and will be removed in 16.0. Write new back-end code in Java, and see [Migrating from TypeScript to Java](/help/develop/migrate-typescript-to-java) to move existing code. Browser-side JavaScript is not affected.
+:::
+
 JavaScript user code runs in the JVM through `engine-javascript` (GraalJS via the Graalium runner). The execution model is **synchronous** - no event loop, no `await`, no Node-style `(err, result)` callbacks. A request thread enters the JS context, runs the module top-to-bottom, returns.
 
 ## File layout

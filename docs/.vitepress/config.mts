@@ -308,6 +308,7 @@ function helpSidebar() {
       items: [
         { text: 'Overview', link: '/help/develop/' },
         { text: 'Coming from Spring Boot', link: '/help/develop/coming-from-spring-boot' },
+        { text: 'Migrating from TypeScript to Java', link: '/help/develop/migrate-typescript-to-java' },
         {
           text: 'Languages',
           collapsed: true,

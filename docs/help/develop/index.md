@@ -17,6 +17,7 @@ Dirigible's modern development model is **decorator / annotation driven**: you d
 ## Application building blocks
 
 - **[Coming from Spring Boot](/help/develop/coming-from-spring-boot)** - a fast-start map for Spring developers.
+- **[Migrating from TypeScript to Java](/help/develop/migrate-typescript-to-java)** - server-side JavaScript and TypeScript are deprecated and removed in 16.0; every construct mapped to Java.
 - **[The decorator / annotation model](/help/develop/decorators-model)**
 - **[REST APIs](/help/develop/rest-apis)** - `@Controller` + `@Get` / `@Post` + `@Body` etc.
 - **[Entities and persistence](/help/develop/entities-and-persistence)** - `@Entity`, `JavaEntityStore`.
