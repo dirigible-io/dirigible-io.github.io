@@ -59,7 +59,7 @@ Three tools in the IDE take a project from TypeScript to Java: an inventory of w
 
 ### See what is left to port
 
-The deprecation banner names every published project that still uses server-side JavaScript or TypeScript. Each name links to the project's **inventory**, which is also served at:
+The deprecation banner names every published project that still uses server-side JavaScript or TypeScript. Each name opens the project's **inventory** in a window: the generated files to regenerate, the hand-written files to port (a click opens one in the editor, where the assistant ports it), and the pages that call their URLs. Tools read the same inventory as JSON:
 
 ```
 GET /services/ide/javascript-deprecation/projects/<project>
