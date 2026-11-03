@@ -12,7 +12,7 @@ Dirigible runs on any Kubernetes cluster as a single workload, optionally fronte
 The maintained Helm chart is the fastest path:
 
 ```bash
-helm repo add dirigible https://eclipse.github.io/dirigible
+helm repo add dirigible https://eclipse-dirigible.github.io/dirigible
 helm repo update
 helm install dirigible dirigible/dirigible
 ```
