@@ -532,6 +532,39 @@ the offending value - *corrects* instead of refusing, so the person who typed th
 it was overruled, and every document type needs its own class for one comparison.
 :::
 
+### Against another record, at the move - a gated `than:` formula
+
+With a `status:` gate, `than:` may read **another record**: a formula over the fields of one to-one
+relation of the entity, which may point into another model. It states "the figure this document
+stored is still what its source says" at the move that relies on it. A VAT protocol drafted from a
+purchase invoice must not be issued with a stale base after a credit note changed the invoice:
+
+```yaml
+- name: VatProtocol
+  checks:
+    - kind: compare
+      field: base
+      op: eq
+      than: "PurchaseInvoice.net - PurchaseInvoice.credited"
+      status: ISSUED
+      message: "The purchase invoice changed since this protocol was drafted"
+  relations:
+    - { name: PurchaseInvoice, kind: manyToOne, to: PurchaseInvoice, model: purchases }
+    - { name: Status, kind: manyToOne, to: ProtocolStatus, function: EntityStatus, init: DRAFT }
+```
+
+- The related record is read when the protocol is written carrying `ISSUED` - the Issue transition
+  or workflow step. A stale base refuses the Issue (HTTP 400, the authored message). A Cancel moves
+  to another status and is never asked.
+- The formula takes numbers, `+ - * /`, parentheses, `round`, `abs`, `min`, `max`, `ceil`, `floor`
+  and `<relation>.<field>` terms. All terms read the same relation. The left field is a number, and
+  the formula's result is rounded to that field's scale.
+- A record that points at no related record has no right-hand side, which is not a violation.
+- Refused without a `status:` gate: the related record changes on its own, so the rule is about the
+  move, not every edit of the draft.
+- As with every gated check, a later write of a record that is still in the gate status is judged
+  again, against the related record as it then stands.
+
 ## checks: kind: requiredWhen - a value required only under a condition
 
 `required: true` says a value must always be there. Most rules about a missing value are not like
