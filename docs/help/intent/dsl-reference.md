@@ -133,6 +133,9 @@ entities:
 # AND a server-side check in the generated controller, so an API caller cannot bypass the form.
 - { name: email, type: string, length: 320, pattern: '^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$' }
 - { name: iban,  type: string, length: 34,  pattern: '^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{11,30}$' }
+# Stored form (string / text fields only), applied before the pattern reads it (see below):
+- { name: phone, type: string, length: 20, normalize: [strip: " -()"], pattern: '^\+[1-9][0-9]{6,14}$' }
+- { name: vatNumber, type: string, length: 20, unique: true, normalize: [trim, emptyToNull] }
 # Static option filter - e.g. only stock-tracked products:
 - { name: Product, kind: manyToOne, to: Product, where: { Type: 1 } }
 # Which target rows the picker offers (see pickable below):
@@ -145,6 +148,20 @@ as one regular expression - leave those fields unpatterned rather than encode on
 as if it were universal. On a numeric field the attribute already means the DISPLAY format, so the
 parser rejects a regex there. The emitted controller splices the regex into a Java string literal,
 so backslashes are escaped for you.
+
+`normalize` brings a text value to the form it is stored in before `pattern`, the length check and
+`checks` read it, so a strict pattern does not refuse the way people paste a value. The transforms
+are `trim`, `strip: "<characters>"` (removed wherever they occur), `upper`, `lower` and `emptyToNull`.
+They run in a fixed order, whatever order you list them in: trim, strip, the case fold, then
+`emptyToNull`. The generated repository applies them on every create and update (REST, client Java,
+workflows), and the generated controllers apply them before their checks.
+
+`emptyToNull` stores a blank result as NULL. "Blank" includes a no-break or zero-width space alone.
+Use it on an optional `unique` text field. The column's UNIQUE lets any number of rows hold NULL,
+but it compares `''` like any other value, so without `emptyToNull` the second record saved without
+a value is refused with 409. `pattern` skips the NULL and `requiredWhen` sees it as missing. The
+parser refuses `emptyToNull` on a `required` field, since a required field refuses a blank anyway.
+On SQL Server, a UNIQUE column admits only one NULL.
 
 A `required` field that also carries a default (`defaultValue`, or `init:` on a relation) is NOT
 demanded from the caller: the database default supplies the value, and create validation that also
