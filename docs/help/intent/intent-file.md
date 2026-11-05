@@ -122,7 +122,7 @@ fields:
 | `required` | NOT NULL; the generated REST controller's required-value validation keys on this |
 | `length` | column length for string types |
 | `defaultValue` | column default |
-| `unique` | a UNIQUE constraint on this one column; a key spanning several is declared on the entity - see below |
+| `unique` | a UNIQUE constraint on this one column; `unique: { ignoreCase: true }` on a string / text field also refuses a value another record holds in any letter case (see the [DSL reference](/help/intent/dsl-reference#unique-ignorecase-true-a-key-in-any-letter-case)); a key spanning several is declared on the entity - see below |
 | `precision` / `scale` | override the DECIMAL default (16, 2): `{ name: rate, type: decimal, precision: 18, scale: 6 }` |
 | `calculatedOnCreate` / `calculatedOnUpdate` | an expression the generated repository assigns to the property on insert / update |
 | `calculatedActionOnCreate` / `calculatedActionOnUpdate` | a server-side action call-out - see "Calculated fields" |
