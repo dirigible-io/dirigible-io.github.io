@@ -1191,7 +1191,9 @@ or delegate. The intent declares only a **reference to a series** - never how th
 - **`stampOn`** - `create` stamps the real number on insert; `issue` puts a UUID placeholder on the
   field at create and generates a `gen/events/<Entity>NumberStamp` delegate that stamps the real
   number when the process reaches the step wired with `delegate: gen.events.<Entity>NumberStamp`.
-  Stamping is **idempotent** - re-issuing after an amend keeps the same number.
+  Stamping is **idempotent** - re-issuing after an amend keeps the same number. A document whose
+  Issue is a [`transitions`](#transitions-guarded-status-flips) button rather than a process step
+  is numbered by that button: declare `stamp: number` on it.
 
 ### The series is tenant configuration, not model
 
@@ -2263,6 +2265,28 @@ every OTHER writer is held to as well.
 The `notify:` block is the same shape a notification or a schedule uses: `attach: print` mails the
 record's own rendered document, and `attach: { report, bind }` a report render scoped to it - see
 [the notify block](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report).
+
+### Issuing the document number - `stamp: number`
+
+A transition that IS the document's Issue declares `stamp: number`: the entity's
+[`number: { stampOn: issue }`](#number-document-numbering) is drawn and written in the same write as
+the status. A draft holds no number, so a draft deleted before it was issued leaves no gap in the
+series.
+
+```yaml
+transitions:
+  - { name: IssueProtocol,  forEntity: VatProtocol, from: [DRAFT], setStatus: ISSUED, stamp: number }
+  - { name: CancelProtocol, forEntity: VatProtocol, from: [DRAFT], setStatus: CANCELLED }
+```
+
+- The move is checked **before** a number is drawn: its lifecycle edge and the
+  [`checks`](#checks-declarative-validations) gated on the target status. A refused Issue answers
+  **HTTP 400** with the check's message and spends no number. The draw and the status write commit
+  together, so a write refused after the draw returns the number as well.
+- A document already numbered keeps its number.
+- Only the transition that declares `stamp: number` numbers the document - the Cancel above does not.
+- `number` is the only value. It is refused when the entity has no `stampOn: issue` number field.
+- The number travels in the transition's own `-transitioned` event.
 
 ## postings - source-document to ledger
 
