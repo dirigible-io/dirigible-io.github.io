@@ -132,7 +132,7 @@ fields:
 
 Logical types: `string`, `text`, `integer`, `int`, `long`, `decimal`, `double`, `boolean`, `date`, `timestamp`, `uuid`, `month`, `week`. Generators map them to JDBC + EDM types. `text` becomes a CLOB; `uuid` becomes `VARCHAR(36)`. `month` (a `YYYY-MM` string) and `week` (a `YYYY-Www` ISO-week string) are stored as short `VARCHAR`s and render as the Harmonia month / week pickers.
 
-**Primary keys must be an integer type** (`integer` / `int` / `long`). The Dirigible convention is an integer auto-increment id, and a non-integer auto-increment column is invalid SQL - the parser rejects a `uuid` or string PK. `uuid` is fine for non-PK fields.
+**Primary keys must be an integer type** (`integer` / `int` / `long`). The Dirigible convention is an integer auto-increment id, and a non-integer auto-increment column is invalid SQL - the parser rejects a `uuid` or string PK. `uuid` is fine for non-PK fields. Its value is issued by the server on every create through the generated REST API; a value the client sends is ignored (see the [DSL reference](/help/intent/dsl-reference#field-relation-attributes)).
 
 `unique:` on an **entity** declares a business key spanning more than one column - one row per `(tenant, application)`:
 
