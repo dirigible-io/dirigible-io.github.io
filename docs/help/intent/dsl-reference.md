@@ -1882,7 +1882,9 @@ generates:
 
 - **Columns.** A report dimension (`Account.id` - group by the key, not the bare `Account`, which is
   the account's label) or one of the six balance amounts `openingDebit`, `openingCredit`, `debit`,
-  `credit`, `closingDebit`, `closingCredit`. An amount goes into a decimal field, and only there.
+  `credit`, `closingDebit`, `closingCredit`. An amount goes into a decimal field, and only there. `closingBalance`, `closingNetDebit`
+  and `closingNetCredit` read the closing balance as one number (debit minus credit, or the side it
+  stands on).
 - **Exact amounts.** Each amount is written as the exact decimal its field holds. A value that would
   need rounding refuses the run with a 400 - a ledger is never rounded silently.
 - **Parameters.** `fromDate` and `toDate` must be bound to properties of the source; a fiscal year
@@ -1900,8 +1902,41 @@ generates:
 - The report reads the balances committed when the run starts; close the year's periods first if
   postings may still arrive.
 
-Not yet available: one record per report row with no header (next year's opening balances) and its
-delete undo.
+#### One row per report row - opening balances
+
+Next year's opening balances carry each balance-sheet account forward - and, for an account kept per
+counterparty and document, each document still open. Declare `fromReport:` on the generation itself
+and every qualifying row becomes one record:
+
+```yaml
+generates:
+  - name: openingBalances
+    from: FiscalYear
+    to: OpeningBalance
+    label: Carry balances forward
+    fromReport: YearBalance              # dimensions: [Account.id, Account.ClosingAccount, Partner.id, Document.id]
+    parameters: { fromDate: startDate, toDate: endDate }
+    where:
+      - { field: Account.ClosingAccount, op: eq, value: null }   # balance-sheet accounts only
+      - { field: closingBalance, op: ne, value: 0 }              # a paid invoice carries nothing
+    backReference: Year                  # required: written on every row
+    map: { Account: Account.id, Partner: Partner.id, Document: Document.id,
+           debit: closingNetDebit, credit: closingNetCredit }
+    undo: delete
+```
+
+- `map:` reads the report's columns (there is no header to map the fiscal year onto); `defaults:` sets
+  constants. The `backReference:` is written by the run - do not map it.
+- `closingNetDebit` / `closingNetCredit` put each balance on the side it stands on, exactly; a value
+  needing rounding refuses the run.
+- All rows are written in one transaction. A second run answers **409** while any row of that year
+  exists.
+- **Undo** (`undo: delete`) deletes exactly the rows carrying that year - through the entity's own
+  repository, in one transaction - and answers 409 when there is nothing to delete. Rows another run
+  or a person wrote for another year are untouched.
+- Not combinable with `items:`, `prompt:`, `link:` or `sourceStatus:`.
+
+Not yet available: refusing the undo once the next year has postings.
 
 ### Event-driven creation - `event:`
 
