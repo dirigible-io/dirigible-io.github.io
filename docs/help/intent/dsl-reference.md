@@ -613,8 +613,10 @@ person saving it is told and confirms.
   asked about when "Acme Ltd " exists: the rule is the same name typed again, which rarely matches
   byte for byte, and a false positive only costs a confirmation. A to-one and a number compare
   exactly. `{match}` in the message is replaced with the existing record's label (its `name`, else
-  its id), so the warning says which record it collides with. Always a warning; the hard version is
-  `unique:`.
+  its id), so the warning says which record it collides with. An update is asked only when it
+  changes one of the `fields`, compared the same way, so a duplicate confirmed once is not asked
+  again on every later save of the record (changing only its price, say). Always a warning; the hard
+  version is `unique:`.
 - `itemsCompare` - on the document: every item's `field` compared with `op` to the `value` literal.
   `{count}` in the message is the number of lines that break it. Always a warning; the hard version
   is a `compare` on the items entity.
