@@ -100,6 +100,7 @@ entities:
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
 - { name: nationalId, type: string, label: National ID }               # the label, not the humanized name
 - { name: iban,  type: string, label: IBAN, countryLabels: { BG: ЕГН } }  # a label the tenant's country resolves
+- { name: active, type: boolean, labels: { true: Active, false: Inactive } }  # a boolean's own words
 - { name: uuid,  type: uuid, major: false }                            # auto-filled on create, off the list table
 - { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
@@ -293,6 +294,31 @@ a variant with no label are rejected for the same reason.
 The labels of [report](#reports-read-only-aggregations) columns are deliberately not covered: a
 report column's label is also the alias its SQL query gives the column and the `{{alias}}` key a
 print template interpolates.
+
+## labels - what a boolean reads as
+
+A boolean value is shown as words, never as the raw `true` / `false`: the list cell, the record's
+details sheet, the filter's options and its chip, the form's value options, the export, the detail
+panels and the report tables all read it the same way. Without a declaration the words are the
+module's shared `defaults.yes` / `defaults.no` (Yes / No, Да / Не, ...). Many fields are not a yes/no
+question, and name their own:
+
+```yaml
+fields:
+  - { name: active, type: boolean, labels: { true: Active, false: Inactive } }
+  - { name: base,   type: boolean, labels: { true: Base,   false: Additional } }
+```
+
+The words are written in the default language, as `label:` is. Generate seeds them next to the
+field's label in the `i18n/en-US/<model>.model.json` catalog, as `<ENTITY>_<FIELD>_TRUE` /
+`_FALSE` (`PRODUCT_ACTIVE_TRUE`), so another language's catalog translates them like any other
+label. A word resolves from the user's language catalog, then the word the intent declares, then
+Yes / No.
+
+Generate rejects `labels:` on a field that is not a `boolean`, a `labels:` without both `true` and
+`false` (or with any other key), and an unquoted word YAML reads as a boolean itself - `Yes`, `No`,
+`On`, `Off`, `True`, `False` load as `true` / `false`, so write `true: "Yes"`. A model without
+`labels:` generates as before, apart from its booleans now reading as Yes / No.
 
 ## unique - a business key over more than one field
 
