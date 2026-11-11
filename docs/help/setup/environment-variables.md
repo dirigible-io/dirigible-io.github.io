@@ -81,8 +81,11 @@ How the OAuth2 login profiles treat a token presented in the `Authorization: Bea
 | `DIRIGIBLE_TENANT_PROVISIONING_DEPROVISION_ACTIVATION_STALE_MINUTES` | `30` | How long an open initialization holds a [tenant removal](/help/setup/tenant-provisioning-api#remove-a-tenant) off before it is taken as stuck, in minutes. |
 | `DIRIGIBLE_TENANT_USERS_ENABLED`                   | `false`          | Shows the [Settings -> Users](/help/setup/tenant-users) section, through which a tenant's owners invite, change and remove its users. Requires `TOKEN_GROUPS`.                                            |
 | `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE`              |                  | The `global:` queue the section publishes its change requests to. Replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE`.                                                                                        |
+| `DIRIGIBLE_TENANT_EXPORT_ENABLED`                  | `false`          | Shows the [Settings -> Data export](/help/setup/tenant-data-export) section, through which a tenant's owners download everything the tenant holds as one archive. |
+| `DIRIGIBLE_TENANT_EXPORT_MAX_ARCHIVES`             | `3`              | How many archives a tenant may keep at a time. A further export is refused until one is deleted or expires. |
+| `DIRIGIBLE_TENANT_EXPORT_RETENTION_DAYS`           | `7`              | How many days an archive is kept before it is deleted. |
 
-See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant provisioning API](/help/setup/tenant-provisioning-api) and [Tenant users](/help/setup/tenant-users).
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant provisioning API](/help/setup/tenant-provisioning-api), [Tenant users](/help/setup/tenant-users) and [Tenant data export](/help/setup/tenant-data-export).
 
 ## Debuggers
 
