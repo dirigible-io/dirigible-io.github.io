@@ -26,8 +26,7 @@ files/            the tenant's documents, as the Documents section shows them
 ```
 
 - The tables are the ones the published applications declare.
-- The documents are those of the whole tenant, including folders restricted to roles the owner does not
-  hold.
+- The documents are those of the whole tenant.
 - Users and roles, process and task history, and logs are not in it.
 
 The `database/` folder keeps the layout the platform's schema export process writes, so its schema
