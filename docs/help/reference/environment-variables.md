@@ -91,8 +91,11 @@ A refresh token, an offline token, a Keycloak token without a `typ` or a token o
 | `DIRIGIBLE_TENANT_PROVISIONING_API_ENABLED`        | `false`          | Exposes the [tenant provisioning API](/help/setup/tenant-provisioning-api) under `/services/tenant-provisioning/`, through which an external service registers a tenant, registers its data source from credentials it created itself, and activates it. Off by default and off means absent: no endpoint answers and none of its beans exist. The API accepts database credentials over HTTP, so a deployment has to opt in. |
 | `DIRIGIBLE_TENANT_USERS_ENABLED`                   | `false`          | Shows the [Settings -> Users](/help/setup/tenant-users) section, through which a tenant's owners invite, change and remove its users as change requests for an external provisioning system, which writes the users back through the tenant provisioning API. On, the application refuses to start unless the strategy is `TOKEN_GROUPS`, the change queue is `global:` and the provisioning API is enabled.                  |
 | `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE`              |                  | The queue the change requests are published to, as a persistent message. It must start with `global:`, so a consumer outside this deployment can bind to it. It replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE` when the requests changed shape; a configuration that sets only the old key is refused at startup.                                                                                                            |
+| `DIRIGIBLE_TENANT_EXPORT_ENABLED`                  | `false`          | Shows the [Settings -> Data export](/help/setup/tenant-data-export) section, through which a tenant's owners download everything the tenant holds as one archive. |
+| `DIRIGIBLE_TENANT_EXPORT_MAX_ARCHIVES`             | `3`              | How many archives a tenant may keep at a time. A further export is refused until one is deleted or expires. |
+| `DIRIGIBLE_TENANT_EXPORT_RETENTION_DAYS`           | `7`              | How many days an archive is kept before it is deleted. |
 
-See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant provisioning API](/help/setup/tenant-provisioning-api) and [Tenant users](/help/setup/tenant-users).
+See [Tenant resolution](/help/setup/multi-tenancy#tenant-resolution), [Tenant provisioning API](/help/setup/tenant-provisioning-api), [Tenant users](/help/setup/tenant-users) and [Tenant data export](/help/setup/tenant-data-export).
 
 ## Synchronizers
 

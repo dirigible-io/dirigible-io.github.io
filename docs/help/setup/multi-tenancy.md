@@ -113,4 +113,5 @@ Which identity provider you use is independent of how tenants are resolved. With
 - [Tenant management (operate)](/help/operate/tenants)
 - [Tenant provisioning API](/help/setup/tenant-provisioning-api)
 - [Tenant users](/help/setup/tenant-users)
+- [Tenant data export](/help/setup/tenant-data-export)
 - [Environment variables](/help/setup/environment-variables#multi-tenancy)
