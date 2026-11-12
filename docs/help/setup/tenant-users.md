@@ -32,12 +32,11 @@ A person who is invited, being invited, or a member takes a seat; a removed pers
 does not.
 
 - The section shows the seats taken out of the limit, for example **Seats: 7 of 10**.
-- An invitation while every seat is taken is refused before it is sent, with a reason that says so.
-  Changing a member's roles and removing a member are never refused for seats.
+- An invitation while every seat is taken is refused before it is sent: *Every seat of this tenant is
+  taken. Remove someone to free a seat, or ask your administrator for more seats.* Changing a member's
+  roles and removing a member are never refused for seats.
 - A limit lowered below the people the tenant holds removes nobody. Invitations are refused until
   enough people are removed.
-- With `DIRIGIBLE_TENANT_USERS_SEATS_URL` set, the seats line and the refusal link to that address, so
-  an owner can get more seats.
 
 Without a limit, the section shows no seats and refuses no invitation for seats.
 
@@ -54,7 +53,6 @@ Without a limit, the section shows no seats and refuses no invitation for seats.
 | -------- | ------- | ------- |
 | `DIRIGIBLE_TENANT_USERS_ENABLED` | `false` | Shows the section. |
 | `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE` | | The queue the change requests are published to. It replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE`. |
-| `DIRIGIBLE_TENANT_USERS_SEATS_URL` | | Where an owner gets more seats - linked from the seats line and from an invitation refused for seats. Unset, no link is shown. |
 
 With the section on, the application refuses to start unless:
 
