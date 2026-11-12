@@ -176,7 +176,7 @@ fixed. A deployment with no tenant-specific artefacts has nothing to create, so 
 
 ```
 PUT /services/tenant-provisioning/tenants/{tenantId}/users
-{ "complete": false, "revision": 1042, "users": [ ... ] }
+{ "complete": false, "revision": 1042, "seatLimit": 10, "users": [ ... ] }
 ```
 
 The provisioner owns the tenant's membership, and this is how it hands the application the current
@@ -203,6 +203,7 @@ application only records each person's last sign-in.
 | ----- | ----- |
 | `complete` | `true` when `users` is the tenant's whole list - a resync |
 | `revision` | the provisioner's revision counter for the tenant, as it read it |
+| `seatLimit` | the most people the tenant may hold at once - a whole number of at least `1` - or absent for no limit; see [Seats](/help/setup/tenant-users#seats) |
 | `users[].revision` | the counter's value at the person's last change, at least `1` |
 | `users[].status` | `PENDING`, `INVITED`, `ASSIGNED`, `FAILED` or `REMOVED` |
 | `users[].roles` | the roles held or being added; a role absent here is not held. `state` is `GRANTED`, `ADDING` (requested, not applied yet; no `grantedBy` / `grantedAt`) or `REMOVING` (held, removal requested) |
@@ -232,6 +233,9 @@ How a snapshot is applied:
   written after the provisioner read its list, and is kept. A resync that changes nothing writes
   nothing.
 - **Each user is applied on its own**, so one that fails leaves the others applied.
+- **`seatLimit` is the tenant's, and the latest body sets it**, whatever its users' revisions - even
+  when every user in it is `ignored`. A body without it clears the limit, so send it with every body,
+  partial or complete.
 
 `storedRevision` is the highest revision the application now holds for the tenant, and is left out
 when it holds no user of the tenant at all. A provisioner can compare it with its own counter, for

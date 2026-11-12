@@ -25,6 +25,22 @@ The section publishes each owner action as a change request on a message queue, 
 system to carry out or refuse. It shows the tenant's users as the external system reports them back
 through the [tenant provisioning API](/help/setup/tenant-provisioning-api#push-the-users).
 
+## Seats
+
+The external provisioning system may give a tenant a **seat limit**: the most people it may hold at once.
+A person who is invited, being invited, or a member takes a seat; a removed person or a failed invitation
+does not.
+
+- The section shows the seats taken out of the limit, for example **Seats: 7 of 10**.
+- An invitation while every seat is taken is refused before it is sent, with a reason that says so.
+  Changing a member's roles and removing a member are never refused for seats.
+- A limit lowered below the people the tenant holds removes nobody. Invitations are refused until
+  enough people are removed.
+- With `DIRIGIBLE_TENANT_USERS_SEATS_URL` set, the seats line and the refusal link to that address, so
+  an owner can get more seats.
+
+Without a limit, the section shows no seats and refuses no invitation for seats.
+
 ## Who may use it
 
 - A holder of the tenant's `Owner` role, a `DEVELOPER` or an `ADMINISTRATOR` may manage the users. An
@@ -38,6 +54,7 @@ through the [tenant provisioning API](/help/setup/tenant-provisioning-api#push-t
 | -------- | ------- | ------- |
 | `DIRIGIBLE_TENANT_USERS_ENABLED` | `false` | Shows the section. |
 | `DIRIGIBLE_TENANT_USERS_CHANGE_QUEUE` | | The queue the change requests are published to. It replaced `DIRIGIBLE_TENANT_USERS_REQUEST_QUEUE`. |
+| `DIRIGIBLE_TENANT_USERS_SEATS_URL` | | Where an owner gets more seats - linked from the seats line and from an invitation refused for seats. Unset, no link is shown. |
 
 With the section on, the application refuses to start unless:
 
