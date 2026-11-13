@@ -1575,6 +1575,32 @@ the same process set is visible - and when it resolves to nobody (a null hop, a 
 blank identity) the task is created unassigned and the fallback group can still claim it. That is
 what stops an unresolvable path from minting a task nobody can see.
 
+A user task can **hold its record while someone decides it**. A flow started on create reaches its
+first user task while the document is still DRAFT, so `forbidWhen: "SalesOrder.Status != DRAFT"` on
+its lines freezes nothing while the approver reads the total. `onClaim` / `onUnclaim` move the
+trigger record while the task is claimed:
+
+```yaml
+- { name: confirm, kind: userTask,
+    args: { assignee: approver, form: ConfirmSalesOrder,
+            onClaim:   { setRelationField: Status, value: SUBMITTED },
+            onUnclaim: { setRelationField: Status, value: DRAFT } } }
+```
+
+- **Claim and unclaim move the record.** Claiming the task, from the Inbox, the record page or the
+  REST API, moves the order to SUBMITTED, and the lines are frozen. Unclaiming it moves the order back
+  to DRAFT, and the author can edit them again. A task created already assigned (`assignee: personal`,
+  a relation walk) counts as claimed from the start.
+- **Only from the other half's status.** A task passing from one claimant to another does not move
+  the record, and a record another writer moved meanwhile is left alone.
+- **The lifecycle judges both moves.** Declare both edges (DRAFT to SUBMITTED and back), or Generate
+  refuses the file. At run time a refused move fails the claim with the message.
+- **The task completes only claimed.** Completing it while nobody has claimed it answers 409. The
+  Inbox and the record page claim before they open the form, so only a direct API call meets this.
+- **Both together.** Each half is `{ setRelationField, value }` on the same to-one relation of the
+  trigger record, with different values. A task that leaves without completing (a `timeout:` /
+  `expire:` boundary, a cancelled instance) does not move the record back.
+
 A setter can also write **one hop away**: the path of a `setField`, `clearField` or
 `setRelationField` may be `<relation>.<member>`, through a to-one relation of the trigger entity. A
 flow started by one record can then move the record it belongs to - an approval request moving its
