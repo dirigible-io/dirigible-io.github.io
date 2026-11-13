@@ -3297,6 +3297,63 @@ schedules:
     notify: { to: ops@example.com, subject: "Application {id} has been provisioning for over 30 minutes" }
 ```
 
+### children - which rows, and a refused child (`where` / `onRefused: skip`)
+
+A scheduled `generate` can fan out `children` (one per matching row of a `forEach: { entity, match }`
+collection, or one per working day). Two keys on a children entry decide which rows become children
+and what one refused child costs:
+
+```yaml
+    generate:
+      to: ProjectTimesheet
+      unique: [Project, period]
+      map: { Project: id }
+      defaults: { period: now }
+      children:
+        - to: EmployeeTimesheet
+          parent: ProjectTimesheet
+          forEach: { entity: EmployeeProjectAssignment, model: projects, match: { Project: id } }
+          where:
+            - { field: Employee.active, op: eq, value: true }   # the employees model's employee; an inactive one gets no timesheet
+          map: { Employee: Employee }
+          onRefused: skip            # a timesheet its repository refuses is left out, not the month
+          children:
+            - to: EmployeeDayAllocation
+              parent: EmployeeTimesheet
+              forEach: { days: workingDays }
+              dayField: day
+              defaults: { hours: 8 }
+              onRefused: skip        # a day the allocation refuses (before the hire date, over 24 h) is left out
+```
+
+- **`where:`** is the `schedules[].where` triple list (same operators, same `CURRENT_DATE` /
+  `CURRENT_TIMESTAMP` moments), over the collection row's own fields or through ONE to-one relation
+  (`Employee.active`). It is pushed into the query that selects the rows, so a row that does not
+  qualify is never loaded; a hop selects the related rows with the same conditions and keeps the
+  collection rows whose foreign key points at one of them (an empty foreign key never qualifies). A
+  cross-model collection (`forEach.model:`) works too: its fields and relations come from the owner's
+  `.model`, and a hop target the owner carries as a projection of a third model is queried through
+  that model's own generated repository (`gen.<employees>.data.employee.EmployeeRepository`) - every
+  field checked against its owner at Generate, never a job that cannot run. A status name on a field
+  of a collection of this model resolves to its seed id, as in `schedules[].where`; through a hop or
+  on a cross-model collection give the id. A `days` child takes no `where:`.
+- **`onRefused: skip`** is per children entry. The generated job writes each source row in one
+  `UnitOfWork`; with `skip`, each child of that entry is written in a **nested** unit on a database
+  savepoint. A child the target's generated repository refuses with a `ValidationException` (a
+  capacity guard, a required value, a status-gated check, a calculated action) is rolled back to the
+  savepoint - its row, the rows written beneath it, the document number it drew and the events those
+  writes recorded - logged at WARN with the schedule, the child, the collection row's key and the
+  source row's key, and left out. The parent and its other children are still created. Any other
+  exception still rolls the whole source row back, as before.
+- A refused child takes its own children with it, unless their entry declares `onRefused: skip`
+  itself; then each of them is skipped on its own.
+- **Totals follow the created children only.** A document total recalculated on a line's save is
+  undone with the skipped line, and a `rollups:` recompute never sees a child that was rolled back.
+- On a database without savepoints the refused child fails the whole source row.
+- Without `where:` and `onRefused`, a children entry generates exactly as before.
+
+See [glue › schedules](/help/intent/glue#schedules) for the rest of the schedule block.
+
 ## integrations - outbound HTTP
 
 ```yaml
