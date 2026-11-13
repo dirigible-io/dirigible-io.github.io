@@ -10,7 +10,7 @@ Server-side JavaScript and TypeScript - the GraalJS engine, the TypeScript decor
 Browser-side JavaScript is not affected: the pages of a Harmonia or AngularJS UI, form scripts, and the Playwright runner for application tests stay as they are.
 
 ::: tip Generated code: regenerate, do not port
-Code produced from a model - an `.edm` / `.model` generation or an intent application - is regenerated, not ported by hand. Generate from the `.model` again with the Java templates (*Application - DAO - Java*, *Application - REST - Java*, *Application - Glue Code - Java*, *Application - UI (Harmonia) - Java*), and Generate an `app.intent` again: intent applications are Java already. Port by hand only what you wrote yourself.
+Code produced from a model - an `.edm` / `.model` generation or an intent application - is regenerated, not ported by hand. Regenerate from the `.model` with the Java templates (*Application - DAO - Java*, *Application - REST - Java*, *Application - Glue Code - Java*, *Application - UI (Harmonia) - Java*); a project that records a removed TypeScript template is offered its Java successor (see [Regenerate the generated code](#regenerate-the-generated-code)). Generate an `app.intent` again: intent applications are Java already. Port only what you wrote yourself.
 :::
 
 ## Timeline
@@ -52,6 +52,92 @@ Not in the Java edition: GraalJS, the TypeScript engine, the JavaScript SDK, and
 Nothing server-side in JavaScript or TypeScript runs there. `.ts` and `.mjs` services are not served, a job, listener or websocket that names a script is registered `FAILED` with the missing engine as its reason, a process or route step that calls a script fails when it runs, and script extension modules are skipped. The deprecation entry of each such project counts what was skipped, so dropping the engine is never silent.
 
 Use the Java edition to prove a migration: a project that publishes on it with no `JavaScript deprecation` entry in the Problems view and no `FAILED` artefact has nothing left to port.
+
+## Migrating a project
+
+Three tools in the IDE take a project from TypeScript to Java: an inventory of what is left to port, a single action that regenerates the generated code, and the Workbench assistant, which ports a hand-written file with a compile check. Run them in this order.
+
+### See what is left to port
+
+The deprecation banner names every published project that still uses server-side JavaScript or TypeScript. Each name opens the project's **inventory** in a window: the generated files to regenerate, the hand-written files to port (a click opens one in the editor, where the assistant ports it), and the pages that call their URLs. Tools read the same inventory as JSON:
+
+```
+GET /services/ide/javascript-deprecation/projects/<project>
+```
+
+It lists, file by file:
+
+- every server-side script the [deprecation signals](#deprecation-signals) count, with its `kind` (`TYPESCRIPT_FILE`, `JAVASCRIPT_FILE`, `EXTENSION_MODULE`, `JOB`, `LISTENER`, `WEBSOCKET`, `PROCESS`, `ROUTE`);
+- for a script file, the modules it `imports` and the `decorators` it uses, which decide its Java counterpart (see [Decorators to annotations](#decorators-to-annotations) and [The SDK modules](#the-sdk-modules));
+- for an extension, job, listener, websocket, process or route, the script it `runs`;
+- `generated: true` and the recorded `template` for a file under `gen/`: regenerate it, do not port it;
+- under `references`, the browser code that calls a script's URL (`/services/ts/...`, `/services/js/...`). A ported service answers under `/services/java/...`, so these pages need the new URL.
+
+```json
+{
+  "project": "codbex-salaries",
+  "scripts": [
+    {
+      "path": "widgets/api/SalariesService.ts",
+      "kind": "TYPESCRIPT_FILE",
+      "generated": false,
+      "imports": ["codbex-salaries/gen/codbex-salaries/dao/Salaries/SalaryRepository", "sdk/http"],
+      "decorators": ["Controller", "Get"]
+    }
+  ],
+  "references": [
+    {
+      "path": "widgets/salaries-sum/controller.js",
+      "generated": false,
+      "urls": ["/services/ts/codbex-salaries/widgets/api/SalariesService.ts/SalariesSum"]
+    }
+  ]
+}
+```
+
+### Regenerate the generated code
+
+A project generated with the AngularJS and TypeScript application templates still records them in its `.gen` descriptor, and those templates were removed in 14.16.0. **Regenerate** it as usual - from the model editor, or *Regenerate* on the `.gen` file in the Projects view. The IDE names the Java template that replaces the recorded one and asks once:
+
+| Recorded template | Regenerated with |
+| ----------------- | ---------------- |
+| *Application - Angular* (`template-application-angular`, `-v2`, `-java`) | *Application - UI (Harmonia) - Java* |
+| *Application - DAO* / *Data* (`template-application-dao`, `-data`, and their `-v2`) | *Application - DAO - Java* |
+| *Application - REST* (`template-application-rest`, `-v2`) | *Application - REST - Java* |
+| *Form Builder - AngularJS* | *Form Builder - Harmonia* |
+
+Confirming regenerates the project with the Java template. What changes:
+
+- The generated TypeScript under `gen/<model>/` is replaced: the repositories, entities and controllers are Java (`gen/<model_as_identifier>/data/...`, `.../api/...`), and the UI is Harmonia.
+- The generated REST URLs move from `/services/ts/<project>/gen/...` to `/services/java/<project>/gen/...`.
+- The old `<model>.gen` descriptor is removed; `<model>.model.gen` records the Java template from now on.
+- Hand-written code that imports the generated TypeScript no longer resolves until it is ported (next step).
+
+A recorded template without a Java counterpart - *Application - Feed*, or a UI generated without its backend (*Application - UI - Angular*) - is refused with a message: choose a template with *Generate* on the `.model` instead.
+
+Regenerate the projects a model depends on first: a model that references another project's entities generates code that imports that project's Java repositories.
+
+**Calculated fields.** The Java templates evaluate a calculated field's formula as arithmetic over the entity's properties: `+ - * /`, parentheses, numbers, the property names, and the functions `round`, `abs`, `min`, `max`, `ceil`, `floor`, `daysBetween`, `businessDaysBetween` and `monthsBetween`. A model written for the TypeScript templates reads the properties through the entity - `entity["Quantity"] * entity["Price"]` or `entity.Quantity * entity.Price` - and these are rewritten to `Quantity * Price` as the project generates. Any other formula - a string concatenation, a date, a method call, a ternary, a number generator - cannot be evaluated, and the generation is refused with every such field named:
+
+```
+The model holds calculated fields the platform cannot evaluate. ...
+- SalesOrder.Name: entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10)
+- SalesInvoiceItem.Gross: entity.Net.add(entity.VAT)
+```
+
+Rewrite each in the model as arithmetic, or compute the value in a `CalculatedField` Java class named by the property's `calculatedActionOnCreate` / `calculatedActionOnUpdate` - the [Assistant](/help/ide/views/assistant) helps write one. A details layout (*Manage Details*, *List Details*) on an entity with no composition master is generated as the plain layout.
+
+### Port the hand-written code with the assistant
+
+Open a hand-written `.ts` or `.mjs` file with the **Assistant** view open (Workbench, right region), and ask it to port the file to Java. The assistant:
+
+- proposes the complete Java file of the same folder and name - `widgets/api/SalariesService.ts` becomes `widgets/api/SalariesService.java`, `package widgets.api;`;
+- compiles the proposal together with the project's Java sources - the regenerated repositories included - and with those of every other project in the workspace the file names, and repairs what does not compile before you see it;
+- shows the proposal; **Accept** writes the Java file and leaves the TypeScript untouched.
+
+Then delete the TypeScript file, together with whatever named it: an `.extension`, a `.job`, a `.listener`, or a page calling its URL (the inventory's `references`). Review the port like any change - the assistant ports what the file does, and says so where the TypeScript was ambiguous.
+
+The assistant needs an API key on the instance (`DIRIGIBLE_INTENT_AI_API_KEY`). Without one, port by hand with the sections below. Script extension modules that only return configuration are not ported to Java: convert them to [JSON modules](#script-extension-modules).
 
 ## Project layout
 
@@ -1137,7 +1223,7 @@ A publish reviews each project it touches. A project that uses server-side JavaS
   ```
 
 - **One entry in the Problems view**, category `JavaScript deprecation`, located at the project, with the same text.
-- **A banner in the IDE** while any such entry exists: *Server-side JavaScript and TypeScript are deprecated and will be removed in 16.0. Used by: orders. See the Problems view and the migration guide.* Dismissing it hides it for good in that browser.
+- **A banner in the IDE** while any such entry exists: *Server-side JavaScript and TypeScript are deprecated and will be removed in 16.0. Used by: orders. See the Problems view and the migration guide.* Each project name links to the project's [inventory](#see-what-is-left-to-port). Dismissing the banner hides it for good in that browser.
 
 On an instance without the JavaScript engine - the Java edition, or a product assembled without the JavaScript group - the entry says what is skipped instead:
 
@@ -1176,9 +1262,9 @@ Browser-side `.js` files, `node_modules` and hidden folders are not counted. An 
 
 ## Checklist
 
-1. Publish the project and read its `JavaScript deprecation` entry in the Problems view: it is the inventory.
-2. Regenerate generated code - from the `.model` with the Java templates, or Generate the `app.intent`.
-3. Port the hand-written code construct by construct, using the sections above.
+1. Publish the project and open its [inventory](#see-what-is-left-to-port) from the banner: every file left to port, and the pages calling them.
+2. [Regenerate the generated code](#regenerate-the-generated-code) - from the `.model` with the Java templates, or Generate the `app.intent`. Regenerate the projects it depends on first.
+3. Port the hand-written code [with the assistant](#port-the-hand-written-code-with-the-assistant), or by hand construct by construct, using the sections above.
 4. Update callers: the `/services/java/...` URLs, the JSON property names if fields were renamed, and the paths in `.access` constraints.
 5. Convert script extension modules to JSON modules.
 6. Port the server-side tests to JUnit with `@IntentSlice`.

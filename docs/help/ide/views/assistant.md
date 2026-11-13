@@ -15,7 +15,9 @@ It follows the editor you are working in - no file picker, no "assist with this"
 | --- | --- |
 | `custom/*.java`, or any hand-written `.java` in the project | Chats about it |
 | Anything under `gen/` | Refuses, and says why: it is rewritten on the next Generate, so a proposal there could only be lost. Change the model, or the `custom/` class it points at |
-| A non-Java file | Refuses, and says so |
+| A hand-written `.ts` or `.mjs` file | Ports it to Java - see [Porting TypeScript](#porting-typescript) |
+| A `.ts` or `.mjs` file under `gen/` | Refuses: generated TypeScript is regenerated with the Java templates, not ported |
+| Any other file | Refuses, and says so |
 
 A refusal is always stated. An input box that silently does nothing is worse than a sentence explaining the rule.
 
@@ -33,7 +35,7 @@ The assistant never writes to disk on its own. Every change lands on an explicit
 
 ## The proposal is compiled, batched with the project
 
-Validation is not a syntax check. `JavaSourceCompiler.compileBatch` compiles the proposal **together with the project's other Java sources** - the generated entities and repositories under `gen/`, the sibling `custom/` classes - exactly as the runtime compiles them. That batching is the contract, not an optimisation: a `custom/` class exists in order to use the generated repositories, so compiled alone it resolves nothing and every proposal would look broken.
+Validation is not a syntax check. `JavaSourceCompiler.compileBatch` compiles the proposal **together with the project's other Java sources** - the generated entities and repositories under `gen/`, the sibling `custom/` classes - exactly as the runtime compiles them. The Java sources of every other project in the workspace that the file names - by its project name, or by the Java package its generated code lives in - are in the batch too, because the runtime compiles all published projects together. That batching is the contract, not an optimisation: a `custom/` class exists in order to use the generated repositories, so compiled alone it resolves nothing and every proposal would look broken.
 
 Errors on the proposal are fed back to the model, which is asked to correct the **complete** source. The loop is bounded at **2 repair rounds** (at most 3 upstream calls per turn), so a stubbornly invalid proposal cannot spin the request.
 
@@ -42,6 +44,16 @@ Only the *target* file's diagnostics drive the loop. A sibling that was already 
 Whatever diagnostics remain after the repair rounds are shown next to the diff. **A proposal is never withheld because of them, and never hidden either** - you decide whether it is close enough to accept and finish by hand.
 
 The compile is side-effect-free. It never reloads the project's classes and never republishes anything.
+
+## Porting TypeScript
+
+Server-side TypeScript is removed in 16.0 (see [Migrating from TypeScript to Java](/help/develop/migrate-typescript-to-java)). Open a hand-written `.ts` or `.mjs` file and the view offers to port it: the strip names the file and the Java file it becomes - the same folder and name, `widgets/api/SalariesService.ts` to `widgets/api/SalariesService.java`, so `package widgets.api;`.
+
+- The request carries the TypeScript buffer and a `target`, the Java path; the model works under an extra porting guide that maps the TypeScript SDK, the generated TypeScript repositories and the TypeScript shapes (a REST service, an entity event handler, a job, a listener) to their Java counterparts.
+- The proposal is the complete Java file, compiled and repaired exactly as above, and diffed against the Java file - usually not there yet.
+- **Accept** writes the Java file and leaves the TypeScript untouched. Delete it once the Java class works, together with whatever named it: an `.extension`, a `.job`, a `.listener`, a page calling its URL.
+
+Regenerate the project with the Java templates first, so the port compiles against the generated Java repositories it replaces the TypeScript ones with. A static extension module (`getMenu`, `getNavigation`, ...) is not ported to Java; it becomes a JSON module.
 
 ## Accept and a dirty editor
 
