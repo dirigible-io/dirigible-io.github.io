@@ -98,6 +98,7 @@ entities:
 
 ```yaml
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
+- { name: username, type: string, length: 64, unique: { ignoreCase: true } }  # UNIQUE in any letter case
 - { name: nationalId, type: string, label: National ID }               # the label, not the humanized name
 - { name: iban,  type: string, label: IBAN, countryLabels: { BG: ЕГН } }  # a label the tenant's country resolves
 - { name: uuid,  type: uuid, major: false }                            # issued by the server on create, off the list table
@@ -320,6 +321,36 @@ a variant with no label are rejected for the same reason.
 The labels of [report](#reports-read-only-aggregations) columns are deliberately not covered: a
 report column's label is also the alias its SQL query gives the column and the `{{alias}}` key a
 print template interpolates.
+
+## unique: { ignoreCase: true } - a key in any letter case
+
+`unique: true` is the column's UNIQUE, which compares a value byte for byte: `qalt1` and `QALT1`
+are two employees, and one login then maps to two records. On a `string` / `text` field that is a
+login, a username or an e-mail address, declare the key case-insensitive:
+
+```yaml
+- { name: username, type: string, length: 64,  unique: { ignoreCase: true } }
+- { name: email,    type: string, length: 320, format: email, unique: { ignoreCase: true } }
+```
+
+- A create or update that gives the field a value another record holds in any letter case (and
+  with surrounding spaces ignored) is refused with the same 409 as an exact repeat,
+  `A <Entity> with this '<Field>' already exists`. A record may change the case of its own value.
+- The stored value keeps the case it was typed in. To lower-case what is stored, use
+  `normalize: lower`. `format: email` and `identity:` never lower-case implicitly, so an `identity:`
+  field still holds what the identity provider's claim is matched against.
+- The generated repository enforces it in `save`, `update` and `updateWithoutEvent`, so REST,
+  `imports:`, create-from and client Java all go through it. The column's UNIQUE is unchanged and
+  no DDL changes. A record that already stores exactly the value being written is not refused, so
+  case duplicates stored before the key was declared stay writable until one of them changes.
+- `unique: true` is the object form's empty mapping. `ignoreCase` on a type other than `string` /
+  `text`, and an unknown key inside `unique: {...}`, are refused when the intent is parsed. A model
+  without the key generates byte-identical code.
+
+Limits: the check reads, then writes, so two concurrent writers of case variants can both commit
+(an exact repeat is still refused by the column). A targeted `updateProperty(ies)` is not checked.
+A unique index on `LOWER(col)` would close the race, but the schema model holds column lists only
+and H2 has no expression indexes.
 
 ## unique - a business key over more than one field
 
