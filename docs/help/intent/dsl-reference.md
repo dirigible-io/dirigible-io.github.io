@@ -101,6 +101,7 @@ entities:
 - { name: username, type: string, length: 64, unique: { ignoreCase: true } }  # UNIQUE in any letter case
 - { name: nationalId, type: string, label: National ID }               # the label, not the humanized name
 - { name: iban,  type: string, label: IBAN, countryLabels: { BG: ЕГН } }  # a label the tenant's country resolves
+- { name: maxLoans, type: integer, readOnly: true, emptyText: No limit }  # what an empty value reads as
 - { name: uuid,  type: uuid, major: false }                            # issued by the server on create, off the list table
 - { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
@@ -321,6 +322,59 @@ a variant with no label are rejected for the same reason.
 The labels of [report](#reports-read-only-aggregations) columns are deliberately not covered: a
 report column's label is also the alias its SQL query gives the column and the `{{alias}}` key a
 print template interpolates.
+
+## emptyText - what an empty value reads as
+
+For many fields an empty value means something: a loan limit with no value is *no limit*, a
+membership with no expiry date *never* expires, a nickname nobody chose is *not set*. Without a
+declaration the generated Details rail hides a read-only field's row while it is empty (and the whole
+Details block when every value in it is), and every other surface prints a dash - so a reader cannot
+tell "no limit" from "not loaded" or "not filled in yet", and the only workaround was a sentinel
+value (`-1`, `9999-12-31`) every rule, check and report then had to know about. `emptyText:` says
+what the emptiness means:
+
+```yaml
+fields:
+  - { name: maxLoans,  type: integer, readOnly: true, label: Loan limit, emptyText: No limit }
+  - { name: expiresOn, type: date, label: Membership expires, emptyText: Never }
+  - { name: nickname,  type: string, length: 40, emptyText: Not set }
+```
+
+An empty value (null, a blank text, an empty list) then prints the text on every generated surface
+that shows the value: the record page (main column and Details rail, in preview and edit), the
+document page, the personal and partner record pages, the manage list's cells and its record sheet,
+the plain list, the personal and partner lists, composition panels and `related:` registers, the
+declared `subtitle:` line and the document page's summary line. A Details rail row of the field is
+**always shown**, and the Details block counts it as present, so "Loan limit: No limit" is visible on
+a member that has no other read-only value set. A field restricted by `visibleTo:` still shows a
+caller who may not see it neither its value nor its text.
+
+On the create and edit forms the text is the **placeholder** of the field's text, e-mail, URL,
+phone, number or textarea input, so the editor sees what leaving it empty means; the date, date-time,
+time, month and week pickers keep their own format hint. A placeholder is never stored.
+
+The text is translatable like a label: it seeds the en-US catalog entry `t.<DATA_NAME>_empty` (e.g.
+`t.MEMBER_MAX_LOANS_empty`) beside the field's `t.<DATA_NAME>`, and every surface resolves it through
+that key, so a language catalog translates it. A `related:` register over another project has no
+shared catalog and prints the authored text, as its column labels do.
+
+Nothing about the data changes: no column, no REST answer, no CSV export and no print. The list
+exports keep writing an empty cell, because an export is data and may be imported again. A model that
+declares no `emptyText:` generates byte-identical output.
+
+Rejected at Generate, each naming the entity and the field: a blank text (remove it to keep the dash);
+a `boolean` (a checkbox reads Yes or No, it is never empty); a `uuid` (the server issues it on
+create); the primary key; a `required` field (the controllers refuse an empty value, so the text could
+never show); a `number:` field (an unissued number reads as the draft marker); `placement: hidden`
+(shown nowhere); an `aggregate` field (the document totals footer is not covered); the document title
+(`documentTitle: true` / `function: DocumentTitle`) and a chat `messageBody`. On a relation it is an
+unknown key.
+
+Not covered yet: the document's own items table and the personal / partner child tables, report
+columns, prints and notification placeholders.
+
+Delivered in
+[eclipse-dirigible/dirigible#8606](https://github.com/eclipse-dirigible/dirigible/pull/8606).
 
 ## unique: { ignoreCase: true } - a key in any letter case
 
