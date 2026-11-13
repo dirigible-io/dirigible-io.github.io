@@ -1548,7 +1548,8 @@ record. Off unless declared; no setting makes an undeclared entity shareable.
 ```
 
 The link carries a random token unrelated to the record's `uuid`, is shown once, can be revoked at
-once and may expire. `GET /public/share/<token>` serves only the stored copy; a record that leaves
+once and may expire. `GET /public/share/<token>` serves only the stored copy
+that was the record's newest when the link was created; a record that leaves
 the `when:` state loses its links for good. Rejected at Generate: a missing `when:`, `copy:` or
 `roles:`, a `copy:` that is not a Snapshot composition child of a printable document, a role
 `permissions` does not declare, an `expiresAfterDays` outside 0..3650, and any personal entity - a

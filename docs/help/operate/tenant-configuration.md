@@ -23,7 +23,7 @@ So a tenant override takes precedence over environment variables and property fi
 
 ## What can be overridden
 
-Only an explicit allow-list of full keys is overridable - there are no wildcards, and infrastructure keys (database, repository, security, multi-tenancy) can never be overridden. For now the allow-list is the branding properties:
+Only an explicit allow-list of full keys is overridable - there are no wildcards, and infrastructure keys (database, repository, security, multi-tenancy) can never be overridden. The allow-list is the branding properties and the document share link switches:
 
 | Key | Purpose |
 | --- | ------- |
@@ -35,6 +35,8 @@ Only an explicit allow-list of full keys is overridable - there are no wildcards
 | `DIRIGIBLE_BRANDING_THEME`    | Default theme. |
 | `DIRIGIBLE_BRANDING_PREFIX`   | Storage/key prefix. |
 | `DIRIGIBLE_BRANDING_ANALYTICS`| Analytics snippet. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_ENABLED` | `false` switches off the [share links](/help/intent/sharing) of the tenant's documents. It cannot enable sharing for an entity whose intent does not declare `share:`. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS` | The longest life, in days, a new share link may get. It only shortens a declared `expiresAfterDays`. |
 
 Leaving a value empty removes the override, so the property falls back to the platform default.
 

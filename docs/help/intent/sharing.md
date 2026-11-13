@@ -38,7 +38,7 @@ permissions:
 | Key | Required | Meaning |
 |---|---|---|
 | `when` | yes | A record condition in the grammar of `visibleWhen:` (`<property> ==\|!= <literal>`, a status by name). Only a record in this state can have a link. |
-| `copy` | yes | A `function: Snapshot` composition child of this entity. A link serves the stored file of the record's newest copy - see [The issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language). |
+| `copy` | yes | A `function: Snapshot` composition child of this entity. A link serves the stored file of the copy that is the record's newest when the link is created - see [The issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language). |
 | `roles` | yes | Roles declared under `permissions` that may list, create and revoke links. `roles: []` is legal and admits nobody, the administrator included. |
 | `expiresAfterDays` | no | The life of a new link in whole days, `0` to `3650`. `0` (the default) is permanent. |
 
@@ -72,7 +72,9 @@ The section is on the back-office record page only. The personal (My) and partne
 
 ## What a link serves
 
-`GET /public/share/<token>` streams the stored file of the record's newest `copy:` entry, and nothing else: never the live record, a new render, another file of the record or a listing. What the reader sees is what was issued.
+`GET /public/share/<token>` streams one stored file, fixed when the link was created: the `copy:` entry that was the record's newest at that moment. Nothing else is served: never the live record, a new render, another file of the record or a listing. The route never looks for a newer copy, so a copy minted later (after an amendment) needs a new link.
+
+A PDF is displayed inline in the browser. A stored file of any other type is sent as a download.
 
 - The token is 256 random bits, unrelated to the record's `uuid` (which is printed on the document and is no secret). Only its SHA-256 is stored.
 - The route reads no session and creates none.
@@ -85,7 +87,7 @@ The section is on the back-office record page only. The personal (My) and partne
 
 **Tenant binding.** A token is looked up in the tenant the request's host resolves to, so a token presented on another tenant's host is a 404. Under the `TOKEN_GROUPS` tenant resolution strategy, where one host serves every tenant, the token itself names its tenant (`<tenantId>.<secret>`).
 
-Every open is recorded with its time, the link, the remote address and the user agent.
+**What is recorded.** A link records who created it and when, who revoked it and when, its open count and when it was last opened. Every open is recorded with its time, the link, the remote address and the user agent.
 
 ## Generated endpoints
 
@@ -119,7 +121,7 @@ The throttle counters are kept in memory, per node.
 
 ## Not in this version
 
-- A `{shareUrl}` placeholder in a `notify` body. A link is not minted before the copy exists, and the send often runs first.
+- A `{shareUrl}` placeholder in a `notify` body. A link is not minted before the copy exists, and the send often runs first. Tracked in [eclipse-dirigible/dirigible#8616](https://github.com/eclipse-dirigible/dirigible/issues/8616).
 - Payment or acceptance on the public page.
 - A second factor (a PIN or one-time code) on a link.
 - Sharing reports or arbitrary files.
