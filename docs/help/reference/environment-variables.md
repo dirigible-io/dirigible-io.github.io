@@ -195,6 +195,17 @@ See [Message listeners](/help/develop/message-listeners#broker-embedded-or-exter
 | `DIRIGIBLE_ENCRYPTION_KEY`        | Base64 master key.         |
 | `DIRIGIBLE_ENCRYPTION_KEYSTORE_*` | Java keystore alternative. |
 
+## Document share links
+
+| Variable | Default | Purpose |
+| -------- | ------- | ------- |
+| `DIRIGIBLE_DOCUMENTS_SHARE_ENABLED` | `true` | Per tenant. `false` switches off the share links of entities that declare the intent's `share:`: no link is created and every existing one answers 404. It cannot enable sharing for an entity that does not declare it. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS` | `0` | Per tenant. The longest life, in days, a new share link may get; a permanent or longer-lived declaration is capped to it. `0` leaves the declared `expiresAfterDays` as it is. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_RATE_LIMIT_PER_MINUTE` | `60` | Requests per minute the public share route answers per remote address, and per link. The rest are answered 429 until the minute ends. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_MISS_LIMIT` | `10` | How many unknown, expired or revoked links one remote address may ask for within ten minutes before it is answered 429. |
+
+See [Sharing a document through a link](/help/intent/sharing).
+
 ## Misc
 
 | Variable                                 | Purpose                                                                      |
