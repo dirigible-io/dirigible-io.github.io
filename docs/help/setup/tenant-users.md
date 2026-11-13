@@ -25,6 +25,21 @@ The section publishes each owner action as a change request on a message queue, 
 system to carry out or refuse. It shows the tenant's users as the external system reports them back
 through the [tenant provisioning API](/help/setup/tenant-provisioning-api#push-the-users).
 
+## Seats
+
+The external provisioning system may give a tenant a **seat limit**: the most people it may hold at once.
+A person who is invited, being invited, or a member takes a seat; a removed person or a failed invitation
+does not.
+
+- The section shows the seats taken out of the limit, for example **Seats: 7 of 10**.
+- An invitation while every seat is taken is refused before it is sent: *Every seat of this tenant is
+  taken. Remove someone to free a seat, or ask your administrator for more seats.* Changing a member's
+  roles and removing a member are never refused for seats.
+- A limit lowered below the people the tenant holds removes nobody. Invitations are refused until
+  enough people are removed.
+
+Without a limit, the section shows no seats and refuses no invitation for seats.
+
 ## Who may use it
 
 - A holder of the tenant's `Owner` role, a `DEVELOPER` or an `ADMINISTRATOR` may manage the users. An
