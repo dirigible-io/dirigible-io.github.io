@@ -546,7 +546,7 @@ token must never reference a `sensitive` field.
 
 ## checks - declarative validations
 
-Row-level `exactlyOne` / `compare` / `requiredWhen` on every user write; document-level `itemsMin` /
+Row-level `exactlyOne` / `compare` / `requiredWhen` / `exists` on every user write; document-level `itemsMin` /
 `itemsSumEqual` - and a `requiredWhen` that names a status - gated on a status transition, so
 drafting stays unconstrained and a failing transition aborts with the authored message.
 
@@ -674,6 +674,66 @@ its answer, a hold task the record parks on, a form for that task and a label fo
 fifteen declarative lines plus a class for one sentence of rule, and it lands the clerk on a hold
 task instead of a refusal on the button they pressed. Placing that step AFTER the sending action is
 worse: by then the document has been sent, and the refusal has nowhere to go.
+:::
+
+## checks: kind: exists - a write that needs a matching row of another entity
+
+Some writes are allowed only when a row of a THIRD entity says so. A billable expense line names a
+project and its claim names an employee; the line may be billed to that project only when an
+`EmployeeProjectAssignment` row - a composition child of the project, owned by the projects module -
+links the two. `agree` compares a property both linked records carry, and `forbidWhen` /
+`requiredWhen` read the record and one hop; none of them can ask whether a row exists. So the rule
+was a hand-written `calculatedActionOnCreate` that throws, or it was missing and the line was stored
+with HTTP 200.
+
+```yaml
+uses:
+  - { model: projects, project: base-projects }
+
+entities:
+  - name: ExpenseClaimItem
+    checks:
+      - { kind: exists, entity: EmployeeProjectAssignment, model: projects,
+          match: { Project: Project, Employee: ExpenseClaim.Employee },
+          when: "billable == true", verbs: [create, update],
+          message: "Only an employee assigned to the project bills an expense to it" }
+  - name: ExpenseClaim
+    checks:
+      # the same rule, enforced when the claim is submitted rather than while it is drafted
+      - { kind: exists, entity: EmployeeProjectAssignment, model: projects,
+          match: { Project: Project, Employee: Employee }, status: SUBMITTED,
+          message: "Only an employee assigned to the project submits a claim for it" }
+```
+
+`entity:` is the entity the row belongs to - one of this model, or, with `model:`, one owned by a
+`uses:` model, resolved into that model's generated repository exactly as any other cross-model
+reference is. `match:` maps each property of that entity to a path on the record being written: a
+field or to-one of the record, or a one-hop `Relation.field`, loaded by its foreign key first. Every
+pair must hold on one row. The generated code asks the target repository to `count` the rows matching
+a typed `Criteria`, so every value is a bound parameter and nothing is concatenated into SQL.
+
+A **match value that is absent skips the check** - a line with no project is not refused by a rule
+about projects. Whether the value must be there is the relation's `required:`, the same reading
+`agree`'s default `whenNull: skip` gives an unset side.
+
+`when:` narrows the rule, in the `forbidWhen` grammar (a status by its seeded name). `verbs:` may only
+say `[create, update]`: a delete carries no values. `status:` is optional and decides WHERE the rule
+runs, as for `requiredWhen`: without it every generated controller (the entity, personal and partner
+surfaces) answers HTTP 400 with the message; with it the generated repository enforces it when the
+record is persisted carrying that status, so a workflow step or a `transitions:` button moving the
+record there is refused on the synchronous path too. The message is translated through the module's
+catalogs under `checks.<Entity>_exists_<n>` (or the check's `id:`), like every other check message.
+
+Refused when the model is generated: no `entity`, `match` or `message`; a `model:` missing from
+`uses:`; an undeclared local entity, or the record's own entity (an update always matches the row it
+writes); a match path that does not resolve; a match property the target does not declare - for a
+cross-model target, checked against the owner's `.model`; a pair of different kinds (a foreign key
+against a field, two field types), which no row would ever match; `delete` in `verbs`; `severity: warn`;
+a `status:` gate on an entity without a `function: EntityStatus` relation.
+
+::: tip
+Removing the assignment later does not revisit the lines already stored - the rule is about the write
+being made. Make the referencing relation `required: true` when a line must name a project at all.
 :::
 
 ## checks: severity: warn - warn and confirm instead of refuse
