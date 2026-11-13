@@ -106,7 +106,7 @@ off every route answers `404`.
 | `200` | the archive |
 | `404` | there is no such export in the caller's tenant |
 | `409` | the export has no archive: it still runs, or it failed |
-| `410` | the archive has expired |
+| `410` | the archive has expired, or it is no longer in the document storage - the export is then marked expired, and the housekeeping removes it |
 
 ### Delete an export
 
@@ -114,7 +114,7 @@ off every route answers `404`.
 
 | Status | Meaning |
 | ------ | ------- |
-| `204` | deleted |
+| `204` | deleted, also when its archive was already gone |
 | `404` | there is no such export in the caller's tenant |
 | `409` | the export is still running |
 
