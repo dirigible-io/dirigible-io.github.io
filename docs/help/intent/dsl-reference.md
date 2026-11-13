@@ -1428,6 +1428,40 @@ carries the acting person as its owner **and** the real user in `CreatedBy`/`Upd
 `sensitive` stripping and `personalReadOnly` refusals hold unchanged. Requires nothing in the
 intent - every `personal: true` surface inherits the mode.
 
+### owner - a Mine filter on the standard list
+
+`personal:` is employee self-service: a second controller and a Personal-shell surface through which
+the owner also writes. A business register whose rows belong to a person - a sales rep's quotations,
+leads and opportunities, a buyer's RFQs, an agent's tickets - usually wants only a **Mine** view of
+its standard list. Mark its to-one relation to the identity entity `owner: true`:
+
+```yaml
+- name: Quotation
+  relations:
+    - { name: SalesRep, kind: manyToOne, to: Employee, owner: true }   # Employee declares identity
+```
+
+- The entity's own controller takes `?mine=true` on `GET`, `GET /count`, `POST /search` and
+  `POST /count`, and answers only the rows whose FK is the caller's identity record. The caller is
+  resolved exactly as `<Entity>MyController` resolves it (`User.getEffectiveName()` against the
+  identity field), so **Act as** applies. The filter goes through the search, so paging, order,
+  redaction and collection columns behave as the search does.
+- A caller no identity record maps owns nothing: Mine is an empty list and a count of 0, never
+  every row.
+- The controller's role gate runs first and is unchanged; Mine only narrows what the caller may
+  already read.
+- The manage list (manage, document and master layouts) renders an **All / Mine** button group next
+  to the Filter menu. All is the default and the choice is not remembered between visits. Mine also
+  drives the column filters, the search box, Export and Print. The labels are the shell catalog's
+  `shell.list.all` / `mine` / `whose` (en-US, bg-BG).
+- No controller, page or perspective is added, and writes are untouched: it is a filter, not a scope,
+  so the FK stays an ordinary editable relation and nothing is inherited through it.
+
+At most one `owner:` relation per entity, on a `manyToOne` / `oneToOne` whose target declares
+`identity` (a same-model target is checked when the intent is parsed, a cross-model one at
+generation). It is refused on a `subset` and a `manyToMany`. A relation may carry both `owner:` and
+`personal:`. A model without the key generates byte-identical code.
+
 ## visibleTo - role-scoped fields
 
 A salary, a cost price, a margin is readable by everyone who may read the entity. `visibleTo`
