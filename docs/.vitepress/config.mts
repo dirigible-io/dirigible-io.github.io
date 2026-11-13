@@ -209,6 +209,7 @@ function helpSidebar() {
         { text: 'Generators and generation', link: '/help/intent/generators' },
         { text: 'Declarative glue', link: '/help/intent/glue' },
         { text: 'Printing and documents', link: '/help/intent/printing' },
+        { text: 'Sharing a document through a link', link: '/help/intent/sharing' },
       ],
     },
     {

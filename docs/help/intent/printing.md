@@ -172,6 +172,8 @@ The language a copy is **minted** in is a knob on the snapshot child:
 
 The mint language names the **template and the data**, exactly as the interactive Print does. This one needs saying because the two paths get there differently: the browser carries an `Accept-Language` header and a process step does not, so a snapshot minted by a workflow - and a PDF attached by a `notify` block, which runs in the same caller-less place - used to render a Bulgarian template over base-language values. The generated delegates now bind the render language for the duration of the feed and the render (`User.setLanguage(...)` around it, cleared in a `finally` so a pooled worker thread never leaks it), so the multilingual overlay the repositories apply resolves in the copy's own language. The archived copy and the copy the counterparty receives are the two nobody re-reads before they leave, which is exactly why they must not be the ones that disagree.
 
+The stored copy is also what a share link serves: an entity that declares `share:` lets a user hand the issued copy to a reader without an account - see [Sharing a document through a link](/help/intent/sharing).
+
 ## Naming the rendered file - `fileName`
 
 Both server-side renders - the copy a snapshot mints and the PDF a `notify` block attaches with `attach: print` - accept a **`fileName`** pattern: literal text and `{token}` interpolations over the record being rendered. A real archive wants a self-describing name (`SI0000042_20260822_MyCompany_AcmeLtd.pdf`), not `Order 42 v1.pdf`.
@@ -228,6 +230,7 @@ Rendering goes through the document parser, the data binder, and an XSL-FO / Apa
 
 ## See also
 
+- [Sharing a document through a link](/help/intent/sharing)
 - [Generators and generation](/help/intent/generators)
 - [The `.intent` file](/help/intent/intent-file)
 - [The Documents perspective](/help/ide/perspectives/documents)

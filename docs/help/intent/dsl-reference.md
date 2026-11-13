@@ -27,6 +27,7 @@ complete worked example.
 | [a status the flow writes](#a-status-the-flow-writes-is-the-flow-s-own) | 409 on a direct create/update of a status a `processes:` flow drives |
 | [`hierarchy` / `leafOnly`](#hierarchy-leafonly-tree-entities) | tree entities, leaf-only references |
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
+| [`share`](#share-an-issued-document-through-a-link) | a random, revocable link that hands a record's issued copy to a reader without an account; opt-in per entity |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
 | [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay, on entity reads and report columns alike |
 | [`translatable: false`](#a-key-is-not-a-label-translatable-false) | keeps a key of a multilingual entity out of the `_LANG` table, so what a rule matches on cannot be translated out from under it |
@@ -1529,6 +1530,33 @@ that line in the usual line dialog, clicking an empty day adds one with that dat
 Delete moves into the dialog (a calendar has no per-row menu). It cannot be combined with
 [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads), which claims the same
 pane.
+
+## share - an issued document through a link
+
+`share:` on a document entity lets a user hand the **issued copy** of a record - the stored file of
+its `function: Snapshot` child - to a reader without an account, through a link created on the
+record. Off unless declared; no setting makes an undeclared entity shareable.
+
+```yaml
+- name: SalesInvoice
+  function: Document
+  share:
+    when: "status == ISSUED"      # required - only a record in this state can get a link
+    copy: SalesInvoiceCopy        # required - the function: Snapshot child whose stored file is served
+    roles: [SalesInvoiceShare]    # required - who may create and revoke links; [] admits nobody
+    expiresAfterDays: 0           # optional - 0 (default) = permanent; a tenant can only shorten it
+```
+
+The link carries a random token unrelated to the record's `uuid`, is shown once, can be revoked at
+once and may expire. `GET /public/share/<token>` serves only the stored copy
+that was the record's newest when the link was created; a record that leaves
+the `when:` state loses its links for good. Rejected at Generate: a missing `when:`, `copy:` or
+`roles:`, a `copy:` that is not a Snapshot composition child of a printable document, a role
+`permissions` does not declare, an `expiresAfterDays` outside 0..3650, and any personal entity - a
+link is a bearer credential, so a personal document stays behind sign-in.
+
+The record page's Share links section, the public route, the generated endpoints and the settings
+are described in [Sharing a document through a link](/help/intent/sharing).
 
 ## personal / partner - row-scoped surfaces
 
