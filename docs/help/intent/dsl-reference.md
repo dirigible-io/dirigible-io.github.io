@@ -100,7 +100,7 @@ entities:
 - { name: code,  type: string, unique: true, length: 30 }              # UNIQUE constraint
 - { name: nationalId, type: string, label: National ID }               # the label, not the humanized name
 - { name: iban,  type: string, label: IBAN, countryLabels: { BG: ЕГН } }  # a label the tenant's country resolves
-- { name: uuid,  type: uuid, major: false }                            # auto-filled on create, off the list table
+- { name: uuid,  type: uuid, major: false }                            # issued by the server on create, off the list table
 - { name: Number, type: string, number: { series: Sales Invoice, per: Company, stampOn: create } }  # document number
 - { name: total, type: decimal, precision: 18, scale: 2, readOnly: true }
 - { name: hours, type: decimal, required: true, defaultValue: 8 }        # default value (see below)
@@ -167,6 +167,16 @@ A `required` field that also carries a default (`defaultValue`, or `init:` on a 
 demanded from the caller: the database default supplies the value, and create validation that also
 insisted on it in the payload would make the record uncreatable through the API. The create
 response echoes the PERSISTED row, so the defaulted values come back to the caller.
+
+A `uuid` field is the record's stable external identity - prints, exports and integrations match on
+it - so the server issues it and a client never chooses it. On every create through the generated
+REST API (the power, My and Partner controllers), a value the payload carries for the field is
+dropped with the other system-owned columns and logged as a discarded value, and the repository
+draws a fresh UUID. The field needs no extra declaration, and an update keeps the stored value.
+Writers below the REST layer keep the repository's fill-when-blank: a create-from, a posting, an
+`imports:` file, an inbound message or a `custom/` class gets a drawn UUID unless its intent maps a
+value into the field. Data loaded below the application - seeds, demo CSVs through CSVIM,
+migrations - keeps the UUID it carries.
 
 A header-mediated `dependsOn` copies once, when a NEW line is opened - an existing line is never
 re-copied, so changing the header later leaves already-entered lines untouched.
