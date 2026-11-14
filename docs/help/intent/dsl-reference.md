@@ -621,6 +621,17 @@ drafting stays unconstrained and a failing transition aborts with the authored m
         message: "Sent Method is E-mail but the customer has no e-mail address" }
 ```
 
+A refusal is answered in the language of the request (`Accept-Language`). The authored messages are written into the module's en-US catalog (`i18n/en-US/<model>.model.json`, under `checks`). So are the refusals the generated application makes on its own, each under a fixed key:
+
+- `fieldRequired`: a required value left out.
+- `fieldTooLong`: a value longer than its `length`.
+- `fieldPattern`: a value that does not match its `pattern`.
+- `fieldDuplicate`: a value repeating a `unique: true` field.
+
+These name the field and the entity by their translated labels (`A Unit of Measure with this 'SAP Code' already exists`). A translator copies any of these keys into another language's catalog, and a key left out falls back to the en-US text.
+
+The error body carries the message, its `messageKey` and `messageParams`. A refusal about one field of the record also carries that field as `field`, for example `"field": "Sap"`. That covers the four above and a `compare` or `requiredWhen` whose `field:` is a field of the record itself. The generated form marks that field with the message under it, whatever language the message is in. A check about no single field, or about a field of a related record, and a field the form does not show, stay in the "not saved" banner.
+
 ## checks: kind: compare - two values of one row
 
 `compare` relates two of the record's own fields, read as `field <op> than`, where `op` is `ge`,
