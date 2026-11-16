@@ -2120,6 +2120,25 @@ Nothing is created: the header, its lines and the source's `sourceStatus:` flip 
 was asked for, and it is the harder failure to notice - it exists and counts as the period's
 billing - so the run answers 400 rather than committing the header.
 
+**Every refusal of a create-from is in the reader's language.** A refused run answers like a check
+message: resolved for the request's `Accept-Language` from the model's catalog, the action and the
+entities named by their translated labels, and `messageKey` / `messageParams` beside `message` in the
+400 body. The sentences are entries under `checks` of the model's en-US catalog
+(`i18n/en-US/<model>.model.json`), which a language catalog translates under the same keys:
+
+| Key | When |
+| --- | --- |
+| `generateNoItemQualifies` | no source row passes `where:` |
+| `<action>ItemsRefused` | the authored `refuse:` message, e.g. `invoiceFromMonthItemsRefused` |
+| `generateNothingQualifies`, `generateNoReportRowQualifies` | no report row qualifies |
+| `generateReportValueMissing` | the source lacks a value the report is run with |
+| `generateFromItem` | a source line the target refuses (the target's own refusal, then the row) |
+| `generateReportValueTooLarge`, `generateReportValueNotWhole`, `generateReportValueRounding` | a report value the target cannot hold |
+
+A required `prompt:` input left empty is refused as the value of that one field (`fieldRequired`,
+with `field`), so the dialog marks the input. An entity owned by another model is named by its
+default-language label.
+
 The rule belongs to the mirror form. The computed form - `items` as a LIST, described below - has
 no source rows to select from and guards each synthetic line with its own `when` cell instead. An
 items block that declares no `where:` regenerates byte-identical output.
