@@ -1219,6 +1219,11 @@ That is a 400 with the message, like every other repository-enforced refusal (`c
 `lifecycle` graph) - the generated UI surfaces it on the Delete action. Once the children are gone
 the master deletes normally.
 
+The message is in the reader's language. Its sentence is the `checks.deleteHasChildren` entry of the
+model's catalog, which Generate writes into `i18n/en-US/<model>.model.json` for a translator to copy,
+and both entities are named by their `t.<TABLE>` labels. The error body carries `messageKey` and
+`messageParams` (`entity`, `children`) next to the message.
+
 Default `cascade`. Parse-validated: the key belongs on a `composition: true` to-one, and on the
 entity's **first** composition (its ownership edge) - a later composition is emitted as a plain
 association, so the key there would ask for a cascade that never runs. Any value other than
