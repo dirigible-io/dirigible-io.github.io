@@ -170,6 +170,23 @@ reclaims them. The embedded broker reclaims after seven days; on an external Act
 console.
 :::
 
+::: warning Several applications on one broker
+Each shared connection carries a client id named after its tenant, and a broker admits a client id
+only once. Every application has a default tenant, so two applications that share a broker ask for the
+same ids, and the one that connects second gets none of its Java listeners in that tenant. Give each
+application an identity of its own:
+
+```properties
+DIRIGIBLE_MESSAGING_CLIENT_ID_PREFIX=orders
+```
+
+Without it, `DIRIGIBLE_APP_ID` is used; with neither set the ids carry no prefix, which is right for
+one application on its own broker. Once a prefix is set, the server removes the durable subscriptions
+it had registered under the unprefixed ids, as soon as nothing holds those ids. While another
+connection holds one of its ids, the server logs a warning every ten minutes that names the id and
+this setting.
+:::
+
 ## Browsing the broker
 
 The Messaging perspective in the IDE surfaces queues and topics, their pending counters, and the in-memory messages on a queue (non-destructive browse). Purge and per-message delete actions are available too. It reflects the **embedded** broker only.
