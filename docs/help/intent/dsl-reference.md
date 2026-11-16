@@ -136,6 +136,8 @@ entities:
 # AND a server-side check in the generated controller, so an API caller cannot bypass the form.
 - { name: email, type: string, length: 320, pattern: '^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$' }
 - { name: iban,  type: string, length: 34,  pattern: '^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{11,30}$' }
+# What a value off the pattern is refused with, instead of the sentence quoting the regex:
+- { name: registrationNumber, type: string, length: 13, pattern: '^([0-9]{9}|[0-9]{10}|[0-9]{13})$', patternMessage: "The {label} has 9, 10 or 13 digits" }
 # Stored form (string / text fields only), applied before the pattern reads it (see below):
 - { name: phone, type: string, length: 20, normalize: [strip: " -()"], pattern: '^\+[1-9][0-9]{6,14}$' }
 - { name: vatNumber, type: string, length: 20, unique: true, normalize: [trim, emptyToNull] }
@@ -151,6 +153,16 @@ as one regular expression - leave those fields unpatterned rather than encode on
 as if it were universal. On a numeric field the attribute already means the DISPLAY format, so the
 parser rejects a regex there. The emitted controller splices the regex into a Java string literal,
 so backslashes are escaped for you.
+
+`patternMessage` says what a value off the `pattern` is refused with, instead of the generic
+sentence that quotes the regex: say what the rule means. It is written in the default language and
+seeded into the model's en-US catalog under `checks.<Entity>_pattern_<Property>`, so
+`i18n/<locale>/<model>.model.json` translates it like a `checks:` message; `{label}` is the field's
+translated caption and `{pattern}` the regex. The generated controllers answer a value off the
+pattern with it (a 400 carrying `messageKey`, `messageParams` and `field`, so the form marks the
+field), and every form input carrying the pattern shows it as its hint. It requires `pattern` on the
+same field (a `format: email` field keeps its own message) and must not be blank; without it the
+generic sentence stays.
 
 `normalize` brings a text value to the form it is stored in before `pattern`, the length check and
 `checks` read it, so a strict pattern does not refuse the way people paste a value. The transforms
