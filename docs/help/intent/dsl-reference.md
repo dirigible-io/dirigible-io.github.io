@@ -438,9 +438,11 @@ answered 409 while another row holds the flag.
 `required: true` makes the flag a default that always exists. The holder can no longer give it up
 while no other row of its scope holds it: a PUT that writes it `false`, a PUT that moves it to another
 `per` scope, and a DELETE of the holder are answered 400, naming the field (so the form marks the
-checkbox), with the message "One Currency must stay Base - mark another one Base first". The message is
-seeded in the model's en-US catalog under `checks.<Entity>_singleRequired_<Property>` and translated
-through `i18n/<locale>/<model>.model.json` like a `checks:` message. The flag moves the usual way - tick
+checkbox), with the message "One Currency must stay 'Base' - mark another one 'Base' first". It is one
+sentence shared by every such flag, `checks.fieldSingleRequired`
+("One {entity} must stay '{label}' - mark another one '{label}' first"), seeded in the model's en-US
+catalog and naming the entity and the flag by their labels in the reader's language - so a single
+entry in `i18n/<locale>/<model>.model.json` translates it for every entity, like `fieldRequired`. The flag moves the usual way - tick
 it on another row and the holder is demoted. The first row of a scope may be created without the flag
 (it is not ticked automatically), and the last row of a scope may be deleted. A cascade (a master
 deleting the rows it owns, `whenTargetDeleted: cascade`) is not refused, nor is a targeted
