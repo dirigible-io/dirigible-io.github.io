@@ -433,7 +433,12 @@ entities:
 entity's own `manyToOne`/`oneToOne` relations. A write that sets the flag hands it over: the generated
 repository sets the previous holder of the scope to `false` in the same transaction, through that row's
 own update (its checks, history and `-updated` event run). With `onConflict: refuse` the write is
-answered 409 while another row holds the flag.
+answered 409 while another row holds the flag, naming the field, with the message "Another Bank
+Account is already 'Preferred' for this Company". Like the `required` refusal below it is a sentence
+shared by every such flag, seeded in the model's en-US catalog and naming the entity, the flag and the
+scope by their labels in the reader's language: `checks.fieldSingleTaken`
+("Another {entity} is already '{label}'") and, for a `per` flag, `checks.fieldSingleTakenInScope`
+("Another {entity} is already '{label}' for this {scope}").
 
 `required: true` makes the flag a default that always exists. The holder can no longer give it up
 while no other row of its scope holds it: a PUT that writes it `false`, a PUT that moves it to another
