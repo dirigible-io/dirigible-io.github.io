@@ -134,8 +134,11 @@ entities:
 - { name: discount, type: decimal, dependsOn: { relation: SalesOrder.Customer, valueFrom: standardDiscount } }
 # Input format (string / text fields only): the regex reaches the HTML input's pattern attribute
 # AND a server-side check in the generated controller, so an API caller cannot bypass the form.
-- { name: email, type: string, length: 320, pattern: '^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$' }
-- { name: iban,  type: string, length: 34,  pattern: '^[A-Z]{2}[0-9]{2}[A-Za-z0-9]{11,30}$' }
+- { name: vatNumber, type: string, length: 14, pattern: '^[A-Z]{2}[0-9A-Z]{2,12}$' }
+# A named format instead of a pattern (string fields only; see below): an e-mail address, or an
+# IBAN whose ISO 7064 check digits are verified as well as its shape.
+- { name: email, type: string, length: 320, format: email }
+- { name: iban,  type: string, length: 34,  format: iban, normalize: [strip: " ", upper] }
 # Stored form (string / text fields only), applied before the pattern reads it (see below):
 - { name: phone, type: string, length: 20, normalize: [strip: " -()"], pattern: '^\+[1-9][0-9]{6,14}$' }
 - { name: vatNumber, type: string, length: 20, unique: true, normalize: [trim, emptyToNull] }
@@ -151,6 +154,19 @@ as one regular expression - leave those fields unpatterned rather than encode on
 as if it were universal. On a numeric field the attribute already means the DISPLAY format, so the
 parser rejects a regex there. The emitted controller splices the regex into a Java string literal,
 so backslashes are escaped for you.
+
+`format` names a format instead of a `pattern`, and the parser refuses a field that declares both.
+`format: email` checks the canonical address shape and renders an e-mail input. `format: iban`
+checks the IBAN's shape in its electronic form (two letters, two digits, 11 to 30 letters and
+digits) **and** its ISO 7064 MOD 97-10 check digits, which a regular expression cannot check:
+`BG00BNBG96611020345678` has the right shape but can never be a valid account, and it is refused.
+The power, personal and partner controllers refuse such a value with 400 on a create and on an
+update. The refusal names the field, so the form marks it, and it is translated through the
+module's catalog under `checks.fieldIban`. The value is checked as stored, so declare
+`normalize: [strip: " ", upper]` to accept an IBAN typed in its printed form
+(`BG80 BNBG 9661 1020 3456 78`). As with `pattern`, a blank optional value is not checked, and a
+write that does not go through a controller (a create-from, a delegate's repository write) is not
+checked either.
 
 `normalize` brings a text value to the form it is stored in before `pattern`, the length check and
 `checks` read it, so a strict pattern does not refuse the way people paste a value. The transforms
