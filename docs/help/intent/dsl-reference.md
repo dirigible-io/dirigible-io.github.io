@@ -407,6 +407,45 @@ Limits: the check reads, then writes, so two concurrent writers of case variants
 A unique index on `LOWER(col)` would close the race, but the schema model holds column lists only
 and H2 has no expression indexes.
 
+## single - a flag at most one row holds
+
+A "base" or "default" boolean - the base currency, the base company, the default bank account of a
+company - marks the one row other records default from. `unique: true` cannot say that (it admits one
+row per value, so two), and a `checks:` rule sees only the value written, never the sibling rows.
+Declare `single` on the `boolean` field instead:
+
+```yaml
+entities:
+  - name: Currency
+    fields:
+      - { name: code, type: string, length: 3 }
+      - { name: base, type: boolean, defaultValue: false, single: { required: true } }
+  - name: CompanyBankAccount
+    fields:
+      - { name: iban, type: string, length: 34 }
+      - { name: base, type: boolean, single: { per: Company } }
+      - { name: preferred, type: boolean, single: { per: Company, onConflict: refuse } }
+    relations:
+      - { name: Company, kind: manyToOne, to: Company }
+```
+
+`single: true` keeps one holder in the whole table, `per: <relation>` one per value of one of the
+entity's own `manyToOne`/`oneToOne` relations. A write that sets the flag hands it over: the generated
+repository sets the previous holder of the scope to `false` in the same transaction, through that row's
+own update (its checks, history and `-updated` event run). With `onConflict: refuse` the write is
+answered 409 while another row holds the flag.
+
+`required: true` makes the flag a default that always exists. The holder can no longer give it up
+while no other row of its scope holds it: a PUT that writes it `false`, a PUT that moves it to another
+`per` scope, and a DELETE of the holder are answered 400, naming the field (so the form marks the
+checkbox), with the message "One Currency must stay Base - mark another one Base first". The message is
+seeded in the model's en-US catalog under `checks.<Entity>_singleRequired_<Property>` and translated
+through `i18n/<locale>/<model>.model.json` like a `checks:` message. The flag moves the usual way - tick
+it on another row and the holder is demoted. The first row of a scope may be created without the flag
+(it is not ticked automatically), and the last row of a scope may be deleted. A cascade (a master
+deleting the rows it owns, `whenTargetDeleted: cascade`) is not refused, nor is a targeted
+`updateProperty` of the flag in custom code.
+
 ## unique - a business key over more than one field
 
 `unique: true` on a field covers one column. When what makes a row unique spans several - one row
