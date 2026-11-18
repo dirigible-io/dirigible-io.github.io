@@ -113,6 +113,7 @@ entities:
 - { name: Currency, kind: manyToOne, to: Currency, size: 4 }           # form width (12-col grid)
 - { name: Payment, kind: manyToOne, to: Payment, show: [date, number] }  # extra read-only lookup columns
 - { name: Status, kind: manyToOne, to: OrderStatus, function: EntityStatus, init: 1 }  # managed badge, seeded default
+- { name: Company, kind: manyToOne, to: Company, init: { flag: base } }  # the row holding a single: flag
 # Depends-On - cascade, narrow-to-referenced, auto-populate:
 - { name: City,  kind: manyToOne, to: City, dependsOn: { relation: Country, filterBy: Country } }
 - { name: UoM,   kind: manyToOne, to: UoM,  dependsOn: { relation: Product, valueFrom: UoM } }
@@ -567,6 +568,37 @@ value the user chose, and re-applying the default on the next edit would silentl
 
 The to-one relation equivalent is `init: <seed id>`, which names a seeded record rather than a
 literal.
+
+### init: { flag } - default to the flagged row
+
+A document's default company, base currency or default payment method is not a fixed row: it is the
+row the user has flagged as the base one with a `single:` boolean. `init: 1` would name whatever row
+has Id 1 - the Base flag would never move it, and once that row is deleted every new document would
+point at a row that no longer exists. Name the flag instead:
+
+```yaml
+- name: Company
+  fields:
+    - { name: base, type: boolean, single: true }
+- name: GoodsReceipt
+  relations:
+    - { name: Company, kind: manyToOne, to: Company, required: true, init: { flag: base } }
+```
+
+* The generated **create form** preselects the company holding the flag when it opens.
+* The generated **repository** fills a create that leaves the relation out with the current holder,
+  in the same transaction - so a `number: { per: Company }` series numbers the document in that
+  company's sequence.
+* Moving the flag moves the default for every later document; existing documents keep theirs.
+* With no holder the relation stays empty, never a fixed id; a `required:` relation is then answered
+  400 naming it.
+* An update that leaves the relation out keeps the stored value.
+
+The flag must be a `boolean` with a fleet-wide `single: true` on the target; a cross-model target is
+checked against its owner model at Generate. A `single: { per: ... }` flag (a default bank account per
+company) cannot be a default yet and is refused, as is the form on a `function: EntityStatus`
+relation. The detail-line dialog does not preselect the holder; the server still fills a line saved
+without it.
 
 ## function - presentation role
 
