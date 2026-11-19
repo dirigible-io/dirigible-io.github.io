@@ -3775,6 +3775,24 @@ Rules worth knowing before you author a block:
 - **A token that is not a `Resource:action` pair is refused at parse.** There is nothing to bind it
   to and no reading of it that could be right.
 
+### Roles a tenant's Owner can give
+
+Every role the intent authors is a role for the application's people. `<intent>.roles` marks each
+`permissions:` role, and each role the project's `.settings` appends (`access.extraRoles` /
+`access.extraRolesReadOnly`), with `"assignable": true`:
+
+```json
+[
+  { "name": "Librarian", "description": "Runs the desk", "assignable": true },
+  { "name": "Member", "assignable": true }
+]
+```
+
+So on a multi-tenant deployment a tenant's Owner can give a person `Librarian` in
+[Settings -> Users](/help/setup/tenant-users#roles-on-offer), on its own, without `User`. The
+convention roles (`<Entity>ReadOnly` / `<Entity>FullAccess`) carry no mark: they stay grantable to
+integration clients, and an application with many entities still offers its Owner a short list.
+
 ### The URL constraints (`.access`)
 
 The gates above are enforced by the generated controllers. The paths the templates publish - the

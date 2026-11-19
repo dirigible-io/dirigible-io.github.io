@@ -45,7 +45,33 @@ Without a limit, the section shows no seats and refuses no invitation for seats.
 - A holder of the tenant's `Owner` role, a `DEVELOPER` or an `ADMINISTRATOR` may manage the users. An
   `OPERATOR` may only see them.
 - It works on the selected tenant. The default tenant has no users to manage.
-- The roles on offer are `Owner` and `User`.
+
+## Roles on offer
+
+The section offers `Owner`, `User`, and every role the application marks as one a person may be
+given. A `.roles` entry does that with `"assignable": true`, and may say how the role reads with a
+`label` and a `description`:
+
+```json
+[
+  { "name": "Accountant", "label": "Accountant", "description": "Enters and issues invoices.", "assignable": true },
+  { "name": "Warehouse", "label": "Warehouse clerk", "description": "Reads the stock.", "assignable": true }
+]
+```
+
+- An intent application marks every role it authors - see
+  [Roles a tenant's Owner can give](/help/intent/dsl-reference#roles-a-tenant-s-owner-can-give).
+- A person may hold such a role alone, without `User`, and is a member like any other: counted for
+  seats, listed and removable. They reach what the role's gates admit and are refused the rest.
+- A role the application does not mark is refused (`INVALID_ROLE`), and so is a role of the instance
+  (`ADMINISTRATOR`, `DEVELOPER`, `OPERATOR`, ...) even when a `.roles` file marks it. A role name longer
+  than 100 characters is never offered.
+- An application that marks nothing offers `Owner` and `User`, as before.
+- The provisioning system reads the same list from
+  [`GET /services/tenant-provisioning/user-roles`](/help/setup/tenant-provisioning-api#list-the-roles-a-person-may-be-given).
+
+A group made by hand at the identity provider for a role outside this list still grants that role in
+the tenant: the identity provider stays authoritative over its groups.
 
 ## Configuration
 
