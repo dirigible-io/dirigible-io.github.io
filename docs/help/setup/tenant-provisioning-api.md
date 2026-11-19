@@ -258,6 +258,25 @@ GET /services/tenant-provisioning/tenants/{tenantId}/users[?includeRemoved=true]
 The endpoint is there whenever the API is enabled, whether or not the
 [Settings -> Users](/help/setup/tenant-users) section is.
 
+### List the roles a person may be given
+
+```
+GET /services/tenant-provisioning/user-roles
+```
+
+The roles the [Settings -> Users](/help/setup/tenant-users#roles-on-offer) section offers: `Owner`,
+`User`, then the roles the application marks `"assignable": true`, each with its label and
+description. Offer the same names when you create the identity provider's groups
+(`<tenantId>.<appId>.<role>`).
+
+```json
+{ "roles": [
+  { "name": "Owner", "label": null, "description": null },
+  { "name": "User", "label": null, "description": null },
+  { "name": "Accountant", "label": "Accountant", "description": "Enters and issues invoices." }
+] }
+```
+
 ### Remove a tenant
 
 ```
