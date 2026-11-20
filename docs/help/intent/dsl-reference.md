@@ -1309,6 +1309,11 @@ entities:
 Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
 
+A language code - a seed's `language:` and every `languages:` entry - is two lower-case letters
+(ISO 639-1: `bg`, `en`, `de`). It is what the `Language` column of `<TABLE>_LANG` stores
+(`VARCHAR(2)`) and what a reader's `Accept-Language` is reduced to (`bg-BG` reads as `bg`), so
+Generate refuses anything else - `fil`, `BG`, `bg-BG` - naming the seed or the `languages:` entry.
+
 A [report](#reports-read-only-aggregations) column bound to a translatable property is served in
 the caller's language too - the generated query LEFT-joins `<TABLE>_LANG` on a bound `:language`
 parameter and falls back to the base value - so a report grouping by a multilingual nomenclature
