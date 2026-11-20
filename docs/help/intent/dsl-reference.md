@@ -29,7 +29,7 @@ complete worked example.
 | [`personal` / `partner`](#personal-partner-row-scoped-surfaces) | per-user and per-partner row-scoped surfaces (+ `sensitive` stripping) |
 | [`share`](#share-an-issued-document-through-a-link) | a random, revocable link that hands a record's issued copy to a reader without an account; opt-in per entity |
 | [`visibleTo`](#visibleto-role-scoped-fields) | a field only some roles may read or write, enforced in the REST responses |
-| [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables + read-time translation overlay, on entity reads and report columns alike |
+| [`multilingual` / `languages`](#multilingual-translated-master-data) | `_LANG` tables (one lower-case translation per record and language) + read-time translation overlay, on entity reads and report columns alike |
 | [`translatable: false`](#a-key-is-not-a-label-translatable-false) | keeps a key of a multilingual entity out of the `_LANG` table, so what a rule matches on cannot be translated out from under it |
 | [calculated fields](#calculated-fields-actions) | server+UI-evaluated expressions, date functions, Java call-outs |
 | [`view`](#view-calendar-range-slots) | an additional calendar / range page, or a slot-booking page |
@@ -1315,6 +1315,24 @@ parameter and falls back to the base value - so a report grouping by a multiling
 shows the same term as the list page beside it. Report **filters** (`filter:`, `scope:`, per-column
 conditions) stay on the base table, so translating content never changes which rows a report
 returns.
+
+### One translation per record and language
+
+Every reader of `<TABLE>_LANG` - the entity's own reads, a search in the reader's language and the
+report join above - relies on two things: a record has at most one translation per language, and
+the code is stored in lower case (`bg`, as a translation seed declares it). The generated schema
+declares both on the table, so they hold for every writer, including a hand-written `.csvim`, a
+`.migration` or plain SQL:
+
+- a unique key on `("Id", "Language")` - `<TABLE>_LANG_UNIQUE`;
+- a check `"Language" = LOWER("Language")` - `<TABLE>_LANG_LOWER`. Without it the key would let `bg`
+  and `BG` both in, and the report would miss or double-count the record the form translates.
+
+A row that breaks either is refused by the database. A table published before the rule gets both
+constraints on the next publish. If its rows already break one, the publish still succeeds: the
+constraint is left out, a WARN names the table and the number of offending rows, and the
+constraint is added on the first synchronization pass after the rows are fixed. Snowflake has no
+CHECK constraints, and HANA gets the check only when the table is created.
 
 ### A key is not a label (`translatable: false`)
 
