@@ -2061,6 +2061,45 @@ generates:
   that contains the `sourceStatus` the action itself writes (it re-opens exactly the duplicate the guard
   removes).
 
+### Guarding the click on the source's own values - `when:`
+
+`fromStatus:` reads a status. Some sources are eligible by a plain field instead: an invoice template
+is paused by switching its `active` flag off, and with only a status guard a paused template still
+offered **Create invoice now** - and the endpoint created the invoice. `when:` guards the click on the
+source's own values, with the message a refused click receives:
+
+```yaml
+generates:
+  - name: invoice-from-template
+    from: InvoiceTemplate
+    to: SalesInvoice
+    forEntity: InvoiceTemplate
+    fromStatus: [APPROVED]                   # optional - both guards must admit the click
+    when: ["active == true", "Customer != null"]
+    whenMessage: "Activate the template first"
+    map: { Customer: Customer, Template: id }
+```
+
+- The condition is the record-local grammar of a [`forbidWhen` check](#checks-declarative-validations):
+  one comparison, or a list that must all hold; each compares a field or to-one relation of the source
+  with `==` / `!=` against a literal, a seeded status name, or `null`.
+- The endpoint answers **409** with `whenMessage` while the condition does not hold. It is read under
+  the same row lock the `fromStatus` guard takes, before anything is created or a document number is
+  drawn.
+- The contributed button carries the condition and stops offering itself on a record that fails it,
+  compared against the record the page already holds. A condition containing a `null` test is enforced
+  by the endpoint only.
+- Rejected at parse: `when:` without `whenMessage:` (and the reverse), a term that names nothing on the
+  source, `scope: page`, a create-from with no button (qualify the event with `event.when:` instead), a
+  source owned by another model (`fromUses:`), and `when:` on a `schedules[].generate` (a schedule picks
+  its rows with `where:`).
+- Ordering comparisons such as `net > 0` are not part of the grammar.
+
+::: tip
+Available from the Dirigible release that ships
+[eclipse-dirigible/dirigible#7992](https://github.com/eclipse-dirigible/dirigible/issues/7992).
+:::
+
 ### Which source rows become lines - `where:` / `refuse:`
 
 The mirror `items:` form above clones **every** row of the source document, which is only right when
