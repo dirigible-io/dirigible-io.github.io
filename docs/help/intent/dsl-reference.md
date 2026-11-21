@@ -791,6 +791,68 @@ Removing the assignment later does not revisit the lines already stored - the ru
 being made. Make the referencing relation `required: true` when a line must name a project at all.
 :::
 
+## checks: kind: notExists - a status move refused while a matching row exists
+
+The inverse of `exists`. Some moves must wait for the rows of another entity: a month must not be
+closed while a DRAFT journal entry is dated inside it, because the entry cannot be posted into a
+CLOSED period afterwards; a deal must not be marked lost while one of its quotations is accepted or
+ordered. A `transitions:` guard reads only the record's own fields, `forbidWhen` reads one hop, and
+`exists` refuses when NO row matches, so the close and the Mark Lost were answered with HTTP 200.
+
+```yaml
+entities:
+  - name: FiscalPeriod
+    checks:
+      # the entries belong to the month by their date - there is no foreign key between the two
+      - kind: notExists
+        entity: JournalEntry
+        where: ["Status == DRAFT", "date >= fromDate", "date <= toDate"]
+        status: CLOSED
+        message: "{count} draft entries are dated in this period - post or delete them before closing it"
+  - name: Opportunity
+    checks:
+      # the quotations module uses this one, so the quotation is named by its model
+      - { kind: notExists, entity: Quotation, model: quotations, match: { Opportunity: id },
+          where: "Status in [2, 3]", status: LOST,
+          message: "A deal with an accepted or ordered quotation is not marked lost" }
+```
+
+`status:` is required: the check is about the MOVE into that status. It runs in the generated
+repository, so the `transitions:` button, a workflow step and a user's PUT that write the status are
+all refused with HTTP 400 and the message, and the record keeps its status. `{count}` in the message
+is the number of rows that refuse the move. The message is translated through the module's catalogs
+under `checks.<Entity>_notExists_<n>` (or the check's `id:`).
+
+`match:` works as on `exists`; a to-one of the target that points at this record matches the record's
+`id`. `where:` filters the target's rows, one term or a list ANDed:
+`<property> <op> <value or path on this record>` with `op` one of `==`, `!=`, `>=`, `<=`, `>`, `<`;
+`<property> == null` / `!= null`; or `<property> in [a, b]`. A status name in `where:` is one of the
+TARGET's statuses, resolved against its own nomenclature. At least one of `match` and `where` is
+required, and a match value or path that is empty on the record skips the check. A row in another
+status, or dated outside the window, does not block the move.
+
+`model:` may name a module this model does NOT list in `uses:`. That is the usual case for the
+inverse rule: the quotation references the opportunity, so the quotations module uses the
+opportunities module and cannot be used back. The rows are then counted by the module's and the
+entity's names when the check runs, and a module that is not deployed has none. Its property names
+are not checked when the model is generated, and its statuses are written as numeric seed ids.
+
+**Concurrent writes.** The move locks the record before it counts, and a referencing row's create
+holds a share lock on the record it references (its reference check), so a quotation created at the
+same moment as Mark Lost is either counted or stored after the move.
+
+Refused when the model is generated: no `status`, `entity` or `message`; neither `match` nor `where`;
+a `where` term that does not read; a property a local target does not declare; an ordering on a value
+that is not a date, a timestamp or a number, or a date ordered against a literal; a literal that is
+not a value of the property's type; `verbs`; `severity: warn`.
+
+::: tip
+The check guards the move, not the rows: a quotation accepted after the deal is lost is a rule on the
+quotation's side (a `forbidWhen` reading `Opportunity.Status`). A row that comes to match by its own
+update at the very instant of the move, or a date-window row with no reference to lock, is not
+serialized against it.
+:::
+
 ## checks: severity: warn - warn and confirm instead of refuse
 
 Every check kind above refuses the write. Some rules are not refusals: a second customer with the
