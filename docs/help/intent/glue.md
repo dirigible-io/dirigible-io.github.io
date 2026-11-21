@@ -114,11 +114,49 @@ Add **`attach: print`** and the message carries the record's **own document**: t
       subject: "Invoice {number}"        # {field} and {relation.field} interpolation
       body: "Dear {Customer.name}, please find invoice {number} attached."
       attach: print                      # render THIS record's .print template and attach it
-      language: bg                       # optional FIXED print-template language
+      language: bg                       # optional FIXED language - of the PDF and of the texts
       # or per record: languageFrom: Customer.locale  (a one-hop relation.field holding the code)
 ```
 
-`attach` is `print` - the record the block is about - inside a fan-out [`recordPrint`](#one-document-many-recipients-attach-recordprint), or the map form [`{ report, bind }`](#mail-a-report-attach-report-bind) for a parameterized report render. With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes it; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. It selects the print template **and** the language the attached document's own data is read in ([the issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language)); it does not govern the mail's `subject` and `body`, which are the covering message rather than the document. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
+### The mail in its recipient's language
+
+The authored `subject`, `body` and `html` are the default-language texts. Generate writes them into the model's en-US catalog (`i18n/en-US/<model>.model.json`) under the block's own key, and a translator adds the other languages to the module's catalogs exactly as for a label:
+
+| Block | Catalog key |
+| --- | --- |
+| `notifications[]` | `<model>-model.mail.notifications.<name>.subject` / `.body` / `.html` |
+| `transitions[].notify` | `<model>-model.mail.transitions.<name>.*` |
+| `schedules[].notify` | `<model>-model.mail.schedules.<name>.*` |
+| a step's `args.notify` | `<model>-model.mail.steps.<process>.<step>.*` |
+
+```json
+{
+  "billing-model": {
+    "mail": {
+      "transitions": {
+        "VoidInvoice": {
+          "subject": "Фактура {number} е анулирана",
+          "body": "Уважаеми {Customer.name}, фактура {number} е анулирана."
+        }
+      }
+    }
+  }
+}
+```
+
+The generated sender resolves the texts in the language the mail is delivered in - the attachment's, so a Bulgarian customer receives a Bulgarian subject with the Bulgarian PDF - through `CheckMessages.messageIn(language, ...)`; a language whose catalog lacks the key sends the authored text. `{field}` placeholders are named parameters filled after the translation is chosen, so a translation may reorder them, and an empty field reads as nothing rather than `null`. A notice **without** an attachment takes `language:` / `languageFrom:` too, for its texts alone:
+
+```yaml
+    notify:
+      to: Customer.email
+      subject: "Invoice {number} has been voided"
+      body: "Dear {Customer.name}, invoice {number} has been voided."
+      languageFrom: Customer.language      # no attach - the language of the texts alone
+```
+
+Without either, the mail goes out in the application language - never in the language of the user whose click or write sent it. The translatable values a placeholder interpolates (a multilingual nomenclature's name) are read as before.
+
+`attach` is `print` - the record the block is about - inside a fan-out [`recordPrint`](#one-document-many-recipients-attach-recordprint), or the map form [`{ report, bind }`](#mail-a-report-attach-report-bind) for a parameterized report render. With `print` the entity must be a **document** (a header with a line-items child) - that is what has a `.print` template and a generated feeder to fill it. Attaching the print of a plain entity is a parse-time error, not a silent plain-text mail. The attachment is named after the document's `number:` field when it has one (`INV0000042.pdf`), else `<Entity> <id>.pdf`. The **render language**: `language:` fixes it; `languageFrom: <relation>.<field>` reads it per record off a one-hop to-one path (the customer decides the language their invoice arrives in) - the two are mutually exclusive. It selects the print template **and** the language the attached document's own data is read in ([the issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language)), and it is the language the mail's `subject`, `body` and `html` are written in. Absent both, the render uses the first entry of the tenant's application language set (`DIRIGIBLE_APPLICATION_LANGUAGES`) at send time; a blank `languageFrom` value falls back the same way. The sender address comes from `DIRIGIBLE_MAIL_SENDER`; delivery uses the platform's per-tenant mail configuration.
 
 ::: tip Failure semantics, per call site
 A recipient that resolves to no address is a logged **no-op** - a record with nobody to mail must not stall a flow. A `transitions[].notify` is **fail-soft**: the status flip is the endpoint's contract and has already committed, so an SMTP problem is logged and the transition still returns success. A sending `serviceTask`, whose whole purpose *is* the message, fails the task instead, so the process engine's retry applies.
@@ -255,9 +293,10 @@ before the loop, and attaches the same PDF to every message.
 
 `recordPrint` needs a `forEach` (without one, `attach: print` already renders that very record) and it
 is the **anchor** that must be a document - the row need not be. `language:` / `languageFrom:` then
-select the anchor's render language, read off the anchor: the generated delegate calls a
-`renderDocument(source)` before the loop - and not at all when the fan-out has no rows, so an empty
-recipient list costs no render and cannot fail a step for nobody.
+select the anchor's render language, read off the anchor - the language every row's mail is written
+in too: the generated delegate calls a `renderDocument(source, language)` before the loop - and not at
+all when the fan-out has no rows, so an empty recipient list costs no render and cannot fail a step for
+nobody.
 
 ::: warning Which record a path reads is authored, never inferred
 Inside a fan-out a **bare** path - the recipient, `{field}`, `{Relation.field}` - resolves against the
