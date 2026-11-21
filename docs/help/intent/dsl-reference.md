@@ -978,8 +978,14 @@ read-only form rather than being hidden.
   relation - terms `<Status> == <seed id>` joined with `||`, [seeded
   names](#statuses-by-name-not-by-id) accepted. A register with no such relation, or with no
   `closedWhen`, is a validation error: nothing would ever close it.
-- **More than one covering row is not an error.** If any covering row is closed, the record is
-  frozen. Overlapping periods are a data question, not a modelling one.
+- **A register partitions time: overlapping windows are refused.** A create or update of a register
+  row whose `[start, end]` overlaps another row's window answers **409** naming the overlapped row and
+  its window. Both bounds are inclusive, so windows sharing a day overlap, while windows that only touch
+  (one ends on the 31st, the next starts on the 1st) do not. The whole register is the scope. An update
+  is checked only when it moves a bound, so a pair stored before the check stays editable; for such a
+  legacy pair, a record covered by a closed row is still frozen. The check and the write are one unit,
+  and every register row is locked before the others are read, so two concurrent overlapping writes take
+  turns (only the very first rows of an empty register are not serialized).
 - The guarded `date` must be a `date` field of the guarded entity itself.
 - **The lock reaches the document's lines**, exactly as the status lock does - a line write
   recomputes the master's totals, so a document dated in a closed period freezes its lines with it.
@@ -987,6 +993,14 @@ read-only form rather than being hidden.
   the same opt-out.
 - `immutableInPeriod` and `immutableWhen` **compose**: an entity may declare either, both or
   neither, and a record frozen by either is frozen.
+- **A posting or a `posts:` row into a locked target waits instead of failing.** Before it writes,
+  the generated handler asks whether the target row's date falls in a closed period; if so (for
+  `posts:`, if any one derived row does) nothing is written, a WARN names the source and the message is
+  acknowledged. When the period is reopened - by a transition or a plain edit of the register - every
+  source still not back-referenced and dated inside the reopened window is posted again through the same
+  handler. A `posts:` row is swept only when it declares `idempotentBy`, which is how the sweep tells a
+  posted source from an unposted one. A register in another model reaches the sweep too: the register's
+  model relays every reopening onto a topic of its own, which the posting model binds by name.
 - **The register is an entity of the same model.** The guard is generated alongside what it guards
   and reads the register directly; a register owned by another model is emitted as a read-only
   projection with no repository to query, so it is refused at generate time rather than silently
@@ -1296,6 +1310,33 @@ multiplies the write volume of the entity.
 The list renders as an expandable tree; the server rejects cycles and leaf-only references to a
 node with children.
 
+A self-reference that is a tree but wants none of the tree list - a task's parent task, a cost
+centre's parent - declares the edge alone with `tree: true`:
+
+```yaml
+- name: ProjectTask
+  relations:
+    - { name: Parent, kind: manyToOne, to: ProjectTask, tree: true, treeMessage: "A task cannot sit under itself" }
+```
+
+- The generated repository refuses (**400**, naming the relation) a create or update whose parent is
+  the row itself or one of its descendants. It walks up from the submitted parent inside the write's
+  unit of work and locks every ancestor it reads until the commit, so two concurrent moves (A under B,
+  B under A) never both commit. A cycle already in the data ends the walk instead of looping it.
+- `treeMessage:` replaces the generated refusal (translation key `checks.<Entity>_tree_<Relation>`).
+- `tree:` is refused on anything but an optional, non-composition `manyToOne` onto its own entity;
+  `treeMessage:` without `tree: true`, or blank, is refused too.
+- The `hierarchy:` edge is a tree edge without the key: its cycle guard is the same repository check,
+  so it holds for every writer, not only the REST controllers. Do not add `tree:` to it.
+
+**A referenced leaf stays a leaf.** A node that `leafOnly` references already point at cannot gain a
+child: a create or re-parent under it is refused with a **400** naming the referencing records
+(translation key `checks.leafReferenced`), so a journal balance never ends up booked on a group
+account. The referencing side contributes the count, so a `leafOnly` relation of another model counts
+too, and a child and a leaf-only reference written at once cannot both commit. No key - it is what
+`leafOnly` means; the rule for an account with postings (sub-accounts only after the balance is
+transferred) is the expected behaviour.
+
 ## multilingual - translated master data
 
 ```yaml
@@ -1366,6 +1407,14 @@ out.
 
 For document numbers use the first-class [`number`](#number-document-numbering) attribute below, not
 a calculated action - the platform owns a gap-free sequence for you.
+
+The create-time and update-time checks (`checks:`, `requiredWhen`, `duplicate`, the reference rules)
+judge the record the write would store, **with its calculated actions applied** - on a copy, in
+declaration order, an action still winning over an expression on the same field. A `duplicate` over a
+field an action derives is therefore asked on a REST create that left the field out. The price is a
+contract on the action: it may run more than once per write, and for a write that is then refused, so
+it computes a value from the record and writes nothing - no save, no message, no number drawn from a
+series.
 
 ## number - document numbering
 
@@ -2052,6 +2101,9 @@ generates:
   at all - which is what corrects a model carrying this defect today without an authoring change. An
   explicit `fromStatus:` states the whole rule and replaces the implied one.
 - Statuses are seeded names or ids, as everywhere a status is named.
+- **The guard holds under concurrency.** The click locks the source row (`SELECT ... FOR UPDATE`),
+  re-reads it and checks the guard inside the unit of work that creates the target, so four clicks on
+  one CONFIRMED proforma create one invoice and the other three get the 409.
 - The guard is on the **click**. An [event-driven](#event-driven-creation-event) create-from carries the
   at-most-once back-reference guard and qualifies its moment with `event.when:`, so `fromStatus:` on a
   create-from that contributes no button is rejected at parse rather than silently ignored - qualify the
@@ -2612,6 +2664,10 @@ When the entity declares a [`lifecycle`](#lifecycle-the-legal-status-graph), a t
 presentation over its edges: its `from`/`setStatus` pair must be one of them, and the graph is what
 every OTHER writer is held to as well.
 
+The lookup, the `from:` and `when:` checks and the status write are one unit of work, and the record is
+locked before the checks run, so the same transition fired twice at once moves the record once - the
+second request is answered 409 from the new status, having written nothing.
+
 The `notify:` block is the same shape a notification or a schedule uses: `attach: print` mails the
 record's own rendered document, and `attach: { report, bind }` a report render scoped to it - see
 [the notify block](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report).
@@ -2709,6 +2765,15 @@ comes back to repair it, because the source has already reached its moment and r
 event. That is worse than the stale but balanced post the rewrite set out to fix, so the whole post
 is written together or not at all.
 
+The back-reference is the posting's to write. A user cannot set it: the generated controllers drop it
+from a create, an update keeps the stored value and the forms show it read-only, while the posting's
+own save still writes it - so an accountant who links a hand-written journal entry to the invoice it
+concerns has not handed that entry to the posting, which would otherwise rewrite it in place on the
+invoice's next issue. The same holds for a `posts:` entry's `idempotentBy`, which a user could
+otherwise set to make the rule skip a document. It is left as written where read-only would contradict
+the declaration: a `required: true` back-reference, a composition, an `EntityStatus`, a
+`personal` / `partner` / `owner` or a calculated relation.
+
 The rewrite stops where the created document's own lifecycle says somebody has taken it over: it is
 rewritable only while its `function: EntityStatus` relation still holds the `init:` value the
 posting's own create wrote (a created document with no status lifecycle has nothing to act on, so it
@@ -2786,6 +2851,37 @@ statuses remembers the status it displaced in a hidden `Displaced<Status>` colum
 a sum that returns to zero restores it - so an invoice whose only allocation is deleted, amended to 0
 or re-parented away is CONFIRMED (or ISSUED) again rather than PAID with nothing paid. Only a status
 the roll-up itself set is ever relinquished; there is no `statusWhenEmpty`.
+
+A parent that already held `statusWhenPartial` when the sum first moved (an asset whose default
+ACTIVE is the partial seed) displaced nothing, so with both seeds declared a zero sum moves
+`statusWhenFull` back to `statusWhenPartial` - a full status never outlives the sum that produced it -
+and leaves a resting `statusWhenPartial` alone. A recorded displaced status still wins.
+
+Either seed may be left out. A roll-up naming only `statusWhenFull` (an asset that is fully
+depreciated) owns only the full band, `sum > 0 && sum >= capacity`; one naming only
+`statusWhenPartial` owns only `0 < sum < capacity`. A sum outside the named band gives the status back
+exactly as a zero sum does - a fully depreciated asset whose last depreciation is reversed is ACTIVE
+again. A `status:` naming neither seed is refused at parse. A one-seed roll-up has no status of its
+own to fall back to, so a roll-up-owned status with no recorded predecessor is logged and left alone.
+
+```yaml
+rollups:
+  - { name: assetDepreciated, entity: Depreciation, via: Asset, field: depreciated,
+      op: sum, of: amount, capacity: cost, balance: bookValue,
+      status: Status, statusWhenFull: FULLY_DEPRECIATED }
+```
+
+The columns may be counts as well as amounts: `of`, `field`, `capacity` and `balance` may each be
+`integer`, `long` or `decimal`, in any combination - seats booked against a session's seat count, hours
+against an hour budget. The generated code computes in `BigDecimal`, converts an integral read and
+narrows an integral write, and compares an integral total after narrowing, so a recompute that changes
+nothing writes nothing. The capacity guard and its `{remaining}` / `{capacity}` refusal placeholders
+work the same on integral columns.
+
+The capacity guard holds under concurrency: the child's save or update locks the parent before it
+re-sums the children, inside the write's unit of work, so two payments that each fit alone but not
+together never both commit (the second is refused). A guard gated by `guardAt:` is checked when the
+child moves into that status and is not serialized this way.
 
 Every `op` - `count`, `sum` and `latest` alike - recomputes on the child's create, **update** and
 delete. The update pass matters for a plain count too: a child changes parents by an ordinary edit of
@@ -2899,6 +2995,11 @@ Emits a `MessageHandler` on the source's `-transitioned` topic (or the create to
 `idempotentBy` back-reference, and writes each row through the target repository - so the target's
 own numbering, `checks:` and derived fields fire. The declarative form of the hand-written
 document-to-ledger delegate; contrast `generates`, which creates ONE document from a user action.
+
+Into a target locked by [`immutableInPeriod`](#period-immutableinperiod-date-based-immutability), a
+document whose rows fall in a closed period waits rather than failing: one closed row holds back the
+whole post, and the rows are booked once the period is reopened (with `idempotentBy` declared). The
+`idempotentBy` back-reference is system-written - a user cannot set it.
 
 ## resolves - fill a relation from a register valid on a date
 
@@ -3552,7 +3653,9 @@ integrations:
 
 Exactly one arrival per entry: an HTTP `path`, or a `source` naming exactly one of `queue` / `topic` /
 `folder`. All three deserialise the JSON into `create:` and save it through the entity's repository; a
-`folder` is polled (hence the mandatory `cron`), and every read file leaves the drop folder. See
+`folder` is polled (hence the mandatory `cron`), and every read file leaves the drop folder. A folder
+is per tenant: the default tenant reads the declared folder, every other tenant
+`<folder>/tenants/<tenant id>`, so a dropped file lands in exactly one tenant. See
 [Declarative glue](/help/intent/glue#inbound-arrivals-from-outside).
 
 ```yaml

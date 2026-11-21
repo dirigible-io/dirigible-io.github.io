@@ -566,6 +566,10 @@ Whichever it is, the record is saved through the entity's **generated repository
 That is why a `folder` source requires its `cron` (and why a `cron` on the other sources is rejected). A file holds one record or an array of them; a file modified within the last few seconds is left for the next tick (it may still be being copied in); and every read file leaves the drop folder - into `processed/` or, if it could not be ingested, `failed/` - so nothing is ever ingested twice and a rejected file stays inspectable.
 :::
 
+::: tip A drop folder is per tenant
+The polling job runs in every tenant, and each reads only its own folder: the default tenant the declared folder, every other tenant `<folder>/tenants/<tenant id>` (for `/data/inbox/orders`, tenant `acme` reads `/data/inbox/orders/tenants/acme`). A dropped file therefore lands in exactly one tenant's database. A tenant id that is not a single folder name reads nothing and logs an ERROR.
+:::
+
 ::: warning A queue or topic name is tenant-scoped unless you say otherwise
 A destination is renamed per tenant on the broker (`<tenantId>###<name>`), which is what keeps one tenant's messages out of another's - and what makes a name another *deployment* publishes to unreachable, since it knows nothing of your tenants. When the queue or topic is a contract with a system outside this deployment, mark it `global:`:
 
@@ -900,6 +904,14 @@ hand while partially paid stays that way when its allocation goes. There is no `
 a declared return status is wrong for every document that entered the paid region from a different
 status than the declared one, and the remembered status never is. With a `lifecycle:` on the parent,
 the moves back must be declared edges just like the moves in.
+
+A parent that was already in `statusWhenPartial` when the sum first moved displaced nothing, so with
+both seeds declared a zero sum moves `statusWhenFull` back to `statusWhenPartial`. Either seed may be
+left out: a roll-up naming only `statusWhenFull` (an asset fully depreciated) owns only the full band,
+one naming only `statusWhenPartial` only the partial one, and a sum outside the named band gives the
+status back as a zero sum does; naming neither is refused. `of` / `field` / `capacity` / `balance` may
+be `integer` or `long` columns as well as `decimal` ones. See
+[rollups in the DSL reference](/help/intent/dsl-reference#rollups-denormalised-parent-totals).
 
 
 The parent may be owned by another model: with a cross-model `via` the handler resolves the parent's
