@@ -619,7 +619,7 @@ entities:
       - { name: name, type: string, required: true, length: 100 }
 ```
 
-The languages the whole **stack** supports are a platform concern (`DIRIGIBLE_APPLICATION_LANGUAGES`, default `en,bg`) - never defined per module. The top-level `languages:` only declares which languages this module provides; the shell warns about a module missing a platform language.
+The languages the whole **stack** supports are a platform concern (`DIRIGIBLE_APPLICATION_LANGUAGES`, default `en,bg`) - never defined per module. The top-level `languages:` only declares which languages this module provides; the shells' Settings warn about the records each multilingual entity has no translation for, counted from its `<TABLE>_LANG` table, and fall back to the declaration only when those counts cannot be read.
 
 A [report](#reports) reads the same data, so it reads it in the same language. A report column bound to a translatable property is served translated - whether the report is rooted at the multilingual entity or reaches it through a relation - so a report grouping by a multilingual nomenclature shows the same term as the list page beside it. A report is raw SQL and never loads an entity, so the overlay is done in the query: the generated `.report` LEFT-joins the `<TABLE>_LANG` table on the base row and a bound `:language` parameter, which the generated report repository fills from the caller's `Accept-Language`, and the column reads `COALESCE(<lang>."<Property>", <base>."<COLUMN>")` so an untranslated row keeps its base value. What a report **matches** is deliberately untouched: its `filter:`, its `scope:` and the per-column filters compile against the base table, so translating a nomenclature can never change which rows a report returns.
 
