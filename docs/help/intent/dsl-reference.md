@@ -839,6 +839,43 @@ The caller repeats the same request with the codes in the `X-Confirm-Warnings` h
 the repeat is asked again. The generated forms turn the 428 into one confirm dialog and the repeat.
 A process step or a job writes on nobody's behalf and is never stopped by a warning.
 
+### A duplicate refused at a status gate
+
+A `duplicate` with a `status:` gate is not a warning: it **refuses** the move into that status while
+another record with the same values holds one of the statuses `among` lists. Two draft supplier bills
+with the same supplier invoice number may coexist (a recurring schedule drafts with a placeholder, a
+clerk re-keys a bill), but the second may not be approved while the first is approved, partially paid
+or paid - that is the same paper booked twice into the purchase ledger. A `unique:` key is wrong here:
+it refuses the drafts and keeps refusing after a bill is cancelled.
+
+```yaml
+- name: Bill
+  checks:
+    # asked while drafting, as before
+    - { kind: duplicate, fields: [Supplier, supplierNumber], message: "Already entered: {match}" }
+    # refused at approval
+    - { kind: duplicate, fields: [Supplier, supplierNumber], status: APPROVED,
+        among: [APPROVED, PARTIAL, PAID],
+        message: "This supplier invoice number is already approved for this supplier: {match}" }
+```
+
+- The generated repository runs it with the other gated checks, whenever the record is stored
+  carrying the gate status: a transition button, a process step, an update. The write is answered
+  **400** with your message and nothing is stored. The values compare as the warning compares them
+  (text ignoring case and surrounding spaces), the record never counts against itself, and `{match}`
+  names the record it collides with.
+- `among` is required with the gate and names statuses of the record's own status entity, by name.
+  There is no default: a record in a status it leaves out (a cancelled bill, a draft) never refuses
+  anything.
+- `severity: warn` is refused together with the gate (nobody can confirm a warning at a transition);
+  `severity: error` is optional.
+- Two approvals of twins fired at the same time take turns on a row lock, so only one passes.
+
+::: tip
+Declare the ungated `duplicate` beside the gated one: the clerk is asked while drafting, and the
+approval is refused if the warning was confirmed and the twin still reaches the approval.
+:::
+
 ## checks: kind: guard - precondition over an aggregate
 
 ```yaml
