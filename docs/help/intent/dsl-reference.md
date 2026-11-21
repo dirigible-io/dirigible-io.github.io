@@ -1367,6 +1367,44 @@ out.
 For document numbers use the first-class [`number`](#number-document-numbering) attribute below, not
 a calculated action - the platform owns a gap-free sequence for you.
 
+## roundTo - an amount in its currency's minor units
+
+A money amount is stated in a currency, and a currency has its own number of decimals: none for a
+yen, two for a euro, three for a dinar. A column's `scale` is one number for every row and an
+expression cannot read the currency, so without this a yen invoice line of 3 x 333.33 stored
+999.99. `roundTo:` on a `decimal` names where the record finds the digits: a path of to-one
+relations ending in an integer field.
+
+```yaml
+- name: Currency
+  fields:
+    - { name: code,     type: string, length: 3 }
+    - { name: rounding, type: integer }
+- name: SalesInvoice
+  fields:
+    - { name: total, type: decimal, scale: 4, aggregate: true, roundTo: Currency.rounding }
+  relations:
+    - { name: Currency, kind: manyToOne, to: Currency }
+- name: SalesInvoiceItem
+  fields:
+    - { name: net, type: decimal, scale: 4, roundTo: SalesInvoice.Currency.rounding,
+        calculatedOnCreate: "Quantity * Price", calculatedOnUpdate: "Quantity * Price" }
+```
+
+The yen line now stores 1000. The generated repository rounds half up to the currency's digits a
+value the caller sends, a calculated value (evaluated straight to those digits, so 0.495 yen is 0,
+not 1) and a document total resummed from its lines, before checks and roll-ups read them. The
+header and the currency are loaded once per write, however many fields read them.
+
+::: tip Rules
+- Valid on a `decimal` field that is not the primary key; the path must resolve and end in an
+  integer field. A cross-model relation may only be the last hop.
+- Never more decimals than the column's `scale`: give money columns a `scale` of at least 3 when a
+  three-decimal currency is used. With no currency chosen, the column's `scale` applies.
+- A value with more decimals is rounded, not refused.
+- The form's live preview still rounds to the column's `scale`; the stored value is the server's.
+:::
+
 ## number - document numbering
 
 Turns a string field into a platform-numbered document field. The platform owns a **gap-free,
