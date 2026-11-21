@@ -1209,10 +1209,10 @@ what composition means:
 
 `whenMasterDeleted: refuse` is the author's alternative for a collection that must be removed
 deliberately - a printed copy, an archived attachment. The master's delete is rejected while any such
-child exists, with a message naming both entities:
+child exists, with a message naming both entities and how many children there are:
 
 ```
-This Sales Order still has Sales Order Copy records - delete those first
+This Sales Order still has 2 Sales Order Copy records - delete those first
 ```
 
 That is a 400 with the message, like every other repository-enforced refusal (`checks:`, the

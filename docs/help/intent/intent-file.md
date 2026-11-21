@@ -625,6 +625,25 @@ A [report](#reports) reads the same data, so it reads it in the same language. A
 
 **UI labels.** Generation also emits a per-project i18n catalog (`translations/<locale>/*.json`) for every generated label: entity names (a humanized singular plus a `_plural` form), field labels, form and report names, report descriptions and column headers. The default locale (`en-US`) is generated for you; a translator adds a sibling locale folder (e.g. `bg-BG`) with the same keys. The Harmonia UI - sidebar, dashboard tiles, list headers, forms and report pages - renders through these keys, falling back to the baked English label for any key a locale has not translated.
 
+**Refusals and warnings.** A refusal or warning the generated application answers (a `checks:` message, a delete refused because other records reference the row, a duplicate value) is resolved from the same module catalog, in the caller's language, and follows the two conventions the Harmonia UI's i18next catalogs use:
+
+- **Plural forms.** When the message carries a whole-number `{count}`, the entry `<key>_one` / `_few` / `_many` / `_other` that the language's CLDR rule picks wins over the plain `<key>`, which stays the fallback, so a catalog written before keeps working. The en-US catalog is generated with `deleteReference_one` / `_other` and `deleteHasChildren_one` / `_other`, so English reads "1 Advance record", "2 Advance records".
+- **A label inside a sentence.** `{entity, lowercase}` (or `{{entity, lowercase}}`) lower-cases each word of the label except one written entirely in capitals, so "Ставка ДДС" reads "ставка ДДС". It is opted into per phrase; a language that keeps the capital writes `{entity}`.
+
+```json
+{
+  "orders-model": {
+    "checks": {
+      "deleteReference_one": "{count} запис ({label, lowercase})",
+      "deleteReference_other": "{count} записа ({label, lowercase})",
+      "fieldDuplicate": "Вече съществува {entity, lowercase} с това {label, lowercase}"
+    }
+  }
+}
+```
+
+Keep the labels themselves title-cased in `t.`: the same label heads a list column and a form.
+
 ## Naming and tables
 
 - The top-level `name:` is the intent's identity. Single-file outputs are `<name>.edm` / `.model` / `.roles` / `.glue`; the table prefix is its upper-snake.
