@@ -1309,6 +1309,15 @@ entities:
 Translations are seeds with a `language:` code (see [seeds](#seeds-initial-data)). The
 platform's supported language set is `DIRIGIBLE_APPLICATION_LANGUAGES`.
 
+Settings > Region & Language lists what each application leaves untranslated. Its data is judged by
+what the `<TABLE>_LANG` tables hold, not by `languages:`: each multilingual entity's controller
+answers `GET .../translations` with its number of records and, per platform language other than the
+default one, how many of them have no translation row, and Settings reads "Currencies: 3 of 160
+records have no Bulgarian translation". Declaring `bg` no longer hides an empty language table, and
+a complete one is not reported because `languages:` omits it. The declaration is only the fallback
+for an application generated before this, or whose counts cannot be read; an entity the user may not
+read is left out.
+
 A [report](#reports-read-only-aggregations) column bound to a translatable property is served in
 the caller's language too - the generated query LEFT-joins `<TABLE>_LANG` on a bound `:language`
 parameter and falls back to the base value - so a report grouping by a multilingual nomenclature
