@@ -1316,6 +1316,16 @@ shows the same term as the list page beside it. Report **filters** (`filter:`, `
 conditions) stay on the base table, so translating content never changes which rows a report
 returns.
 
+A **save** in a translated language keeps the stored values of the translated properties. The
+generated forms send back the whole record they read, translations included; without this, a bg
+user who changed only the price of a unit of measure would have replaced its stored `Name`
+("Kilogram") with „Килограм“ for every reader. So the generated repository's update puts back the
+stored value of every property that has a translation in the request's language, and writes the
+rest as sent. This includes the property-security path, which merges the payload onto a read of the
+record. A save in a language the record has no translation for (the default language, or no
+`Accept-Language`) writes every property as sent, as before. Translations are seeded; a save never
+changes them.
+
 ### A key is not a label (`translatable: false`)
 
 Translatability is derived from the **type**, so on a multilingual entity every string property
