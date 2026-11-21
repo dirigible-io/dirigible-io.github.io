@@ -58,7 +58,7 @@ complete worked example.
 | [`notify.forEach`](/help/intent/glue#one-message-per-related-row-foreach) | fan a notify block out over a related collection: one message per row, every bare path resolved against the row |
 | [`attach: recordPrint`](/help/intent/glue#one-document-many-recipients-attach-recordprint) | in a fan-out: attach the ANCHOR record's document, rendered once, to every recipient (`{record.<field>}` addresses that record) |
 | [`attach: { report, bind }`](/help/intent/glue#mail-a-report-attach-report-bind) | attach a rendered REPORT instead of a document, its declared `parameters:` bound from the recipient row - the customer statement |
-| [the notify block / `attach:`](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report) | send a message about a record - with the record's own document, or a report scoped to it, attached - from a process step, a transition or a schedule |
+| [the notify block / `attach:`](/help/intent/glue#the-notify-block-and-attach-sending-the-document-or-a-report) | send a message about a record - with the record's own document, or a report scoped to it, attached - from a process step, a transition or a schedule; its texts are translated in the language `language` / `languageFrom` name |
 | [`schedules`](#schedules-cron) | cron: notify or generate records per matching row |
 | [`integrations`](#integrations-outbound-http) | outbound HTTP on a data change |
 | [`integrations.payload`](#integrations-outbound-http) | the declared envelope a message carries, instead of the record as stored |
