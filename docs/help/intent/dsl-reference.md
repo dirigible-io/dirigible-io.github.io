@@ -2986,6 +2986,21 @@ its owner knows nothing of this settlement and does not own the junction rows. W
 outlived the payment as orphans pointing at an id that no longer existed, and the invoice stayed
 settled forever.
 
+**A total that grows after the invoice became payable is settled from the money on account.** A
+debit note raising a bill, or a charge rolled up onto an issued invoice, raises the document's
+`total` after the on-invoice pull has run. A third handler, `<Name>OnInvoiceUpdated`, is bound to
+the invoice's update event: when a derived write (a roll-up or an aggregate) moves the `total`
+column of an invoice in a payable status, it runs the same pull as the on-invoice delegate - oldest
+payment first, matched on `match`, up to the open amount, never more than a payment has left. The
+pull runs as one transaction under a lock on the invoice row, so the delegate and this handler never
+spend the same open amount twice. Only the growth of the total triggers it: the `paid` roll-up's own
+write, including an allocation removed by hand, does not put the allocation back.
+
+::: tip Not covered
+A total that moves without an invoice event, such as a document header resummed after a line is
+added, does not trigger the pull. Neither does a total changed by a person's edit.
+:::
+
 ## reports - read-only aggregations
 
 ```yaml
