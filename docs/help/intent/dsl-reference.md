@@ -791,6 +791,24 @@ Removing the assignment later does not revisit the lines already stored - the ru
 being made. Make the referencing relation `required: true` when a line must name a project at all.
 :::
 
+## Every refusal is translated
+
+A `checks:` message is not the only sentence a generated application refuses a request with. The status guards of a transition and of a create-from, a `lifecycle:` move, a locked record (`immutable`, `immutableWhen`, `immutableInPeriod`) and the lock a master passes to its lines, a status only the workflow moves, a `fixedAfterCreate` / `fixedWhenReferenced` field, a roll-up capacity, a `leafOnly` reference, a hierarchy cycle, a missing required value, a share link that cannot be made and the refusals of a create-from's undo are all entries of the model's catalog, under `checks.<key>` in `i18n/<locale>/<model>.model.json`. Since Eclipse Dirigible [#8775](https://github.com/eclipse-dirigible/dirigible/issues/8775) a Bulgarian user reads
+
+```text
+„Одобри“ е разрешено само от статус Подаден - този запис „фактура“ е в статус Чернова
+```
+
+where they used to read `Approve is allowed only from status [2] - current status is [1]`.
+
+- Entities, actions and properties are named by their catalog labels; a status by its row, translated when the status entity is `multilingual: true`.
+- A refusal about one property carries `field`, so the form marks it.
+- The error body is the same for every refusal: `message`, `messageKey`, `messageParams` and, for one property, `field`. A transition's and a create-from's refused run answer it too, and keep the older `error` key with the same text for one release.
+- An authored roll-up `message:` is its own catalog entry; `{capacity}`, `{sum}`, `{requested}` and `{remaining}` are placeholders, so a translation may move them.
+- The sentences every model shares are translated once by the platform (`application-core/i18n/<locale>/generated.json`, en-US and bg-BG). A project's own catalog still wins: copy a `checks.<key>` entry into `i18n/bg-BG/<model>.model.json` to word it differently.
+
+403, 404 and 405 answers, developer-facing API errors (filter syntax, uploads) and webhook answers are not part of this.
+
 ## checks: severity: warn - warn and confirm instead of refuse
 
 Every check kind above refuses the write. Some rules are not refusals: a second customer with the
