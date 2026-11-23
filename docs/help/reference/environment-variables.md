@@ -144,10 +144,14 @@ See [Maven dependencies](/help/develop/maven-dependencies) and [How dependency v
 
 ## Flowable
 
-| Variable                        | Purpose                     |
-| ------------------------------- | --------------------------- |
-| `DIRIGIBLE_FLOWABLE_DATABASE_*` | Flowable's own data source. |
-| `DIRIGIBLE_FLOWABLE_MAIL_*`     | Flowable mail settings.     |
+| Variable                                         | Default | Purpose                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DIRIGIBLE_FLOWABLE_DATABASE_*`                  |         | Flowable's own data source.                                                                                                                                                                                                                                                                                     |
+| `DIRIGIBLE_FLOWABLE_MAIL_*`                      |         | Flowable mail settings.                                                                                                                                                                                                                                                                                         |
+| `DIRIGIBLE_FLOWABLE_ASYNC_JOB_LOCK_TIME_SECONDS` | `3600`  | How long the engine locks a running process step (its job and its process instance), a step started by a timer included. A step cut by a stop or a crash waits this long before the next instance continues it; it must be longer than the longest step, or a second thread runs the step while the first still does. Positive whole seconds, at most `2147483`. |
+| `DIRIGIBLE_FLOWABLE_TIMER_JOB_LOCK_TIME_SECONDS` | `3600`  | How long the engine locks a due timer while it hands it on to run as a step (the run itself is locked by the key above). A due timer picked up by an instance that stopped before handing it on waits this long before the next instance takes it. Positive whole seconds, at most `2147483`. |
+
+An invalid lock time stops the start with a message naming the key and the value. The defaults are Flowable's own; lower them only when you know how long the deployment's steps run.
 
 ## Messaging
 
