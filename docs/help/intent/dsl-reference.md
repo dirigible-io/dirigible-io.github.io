@@ -3749,7 +3749,8 @@ synchronizer picks up - and the resources that role may act on.
 The `can: [Resource:action]` tokens are **what the generated application enforces**. A resource a
 token names is gated by the roles declared here; a resource no token names keeps the platform's
 convention gates (`<project>.<perspective>.<Entity>ReadOnly` / `<Entity>FullAccess`), which stay
-declared and grantable, so partial coverage is fine.
+declared and grantable, so partial coverage is fine. To add a role to a resource and keep its
+convention roles, see [`additive`](#adding-a-role-beside-the-convention-roles-additive).
 
 | action | gate it grants |
 | --- | --- |
@@ -3774,6 +3775,54 @@ Rules worth knowing before you author a block:
   gate-bearing token, and a process or a form for a business action.
 - **A token that is not a `Resource:action` pair is refused at parse.** There is nothing to bind it
   to and no reading of it that could be right.
+
+### Adding a role beside the convention roles (`additive`)
+
+A `can:` token replaces the convention roles of the resource it names. That is not what you want
+when an application gives its people one role on a resource whose convention roles must keep
+working, because integration clients hold them. Mark the entry `additive: true`, and its role is
+**added** to the gates of every resource it names while the convention roles stay in place:
+
+```yaml
+permissions:
+  - { role: Employee, description: Self-service, can: [LeaveType:read, PublicHoliday:read], additive: true }
+```
+
+| gate of `LeaveType` | roles that pass it |
+| --- | --- |
+| read | `<project>.LeaveType.LeaveTypeReadOnly`, `<project>.LeaveType.LeaveTypeFullAccess`, `Employee`, then the roles the project's `.settings` appends |
+| write | `<project>.LeaveType.LeaveTypeFullAccess`, then the roles the project's `.settings` appends |
+
+`Employee` is the only role the intent authors here, so it is the only one `<intent>.roles` gains
+and the only one offered beside `Owner` and `User` in
+[Settings -> Users](/help/setup/tenant-users#roles-on-offer). The convention roles stay declared,
+without the `assignable` mark, and stay grantable to integration clients.
+
+::: tip Do not re-declare a convention role to keep it
+Listing `<project>.LeaveType.LeaveTypeReadOnly` under `permissions:` next to your own role produces
+the same gates, but it makes the convention role a role the intent authors - and every authored role
+is offered to a tenant's people. Use `additive: true` on your own role instead.
+:::
+
+An additive entry never removes anything:
+
+- **A write token (`:write`, `:*`) adds the role to the write gate and the read gate.** A `:read`
+  token grants no write. The convention roles stay on both gates.
+- **Beside a non-additive entry on the same resource**, that entry's roles replace the convention
+  roles as they always do, and the additive role joins them.
+- **Beside an `exclusive: true` entry of another role** (which keeps the roles the project's
+  `.settings` appends off the resources it names), those roles stay off and the additive role is
+  added.
+- **One entry cannot be both `additive` and `exclusive`** - it is refused at parse. Split the tokens
+  into two entries of the role.
+- **A composition child takes its master's additive roles**, beside its own convention roles.
+- **A report keeps its convention read role** (`<project>.Report.<Report>ReadOnly`) beside the added
+  one. **An export has no convention role**, so there `additive` changes nothing: the export is
+  gated by the roles that name it.
+- **The `.access` constraints carry the same read gate**, convention roles included.
+
+An intent that does not use the key generates exactly what it generated before. `additive` is
+available from Eclipse Dirigible 15.33.0.
 
 ### Roles a tenant's Owner can give
 
