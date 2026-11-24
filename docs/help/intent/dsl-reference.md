@@ -55,6 +55,7 @@ complete worked example.
 | [`seeds`](#seeds-initial-data) | initial data, CSV-backed sets, translations |
 | [`notifications`](#notifications-email-on-change) | email on create/update/delete |
 | [notify link placeholders](/help/intent/glue#links-back-to-the-application-recordurl-inboxurl-appurl) | `{recordUrl}` / `{inboxUrl}` / `{appUrl}` - a message that carries the way back into the application |
+| [`{shareUrl}`](/help/intent/sharing#mailing-a-link-shareurl) | a share link to the issued copy of a `share:` record, created when the message is sent - for the reader without an account |
 | [`notify.forEach`](/help/intent/glue#one-message-per-related-row-foreach) | fan a notify block out over a related collection: one message per row, every bare path resolved against the row |
 | [`attach: recordPrint`](/help/intent/glue#one-document-many-recipients-attach-recordprint) | in a fan-out: attach the ANCHOR record's document, rendered once, to every recipient (`{record.<field>}` addresses that record) |
 | [`attach: { report, bind }`](/help/intent/glue#mail-a-report-attach-report-bind) | attach a rendered REPORT instead of a document, its declared `parameters:` bound from the recipient row - the customer statement |
@@ -1555,8 +1556,13 @@ the `when:` state loses its links for good. Rejected at Generate: a missing `whe
 `permissions` does not declare, an `expiresAfterDays` outside 0..3650, and any personal entity - a
 link is a bearer credential, so a personal document stays behind sign-in.
 
-The record page's Share links section, the public route, the generated endpoints and the settings
-are described in [Sharing a document through a link](/help/intent/sharing).
+To mail the link, put `{shareUrl}` in a notify `body:` / `html:`: the send creates a new link under
+the same rules, recorded as created by the system, and is not sent when no link can be made (bind
+it to a step after the snapshot delegate). Refused on an entity without `share:`, in a `subject:`,
+in a `forEach` and on a cross-model schedule source.
+
+The record page's Share links section, the public route, the generated endpoints, mailing a link
+and the settings are described in [Sharing a document through a link](/help/intent/sharing).
 
 ## personal / partner - row-scoped surfaces
 

@@ -172,6 +172,7 @@ so there it is refused too.
 | `{recordUrl}` | the record the message is about, opened in the generated application |
 | `{inboxUrl}` | the recipient's process Inbox |
 | `{appUrl}` | the application's external base URL - the origin only |
+| `{shareUrl}` | a new share link to the issued copy of the record - for a reader without an account; `body:` / `html:` of an entity that declares `share:` only (see [Mailing a link](/help/intent/sharing#mailing-a-link-shareurl)) |
 
 ```yaml
     notify:
@@ -180,7 +181,7 @@ so there it is refused too.
       body: "Open it here: {recordUrl}\nEverything waiting on you: {inboxUrl}"
 ```
 
-All three names are reserved at every notify call site, so an entity field of the same name never shadows them (and declaring one is a mistake worth avoiding). **Never hand-type a route into a body**: `{recordUrl}` and `{inboxUrl}` are resolved for you to the complete address - `<base>/services/web/<project>/gen/<model>/index.html#/<Entity>/<id>/edit` and `.../index.html#/inbox` respectively. `{appUrl}` yields the origin alone; reach for it only for an address the other two cannot express, such as a page of your own.
+All four names are reserved at every notify call site, so an entity field of the same name never shadows them (and declaring one is a mistake worth avoiding). **Never hand-type a route into a body**: `{recordUrl}` and `{inboxUrl}` are resolved for you to the complete address - `<base>/services/web/<project>/gen/<model>/index.html#/<Entity>/<id>/edit` and `.../index.html#/inbox` respectively. `{appUrl}` yields the origin alone; reach for it only for an address the other two cannot express, such as a page of your own.
 
 The origin comes from the **`DIRIGIBLE_APP_BASE_URL`** configuration, which is tenant-overridable - the same instance mails each tenant its own host - and is read per dispatch inside the sending tenant's configuration scope. Leave it unset and the links fall back to **`DIRIGIBLE_HOST`** - the instance origin an OAuth login already needs - so a single-host instance sets nothing more; set it when a tenant is served from a host of its own, or when the mail links must point somewhere else than the login does (`https://apps.example.com`). A trailing `/` is dropped from either value, and the links render relative only when neither key is set.
 
