@@ -1546,6 +1546,8 @@ record. Off unless declared; no setting makes an undeclared entity shareable.
     copy: SalesInvoiceCopy        # required - the function: Snapshot child whose stored file is served
     roles: [SalesInvoiceShare]    # required - who may create and revoke links; [] admits nobody
     expiresAfterDays: 0           # optional - 0 (default) = permanent; a tenant can only shorten it
+    expiry:                       # optional - the first entry the record meets sets the link's life
+      - { when: "Customer.Kind == 2", days: 30 }
 ```
 
 The link carries a random token unrelated to the record's `uuid`, is shown once, can be revoked at
@@ -1555,6 +1557,16 @@ the `when:` state loses its links for good. Rejected at Generate: a missing `whe
 `roles:`, a `copy:` that is not a Snapshot composition child of a printable document, a role
 `permissions` does not declare, an `expiresAfterDays` outside 0..3650, and any personal entity - a
 link is a bearer credential, so a personal document stays behind sign-in.
+
+`expiry:` reads a link's life from the record (eclipse-dirigible/dirigible#8620): a list of
+`{ when, days }`, the first entry whose `when` the record meets when the link is created gives the
+link its life, `expiresAfterDays` covers the rest - so an invoice to a private individual gets a
+30-day link while a business's stays permanent. `when` is a
+[`forbidWhen`](#checks-declarative-validations)-style condition: the
+record's own field or one hop away (`Customer.Kind == 2`; a cross-model nomenclature by its numeric
+id). The life is fixed when the link is created, for a mailed link too, and the tenant's cap still
+shortens it. Rejected at Generate: an empty list, an entry without `when` or `days`, `days` outside
+0..3650, a term that does not resolve or compares a value of the wrong type.
 
 To mail the link, put `{shareUrl}` in a notify `body:` / `html:`: the send creates a new link under
 the same rules, recorded as created by the system, and is not sent when no link can be made (bind
