@@ -2791,6 +2791,26 @@ Every `op` - `count`, `sum` and `latest` alike - recomputes on the child's creat
 delete. The update pass matters for a plain count too: a child changes parents by an ordinary edit of
 its parent relation, so without it the parent that received the child would never count it.
 
+### A roll-up over a file child
+
+`op: latest` keeps `field` equal to the `of` value of the child row with the greatest `by` (a
+`date` / `timestamp` of the child); the parent field must have the type of `of`, and a parent with no
+children has none. `of`, `by` and `where` also read the columns Dirigible injects into the child
+without your declaring them: a `function: Attachment` (or `Snapshot`) child's `FileName`,
+`ContentType`, `FileSize`, `StoragePath` and `Uuid` (and a snapshot's `Version`), and the `CreatedAt`
+/ `CreatedBy` / `UpdatedAt` / `UpdatedBy` audit columns of a file child or an `audit: true` entity.
+They keep their column types (`FileSize` a long, `CreatedAt` / `UpdatedAt` timestamps, the rest
+text), so the same type rules apply. Mirror the newest upload onto its parent - a company's logo path,
+one hop from every invoice that names the company - and count only the PNGs:
+
+```yaml
+rollups:
+  - { name: latestLogo, entity: CompanyLogo, via: Company, field: logo,
+      op: latest, of: StoragePath, by: CreatedAt }
+  - { name: pngImages, entity: CompanyLogo, via: Company, field: pngImages,
+      where: [ { field: ContentType, op: eq, value: image/png } ] }
+```
+
 Roll-ups compose transitively across a multi-level composition (leaf edit → mid total → top
 total); recomputation stops when values stop changing.
 
