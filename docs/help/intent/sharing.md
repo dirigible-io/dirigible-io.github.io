@@ -57,7 +57,7 @@ Rejected at Generate, each naming the entity:
 A link is a bearer credential: whoever holds it reads the document. `share:` on an entity whose records belong to the signed-in person - a `personal: true` relation on it or on a composition ancestor (payslips, leave requests, employment contracts) - is refused at Generate. Those documents stay behind sign-in; a notification about them carries `{recordUrl}`, which needs a sign-in.
 :::
 
-A process step must mint the copy before a link can be created: bind the generated snapshot handler (`delegate: gen.events.<Entity>SnapshotGenerator`) at the step that issues the document. Issuing does not create a link - a link exists only because a user created one.
+A process step must mint the copy before a link can be created: bind the generated snapshot handler (`delegate: gen.events.<Entity>SnapshotGenerator`) at the step that issues the document. Issuing does not create a link - a link exists only because a user created one, or because a declared message carries one ([Mailing a link](#mailing-a-link-shareurl)).
 
 ## On the record page
 
@@ -88,6 +88,29 @@ A PDF is displayed inline in the browser. A stored file of any other type is sen
 **Tenant binding.** A token is looked up in the tenant the request's host resolves to, so a token presented on another tenant's host is a 404. Under the `TOKEN_GROUPS` tenant resolution strategy, where one host serves every tenant, the token itself names its tenant (`<tenantId>.<secret>`).
 
 **What is recorded.** A link records who created it and when, who revoked it and when, its open count and when it was last opened. Every open is recorded with its time, the link, the remote address and the user agent.
+
+## Mailing a link: `{shareUrl}`
+
+A `notify` block about a `share:` entity may carry `{shareUrl}` in its `body:` or `html:` - "mail the invoice" with a link instead of, or next to, the attachment:
+
+```yaml
+      - { name: mint, kind: serviceTask, args: { delegate: gen.events.SalesInvoiceSnapshotGenerator, next: mail } }
+      - name: mail
+        kind: serviceTask
+        args:
+          notify:
+            to: Customer.email
+            subject: "Invoice {number}"
+            body: "Read it online: {shareUrl}"
+            outcome: mailOutcome
+          next: end
+```
+
+- The send creates a **new link** for every message, exactly as **Create link** does: the record must satisfy `when:`, its copy must be stored, sharing must be on for the tenant, and the link gets the declared `expiresAfterDays` (capped by `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS`). It is created after the recipient is known - a record with nobody to mail gets none.
+- The link is listed in the record's **Share links** with the system as its creator and the send named - `system (notify InvoiceMail.mail)` for a process step, `system (notify <name>)` for a transition, a schedule or a `notifications[]` entry - and can be revoked like any other.
+- The URL is absolute, built on `DIRIGIBLE_APP_BASE_URL` (else `DIRIGIBLE_HOST`) - the same origin as `{recordUrl}`, never a request header. It is not written to the log.
+- **Bind the notify to a step after the snapshot delegate**, or to a transition that follows it. A send that runs before the copy exists - or on a record outside `when:`, or with sharing switched off - is **not sent**: it fails like an unreachable mailbox, so `outcome:` is stamped `failed: <why>`, `onNotifyFailed` fires, and a process step's `retry:` / `onError:` apply. A mail never goes out with a blank where the link should be.
+- Rejected at Generate: `{shareUrl}` on an entity without `share:`, in a `subject:` (a link is a bearer credential, and a subject shows in every list and preview), inside a `forEach` fan-out, and on a cross-model schedule source.
 
 ## Generated endpoints
 
@@ -121,7 +144,6 @@ The throttle counters are kept in memory, per node.
 
 ## Not in this version
 
-- A `{shareUrl}` placeholder in a `notify` body. A link is not minted before the copy exists, and the send often runs first. Tracked in [eclipse-dirigible/dirigible#8616](https://github.com/eclipse-dirigible/dirigible/issues/8616).
 - Payment or acceptance on the public page.
 - A second factor (a PIN or one-time code) on a link.
 - Sharing reports or arbitrary files.
