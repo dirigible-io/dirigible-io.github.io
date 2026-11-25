@@ -35,6 +35,7 @@ complete worked example.
 | [`view`](#view-calendar-range-slots) | an additional calendar / range page, or a slot-booking page |
 | [`documentItemsLayout: chat`](#documentitemslayout-chat-conversation-threads) | render a document's items as a chat thread |
 | [`uses`](#uses-cross-model-references) | reuse entities owned by another intent model |
+| [`uses[].optional`](#an-optional-dependency-optional-true) | a dependency the application may not ship: where its model is absent, Generate leaves out the relations to it and what names them, and says so in `warnings` |
 | [`processes`](#processes-workflows) | BPM workflows with user tasks, decisions, delegates, waits and boundary timers |
 | [`forms`](#forms-task-ui) | task data-entry pages |
 | [`actions`](#actions-custom-buttons) | developer-defined buttons opening custom pages |
@@ -1738,6 +1739,41 @@ entities:
     relations:
       - { name: Country, kind: manyToOne, to: Country, model: countries }
 ```
+
+### An optional dependency - `optional: true`
+
+Some modules use another for one feature only: billable expense lines name the project they are
+re-billed to, while an HR application ships expenses without projects. Mark that entry optional:
+
+```yaml
+uses:
+  - { model: projects, optional: true }
+```
+
+Each Generate decides. With the owner's `.model` in the workspace or published in the registry, the
+model generates exactly as with a plain `uses:`. Without it, Generate succeeds **without** the owner
+and lists what it left out in the response's `warnings` (one entry, e.g. `uses [projects] is
+optional and its model is neither in this workspace nor published, so it is generated without it -
+left out: relation [ExpenseClaimItem.Project], check [ExpenseClaimItem_requiredWhen_5],
+report [ExpensesByProject]`). Left out:
+
+- every relation to the owner - no column, no picker, no projection - and every list item that
+  names the owner's alias: an `exists` / `notExists` check, a `related:` register, a `generates`, a
+  roll-up, a schedule, a report's union member;
+- what names such a relation by a path from its own entity: the entity's `order:` / `list:` /
+  `subtitle:` entries and **checks** (a `requiredWhen` on the relation, a `forbidWhen` reading
+  `Project.billable`), a form's fields, a roll-up `via:` it, and a **report** - the whole report,
+  since regrouped without that dimension its figures would mean something else.
+
+A check that stays keeps its translation key, so the catalogs need no change. Refused when the
+intent is parsed, whether the owner is there or not: such a relation `required: true`, in a
+`unique:` key or a number series' `per:`, and anything else that would not stand without the owner
+(a field's `dependsOn` from the relation, say) - the message reads `without the optional uses
+[projects]: ...`.
+
+The decision is made at Generate, not at runtime: code generated with the owner present references
+its classes like any `uses:`, so the module jar of that generation needs the owner deployed. Hand-
+written code under `custom/` that imports the owner's generated classes is not covered either.
 
 ## manyToMany - the intermediate entity, materialized
 
