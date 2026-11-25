@@ -20,8 +20,11 @@ entities:
       copy: SalesInvoiceCopy        # required - the function: Snapshot child whose stored file is served
       roles: [SalesInvoiceShare]    # required - who may create and revoke links; [] admits nobody
       expiresAfterDays: 0           # optional - 0 (default) = permanent; a tenant can only shorten it
+      expiry:                       # optional - the first entry the record meets sets the link's life
+        - { when: "Customer.Kind == 2", days: 30 }
     relations:
       - { name: status, kind: manyToOne, to: InvoiceStatus, function: EntityStatus }
+      - { name: Customer, kind: manyToOne, to: Customer }
   - name: SalesInvoiceItem
     function: DocumentItem
     relations:
@@ -41,6 +44,7 @@ permissions:
 | `copy` | yes | A `function: Snapshot` composition child of this entity. A link serves the stored file of the copy that is the record's newest when the link is created - see [The issued copy and its language](/help/intent/printing#the-issued-copy-and-its-language). |
 | `roles` | yes | Roles declared under `permissions` that may list, create and revoke links. `roles: []` is legal and admits nobody, the administrator included. |
 | `expiresAfterDays` | no | The life of a new link in whole days, `0` to `3650`. `0` (the default) is permanent. |
+| `expiry` | no | The life of a new link read from the record: a list of `{ when, days }`, the first entry whose `when` the record meets wins, `expiresAfterDays` otherwise. See [Expiry by record](#expiry-by-record). |
 
 Rejected at Generate, each naming the entity:
 
@@ -50,6 +54,7 @@ Rejected at Generate, each naming the entity:
 - a `copy:` on an entity that is not a printable document (it has no `function: DocumentItem` child), because such a copy is never minted;
 - no `roles:` key, or a role `permissions` does not declare;
 - an `expiresAfterDays` that is not a whole number of days from 0 to 3650;
+- an empty `expiry:` list, an entry without `when` or `days`, an entry's `days` that is not a whole number from 0 to 3650, or an entry's `when` that names an unknown relation or field, walks more than one hop or compares a value of the wrong type;
 - an unknown key under `share:`;
 - `share:` on a personal entity (see the warning below).
 
@@ -58,6 +63,26 @@ A link is a bearer credential: whoever holds it reads the document. `share:` on 
 :::
 
 A process step must mint the copy before a link can be created: bind the generated snapshot handler (`delegate: gen.events.<Entity>SnapshotGenerator`) at the step that issues the document. Issuing does not create a link - a link exists only because a user created one, or because a declared message carries one ([Mailing a link](#mailing-a-link-shareurl)).
+
+## Expiry by record
+
+One life for every link of an entity is often wrong. An invoice to a business may keep its link; an invoice to a private individual carries a name and a home address, and its link should expire. `expiry:` reads the life from the record the link is created on:
+
+```yaml
+    share:
+      when: ["status != DRAFT", "status != CANCELLED"]
+      copy: SalesInvoiceCopy
+      roles: [DocumentShare]
+      expiresAfterDays: 0                            # a business's invoice: permanent
+      expiry:
+        - { when: "Customer.Kind == 2", days: 30 }   # a private individual's invoice: 30 days
+```
+
+- Each entry is `{ when, days }`. When a link is created, the **first** entry whose `when` the record meets gives the link its life; when none does, `expiresAfterDays` does. `days: 0` is a permanent link.
+- `when` is a condition like a [`forbidWhen`](/help/intent/dsl-reference#checks-declarative-validations)'s: one `<property> ==|!= <literal>` term or a list of them (all must hold), over the record's own field or to-one, or **one hop away** - `Customer.Kind`, the kind of the customer the invoice points at. The hop may cross into another model; a nomenclature seeded there is named by its numeric id (`Customer.Kind == 2`), a status of this model by its name.
+- The life is decided when the link is created, from the stored record - never from the request - and the link keeps it. Changing the customer later does not change the links already handed out.
+- It is the same for both ways a link is created: **Create link** on the record page and a mailed [`{shareUrl}`](#mailing-a-link-shareurl).
+- The tenant's `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS` still shortens it, as it shortens `expiresAfterDays` (see [Settings](#settings)).
 
 ## On the record page
 
@@ -131,7 +156,7 @@ Per tenant, as [tenant configuration](/help/operate/tenant-configuration) overri
 | Variable | Default | Purpose |
 |---|---|---|
 | `DIRIGIBLE_DOCUMENTS_SHARE_ENABLED` | `true` | `false` switches sharing off for the tenant: no link is created and every existing link answers 404. |
-| `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS` | `0` | The longest life, in days, a new link may get. A permanent or longer-lived declaration is capped to it. `0` leaves the declared `expiresAfterDays` as it is. |
+| `DIRIGIBLE_DOCUMENTS_SHARE_MAX_EXPIRY_DAYS` | `0` | The longest life, in days, a new link may get. A permanent or longer-lived declaration - `expiresAfterDays` or the `expiry:` entry the record meets - is capped to it. `0` leaves the declared life as it is. |
 
 Per instance:
 
