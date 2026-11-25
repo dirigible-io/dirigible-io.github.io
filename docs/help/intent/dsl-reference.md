@@ -51,6 +51,7 @@ complete worked example.
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
+| [`rollups[].where`](#which-children-count-where) | which child rows a roll-up counts - `eq` / `ne` terms, `value: null` for an empty property |
 | [`settlements`](#settlements-payment-allocation) | auto-allocation of payments across open invoices |
 | [`reports`](#reports-read-only-aggregations) | aggregations, charts, dashboard KPI tiles, balance reports, financial and cash-flow statements, user-set parameters |
 | [`widgets`](#widgets-custom-dashboard-tiles) | custom KPI / embedded-page dashboard tiles |
@@ -3056,6 +3057,30 @@ the overdraw guard is not installed - it belongs to the child's write path, whic
 generates, and Generate reports that. Re-parenting a foreign row corrects the parent it moved to at
 once; the parent it left is corrected only when the owner model publishes a re-key notice for that
 relation.
+
+### Which children count - `where:`
+
+`where:` is a list of `{ field, op, value }` terms over the child's own fields and to-one relations,
+`eq` or `ne`, their AND (a status may be named by its seeded name). Only the matching rows are
+reduced, and the same filter is applied to the row in hand by the capacity and fit guards the child's
+repository runs, so the stored total and the enforced ceiling cannot disagree.
+
+`value: null` is the presence test: with `eq` a term keeps the rows whose property is empty, with `ne`
+the rows where it is set. Every other comparison leaves an empty column out, so this is the only way to
+count "not a reversal" or "not reversed yet" - a posted-entry count that must not count a red storno
+or the entry it reversed:
+
+```yaml
+rollups:
+  - { name: postedEntries, entity: JournalEntry, via: CustomerPayment, field: postedEntries,
+      where: [ { field: Status,     op: eq, value: POSTED },
+               { field: Storno,     op: eq, value: null },
+               { field: ReversedBy, op: eq, value: null } ] }
+```
+
+The recompute query renders `Storno is null` / `is not null` (the generated `Criteria.eq(..., null)` /
+`ne(..., null)`), and the guards test the row being written with `== null` / `!= null`. A schedule's
+`where` and a create-from's `items: where` read `value: null` the same way.
 
 ## aggregates - keyed cross-entity totals
 
