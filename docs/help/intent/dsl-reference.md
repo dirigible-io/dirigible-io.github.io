@@ -3169,6 +3169,41 @@ Generates a `MessageHandler` under `gen/events` that queries the register with a
 keeps the covering rows, and writes the resolved relation, the outcome and the status in ONE targeted
 `updateProperties` - nothing else of the record is touched and no `-updated` event re-fires.
 
+### copy - the values the covering row names
+
+A register often carries the value itself: a price list names the price of a product, a tariff the
+rate of a service. `copy: { <register field>: <record field> }` writes those scalars onto the record,
+beside the relation `set` fills:
+
+```yaml
+resolves:
+  - name: priceFromList
+    event: { onCreate: SalesInvoiceItem }
+    set: priceListItem
+    from: PriceListItem
+    match: { product: product, priceList: salesInvoice.customer.priceList }
+    between: { start: validFrom, end: validTo, value: salesInvoice.issuedOn }
+    copy: { price: price }
+```
+
+A copy is written only when exactly one row covers, field by field, and never replaces a value the
+record carries - a typed price, a price a create-from copied from its source line, or the field's own
+`defaultValue:`. Both sides must be plain fields of the same declared type.
+
+**The copy is made on the record's own write** (dirigible
+[#7911](https://github.com/eclipse-dirigible/dirigible/issues/7911)). The generated repository runs
+the lookup in `save()` for an `onCreate` lookup and in `update()` for an `onUpdate` one, after the
+field defaults and before the calculated fields and checks. A line created without a price - from
+the form, over REST, by an import - is stored with the list price, its calculated amount reads it, a
+`required: true` price is satisfied by it, and the document total includes it.
+
+**The form shows the list price before the save.** The record's controller answers
+`POST .../<Entity>Controller/resolve` with the same lookup for a record not yet written. When a copied
+field has a `dependsOn` (the product's own price, say), the line dialog and the entity form ask it
+when the Depends-On fires and show the covering row's value; the `dependsOn` value is the fallback
+where no row covers. So keep the `dependsOn` on the price - it is the default where the list has no
+row. A copied field without a `dependsOn` is filled on the save.
+
 ## settlements - payment allocation
 
 ```yaml
