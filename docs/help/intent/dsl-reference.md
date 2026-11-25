@@ -46,6 +46,7 @@ complete worked example.
 | [`generates.link`](#recorded-from-the-document-it-settles-link) | write the source's link row (an allocation) to the new target in the same transaction |
 | [`reversals`](#reversals-reverse-a-booked-document-red-storno) | a manual Reverse on a posted document - its negated twin, linked both ways |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
+| [`transitions.prompt`](#asking-for-input-prompt) | ask for the record's own fields before the move and write the answers with the status |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
@@ -2007,6 +2008,33 @@ declared in [`uses`](#uses-cross-model-references), the field is checked against
 nothing sets), and the generated resolver loads the owner's own entity. Cross-model or not, the
 control renders read-only; a multi-hop path (`a.b.c`) is rejected.
 
+### items - the document's lines on a task form
+
+`items:` shows the lines of the record a task is about - the rows of a composition child of
+`forEntity` - as a read-only table under the fields, so the approver of an invoice sees what is
+billed and not only the total
+([eclipse-dirigible/dirigible#7907](https://github.com/eclipse-dirigible/dirigible/issues/7907)):
+
+```yaml
+forms:
+  - { name: ApproveSalesInvoice, forEntity: SalesInvoice, fields: [number, date, Customer, total, Status],
+      items: { entity: SalesInvoiceItem, fields: [name, quantity, price, vatRate, total] }, actions: [approve, reject] }
+```
+
+One column per `items.fields` entry, formatted as the same value is in the header fields (a number
+to its scale, a date in the instance's date format), no row actions - the document page's items
+table, read-only. The rows are listed **live** when the form opens, the way the header is read: the
+process trigger seeds `__<Child>RowsUrl` (the child's generated controller) beside `__entityUrl`, and
+the form lists `<url>?<MasterFk>=<id>` - the child's own read-gated list, the one the document page
+reads its lines from. So the lines added after the process started show, and the approver sees them
+with their own access: one who may not read the lines sees no table, and nothing is widened.
+
+The generator refuses `items` unless `entity` is a `manyToOne` `composition: true` child of
+`forEntity` in the same model, every column is one of the child's own fields (no relation, no
+`relation.field`), and - as for an editable relation - the form is a task form whose `forEntity` is
+the trigger entity of every process using it. A process started before the application was
+regenerated has no `__<Child>RowsUrl` and shows no table.
+
 ## actions - custom buttons
 
 ```yaml
@@ -2141,6 +2169,45 @@ billing - so the run answers 400 rather than committing the header.
 The rule belongs to the mirror form. The computed form - `items` as a LIST, described below - has
 no source rows to select from and guards each synthetic line with its own `when` cell instead. An
 items block that declares no `where:` regenerates byte-identical output.
+
+### Consumed rows - `backLink:`
+
+Pass-through items are billed by a create-from: the billable expense lines of a project, its unbilled
+timesheet days, the materials a job consumed. Each row must reach the customer's invoice exactly once,
+but the mirror form never wrote the rows it read - a second click billed them again, and a
+`billed eq false` rule had nobody to flip the flag. `backLink:` names a to-one of the items `from:`
+entity to the target, and every row that becomes a line is marked with the invoice it went to:
+
+```yaml
+generates:
+  - name: invoice-billable-expenses
+    from: Project
+    to: Invoice
+    map: { Project: id }
+    items:
+      from: ExpenseClaimItem       # selected by its Project foreign key - not the project's own lines
+      to: InvoiceItem
+      where:
+        - { field: billable, op: eq, value: true }
+      backLink: BilledInvoice      # ExpenseClaimItem: { name: BilledInvoice, kind: manyToOne, to: Invoice,
+                                   #                     whenTargetDeleted: nullify }
+      map: { name: description, amount: amount }
+```
+
+- The generated create-from sets `BilledInvoice` on each consumed row right after its line is saved,
+  in the same transaction as the invoice and its lines - a targeted write of the one column, past
+  `immutableWhen`, as a reversal's `backLink:` is. A refused run leaves every row unmarked.
+- A marked row is never selected again (it is left out of the item query - no `where:` condition
+  needed, and `refuse:` does not count it as unqualified). A click that finds nothing left answers
+  **400** ("no Expense Claim Item row of the Project qualifies ...") instead of creating an empty
+  invoice.
+- The source is locked for the run, so two concurrent clicks on the same project take turns.
+- Deleting the generated invoice does to the marks what the relation's `whenTargetDeleted` says:
+  `nullify` frees the rows for the next run, the default `restrict` refuses the delete while a row is
+  marked. A **voided** invoice keeps its marks.
+- The relation must be a non-composition `manyToOne` / `oneToOne` of the items `from:` entity to the
+  create-from's `to:` (with `model:` equal to its `uses:` for a target in another model) - anything
+  else is rejected at parse, and so is `backLink:` on `items: fromReport:`.
 
 ### Lines from a report - `items: fromReport:` and `undo:`
 
@@ -2398,14 +2465,50 @@ other end.
 Refused where it could never fire, at parse: without an `event:` (a button-only create-from carries no
 guard, so nothing blocks a replacement and the button is already the reissue - there is no trigger to
 re-fire), without `sourceStatus:` (there is nothing to invert), when it names the same status (a write
-that changes nothing announces nothing), on `mode: append` (no guard, so no slot), for a target with no status lifecycle or an unclassified nomenclature, and for a cross-model
-target (its statuses are classified in the owner model). And when the source declares a `lifecycle:`, the
+that changes nothing announces nothing), on `mode: append` (no guard, so no slot), and for a target with no status lifecycle or an unclassified nomenclature. And when the source declares a `lifecycle:`, the
 graph must declare the edge from `sourceStatus` back - that is exactly where the source stands when the
 retirement arrives, so a missing edge would fail the flip at runtime.
 
 Generated artifact: `gen/events/<module>/<ClassName>GenerateReopen.java`, a `MessageHandler` on the
 **target's** `-transitioned` topic. An intent that declares no `sourceStatusOnRetire:` regenerates
 byte-identical output.
+
+**A target another model owns** ([#7954](https://github.com/eclipse-dirigible/dirigible/issues/7954)).
+The commonest create-from in a modular application bills one module's document into another module's
+invoice - a milestone, a project-month. The invoicing module cannot declare the reopen (it would need
+`uses:` back to the source module - the cycle), so it is declared on the source's side and reads the
+owner's classification:
+
+```yaml
+uses:
+  - { model: sales-invoices }
+generates:
+  - name: invoice-from-milestone
+    from: Milestone
+    to: SalesInvoice
+    uses: sales-invoices
+    map:
+      reference: number
+      milestone: id          # the back-reference: a plain integer field of SalesInvoice
+    fromStatus: [REACHED]
+    sourceStatus: INVOICED
+    sourceStatusOnRetire: REACHED   # voiding the invoice returns the milestone
+```
+
+- What retires the invoice is the `stage:` classification **the sales-invoices model** seeds; its
+  generated `.model` publishes it on the invoice's status property, and Generate reads it from there.
+  The owner declares nothing else and never names the source's module.
+- Generate refuses, against the owner's `.model`, a target with no `function: EntityStatus` relation and
+  an owner that classifies no seed row `cancelled` or `void` - classify them there and generate that
+  module first.
+- The `GenerateReopen` listener is generated in the **source's** module (which already compiles against
+  the invoice for the create-from) and binds the owner project's
+  `<project>-<perspective>-SalesInvoice-transitioned` topic.
+- The void's `-transitioned` notice is recorded in the outbox with the void itself, so the milestone is
+  returned only after the void committed; a void the invoice refuses (a failing check) publishes
+  nothing and leaves the milestone INVOICED.
+- An event-driven create-from over a cross-model target steps over a retired one by the same
+  classification, so the re-fired trigger mints the replacement.
 
 #### Cardinality - `mode: once|append`
 
@@ -2656,6 +2759,50 @@ transitions:
 - `number` is the only value. It is refused when the entity has no `stampOn: issue` number field.
 - The number travels in the transition's own `-transitioned` event.
 
+### Asking for input - `prompt:`
+
+A move the law requires to carry data - the reason an issued invoice is voided - declares `prompt:`.
+The button then opens an input dialog instead of the plain confirm, and the answers are written onto
+the record in the same write as the status. Each entry names a field or a to-one relation of the
+record being moved, with the [`generates` prompt](#prompted-input-prompt) grammar (`field`,
+`required`):
+
+```yaml
+entities:
+  - name: SalesInvoice
+    immutableWhen: "Status == ISSUED || Status == SENT || Status == VOIDED"
+    fields:
+      - { name: voidReason, type: string, length: 500, readOnly: true }   # only the move writes it
+      - { name: voidedOn, type: date, stampOn: { status: VOIDED } }       # the date stamps itself
+    relations:
+      - { name: ReplacedBy, kind: manyToOne, to: SalesInvoice, readOnly: true }
+
+transitions:
+  - name: VoidSalesInvoice
+    forEntity: SalesInvoice
+    from: [ISSUED, SENT]
+    setStatus: VOIDED
+    label: Void
+    prompt:
+      - { field: voidReason, required: true }
+      - { field: ReplacedBy }            # an optional to-one - a picker over invoices
+```
+
+- The answers ride the transition's targeted write, so the `immutableWhen` lock - a rule about user
+  edits - does not refuse them, and the [`checks`](#checks-declarative-validations) gated on the
+  target status read them (a `requiredWhen` on the reason at VOIDED holds for every writer).
+- A required answer left out is **HTTP 400** naming the field (the same field refusal a form gets),
+  checked after the `from:` / `when:` guards, and the record does not move. The dialog checks it too,
+  but the endpoint is what holds it for every caller: the generated controller reads the answers from
+  `values` in the posted body, `{ "id": 42, "values": { "VoidReason": "Wrong customer" } }`.
+- An optional answer left out keeps the stored value.
+- With `stamp: number`, the answers are written in the same write as the number, and the checks the
+  move asks before the draw read them.
+- Refused at parse: a property the entity does not have, the status relation, the key, a `number:` or
+  `stampOn:` field, a `timestamp` field, and `default:` - a date stamped with the move is the field's
+  own `stampOn: { status }`, as `voidedOn` above. Declare a field only the move should write
+  `readOnly: true`.
+
 ## postings - source-document to ledger
 
 When a (usually cross-model) source document reaches a status, create one local document with
@@ -2808,6 +2955,26 @@ the roll-up itself set is ever relinquished; there is no `statusWhenEmpty`.
 Every `op` - `count`, `sum` and `latest` alike - recomputes on the child's create, **update** and
 delete. The update pass matters for a plain count too: a child changes parents by an ordinary edit of
 its parent relation, so without it the parent that received the child would never count it.
+
+### A roll-up over a file child
+
+`op: latest` keeps `field` equal to the `of` value of the child row with the greatest `by` (a
+`date` / `timestamp` of the child); the parent field must have the type of `of`, and a parent with no
+children has none. `of`, `by` and `where` also read the columns Dirigible injects into the child
+without your declaring them: a `function: Attachment` (or `Snapshot`) child's `FileName`,
+`ContentType`, `FileSize`, `StoragePath` and `Uuid` (and a snapshot's `Version`), and the `CreatedAt`
+/ `CreatedBy` / `UpdatedAt` / `UpdatedBy` audit columns of a file child or an `audit: true` entity.
+They keep their column types (`FileSize` a long, `CreatedAt` / `UpdatedAt` timestamps, the rest
+text), so the same type rules apply. Mirror the newest upload onto its parent - a company's logo path,
+one hop from every invoice that names the company - and count only the PNGs:
+
+```yaml
+rollups:
+  - { name: latestLogo, entity: CompanyLogo, via: Company, field: logo,
+      op: latest, of: StoragePath, by: CreatedAt }
+  - { name: pngImages, entity: CompanyLogo, via: Company, field: pngImages,
+      where: [ { field: ContentType, op: eq, value: image/png } ] }
+```
 
 Roll-ups compose transitively across a multi-level composition (leaf edit → mid total → top
 total); recomputation stops when values stop changing.
