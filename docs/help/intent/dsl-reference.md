@@ -2419,14 +2419,50 @@ other end.
 Refused where it could never fire, at parse: without an `event:` (a button-only create-from carries no
 guard, so nothing blocks a replacement and the button is already the reissue - there is no trigger to
 re-fire), without `sourceStatus:` (there is nothing to invert), when it names the same status (a write
-that changes nothing announces nothing), on `mode: append` (no guard, so no slot), for a target with no status lifecycle or an unclassified nomenclature, and for a cross-model
-target (its statuses are classified in the owner model). And when the source declares a `lifecycle:`, the
+that changes nothing announces nothing), on `mode: append` (no guard, so no slot), and for a target with no status lifecycle or an unclassified nomenclature. And when the source declares a `lifecycle:`, the
 graph must declare the edge from `sourceStatus` back - that is exactly where the source stands when the
 retirement arrives, so a missing edge would fail the flip at runtime.
 
 Generated artifact: `gen/events/<module>/<ClassName>GenerateReopen.java`, a `MessageHandler` on the
 **target's** `-transitioned` topic. An intent that declares no `sourceStatusOnRetire:` regenerates
 byte-identical output.
+
+**A target another model owns** ([#7954](https://github.com/eclipse-dirigible/dirigible/issues/7954)).
+The commonest create-from in a modular application bills one module's document into another module's
+invoice - a milestone, a project-month. The invoicing module cannot declare the reopen (it would need
+`uses:` back to the source module - the cycle), so it is declared on the source's side and reads the
+owner's classification:
+
+```yaml
+uses:
+  - { model: sales-invoices }
+generates:
+  - name: invoice-from-milestone
+    from: Milestone
+    to: SalesInvoice
+    uses: sales-invoices
+    map:
+      reference: number
+      milestone: id          # the back-reference: a plain integer field of SalesInvoice
+    fromStatus: [REACHED]
+    sourceStatus: INVOICED
+    sourceStatusOnRetire: REACHED   # voiding the invoice returns the milestone
+```
+
+- What retires the invoice is the `stage:` classification **the sales-invoices model** seeds; its
+  generated `.model` publishes it on the invoice's status property, and Generate reads it from there.
+  The owner declares nothing else and never names the source's module.
+- Generate refuses, against the owner's `.model`, a target with no `function: EntityStatus` relation and
+  an owner that classifies no seed row `cancelled` or `void` - classify them there and generate that
+  module first.
+- The `GenerateReopen` listener is generated in the **source's** module (which already compiles against
+  the invoice for the create-from) and binds the owner project's
+  `<project>-<perspective>-SalesInvoice-transitioned` topic.
+- The void's `-transitioned` notice is recorded in the outbox with the void itself, so the milestone is
+  returned only after the void committed; a void the invoice refuses (a failing check) publishes
+  nothing and leaves the milestone INVOICED.
+- An event-driven create-from over a cross-model target steps over a retired one by the same
+  classification, so the re-fired trigger mints the replacement.
 
 #### Cardinality - `mode: once|append`
 
