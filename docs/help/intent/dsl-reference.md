@@ -2124,6 +2124,45 @@ The rule belongs to the mirror form. The computed form - `items` as a LIST, desc
 no source rows to select from and guards each synthetic line with its own `when` cell instead. An
 items block that declares no `where:` regenerates byte-identical output.
 
+### Consumed rows - `backLink:`
+
+Pass-through items are billed by a create-from: the billable expense lines of a project, its unbilled
+timesheet days, the materials a job consumed. Each row must reach the customer's invoice exactly once,
+but the mirror form never wrote the rows it read - a second click billed them again, and a
+`billed eq false` rule had nobody to flip the flag. `backLink:` names a to-one of the items `from:`
+entity to the target, and every row that becomes a line is marked with the invoice it went to:
+
+```yaml
+generates:
+  - name: invoice-billable-expenses
+    from: Project
+    to: Invoice
+    map: { Project: id }
+    items:
+      from: ExpenseClaimItem       # selected by its Project foreign key - not the project's own lines
+      to: InvoiceItem
+      where:
+        - { field: billable, op: eq, value: true }
+      backLink: BilledInvoice      # ExpenseClaimItem: { name: BilledInvoice, kind: manyToOne, to: Invoice,
+                                   #                     whenTargetDeleted: nullify }
+      map: { name: description, amount: amount }
+```
+
+- The generated create-from sets `BilledInvoice` on each consumed row right after its line is saved,
+  in the same transaction as the invoice and its lines - a targeted write of the one column, past
+  `immutableWhen`, as a reversal's `backLink:` is. A refused run leaves every row unmarked.
+- A marked row is never selected again (it is left out of the item query - no `where:` condition
+  needed, and `refuse:` does not count it as unqualified). A click that finds nothing left answers
+  **400** ("no Expense Claim Item row of the Project qualifies ...") instead of creating an empty
+  invoice.
+- The source is locked for the run, so two concurrent clicks on the same project take turns.
+- Deleting the generated invoice does to the marks what the relation's `whenTargetDeleted` says:
+  `nullify` frees the rows for the next run, the default `restrict` refuses the delete while a row is
+  marked. A **voided** invoice keeps its marks.
+- The relation must be a non-composition `manyToOne` / `oneToOne` of the items `from:` entity to the
+  create-from's `to:` (with `model:` equal to its `uses:` for a target in another model) - anything
+  else is rejected at parse, and so is `backLink:` on `items: fromReport:`.
+
 ### Lines from a report - `items: fromReport:` and `undo:`
 
 A year close books the ledger's own balances: one closing journal with a line per result account,
