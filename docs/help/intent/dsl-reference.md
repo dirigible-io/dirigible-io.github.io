@@ -1990,6 +1990,33 @@ declared in [`uses`](#uses-cross-model-references), the field is checked against
 nothing sets), and the generated resolver loads the owner's own entity. Cross-model or not, the
 control renders read-only; a multi-hop path (`a.b.c`) is rejected.
 
+### items - the document's lines on a task form
+
+`items:` shows the lines of the record a task is about - the rows of a composition child of
+`forEntity` - as a read-only table under the fields, so the approver of an invoice sees what is
+billed and not only the total
+([eclipse-dirigible/dirigible#7907](https://github.com/eclipse-dirigible/dirigible/issues/7907)):
+
+```yaml
+forms:
+  - { name: ApproveSalesInvoice, forEntity: SalesInvoice, fields: [number, date, Customer, total, Status],
+      items: { entity: SalesInvoiceItem, fields: [name, quantity, price, vatRate, total] }, actions: [approve, reject] }
+```
+
+One column per `items.fields` entry, formatted as the same value is in the header fields (a number
+to its scale, a date in the instance's date format), no row actions - the document page's items
+table, read-only. The rows are listed **live** when the form opens, the way the header is read: the
+process trigger seeds `__<Child>RowsUrl` (the child's generated controller) beside `__entityUrl`, and
+the form lists `<url>?<MasterFk>=<id>` - the child's own read-gated list, the one the document page
+reads its lines from. So the lines added after the process started show, and the approver sees them
+with their own access: one who may not read the lines sees no table, and nothing is widened.
+
+The generator refuses `items` unless `entity` is a `manyToOne` `composition: true` child of
+`forEntity` in the same model, every column is one of the child's own fields (no relation, no
+`relation.field`), and - as for an editable relation - the form is a task form whose `forEntity` is
+the trigger entity of every process using it. A process started before the application was
+regenerated has no `__<Child>RowsUrl` and shows no table.
+
 ## actions - custom buttons
 
 ```yaml
