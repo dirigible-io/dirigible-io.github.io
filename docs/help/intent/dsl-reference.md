@@ -46,6 +46,7 @@ complete worked example.
 | [`generates.link`](#recorded-from-the-document-it-settles-link) | write the source's link row (an allocation) to the new target in the same transaction |
 | [`reversals`](#reversals-reverse-a-booked-document-red-storno) | a manual Reverse on a posted document - its negated twin, linked both ways |
 | [`transitions`](#transitions-guarded-status-flips) | guarded on-demand status flips (void / cancel / reopen) |
+| [`transitions.prompt`](#asking-for-input-prompt) | ask for the record's own fields before the move and write the answers with the status |
 | [`postings`](#postings-source-document-to-ledger) | declarative source-document to balanced-document posting |
 | [`expansions`](#expansions-child-rows-from-a-date-span) | generated child rows per day/week/month |
 | [`rollups`](#rollups-denormalised-parent-totals) | counts, sums, balance + status maintenance, transitive chains |
@@ -2712,6 +2713,50 @@ transitions:
 - Only the transition that declares `stamp: number` numbers the document - the Cancel above does not.
 - `number` is the only value. It is refused when the entity has no `stampOn: issue` number field.
 - The number travels in the transition's own `-transitioned` event.
+
+### Asking for input - `prompt:`
+
+A move the law requires to carry data - the reason an issued invoice is voided - declares `prompt:`.
+The button then opens an input dialog instead of the plain confirm, and the answers are written onto
+the record in the same write as the status. Each entry names a field or a to-one relation of the
+record being moved, with the [`generates` prompt](#prompted-input-prompt) grammar (`field`,
+`required`):
+
+```yaml
+entities:
+  - name: SalesInvoice
+    immutableWhen: "Status == ISSUED || Status == SENT || Status == VOIDED"
+    fields:
+      - { name: voidReason, type: string, length: 500, readOnly: true }   # only the move writes it
+      - { name: voidedOn, type: date, stampOn: { status: VOIDED } }       # the date stamps itself
+    relations:
+      - { name: ReplacedBy, kind: manyToOne, to: SalesInvoice, readOnly: true }
+
+transitions:
+  - name: VoidSalesInvoice
+    forEntity: SalesInvoice
+    from: [ISSUED, SENT]
+    setStatus: VOIDED
+    label: Void
+    prompt:
+      - { field: voidReason, required: true }
+      - { field: ReplacedBy }            # an optional to-one - a picker over invoices
+```
+
+- The answers ride the transition's targeted write, so the `immutableWhen` lock - a rule about user
+  edits - does not refuse them, and the [`checks`](#checks-declarative-validations) gated on the
+  target status read them (a `requiredWhen` on the reason at VOIDED holds for every writer).
+- A required answer left out is **HTTP 400** naming the field (the same field refusal a form gets),
+  checked after the `from:` / `when:` guards, and the record does not move. The dialog checks it too,
+  but the endpoint is what holds it for every caller: the generated controller reads the answers from
+  `values` in the posted body, `{ "id": 42, "values": { "VoidReason": "Wrong customer" } }`.
+- An optional answer left out keeps the stored value.
+- With `stamp: number`, the answers are written in the same write as the number, and the checks the
+  move asks before the draw read them.
+- Refused at parse: a property the entity does not have, the status relation, the key, a `number:` or
+  `stampOn:` field, a `timestamp` field, and `default:` - a date stamped with the move is the field's
+  own `stampOn: { status }`, as `voidedOn` above. Declare a field only the move should write
+  `readOnly: true`.
 
 ## postings - source-document to ledger
 
